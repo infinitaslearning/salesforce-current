@@ -1,5 +1,0 @@
-<apex:page standardController="Account" >
-    <script>
-    	window.top.location.href = '/lightning/o/Account/new?nooverride=1&defaultFieldValues=Phone={!CASE($User.OperatingCompany__c,'Noordhoff','%2B31','Noordhoff Professional', '%2B31','Plantyn','%2B32','Liber','%2B46','')}';
-    </script>
-</apex:page>

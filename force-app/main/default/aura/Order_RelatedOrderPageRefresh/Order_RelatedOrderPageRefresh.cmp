@@ -1,3 +1,0 @@
-<aura:component implements="lightning:availableForFlowActions,force:hasRecordId">
-    <!-- no markup needed -->
-</aura:component>

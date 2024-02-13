@@ -1,4 +1,0 @@
-<apex:page action="{! attachPDF }" extensions="attachQuotePdfToOrder" standardController="Order">
-    <apex:pageMessages ></apex:pageMessages>
-    <apex:detail inlineEdit="true" relatedList="true"></apex:detail>
-</apex:page>

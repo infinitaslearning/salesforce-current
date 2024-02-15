@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Communication_Language</fullName>
+    <active>true</active>
+    <errorConditionFormula>If(AND(
+    NOT(
+        AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+        NOT($User.ValidationRulesDoNotApply__c = true),
+       
+        NOT(ISBLANK(LastUpdateToAWS__c)),Isblank(Text(CommunicationLanguage__c))
+        
+        ),true,false)</errorConditionFormula>
+    <errorDisplayField>CommunicationLanguage__c</errorDisplayField>
+    <errorMessage>Communication language cannot be blank</errorMessage>
+</ValidationRule>

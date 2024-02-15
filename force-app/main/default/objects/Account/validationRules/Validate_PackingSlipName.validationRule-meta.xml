@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_PackingSlipName</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NetsuiteCustomerNumber__c != &apos;&apos;,
+				OR(
+				    AND(
+								    ISPICKVAL(OperatingCompany__c, &apos;Liber&apos;),
+					       LEN(PackingSlipName__c) &gt; 83
+								    ),
+				    AND(NOT(ISPICKVAL(OperatingCompany__c, &apos;Liber&apos;)),
+					       LEN(PackingSlipName__c) &gt; 45
+								    )
+				    )
+				)</errorConditionFormula>
+    <errorDisplayField>PackingSlipName__c</errorDisplayField>
+    <errorMessage>The Packingslip Name is too long: Max # characters for Liber: 83 // Max # characters for Noordhoff and Plantyn: 45</errorMessage>
+</ValidationRule>

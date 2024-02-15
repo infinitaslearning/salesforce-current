@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SE</label>
+    <protected>false</protected>
+    <values>
+        <field>BillTo__c</field>
+        <value xsi:type="xsd:string">Skolan</value>
+    </values>
+    <values>
+        <field>Currency__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>CustomerNumber__c</field>
+        <value xsi:type="xsd:string">Kundnummer</value>
+    </values>
+    <values>
+        <field>CustomerVATNumber__c</field>
+        <value xsi:type="xsd:string">Kundens momsnummer</value>
+    </values>
+    <values>
+        <field>Date__c</field>
+        <value xsi:type="xsd:string">Datum</value>
+    </values>
+    <values>
+        <field>DebtorNr__c</field>
+        <value xsi:type="xsd:string">Internt Kundnummer</value>
+    </values>
+    <values>
+        <field>Discount__c</field>
+        <value xsi:type="xsd:string">Rabatt</value>
+    </values>
+    <values>
+        <field>Email__c</field>
+        <value xsi:type="xsd:string">E-post</value>
+    </values>
+    <values>
+        <field>Footer__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Items__c</field>
+        <value xsi:type="xsd:string">Produkt</value>
+    </values>
+    <values>
+        <field>LogoUrl__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OrderHeaderTitle__c</field>
+        <value xsi:type="xsd:string">Offert</value>
+    </values>
+    <values>
+        <field>OrderNo__c</field>
+        <value xsi:type="xsd:string">Beställningsnr.</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:string">Sida</value>
+    </values>
+    <values>
+        <field>PricePerPiece__c</field>
+        <value xsi:type="xsd:string">Pris per st.</value>
+    </values>
+    <values>
+        <field>Quantity__c</field>
+        <value xsi:type="xsd:string">Kvantitet</value>
+    </values>
+    <values>
+        <field>SettledDiscount__c</field>
+        <value xsi:type="xsd:string">Avräknad rabatt</value>
+    </values>
+    <values>
+        <field>ShippingAddress__c</field>
+        <value xsi:type="xsd:string">Leveransadress</value>
+    </values>
+    <values>
+        <field>ShippingCost__c</field>
+        <value xsi:type="xsd:string">Fraktkostnad</value>
+    </values>
+    <values>
+        <field>Subtotal__c</field>
+        <value xsi:type="xsd:string">Delsumma</value>
+    </values>
+    <values>
+        <field>Total__c</field>
+        <value xsi:type="xsd:string">Total</value>
+    </values>
+    <values>
+        <field>VATStatement__c</field>
+        <value xsi:type="xsd:string">Momsdeklaration</value>
+    </values>
+    <values>
+        <field>VAT__c</field>
+        <value xsi:type="xsd:string">MOMS</value>
+    </values>
+    <values>
+        <field>ValidUntill__c</field>
+        <value xsi:type="xsd:string">Giltig till</value>
+    </values>
+    <values>
+        <field>Version__c</field>
+        <value xsi:type="xsd:string">Version</value>
+    </values>
+    <values>
+        <field>from__c</field>
+        <value xsi:type="xsd:string">från</value>
+    </values>
+</CustomMetadata>

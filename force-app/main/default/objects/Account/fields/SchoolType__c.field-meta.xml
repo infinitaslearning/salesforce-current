@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SchoolType__c</fullName>
+    <externalId>false</externalId>
+    <label>School Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CustomerCategory__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Location</fullName>
+                <default>false</default>
+                <label>Location</label>
+            </value>
+            <value>
+                <fullName>Course</fullName>
+                <default>false</default>
+                <label>Course</label>
+            </value>
+            <value>
+                <fullName>Department</fullName>
+                <default>false</default>
+                <label>Department</label>
+            </value>
+            <value>
+                <fullName>Institution</fullName>
+                <default>false</default>
+                <label>Institution</label>
+            </value>
+            <value>
+                <fullName>School Group</fullName>
+                <default>false</default>
+                <label>School Group</label>
+            </value>
+            <value>
+                <fullName>Foundation</fullName>
+                <default>false</default>
+                <label>Foundation</label>
+            </value>
+            <value>
+                <fullName>School</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>School</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>School Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Location</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Course</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Department</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Institution</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT_Number_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(
+        NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+        NOT(ISBLANK(LastUpdateToAWS__c)),
+        NOT($User.ValidationRulesDoNotApply__c = true),
+        AND(ISPICKVAL(OperatingCompany__c, &apos;Plantyn&apos;),
+    OR(ISPICKVAL(CustomerCategory__c, &apos;Company&apos;),ISPICKVAL(CustomerCategory__c, &apos;Reseller&apos;),ISPICKVAL(CustomerCategory__c, &apos;Trade Bookstore&apos;), ISPICKVAL(CustomerCategory__c, &apos;Trade Regular&apos;), ISPICKVAL(CustomerCategory__c, &apos;Trade Specialist&apos;)),
+    ISBLANK(VATNumber__c))
+    
+    ), true, false)</errorConditionFormula>
+    <errorDisplayField>VATNumber__c</errorDisplayField>
+    <errorMessage>VAT number is required</errorMessage>
+</ValidationRule>

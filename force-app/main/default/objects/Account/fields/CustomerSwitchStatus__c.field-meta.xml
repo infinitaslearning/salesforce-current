@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomerSwitchStatus__c</fullName>
+    <description>Temporary field used for migrating customers</description>
+    <externalId>false</externalId>
+    <label>Customer Switch Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LMSPhase1</fullName>
+                <default>false</default>
+                <label>LMS Phase 1</label>
+            </value>
+            <value>
+                <fullName>LMSPhase2</fullName>
+                <default>false</default>
+                <label>LMS Phase 2</label>
+            </value>
+            <value>
+                <fullName>LMSPhase3</fullName>
+                <default>false</default>
+                <label>LMS Phase 3</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

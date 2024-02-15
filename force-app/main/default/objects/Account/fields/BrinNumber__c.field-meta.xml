@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BrinNumber__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>BRIN Number can be used as an external identifier to match school data</description>
+    <externalId>true</externalId>
+    <label>BRIN Number</label>
+    <length>6</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

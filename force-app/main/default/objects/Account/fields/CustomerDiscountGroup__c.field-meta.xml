@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomerDiscountGroup__c</fullName>
+    <externalId>false</externalId>
+    <label>Customer Discount Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CustomerCategory__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>CustomerDiscountGroup</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Medical Institution - Care</controllingFieldValue>
+            <controllingFieldValue>Medical Institution - Cure</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>PPZ Member</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Medical Institution - Care</controllingFieldValue>
+            <controllingFieldValue>Medical Institution - Cure</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>VGN Academy Member</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Medical Institution - Care</controllingFieldValue>
+            <valueName>Medical Institution - Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Medical Institution - Care</controllingFieldValue>
+            <controllingFieldValue>Medical Institution - Cure</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>REIN Member</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <controllingFieldValue>Government Agency</controllingFieldValue>
+            <valueName>Educational Institution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <valueName>School Group</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <valueName>Tender 10% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <valueName>Tender 11% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <valueName>Tender 14,01% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <valueName>Tender 18,01% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Medical Institution - Cure</controllingFieldValue>
+            <valueName>Medical Institution - Cure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Enterprise Market</controllingFieldValue>
+            <valueName>Enterprise Market</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore - No Discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore - Combined</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore 8%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore 9%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Trade Bookstore 20%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Van Dijk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Iddink</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Studystore</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Heutink-Reinders</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>De Rolf Groep</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>MBOWebshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Bookstore</controllingFieldValue>
+            <valueName>Explorer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tender Distributor</controllingFieldValue>
+            <valueName>Tender Distributor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Trade (French Region)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Partner (French Region)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <controllingFieldValue>Trade Specialists</controllingFieldValue>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Trade Specialists</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Trade Regular</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Standaard Boekhandel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Trade (Flemish Region)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Regular</controllingFieldValue>
+            <valueName>Dilibel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trade Specialists</controllingFieldValue>
+            <valueName>Partner (Flemish Region)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Internal</controllingFieldValue>
+            <valueName>Staff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Author</controllingFieldValue>
+            <valueName>Author</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Company</controllingFieldValue>
+            <valueName>Company</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Company</controllingFieldValue>
+            <valueName>Noordhoff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Company</controllingFieldValue>
+            <valueName>Centraal Boekhuis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <controllingFieldValue>Government Agency</controllingFieldValue>
+            <controllingFieldValue>Library</controllingFieldValue>
+            <valueName>Library</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Bygg Tryckta 20%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Advance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 11,5% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 11,9% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 12% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 13% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 13,5% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 14% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 14,5% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 16% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 16,5% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Government Agency</controllingFieldValue>
+            <valueName>Government Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Partner</controllingFieldValue>
+            <valueName>Partner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Individual</controllingFieldValue>
+            <valueName>Teacher</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Individual</controllingFieldValue>
+            <valueName>Private Individual</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Individual</controllingFieldValue>
+            <valueName>Student</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Osinga de Jong</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>NHA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Mainpress</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Studiebijdehand</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>HLBookshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Plantyn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller 5%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller 6%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller 8%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller 9%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller Discount Incremental</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

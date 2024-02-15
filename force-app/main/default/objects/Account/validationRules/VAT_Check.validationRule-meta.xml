@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT_Check</fullName>
+    <active>true</active>
+    <description>When a VAT number gets filled the BillingCountry should be filled to to do the VAT check</description>
+    <errorConditionFormula>NOT( ISBLANK(VATNumber__c) ) &amp;&amp; ISBLANK(BillingCountry)</errorConditionFormula>
+    <errorDisplayField>VATNumber__c</errorDisplayField>
+    <errorMessage>Please make sure to also fill the BillingCountry when filling the VAT Number field</errorMessage>
+</ValidationRule>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConverseImport__c</fullName>
+    <externalId>false</externalId>
+    <label>Converse Import</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Informat Converse migration</fullName>
+                <default>false</default>
+                <label>Informat Converse migration</label>
+            </value>
+            <value>
+                <fullName>Plantyn Converse migration</fullName>
+                <default>false</default>
+                <label>Plantyn Converse migration</label>
+            </value>
+            <value>
+                <fullName>Agodi import</fullName>
+                <default>false</default>
+                <label>Agodi import</label>
+            </value>
+            <value>
+                <fullName>Averbode import</fullName>
+                <default>false</default>
+                <label>Averbode import</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

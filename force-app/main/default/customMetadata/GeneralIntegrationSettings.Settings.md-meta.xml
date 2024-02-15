@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Settings</label>
+    <protected>false</protected>
+    <values>
+        <field>AWSCalloutPassword__c</field>
+        <value xsi:type="xsd:string">awwNk2d2!wyR2z!zv4d-rmunK4p7yobF</value>
+    </values>
+    <values>
+        <field>AWSCalloutUsername__c</field>
+        <value xsi:type="xsd:string">Djqw4c96VA2q7iDz</value>
+    </values>
+</CustomMetadata>

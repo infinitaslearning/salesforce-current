@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MrgCalcMaster__c</fullName>
+    <description>Formula field to determine which record should be selected as the master record when merging accounts (the record with the highest value will be selected as the master).</description>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(NetsuiteCustomerNumber__c)),500,0)+
+IF(CountOrders__c&gt;0,250,0)+
+IF(MrgSumOfBalanceAndUnbilled__c&gt;0,100,0)+
+IF(AND(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),Owner.UserRole.DeveloperName &lt;&gt; &quot;Plantyn&quot;),50,0)+
+IF(AND(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),NOT(ISBLANK(TEXT(ConverseImport__c)))),25,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Mrg Calc Master</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

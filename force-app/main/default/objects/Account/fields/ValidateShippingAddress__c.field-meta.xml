@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateShippingAddress__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(AND(OR(ShippingCountry =&apos;Sweden&apos;, ShippingCountry =&apos;Netherlands&apos;, ShippingCountry =&apos;Belgium&apos;, ShippingCountry =&apos;Luxembourg&apos;), 
+OR(ShippingStreet = null,ShippingCity = null,ShippingCountry = null,ShippingPostalCode = null)),true,false)</formula>
+    <label>Validate Shipping Address</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

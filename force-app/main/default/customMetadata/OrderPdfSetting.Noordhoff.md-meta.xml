@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Noordhoff</label>
+    <protected>false</protected>
+    <values>
+        <field>BillTo__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Currency__c</field>
+        <value xsi:type="xsd:string">EUR</value>
+    </values>
+    <values>
+        <field>CustomerNumber__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>CustomerVATNumber__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Date__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>DebtorNr__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Discount__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Email__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Footer__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Items__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>LogoUrl__c</field>
+        <value xsi:type="xsd:string">https://infinitaslearning--devcentral--c.visualforce.com/resource/1621258245000/NoordhoffLogo?</value>
+    </values>
+    <values>
+        <field>OrderHeaderTitle__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OrderNo__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>PricePerPiece__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Quantity__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>SettledDiscount__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ShippingAddress__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ShippingCost__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Subtotal__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Total__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>VATStatement__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>VAT__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ValidUntill__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Version__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>from__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

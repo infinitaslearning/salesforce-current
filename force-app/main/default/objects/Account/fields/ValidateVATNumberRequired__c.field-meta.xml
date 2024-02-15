@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateVATNumberRequired__c</fullName>
+    <description>Only used for Plantyn at the moment. Checks against Customer Category</description>
+    <externalId>false</externalId>
+    <formula>AND(ISPICKVAL(OperatingCompany__c, &apos;Plantyn&apos;),
+				OR(ISPICKVAL(CustomerCategory__c, &apos;Company&apos;),ISPICKVAL(CustomerCategory__c, &apos;Reseller&apos;),ISPICKVAL(CustomerCategory__c, &apos;Trade Bookstore&apos;), ISPICKVAL(CustomerCategory__c, &apos;Trade Regular&apos;), ISPICKVAL(CustomerCategory__c, &apos;Trade Specialist&apos;)),
+			ISBLANK(VATNumber__c))</formula>
+    <label>Validate VAT Number Required</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

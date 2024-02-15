@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateFulfillmentLoactionOpCo</fullName>
+    <active>false</active>
+    <description>Invalid Fulfillment Location for this Operating Company. Only Fulfillment Locations containing the name of the Operating Company is allowed for this Operating Company.</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(TEXT(FulfillmentLocation__c))), NOT(CONTAINS(TEXT(FulfillmentLocation__c),  TEXT(OperatingCompany__c))))</errorConditionFormula>
+    <errorDisplayField>FulfillmentLocation__c</errorDisplayField>
+    <errorMessage>Invalid Fulfillment Location for this Operating Company. Only Fulfillment Locations containing the name of the Operating Company is allowed for this Operating Company.</errorMessage>
+</ValidationRule>

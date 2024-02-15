@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MarketSegment__c</fullName>
+    <externalId>false</externalId>
+    <label>zRemove Market Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Professional</fullName>
+                <default>false</default>
+                <label>Professional</label>
+            </value>
+            <value>
+                <fullName>Primary Education</fullName>
+                <default>false</default>
+                <label>Primary Education</label>
+            </value>
+            <value>
+                <fullName>Secondary Education</fullName>
+                <default>false</default>
+                <label>Secondary Education</label>
+            </value>
+            <value>
+                <fullName>Higher Education</fullName>
+                <default>false</default>
+                <label>Higher Education</label>
+            </value>
+            <value>
+                <fullName>Vocational Education</fullName>
+                <default>false</default>
+                <label>Vocational Education</label>
+            </value>
+            <value>
+                <fullName>MBO</fullName>
+                <default>false</default>
+                <label>MBO</label>
+            </value>
+            <value>
+                <fullName>HO</fullName>
+                <default>false</default>
+                <label>HO</label>
+            </value>
+            <value>
+                <fullName>VO</fullName>
+                <default>false</default>
+                <label>VO</label>
+            </value>
+            <value>
+                <fullName>BAO</fullName>
+                <default>false</default>
+                <label>BAO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

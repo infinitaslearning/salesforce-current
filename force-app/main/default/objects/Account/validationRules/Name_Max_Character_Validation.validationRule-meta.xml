@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Max_Character_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				LEN(Name) &gt; 83,
+				OR(
+								ISNEW(),
+				    ISCHANGED(Name)
+								)
+				)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>The AccountName cannot be more than 83 characters.</errorMessage>
+</ValidationRule>

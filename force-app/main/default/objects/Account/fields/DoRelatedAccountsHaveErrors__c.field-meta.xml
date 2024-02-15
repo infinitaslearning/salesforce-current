@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DoRelatedAccountsHaveErrors__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(AND(DefaultBillto__c &lt;&gt; null,DefaultBillto__r.ValidateErrors__c=true), AND(DefaultShipTo__c &lt;&gt; null,DefaultShipTo__r.ValidateErrors__c=true), AND(PurchasingGroup__c &lt;&gt; null,PurchasingGroup__r.ValidateErrors__c=true))</formula>
+    <label>Do Related Accounts Have Errors</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

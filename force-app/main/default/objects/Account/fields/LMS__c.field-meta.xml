@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LMS__c</fullName>
+    <externalId>false</externalId>
+    <label>LMS</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Bingel Zorg</fullName>
+                <default>false</default>
+                <label>Bingel Zorg</label>
+            </value>
+            <value>
+                <fullName>Broekx</fullName>
+                <default>false</default>
+                <label>Broekx</label>
+            </value>
+            <value>
+                <fullName>Eigen systeem</fullName>
+                <default>false</default>
+                <label>Eigen systeem</label>
+            </value>
+            <value>
+                <fullName>Integrado</fullName>
+                <default>false</default>
+                <label>Integrado</label>
+            </value>
+            <value>
+                <fullName>iOmniwize</fullName>
+                <default>false</default>
+                <label>iOmniwize</label>
+            </value>
+            <value>
+                <fullName>Onbekend</fullName>
+                <default>false</default>
+                <label>Onbekend</label>
+            </value>
+            <value>
+                <fullName>Questi</fullName>
+                <default>false</default>
+                <label>Questi</label>
+            </value>
+            <value>
+                <fullName>Schoolonline</fullName>
+                <default>false</default>
+                <label>Schoolonline</label>
+            </value>
+            <value>
+                <fullName>Schoolware</fullName>
+                <default>false</default>
+                <label>Schoolware</label>
+            </value>
+            <value>
+                <fullName>Scoodle Track</fullName>
+                <default>false</default>
+                <label>Scoodle Track</label>
+            </value>
+            <value>
+                <fullName>Scoodle Track (iO)</fullName>
+                <default>false</default>
+                <label>Scoodle Track (iO)</label>
+            </value>
+            <value>
+                <fullName>Smartschool</fullName>
+                <default>false</default>
+                <label>Smartschool</label>
+            </value>
+            <value>
+                <fullName>Zorgcompas</fullName>
+                <default>false</default>
+                <label>Zorgcompas</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

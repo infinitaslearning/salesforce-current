@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateEmailsRequired2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(
+      AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c = true),
+	  ISPICKVAL(OperatingCompany__c, &apos;Noordhoff Professional&apos;)),
+	  false,
+	  OR(OrderNotificationEmail__c = null, DigitalActivationEmail__c = null)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate EmailsRequired2</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

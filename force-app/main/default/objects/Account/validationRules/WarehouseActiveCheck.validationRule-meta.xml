@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WarehouseActiveCheck</fullName>
+    <active>true</active>
+    <description>Blocks WarehouseRefference to be set to active when the WarehouseRefference is empty</description>
+    <errorConditionFormula>WarehouseReferenceActive__c = true &amp;&amp;  WarehouseReference__c = &apos;&apos;</errorConditionFormula>
+    <errorDisplayField>WarehouseReference__c</errorDisplayField>
+    <errorMessage>You cannot set the Warehouse Reference to Active when the Warehouse Reference field is empty</errorMessage>
+</ValidationRule>

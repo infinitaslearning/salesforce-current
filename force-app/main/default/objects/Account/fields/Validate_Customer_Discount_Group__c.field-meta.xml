@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Customer_Discount_Group__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field validated and checked in Before Save Account flow</description>
+    <externalId>false</externalId>
+    <label>Validate Customer Discount Group</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

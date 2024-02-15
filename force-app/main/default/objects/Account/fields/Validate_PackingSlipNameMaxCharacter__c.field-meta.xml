@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_PackingSlipNameMaxCharacter__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+				AND(
+								ISPICKVAL(OperatingCompany__c,&apos;Liber&apos;),
+								LEN(PackingSlipName__c) &gt; 83
+								),
+				AND(
+								NOT(ISPICKVAL(OperatingCompany__c,&apos;Liber&apos;)),
+								LEN(PackingSlipName__c) &gt; 45
+								)
+				)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate Packing Slip Name Max Character</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

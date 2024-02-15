@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>ENG</label>
+    <protected>false</protected>
+    <values>
+        <field>BillTo__c</field>
+        <value xsi:type="xsd:string">Bill to</value>
+    </values>
+    <values>
+        <field>Currency__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>CustomerNumber__c</field>
+        <value xsi:type="xsd:string">Customer number</value>
+    </values>
+    <values>
+        <field>CustomerVATNumber__c</field>
+        <value xsi:type="xsd:string">Customer VAT Number</value>
+    </values>
+    <values>
+        <field>Date__c</field>
+        <value xsi:type="xsd:string">Date</value>
+    </values>
+    <values>
+        <field>DebtorNr__c</field>
+        <value xsi:type="xsd:string">Debtor nr.</value>
+    </values>
+    <values>
+        <field>Discount__c</field>
+        <value xsi:type="xsd:string">Discount</value>
+    </values>
+    <values>
+        <field>Email__c</field>
+        <value xsi:type="xsd:string">Email</value>
+    </values>
+    <values>
+        <field>Footer__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Items__c</field>
+        <value xsi:type="xsd:string">Items</value>
+    </values>
+    <values>
+        <field>LogoUrl__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OrderHeaderTitle__c</field>
+        <value xsi:type="xsd:string">Quote</value>
+    </values>
+    <values>
+        <field>OrderNo__c</field>
+        <value xsi:type="xsd:string">Order No.</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:string">Page</value>
+    </values>
+    <values>
+        <field>PricePerPiece__c</field>
+        <value xsi:type="xsd:string">Price per Piece</value>
+    </values>
+    <values>
+        <field>Quantity__c</field>
+        <value xsi:type="xsd:string">Quantity</value>
+    </values>
+    <values>
+        <field>SettledDiscount__c</field>
+        <value xsi:type="xsd:string">Settled discount</value>
+    </values>
+    <values>
+        <field>ShippingAddress__c</field>
+        <value xsi:type="xsd:string">Shipping address</value>
+    </values>
+    <values>
+        <field>ShippingCost__c</field>
+        <value xsi:type="xsd:string">Shipping cost (indication)</value>
+    </values>
+    <values>
+        <field>Subtotal__c</field>
+        <value xsi:type="xsd:string">Subtotal</value>
+    </values>
+    <values>
+        <field>Total__c</field>
+        <value xsi:type="xsd:string">Total</value>
+    </values>
+    <values>
+        <field>VATStatement__c</field>
+        <value xsi:type="xsd:string">VAT Statement</value>
+    </values>
+    <values>
+        <field>VAT__c</field>
+        <value xsi:type="xsd:string">VAT</value>
+    </values>
+    <values>
+        <field>ValidUntill__c</field>
+        <value xsi:type="xsd:string">This quote is valid untill</value>
+    </values>
+    <values>
+        <field>Version__c</field>
+        <value xsi:type="xsd:string">Version</value>
+    </values>
+    <values>
+        <field>from__c</field>
+        <value xsi:type="xsd:string">of</value>
+    </values>
+</CustomMetadata>

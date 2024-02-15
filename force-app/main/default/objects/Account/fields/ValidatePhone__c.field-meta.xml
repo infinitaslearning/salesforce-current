@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidatePhone__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(Phone != null,
+OR(NOT(ISNUMBER(Phone)),
+LEN(Phone) &gt; 10, LEN(Phone) &lt; 7))</formula>
+    <label>Validate Phone</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

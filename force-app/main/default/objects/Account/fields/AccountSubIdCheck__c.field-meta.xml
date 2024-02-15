@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountSubIdCheck__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+Account_Subsidiary__r.NetsuiteInternalId__c !=  NetsuiteInternalId__c,
+ISBLANK(Account_Subsidiary__r.NetsuiteInternalId__c			),
+NOT(ISBLANK(NetsuiteInternalId__c			))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>AccountSubIdCheck</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

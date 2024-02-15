@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VATIntegrationfctorySendCheck</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				$RecordType.Name != &quot;B2C Private Individuals&quot;,
+				OR(
+								AND(
+												ISPICKVAL(VatNumberRequired__c,&apos;Yes&apos;),
+												OR(
+																AND(
+																    NOT(ISPICKVAL(VATStatus__c, &apos;Correct&apos;)),
+																    NOT(ISPICKVAL(VATStatus__c, &apos;Manual verification required&apos;))
+																),
+																ISBLANK(VATNumber__c)
+												)
+								),
+								AND(
+												ISPICKVAL(VatNumberRequired__c,&apos;No&apos;),
+												NOT(ISBLANK(VATNumber__c)),
+												NOT(ISPICKVAL(VATStatus__c, &apos;Correct&apos;))
+								)
+				),
+				IntegrationFactorySend__c = true,
+				ISCHANGED(IntegrationFactorySend__c)
+)</errorConditionFormula>
+    <errorMessage>Please ensure that if a VAT number is required that it is filled in. If a VAT number is not required, please ensure that the VAT number field is empty.</errorMessage>
+</ValidationRule>

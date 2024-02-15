@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateCourierInfo</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(ValidateCourierInfo__c = true, IntegrationFactorySend__c = true, ISCHANGED(IntegrationFactorySend__c))</errorConditionFormula>
+    <errorMessage>Please ensure that this account has values in the Courier and Delivery Routing fields.</errorMessage>
+</ValidationRule>

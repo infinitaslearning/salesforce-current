@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountSubsidiaryNSId__c</fullName>
+    <externalId>false</externalId>
+    <formula>Account_Subsidiary__r.NetsuiteInternalId__c</formula>
+    <label>Account Subsidiary NS Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

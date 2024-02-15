@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateCustomerDiscountGroup__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(Isblank(TEXT(CustomerDiscountGroup__c)), true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate Customer Discount Group</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

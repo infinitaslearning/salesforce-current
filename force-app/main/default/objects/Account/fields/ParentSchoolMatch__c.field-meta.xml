@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ParentSchoolMatch__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  Parent.Id = School__r.Id, TRUE, FALSE
+)</formula>
+    <label>Parent &amp; School - Match</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

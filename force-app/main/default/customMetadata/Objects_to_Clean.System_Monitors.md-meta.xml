@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>System Monitors</label>
+    <protected>false</protected>
+    <values>
+        <field>DeleteOldRecords__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>MonthsDataShouldGoBack__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>ObjectAPIName__c</field>
+        <value xsi:type="xsd:string">SystemMonitor__c</value>
+    </values>
+    <values>
+        <field>OverrideStartDate__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>WhereClause__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

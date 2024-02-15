@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateBillingAddress__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(AND(OR(BillingCountry =&apos;Sweden&apos;, BillingCountry =&apos;Netherlands&apos;, BillingCountry =&apos;Belgium&apos;, BillingCountry =&apos;Luxembourg&apos;),
+OR(BillingStreet = null,BillingCity = null,BillingCountry = null,BillingPostalCode = null)),true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate Billing Address</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

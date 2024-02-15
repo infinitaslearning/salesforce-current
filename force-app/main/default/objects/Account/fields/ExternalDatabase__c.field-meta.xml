@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalDatabase__c</fullName>
+    <externalId>false</externalId>
+    <label>External Database</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>OperatingCompany__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agodi</fullName>
+                <default>false</default>
+                <label>Agodi</label>
+            </value>
+            <value>
+                <fullName>BRIN</fullName>
+                <default>false</default>
+                <label>BRIN</label>
+            </value>
+            <value>
+                <fullName>Informat</fullName>
+                <default>false</default>
+                <label>Informat</label>
+            </value>
+            <value>
+                <fullName>RIO</fullName>
+                <default>false</default>
+                <label>RIO</label>
+            </value>
+            <value>
+                <fullName>La Banque du Livre</fullName>
+                <default>false</default>
+                <label>La Banque du Livre</label>
+            </value>
+            <value>
+                <fullName>Skolverket</fullName>
+                <default>false</default>
+                <label>Skolverket</label>
+            </value>
+            <value>
+                <fullName>UDB</fullName>
+                <default>false</default>
+                <label>UDB</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>BRIN</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>RIO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>UDB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Agodi</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Informat</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>La Banque du Livre</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

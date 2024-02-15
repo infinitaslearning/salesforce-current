@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>NL</label>
+    <protected>false</protected>
+    <values>
+        <field>BillTo__c</field>
+        <value xsi:type="xsd:string">Factuur Adres</value>
+    </values>
+    <values>
+        <field>Currency__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>CustomerNumber__c</field>
+        <value xsi:type="xsd:string">Klantnummer</value>
+    </values>
+    <values>
+        <field>CustomerVATNumber__c</field>
+        <value xsi:type="xsd:string">BTW Nummer klant</value>
+    </values>
+    <values>
+        <field>Date__c</field>
+        <value xsi:type="xsd:string">Offertedatum</value>
+    </values>
+    <values>
+        <field>DebtorNr__c</field>
+        <value xsi:type="xsd:string">Debiteurennummer</value>
+    </values>
+    <values>
+        <field>Discount__c</field>
+        <value xsi:type="xsd:string">Korting</value>
+    </values>
+    <values>
+        <field>Email__c</field>
+        <value xsi:type="xsd:string">Email</value>
+    </values>
+    <values>
+        <field>Footer__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Items__c</field>
+        <value xsi:type="xsd:string">Producten</value>
+    </values>
+    <values>
+        <field>LogoUrl__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>OrderHeaderTitle__c</field>
+        <value xsi:type="xsd:string">Offerte</value>
+    </values>
+    <values>
+        <field>OrderNo__c</field>
+        <value xsi:type="xsd:string">Order Nr.</value>
+    </values>
+    <values>
+        <field>Page__c</field>
+        <value xsi:type="xsd:string">Pagina</value>
+    </values>
+    <values>
+        <field>PricePerPiece__c</field>
+        <value xsi:type="xsd:string">Prijs per Stuk</value>
+    </values>
+    <values>
+        <field>Quantity__c</field>
+        <value xsi:type="xsd:string">Aantal</value>
+    </values>
+    <values>
+        <field>SettledDiscount__c</field>
+        <value xsi:type="xsd:string">Verrekende korting</value>
+    </values>
+    <values>
+        <field>ShippingAddress__c</field>
+        <value xsi:type="xsd:string">Verzend adres</value>
+    </values>
+    <values>
+        <field>ShippingCost__c</field>
+        <value xsi:type="xsd:string">Transportkosten (indicatie)</value>
+    </values>
+    <values>
+        <field>Subtotal__c</field>
+        <value xsi:type="xsd:string">Subtotaal</value>
+    </values>
+    <values>
+        <field>Total__c</field>
+        <value xsi:type="xsd:string">Totaal</value>
+    </values>
+    <values>
+        <field>VATStatement__c</field>
+        <value xsi:type="xsd:string">BTW-aangifte</value>
+    </values>
+    <values>
+        <field>VAT__c</field>
+        <value xsi:type="xsd:string">BTW</value>
+    </values>
+    <values>
+        <field>ValidUntill__c</field>
+        <value xsi:type="xsd:string">Deze offerte is geldig tot</value>
+    </values>
+    <values>
+        <field>Version__c</field>
+        <value xsi:type="xsd:string">Versie</value>
+    </values>
+    <values>
+        <field>from__c</field>
+        <value xsi:type="xsd:string">van</value>
+    </values>
+</CustomMetadata>

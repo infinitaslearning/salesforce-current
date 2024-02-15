@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubIndustry__c</fullName>
+    <description>Depends on the Selection of &apos;Industry&apos;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select an &apos;Industry&apos; for options.</inlineHelpText>
+    <label>Sub Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Industry</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Addiction Care</fullName>
+                <default>false</default>
+                <label>Addiction Care</label>
+            </value>
+            <value>
+                <fullName>Ambulance Dispatch Centre</fullName>
+                <default>false</default>
+                <label>Ambulance Dispatch Centre</label>
+            </value>
+            <value>
+                <fullName>Clinic</fullName>
+                <default>false</default>
+                <label>Clinic</label>
+            </value>
+            <value>
+                <fullName>Commercial Services</fullName>
+                <default>false</default>
+                <label>Commercial Services</label>
+            </value>
+            <value>
+                <fullName>Construction</fullName>
+                <default>false</default>
+                <label>Construction</label>
+            </value>
+            <value>
+                <fullName>Detacheringsbureau</fullName>
+                <default>false</default>
+                <label>Detacheringsbureau</label>
+            </value>
+            <value>
+                <fullName>Dialysis</fullName>
+                <default>false</default>
+                <label>Dialysis</label>
+            </value>
+            <value>
+                <fullName>Disabled Care Sector</fullName>
+                <default>false</default>
+                <label>Disabled Care Sector</label>
+            </value>
+            <value>
+                <fullName>Elderly Care</fullName>
+                <default>false</default>
+                <label>Elderly Care</label>
+            </value>
+            <value>
+                <fullName>Food</fullName>
+                <default>false</default>
+                <label>Food</label>
+            </value>
+            <value>
+                <fullName>Home Care</fullName>
+                <default>false</default>
+                <label>Home Care</label>
+            </value>
+            <value>
+                <fullName>Hospital</fullName>
+                <default>false</default>
+                <label>Hospital</label>
+            </value>
+            <value>
+                <fullName>IT</fullName>
+                <default>false</default>
+                <label>IT</label>
+            </value>
+            <value>
+                <fullName>Laboratory</fullName>
+                <default>false</default>
+                <label>Laboratory</label>
+            </value>
+            <value>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+                <label>Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Maternity Care</fullName>
+                <default>false</default>
+                <label>Maternity Care</label>
+            </value>
+            <value>
+                <fullName>Medical Crèche</fullName>
+                <default>false</default>
+                <label>Medical Crèche</label>
+            </value>
+            <value>
+                <fullName>Mental Healthcare</fullName>
+                <default>false</default>
+                <label>Mental Healthcare</label>
+            </value>
+            <value>
+                <fullName>Overig</fullName>
+                <default>false</default>
+                <label>Overig</label>
+            </value>
+            <value>
+                <fullName>Palliative Care</fullName>
+                <default>false</default>
+                <label>Palliative Care</label>
+            </value>
+            <value>
+                <fullName>Rehabilitation Centre</fullName>
+                <default>false</default>
+                <label>Rehabilitation Centre</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Semi-public</fullName>
+                <default>false</default>
+                <label>Semi-public</label>
+            </value>
+            <value>
+                <fullName>Transport &amp; Logistics</fullName>
+                <default>false</default>
+                <label>Transport &amp; Logistics</label>
+            </value>
+            <value>
+                <fullName>woonboerderij</fullName>
+                <default>false</default>
+                <label>woonboerderij</label>
+            </value>
+            <value>
+                <fullName>Youth Care</fullName>
+                <default>false</default>
+                <label>Youth Care</label>
+            </value>
+            <value>
+                <fullName>E-Learning</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>E-Learning</label>
+            </value>
+            <value>
+                <fullName>Education Management</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Education Management</label>
+            </value>
+            <value>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Financial Services</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Higher Education</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Higher Education</label>
+            </value>
+            <value>
+                <fullName>Higher Vocational Education</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Higher Vocational Education</label>
+            </value>
+            <value>
+                <fullName>Horeca</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Horeca</label>
+            </value>
+            <value>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hospitality</label>
+            </value>
+            <value>
+                <fullName>Intermediate Vocational Education</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Intermediate Vocational Education</label>
+            </value>
+            <value>
+                <fullName>Leisure, Travel &amp; Tourism</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Leisure, Travel &amp; Tourism</label>
+            </value>
+            <value>
+                <fullName>Management Consulting</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Management Consulting</label>
+            </value>
+            <value>
+                <fullName>Public Safety</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Public Safety</label>
+            </value>
+            <value>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Publishing</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Commercial Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Construction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Detacheringsbureau</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Food</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>IT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Manufacturing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Retail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Semi-public</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Business</controllingFieldValue>
+            <valueName>Transport &amp; Logistics</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Addiction Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Ambulance Dispatch Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Clinic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Dialysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Disabled Care Sector</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Elderly Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Home Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Hospital</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Laboratory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Maternity Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Medical Crèche</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Mental Healthcare</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Overig</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Palliative Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Rehabilitation Centre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>woonboerderij</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NL - Care</controllingFieldValue>
+            <controllingFieldValue>NL - Cure</controllingFieldValue>
+            <controllingFieldValue>BE - Cure</controllingFieldValue>
+            <valueName>Youth Care</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

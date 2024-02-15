@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Schoolnet__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>GHE: test to update this from uploads</inlineHelpText>
+    <label>Schoolnet</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>enseignement communal</fullName>
+                <default>false</default>
+                <label>enseignement communal</label>
+            </value>
+            <value>
+                <fullName>enseignement de la communauté</fullName>
+                <default>false</default>
+                <label>enseignement de la communauté</label>
+            </value>
+            <value>
+                <fullName>enseignement libre</fullName>
+                <default>false</default>
+                <label>enseignement libre</label>
+            </value>
+            <value>
+                <fullName>enseignement provincial</fullName>
+                <default>false</default>
+                <label>enseignement provincial</label>
+            </value>
+            <value>
+                <fullName>Gemeenschapsonderwijs</fullName>
+                <default>false</default>
+                <label>Gemeenschapsonderwijs</label>
+            </value>
+            <value>
+                <fullName>OVSG</fullName>
+                <default>false</default>
+                <label>OVSG</label>
+            </value>
+            <value>
+                <fullName>POV</fullName>
+                <default>false</default>
+                <label>POV</label>
+            </value>
+            <value>
+                <fullName>Vrij Onderwijs</fullName>
+                <default>false</default>
+                <label>Vrij Onderwijs</label>
+            </value>
+            <value>
+                <fullName>Vrij Onderwijs- OVSG</fullName>
+                <default>false</default>
+                <label>Vrij Onderwijs- OVSG</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

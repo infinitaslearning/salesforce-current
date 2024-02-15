@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InvoicingFrequency__c</fullName>
+    <defaultValue>&quot;Daily&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Invoicing Frequency</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>OperatingCompany__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Daily</fullName>
+                <default>false</default>
+                <label>Daily</label>
+            </value>
+            <value>
+                <fullName>Biweekly</fullName>
+                <default>false</default>
+                <label>Biweekly</label>
+            </value>
+            <value>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+                <label>Monthly</label>
+            </value>
+            <value>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+                <label>Quarterly</label>
+            </value>
+            <value>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+                <label>Yearly</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Daily</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Monthly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Biweekly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Quarterly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <valueName>Yearly</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmailOptOut__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>(R1-S1 by JD): Email Opt Out.</description>
+    <externalId>false</externalId>
+    <label>Email Opt Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

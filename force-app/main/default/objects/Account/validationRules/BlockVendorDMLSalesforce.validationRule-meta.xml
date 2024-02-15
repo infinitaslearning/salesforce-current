@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BlockVendorDMLSalesforce</fullName>
+    <active>true</active>
+    <description>This validation rule blocks an insert/update for an Author record type account which is a vendor and Netsuite is the master of vendor &apos;type&apos; accounts</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(NetSuiteVendorId__c)),
+    NOT($User.ValidationRulesDoNotApply__c),
+				NOT(CONTAINS($Profile.Name, &apos;Admin&apos;)), 
+    NOT(CONTAINS($User.Username, &apos;integrationfactory&apos;)),
+    NOT(ISCHANGED( VendorToggle__c )) 
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to insert/update a Vendor type Author Account in Salesforce. Please make your change in Netsuite.</errorMessage>
+</ValidationRule>

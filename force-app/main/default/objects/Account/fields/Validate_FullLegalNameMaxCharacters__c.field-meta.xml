@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_FullLegalNameMaxCharacters__c</fullName>
+    <externalId>false</externalId>
+    <formula>LEN(FullLegalName__c) &gt; 83</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate Full Legal Name Max Characters</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

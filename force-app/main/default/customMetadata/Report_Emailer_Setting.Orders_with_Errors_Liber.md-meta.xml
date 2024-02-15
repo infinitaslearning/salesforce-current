@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Orders with Errors (Liber)</label>
+    <protected>false</protected>
+    <values>
+        <field>Recipient_Email__c</field>
+        <value xsi:type="xsd:string">bsc-salesforce-errors@infinitaslearning.com</value>
+    </values>
+    <values>
+        <field>Report_Export_File_Name__c</field>
+        <value xsi:type="xsd:string">OrdersWithErrors-Liber</value>
+    </values>
+    <values>
+        <field>Report_Id__c</field>
+        <value xsi:type="xsd:string">00O3V000000x5xGUAQ</value>
+    </values>
+    <values>
+        <field>Report_Name__c</field>
+        <value xsi:type="xsd:string">Orders with Errors (Liber)</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Courier__c</fullName>
+    <description>This information is mandatory for Förlagssystem in the shipping messages sent from integrations.</description>
+    <externalId>false</externalId>
+    <label>Courier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Courier</valueSetName>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TypeOfAccount__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Sales = Account that we actively perform sales on 
+Order = Part of a Sales account, only used for ordering purposes 
+Sales and Order = Account both used for sales and ordering</inlineHelpText>
+    <label>Type of Account</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales</fullName>
+                <default>false</default>
+                <label>Sales</label>
+            </value>
+            <value>
+                <fullName>Order</fullName>
+                <default>false</default>
+                <label>Order</label>
+            </value>
+            <value>
+                <fullName>Sales and Order</fullName>
+                <default>false</default>
+                <label>Sales and Order</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

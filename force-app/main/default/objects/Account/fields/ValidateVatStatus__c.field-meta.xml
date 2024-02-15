@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateVatStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+    AND(ISPICKVAL(VatNumberRequired__c,&apos;Yes&apos;),NOT(ISPICKVAL(VATStatus__c, &apos;Correct&apos;)),NOT(ISPICKVAL(VATStatus__c, &apos;Manual verification required&apos;))),
+    AND(ISPICKVAL(VatNumberRequired__c,&apos;No&apos;),NOT(ISBLANK(VATNumber__c)),NOT(ISPICKVAL(VATStatus__c, &apos;Correct&apos;)),NOT(ISPICKVAL(VATStatus__c, &apos;Manual verification required&apos;)))
+)</formula>
+    <label>Validate VAT Status</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

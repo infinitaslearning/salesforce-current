@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastAgodiUpdate__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>The Last time this Account was updated with the Agodi Data</inlineHelpText>
+    <label>Last Agodi Update</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

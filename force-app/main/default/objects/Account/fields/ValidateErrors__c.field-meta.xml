@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateErrors__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR(
+   ISPICKVAL( BlockReason__c, &apos;Deactivated&apos;),
+   AND(ISPICKVAL( BlockReason__c, &apos;Proforma&apos;), NOT(ISPICKVAL(PaymentMethod__c, &apos;Prepayment&apos;))),
+   Validate_Vat_Status__c = true,
+   Validate_Account_Subsidiary_Required__c = true,
+   Validate_Emails_Required__c = true,
+   Validate_NetSuiteId__c = true,
+   Validate_Shipping_Address__c = true,
+   Validate_Billing_Address__c=true,
+   Validate_Shipping_Rule__c = true,
+   Validate_Area__c=true,
+   Validate_Student_Numbers__c = true,
+			OR(ISPICKVAL(Status__c, &apos;Pending Inactive&apos;), ISPICKVAL(Status__c, &apos;Inactive&apos;)),
+   ISBLANK(FullLegalName__c)
+)</formula>
+    <label>Validate Errors</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

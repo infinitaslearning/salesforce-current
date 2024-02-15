@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetSuite</fullName>
+    <availability>online</availability>
+    <description>If Netsuite Vendor Id is populated link to Vendor in Netsuite if not (all other cases it&apos;s a customer) link to the Customer in Netsuite.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>NetSuite</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!IF(NOT(ISBLANK(Account.NetSuiteVendorId__c)),
+
+ URLFOR(&quot;https://5854112.app.netsuite.com/app/common/entity/vendor.nl?id=&quot;&amp;Account.VendorNetsuiteInternalId__c, NULL),
+
+ URLFOR(&quot;https://5854112.app.netsuite.com/app/common/entity/custjob.nl?id=&quot;&amp;Account.NetsuiteInternalId__c, NULL)
+ )
+}</url>
+</WebLink>

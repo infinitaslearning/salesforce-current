@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>3</activeVersionNumber>
+    <description>CH 18/07/2023: init
+CH 16/08/2023: Changed field assignments to match fields created in DEV
+CH 20/10/2023: Added operating company assignment</description>
+    <masterLabel>Address_Generic_Address_Adder</masterLabel>
+</FlowDefinition>

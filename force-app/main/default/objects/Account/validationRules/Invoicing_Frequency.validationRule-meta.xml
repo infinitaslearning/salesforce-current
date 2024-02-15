@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoicing_Frequency</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(NOT($User.ValidationRulesDoNotApply__c),NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),NOT(ISBLANK(LastUpdateToAWS__c)),
+ISBLANK(TEXT(InvoicingFrequency__c))), true, false)</errorConditionFormula>
+    <errorDisplayField>InvoicingFrequency__c</errorDisplayField>
+    <errorMessage>Invoicing frequency cannot be blank</errorMessage>
+</ValidationRule>

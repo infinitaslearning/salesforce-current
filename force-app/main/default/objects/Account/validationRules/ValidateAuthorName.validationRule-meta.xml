@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateAuthorName</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				ISPICKVAL(AuthorType__c,&quot;Individual&quot;),
+				OR(
+								ISBLANK(authorFirstName__c),
+								ISBLANK(authorLastName__c)
+				)
+)</errorConditionFormula>
+    <errorMessage>First Name and Last Name must be populated when the Autor Type equals Individual.</errorMessage>
+</ValidationRule>

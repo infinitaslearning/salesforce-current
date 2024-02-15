@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateAccountName__c</fullName>
+    <description>If Account Names for Plantyn and Noordhoff do exceed 83 characters, we should flag these account and have the opcos fix this.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(ISBLANK(NetsuiteCustomerNumber__c),
+LEN(Name) &gt; 83), true, false)</formula>
+    <label>Validate Account Name</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

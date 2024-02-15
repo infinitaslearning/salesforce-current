@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateStudentNumbers__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(RecordType.DeveloperName = &apos;B2BEducational&apos;, RecordType.DeveloperName = &apos;B2B_Educational_Location&apos;,
+RecordType.DeveloperName = &apos;B2BPurchasingGroups&apos;) &amp;&amp; OR(ISBLANK(NumberofStudents__c),ISNULL(NumberofStudents__c)),true,false)</formula>
+    <label>Validate Student Numbers</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

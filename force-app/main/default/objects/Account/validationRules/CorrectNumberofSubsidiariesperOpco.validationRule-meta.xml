@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CorrectNumberofSubsidiariesperOpco</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND(AccountSubsidiaryCount__c &gt; 1,Text(OperatingCompany__c) =&apos;Plantyn&apos; ), 
+			AND(AccountSubsidiaryCount__c &gt; 1,Text(OperatingCompany__c) =&apos;Liber&apos; ),
+			AND(AccountSubsidiaryCount__c &gt; 2,Text(OperatingCompany__c) =&apos;Noordhoff&apos; ))</errorConditionFormula>
+    <errorMessage>This account has the incorrect number of Subsidiaries based on the Operating company</errorMessage>
+</ValidationRule>

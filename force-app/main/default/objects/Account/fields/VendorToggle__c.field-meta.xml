@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VendorToggle__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in flows to allow system to bypass validation rule that allows the flow (running in System Contaxt) to update the Account.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used in flows to allow system to bypass validation rule that allows the flow (running in System Contaxt) to update the Account.</inlineHelpText>
+    <label>Vendor Toggle</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

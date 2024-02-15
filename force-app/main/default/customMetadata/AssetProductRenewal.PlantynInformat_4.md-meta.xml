@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Plantyn - Informat</label>
+    <protected>false</protected>
+    <values>
+        <field>BusinessUnit__c</field>
+        <value xsi:type="xsd:string">PlantynInformat</value>
+    </values>
+    <values>
+        <field>ProductEAN__c</field>
+        <value xsi:type="xsd:string">9781130148558</value>
+    </values>
+    <values>
+        <field>ProductName__c</field>
+        <value xsi:type="xsd:string">Jaarlijkse licentie pluspack basisonderwijs</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">HfdStruktuur</value>
+    </values>
+</CustomMetadata>

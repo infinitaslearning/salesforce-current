@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StreamNumberOnlyAllowedForWarehouseRef</fullName>
+    <active>true</active>
+    <description>Stream number is only allowed to be populated when the warehouse reference is also populated</description>
+    <errorConditionFormula>AND(ISBLANK(WarehouseReference__c), NOT(ISBLANK(StreamNumber__c)))</errorConditionFormula>
+    <errorDisplayField>StreamNumber__c</errorDisplayField>
+    <errorMessage>Stream Number is only allowed to be populated when the Warehouse Reference is also populated!</errorMessage>
+</ValidationRule>

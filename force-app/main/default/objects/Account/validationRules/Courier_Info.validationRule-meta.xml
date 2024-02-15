@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Courier_Info</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(
+            NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+            NOT(ISBLANK(LastUpdateToAWS__c)),
+            NOT($User.ValidationRulesDoNotApply__c = true),
+             ((ISBLANK(TEXT(Courier__c)) || ISBLANK(TEXT(DeliveryRouting__c)))) &amp;&amp; TEXT(OperatingCompany__c) = &apos;Liber&apos;), 
+             true, false)</errorConditionFormula>
+    <errorMessage>The preferred courier of this account has not been set. Please add a Preferred Courier under the related tab</errorMessage>
+</ValidationRule>

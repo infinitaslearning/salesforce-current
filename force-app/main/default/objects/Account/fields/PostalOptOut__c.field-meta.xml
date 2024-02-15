@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PostalOptOut__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to indicate that an account does not want to receive postal advertisements (previously managed in Selligent)</description>
+    <externalId>false</externalId>
+    <label>Postal Opt Out</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

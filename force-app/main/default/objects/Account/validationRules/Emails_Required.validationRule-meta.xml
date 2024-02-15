@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Emails_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(
+    NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+    NOT(ISBLANK(LastUpdateToAWS__c)),
+    NOT($User.ValidationRulesDoNotApply__c = true),
+    OR(
+    ISBLANK(InvoicingEmail__c),
+    ISBLANK(BillingReminderEmail__c),
+    IF(
+    OR(
+    AND(
+    ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;),
+    isProfessional__c = true
+    ),
+    ISPICKVAL(OperatingCompany__c, &apos;Noordhoff Professional&apos;)
+    ),
+    false,
+    OR(
+    ISBLANK(OrderNotificationEmail__c),
+    ISBLANK(DigitalActivationEmail__c)
+    )
+    )
+    )), true, false)</errorConditionFormula>
+    <errorMessage>This account has no email (Invoice, Billing reminder, Digital activation and/or Order notification)</errorMessage>
+</ValidationRule>

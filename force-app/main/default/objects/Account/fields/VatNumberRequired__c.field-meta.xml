@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VatNumberRequired__c</fullName>
+    <defaultValue>IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Plantyn&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
+IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Liber&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
+IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
+IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Professional&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;No&quot;,
+&quot;&quot;))))</defaultValue>
+    <description>Picklist field to indicate whether a VAT Number is required</description>
+    <externalId>false</externalId>
+    <label>VAT Number Required?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

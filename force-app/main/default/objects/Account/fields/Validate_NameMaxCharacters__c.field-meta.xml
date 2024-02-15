@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_NameMaxCharacters__c</fullName>
+    <externalId>false</externalId>
+    <formula>LEN(Name) &gt; 83</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Max characters for Name field: 83</inlineHelpText>
+    <label>Validate Name Max Characters</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

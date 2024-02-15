@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address</fullName>
+    <active>true</active>
+    <errorConditionFormula>if(AND(
+       
+    NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false))
+            
+    ,NOT(ISBLANK(LastUpdateToAWS__c)),
+
+    NOT($User.ValidationRulesDoNotApply__c = true),
+            
+    OR(BillingCountry =&apos;Sweden&apos;, BillingCountry =&apos;Netherlands&apos;, BillingCountry =&apos;Belgium&apos;, BillingCountry =&apos;Luxembourg&apos;),
+    OR(ISBLANK(BillingStreet),ISBLANK(BillingCity),ISBLANK(BillingCountry),ISBLANK(BillingPostalCode))
+
+
+),true,false)</errorConditionFormula>
+    <errorMessage>The billing address has missing information</errorMessage>
+</ValidationRule>

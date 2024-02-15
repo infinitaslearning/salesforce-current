@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateVATMaxChars__c</fullName>
+    <description>VAT numbers cannot be longer than 20 characters</description>
+    <externalId>false</externalId>
+    <formula>LEN(VATNumber__c) &gt; 20</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate VATMaxChars</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

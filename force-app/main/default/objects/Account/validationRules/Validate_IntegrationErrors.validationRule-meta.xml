@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_IntegrationErrors</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ValidateIntegrationerrors__c = true, IntegrationFactorySend__c = true, ISCHANGED(IntegrationFactorySend__c))</errorConditionFormula>
+    <errorMessage>This record cannot be synced due to outstanding data issues.</errorMessage>
+</ValidationRule>

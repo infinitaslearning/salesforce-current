@@ -318,6 +318,11 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
                 a.Id = currentPlantynAccount.Id;
                 a.DataMigrationHistory__c = 'Agodi Update - ' + todaysDate;
 
+                // Update full legalName if this is changed
+                if (a.FullLegalName__c != instelling.instelling_naam_volledig) {
+                    a.FullLegalName__c = instelling.instelling_naam_volledig;
+                }
+
                 // fill fields if empty in original Account
                 if (currentPlantynAccount.NumberofStudents__c == null) {
                     a.NumberofStudents__c = 0;

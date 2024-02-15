@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllowedReturnPercentage__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is for partners that have an agreed return percentage for the yearly returns. Percentage in this field is used to impact the yearly revenue expectation.</inlineHelpText>
+    <label>Allowed Return %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

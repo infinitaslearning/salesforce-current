@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InvoiceEmail2_Cant_Be_Same_as_InvoiceEma</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(InvoiceEmail2__c = InvoicingEmail__c,NOT(ISBLANK(InvoicingEmail__c)))</errorConditionFormula>
+    <errorMessage>Invoice Email 2 cannot be the same as Invoice Email</errorMessage>
+</ValidationRule>

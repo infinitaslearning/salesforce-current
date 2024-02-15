@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PhoneFormatValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+				OR(
+								ISNEW(),
+								ISCHANGED (Phone)
+				),
+				NOT(Phone = &quot;&quot;),
+    AND(
+								 NOT($User.Alias = &quot;ifact&quot;),
+         NOT($User.ValidationRulesDoNotApply__c),
+         NOT(REGEX(Phone,&quot;^\\+[1-9]\\d{1,14}$&quot;))
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Phone</errorDisplayField>
+    <errorMessage>Phone number does not match the correct formatting criteria (start with a &quot;+&quot;, no leading zero&apos;s and then max. 14 numbers)</errorMessage>
+</ValidationRule>

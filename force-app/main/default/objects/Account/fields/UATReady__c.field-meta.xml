@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UATReady__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+				NOT(ISBLANK(NetsuiteInternalId__c)),
+				NOT(ISBLANK(TEXT( Type ))),
+				NOT(ISBLANK(TEXT(CustomerDiscountGroup__c))),
+				NOT(ISBLANK(BillingAddress)),
+				NOT(ISBLANK(ShippingAddress))
+																)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>UATReady</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -49,7 +49,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+            //Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test1.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 
@@ -279,7 +282,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+           // Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test2.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 
@@ -407,7 +413,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+            //Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test3.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 

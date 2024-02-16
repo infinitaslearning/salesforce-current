@@ -1,13 +1,12 @@
 public with sharing class Order_AssetRenewal {
     
     
-
+    
     @auraenabled
     Public static void RenewAssets(){
         
-        Date CurrrentDay = system.today();
-        Date RenewalDay = system.today();
-
+        
+        /*
         asset[] lstAssets = [Select id,PriceBook__c,LastRenewalUpdate__c,ListPrice__c,Contract__c,Contract__r.Indexation__c,CurrencyIsoCode,Reference__c,RenewalRunDate__c,DiscountedPrice__c,ManualDiscountPercent__c,ManualDiscountValue__c,
                                     PriceBook__r.FollowUpPriceBook__c,Product2.LicenseDuration__c,Product2.OrderLineType__c,RenewalDate__c,
                                     Account.DigitalActivationEmail__c ,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,OrderLineType__c,
@@ -45,10 +44,17 @@ public with sharing class Order_AssetRenewal {
 
                                     )
                                     ];
+        */
+        String Querystr = Order_SoqlFactory.returnasset('renewal',null,null);
+        system.debug('**Order_SoqlFactory.Order_AssetRenewal.Querystr**'+Querystr);
+        Date CurrentDay = system.today();
+        Date RenewalDay = system.today(); 
+        asset[] lstAssets = Database.query(Querystr);
 
-                                    system.debug('***Order_AssetRenewal: lstAssets***'+lstAssets.size());
-       if(lstAssets.size()==1){
-            Initiate_Order_AssetRenewal(lstAssets,CurrrentDay,RenewalDay);
+        system.debug('**Order_SoqlFactory.Order_AssetRenewal.lstAssets**'+lstAssets);
+ 
+        if(lstAssets.size()==1){
+            Initiate_Order_AssetRenewal(lstAssets,CurrentDay,RenewalDay);
        }                             
        else if(lstAssets.size()>1){
         Order_Batch_AccountswithRenwalAssets  AssetRenewal = new Order_Batch_AccountswithRenwalAssets();
@@ -59,7 +65,8 @@ public with sharing class Order_AssetRenewal {
       
        
     }
-
+    
+    
     Public static void Initiate_Order_AssetRenewal(asset[] lstAssetInit,Date CurrrentDay,Date RenewalDay){
 
         List<OrderItem> lstOrderItem = new List<OrderItem>();
@@ -437,7 +444,10 @@ public with sharing class Order_AssetRenewal {
         
 
 
-lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
+//lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
+
+lst_AccSubMaps =  Order_SoqlFactory.returnAccountSubsidiary(Set_Sub);
+system.debug('**Order_SoqlFactory.Order_AssetRenewal.lst_AccSubMaps :Size**'+lst_AccSubMaps.size());
 
 Map_Sub = lst_AccSubMaps[0];
 Map_Netsuite = lst_AccSubMaps[1];

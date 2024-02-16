@@ -17,11 +17,13 @@ public with sharing class Order_B2BOrderInvocable {
         String OrdShip;
 
 
-        OrderItem[]   lst_OrdItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
-        Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+      //  OrderItem[]   lst_OrdItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+      //  Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
 
-        
-
+        OrderItem[]   lst_OrdItem =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+        system.debug('**Order_SoqlFactory.Order_B2BOrderInvocable.lst_OrdItem :Size**'+lst_OrdItem.size());
+        Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+        system.debug('**Order_SoqlFactory.Order_B2BOrderInvocable.lst_Order :Size**'+lst_Order.size());
 
         for(Order ord:lst_Order){
             Lst_OrdId.add(ord.id);
@@ -54,18 +56,15 @@ public with sharing class Order_B2BOrderInvocable {
         List<OrderShipto__c> lst_OrderShipto = new List<OrderShipto__c>();
         List<Map<String,String>> lst_AccSubMaps = new List<Map<String,String>>();
         
-        lst_AccSubMaps =  Order_ProductSelectController.returnAccountSubsidiary(ShiptoId);
+        //lst_AccSubMaps =  Order_ProductSelectController.returnAccountSubsidiary(ShiptoId);
+        lst_AccSubMaps =  Order_SoqlFactory.returnAccountSubsidiary(ShiptoId);
+        system.debug('**Order_SoqlFactory.Order_B2BOrderInvocable.lst_AccSubMaps :Size**'+lst_AccSubMaps.size());
 
         Map<String,String> Map_Subsid = new Map<String,String>();
         Map<String,String> Map_Netsuite = new Map<String,String>(); 
-
-
-        //Order_ProductSelectController.returnAccountSubsidiary(ShiptoId)[0];
+       
         Map_Subsid =  lst_AccSubMaps[0];
         Map_Netsuite = lst_AccSubMaps[1];
-
-        system.debug('***Order_B2BOrderInvocable :Map_Subsid**'+Map_Subsid);
-        system.debug('***Order_B2BOrderInvocable :ShiptoId**'+ShiptoId);
 
         Map<String,String> Map_ShipToOrdChecker = new Map<String,String>();
         Set<String> Set_CusDiscountGroup = new Set<String>();
@@ -74,21 +73,18 @@ public with sharing class Order_B2BOrderInvocable {
         Set<String> Set_OrderLineItemType = new Set<String>();
         Set<String> Set_MarketSegment = new Set<String>();
         
-       // Map<String,Date> Map_FixedStartDate = new Map<String,Date>();
-       // Map<String,Date> Map_FreeFromDate = new Map<String,Date>();
+
         Date FixedStartDate;
         Date FreeFromDate;
         Integer year;
 
         Boolean ItemGroupSweep = false;
+
         for(OrderItem item:lst_OrdItem){ 
              
 
             OrdShip = item.OrderId;
             OrdShip += item.ShipToAccount__c;
-
-
-            //ADDED
             item.AccountSubsidiary__c = Map_Subsid.get(item.ShipToAccount__c);
 
             if(Map_ShipToOrdChecker.get(OrdShip)  == null && Map_ShipToOrd.get(OrdShip) != null && !Set_ExistShip.Contains(OrdShip) ){
@@ -105,32 +101,7 @@ public with sharing class Order_B2BOrderInvocable {
             Set_OperatingCo.add(item.Order.Billto__r.OperatingCompany__c);
             Set_ProdDiscountGroup.add(item.Product2.ProductDiscountGroup__c);
             Set_OrderLineItemType.add(item.OrderLineType__c);
-            
-           // Set_MarketSegment.add(item.Product2.MarketSegment__c);
-
-           /* Order date Item Calculations:
-
-            if(item.Product2.FixedStartDate__c != null){
-                year = item.Order.ShipbyDate__c.year();
-                FixedStartDate = date.newinstance(year, item.Product2.FixedStartDate__c.month(), item.Product2.FixedStartDate__c.day());
-                Map_FixedStartDate.put(item.OrderId,FixedStartDate);
-                FreeFromDate = date.newinstance(system.today().year()+1, 1, 1);
-                Map_FreeFromDate.put(item.OrderId,FreeFromDate);
-            }
-            system.debug('**B2B**:FreeFromDate 1'+ FreeFromDate);
-            if(item.Product2.FreeFromDate__c != null && item.Product2.FixedStartDate__c != null){
-                FreeFromDate = date.newinstance(system.today().year()+1, item.Product2.FreeFromDate__c.month(), item.Product2.FreeFromDate__c.day());
-                Map_FreeFromDate.put(item.OrderId,FreeFromDate);
-                if(item.Order.ShipbyDate__c < FreeFromDate && year>system.today().year()){
-                    year -= 1;
-                    FixedStartDate = date.newinstance(year, item.Product2.FixedStartDate__c.month(), item.Product2.FixedStartDate__c.day());                
-                    Map_FixedStartDate.put(item.OrderId,FixedStartDate);
-                }
-                
-            }
-            */
-
-
+       
             if(item.ImportItemGroupEAN__c != null && item.ItemGroup__c == null && item.ProductType__c != 'Item Group'){
                 ItemGroupSweep = true;
             }
@@ -148,11 +119,10 @@ public with sharing class Order_B2BOrderInvocable {
   
     try{
         
-        system.debug('***Order_B2BOrderInvocable: ItemGroupSweeperQueueable 2**'+Order_ItemGroupSweeperQueueable.ItemGroupCheckDone);
+        system.debug('***Order_B2BOrderInvocable: ItemGroupSweeperQueueable 10**'+Order_ItemGroupSweeperQueueable.ItemGroupCheckDone);
+            
             Date CurDate = system.today();
-           
             OrderActivationRules__mdt[] OrderActivationRules = [Select Source__c, Status__c,OperatingCompany__c from OrderActivationRules__mdt where Source__c in: Set_Source AND OperatingCompany__c in:Set_Opco];
-                
             Map<String,String> Map_ActiveStatus = new Map<String,String>();
 
             String OpcoSource;
@@ -162,7 +132,7 @@ public with sharing class Order_B2BOrderInvocable {
                 Map_ActiveStatus.put(OpcoSource,act.Status__c);
             }
           
-            system.debug('**Order_B2BOrderInvocable**:Map_ActiveStatus'+ Map_ActiveStatus);
+            system.debug('**Order_B2BOrderInvocable: OrderActivationRules**:Map_ActiveStatus'+ Map_ActiveStatus);
 
             OrderLineItemMaxCount__mdt[] OrderLineItemMaxCount;
        
@@ -179,10 +149,12 @@ public with sharing class Order_B2BOrderInvocable {
 			
             //----
 
+            //Move to Handler with loop
             Decimal FIXEDLINECOUNT;
             FIXEDLINECOUNT =  OrderLineItemMaxCount[0].Count__c;
             TriggerBusinessRules__mdt[] TriggerBusinessRules = [Select AutoRun__c,OrderRetries__c from TriggerBusinessRules__mdt];
 
+            
             for(Order ord:lst_Order){
                 
                 if(ord.TriggerBusinessRulesRetries__c >= TriggerBusinessRules[0].OrderRetries__c ){
@@ -199,7 +171,7 @@ public with sharing class Order_B2BOrderInvocable {
                 ord.NetSuiteIdAccountSubsidiary__c = Map_Netsuite.get(ord.Billto__c); 
                 ord.TriggerBusinessRules__c = false;
 
-                system.debug('**Order_B2BOrderInvocable*:AccountSubsidiary'+ ord.AccountSubsidiary__c);
+                system.debug('**Order_B2BOrderInvocable**:AccountSubsidiary'+ ord.AccountSubsidiary__c);
                 system.debug('**Order_B2BOrderInvocable**:NetSuiteIdShiptoAccount'+ ord.NetSuiteIdShiptoAccount__c);
                 system.debug('**Order_B2BOrderInvocable**:NetSuiteIdAccountSubsidiary'+ ord.NetSuiteIdAccountSubsidiary__c);
 
@@ -208,7 +180,7 @@ public with sharing class Order_B2BOrderInvocable {
                     OpcoSource = ord.OperatingCompany__c;
                     OpcoSource += ord.Source__c;
 
-                    system.debug('**OrderActivationRules**:Status'+ Map_ActiveStatus.get(OpcoSource));
+                    system.debug('**Order_B2BOrderInvocable OrderActivationRules**:Status'+ Map_ActiveStatus.get(OpcoSource));
 
                     if(OrderActivationRules.size()>0 && Map_ActiveStatus.get(OpcoSource) == 'Active' && ord.LineCount__c <= FIXEDLINECOUNT){
                         ord.ActivateforBatchProcessing__c=true;
@@ -247,7 +219,7 @@ public with sharing class Order_B2BOrderInvocable {
                 if(ord.BillingReminderEmail2__c == null || ord.Billto__c !=  ord.AccountId){
                     ord.BillingReminderEmail2__c = ord.Billto__r.BillingReminderEmail2__c != null ? ord.Billto__r.BillingReminderEmail2__c : '';
                 } 
-                system.debug('here');
+                system.debug('**Order_B2BOrderInvocable:** here');
                 // use order's ship to order notification email
                 if(ord.OrderNotificationEmail__c == null){
                     if(ord.Shipto__c != null){
@@ -264,40 +236,17 @@ public with sharing class Order_B2BOrderInvocable {
                         ord.OrderNotificationEmail2__c = null;
                     }
                 }
-                system.debug('***Order_B2BOrderInvocable: ord.OrderNotificationEmail2__c:**' + ord.OrderNotificationEmail2__c);
+                system.debug('**Order_B2BOrderInvocable**: ord.OrderNotificationEmail2__c: ' + ord.OrderNotificationEmail2__c);
                 
-                /*
-                Order date Item Calculations:
-                if(ord.ShipbyDate__c > Map_FixedStartDate.get(ord.id) && ord.ShipbyDate__c  < Map_FreeFromDate.get(ord.id)){
-                    ord.ShipbyDate__c = Map_FixedStartDate.get(ord.id)-1;   
-                    ord.EffectiveDate = Map_FixedStartDate.get(ord.id)-1;  
-                    
-                    system.debug('*** Order STart Date**'+ord.EffectiveDate);
-                }
-                */
+           
                 //Order date Item Calculations:
                 if(Order_ProductCalculationDates.Map_ShipByDate.size()>0){                             
                    
                     ord.EffectiveDate = Order_ProductCalculationDates.Map_EffectiveDate.get(ord.id);
-                   
-                    // ord.ShipByDate__c = Order_ProductCalculationDates.Map_ShipByDate.get(ord.id); 
-                   // ord.DateUpdateBlock__c = true;    
-                   
-                   system.debug('***Order_B2BOrderInvocable Dates :ord.ShipByDate'+ord.ShipByDate__c);
-                    system.debug('***Order_B2BOrderInvocable Dates :ord.EffectiveDate'+ord.EffectiveDate);
+                    
+                    system.debug('***Order_B2BOrderInvocable :ord.EffectiveDate'+ord.EffectiveDate);
                 }
-                /*
-                else if(ord.ShipbyDate__c > Map_FixedStartDate.get(ord.id) && ord.ShipbyDate__c  < Map_FreeFromDate.get(ord.id)){
-                    ord.ShipbyDate__c = Map_FixedStartDate.get(ord.id)-1;                        	
-                    ord.EffectiveDate = Map_FixedStartDate.get(ord.id)-1;  
-                    ord.DateUpdateBlock__c = true;
-                    system.debug('*** Order STart Date**'+ord.EffectiveDate);	            
-                }
-                */
-                /*
-                ord.DateUpdateBlock__c set to false in Order_OrderUtilityQueueable.UpdateOrderDates
-                From Order_OrderItemTriggerQueueable
-                */
+                
 
 
             }
@@ -306,10 +255,11 @@ public with sharing class Order_B2BOrderInvocable {
             Insert lst_OrderShipto;
            
 
-            ListPriceDiscount__c[] lst_ListPriceDiscountRegular = Order_OrderandOrdeItemHandler.returnListPriceDiscount(lst_Order, Set_CusDiscountGroup, Set_OperatingCo, Set_ProdDiscountGroup, Set_OrderLineItemType, Set_MarketSegment);
-           system.debug('**Order_B2BOrderInvocableLPD 1**'+lst_ListPriceDiscountRegular);
-
-           Order_OrderandOrdeItemHandler.OrderItemBusinessLogichandler(lst_OrdItem,lst_Order,Lst_OrdId, 'TriggerBusinessRules',lst_ListPriceDiscountRegular, null);
+          
+          //ListPriceDiscount__c[] lst_ListPriceDiscountRegular = Order_OrderandOrdeItemHandler.returnListPriceDiscount(lst_Order, Set_CusDiscountGroup, Set_OperatingCo, Set_ProdDiscountGroup, Set_OrderLineItemType, Set_MarketSegment);         
+          ListPriceDiscount__c[] lst_ListPriceDiscountRegular  =  Order_SoqlFactory.returnListPriceDiscount('AllDiscount',lst_Order[0].PricingMethod__c, Set_CusDiscountGroup, Set_OperatingCo, Set_ProdDiscountGroup, Set_OrderLineItemType, Set_MarketSegment);
+          system.debug('**Order_SoqlFactory.Order_B2BOrderInvocable.lst_ListPriceDiscountRegular :Size**'+lst_ListPriceDiscountRegular.size());
+          Order_OrderandOrdeItemHandler.OrderItemBusinessLogichandler(lst_OrdItem,lst_Order,Lst_OrdId, 'TriggerBusinessRules',lst_ListPriceDiscountRegular, null);
 
            
         

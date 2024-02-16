@@ -35,7 +35,11 @@ public with sharing class Order_OrderItemTriggerQueueable_test {
                 OrderId.add(ord.id);
            }
            
-           Order[] lstMaxOrder =  Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+         //  Order[] lstMaxOrder =  Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+           Order[] lstMaxOrder = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderItemTriggerQueueable_test.lstMaxOrder :Size**'+lstMaxOrder.size());
+
            System.enqueueJob(new Order_OrderItemTriggerQueueable(lstOrder, 'Start',lstMaxOrder));
    
            Test.stopTest();
@@ -76,8 +80,12 @@ public with sharing class Order_OrderItemTriggerQueueable_test {
                 OrderId.add(ord.id);
            }
            
-           Order[] lstMaxOrder =  Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+          // Order[] lstMaxOrder =  Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
            system.debug('**OrderItem Trigger: load else_Start**'+lstOrder.size());
+
+           Order[] lstMaxOrder = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_OrderItemTriggerQueueable_test2.lstMaxOrder :Size**'+lstMaxOrder.size());
+
    
            System.enqueueJob(new Order_OrderItemTriggerQueueable(lstOrder, 'Next',lstMaxOrder));
    

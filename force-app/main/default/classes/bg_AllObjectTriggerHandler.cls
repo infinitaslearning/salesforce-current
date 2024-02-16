@@ -45,12 +45,24 @@ public class bg_AllObjectTriggerHandler {
         }
         else 
       */  
+        system.debug('ObjectName: ' + ObjectName);
         if(ObjectName == 'Account'){
 
-            Account[] lstAccount = [Select id,ValidateIntegrationerrors__c from Account where id in:allProductsMap.keyset()];
+            Account[] lstAccount = [Select id,ValidateIntegrationerrors__c, ValidateBillingAddress__c, ValidateShippingAddress__c,
+                                    ValidateCommunicationLanguage__c,ValidateCustomerCategory__c, ValidateCustomerDiscountGroup__c,ValidateEmailsRequired__c,
+                                    ValidateShippingRule__c, AgodiUpdateInProgress__c, ShippingCostMethod__c from Account where id in:allProductsMap.keyset()];
 
             for(Account acc:lstAccount){
                 if(acc.ValidateIntegrationerrors__c == true){
+                    system.debug('acc.AgodiUpdateInProgress__c: ' + acc.AgodiUpdateInProgress__c);
+                    system.debug('acc.ValidateShippingAddress__c: ' + acc.ValidateShippingAddress__c);
+                    system.debug('acc.ValidateCommunicationLanguage__c: ' + acc.ValidateCommunicationLanguage__c);
+                    system.debug('acc.ValidateCustomerCategory__c: ' + acc.ValidateCustomerCategory__c);
+                    system.debug('acc.ValidateCustomerDiscountGroup__c: ' + acc.ValidateCustomerDiscountGroup__c);
+                    system.debug('acc.ValidateEmailsRequired__c: ' + acc.ValidateEmailsRequired__c);
+                    system.debug('acc.ValidateShippingRule__c: ' + acc.ValidateShippingRule__c);
+                    system.debug('acc.ValidateIntegrationerrors__c = true');
+                    system.debug('acc.ShippingCostMethod__c: ' + acc.ShippingCostMethod__c);
                     Process = false;
                 }
             }
@@ -59,6 +71,7 @@ public class bg_AllObjectTriggerHandler {
 
         else if(ObjectName == 'AccountSubsidiary__c') {
             AccountSubsidiary__c[] AccSubs = [SELECT Id, AgodiUpdateIsRunning__c FROM AccountSubsidiary__c WHERE Id IN :allProductsMap.keySet()];
+            system.debug('AccSubs: ' + AccSubs);
             for (AccountSubsidiary__c accSub : AccSubs) {
                 if (AccSub.AgodiUpdateIsRunning__c) {
                     Process = false;
@@ -66,6 +79,8 @@ public class bg_AllObjectTriggerHandler {
             }
         }
 
+        system.debug('allProductsMap: ' + allProductsMap);
+        system.debug('Process: ' + Process);
         if(!allProductsMap.isEmpty() && Process)
         {
             system.debug('** AllObjectTriggerHandler: Insert 2** ');
@@ -113,6 +128,9 @@ public class bg_AllObjectTriggerHandler {
             
         }
 
+		system.debug('allProductsMap: ' + allNewProductsMap);
+        system.debug('Process: ' + Process);
+        
         if (!allNewProductsMap.isEmpty() && Process)
         {           
             system.debug('** AllObjectTriggerHandler: Update 2** ');

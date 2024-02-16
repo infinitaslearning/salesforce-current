@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <decisions>
+        <name>EntryConditionsStillValid</name>
+        <label>Entry Conditions Still Valid</label>
+        <locationX>374</locationX>
+        <locationY>288</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ConditionsMatching</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>eCommerce B2C</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>eCommerce B2B</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ErrorReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Missing Customer Relations/Ids</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Draft</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RetriggerOrderBusinessRules</targetReference>
+            </connector>
+            <label>Conditions Matching</label>
+        </rules>
+    </decisions>
+    <description>This flow retriggers business rules for eCommerce orders that get stuck because the trigger business rule logic got executed before the order was complete/ready (ErrorReason: Missing Customer Relations/Ids)</description>
+    <interviewLabel>Order_Retrigger Business Rules {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Order_Retrigger Business Rules (Missing Customer Relations/Ids)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>RetriggerOrderBusinessRules</name>
+        <label>Retrigger Order Business Rules</label>
+        <locationX>242</locationX>
+        <locationY>408</locationY>
+        <filterLogic>(1 OR 2) AND 3 AND 4</filterLogic>
+        <filters>
+            <field>Source__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>eCommerce B2C</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Source__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>eCommerce B2B</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ErrorReason__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Missing Customer Relations/Ids</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Draft</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>TriggerBusinessRules__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>(1 OR 2) AND 3 AND 4</filterLogic>
+        <filters>
+            <field>Source__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>eCommerce B2C</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Source__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>eCommerce B2B</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ErrorReason__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Missing Customer Relations/Ids</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Draft</stringValue>
+            </value>
+        </filters>
+        <object>Order</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>X10MinuteDelay</name>
+            <connector>
+                <targetReference>EntryConditionsStillValid</targetReference>
+            </connector>
+            <label>10 Minute Delay</label>
+            <offsetNumber>10</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <timeSource>RecordTriggerEvent</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

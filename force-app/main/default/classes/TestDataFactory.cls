@@ -97,6 +97,7 @@ Public Class TestDataFactory{
         }
 
         if(doInsert) {
+            system.debug('**bg_AllObjectTriggerHandler_test:3 : At Insert**'+lst_Account[0].OperatingCompany__c);
             insert lst_Account;
         }
         
@@ -397,7 +398,7 @@ Public static Pricebook2 insertPricebookCustom(String PBName){
 }
 Public static Pricebook2 insertPricebookCustom2(String PBName,String Subsidiary){
     
-   Pricebook2 CustomPricebook = new Pricebook2(Name= PBName,StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = Subsidiary);
+   Pricebook2 CustomPricebook = new Pricebook2(Name= PBName,StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = Subsidiary,IndexationPercentage__c = 5);
 
     Insert CustomPricebook;
 

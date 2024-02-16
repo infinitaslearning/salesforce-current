@@ -8,7 +8,6 @@ public class UTIL_TestDatafactory {
             Account a = new Account();
             a.Name = 'Test Account ' + (i + 1);
             a.NumberofStudents__c = 1;
-            a.OperatingCompany__c = 'Plantyn';
             a.Area__c = 'Dutch';
             accounts.add(a);
         }

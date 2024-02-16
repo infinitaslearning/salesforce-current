@@ -10,7 +10,7 @@ public class IL_LeadConversionTest {
         ld.LastName ='test';
         ld.Company = 'Company';
         ld.OperatingCompany__c = 'Plantyn';
-        insert ld;
+        insert ld ;
         
         Account acc = new account();
         acc.name = 'Test Account ';
@@ -22,7 +22,6 @@ public class IL_LeadConversionTest {
         
         Contact con = new contact ();
         con.LastName = 'Test' ;
-        con.OperatingCompany__c = 'Plantyn';
         insert con ;
 
         Opportunity opp = new Opportunity();

@@ -7,7 +7,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND AccountId = :recordId];
+        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND AccountId = :recordId];
         System.debug('ASSET_showRenewableAssetsHelper - AssetListForShipTo size = ' + assetList.size());
 
         return assetList;
@@ -30,7 +30,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = \'' + AssetRecordType + '\' AND AccountId = \'' + recordId + '\'';
+        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = \'' + AssetRecordType + '\' AND AccountId = \'' + recordId + '\'';
         if (sorting == 'customDate') {
             query += ' AND ' + sortField + ' = ' + selectedDate;
         } else if (sorting != 'ALL_TIMES') {
@@ -51,7 +51,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = :AssetRecordType AND AccountId = :recordId];
+        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, EndDate__c,RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = :AssetRecordType AND AccountId = :recordId];
         System.debug('ASSET_showRenewableAssetsHelper - AssetListForShipTo size = ' + assetList.size());
 
         return assetList;
@@ -74,7 +74,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = \'' + AssetRecordType + '\' AND AccountId = \'' + recordId + '\'';
+        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = \'' + AssetRecordType + '\' AND AccountId = \'' + recordId + '\'';
         if (sorting == 'customDate') {
             query += ' AND ' + sortField + ' = ' + selectedDate;
         } else if (sorting != 'ALL_TIMES') {
@@ -95,7 +95,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND BillToAccount__c = :recordId];
+        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c ,RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND BillToAccount__c = :recordId];
         System.debug('ASSET_showRenewableAssetsHelper - AssetListForBillTo size = ' + assetList.size());
 
         return assetList;
@@ -118,7 +118,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = \'' + AssetRecordType + '\' AND BillToAccount__c = \'' + recordId + '\'';
+        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c ,RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = \'' + AssetRecordType + '\' AND BillToAccount__c = \'' + recordId + '\'';
         if (sorting == 'customDate') {
             query += ' AND ' + sortField + ' = ' + selectedDate;
         } else if (sorting != 'ALL_TIMES') {
@@ -139,7 +139,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name,Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = :AssetRecordType AND BillToAccount__c = :recordId];
+        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name,Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c ,RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = false AND RecordTypeId = :AssetRecordType AND BillToAccount__c = :recordId];
         System.debug('ASSET_showRenewableAssetsHelper - AssetListForBillTo size = ' + assetList.size());
 
         return assetList;
@@ -162,7 +162,7 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE product2.Renewable__c = false AND RecordTypeId = \'' + AssetRecordType + '\' AND BillToAccount__c = \'' + recordId + '\'';
+        String query = 'SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, IsActive__c, AccountId, Account.Name, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c ,RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE product2.Renewable__c = false AND RecordTypeId = \'' + AssetRecordType + '\' AND BillToAccount__c = \'' + recordId + '\'';
         if (sorting == 'customDate') {
             query += ' AND ' + sortField + ' = ' + selectedDate;
         } else if (sorting != 'ALL_TIMES') {

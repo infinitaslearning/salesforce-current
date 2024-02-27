@@ -163,7 +163,8 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                 elt.StartDate = element.ActivationDate__c;
                 elt.RenewalDate = element.RenewalDate__c;
                 elt.CancelationDate = element.CancellationDate__c;
-                elt.EndDate = element.UsageEndDate;
+               // elt.EndDate = element.UsageEndDate;
+                elt.EndDate = element.EndDate__c;
                 elt.active = element.IsActive__c;
                 if (element.IsActive__c) {
                     elt.activeSymbol = 'utility:check';
@@ -383,7 +384,8 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                     elt.StartDate = element.ActivationDate__c;
                     elt.RenewalDate = element.RenewalDate__c;
                     elt.CancelationDate = element.CancellationDate__c;
-                    elt.EndDate = element.UsageEndDate;
+                    //elt.EndDate = element.UsageEndDate;
+                    elt.EndDate = element.EndDate__c;
                     if (element.IsActive__c) {
                         elt.activeSymbol = 'utility:check';
                     } else {

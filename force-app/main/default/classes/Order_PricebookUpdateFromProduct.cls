@@ -5,13 +5,17 @@ public with sharing class Order_PricebookUpdateFromProduct {
         Pricing__c[] lstPricing;
         try {
 
-             	 
+            /* 	 
             lstPricing = [Select id,EndDate__c,StartDate__c,IsActive__c From Pricing__c where 
                 (Product__c in:ProductId OR ProductComponent__r.Product__c in: ProductId)
                 AND StartDate__c <=: system.today()
                 AND EndDate__c >=: system.today()
                 AND IsActive__c =: true
             ];
+            */
+            lstPricing = Order_SoqlFactory.returnPricing('UpdatePricingfromProduct',null,ProductId,null,null);
+            system.debug('**Order_SoqlFactory.Order_PricebookUpdateFrom.lstPrice :size**'+lstPricing.size());
+
             
             
             List<Id> PriceId = new List<Id>();

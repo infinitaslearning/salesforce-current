@@ -696,7 +696,7 @@ public class Order_ProductSelectController {
             
       
     
-        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);		
+        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c,null,null);		
 	    system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lstPrice :Size**'+lstPrice.size());
         
         
@@ -1067,7 +1067,7 @@ public class Order_ProductSelectController {
             AND IsActive__c =: true];
             */
 
-            Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd);
+            Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd,null,null);
             system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.lstPrice :Size**'+lstPrice.size());
 
 
@@ -1087,6 +1087,16 @@ public class Order_ProductSelectController {
             Set<String> Set_ItemKitId =  new Set<String>();
           //  Set_ItemGroup = new Set<String>();
     
+
+          List<ProductListPrice> lstProductListPrice = new List<ProductListPrice>();
+        //Used for Item Group Components
+        Map<String,List<ProductListPrice>> Map_ProductListPrice = new Map<String,List<ProductListPrice>>();
+  
+        Set<String> Set_ProductId = new Set<String>();
+
+        
+       List<String> ManualDiscount  = new List<String>();
+       ManualDiscount.add('--None--');
       
     
         for(Pricing__c item:lstPrice){   
@@ -1114,9 +1124,7 @@ public class Order_ProductSelectController {
                     else{
                         Map_ItemGroupPrice.put(item.ProductComponent__r.MainProduct__c,Map_ItemGroupPrice.get(item.ProductComponent__r.MainProduct__c)+ListRateMain);
                     }
-                   
-    
-                
+                                  
                 }
                 
                 if(item.ProductComponent__r.Type__c=='Kit Component'){
@@ -1132,17 +1140,94 @@ public class Order_ProductSelectController {
     
         }        
      
-      
-    
-            List<ProductListPrice> lstProductListPrice = new List<ProductListPrice>();
-            //Used for Item Group Components
-            Map<String,List<ProductListPrice>> Map_ProductListPrice = new Map<String,List<ProductListPrice>>();
-      
-            Set<String> Set_ProductId = new Set<String>();
-    
+        lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd,Pricebook2Id,Map_ItemGroup);
+        system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.lstPrice :Size**'+lstPrice.size());
+
+        for(Pricing__c item:lstPrice){   
             
-           List<String> ManualDiscount  = new List<String>();
-           ManualDiscount.add('--None--');
+            if(item.ProductComponent__r.Type__c=='Item Group Component' || item.ProductComponent__r.Type__c=='Kit Component' ){ //
+
+                for(PricebookEntry pbe:item.Price_Book_Entries__r){
+
+                        ProductListPrice prodlp = new ProductListPrice();                  
+                        prodlp.ProductName =  pbe.Product2.name;
+                        prodlp.ItemGroup = item.ProductComponent__r.MainProduct__c;
+                        
+                        prodlp.ItemGroupId = item.ProductComponent__c;
+
+                        prodlp.listPriceDiscountType = pbe.Product2.ProductDiscountGroup__c;
+                        prodlp.ProductRateGroup = pbe.Product2.ProductRateGroup__c;
+
+                        prodlp.ProductId = pbe.Product2Id;
+                        prodlp.BasePrice  = item.ListRate__c;
+                        prodlp.ComponentQuantity = item.ProductComponent__r.Quantity__c;
+                        prodlp.ComponentQuantityTitle = 'Pack quantity: '+item.ProductComponent__r.Quantity__c;
+                        prodlp.CustomPricingAllowed = pbe.Product2.CustomPricingAllowed__c;
+                        
+                    
+
+                        prodlp.UnitPrice  = pbe.UnitPrice; 
+                        prodlp.STDPrice = prodlp.BasePrice;
+                        
+                        prodlp.ProductTYPE = pbe.Product2.Type__c; 
+                        prodlp.ProductEAN = pbe.Product2.ISBNArticleNumber__c;
+                    
+                        prodlp.QuantitySelectionType =  pbe.Product2.QuantitySelectionType__c;
+                
+                        prodlp.PricebookEntryId = pbe.Id;
+                        
+                        
+                        Set<String> Set_SoldInSegment = new Set<String>();
+                        
+                        prodlp.lstMarketSegment = new List<String>();
+                    
+                    
+                        //Only link LPD for that ProductDiscountGroup
+
+                        List<ListPriceDiscount> AddlistPriceDiscount;
+                
+                    
+                    Set_ProductId.add(prodlp.ProductId);
+                        
+                        List<String> PriceProductType = new List<String>();
+                    
+
+                        PriceProductType.AddAll(pbe.Product2.OrderLineType__c.Split(';'));
+                        prodlp.listPriceProductType = PriceProductType;
+                        
+                        ManualDiscount  = new List<String>();
+                        ManualDiscount.add('--None--');
+
+                        if(pbe.Product2.Renewable__c ==true){
+                            ManualDiscount.add('Recurring Percentage');
+                            ManualDiscount.add('Recurring Amount');
+                            ManualDiscount.add('One-Off Percentage');                                       
+                            ManualDiscount.add('One-Off Amount');
+                            ManualDiscount.add('One-Off Amount (Subtotal)');
+                        }
+                        else{
+                            ManualDiscount.add('One-Off Percentage');
+                            ManualDiscount.add('One-Off Amount');
+                            ManualDiscount.add('One-Off Amount (Subtotal)');
+                        }
+
+                        prodlp.ManualDiscount = ManualDiscount;
+                        prodlp.MarketSegment =  pbe.Product2.MarketSegment__c;
+                        
+                        if(Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)) == null){
+                            lstProductListPrice = new List<ProductListPrice>();
+                            lstProductListPrice.add(prodlp);
+                            Map_ProductListPrice.put(Map_ItemGroup.get(pbe.Product2Id),lstProductListPrice);
+                        }
+                        else if(Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)) != null){
+                            Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)).add(prodlp);
+                        }
+                    }
+                }        
+
+            }
+              
+        
            
     
             //Populate Item Group map
@@ -1155,7 +1240,7 @@ public class Order_ProductSelectController {
 
                 ProductsbyItemGroup = Order_SoqlFactory.returnPricebookEntry('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);		
 	            system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());
-
+                    /*
                     for(PricebookEntry pbe:ProductsbyItemGroup){
                         
                         if(Map_ItemGroup.get(pbe.Product2Id) != null){ 
@@ -1235,6 +1320,7 @@ public class Order_ProductSelectController {
     
                         }        
                 }
+                */
         }
       
     

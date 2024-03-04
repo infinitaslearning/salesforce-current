@@ -25,14 +25,17 @@ public with sharing class Order_PricebookEntryCreate {
     }    
     
 public static void ProcessPricebookEntryCreate(List<Id> PriceId){  
+        /*
         Pricing__c[] lstPricing = [Select id,EndDate__c,ExternalId__c,ProductComponent__r.Product__r.MarketSegment__c,ProductComponent__c,ProductComponent__r.IsActive__c,
                             ProductComponent__r.Product__c,ListRate__c,Product__c,StartDate__c,Subsidiary__c,Product__r.MarketSegment__c,Product__r.Stocknumber__c,Product__r.SoldInSegment__c,
                             Product__r.SoldInSubSegment__c,IsActive__c,Product__r.DeliveryStatus__c,Product__r.StockLevel__c,Product__r.PlannedPrintDate__c,Product__r.Type__c,
                             Product__r.HasBlock__c,Product__r.IsSuccessorItemActive__c,Product__r.SuccessorItem__c,Product__r.IsActive,CurrencyIsoCode
                             From Pricing__c where id in:PriceId AND ProductComponent__c =:null];
+        */
 
-                            system.debug('**Order_PricebookEntryCreate: lstPricing**'+lstPricing.size());
-                            system.debug('**Order_PricebookEntryCreate: PriceId**'+PriceId);
+        Pricing__c[] lstPricing = Order_SoqlFactory.returnPricing('Pricebookentrycreate',null,PriceId,null,null);
+        system.debug('**Order_SoqlFactory.Order_PricebookEntryCreate.lstPrice :size**'+lstPricing.size());
+                            
 if(lstPricing.size()>0){ 
 
 
@@ -77,10 +80,7 @@ if(lstPricing.size()>0){
 
         Pricebook2[] lstPricebook = [Select Subsidiary__c,isStandard,PricebookType__c,SoldInSubSegment__c,EndDate__c,StartDate__c From Pricebook2 where Subsidiary__c in:Set_Subsid AND IsActive =: true ];
         ProductComponent__c[] lstProductComponent = [Select Product__c,MainProduct__c from ProductComponent__c where MainProduct__c in: Set_ItemGrpCom];
-
-        
         Pricebook2 standardPB = [select id from Pricebook2 where isStandard=true];
-
 
         PricebookEntry[] lstPricebookEntryStdExist = [Select id,Product2Id, Pricebook2Id from PricebookEntry where Pricebook2Id=:standardPB.id AND Product2Id in:Set_priceProduct]; //
         PricebookEntry[] lstPricebookEntryExist = [Select id,Product2Id, Pricebook2Id from PricebookEntry where Product2Id in:Set_priceProduct]; // 
@@ -101,8 +101,8 @@ if(lstPricing.size()>0){
             Map_priceProductExisting.put(PriceProd,prod.Id);
         }
         
-        system.debug('**Standard PBE**'+lstPricebookEntryStdExist);
-        system.debug('**EntryExist**'+lstPricebookEntryExist);
+        system.debug('**Order_PricebookEntryCreate: Standard PBE**'+lstPricebookEntryStdExist);
+        system.debug('**Order_PricebookEntryCreate: EntryExist**'+lstPricebookEntryExist);
 
 
         List<PricebookEntry> lstPricebookEntry = new List<PricebookEntry>();
@@ -123,15 +123,15 @@ if(lstPricing.size()>0){
             SubsMSegment += mappb.MarketSegment__c;
 
             Map_SubsMSegment.put(SubsMSegment,mappb.MapToPricebook__c);
-            system.debug('**SubsMSegmentY**'+SubsMSegment);
+            system.debug('**Order_PricebookEntryCreate: SubsMSegmentY**'+SubsMSegment);
         }
 
         
         
-        system.debug('**Set_priceProductStd**'+Set_priceProductStd);
+        system.debug('**Order_PricebookEntryCreate: Set_priceProductStd**'+Set_priceProductStd);
 
-        system.debug('**SIZE: lstPricebook**'+lstPricebook.size());
-        system.debug('**SIZE: lstPricing**'+lstPricing.size());
+        system.debug('**Order_PricebookEntryCreate: SIZE: lstPricebook**'+lstPricebook.size());
+        system.debug('**Order_PricebookEntryCreate: SIZE: lstPricing**'+lstPricing.size());
 
 
          for(Pricebook2 pb:lstPricebook){
@@ -142,12 +142,12 @@ if(lstPricing.size()>0){
 
                 
 
-                system.debug('**SubsMSegmentX**'+SubsMSegment);
+                system.debug('**Order_PricebookEntryCreate: SubsMSegmentX**'+SubsMSegment);
 
                 
                    
                     if(pb.PricebookType__c != null ){
-                        system.debug('**Map_SubsMSegment**'+Map_SubsMSegment.get(SubsMSegment)+'**pb.MarketSegment__c**'+pb.PricebookType__c);
+                        system.debug('**Order_PricebookEntryCreate: Map_SubsMSegment**'+Map_SubsMSegment.get(SubsMSegment)+'**pb.MarketSegment__c**'+pb.PricebookType__c);
                              
                             //system.debug('**SubsMSegment**'+SubsMSegment);
 
@@ -167,17 +167,17 @@ if(lstPricing.size()>0){
                              }
                          
 
-                             system.debug('** SoldInMatch **'+ SoldInMatch);
-                             system.debug('** Subsidiary **'+ pb.Subsidiary__c +'****'+price.Subsidiary__c);
+                             system.debug('**Order_PricebookEntryCreate: SoldInMatch **'+ SoldInMatch);
+                             system.debug('**Order_PricebookEntryCreate: Subsidiary **'+ pb.Subsidiary__c +'****'+price.Subsidiary__c);
  
                         PricebookEntry entry;
                         if(SoldInMatch=='True' && pb.Subsidiary__c == price.Subsidiary__c){
-                            system.debug('**StartDate**' +price.StartDate__c + '***'+pb.StartDate__c);
-                            system.debug('**EndDate**' +price.EndDate__c + '***'+pb.EndDate__c);
+                            system.debug('**Order_PricebookEntryCreate: StartDate**' +price.StartDate__c + '***'+pb.StartDate__c);
+                            system.debug('**Order_PricebookEntryCreate: EndDate**' +price.EndDate__c + '***'+pb.EndDate__c);
 
                                 if( (pb.StartDate__c <= price.StartDate__c && price.StartDate__c  <= pb.EndDate__c) || (pb.StartDate__c <= price.EndDate__c && price.EndDate__c  <= pb.EndDate__c) 
                                   || (price.StartDate__c <= pb.StartDate__c && price.EndDate__c >= pb.EndDate__c)){ 
-                                    system.debug('**Subs 2**' );    
+                                    system.debug('**Order_PricebookEntryCreate: Subs 2**' );    
                                     
                                     if(price.ProductComponent__r.Product__c != null){
                                         PriceProd = price.ProductComponent__r.Product__c;
@@ -207,13 +207,13 @@ if(lstPricing.size()>0){
                                         Set_priceProductStd.add(price.Product__c);
                                     }
                                     
-                                    system.debug('**IN**'+Map_priceProductExisting.get(PriceProd) );
-                                    system.debug('**pb.isStandard**'+pb.isStandard);
+                                    system.debug('**Order_PricebookEntryCreate: IN**'+Map_priceProductExisting.get(PriceProd) );
+                                    system.debug('**Order_PricebookEntryCreate: pb.isStandard**'+pb.isStandard);
                                 if(pb.isStandard==false){   
 
 
                                     if(Map_priceProductExisting.get(PriceProd) != null && price.Product__c != null && !Set_priceProduct.contains(PriceProd)){
-                                            system.debug('**IN**'+Map_pbeActiveStatus.get(price.id));
+                                            system.debug('**Order_PricebookEntryCreate :IN**'+Map_pbeActiveStatus.get(price.id));
                                             entry = new PricebookEntry(CurrencyIsoCode = price.CurrencyIsoCode,id = Map_priceProductExisting.get(PriceProd) ,IsActive=Map_pbeActiveStatus.get(price.id),Pricebook2Id = pb.id,Price__c = price.id,Product2Id = price.Product__c, UnitPrice = price.ListRate__c, Subsidiary__c = price.Subsidiary__c);
                                             lstPricebookUpdate.add(entry);
                                             Set_priceProduct.add(PriceProd);
@@ -224,29 +224,28 @@ if(lstPricing.size()>0){
                                             Set_priceProduct.add(PriceProd);
                                     }
                                     else if(price.Product__c != null  && !Set_priceProduct.contains(PriceProd)){
-                                            system.debug('**Out Prod**'+Set_priceProduct);
+                                            system.debug('**Order_PricebookEntryCreate: Out Prod**'+Set_priceProduct);
                                             entry = new PricebookEntry(CurrencyIsoCode = price.CurrencyIsoCode,IsActive=Map_pbeActiveStatus.get(price.id),Pricebook2Id = pb.id,Price__c = price.id,Product2Id = price.Product__c, UnitPrice = price.ListRate__c, Subsidiary__c = price.Subsidiary__c);
                                             lstPricebookEntry.add(entry);
                                             Set_priceProduct.add(PriceProd);
                                     }
                                     else if(price.ProductComponent__r.Product__c != null && !Set_priceProduct.contains(PriceProd)){
-                                        system.debug('**Out Prodcom**');
+                                        system.debug('**Order_PricebookEntryCreate: Out Prodcom**');
                                         entry = new PricebookEntry(CurrencyIsoCode = price.CurrencyIsoCode, IsActive=Map_pbeActiveStatus.get(price.id),Pricebook2Id = pb.id,Price__c = price.id,Product2Id = price.ProductComponent__r.Product__c, UnitPrice = price.ListRate__c, Subsidiary__c = price.Subsidiary__c);
                                         lstPricebookEntry.add(entry);
                                         Set_priceProduct.add(PriceProd);
                                     }
                                 }        
-                                    system.debug('**lstPricebookEntry**'+lstPricebookEntry);
-                                    system.debug('**lstPricebookUpdate**'+lstPricebookUpdate);
+                                    system.debug('**Order_PricebookEntryCreate: lstPricebookEntry**'+lstPricebookEntry);
+                                    system.debug('**Order_PricebookEntryCreate: lstPricebookUpdate**'+lstPricebookUpdate);
                                     
-                                    system.debug('**price.Product__c**'+price.Product__c);
-                                    system.debug('**price.ProductComponent__r.Product__c**'+price.ProductComponent__r.Product__c);
+                                    system.debug('**Order_PricebookEntryCreate: price.Product__c**'+price.Product__c);
+                                    system.debug('**Order_PricebookEntryCreate: price.ProductComponent__r.Product__c**'+price.ProductComponent__r.Product__c);
 
 
 
 
                              }
-                             /*
                              else{
                                 if(price.ProductComponent__r.Product__c != null){
                                     PriceProd = price.ProductComponent__r.Product__c;
@@ -265,7 +264,7 @@ if(lstPricing.size()>0){
                                 }
     
                              }
-                             */
+                             
                             
                             }
                             else{
@@ -298,7 +297,7 @@ if(lstPricing.size()>0){
 
         if(lstPricebookUpdate.size()>0){
             try {
-                system.debug('**Update**');
+                system.debug('**Order_PricebookEntryCreate" Update**');
                 update lstPricebookUpdate;
                 if(Test.isRunningTest() && UTIL_TestClassExceptions.TESTCLASSEXCEPTION==True)
 			    {
@@ -310,7 +309,7 @@ if(lstPricing.size()>0){
             catch (Exception e) {
                 // "Convert" the exception into an AuraHandledException
                 HandleCustomException.LogException(e); 
-               system.debug('******'+e.getMessage());
+               system.debug('Order_PricebookEntryCreate: Error:******'+e.getMessage());
                       
             }
             

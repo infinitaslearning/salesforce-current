@@ -391,20 +391,8 @@ public with sharing class Order_SoqlFactory {
     
     }
     
-
+    
     Public static List<PricebookEntry> returnPricebookEntry(String Type, String SearchString, Set<String> Set_ProdId,Set<String> Set_Pricebook,String Pricebook2Id,Map<String,String> Map_ItemGroup,Set<String> Set_SuccProductId,Date PricebookStart, Date PricebookEnd){
-    
-        PricebookEntry[] lst_PricebookEntry =  Database.query(returnPricebookEntryStr(Type, SearchString, Set_ProdId, Set_Pricebook, Pricebook2Id, Map_ItemGroup, Set_SuccProductId, PricebookStart,PricebookEnd));
-
-        system.debug('**Order_SoqlFactory.returnPricebookEntry :Size**'+lst_PricebookEntry.size());
-
-
-        return lst_PricebookEntry;
-
-    }    
-
-    
-    Public static string returnPricebookEntryStr(String Type, String SearchString, Set<String> Set_ProdId,Set<String> Set_Pricebook,String Pricebook2Id,Map<String,String> Map_ItemGroup,Set<String> Set_SuccProductId,Date PricebookStart, Date PricebookEnd){
         String Querystr;
         
     
@@ -439,15 +427,8 @@ public with sharing class Order_SoqlFactory {
         +' Product2.Stocknumber__c,'       
         +' Product2.Type__c,'
         +' PriceBook2.StartDate__c,'
-        +' PriceBook2.EndDate__c';
-
-        if(Type =='ProductSelectorItemGroup'){
-            Querystr +=' from Price_Book_Entries__r where '; 
-        }
-        else{
-            Querystr +=' from PricebookEntry where ';
-        }
-        
+        +' PriceBook2.EndDate__c'
+        +' from PricebookEntry where ';
 
 
         if(Type =='AssetRenewalProductsbyPriceBook'){
@@ -558,17 +539,20 @@ public with sharing class Order_SoqlFactory {
         
         system.debug('**Order_SoqlFactory.returnPricebookEntry :querystr**'+querystr);
 
-        /*
         PricebookEntry[] lst_PricebookEntry =  Database.query(querystr);
-        system.debug('**Order_SoqlFactory.returnPricebookEntry :Size**'+lst_PricebookEntry.size());
-        return lst_PricebookEntry;
-        */
+        
 
-          return querystr;
+        system.debug('**Order_SoqlFactory.returnPricebookEntry :Size**'+lst_PricebookEntry.size());
+
+
+        return lst_PricebookEntry;
+
+
+          
     
     }
         
-    Public static List<Pricing__c> returnPricing(String Type,Set<String> Set_ProdItemGroup,List<Id> lst_ProdPriceId,Date PricebookStart, Date PricebookEnd,String Pricebook2Id,Map<String,String> Map_ItemGroup){
+    Public static List<Pricing__c> returnPricing(String Type,Set<String> Set_ProdItemGroup,List<Id> lst_ProdPriceId,Date PricebookStart, Date PricebookEnd){
       
     
        String Querystr;
@@ -605,19 +589,9 @@ public with sharing class Order_SoqlFactory {
        +' ProductComponent__r.Product__r.MarketSegment__c,'
        +' ProductComponent__r.Product__r.Type__c,'
        +' ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,'  
-       +' ProductComponent__r.Product__r.Name ';
-
-        if(Type == 'ProductSelector2'){
-            Querystr += '(';
-            Querystr += returnPricebookEntryStr('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);
-            Querystr += ')';
-        }
-
-        
-        Querystr +=' from Pricing__c where IsActive__c =true ';
+       +' ProductComponent__r.Product__r.Name'
+       +' from Pricing__c where IsActive__c =true ';
     
-
-
        if(Type != 'Pricebookentrycreate' && Type != 'UpdatePricingfromProduct'){
         Querystr += 'AND ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)'
                     + ' OR (StartDate__c <=: PricebookEnd AND EndDate__c >=: PricebookEnd)'
@@ -652,7 +626,7 @@ public with sharing class Order_SoqlFactory {
 
     }   
     
-    
+       
     
     
     Public static String returnasset(String Type,Set<String> Set_BillTo,Set<string> Set_ProdId){

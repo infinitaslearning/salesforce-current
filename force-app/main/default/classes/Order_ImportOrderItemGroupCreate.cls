@@ -69,7 +69,7 @@ public with sharing class Order_ImportOrderItemGroupCreate {
         AND IsActive__c =:true];
         */
 
-        Pricing__c[] lstPriceActive = Order_SoqlFactory.returnPricing('ItemgroupCreate',Set_ItemGroup,null,lstOrder[0].Pricebook2.StartDate__c,lstOrder[0].Pricebook2.EndDate__c,null,null);
+        Pricing__c[] lstPriceActive = Order_SoqlFactory.returnPricing('ItemgroupCreate',Set_ItemGroup,null,lstOrder[0].Pricebook2.StartDate__c,lstOrder[0].Pricebook2.EndDate__c);
             system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate.lstPriceActive :Size**'+lstPriceActive.size());
 
 

@@ -221,7 +221,7 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.curOrder :Size**'+curOrder.size());
         
         
-        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('Itemgroupupdate',Set_GroupId,Lst_ProductId,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c,null,null);		
+        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('Itemgroupupdate',Set_GroupId,Lst_ProductId,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);		
       system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate.lstPrice :Size**'+lstPrice.size());
 
 

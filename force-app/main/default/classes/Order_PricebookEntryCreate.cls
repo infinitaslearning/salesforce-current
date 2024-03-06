@@ -33,7 +33,7 @@ public static void ProcessPricebookEntryCreate(List<Id> PriceId){
                             From Pricing__c where id in:PriceId AND ProductComponent__c =:null];
         */
 
-        Pricing__c[] lstPricing = Order_SoqlFactory.returnPricing('Pricebookentrycreate',null,PriceId,null,null,null,null);
+        Pricing__c[] lstPricing = Order_SoqlFactory.returnPricing('Pricebookentrycreate',null,PriceId,null,null);
         system.debug('**Order_SoqlFactory.Order_PricebookEntryCreate.lstPrice :size**'+lstPricing.size());
                             
 if(lstPricing.size()>0){ 

@@ -393,23 +393,6 @@ public with sharing class Order_SoqlFactory {
     
     
     Public static List<PricebookEntry> returnPricebookEntry(String Type, String SearchString, Set<String> Set_ProdId,Set<String> Set_Pricebook,String Pricebook2Id,Map<String,String> Map_ItemGroup,Set<String> Set_SuccProductId,Date PricebookStart, Date PricebookEnd){
-<<<<<<< HEAD
-        
-        String Search = '%'+SearchString+'%';
-
-        PricebookEntry[] lst_PricebookEntry =  Database.query(returnPricebookEntryStr(Type, SearchString, Set_ProdId, Set_Pricebook, Pricebook2Id, Map_ItemGroup, Set_SuccProductId, PricebookStart,PricebookEnd));
-
-        system.debug('**Order_SoqlFactory.returnPricebookEntry :Size**'+lst_PricebookEntry.size());
-
-
-        return lst_PricebookEntry;
-
-    }    
-
-    
-    Public static string returnPricebookEntryStr(String Type, String SearchString, Set<String> Set_ProdId,Set<String> Set_Pricebook,String Pricebook2Id,Map<String,String> Map_ItemGroup,Set<String> Set_SuccProductId,Date PricebookStart, Date PricebookEnd){
-=======
->>>>>>> c74449a88653db36a91e5003370d762af6f739b2
         String Querystr;
         
     
@@ -576,7 +559,7 @@ public with sharing class Order_SoqlFactory {
        Date CurDate = system.today();
         
        Querystr =  'Select id,'
-       +' ListRate__c, '
+       +' ListRate__c,' 
        +' Product__c,'
        +' EndDate__c,'
        +' IsActive__c,'
@@ -605,26 +588,9 @@ public with sharing class Order_SoqlFactory {
        +' ProductComponent__r.Product__c,'
        +' ProductComponent__r.Product__r.MarketSegment__c,'
        +' ProductComponent__r.Product__r.Type__c,'
-<<<<<<< HEAD
-      +' ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,'  
-        +' ProductComponent__r.Product__r.Name ';
- 
-
-        if(Type == 'ProductSelectorIG'){
-            Querystr += ',(';
-            Querystr += 'Select id from Price_Book_Entries__r where IsActive =true';
-           // Querystr += 'Select id from Price_Book_Entries__r where IsActive =true';
-           //  Querystr += returnPricebookEntryStr('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);
-            Querystr += ')';
-        }
-
-        
-        Querystr +=' from Pricing__c where IsActive__c =true ';
-=======
        +' ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,'  
        +' ProductComponent__r.Product__r.Name'
        +' from Pricing__c where IsActive__c =true ';
->>>>>>> c74449a88653db36a91e5003370d762af6f739b2
     
        if(Type != 'Pricebookentrycreate' && Type != 'UpdatePricingfromProduct'){
         Querystr += 'AND ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)'
@@ -636,7 +602,7 @@ public with sharing class Order_SoqlFactory {
        if(Type == 'ProductSelector1'){
             Querystr += 'AND(ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR ProductComponent__r.Product__c in: Set_ProdItemGroup OR Product__c in: Set_ProdItemGroup )';
         }
-       else if(Type == 'ProductSelector2' || Type == 'ProductSelectorIG'){   
+       else if(Type == 'ProductSelector2'){   
             Querystr += 'AND (ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR id in: lst_ProdPriceId)';
         } 
        else if(Type == 'ItemgroupCreate'){
@@ -651,12 +617,7 @@ public with sharing class Order_SoqlFactory {
        else if(Type == 'UpdatePricingfromProduct'){
             Querystr += 'AND (Product__c in:lst_ProdPriceId OR ProductComponent__r.Product__c in: lst_ProdPriceId)';
        }
-       
-       if(Type == 'ProductSelectorIG'){
-            List<String> lst_ItemGroup = new List<String>();
-            lst_ItemGroup.addall(Map_ItemGroup.keyset());
-       }
-
+  
        system.debug('**Order_SoqlFactory.returnPricing :Querystr**'+Querystr);
        Pricing__c[] lst_Pricing =  Database.query(querystr);
        system.debug('**Order_SoqlFactory.returnPricing :Size**'+lst_Pricing.size());
@@ -664,30 +625,10 @@ public with sharing class Order_SoqlFactory {
        return lst_Pricing;
 
     }   
-   /* 
-    public static void testSOQL(){
-        String PricingId ='a0p3N0000038oBvQAI';
-String soql = 'Select id, (Select id from Price_Book_Entries__r where IsActive =true  ) from Pricing__c where id=:PricingId';
-
-Pricing__c[] lsPricing = Database.query(soql);
-
-system.debug('****'+lsPricing);
-
-for(Pricing__c pr:lsPricing){
     
-<<<<<<< HEAD
-    for(PriceBookEntry pbe:pr.Price_Book_Entries__r){
-        system.debug('*pbe***'+pbe.id);
-    }
-    
-}
-    }
-=======
        
->>>>>>> c74449a88653db36a91e5003370d762af6f739b2
     
-*/
-
+    
     Public static String returnasset(String Type,Set<String> Set_BillTo,Set<string> Set_ProdId){
     
         String Querystr;

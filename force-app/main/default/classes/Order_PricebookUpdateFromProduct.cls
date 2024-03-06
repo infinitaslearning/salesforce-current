@@ -13,7 +13,7 @@ public with sharing class Order_PricebookUpdateFromProduct {
                 AND IsActive__c =: true
             ];
             */
-            lstPricing = Order_SoqlFactory.returnPricing('UpdatePricingfromProduct',null,ProductId,null,null,null,null);
+            lstPricing = Order_SoqlFactory.returnPricing('UpdatePricingfromProduct',null,ProductId,null,null);
             system.debug('**Order_SoqlFactory.Order_PricebookUpdateFrom.lstPrice :size**'+lstPricing.size());
 
             

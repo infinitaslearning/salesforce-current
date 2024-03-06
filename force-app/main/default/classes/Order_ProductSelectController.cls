@@ -696,7 +696,7 @@ public class Order_ProductSelectController {
             
       
     
-        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c,null,null);		
+        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);		
 	    system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lstPrice :Size**'+lstPrice.size());
         
         
@@ -1067,7 +1067,7 @@ public class Order_ProductSelectController {
             AND IsActive__c =: true];
             */
 
-            Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd,null,null);
+            Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd);
             system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.lstPrice :Size**'+lstPrice.size());
 
 
@@ -1087,16 +1087,6 @@ public class Order_ProductSelectController {
             Set<String> Set_ItemKitId =  new Set<String>();
           //  Set_ItemGroup = new Set<String>();
     
-
-          List<ProductListPrice> lstProductListPrice = new List<ProductListPrice>();
-        //Used for Item Group Components
-        Map<String,List<ProductListPrice>> Map_ProductListPrice = new Map<String,List<ProductListPrice>>();
-  
-        Set<String> Set_ProductId = new Set<String>();
-
-        
-       List<String> ManualDiscount  = new List<String>();
-       ManualDiscount.add('--None--');
       
             
         for(Pricing__c item:lstPrice){   
@@ -1124,7 +1114,9 @@ public class Order_ProductSelectController {
                     else{
                         Map_ItemGroupPrice.put(item.ProductComponent__r.MainProduct__c,Map_ItemGroupPrice.get(item.ProductComponent__r.MainProduct__c)+ListRateMain);
                     }
-                                  
+                   
+    
+                
                 }
                 
                 if(item.ProductComponent__r.Type__c=='Kit Component'){
@@ -1139,6 +1131,7 @@ public class Order_ProductSelectController {
                
     
         }        
+<<<<<<< HEAD
         
 
         system.debug('**Order_ProductSelectController: Map_ItemGroup**'+Map_ItemGroup);
@@ -1232,6 +1225,20 @@ public class Order_ProductSelectController {
             }
               
         
+=======
+     
+      
+    
+            List<ProductListPrice> lstProductListPrice = new List<ProductListPrice>();
+            //Used for Item Group Components
+            Map<String,List<ProductListPrice>> Map_ProductListPrice = new Map<String,List<ProductListPrice>>();
+      
+            Set<String> Set_ProductId = new Set<String>();
+    
+            
+           List<String> ManualDiscount  = new List<String>();
+           ManualDiscount.add('--None--');
+>>>>>>> c74449a88653db36a91e5003370d762af6f739b2
            
     
             //Populate Item Group map
@@ -1242,9 +1249,15 @@ public class Order_ProductSelectController {
                 where Pricebook2Id =:Pricebook2Id AND Product2Id in:Map_ItemGroup.keyset() ]); //AND IsActive =:true
                 */
 
+<<<<<<< HEAD
                // ProductsbyItemGroup = Order_SoqlFactory.returnPricebookEntry('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);		
 	           // system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());
                     /*
+=======
+                ProductsbyItemGroup = Order_SoqlFactory.returnPricebookEntry('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);		
+	            system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());
+
+>>>>>>> c74449a88653db36a91e5003370d762af6f739b2
                     for(PricebookEntry pbe:ProductsbyItemGroup){
                         
                         if(Map_ItemGroup.get(pbe.Product2Id) != null){ 
@@ -1324,7 +1337,6 @@ public class Order_ProductSelectController {
     
                         }        
                 }
-                */
         }
       
     

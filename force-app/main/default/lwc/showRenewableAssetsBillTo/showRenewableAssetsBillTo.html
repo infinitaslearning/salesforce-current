@@ -75,12 +75,16 @@
             <!-- /Paginator -->
 
             <!-- Datatable -->
+               
             <lightning-datatable 
                 data={recordsToDisplayInTable} 
                 columns={columns} 
                 key-field="Id" 
                 hide-checkbox-column="false"
-                row-number-offset={rowNumberOffset}>
+                row-number-offset={rowNumberOffset}
+                sorted-by={sortBy}
+                sorted-direction={sortDirection}
+                onsort={handleSortAccountData}>
             </lightning-datatable>
             <!-- /Datatable -->
 

@@ -10,6 +10,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
     @track columns = [
         {
             label: 'Name',
+            sortable: "true",
             fieldName: 'assetUrl',
             type: 'url',
             typeAttributes: {label: { fieldName: 'AssetName'},
@@ -82,6 +83,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
         {
             label: 'Quantity',
             fieldName: 'Amount',
+            sortable: "true",
             type: 'number',
             initialWidth: 80,
             hideDefaultActions: true
@@ -91,6 +93,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
             fieldName: 'RenewalDate',
             type: 'date',
             initialWidth: 100,
+            sortable: "true",
             hideDefaultActions: true,
             typeAttributes: {
                 day: "2-digit",
@@ -102,6 +105,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
             label: 'Start Date',
             fieldName: 'StartDate',
             type: 'date',
+            sortable: "true",
             initialWidth: 100,
             hideDefaultActions: true,
             typeAttributes: {
@@ -115,6 +119,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
             fieldName: 'EndDate',
             type: 'date',
             initialWidth: 100,
+            sortable: "true",
             hideDefaultActions: true,
             typeAttributes: {
                 day: "2-digit",
@@ -126,6 +131,7 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
             label: 'Cancelation Date',
             fieldName: 'CancelationDate',
             type: 'date',
+            sortable: "true",
             initialWidth: 100,
             hideDefaultActions: true,
             typeAttributes: {
@@ -150,6 +156,9 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
     @track dateValue;
 
     @track currenObjectName;
+
+    @track sortBy;
+    @track sortDirection;
 
     @track filterPopupIsOpen = false;
 
@@ -468,5 +477,75 @@ export default class ShowRenewableAssetsShipTo extends LightningElement {
             console.log('Error: ' + error);
         })
     }
+
+
+    handleSortAccountData(event) {      
+       
+        
+        
+        try{
+            
+        // this.recordsToDisplay = event.detail;
+        // this.rowNumberOffset = parseInt(this.recordsToDisplay[0].rowNumber-1);
+            this.sortBy = event.detail.fieldName;       
+            this.sortDirection = event.detail.sortDirection;
+            
+            console.log("**handleSortAccountData:event.detail.fieldName**"+event.detail.fieldName);
+            this.sortAccountData(event.detail.fieldName, event.detail.sortDirection);
+
+          //  this.recordsToDisplay = event.detail;
+          //  this.rowNumberOffset = parseInt(this.recordsToDisplay[0].rowNumber-1);
+        }
+        catch(e){
+            console.error("e.message => " + e.message ); 
+        }
+        
+    }
+
+
+    sortAccountData(fieldname, direction) {
+        console.log("**sortAccountData:direction1**"+direction);
+        let parseData = [];
+        console.log("**sortAccountData: recordsToDisplay.length**"+this.recordsToDisplay.length);
+        console.log("**sortAccountData: this.pageNumber**"+this.pageNumber);
+        if(this.pageNumber == 1){
+            parseData = JSON.parse(JSON.stringify(this.assetList));
+        }
+        else{
+            parseData = JSON.parse(JSON.stringify(this.recordsToDisplay));
+        }
+        
+        console.log("**sortAccountData:fieldname2**"+fieldname);
+
+
+        let keyValue = (a) => {
+            return a[fieldname];
+        };  
+        console.log("**sortAccountData:direction**"+direction);
+
+       let isReverse = direction === 'asc' ? 1: -1;
+
+
+           parseData.sort((x, y) => {
+            x = keyValue(x) ? keyValue(x) : ''; 
+            y = keyValue(y) ? keyValue(y) : '';
+           
+            return isReverse * ((x > y) - (y > x));
+        });
+        console.log("**sortAccountData:isReverse**"+isReverse);
+        console.log("**sortAccountData:isReverse2**"+parseData);
+        this.recordsToDisplay = parseData;
+
+        if(this.pageNumber == 1){
+            for(let i=(1-1)*10; i < 1*10; i++){
+                if(i === parseData.length) break;
+                tempRecords.push(this.parseData[i]);
+            }
+            this.recordsToDisplay = tempRecords;
+        }
+
+       /* */
+
+    } 
 
 }

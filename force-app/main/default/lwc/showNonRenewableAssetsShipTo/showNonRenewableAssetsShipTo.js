@@ -11,6 +11,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
     @track columns = [
         {
             label: 'Name',
+            sortable: "true",
             fieldName: 'assetUrl',
             type: 'url',
             typeAttributes: {label: { fieldName: 'AssetName'},

@@ -7,7 +7,8 @@ public with sharing class ASSET_showRenewableAssetsHelper {
 
         Id AssetRecordType = getAssetRecordType();
 
-        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c, RenewalDate__c, CancellationDate__c, Quantity FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND AccountId = :recordId];
+        List<Asset> assetList = [SELECT Id, Name, Product2Id, Product2.Type__c, Product2.EAN__c, SubscriptionId__c, IsActive__c, AccountId, Account.Name, Account.ExternalCustomerId__c, BillToAccount__c, BillToAccount__r.Name, ActivationDate__c, UsageEndDate,EndDate__c, RenewalDate__c, CancellationDate__c, Quantity 
+        FROM Asset WHERE Product2.Renewable__c = true AND RecordTypeId = :AssetRecordType AND AccountId = :recordId Order by RenewalDate__c DESC];
         System.debug('ASSET_showRenewableAssetsHelper - AssetListForShipTo size = ' + assetList.size());
 
         return assetList;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BlockDeactivatedBilltoOrShipto</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  OR(
+				ISPICKVAL(Billto__r.BlockReason__c, &apos;Deactivated&apos;), 
+			 ISPICKVAL(Shipto__r.BlockReason__c , &apos;Deactivated&apos;)
+  ),
+		ISPICKVAL(Status,&apos;Activated&apos;),
+		ISCHANGED(Status)
+)</errorConditionFormula>
+    <errorMessage>Accounts with Block Reason &quot;Deactivated&quot; cannot be used as Bill-to or Ship-to</errorMessage>
+</ValidationRule>

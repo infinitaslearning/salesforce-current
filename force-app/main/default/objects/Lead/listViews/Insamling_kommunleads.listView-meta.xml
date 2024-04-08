@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insamling_kommunleads</fullName>
+    <columns>Account__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.FIRST_NAME</columns>
+    <columns>LEAD.LAST_NAME</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Campaign__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>New,In process,MQL,Converted</value>
+    </filters>
+    <filters>
+        <field>LEAD.COMPANY</field>
+        <operation>equals</operation>
+        <value>Liber - Municipality</value>
+    </filters>
+    <label>Enkät - Digitalisering i svensk skola</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

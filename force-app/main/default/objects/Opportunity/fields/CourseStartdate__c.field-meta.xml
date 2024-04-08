@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CourseStartdate__c</fullName>
+    <description>Noordhoff field. Possible duplicate. Can be deleted? (AvK 18-01-2018)</description>
+    <externalId>false</externalId>
+    <label>Course Startdate</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fall</fullName>
+                <default>false</default>
+                <label>Fall</label>
+            </value>
+            <value>
+                <fullName>Spring</fullName>
+                <default>false</default>
+                <label>Spring</label>
+            </value>
+            <value>
+                <fullName>Fall / Spring</fullName>
+                <default>false</default>
+                <label>Fall / Spring</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustomPricingAllowed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to capture the value from the equally named field in NS. This field indicates if the list price can be overwritten in the product selector</description>
+    <externalId>false</externalId>
+    <label>Custom Pricing Allowed</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

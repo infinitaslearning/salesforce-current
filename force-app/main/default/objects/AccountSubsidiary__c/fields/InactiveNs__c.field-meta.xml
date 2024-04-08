@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InactiveNs__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Inactive Checkbox to be synced from NetSuite. Flow decides whether or not this field is allowed to update Inactive flag.</description>
+    <externalId>false</externalId>
+    <label>Inactive NS</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FixedStartDate__c</fullName>
+    <description>If a product has a seasonal period in which it is valid (e.g. digital subscriptions for schools), this is the date it starts at.</description>
+    <externalId>false</externalId>
+    <label>Fixed Start Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Date</type>
+</CustomField>

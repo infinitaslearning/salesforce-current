@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateDigitalforNetherlands__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(ShippingCountry = &apos;Netherlands&apos;,  
+MultipleShippingLocations__c = false,
+TEXT(Source__c) != &apos;eCommerce B2C&apos; ,
+NonInventoryItemCount__c &gt; 0,
+TEXT(OperatingCompany__c) = &apos;Plantyn&apos;),1,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ValidateDigitalforNetherlands</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

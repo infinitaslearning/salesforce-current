@@ -48,7 +48,7 @@
                 
 
                // component.set("v.allschools",true);
-                console.log('**NoPupils**'+NoPupils);
+                console.log('**fetchAccountsUtil: NoPupils**'+NoPupils);
              //   component.set("v.TotalNumberofStudents",NoPupils);
             }
             else if (state === "INCOMPLETE") {
@@ -58,7 +58,7 @@
                     var errors = response.getError();
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
+                            console.log("fetchAccountsUtil: Error message: " + errors[0].message);
                             alert("Error message: " + errors[0].message);
                         }
                     } else {
@@ -135,12 +135,12 @@
     fetchOrderItemsUtil : function(component) {
 	    
         var OrderId =  component.get("v.OrderId"); 
-        console.log('**Order Items: OrderId**'+OrderId);
+        console.log('**:fetchOrderItemsUtil Order Items: OrderId**'+OrderId);
 
         if(OrderId == undefined || OrderId == null){
             OrderId =  component.get("v.recordId");
         }
-        console.log('**Order Items: OrderId2**'+OrderId);
+        console.log('**fetchOrderItemsUtil: Order Items: OrderId2**'+OrderId);
 
         if(OrderId != null){
 
@@ -149,18 +149,18 @@
             var NoStudents = component.get("v.TotalNumberofStudents");
             var PricingMethod = component.get('v.PricingMethod');
             
-            console.log('**PricingMethod**'+ PricingMethod );
+            console.log('**fetchOrderItemsUtil: PricingMethod**'+ PricingMethod );
             action.setParams({ 
                 "OrderId": OrderId,
                 "NoStudents":NoStudents,
                 "PricingMethod":PricingMethod
             });
 
-            console.log('**OrderId**');
+            console.log('**fetchOrderItemsUtil: OrderId**');
 
             action.setCallback(this, function(response) {
                 
-                console.log('**IN RESPNSE**');
+                console.log('**fetchOrderItemsUtil: IN RESPNSE**');
 
                 var state = response.getState();
                 console.log(state);
@@ -179,7 +179,7 @@
                         
                     }
                     
-                   console.log('**OrderTotal**'+OrderTotal);
+                   console.log('**fetchOrderItemsUtil: OrderTotal**'+OrderTotal);
                      var totalOrderAmounts = {'sobjectType': 'Order','TotalAmount':OrderTotal,'TotalVat':0 };  
                      
                     var CurrenOrderDisplay  = {'sobjectType': 'School',   'NoPupils':0, 'Name': '', 'TotalAmount':OrderTotal, 'TotalVat':0 };
@@ -188,17 +188,17 @@
                     component.set( 'v.TotalOrder', totalOrderAmounts);
                 component.set( 'v.CurrenOrderDisplay', CurrenOrderDisplay);
                   //  console.log('**totalOrderAmounts**'+totalOrderAmounts.TotalAmount);
-                    console.log('**SUCCESS ORDERS**');
+                    console.log('**fetchOrderItemsUtil: SUCCESS ORDERS**');
                     
                 }
                 else if (state === "INCOMPLETE") {
-                    console.log('**INCOMPLETE**');
+                    console.log('**fetchOrderItemsUtil: INCOMPLETE**');
                 }
                     else if (state === "ERROR") {
                         var errors = response.getError();
                         if (errors) {
                             if (errors[0] && errors[0].message) {
-                                console.log("Error message: " + errors[0].message);
+                                console.log("fetchOrderItemsUtil: Error message: " + errors[0].message);
                                 alert("Error message: " + errors[0].message);
                             }
                         } else {
@@ -243,10 +243,8 @@
             index++;
         }
 
-        console.log('**Products before Order Items**');
-        for(var key in OrderItems){
-			console.log('**Products IN Order Items**'+OrderItems[key].Id);
-        }
+        console.log('**fetchProductsUtil: Products before Order Items**');
+        
          
         if(ContractId != null && ContractId != undefined){
             action = component.get("c.loadProductsbyPriceBookContract");
@@ -279,7 +277,7 @@
         
        
         
-        console.log('**ExistingContract**'+ExistingContract);
+        console.log('**fetchProductsUtil: ExistingContract**'+ExistingContract);
         
         
 
@@ -306,7 +304,7 @@
                     var errors = response.getError();
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
+                            console.log("fetchProductsUtil: Error message: " + errors[0].message);
                             alert("Error message: " + errors[0].message);
                         }
                     } else {
@@ -324,7 +322,7 @@
         
         var OrderId =  component.get("v.OrderId"); 
         
-        console.log('**Order Items: OrderId**'+OrderId);
+        console.log('**fetchBilltoAccount: Order Items: OrderId**'+OrderId);
 
         if(OrderId == undefined || OrderId == null){
             OrderId =  component.get("v.recordId");
@@ -343,7 +341,7 @@
                //for(var keyLP in returnValue){ 
               //     loopc++;
               // }    
-               console.log('**Bill to**'+returnValue.OperatingCompany__c);
+               console.log('**fetchBilltoAccount: Bill to Operating Company**'+returnValue.OperatingCompany__c);
            }
            else if (state === "INCOMPLETE") {
                
@@ -352,7 +350,7 @@
                    var errors = response.getError();
                    if (errors) {
                        if (errors[0] && errors[0].message) {
-                           console.log("Error message: " + errors[0].message);
+                           console.log("fetchBilltoAccount: Error message: " + errors[0].message);
                            alert("Error message: " + errors[0].message);
                        }
                    } else {
@@ -368,7 +366,7 @@
 
          var OrderId =  component.get("v.OrderId"); 
         
-        console.log('**Order Items: OrderId**'+OrderId);
+        console.log('**fetchListPriceDiscountUtil : OrderId**'+OrderId);
 
         if(OrderId == undefined || OrderId == null){
             OrderId =  component.get("v.recordId");
@@ -383,11 +381,7 @@
                 var returnValue = response.getReturnValue();
                 component.set("v.ListPriceDiscount",returnValue);
 
-                var loopc=0;
-                //for(var keyLP in returnValue){ 
-               //     loopc++;
-               // }    
-                console.log('**loopc**'+loopc);
+                
             }
             else if (state === "INCOMPLETE") {
                 
@@ -396,7 +390,7 @@
                     var errors = response.getError();
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
+                            console.log("fetchListPriceDiscountUtil: Error message: " + errors[0].message);
                             alert("Error message: " + errors[0].message);
                         }
                     } else {
@@ -413,7 +407,7 @@
 
         var PricebookId =  component.get("v.PricebookId"); 
        
-       console.log('**Order Items: PricebookId**'+PricebookId);
+       console.log('**fetchListPriceBook: PricebookId**'+PricebookId);
      
        action.setParams({ 
            "PricebookId": PricebookId
@@ -424,7 +418,7 @@
            if (state === "SUCCESS") {
                var returnValue = response.getReturnValue();
                component.set("v.PricebookName",returnValue);            
-               console.log('**PricebookName**'+returnValue);
+               console.log('**fetchListPriceBook: PricebookName**'+returnValue);
            }
            else if (state === "INCOMPLETE") {
                
@@ -433,7 +427,7 @@
                    var errors = response.getError();
                    if (errors) {
                        if (errors[0] && errors[0].message) {
-                           console.log("Error message: " + errors[0].message);
+                           console.log("fetchListPriceBook: Error message: " + errors[0].message);
                            alert("Error message: " + errors[0].message);
                        }
                    } else {
@@ -445,14 +439,10 @@
    },
    
    fetchMaxOrderlineCount : function(component) {
-    console.log('**returnOrderLineItemMaxCount 1**');
+        console.log('**fetchMaxOrderlineCount 1**');
         var action = component.get("c.returnOrderLineItemMaxCount");
-        console.log('**returnOrderLineItemMaxCount 2**');
-        /*
-        var MaxOrderlineCount =  component.get("v.MaxOrderlineCount"); 
-        
-        console.log('**Order Items: PricebookId**'+MaxOrderlineCount);
-        */
+        console.log('**fetchMaxOrderlineCount 2**');
+       
         action.setParams({ 
         });
         
@@ -461,7 +451,7 @@
             if (state === "SUCCESS") {
                 var returnValue = response.getReturnValue();
                 component.set("v.MaxOrderlineCount",returnValue);            
-                console.log('**MaxOrderlineCount**'+returnValue);
+                console.log('**fetchMaxOrderlineCount: **'+returnValue);
             }
             else if (state === "INCOMPLETE") {
                 
@@ -470,7 +460,7 @@
                     var errors = response.getError();
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
+                            console.log("fetchMaxOrderlineCount: Error message: " + errors[0].message);
                             alert("Error message: " + errors[0].message);
                         }
                     } else {
@@ -514,13 +504,7 @@
            if (state === "SUCCESS") {
                var returnValue = response.getReturnValue();
                component.set("v.Assetlist",returnValue);
-               console.log('**Asset SUCCES**');
-               /*
-               for(var key in returnValue){
-                console.log('**returnValue.Name**'+returnValue[key].Name);       
-             }
-             */
-
+               console.log('**fetchloadAssetsforRat: Asset SUCCES**');
                
            }
            else if (state === "INCOMPLETE") {
@@ -530,7 +514,7 @@
                    var errors = response.getError();
                    if (errors) {
                     if (errors[0] && errors[0].message) {
-                        console.log("Error message: " + errors[0].message);
+                        console.log("fetchloadAssetsforRat: Error message: " + errors[0].message);
                         alert("Error message: " + errors[0].message);
                     }
                 } else {
@@ -546,15 +530,19 @@
     AddProductstoAcc : function(component, event,Type) {
         
 		
-        var isOpenAccOrd = component.get("v.isOpenAccOrd"); 
-        var schoolOrder = component.get("v.ShoolOrderItemList");
-        var fullOrderList = component.get("v.OrderItemList"); 
+      //  var isOpenAccOrd = component.get("v.isOpenAccOrd"); 
+      //  var schoolOrder = component.get("v.ShoolOrderItemList");
+      //  var fullOrderList = component.get("v.OrderItemList"); 
         
-        var FullProductList = component.get("v.FullProductList"); 
-        var SchoolProductList = component.get("v.SchoolProductList"); 
+       // var FullProductList = component.get("v.FullProductList"); 
+       // var SchoolProductList = component.get("v.SchoolProductList"); 
+       //var OrderProdMap = component.get("v.OrderProdMap");
+       //var totalOrderAmounts = component.get( 'v.TotalOrder');
+       
+       var SchoolProductList = component.get("v.FullProductList"); 
+
         var schoollist = component.get("v.accountsData");
-        var OrderProdMap = component.get("v.OrderProdMap");
-        var totalOrderAmounts = component.get( 'v.TotalOrder');
+
             
         var selectedItem;  
         var recId;  
@@ -645,12 +633,9 @@
                      			'TotalVat':0
                 };
        
-
+ /*
       if(Pleaseselectschool == true){  
-          
-       
-
-
+   
         var ProductCount = 0;
        for(var key in FullProductList){
         ProductCount++;
@@ -692,14 +677,17 @@
                 'listAsset2Product':FullProductList[key].listAsset2Product,  
                 'Stocknumber':FullProductList[key].Stocknumber,
                 'maxQuantity':FullProductList[key].maxQuantity,
+                'CustomPricingAllowed':FullProductList[key].CustomPricingAllowed,
+                'IndexationPercentage':FullProductList[key].IndexationPercentage
                 
         	});
                
            }   
            
         } 
+        
     }
-       
+    */   
    
 
      if(Pleaseselectschool != true){
@@ -1000,6 +988,7 @@
                                                             listPriceSelected=true;
  
                                                             fullOrderList[key].listPriceRateId =  ListPriceDiscount[keyLP].Id;
+                                                            fullOrderList[key].Rate = (ListPriceDiscount[keyLP].Rate__c/100).toFixed(2)
                                                             fullOrderList[key].IsEdited = true;
                                                             fullOrderList[key].STDPrice = (fullOrderList[key].BasePrice - (fullOrderList[key].BasePrice * (ListPriceDiscount[keyLP].Rate__c/100))).toFixed(2);
                                                             fullOrderList[key].UnitPrice = fullOrderList[key].STDPrice;
@@ -1057,7 +1046,7 @@
                                                             if(fullOrderList[key].ProRataRate < 1 ){
                         
                                                                 fullOrderList[key].UnitPrice =  (fullOrderList[key].UnitPrice*(parseFloat(fullOrderList[key].ProRataRate))).toFixed(2);
-                                                                console.log('**UnitPrice **'+fullOrderList[key].UnitPrice);
+                                                                
                                                                 fullOrderList[key].Amount =  fullOrderList[key].UnitPrice * fullOrderList[key].Quantity;
                                                             }    
 
@@ -1118,14 +1107,14 @@
 
         }
 
-        console.log('**loopCount**'+loopCount);
-        console.log('**loopCountLPD**'+loopCountLPD);
-        console.log('**loopCountPRODDTYEE**'+loopCountPRODDTYEE);
+        console.log('****UpdateListPriceDiscount: loopCount**'+loopCount);
+        console.log('****UpdateListPriceDiscount: loopCountLPD**'+loopCountLPD);
+        console.log('****UpdateListPriceDiscount: loopCountPRODDTYEE**'+loopCountPRODDTYEE);
 
         var OrderItemsLength=1;
         for(var key in fullOrderList){
 
-            console.log('**Item group Update: Before**');
+            console.log('****UpdateListPriceDiscount: Item group Update: Before**');
             /*
             if(fullOrderList[key].ProRataRate < 1 && ProductId ==  fullOrderList[key].ProductId && fullOrderList[key].ItemGroupComponent == false){
                         
@@ -1166,7 +1155,7 @@
       //  component.set("v.ShoolOrderItemList",schoolOrder);    
 
       var tl1 = performance.now();
-      console.log("LPD LOOP TOOK: " + (tl1 - tl0) + " milliseconds."); 
+      console.log("**UpdateListPriceDiscount: LPD LOOP TOOK: " + (tl1 - tl0) + " milliseconds."); 
         
         
         if(Type=='Existing'){
@@ -1187,7 +1176,7 @@
         component.set("v.CurrenOrderDisplay",CurrenOrderDisplay);
         
         var tl2 = performance.now();
-        console.log("LPD SET TOOK: " + (tl2 - tl1) + " milliseconds."); 
+        console.log("**UpdateListPriceDiscount: LPD SET TOOK: " + (tl2 - tl1) + " milliseconds."); 
         
     },
 
@@ -1258,6 +1247,7 @@
                   'ItemGroupProductId': schoolOrder[key].ItemGroupProductId,
                   'ItemGroupType':schoolOrder[key].ItemGroupType,
                   'ItemGroup':schoolOrder[key].ItemGroup,
+                  'CustomPricingAllowed': schoolOrder[key].CustomPricingAllowed,
                   'ItemGroupId':schoolOrder[key].ItemGroupId, 
                   'IsEdited':schoolOrder[key].IsEdited                     
                    
@@ -1301,7 +1291,7 @@
     var totalOrderAmounts = component.get( 'v.TotalOrder');
 
     var fullOrderList = component.get("v.OrderItemList");
-    console.log('**S1**');
+    console.log('**Save Product: S1**');
     var t1 = performance.now();
     
     
@@ -1353,13 +1343,14 @@
                   'ItemGroupType':schoolOrder[key].ItemGroupType,
                   'ItemGroup':schoolOrder[key].ItemGroup,
                   'ItemGroupId':schoolOrder[key].ItemGroupId, 
+                  'CustomPricingAllowed':schoolOrder[key]. CustomPricingAllowed,
                   'IsEdited':schoolOrder[key].IsEdited                     
                    
             });
              
     }
     var t2 = performance.now();     
-    console.log("time 2 " + (t2 - t1) + " milliseconds.");
+    console.log("Save Product: time 2 " + (t2 - t1) + " milliseconds.");
   
     totalOrderAmounts.TotalAmount =0;
     for(var key in fullOrderList){
@@ -1369,7 +1360,7 @@
     }    
 
     var t3 = performance.now();
-     console.log("time 3 " + (t3 - t2) + " milliseconds.");
+     console.log("Save Product: time 3 " + (t3 - t2) + " milliseconds.");
 
     component.set( 'v.TotalOrder', totalOrderAmounts);
     
@@ -1379,12 +1370,12 @@
  //  component.set("v.SchoolProductList",[]);
 
     var t4 = performance.now();
-     console.log("time 3 " + (t4 - t3) + " milliseconds.");
+     console.log("Save Product: time 4 " + (t4 - t3) + " milliseconds.");
     
 
  //  component.set("v.isOpenAccOrd",false);
    var t5 = performance.now();
-     console.log("time 3 " + (t5 - t4) + " milliseconds.");
+     console.log("Save Product : time 5 " + (t5 - t4) + " milliseconds.");
     
 },
     

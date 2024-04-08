@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Assign_Country_Code</name>
+        <label>Assign Country Code</label>
+        <locationX>600</locationX>
+        <locationY>3227</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.PhoneCountryCode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DialCodeWithPhone</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Liber</name>
+        <label>Assign Liber</label>
+        <locationX>314</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.SalesAdminLiber</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>decLiberAccount</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Noordhoff</name>
+        <label>Assign Noordhoff</label>
+        <locationX>578</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.SalesAdminNoordhoff</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>decLiberAccount</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Plantyn</name>
+        <label>Assign Plantyn</label>
+        <locationX>50</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.SalesAdminPlantyn</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>decLiberAccount</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignDefaultValues</name>
+        <label>Assign Default Values</label>
+        <locationX>446</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.PaymentMethod__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Invoice</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.UniqueExternalDatabaseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>UniqueExternalCustomer_ID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.InvoicingFrequency__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forInvoicingFrequency</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_New_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignLiberCurreny</name>
+        <label>AssignLiberCurreny</label>
+        <locationX>314</locationX>
+        <locationY>1019</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.CurrencyIsoCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SEK</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CheckCustomerCategoryDiscountGroup</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignLocationRecordTypeId</name>
+        <label>Assign Location Record Type Id</label>
+        <locationX>600</locationX>
+        <locationY>2819</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varAccountLocationRecordTypeId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Phone_with_Country_Code</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>AssignVariablesILSync</name>
+        <label>Assign Variables IL Sync</label>
+        <locationX>292</locationX>
+        <locationY>2327</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varNewOwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.School__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varNewSchoolId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.ParentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varNewParentId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>0123V000000PRK8QAO</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LocationCheck</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Unique_External_Customer_ID</name>
+        <label>Set Unique External Customer ID</label>
+        <locationX>1018</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.UniqueExternalDatabaseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>UniqueExternalCustomer_ID</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LocationCheck</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SetCustomerDiscountGroup</name>
+        <label>Set Customer Discount Group</label>
+        <locationX>314</locationX>
+        <locationY>1319</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.CustomerDiscountGroup__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.CustomerCategory__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_ILSync_Ture</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>AgodiUpdateInProgress</name>
+        <label>Agodi Update In Progress</label>
+        <locationX>259</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>NewOrExisting</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AgodiUpdateInProgress__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Assign_New_Owner</name>
+        <label>Assign New Owner</label>
+        <locationX>446</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>decLiberAccount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Assign_Owner_Plantyn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0053V000001EyOz</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plantyn</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Plantyn</targetReference>
+            </connector>
+            <label>Assign Owner Plantyn</label>
+        </rules>
+        <rules>
+            <name>Assign_Owner_Liber</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0053V000001EyOz</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Liber</targetReference>
+            </connector>
+            <label>Assign Owner Liber</label>
+        </rules>
+        <rules>
+            <name>Assign_Owner_Noordhoff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.Id</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0053V000001EyOz</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Noordhoff</targetReference>
+            </connector>
+            <label>Assign Owner Noordhoff</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CheckCustomerCategoryDiscountGroup</name>
+        <label>Check Customer Category &amp; Discount Group</label>
+        <locationX>446</locationX>
+        <locationY>1211</locationY>
+        <defaultConnector>
+            <targetReference>Is_ILSync_Ture</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>PopulateDiscountGroup</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CustomerCategory__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CustomerDiscountGroup__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetCustomerDiscountGroup</targetReference>
+            </connector>
+            <label>Populate Discount Group</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>decLiberAccount</name>
+        <label>decLiberAccount</label>
+        <locationX>446</locationX>
+        <locationY>911</locationY>
+        <defaultConnector>
+            <targetReference>CheckCustomerCategoryDiscountGroup</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AssignCurrency</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignLiberCurreny</targetReference>
+            </connector>
+            <label>AssignCurrency</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_ILSync_Ture</name>
+        <label>Is ILSync Ture</label>
+        <locationX>446</locationX>
+        <locationY>1511</locationY>
+        <defaultConnector>
+            <targetReference>LocationCheck</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ILSync_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ILSync__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Owner_ID</targetReference>
+            </connector>
+            <label>ILSync True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Old_Parent_ID_Populated</name>
+        <label>Is Old Parent ID Populated</label>
+        <locationX>292</locationX>
+        <locationY>2027</locationY>
+        <defaultConnector>
+            <targetReference>AssignVariablesILSync</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Old_Parent_ID_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OldParentId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_ID</targetReference>
+            </connector>
+            <label>Old Parent ID Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Old_School_ID_Populated</name>
+        <label>Is Old School ID Populated</label>
+        <locationX>292</locationX>
+        <locationY>1727</locationY>
+        <defaultConnector>
+            <targetReference>Is_Old_Parent_ID_Populated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Old_School_ID_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OldSchoolId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_School_ID</targetReference>
+            </connector>
+            <label>Old School ID Populated</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>LocationCheck</name>
+        <label>Location Check</label>
+        <locationX>732</locationX>
+        <locationY>2603</locationY>
+        <defaultConnector>
+            <targetReference>Phone_with_Country_Code</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>SchoolTypeLocation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SchoolType__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Location</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExternalDatabase__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Agodi</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetAccountLocationRecordType</targetReference>
+            </connector>
+            <label>School Type Location</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>NewOrExisting</name>
+        <label>New or Existing?</label>
+        <locationX>732</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Set_Unique_External_Customer_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Existing Account</defaultConnectorLabel>
+        <rules>
+            <name>NewAccount</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AssignDefaultValues</targetReference>
+            </connector>
+            <label>New Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Phone_with_Country_Code</name>
+        <label>Phone with Country Code</label>
+        <locationX>732</locationX>
+        <locationY>3011</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Set_Phone_with_Country_Code</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PhoneCountry__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Phone</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Country_Code_Metadata</targetReference>
+            </connector>
+            <label>Set Phone with Country Code</label>
+        </rules>
+    </decisions>
+    <description>Added formula to populate Unique External Customer ID field with combination of External Database + External Customer ID
+DB: 28/03/2023 Added Validation fields as flow formulas and assign outcome to checkbox fields
+CH: 09/05/2023 Removed acc sub and shipping rule validation checks
+CH: 31/07/2023 Added validation against account name
+JK: 31/08/2023 Added finctionality to Full Name in the FullLegalName field if the FullLegalName field is Empty in insert
+DB: 28/03/2023 Removed Validation fields assignments</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>DialCodeWithPhone</name>
+        <dataType>String</dataType>
+        <expression>{!Get_Country_Code_Metadata.PhoneCountryDialCode__c}&amp;RIGHT({!$Record.Phone},(LEN( {!$Record.Phone})-FIND(&quot;0&quot;, {!$Record.Phone})))</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateAccountNameSoft</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(
+LEN({!$Record.Name}) &gt; 83, true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateAccountSubsidiaryRequired</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.AccountSubsidiaryCount__c} = 0</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateArea</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( OR({!$Record.RecordType.DeveloperName} = &apos;B2BEducational&apos;, 
+{!$Record.RecordType.DeveloperName}= &apos;B2B_Educational_Location&apos;, 
+{!$Record.RecordType.DeveloperName} = &apos;B2BNonEducational&apos;,
+{!$Record.RecordType.DeveloperName} = &apos;B2BPurchasingGroups&apos;) &amp;&amp; 
+TEXT({!$Record.OperatingCompany__c}) = &apos;Plantyn&apos; &amp;&amp; OR(ISBLANK(TEXT({!$Record.Area__c})), ISNULL(TEXT({!$Record.Area__c}))),true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateBillingAddress</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(AND(OR({!$Record.BillingCountry} =&apos;Sweden&apos;, 
+{!$Record.BillingCountry} =&apos;Netherlands&apos;, 
+{!$Record.BillingCountry} =&apos;Belgium&apos;, 
+{!$Record.BillingCountry} =&apos;Luxembourg&apos;),
+OR({!$Record.BillingStreet} = null, 
+{!$Record.BillingCity} = null, 
+{!$Record.BillingCountry} = null, 
+{!$Record.BillingPostalCode} = null)),
+true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateBlockReasonDeactivated</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(OR(ISPICKVAL( {!$Record.BlockReason__c}, &apos;Deactivated&apos;), ISPICKVAL( {!$Record.BlockReason__c}, &apos;Proforma&apos;)), ISBLANK( {!$Record.NetsuiteCustomerNumber__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateCommunicationLanguage</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(ISBLANK(TEXT({!$Record.CommunicationLanguage__c})),true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateCourierInfo</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(((ISBLANK(TEXT({!$Record.Courier__c})) || ISBLANK(TEXT({!$Record.DeliveryRouting__c})))) &amp;&amp; 
+TEXT({!$Record.OperatingCompany__c}) = &apos;Liber&apos;, true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateCustomerCategory</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(ISBLANK(TEXT({!$Record.CustomerCategory__c})),true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateCustomerDiscountGroup</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(ISBLANK(TEXT({!$Record.CustomerDiscountGroup__c})), true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateEmailsRequired</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    ISBLANK({!$Record.InvoicingEmail__c}),
+    ISBLANK({!$Record.BillingReminderEmail__c}),
+    IF(
+        OR(
+            AND(
+                ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff&apos;),
+                {!$Record.isProfessional__c }= true
+            ),
+            ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff Professional&apos;)
+        ),
+        false,
+        OR(
+            ISBLANK({!$Record.OrderNotificationEmail__c}),
+            ISBLANK({!$Record.DigitalActivationEmail__c})
+        )
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateFirstNameLastName</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(AND(
+NOT(ISPICKVAL({!$Record.AuthorType__c}, &apos;Company&apos;)),
+OR(ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Author&apos;), ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Private Individual&apos;)), OR(ISBLANK({!$Record.authorFirstName__c}), ISBLANK({!$Record.authorLastName__c}))), true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateInvoicingFrequency</name>
+        <dataType>Boolean</dataType>
+        <expression>ISBLANK(TEXT({!$Record.InvoicingFrequency__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateNetsuiteId</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Record.NetsuiteInternalId__c} = null</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidatePhone</name>
+        <dataType>Boolean</dataType>
+        <expression>AND({!$Record.Phone} != null,
+OR(
+NOT({!$User.ValidationRulesDoNotApply__c}),
+NOT(REGEX({!$Record.Phone}, &quot;^\\+[1-9]\\d{1,14}$&quot;))
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateShippingAddress</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(AND(OR({!$Record.ShippingCountry} =&apos;Sweden&apos;, 
+{!$Record.ShippingCountry} =&apos;Netherlands&apos;, 
+{!$Record.ShippingCountry} =&apos;Belgium&apos;, 
+{!$Record.ShippingCountry} =&apos;Luxembourg&apos;),
+OR({!$Record.ShippingStreet}= null, 
+{!$Record.ShippingCity}= null, 
+{!$Record.ShippingCountry} = null, 
+{!$Record.ShippingPostalCode}= null)),
+true,false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateShippingRule</name>
+        <dataType>Boolean</dataType>
+        <expression>ISBLANK(TEXT({!$Record.ShippingCostMethod__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateStudentNumbers</name>
+        <dataType>Boolean</dataType>
+        <expression>IF( OR({!$Record.RecordType.DeveloperName} = &apos;B2BEducational&apos;, 
+{!$Record.RecordType.DeveloperName} = &apos;B2B_Educational_Location&apos;,
+{!$Record.RecordType.DeveloperName} = &apos;B2BPurchasingGroups&apos;) &amp;&amp; 
+OR(ISBLANK({!$Record.NumberofStudents__c}), ISNULL({!$Record.NumberofStudents__c})), 
+true, false)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateVATMaxChars</name>
+        <dataType>Boolean</dataType>
+        <expression>LEN({!$Record.VATNumber__c}) &gt; 20</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateVATNumberRequired</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Plantyn&apos;),
+OR(ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Company&apos;), 
+ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Reseller&apos;), 
+ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Trade Bookstore&apos;), 
+ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Trade Regular&apos;), 
+ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Trade Specialist&apos;)),
+ISBLANK({!$Record.VATNumber__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateVatStatus</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+AND(ISPICKVAL({!$Record.VatNumberRequired__c},&apos;Yes&apos;), 
+NOT(ISPICKVAL({!$Record.VATStatus__c}, &apos;Correct&apos;)), 
+NOT(ISPICKVAL({!$Record.VATStatus__c}, &apos;Manual verification required&apos;))),
+AND(ISPICKVAL({!$Record.VatNumberRequired__c},&apos;No&apos;), 
+NOT(ISBLANK({!$Record.VATNumber__c})), 
+NOT(ISPICKVAL({!$Record.VATStatus__c}, &apos;Correct&apos;)), 
+NOT(ISPICKVAL({!$Record.VATStatus__c}, &apos;Manual verification required&apos;)))
+)</expression>
+    </formulas>
+    <formulas>
+        <name>F_ValidateWebsite</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(NOT(BEGINS( {!$Record.Website}, &apos;https://&apos;)),
+NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Website}, &apos; &apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>forB2BEducationalId</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.AccountB2bEducationalId}</expression>
+    </formulas>
+    <formulas>
+        <name>forB2BEducationalLocationId</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.AccountB2bEducationalLocationId}</expression>
+    </formulas>
+    <formulas>
+        <name>forInvoicingFrequency</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK(TEXT({!$Record.InvoicingFrequency__c}))),TEXT({!$Record.InvoicingFrequency__c}),&quot;Daily&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>combination of External Database + External Customer ID</description>
+        <name>UniqueExternalCustomer_ID</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT( ISBLANK(TEXT({!$Record.ExternalDatabase__c}))),NOT(ISBLANK({!$Record.ExternalCustomerId__c}))),
+TEXT({!$Record.ExternalDatabase__c})&amp;&quot;_&quot;&amp;{!$Record.ExternalCustomerId__c},
+NULL)</expression>
+    </formulas>
+    <interviewLabel>Before Save Updates Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Before Save Updates Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Country_Code_Metadata</name>
+        <label>Get Country Code Metadata</label>
+        <locationX>600</locationX>
+        <locationY>3119</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Country_Code</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Label</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.PhoneCountry__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PhoneCountryDialCode__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Country__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Owner_ID</name>
+        <label>Get Owner ID</label>
+        <locationX>292</locationX>
+        <locationY>1619</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Old_School_ID_Populated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OldId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OldOwnerId__c</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>varNewOwnerId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Parent_ID</name>
+        <label>Get Parent ID</label>
+        <locationX>160</locationX>
+        <locationY>2135</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AssignVariablesILSync</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OldAccountId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OldParentId__c</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>varNewParentId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_School_ID</name>
+        <label>Get School ID</label>
+        <locationX>160</locationX>
+        <locationY>1835</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Old_Parent_ID_Populated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OldAccountId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OldSchoolId__c</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>varNewSchoolId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>GetAccountLocationRecordType</name>
+        <label>Get Account Location Record Type</label>
+        <locationX>600</locationX>
+        <locationY>2711</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AssignLocationRecordTypeId</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>B2B_Educational_Location</stringValue>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>varAccountLocationRecordTypeId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>133</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>AgodiUpdateInProgress</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varAccountLocationRecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNewOwnerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>0053V000001EyOzQAK</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>varNewParentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varNewSchoolId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PlantynFollowSalesProcess</fullName>
+    <active>true</active>
+    <description>Change to Discarded only when the previous stage = 0. New MQL or 1. New SQL or 1.1. In Process
+When the previous stage is something else, the opportunity can only be closed as won or lost</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(OperatingCompany__c, &quot;Plantyn&quot;),
+NOT( $Profile.Name = &quot;System Administrator&quot; ),
+ISPICKVAL(StageName,&quot;5. Discarded&quot;),
+NOT(
+OR(
+ISPICKVAL(PRIORVALUE(StageName),&quot;0. New MQL&quot;),
+ISPICKVAL(PRIORVALUE(StageName),&quot;1. New SQL&quot;),
+ISPICKVAL(PRIORVALUE(StageName),&quot;1.1. In Process&quot;)
+)
+),
+ISCHANGED(StageName)
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Opportunity can only be set to Discarded from 0. New MQL or 1. New SQL or 1.1 In Process Else, please set to closed won or lost in stead</errorMessage>
+</ValidationRule>

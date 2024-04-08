@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReadyForPrivateIndividual__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field determined if the Order is ready to be created for a Private Individual. Because for a newly created Private Individual Account the NetsuiteInternalId might not be populated immediately the Order is not ready to be created.</description>
+    <externalId>false</externalId>
+    <label>Ready For Private Individual</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

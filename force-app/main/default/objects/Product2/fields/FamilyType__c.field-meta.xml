@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FamilyType__c</fullName>
+    <externalId>false</externalId>
+    <label>Family type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Legacy</fullName>
+                <default>false</default>
+                <label>Legacy</label>
+            </value>
+            <value>
+                <fullName>Strippenkaart</fullName>
+                <default>false</default>
+                <label>Strippenkaart</label>
+            </value>
+            <value>
+                <fullName>ZorgPad Professional</fullName>
+                <default>false</default>
+                <label>ZorgPad Professional</label>
+            </value>
+            <value>
+                <fullName>PulseWeb</fullName>
+                <default>false</default>
+                <label>PulseWeb</label>
+            </value>
+            <value>
+                <fullName>AskMe</fullName>
+                <default>false</default>
+                <label>AskMe</label>
+            </value>
+            <value>
+                <fullName>ZorgPad Plug &amp; Play</fullName>
+                <default>false</default>
+                <label>ZorgPad Plug &amp; Play</label>
+            </value>
+            <value>
+                <fullName>Edumanager</fullName>
+                <default>false</default>
+                <label>Edumanager</label>
+            </value>
+            <value>
+                <fullName>ZorgPad Bachelor Nursing</fullName>
+                <default>false</default>
+                <label>ZorgPad Bachelor Nursing</label>
+            </value>
+            <value>
+                <fullName>LearnLinq</fullName>
+                <default>false</default>
+                <label>LearnLinq</label>
+            </value>
+            <value>
+                <fullName>Vilans Assessor</fullName>
+                <default>false</default>
+                <label>Vilans Assessor</label>
+            </value>
+            <value>
+                <fullName>Leerstation Zorg</fullName>
+                <default>false</default>
+                <label>Leerstation Zorg</label>
+            </value>
+            <value>
+                <fullName>ZorgPad Zorg &amp; Welzijn</fullName>
+                <default>false</default>
+                <label>ZorgPad Zorg &amp; Welzijn</label>
+            </value>
+            <value>
+                <fullName>Videobibliotheek</fullName>
+                <default>false</default>
+                <label>Videobibliotheek</label>
+            </value>
+            <value>
+                <fullName>OIVH</fullName>
+                <default>false</default>
+                <label>OIVH</label>
+            </value>
+            <value>
+                <fullName>Ilias</fullName>
+                <default>false</default>
+                <label>Ilias</label>
+            </value>
+            <value>
+                <fullName>Informat</fullName>
+                <default>false</default>
+                <label>Informat</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

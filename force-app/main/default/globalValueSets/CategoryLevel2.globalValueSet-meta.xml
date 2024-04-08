@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Assortiment</fullName>
+        <default>false</default>
+        <label>Assortiment</label>
+    </customValue>
+    <customValue>
+        <fullName>Bestelling &amp; Levering</fullName>
+        <default>false</default>
+        <label>Bestelling &amp; Levering</label>
+    </customValue>
+    <customValue>
+        <fullName>Klantgegevens &amp; Account</fullName>
+        <default>false</default>
+        <label>Klantgegevens &amp; Account</label>
+    </customValue>
+    <customValue>
+        <fullName>Factuur &amp; Betaling</fullName>
+        <default>false</default>
+        <label>Factuur &amp; Betaling</label>
+    </customValue>
+    <customValue>
+        <fullName>Werken met het digitaal lesmateriaal</fullName>
+        <default>false</default>
+        <label>Werken met het digitaal lesmateriaal</label>
+    </customValue>
+    <customValue>
+        <fullName>Privacy</fullName>
+        <default>false</default>
+        <label>Privacy</label>
+    </customValue>
+    <customValue>
+        <fullName>Service</fullName>
+        <default>false</default>
+        <label>Service</label>
+    </customValue>
+    <customValue>
+        <fullName>Werken met het digitaal materiaal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Werken met het digitaal materiaal</label>
+    </customValue>
+    <masterLabel>Category Level 2</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

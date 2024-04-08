@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastCallAttempt__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Stores new date/time whenever the &apos;Call Attempt&apos; is changed.</inlineHelpText>
+    <label>Last Call Attempt</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonOrder__c</fullName>
+    <description>HO: 1 - Wat is de reden van uw aanvraag?
+MBO: 3 - De reden van mijn aanvraag is:</description>
+    <externalId>false</externalId>
+    <inlineHelpText>HO: 1 - Wat is de reden van uw aanvraag?
+MBO: 3 - De reden van mijn aanvraag is:</inlineHelpText>
+    <label>Reason Order</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>Oriëntatie op nieuw leermiddel in verband met gewijzigd curriculum</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>Oriëntatie op leermiddel dat beter geschikt is dan de huidige leermiddelen</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>Gebruikersexemplaar: de vorige editie staat al op de boekenlijst</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>Algemene interesse</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>Gebruikersexemplaar: de huidige editie staat al op de boekenlijst</label>
+            </value>
+            <value>
+                <fullName>6</fullName>
+                <default>false</default>
+                <label>Niet tevreden met huidig lesmateriaal</label>
+            </value>
+            <value>
+                <fullName>7</fullName>
+                <default>false</default>
+                <label>Orïentatie voor nieuw leermiddel op de boekenlijst voor komend schooljaar</label>
+            </value>
+            <value>
+                <fullName>8</fullName>
+                <default>false</default>
+                <label>Gebruikersexemplaar (we schrijven deze methode al voor)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

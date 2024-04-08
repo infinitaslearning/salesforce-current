@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aanvraag docentenpakket</fullName>
+                <default>false</default>
+                <label>Aanvraag docentenpakket</label>
+            </value>
+            <value>
+                <fullName>AA - Other</fullName>
+                <default>false</default>
+                <label>AA - Other</label>
+            </value>
+            <value>
+                <fullName>Accountmanager</fullName>
+                <default>false</default>
+                <label>Accountmanager</label>
+            </value>
+            <value>
+                <fullName>Accountmanager visit</fullName>
+                <default>false</default>
+                <label>Accountmanager visit</label>
+            </value>
+            <value>
+                <fullName>BEX-aanvraag</fullName>
+                <default>false</default>
+                <label>BEX-aanvraag</label>
+            </value>
+            <value>
+                <fullName>BEX-koerier</fullName>
+                <default>false</default>
+                <label>BEX-koerier</label>
+            </value>
+            <value>
+                <fullName>Boekenlijst BME</fullName>
+                <default>false</default>
+                <label>Boekenlijst BME</label>
+            </value>
+            <value>
+                <fullName>Boekenlijst Iddink</fullName>
+                <default>false</default>
+                <label>Boekenlijst Iddink</label>
+            </value>
+            <value>
+                <fullName>Boekenlijst retail</fullName>
+                <default>false</default>
+                <label>Boekenlijst retail</label>
+            </value>
+            <value>
+                <fullName>Boekenlijst VDE</fullName>
+                <default>false</default>
+                <label>Boekenlijst VDE</label>
+            </value>
+            <value>
+                <fullName>Bop automaat</fullName>
+                <default>false</default>
+                <label>Bop automaat</label>
+            </value>
+            <value>
+                <fullName>Breuker TM bureau</fullName>
+                <default>false</default>
+                <label>Breuker TM bureau</label>
+            </value>
+            <value>
+                <fullName>BVE Copy</fullName>
+                <default>false</default>
+                <label>BVE Copy</label>
+            </value>
+            <value>
+                <fullName>Cross en upsell</fullName>
+                <default>false</default>
+                <label>Cross en upsell</label>
+            </value>
+            <value>
+                <fullName>Customer call</fullName>
+                <default>false</default>
+                <label>Customer call</label>
+            </value>
+            <value>
+                <fullName>Customer Service</fullName>
+                <default>false</default>
+                <label>Customer Service</label>
+            </value>
+            <value>
+                <fullName>De Rolf Groep / Reinders</fullName>
+                <default>false</default>
+                <label>De Rolf Groep / Reinders</label>
+            </value>
+            <value>
+                <fullName>Direct mail</fullName>
+                <default>false</default>
+                <label>Direct mail</label>
+            </value>
+            <value>
+                <fullName>E-Mail</fullName>
+                <default>false</default>
+                <label>E-Mail</label>
+            </value>
+            <value>
+                <fullName>Event attendance</fullName>
+                <default>false</default>
+                <label>Event attendance</label>
+            </value>
+            <value>
+                <fullName>Heutink</fullName>
+                <default>false</default>
+                <label>Heutink</label>
+            </value>
+            <value>
+                <fullName>IVP</fullName>
+                <default>false</default>
+                <label>IVP</label>
+            </value>
+            <value>
+                <fullName>KG &amp; Rolf</fullName>
+                <default>false</default>
+                <label>KG &amp; Rolf</label>
+            </value>
+            <value>
+                <fullName>LMO lijst</fullName>
+                <default>false</default>
+                <label>LMO lijst</label>
+            </value>
+            <value>
+                <fullName>Mail campaign</fullName>
+                <default>false</default>
+                <label>Mail campaign</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>MBO Copy</fullName>
+                <default>false</default>
+                <label>MBO Copy</label>
+            </value>
+            <value>
+                <fullName>Methode Oriëntatie Dag</fullName>
+                <default>false</default>
+                <label>Methode Oriëntatie Dag</label>
+            </value>
+            <value>
+                <fullName>NOT 2015</fullName>
+                <default>false</default>
+                <label>NOT 2015</label>
+            </value>
+            <value>
+                <fullName>NOT 2017</fullName>
+                <default>false</default>
+                <label>NOT 2017</label>
+            </value>
+            <value>
+                <fullName>Pre-scan ADL</fullName>
+                <default>false</default>
+                <label>Pre-scan ADL</label>
+            </value>
+            <value>
+                <fullName>Retentie</fullName>
+                <default>false</default>
+                <label>Retentie</label>
+            </value>
+            <value>
+                <fullName>Sample copy</fullName>
+                <default>false</default>
+                <label>Sample copy</label>
+            </value>
+            <value>
+                <fullName>Switch Opp automaat</fullName>
+                <default>false</default>
+                <label>Switch Opp automaat</label>
+            </value>
+            <value>
+                <fullName>Target Creation</fullName>
+                <default>false</default>
+                <label>Target Creation</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Website visit</fullName>
+                <default>false</default>
+                <label>Website visit</label>
+            </value>
+            <value>
+                <fullName>Whitespot analyse</fullName>
+                <default>false</default>
+                <label>Whitespot analyse</label>
+            </value>
+            <value>
+                <fullName>ZZZ - Other</fullName>
+                <default>false</default>
+                <label>ZZZ - Other</label>
+            </value>
+            <value>
+                <fullName>HO Copy</fullName>
+                <default>false</default>
+                <label>HO Copy</label>
+            </value>
+            <value>
+                <fullName>BME</fullName>
+                <default>false</default>
+                <label>BME</label>
+            </value>
+            <value>
+                <fullName>Boekenlijst Osinga de Jong</fullName>
+                <default>false</default>
+                <label>Boekenlijst Osinga de Jong</label>
+            </value>
+            <value>
+                <fullName>Leermiddelencoördinator (LMC)</fullName>
+                <default>false</default>
+                <label>Leermiddelencoördinator (LMC)</label>
+            </value>
+            <value>
+                <fullName>Bop/Gex aanvraag</fullName>
+                <default>false</default>
+                <label>Bop/Gex aanvraag</label>
+            </value>
+            <value>
+                <fullName>ICT coordinator</fullName>
+                <default>false</default>
+                <label>ICT coordinator</label>
+            </value>
+            <value>
+                <fullName>Intern sales</fullName>
+                <default>false</default>
+                <label>Intern sales</label>
+            </value>
+            <value>
+                <fullName>BME ATTACK</fullName>
+                <default>false</default>
+                <label>BME ATTACK</label>
+            </value>
+            <value>
+                <fullName>BME 15k top titel</fullName>
+                <default>false</default>
+                <label>BME 15k top titel</label>
+            </value>
+            <value>
+                <fullName>BME concurrentie overig muv Edumundo</fullName>
+                <default>false</default>
+                <label>BME concurrentie overig muv Edumundo</label>
+            </value>
+            <value>
+                <fullName>BME Edumundo</fullName>
+                <default>false</default>
+                <label>BME Edumundo</label>
+            </value>
+            <value>
+                <fullName>BME MBO Attack onbekend</fullName>
+                <default>false</default>
+                <label>BME MBO Attack onbekend</label>
+            </value>
+            <value>
+                <fullName>BME 15k top title - Platform</fullName>
+                <default>false</default>
+                <label>BME 15k top title - Platform</label>
+            </value>
+            <value>
+                <fullName>BME concurrentie overig muv Edumundo- Platform</fullName>
+                <default>false</default>
+                <label>BME concurrentie overig muv Edumundo- Platform</label>
+            </value>
+            <value>
+                <fullName>BME Edumundo- Platform</fullName>
+                <default>false</default>
+                <label>BME Edumundo- Platform</label>
+            </value>
+            <value>
+                <fullName>BME STM</fullName>
+                <default>false</default>
+                <label>BME STM</label>
+            </value>
+            <value>
+                <fullName>BME ATTACK STM</fullName>
+                <default>false</default>
+                <label>BME ATTACK STM</label>
+            </value>
+            <value>
+                <fullName>Sanering 2023</fullName>
+                <default>false</default>
+                <label>Sanering 2023</label>
+            </value>
+            <value>
+                <fullName>DB</fullName>
+                <default>false</default>
+                <label>DB</label>
+            </value>
+            <value>
+                <fullName>Zichtzending</fullName>
+                <default>false</default>
+                <label>Zichtzending</label>
+            </value>
+            <value>
+                <fullName>E-Zichtzending</fullName>
+                <default>false</default>
+                <label>E-Zichtzending</label>
+            </value>
+            <value>
+                <fullName>Proeflicentie</fullName>
+                <default>false</default>
+                <label>Proeflicentie</label>
+            </value>
+            <value>
+                <fullName>Proefles</fullName>
+                <default>false</default>
+                <label>Proefles</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

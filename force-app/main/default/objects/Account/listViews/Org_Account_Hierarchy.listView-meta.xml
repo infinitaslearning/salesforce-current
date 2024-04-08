@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Org_Account_Hierarchy</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CountOpportunities__c</columns>
+    <columns>CustomerCategory__c</columns>
+    <columns>EducationType__c</columns>
+    <columns>ACCOUNT.ADDRESS2_STREET</columns>
+    <columns>ACCOUNT.ADDRESS2_CITY</columns>
+    <columns>NumberOfStudentsHierarchy__c</columns>
+    <columns>ACCOUNT.OWNERSHIP</columns>
+    <columns>TotalOpportunityAmountUnweighted__c</columns>
+    <columns>TotalOpportunityAmountWeighted__c</columns>
+    <columns>OwnerName__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Org_Account_Hierarchy</label>
+</ListView>

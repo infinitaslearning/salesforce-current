@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OrderLineType__c</fullName>
+    <externalId>false</externalId>
+    <formula>if(AND(IsRegularOrderPossible__c=true,IsInspectionCopyOrderPossible__c=true,IsUseCopyOrderPossible__c=true),&apos;Regular;Inspection Copy;Use Copy;Free;Service&apos;,
+if(AND(IsRegularOrderPossible__c=true,IsInspectionCopyOrderPossible__c=true,IsUseCopyOrderPossible__c=false),&apos;Regular;Inspection Copy;Free;Service&apos;,
+if(AND(IsRegularOrderPossible__c=false,IsInspectionCopyOrderPossible__c=true,IsUseCopyOrderPossible__c=true),&apos;Inspection Copy;Use Copy;Free;Service;&apos;,
+if(AND(IsRegularOrderPossible__c=true,IsInspectionCopyOrderPossible__c=false,IsUseCopyOrderPossible__c=false),&apos;Regular;Free;Service&apos;,
+if(AND(IsRegularOrderPossible__c=false,IsInspectionCopyOrderPossible__c=true,IsUseCopyOrderPossible__c=false),&apos;Inspection Copy;Free;Service&apos;,
+if(AND(IsRegularOrderPossible__c=false,IsInspectionCopyOrderPossible__c=false,IsUseCopyOrderPossible__c=true),&apos;Use Copy;Free;Service&apos;,
+if(AND(IsRegularOrderPossible__c=true,IsInspectionCopyOrderPossible__c=false,IsUseCopyOrderPossible__c=true),&apos;Regular;Use Copy;Free;Service&apos;,&apos;Free;Service&apos;)))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Order Line Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

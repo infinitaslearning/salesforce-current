@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WorkOrderDeliveryDate__c</fullName>
+    <description>Only applies to Contracts of Type &apos;Work Order&apos;.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Date when the Work Order should be Fulfilled / Delivered to the Account / Customer.</inlineHelpText>
+    <label>Work Order - Delivery Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

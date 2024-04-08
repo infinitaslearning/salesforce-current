@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Temp_BlockNoordhoffOrders</fullName>
+    <active>false</active>
+    <description>Temporary block Noordhoff Orders from Activation. But allow Noordhoff Professional</description>
+    <errorConditionFormula>IF($User.ValidationRulesDoNotApply__c = false,
+ AND(
+  ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), 
+  NOT(CONTAINS(Pricebook2.Name, &apos;Professional&apos;)), 
+  ISCHANGED(Status), 
+  ISPICKVAL(Status, &apos;Activated&apos;)
+ ),
+false)</errorConditionFormula>
+    <errorMessage>Noordhoff Orders are blocked for activation until further notice.</errorMessage>
+</ValidationRule>

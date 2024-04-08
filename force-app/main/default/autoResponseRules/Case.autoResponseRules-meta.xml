@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Case Auto-Response Rules</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <formula>AND( ISPICKVAL(Origin, &quot;Email&quot;), Owner:Queue.DeveloperName != &quot;NoordhoffOrders&quot;)</formula>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>noreply@noordhoff.nl</senderEmail>
+            <senderName>No Reply Noordhoff</senderName>
+            <template>NoordhoffCustomerService/AutoResponseDefault</template>
+        </ruleEntry>
+        <ruleEntry>
+            <formula>AND( ISPICKVAL(Origin, &quot;Email&quot;), Owner:Queue.DeveloperName = &quot;NoordhoffOrders&quot;)</formula>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>noreply@noordhoff.nl</senderEmail>
+            <senderName>No Reply Noordhoff</senderName>
+            <template>NoordhoffCustomerService/AutoResponseBestel</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

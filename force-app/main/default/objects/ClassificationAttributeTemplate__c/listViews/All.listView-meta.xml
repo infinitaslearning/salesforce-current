@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>ClassificationCode__c</columns>
+    <columns>ClassificationAttributeName__c</columns>
+    <columns>ClassificationAttribute2Name__c</columns>
+    <columns>ClassificationAttributeValueName__c</columns>
+    <columns>ClassificationAttributeValue2Name__c</columns>
+    <columns>ClassificationAttributeSubValueName__c</columns>
+    <columns>ClassificationAttributeSubValueName2__c</columns>
+    <columns>ClassificationAttributeSubValueName3__c</columns>
+    <columns>ClassificationAttributeSubValueName4__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ClassificationAttributeName__c</field>
+        <operation>equals</operation>
+        <value>Primary education role</value>
+    </filters>
+    <label>All</label>
+</ListView>

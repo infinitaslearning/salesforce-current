@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoordhoffArrangementClosedWon</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL($User.MarketGroup__c ,&apos;VO&apos;) &amp;&amp; 
+IsWon = true &amp;&amp; 
+IsOpen__c == false &amp;&amp; 
+Text(Arrangement__c) = &apos;&apos; &amp;&amp;
+ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;) &amp;&amp;
+NOT($User.ValidationRulesDoNotApply__c  = true)</errorConditionFormula>
+    <errorMessage>Arrangement is required.</errorMessage>
+</ValidationRule>

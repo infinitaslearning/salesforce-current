@@ -1,0 +1,21 @@
+<html><head> 
+  <title></title> 
+ </head> 
+ <body style="height: auto; min-height: auto;">Dag {{{Contact.FirstName}}}, 
+  <br /> 
+  <br /> Naar aanleiding van mijn bezoek kunnen jullie mij verwachten voor een toelichting aan de collega's op (datum afspraak invullen). 
+  <br /> 
+  <br /> Verder beloofde ik de link door te sturen om de activiteiten van TWIST rond rekenen eens uit te testen. 
+  <br /> Deze kun je hier terugvinden:&nbsp; 
+  <a href="https://www.plantyn.com/web/nl/lager-onderwijs/wiskunde/de-wiskanjers-twist" target="_blank">https://www.plantyn.com/web/nl/lager-onderwijs/wiskunde/de-wiskanjers-twist</a> 
+  <br /> 
+  <br /> Aarzel niet indien u bijkomende vragen heeft of specifiek materiaal wenst in te kijken om contact op te nemen. 
+  <br /> (xxxaanvullen met doel van bezoek eventueel) 
+  <br /> 
+  <br /> 
+  <br /> Vriendelijke groet, 
+  <br /> 
+  <br /> {{{Sender.Name}}} 
+  <br /> Regioverantwoordelijke en educatief adviseur basisonderwijs 
+  <br /> {{{Sender.MobilePhone}}} 
+  <br /> {{{Sender.Email}}}</body></html>

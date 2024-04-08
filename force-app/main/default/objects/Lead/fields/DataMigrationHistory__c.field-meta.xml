@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DataMigrationHistory__c</fullName>
+    <description>Field to store the data migration history, to keep track when data was updated, by who and why it was updated.</description>
+    <externalId>false</externalId>
+    <label>Data Migration History</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>TextArea</type>
+</CustomField>

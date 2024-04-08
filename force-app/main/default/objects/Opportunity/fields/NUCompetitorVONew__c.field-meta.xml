@@ -1,0 +1,1013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NUCompetitorVONew__c</fullName>
+    <externalId>false</externalId>
+    <label>xRemove Competitor VO - New</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Betawerk - 10voorBiologie</fullName>
+                <default>false</default>
+                <label>Betawerk - 10voorBiologie</label>
+            </value>
+            <value>
+                <fullName>Bettermarks</fullName>
+                <default>false</default>
+                <label>Bettermarks</label>
+            </value>
+            <value>
+                <fullName>Blink - Binnenstebuiten</fullName>
+                <default>false</default>
+                <label>Blink - Binnenstebuiten</label>
+            </value>
+            <value>
+                <fullName>Blink – Eigentijds</fullName>
+                <default>false</default>
+                <label>Blink – Eigentijds</label>
+            </value>
+            <value>
+                <fullName>Blink - Grenzenloos</fullName>
+                <default>false</default>
+                <label>Blink - Grenzenloos</label>
+            </value>
+            <value>
+                <fullName>Blink - Groove Me</fullName>
+                <default>false</default>
+                <label>Blink - Groove Me</label>
+            </value>
+            <value>
+                <fullName>Blink - Plot26</fullName>
+                <default>false</default>
+                <label>Blink - Plot26</label>
+            </value>
+            <value>
+                <fullName>Blink - Saga</fullName>
+                <default>false</default>
+                <label>Blink - Saga</label>
+            </value>
+            <value>
+                <fullName>Blink - Wired</fullName>
+                <default>false</default>
+                <label>Blink - Wired</label>
+            </value>
+            <value>
+                <fullName>Boom</fullName>
+                <default>false</default>
+                <label>Boom</label>
+            </value>
+            <value>
+                <fullName>Boom - Forum</fullName>
+                <default>false</default>
+                <label>Boom - Forum</label>
+            </value>
+            <value>
+                <fullName>Boom - Polaris</fullName>
+                <default>false</default>
+                <label>Boom - Polaris</label>
+            </value>
+            <value>
+                <fullName>Cambridge</fullName>
+                <default>false</default>
+                <label>Cambridge</label>
+            </value>
+            <value>
+                <fullName>Cambridge - Think Starters</fullName>
+                <default>false</default>
+                <label>Cambridge - Think Starters</label>
+            </value>
+            <value>
+                <fullName>Cornelsen - Prima Plus</fullName>
+                <default>false</default>
+                <label>Cornelsen - Prima Plus</label>
+            </value>
+            <value>
+                <fullName>Dedact - Leswijs</fullName>
+                <default>false</default>
+                <label>Dedact - Leswijs</label>
+            </value>
+            <value>
+                <fullName>Delubas - Leesparade</fullName>
+                <default>false</default>
+                <label>Delubas - Leesparade</label>
+            </value>
+            <value>
+                <fullName>Deviant</fullName>
+                <default>false</default>
+                <label>Deviant</label>
+            </value>
+            <value>
+                <fullName>Driestar Educatief - Taalpunt</fullName>
+                <default>false</default>
+                <label>Driestar Educatief - Taalpunt</label>
+            </value>
+            <value>
+                <fullName>Educatief - Banas</fullName>
+                <default>false</default>
+                <label>Educatief - Banas</label>
+            </value>
+            <value>
+                <fullName>EduHint - SmartRekenen</fullName>
+                <default>false</default>
+                <label>EduHint - SmartRekenen</label>
+            </value>
+            <value>
+                <fullName>Eigen materiaal</fullName>
+                <default>false</default>
+                <label>Eigen materiaal</label>
+            </value>
+            <value>
+                <fullName>Eisma</fullName>
+                <default>false</default>
+                <label>Eisma</label>
+            </value>
+            <value>
+                <fullName>EPN</fullName>
+                <default>false</default>
+                <label>EPN</label>
+            </value>
+            <value>
+                <fullName>Essener - Thema&apos;s Maatschappijleer</fullName>
+                <default>false</default>
+                <label>Essener - Thema&apos;s Maatschappijleer</label>
+            </value>
+            <value>
+                <fullName>Exova</fullName>
+                <default>false</default>
+                <label>Exova</label>
+            </value>
+            <value>
+                <fullName>FFrekenen</fullName>
+                <default>false</default>
+                <label>FFrekenen</label>
+            </value>
+            <value>
+                <fullName>Gamma (M)</fullName>
+                <default>false</default>
+                <label>Gamma (M)</label>
+            </value>
+            <value>
+                <fullName>GS Compact (Uitgeverij Lambo)</fullName>
+                <default>false</default>
+                <label>GS Compact (Uitgeverij Lambo)</label>
+            </value>
+            <value>
+                <fullName>Hueber - Sicher</fullName>
+                <default>false</default>
+                <label>Hueber - Sicher</label>
+            </value>
+            <value>
+                <fullName>Intertaal - Apuntate</fullName>
+                <default>false</default>
+                <label>Intertaal - Apuntate</label>
+            </value>
+            <value>
+                <fullName>Intertaal - Aula Joven</fullName>
+                <default>false</default>
+                <label>Intertaal - Aula Joven</label>
+            </value>
+            <value>
+                <fullName>Intertaal - New Opportunities</fullName>
+                <default>false</default>
+                <label>Intertaal - New Opportunities</label>
+            </value>
+            <value>
+                <fullName>Intro (TM)</fullName>
+                <default>false</default>
+                <label>Intro (TM)</label>
+            </value>
+            <value>
+                <fullName>Klett - Genial</fullName>
+                <default>false</default>
+                <label>Klett - Genial</label>
+            </value>
+            <value>
+                <fullName>Kunskapsskolan</fullName>
+                <default>false</default>
+                <label>Kunskapsskolan</label>
+            </value>
+            <value>
+                <fullName>Learnbeat</fullName>
+                <default>false</default>
+                <label>Learnbeat</label>
+            </value>
+            <value>
+                <fullName>Learnbeat - Leswijs</fullName>
+                <default>false</default>
+                <label>Learnbeat - Leswijs</label>
+            </value>
+            <value>
+                <fullName>LWEO - Fundament</fullName>
+                <default>false</default>
+                <label>LWEO - Fundament</label>
+            </value>
+            <value>
+                <fullName>LWEO - Lesbrieven</fullName>
+                <default>false</default>
+                <label>LWEO - Lesbrieven</label>
+            </value>
+            <value>
+                <fullName>Malmberg</fullName>
+                <default>false</default>
+                <label>Malmberg</label>
+            </value>
+            <value>
+                <fullName>Malmberg - All right</fullName>
+                <default>false</default>
+                <label>Malmberg - All right</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Argus Clou Akd</fullName>
+                <default>false</default>
+                <label>Malmberg - Argus Clou Akd</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Argus Clou Gsd</fullName>
+                <default>false</default>
+                <label>Malmberg - Argus Clou Gsd</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Argus Clou N&amp;T</fullName>
+                <default>false</default>
+                <label>Malmberg - Argus Clou N&amp;T</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Biologie</fullName>
+                <default>false</default>
+                <label>Malmberg - Biologie</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Biologie voor jou</fullName>
+                <default>false</default>
+                <label>Malmberg - Biologie voor jou</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Brandaan</fullName>
+                <default>false</default>
+                <label>Malmberg - Brandaan</label>
+            </value>
+            <value>
+                <fullName>Malmberg - De Wereld Van</fullName>
+                <default>false</default>
+                <label>Malmberg - De Wereld Van</label>
+            </value>
+            <value>
+                <fullName>Malmberg - D’accord</fullName>
+                <default>false</default>
+                <label>Malmberg - D’accord</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Economisch bekeken</fullName>
+                <default>false</default>
+                <label>Malmberg - Economisch bekeken</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Gamma</fullName>
+                <default>false</default>
+                <label>Malmberg - Gamma</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Grip op Lezen</fullName>
+                <default>false</default>
+                <label>Malmberg - Grip op Lezen</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Handschrift</fullName>
+                <default>false</default>
+                <label>Malmberg - Handschrift</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Hello World</fullName>
+                <default>false</default>
+                <label>Malmberg - Hello World</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Humboldt</fullName>
+                <default>false</default>
+                <label>Malmberg - Humboldt</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Let&apos;s go</fullName>
+                <default>false</default>
+                <label>Malmberg - Let&apos;s go</label>
+            </value>
+            <value>
+                <fullName>Malmberg – Mathplus</fullName>
+                <default>false</default>
+                <label>Malmberg – Mathplus</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Meander</fullName>
+                <default>false</default>
+                <label>Malmberg - Meander</label>
+            </value>
+            <value>
+                <fullName>Malmberg - MeMo</fullName>
+                <default>false</default>
+                <label>Malmberg - MeMo</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Na klar</fullName>
+                <default>false</default>
+                <label>Malmberg - Na klar</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Naut</fullName>
+                <default>false</default>
+                <label>Malmberg - Naut</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Nova</fullName>
+                <default>false</default>
+                <label>Malmberg - Nova</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Of Course</fullName>
+                <default>false</default>
+                <label>Malmberg - Of Course</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Pluspunt</fullName>
+                <default>false</default>
+                <label>Malmberg - Pluspunt</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Praktische Economie</fullName>
+                <default>false</default>
+                <label>Malmberg - Praktische Economie</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Rekenblokken</fullName>
+                <default>false</default>
+                <label>Malmberg - Rekenblokken</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Sensor</fullName>
+                <default>false</default>
+                <label>Malmberg - Sensor</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Staal</fullName>
+                <default>false</default>
+                <label>Malmberg - Staal</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Station Zuid</fullName>
+                <default>false</default>
+                <label>Malmberg - Station Zuid</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Taal Actief</fullName>
+                <default>false</default>
+                <label>Malmberg - Taal Actief</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Taallijnen</fullName>
+                <default>false</default>
+                <label>Malmberg - Taallijnen</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Talent</fullName>
+                <default>false</default>
+                <label>Malmberg - Talent</label>
+            </value>
+            <value>
+                <fullName>Malmberg – Talent</fullName>
+                <default>false</default>
+                <label>Malmberg – Talent</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Wereld in Getallen</fullName>
+                <default>false</default>
+                <label>Malmberg - Wereld in Getallen</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Wereldwijs</fullName>
+                <default>false</default>
+                <label>Malmberg - Wereldwijs</label>
+            </value>
+            <value>
+                <fullName>Muisklik</fullName>
+                <default>false</default>
+                <label>Muisklik</label>
+            </value>
+            <value>
+                <fullName>Na klar (M)</fullName>
+                <default>false</default>
+                <label>Na klar (M)</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - BuiteNLand</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - BuiteNLand</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Chemie</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Chemie</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Chemie Overal</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Chemie Overal</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Explora</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Explora</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Geobas</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Geobas</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Geschiedenis werkplaats</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Geschiedenis werkplaats</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Getal en</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Getal en</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Getal en Ruimte</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Getal en Ruimte</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Getal en Ruimte rekenen</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Getal en Ruimte rekenen</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Grandes Lignes</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Grandes Lignes</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Grote Bosatlas 53ed</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Grote Bosatlas 53ed</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Grote Bosatlas 54ed</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Grote Bosatlas 54ed</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Grote Bosatlas 55ed</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed llnlic</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Grote Bosatlas 55ed llnlic</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Impuls</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Impuls</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Indigo</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Indigo</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Klaar Over</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Klaar Over</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Leefwereld</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Leefwereld</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Moderne</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Moderne</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Moderne wiskunde</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Moderne wiskunde</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Moderne wiskunde rekenen</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Moderne wiskunde rekenen</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Muziek op Maat</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Muziek op Maat</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Nasteq</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Nasteq</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Nectar</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Nectar</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Netwerk</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Netwerk</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Neue Kontakte</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Neue Kontakte</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Nieuw Nederlands</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Nieuw Nederlands</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Overal</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Overal</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Paso Adelante</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Paso Adelante</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Pincode</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Pincode</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Plein M</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Plein M</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Pulsar</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Pulsar</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Pulsar Chemie</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Pulsar Chemie</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Rekenen</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Rekenen</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Rekenrijk</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Reken Zeker</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Reken Zeker</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Schrijven in de basisschool</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Schrijven in de basisschool</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Spelling op Maat</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Spelling op Maat</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Stepping Stones</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Stepping Stones</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Taal op Maat Spelling</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Taal op Maat Spelling</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Taal op Maat Taal</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Taal op Maat Taal</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Technologisch</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Technologisch</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Tekst Verwerken</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Tekst Verwerken</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Terra</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Terra</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Timboektoe</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - TrabiTour</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - TrabiTour</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Wijzer door ...</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Wijzer door ...</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Wijzer door de Tijd</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Wijzer door de Tijd</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Wijzer door de Wereld</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Wijzer door de Wereld</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Wijzer door het Verkeer</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Wijzer door het Verkeer</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Wijzer door Natuur en Techniek</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Wijzer door Natuur en Techniek</label>
+            </value>
+            <value>
+                <fullName>Op niveau (TM)</fullName>
+                <default>false</default>
+                <label>Op niveau (TM)</label>
+            </value>
+            <value>
+                <fullName>OVD</fullName>
+                <default>false</default>
+                <label>OVD</label>
+            </value>
+            <value>
+                <fullName>OVD - Bricks Biology</fullName>
+                <default>false</default>
+                <label>OVD - Bricks Biology</label>
+            </value>
+            <value>
+                <fullName>Oxford - Insight</fullName>
+                <default>false</default>
+                <label>Oxford - Insight</label>
+            </value>
+            <value>
+                <fullName>Oxford - New Headway</fullName>
+                <default>false</default>
+                <label>Oxford - New Headway</label>
+            </value>
+            <value>
+                <fullName>Oxford - Solutions</fullName>
+                <default>false</default>
+                <label>Oxford - Solutions</label>
+            </value>
+            <value>
+                <fullName>Pearson - Activate</fullName>
+                <default>false</default>
+                <label>Pearson - Activate</label>
+            </value>
+            <value>
+                <fullName>Pearson - Expert Proficiency</fullName>
+                <default>false</default>
+                <label>Pearson - Expert Proficiency</label>
+            </value>
+            <value>
+                <fullName>Pearson - Live Beat</fullName>
+                <default>false</default>
+                <label>Pearson - Live Beat</label>
+            </value>
+            <value>
+                <fullName>Schrijven leer je zo</fullName>
+                <default>false</default>
+                <label>Schrijven leer je zo</label>
+            </value>
+            <value>
+                <fullName>Snappet</fullName>
+                <default>false</default>
+                <label>Snappet</label>
+            </value>
+            <value>
+                <fullName>St. Praktijk Leren</fullName>
+                <default>false</default>
+                <label>St. Praktijk Leren</label>
+            </value>
+            <value>
+                <fullName>Stepping Stones (NU-VO)</fullName>
+                <default>false</default>
+                <label>Stepping Stones (NU-VO)</label>
+            </value>
+            <value>
+                <fullName>Studyflow - Rekenen</fullName>
+                <default>false</default>
+                <label>Studyflow - Rekenen</label>
+            </value>
+            <value>
+                <fullName>Talenland - á Plus</fullName>
+                <default>false</default>
+                <label>Talenland - á Plus</label>
+            </value>
+            <value>
+                <fullName>Thieme</fullName>
+                <default>false</default>
+                <label>Thieme</label>
+            </value>
+            <value>
+                <fullName>Thieme - Alles Telt</fullName>
+                <default>false</default>
+                <label>Thieme - Alles Telt</label>
+            </value>
+            <value>
+                <fullName>Thieme - Franconville</fullName>
+                <default>false</default>
+                <label>Thieme - Franconville</label>
+            </value>
+            <value>
+                <fullName>Thieme - Go for it</fullName>
+                <default>false</default>
+                <label>Thieme - Go for it</label>
+            </value>
+            <value>
+                <fullName>Thieme - Just do it!</fullName>
+                <default>false</default>
+                <label>Thieme - Just do it!</label>
+            </value>
+            <value>
+                <fullName>Thieme - Libre Service</fullName>
+                <default>false</default>
+                <label>Thieme - Libre Service</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - 200%</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - 200%</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Carte Orange</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Carte Orange</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - De Geo</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - De Geo</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Feniks</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Feniks</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Got it</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Got it</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Impact</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Impact</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Interface</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Interface</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Laagland Literatuur</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Laagland Literatuur</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Mundo</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Mundo</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Newton</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Newton</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Nu voor straks</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Nu voor straks</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Op niveau</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Op niveau</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Percent</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Percent</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Saltzgitter heute</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Saltzgitter heute</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Sprekend verleden</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Sprekend verleden</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Systematische natuurkunde</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Systematische natuurkunde</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Taalverhaal</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Taalverhaal</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Wasp Reporter</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Wasp Reporter</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Zugspitze</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhof - Zugspitze</label>
+            </value>
+            <value>
+                <fullName>Thieme - Speurtocht</fullName>
+                <default>false</default>
+                <label>Thieme - Speurtocht</label>
+            </value>
+            <value>
+                <fullName>Thieme - Taal en Spelling</fullName>
+                <default>false</default>
+                <label>Thieme - Taal en Spelling</label>
+            </value>
+            <value>
+                <fullName>Thieme - Take it Easy</fullName>
+                <default>false</default>
+                <label>Thieme - Take it Easy</label>
+            </value>
+            <value>
+                <fullName>Uitgever Pelckmans methode Mistral</fullName>
+                <default>false</default>
+                <label>Uitgever Pelckmans methode Mistral</label>
+            </value>
+            <value>
+                <fullName>Uitgever Pelckmans methode Quartier Latin</fullName>
+                <default>false</default>
+                <label>Uitgever Pelckmans methode Quartier Latin</label>
+            </value>
+            <value>
+                <fullName>Van Vlimmeren - Economie Integraal</fullName>
+                <default>false</default>
+                <label>Van Vlimmeren - Economie Integraal</label>
+            </value>
+            <value>
+                <fullName>VO - Content</fullName>
+                <default>false</default>
+                <label>VO - Content</label>
+            </value>
+            <value>
+                <fullName>VO-digitaal - BeatsnBits</fullName>
+                <default>false</default>
+                <label>VO-digitaal - BeatsnBits</label>
+            </value>
+            <value>
+                <fullName>VO-digitaal - Tijd voor geschiedenis</fullName>
+                <default>false</default>
+                <label>VO-digitaal - Tijd voor geschiedenis</label>
+            </value>
+            <value>
+                <fullName>Wageningen</fullName>
+                <default>false</default>
+                <label>Wageningen</label>
+            </value>
+            <value>
+                <fullName>Zwijsen</fullName>
+                <default>false</default>
+                <label>Zwijsen</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Estafette</fullName>
+                <default>false</default>
+                <label>Zwijssen - Estafette</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Natuurzaken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Natuurzaken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Pennenstreken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Pennenstreken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Spelling in Beeld</fullName>
+                <default>false</default>
+                <label>Zwijssen - Spelling in Beeld</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Taal in Beeld</fullName>
+                <default>false</default>
+                <label>Zwijssen - Taal in Beeld</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Tijdzaken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Tijdzaken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Veilig De Wereld In</fullName>
+                <default>false</default>
+                <label>Zwijssen - Veilig De Wereld In</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Wereldzaken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Wereldzaken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Wizwijs</fullName>
+                <default>false</default>
+                <label>Zwijssen - Wizwijs</label>
+            </value>
+            <value>
+                <fullName>Edu&apos;Actief</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Edu&apos;Actief</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Inspiration</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Malmberg - Inspiration</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Wegwijs</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Malmberg - Wegwijs</label>
+            </value>
+            <value>
+                <fullName>NijghVersluys</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NijghVersluys</label>
+            </value>
+            <value>
+                <fullName>Scala Leuker Leren - Het Grote Rekenboek</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Scala Leuker Leren - Het Grote Rekenboek</label>
+            </value>
+            <value>
+                <fullName>Stichting Wageningse Methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Stichting Wageningse Methode</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhof - Curie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ThiemeMeulenhof - Curie</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalesSeasonEndDate__c</fullName>
+    <description>Get opco specific Sales Season End Date</description>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(OperatingCompany__c),&apos;Liber&apos;,$CustomMetadata.Operating_Company__mdt.Liber.defaultCloseDate__c,
+					&apos;Noordhoff&apos;,$CustomMetadata.Operating_Company__mdt.Noordhoff.defaultCloseDate__c,
+					&apos;Plantyn&apos;,$CustomMetadata.Operating_Company__mdt.Plantyn.defaultCloseDate__c,
+					NULL
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Season End Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

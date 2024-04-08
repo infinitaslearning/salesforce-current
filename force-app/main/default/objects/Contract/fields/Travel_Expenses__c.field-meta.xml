@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Expenses__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Cover travel expenses?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If travel expenses are to be invoiced, check this box</inlineHelpText>
+    <label>Travel Expenses</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

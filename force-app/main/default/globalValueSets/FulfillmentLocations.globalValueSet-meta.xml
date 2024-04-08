@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Tender Location Liber A</fullName>
+        <default>false</default>
+        <label>Tender Location Liber A</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Location Liber B</fullName>
+        <default>false</default>
+        <label>Tender Location Liber B</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Location Noordhoff A</fullName>
+        <default>false</default>
+        <label>Tender Location Noordhoff A</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Location Noordhoff B</fullName>
+        <default>false</default>
+        <label>Tender Location Noordhoff B</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Location Plantyn A</fullName>
+        <default>false</default>
+        <label>Tender Location Plantyn A</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Location Plantyn B</fullName>
+        <default>false</default>
+        <label>Tender Location Plantyn B</label>
+    </customValue>
+    <customValue>
+        <fullName>Iddink Tender Tabor</fullName>
+        <default>false</default>
+        <label>Iddink Tender Tabor</label>
+    </customValue>
+    <customValue>
+        <fullName>OsingadeJong Tender 2 Minkema</fullName>
+        <default>false</default>
+        <label>OsingadeJong Tender 2 Minkema</label>
+    </customValue>
+    <customValue>
+        <fullName>OsingadeJong Tender 3 Dorenweerd</fullName>
+        <default>false</default>
+        <label>OsingadeJong Tender 3 Dorenweerd</label>
+    </customValue>
+    <customValue>
+        <fullName>OsingadeJong Tender 4 Waerdenborch</fullName>
+        <default>false</default>
+        <label>OsingadeJong Tender 4 Waerdenborch</label>
+    </customValue>
+    <masterLabel>Fulfillment Locations</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

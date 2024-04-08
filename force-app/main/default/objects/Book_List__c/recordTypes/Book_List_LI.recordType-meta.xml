@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Book_List_LI</fullName>
+    <active>true</active>
+    <description>Book List (Liber)</description>
+    <label>Book List (LI)</label>
+    <picklistValues>
+        <picklist>Channel__c</picklist>
+        <values>
+            <fullName>Direct</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retailer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operating_Company__c</picklist>
+        <values>
+            <fullName>Liber</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plantyn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

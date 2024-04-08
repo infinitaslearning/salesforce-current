@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Voorbeeldhoofdstuk__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Only for Plantyn SO NL to indicate if someone asked an example</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Aangevinkt als er iemand op school een voorbeeldhoofdstuk heeft gevraagd.</inlineHelpText>
+    <label>Voorbeeldhoofdstuk?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

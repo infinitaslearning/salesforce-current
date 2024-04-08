@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aantal_mappen__c</fullName>
+    <description>Plantyn BAO NL: # mappen</description>
+    <externalId>false</externalId>
+    <inlineHelpText>over hoeveel mappen gaat het?</inlineHelpText>
+    <label>aantal mappen</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 map</fullName>
+                <default>false</default>
+                <label>1 map</label>
+            </value>
+            <value>
+                <fullName>2 mappen</fullName>
+                <default>false</default>
+                <label>2 mappen</label>
+            </value>
+            <value>
+                <fullName>3 mappen</fullName>
+                <default>false</default>
+                <label>3 mappen</label>
+            </value>
+            <value>
+                <fullName>4 mappen</fullName>
+                <default>false</default>
+                <label>4 mappen</label>
+            </value>
+            <value>
+                <fullName>5 mappen</fullName>
+                <default>false</default>
+                <label>5 mappen</label>
+            </value>
+            <value>
+                <fullName>6 mappen</fullName>
+                <default>false</default>
+                <label>6 mappen</label>
+            </value>
+            <value>
+                <fullName>7 mappen</fullName>
+                <default>false</default>
+                <label>7 mappen</label>
+            </value>
+            <value>
+                <fullName>8 mappen</fullName>
+                <default>false</default>
+                <label>8 mappen</label>
+            </value>
+            <value>
+                <fullName>9 mappen</fullName>
+                <default>false</default>
+                <label>9 mappen</label>
+            </value>
+            <value>
+                <fullName>10 mappen</fullName>
+                <default>false</default>
+                <label>10 mappen</label>
+            </value>
+            <value>
+                <fullName>11 mappen</fullName>
+                <default>false</default>
+                <label>11 mappen</label>
+            </value>
+            <value>
+                <fullName>12 mappen</fullName>
+                <default>false</default>
+                <label>12 mappen</label>
+            </value>
+            <value>
+                <fullName>13 mappen</fullName>
+                <default>false</default>
+                <label>13 mappen</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreditStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(AccountSubsidiary__r.NetsuiteCustomerNumber__c),&quot;Unknown&quot;,
+IF( AccountSubsidiary__r.CreditLimit__c &gt; (AccountSubsidiary__r.OutstandingBalance__c + TotalAmount), &quot;Good&quot;, &quot;Bad&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Shows the credit status of this customer</inlineHelpText>
+    <label>Credit Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

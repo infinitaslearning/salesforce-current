@@ -180,7 +180,8 @@
         }        
         component.set("v.SchoolProductList",FullProductList);
 
-    },    
+    }, 
+    
     AddProductsInd : function(component, event, helper) {
      
          
@@ -221,7 +222,7 @@
 
      var OrderItemsLength = OrderItems.length;
      
-     console.log('***OrderItemsLength**'+OrderItemsLength);
+     console.log('***AddProductsInd: OrderItemsLength**'+OrderItemsLength);
 
 
   if(ProductAlreadyExists == false){     
@@ -344,7 +345,7 @@
                                 itemAmount = selectquantity * itemSTDPrice ;
                                 ItemGroupTotal = itemAmount + ItemGroupTotal;
 
-                                console.log('**ItemGroupQuantity**'+ItemGroupQuantity);
+                                console.log('**AddProductsInd: ItemGroupQuantity**'+ItemGroupQuantity);
                                 
                           
                             }    
@@ -356,7 +357,7 @@
 
                                 
                                 Amount=ItemGroupTotal;
-                                console.log('**Amount: Before**'+Amount);
+                                console.log('**AddProductsInd: Amount: Before**'+Amount);
                                 BasePrice= ItemGroupBasePrice; 
                                 UnitPrice= ItemGroupUnitPrice; 
                                 STDPrice= ItemGroupSTDPrice;
@@ -371,16 +372,15 @@
                                 
                             }
                             
-                            console.log('**Amount: After**'+Amount);
+                            console.log('**AddProductsInd: Amount: After**'+Amount);
+                            console.log('****AddProductsInd: CustomPricingAllowed**'+SchoolProductList[keyP].CustomPricingAllowed);
 
                             RemoveFromSearch=true;
                             var today = new Date();
                             var RTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                             ProductItemId = CurrenShipto[keyS].AccId+ProductId+RTime;
 
-                            console.log('**ProductItemId**'+ProductItemId);
-                            console.log('**Add Prod: Max quantity**'+SchoolProductList[keyP].maxQuantity);
-                            console.log('**licenceduration 2*'+SchoolProductList[keyP].licenceduration); 
+                            
                             OrderItemsLength++;
                             schoolOrder.push({
                             'sobjectType': 'OrderLineItem',
@@ -421,6 +421,7 @@
                             'QuantitySelectionType':SchoolProductList[keyP].QuantitySelectionType,
                             'Stocknumber':SchoolProductList[keyP].Stocknumber,
                             'ProductTYPE':SchoolProductList[keyP].ProductTYPE,
+                            'CustomPricingAllowed': SchoolProductList[keyP].CustomPricingAllowed,
                             'MasterOrder': false,
                             'ProRataRate': 1,
                             'IsEdited':true, 
@@ -512,6 +513,7 @@
                                         'DiscountAmount':0,     
                                         'ItemId':CurrenShipto[keyS].AccId+SchoolProductList[keyP].listItemGroupComponent[igroup].ProductId,
                                         'PricebookEntryId': SchoolProductList[keyP].listItemGroupComponent[igroup].PricebookEntryId,                                           
+                                        'CustomPricingAllowed': SchoolProductList[keyP].listItemGroupComponent[igroup].CustomPricingAllowed,
                                         'MasterOrder': false,
                                         'IsnewItem':'True',
                                         'ProRataRate': 1,
@@ -815,7 +817,133 @@
         component.set( 'v.showList', true);
         helper.fetchAccountsUtil(component);
     },
-    
+
+    ListPriceChangeProduct : function(component, event, helper) {
+        
+        
+        var ItemId = event.target.id;
+        var newListPrice = event.target.value;
+       // var FullProductList = component.get("v.FullProductList");
+       var fullOrderList = component.get("v.OrderItemList");
+        var totalOrderAmounts = component.get( 'v.TotalOrder');
+       var SETCHANGE = true;
+        var varItemId = [];
+       varItemId[0] = ItemId;
+
+
+       
+       console.log('**ListPriceChangeProduct: newListPrice **'+newListPrice);
+       newListPrice = parseFloat(newListPrice); //.toFixed(2)
+       if(newListPrice >= 0.01){
+        
+       
+        totalOrderAmounts.TotalAmount = 0;
+        var tmpSTD;
+        var tmpUnit; 
+        var tmpAmount;
+
+       for(var key in fullOrderList){            
+            
+            if(fullOrderList[key].ItemId == ItemId){
+                console.log('**ListPriceChangeProduct: Loop:STD 1**'+fullOrderList[key].STDPrice);
+                   
+               
+                
+                console.log('**ListPriceChangeProduct: DiscountAmount **'+fullOrderList[key].DiscountAmount);
+                
+
+                
+                    
+                    console.log('**ListPriceChangeProduct: Loop:STD 2**'+fullOrderList[key].STDPrice);
+                    console.log('**ListPriceChangeProduct: Loop:Rate **'+fullOrderList[key].Rate);
+
+                    if(fullOrderList[key].Rate != undefined){
+                        tmpSTD = parseFloat((newListPrice - newListPrice * fullOrderList[key].Rate)).toFixed(2);
+                    }
+                    else{
+                        tmpSTD = parseFloat(newListPrice).toFixed(2);
+                    }
+
+                    console.log('**ListPriceChangeProduct: Loop: tmpSTD**'+tmpSTD);
+
+                    tmpUnit = tmpSTD;
+                    
+                    if(fullOrderList[key].DiscountOption=='One-Off Amount' || fullOrderList[key].DiscountOption=='Recurring Amount'){
+                        tmpUnit = (tmpSTD-fullOrderList[key].DiscountAmount).toFixed(2);
+                        tmpAmount = fullOrderList[key].Quantity * (tmpUnit);  
+                    }
+                    else if(fullOrderList[key].DiscountOption=='One-Off Amount (Subtotal)'){
+                        tmpAmount = (fullOrderList[key].Quantity * tmpSTD)-fullOrderList[key].DiscountAmount;
+                        tmpUnit = (fullOrderList[key].Amount/fullOrderList[key].Quantity).toFixed(2);
+                    }
+                    else if(fullOrderList[key].DiscountOption=='One-Off Percentage' || fullOrderList[key].DiscountOption=='Recurring Percentage'){
+                        tmpUnit = (tmpSTD-(tmpSTD*(fullOrderList[key].DiscountPercent/100))).toFixed(2);
+                        tmpAmount = fullOrderList[key].Quantity * tmpUnit;
+                    }
+                    else{
+                        tmpAmount = fullOrderList[key].Quantity * tmpUnit;   
+                    }
+
+                 //   fullOrderList[key].NoDiscAmount = fullOrderList[key].Quantity * fullOrderList[key].STDPrice;
+                 console.log('****ListPriceChangeProduct :UnitPrice **'+tmpUnit);
+                 console.log('****ListPriceChangeProduct : Amount **'+tmpAmount);
+                    if(fullOrderList[key].ProRataRate < 1 ){
+                            
+                        console.log('****ListPriceChangeProduct:ProRataRate:UnitPrice **'+tmpUnit);
+
+                        tmpUnit =  (tmpUnit*(parseFloat(fullOrderList[key].ProRataRate))).toFixed(2);
+                        console.log('****ListPriceChangeProduct:ProRataRate:UnitPrice **'+tmpUnit);
+                        tmpAmountt =  tmpUnit * fullOrderList[key].Quantity;
+                    }
+
+                    //Check after Manual discount
+                    if((fullOrderList[key].DiscountOption=='One-Off Amount' || fullOrderList[key].DiscountOption=='Recurring Amount') && tmpSTD  < fullOrderList[key].DiscountAmount){
+                       // SETCHANGE = false;
+                       totalOrderAmounts.TotalAmount = totalOrderAmounts.TotalAmount + fullOrderList[key].Amount;
+                        break;
+                    }
+                    else if(fullOrderList[key].DiscountOption=='One-Off Amount (Subtotal)'){
+                        
+                        if(fullOrderList[key].Quantity == 1 && tmpSTD  <  fullOrderList[key].DiscountAmount){
+                           // SETCHANGE = false;
+                           totalOrderAmounts.TotalAmount = totalOrderAmounts.TotalAmount + fullOrderList[key].Amount;
+                            break;
+                        }
+                        else if(tmpSTD  <  ((fullOrderList[key].DiscountAmount)/fullOrderList[key].Quantity)){
+                          //  SETCHANGE = false;
+                          totalOrderAmounts.TotalAmount = totalOrderAmounts.TotalAmount + fullOrderList[key].Amount;
+                            break;
+                        }
+                        
+                    } 
+                    // Only set new values if no errors
+                    console.log('****ListPriceChangeProduct : no errors:tmpUnit **'+tmpUnit);
+                    fullOrderList[key].IsEdited = true;
+                    fullOrderList[key].BasePrice = newListPrice.toFixed(2);
+                    fullOrderList[key].STDPrice = tmpSTD;
+                    fullOrderList[key].Amount = tmpAmount;
+                    fullOrderList[key].UnitPrice = tmpUnit;
+                    fullOrderList[key].NoDiscAmount = fullOrderList[key].Quantity * fullOrderList[key].STDPrice;
+
+
+                //add manual discounts
+
+            }
+            console.log('****ListPriceChangeProduct:ProRataRate:UnitPrice **'+fullOrderList[key].ItemGroup);
+                    if(fullOrderList[key].ItemGroup== undefined){
+                        totalOrderAmounts.TotalAmount = totalOrderAmounts.TotalAmount + fullOrderList[key].Amount;
+                    }  
+        }  
+    }
+
+         if(SETCHANGE == true){
+            component.set("v.OrderItemList",fullOrderList);
+            
+         }    
+         component.set( 'v.TotalOrder', totalOrderAmounts);
+        
+    },
+
     QuantityChangeforRate : function(component, event, helper){
         var ItemId = event.target.id;
         var newquantity = event.target.value;
@@ -933,7 +1061,7 @@
                                 if(fullOrderList[key].ItemGroup== undefined){
                                     totalOrderAmounts.TotalAmount = totalOrderAmounts.TotalAmount + fullOrderList[key].Amount;
                                 }   
-                
+                                
                                     
                                     if(fullOrderList[key].ItemGroup == ItemId){
                                     
@@ -1486,12 +1614,14 @@
 
         var ProRataMonths;
         var ProRata;
-        console.log('*Itemid**'+Itemid );
+        console.log('*ChangeDate: Itemid**'+Itemid );
 
         
         var enddate = new Date();
         var varCheckdate = new Date(checkDate);
         var TooEarly = false;
+
+
         for(var key in fullOrderList){
             fullOrderList[key].IsEdited = true;
             if(fullOrderList[key].ProductTYPE != 'Inventory Item'){
@@ -1501,27 +1631,22 @@
             if(fullOrderList[key].OppServiceDate ==''){
                 fullOrderList[key].OppServiceDate = null;
             }
-            console.log('*ItemId**'+fullOrderList[key].ItemId );
-            console.log('*ProRata**'+fullOrderList[key].ProRata );
-            console.log('*ItemEndDate**'+fullOrderList[key].ItemEndDate);
-            console.log('*ItemGroupComponent**'+fullOrderList[key].ItemGroupComponent);
-            console.log('*MasterOrder**'+fullOrderList[key].MasterOrder);
+            console.log('*ChangeDate: ItemId**'+fullOrderList[key].ItemId );
+            console.log('*ChangeDate: ProRata**'+fullOrderList[key].ProRata );
+            console.log('*ChangeDate: ItemEndDate**'+fullOrderList[key].ItemEndDate);
+            console.log('*ChangeDate: ItemGroupComponent**'+fullOrderList[key].ItemGroupComponent);
+            console.log('*ChangeDate: MasterOrder**'+fullOrderList[key].MasterOrder);
 
             if(fullOrderList[key].ProRata == true && fullOrderList[key].ItemEndDate != null && fullOrderList[key].ItemGroupComponent == false && fullOrderList[key].MasterOrder == true){
                 
-                console.log('*ProRataMonths**'+ProRataMonths);
-                console.log('*licenceduration**'+fullOrderList[key].LicenceDuration);
-
-                
-                    console.log('*less than**');
-
+                console.log('*ChangeDate: ProRataMonths**'+ProRataMonths);
+                console.log('*ChangeDate: licenceduration**'+fullOrderList[key].LicenceDuration);
                     enddate =  new Date(fullOrderList[key].ItemEndDate);
                     
-                    console.log('*enddate**'+enddate);
-                    console.log('*fullOrderList[key].EndDate**'+fullOrderList[key].ItemEndDate);
-                    console.log('*enddate.getFullYear()**'+enddate.getFullYear());
-             
-                    console.log('*ItemStartDate**'+fullOrderList[key].ItemStartDate);
+                    console.log('*ChangeDate: enddate**'+enddate);
+                    console.log('*ChangeDate: fullOrderList[key].EndDate**'+fullOrderList[key].ItemEndDate);
+                    console.log('*ChangeDate: enddate.getFullYear()**'+enddate.getFullYear());             
+                    console.log('*ChangeDate: ItemStartDate**'+fullOrderList[key].ItemStartDate);
 
               
                     if(fullOrderList[key].ItemStartDate === checkDate){ 
@@ -1530,14 +1655,14 @@
                         fullOrderList[key].ProRataMonths =  fullOrderList[key].LicenceDuration;
                     }
                     else{
-                        console.log('*selDate != Startdate: NOT 1**');
+                        console.log('*ChangeDate: selDate != Startdate: NOT 1**');
                         ProRataMonths = (enddate.getFullYear() - varCheckdate.getFullYear()) * 12;
-                        console.log('*ProRataMonths 1**'+ProRataMonths);
-                        console.log('*selDate != Startdate: NOT 2: ProRataMonths**'+ProRataMonths);
+                        console.log('*ChangeDate: ProRataMonths 1**'+ProRataMonths);
+                        console.log('*ChangeDate: selDate != Startdate: NOT 2: ProRataMonths**'+ProRataMonths);
                         ProRataMonths -= varCheckdate.getMonth();
-                        console.log('*ProRataMonths 2**'+ProRataMonths);
+                        console.log('*ChangeDate: ProRataMonths 2**'+ProRataMonths);
                         ProRataMonths += enddate.getMonth();
-                        console.log('*ProRataMonths 3**'+ProRataMonths);
+                        console.log('*ChangeDate: ProRataMonths 3**'+ProRataMonths);
                         if(varCheckdate.getMonth() !=  enddate.getMonth()){
                             ProRataMonths += 1;
                         }
@@ -1548,18 +1673,11 @@
                         fullOrderList[key].ProRataRate = (parseFloat(ProRataMonths) / fullOrderList[key].LicenceDuration);
                     }
  
-                    console.log('*ProRataRate**'+fullOrderList[key].ProRataRate);
-
-                  /*
-                    if(checkDate > fullOrderList[key].ItemEndDate){
-                        alert('New date cant be greater than Item current End date: '+ fullOrderList[key].ItemEndDate);
-                        break;
-                    }
-                    */
+                    console.log('*ChangeDate: ProRataRate**'+fullOrderList[key].ProRataRate);
                     
                
                     if(checkDate < fullOrderList[key].ItemStartDate || checkDate > fullOrderList[key].ItemEndDate){
-                        console.log('*ProRataRate > 1**');
+                        console.log('*ChangeDate: ProRataRate > 1**');
                         fullOrderList[key].OppServiceDate = fullOrderList[key].ItemStartDate;
                         fullOrderList[key].ProRataRate = 1; 
                         fullOrderList[key].ProRataMonths =  fullOrderList[key].LicenceDuration;

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Taal &amp; Spelling</fullName>
+        <default>false</default>
+        <label>Taal &amp; Spelling</label>
+    </customValue>
+    <customValue>
+        <fullName>Account voor docent &amp; particulier</fullName>
+        <default>false</default>
+        <label>Account voor Docent &amp; Particulier</label>
+    </customValue>
+    <customValue>
+        <fullName>Validator</fullName>
+        <default>false</default>
+        <label>Validator</label>
+    </customValue>
+    <customValue>
+        <fullName>Scholen</fullName>
+        <default>false</default>
+        <label>Scholen</label>
+    </customValue>
+    <customValue>
+        <fullName>Bestelling</fullName>
+        <default>false</default>
+        <label>Bestelling</label>
+    </customValue>
+    <customValue>
+        <fullName>Levering</fullName>
+        <default>false</default>
+        <label>Levering</label>
+    </customValue>
+    <customValue>
+        <fullName>Retour</fullName>
+        <default>false</default>
+        <label>Retour</label>
+    </customValue>
+    <customValue>
+        <fullName>Factuur</fullName>
+        <default>false</default>
+        <label>Factuur</label>
+    </customValue>
+    <customValue>
+        <fullName>Betaling</fullName>
+        <default>false</default>
+        <label>Betaling</label>
+    </customValue>
+    <customValue>
+        <fullName>Instellingen</fullName>
+        <default>false</default>
+        <label>Instellingen</label>
+    </customValue>
+    <customValue>
+        <fullName>Foutmeldingen</fullName>
+        <default>false</default>
+        <label>Foutmeldingen</label>
+    </customValue>
+    <customValue>
+        <fullName>Stepping Stones Junior</fullName>
+        <default>false</default>
+        <label>Stepping Stones Junior</label>
+    </customValue>
+    <customValue>
+        <fullName>Nieuw Nederlands Junior</fullName>
+        <default>false</default>
+        <label>Nieuw Nederlands Junior</label>
+    </customValue>
+    <customValue>
+        <fullName>Getal &amp; Ruimte Junior</fullName>
+        <default>false</default>
+        <label>Getal &amp; Ruimte Junior</label>
+    </customValue>
+    <customValue>
+        <fullName>Zaakvakken</fullName>
+        <default>false</default>
+        <label>Zaakvakken</label>
+    </customValue>
+    <customValue>
+        <fullName>Toegang</fullName>
+        <default>false</default>
+        <label>Toegang</label>
+    </customValue>
+    <customValue>
+        <fullName>Toetsen</fullName>
+        <default>false</default>
+        <label>Toetsen</label>
+    </customValue>
+    <customValue>
+        <fullName>Beschikbaarheid</fullName>
+        <default>false</default>
+        <label>Beschikbaarheid</label>
+    </customValue>
+    <customValue>
+        <fullName>Exact</fullName>
+        <default>false</default>
+        <label>Exact</label>
+    </customValue>
+    <customValue>
+        <fullName>Memij</fullName>
+        <default>false</default>
+        <label>Memij</label>
+    </customValue>
+    <customValue>
+        <fullName>Flex</fullName>
+        <default>false</default>
+        <label>Flex</label>
+    </customValue>
+    <customValue>
+        <fullName>De Grote Bosatlas Flex</fullName>
+        <default>false</default>
+        <label>De Grote Bosatlas Flex</label>
+    </customValue>
+    <customValue>
+        <fullName>Docentmateriaal</fullName>
+        <default>false</default>
+        <label>Docentmateriaal</label>
+    </customValue>
+    <customValue>
+        <fullName>Klassen &amp; Lesmateriaal koppelen</fullName>
+        <default>false</default>
+        <label>Klassen &amp; Lesmateriaal koppelen</label>
+    </customValue>
+    <customValue>
+        <fullName>Voor de docent</fullName>
+        <default>false</default>
+        <label>Voor de docent</label>
+    </customValue>
+    <customValue>
+        <fullName>Resultaten</fullName>
+        <default>false</default>
+        <label>Resultaten</label>
+    </customValue>
+    <customValue>
+        <fullName>Zorgpad</fullName>
+        <default>false</default>
+        <label>Zorgpad</label>
+    </customValue>
+    <customValue>
+        <fullName>Opdrachten</fullName>
+        <default>false</default>
+        <label>Opdrachten</label>
+    </customValue>
+    <customValue>
+        <fullName>Talen</fullName>
+        <default>false</default>
+        <label>Talen</label>
+    </customValue>
+    <customValue>
+        <fullName>Rekenen</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Rekenen</label>
+    </customValue>
+    <customValue>
+        <fullName>Taal, Spelling en Lezen</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Taal, Spelling en Lezen</label>
+    </customValue>
+    <customValue>
+        <fullName>Engels</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Engels</label>
+    </customValue>
+    <customValue>
+        <fullName>Onderwijsinstellingen</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Onderwijsinstellingen</label>
+    </customValue>
+    <customValue>
+        <fullName>Account voor docent en particulier</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Account voor docent en particulier</label>
+    </customValue>
+    <customValue>
+        <fullName>Privacy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Privacy</label>
+    </customValue>
+    <customValue>
+        <fullName>Studiemeister &amp; Hogeschooltaal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Studiemeister &amp; Hogeschooltaal</label>
+    </customValue>
+    <masterLabel>Category Level 3</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

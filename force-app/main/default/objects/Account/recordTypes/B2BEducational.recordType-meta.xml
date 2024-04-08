@@ -222,6 +222,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Folkhögskola</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Gold - %28Municipalites or Private school groups%29</fullName>
             <default>false</default>
         </values>
@@ -247,6 +251,10 @@
         </values>
         <values>
             <fullName>Huvudman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Högskola</fullName>
             <default>false</default>
         </values>
         <values>
@@ -644,6 +652,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Reseller 3%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Reseller 5%25</fullName>
             <default>false</default>
         </values>
@@ -737,6 +749,10 @@
         </values>
         <values>
             <fullName>Tender 16%2C5%25 discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tender 17%2C01%25 discount</fullName>
             <default>false</default>
         </values>
         <values>
@@ -1917,6 +1933,37 @@
         </values>
         <values>
             <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>recordval__rv2Status__c</picklist>
+        <values>
+            <fullName>AMBER</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CHANGED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GREEN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MANUAL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEW</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>NO_DATA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RED</fullName>
             <default>false</default>
         </values>
     </picklistValues>

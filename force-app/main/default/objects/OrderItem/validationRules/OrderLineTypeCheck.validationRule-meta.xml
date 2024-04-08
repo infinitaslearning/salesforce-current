@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OrderLineTypeCheck</fullName>
+    <active>false</active>
+    <errorConditionFormula>$User.Alias != &quot;suser&quot; &amp;&amp; ((ISPICKVAL(OrderLineType__c, &quot;Regular&quot;) &amp;&amp; Product2.IsRegularOrderPossible__c = false) || (ISPICKVAL(OrderLineType__c, &quot;InspectionCopy&quot;) &amp;&amp; Product2.IsInspectionCopyOrderPossible__c = false) || (ISPICKVAL(OrderLineType__c, &quot;UseCopy&quot;) &amp;&amp; Product2.IsUseCopyOrderPossible__c = false))</errorConditionFormula>
+    <errorMessage>The Product does not match the Order Line Item Type</errorMessage>
+</ValidationRule>

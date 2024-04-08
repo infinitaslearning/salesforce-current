@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TaskEnd__c</fullName>
+    <description>This field has been created to be able to show the timeframe in which the task needs to be done. Example: Teacher says he is available between 1 and 2 pm. This way the call-requests can be planned in more effective.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the timeframe for this task</inlineHelpText>
+    <label>End</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

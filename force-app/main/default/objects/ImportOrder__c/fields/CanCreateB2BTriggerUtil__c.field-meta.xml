@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CanCreateB2BTriggerUtil__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Status__c, &apos;Complete&apos;), TRUE, 
+		IF(AND(ISPICKVAL(Status__c, &apos;Error&apos;),NoOfRetries__c&gt;0, NoOfRetries__c&lt;5), FALSE, TRUE))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Can Create B2B Trigger Util</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ScrapOrderAllowed</name>
+    </customPermissions>
+    <description>This permission set allows a user to create and manage Scrap Orders for product(s)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Scrap Orders</label>
+</PermissionSet>

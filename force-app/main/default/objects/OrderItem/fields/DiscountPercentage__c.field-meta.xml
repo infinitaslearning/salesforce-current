@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DiscountPercentage__c</fullName>
+    <description>Discount Percentage to be integrated to NetSuite</description>
+    <externalId>false</externalId>
+    <formula>IF(AND(OR(List_Price_Rate__c = 0,ISBLANK(List_Price_Rate__c)),ManualDiscountPercent__c &gt; 0),ManualDiscountPercent__c,
+			IF(AND(List_Price_Rate__c &gt; 0,OR(ManualDiscountValue__c = 0,ISBLANK(ManualDiscountValue__c)),OR(ManualDiscountPercent__c = 0,ISBLANK(ManualDiscountPercent__c))),List_Price_Rate__c,
+						Discount__c / NetsuiteListPrice__c))*100</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Discount Percentage</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

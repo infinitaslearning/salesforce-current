@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AmountSubtotal__c</fullName>
+    <description>Summed Subtotal of all OpportunityLines : Disregarding Discounts and based on List Price of the Product.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Aggregated Subtotals of All Products.</inlineHelpText>
+    <label>Amount Subtotal</label>
+    <summarizedField>OpportunityLineItem.SubtotalValue__c</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

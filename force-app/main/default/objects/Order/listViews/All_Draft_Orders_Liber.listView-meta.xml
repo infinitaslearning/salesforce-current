@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Draft_Orders_Liber</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Source__c</field>
+        <operation>equals</operation>
+        <value>B2B Salesforce</value>
+    </filters>
+    <filters>
+        <field>ORDERS.STATUS</field>
+        <operation>equals</operation>
+        <value>Draft,Under Review</value>
+    </filters>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <label>All Draft Orders  Liber</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

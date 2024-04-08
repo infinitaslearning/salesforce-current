@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllLeadsPlantyn</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Campaign__c</columns>
+    <columns>CampaignName__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>Method__c</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Plantyn</value>
+    </filters>
+    <label>All Leads Plantyn</label>
+    <sharedTo>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

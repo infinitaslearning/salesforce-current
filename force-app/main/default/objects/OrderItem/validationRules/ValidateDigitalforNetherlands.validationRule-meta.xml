@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateDigitalforNetherlands</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND(OrderMultipleShippingLocations__c = true,
+Text(ShippingCountry__c) = &apos;Netherlands&apos;,
+Text(Product2.Type__c) = &apos;Non-inventory Item&apos;,
+TEXT(Order.Status) = &apos;Activated&apos;)
+
+,AND(OrderMultipleShippingLocations__c = false,
+Order.ShippingCountry = &apos;Netherlands&apos;,
+Text(Product2.Type__c) = &apos;Non-inventory Item&apos;,
+TEXT(Order.Status) = &apos;Activated&apos;))</errorConditionFormula>
+    <errorMessage>Due to VAT related issues you cannot add digital products to a shipping address in the Netherlands. Please contact Finance</errorMessage>
+</ValidationRule>

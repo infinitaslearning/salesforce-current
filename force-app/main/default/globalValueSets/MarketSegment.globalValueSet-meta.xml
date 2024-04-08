@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>PreSchool</fullName>
+        <default>false</default>
+        <label>Pre-school</label>
+    </customValue>
+    <customValue>
+        <fullName>PrimaryEducation</fullName>
+        <default>false</default>
+        <label>Primary Education</label>
+    </customValue>
+    <customValue>
+        <fullName>SecondaryEducation</fullName>
+        <default>false</default>
+        <label>Secondary Education</label>
+    </customValue>
+    <customValue>
+        <fullName>HigherEducation</fullName>
+        <default>false</default>
+        <label>Higher Education</label>
+    </customValue>
+    <customValue>
+        <fullName>VocationalEducation</fullName>
+        <default>false</default>
+        <label>Vocational Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional</fullName>
+        <default>false</default>
+        <label>Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SIMSLMS</fullName>
+        <default>false</default>
+        <label>SIMS / LMS</label>
+    </customValue>
+    <masterLabel>Market Segment</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

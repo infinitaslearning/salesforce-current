@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>StartDate__c</columns>
+    <columns>EndDate__c</columns>
+    <columns>ProductDiscountGroup__c</columns>
+    <columns>CustomerDiscountGroup__c</columns>
+    <columns>OrderLineType__c</columns>
+    <columns>DiscountType__c</columns>
+    <columns>MarketSegment__c</columns>
+    <columns>ValueType__c</columns>
+    <columns>StartAmount__c</columns>
+    <columns>StartQuantity__c</columns>
+    <columns>Rate__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>IsActive__c</columns>
+    <columns>Subsidiary__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>IsActive__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>CustomerDiscountGroup__c</field>
+        <operation>equals</operation>
+        <value>School Group</value>
+    </filters>
+    <label>All Active Discounts</label>
+</ListView>

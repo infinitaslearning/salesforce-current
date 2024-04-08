@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingCostMethodNS__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(TEXT(ShippingIndicationRule__c))),TEXT(ShippingIndicationRule__c),
+IF(ShippingCostExempt__c=True,&quot;Shipping Cost Exempt&quot;,
+TEXT(ShippingCostMethod__c)))</formula>
+    <label>Shipping Cost Method NS</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

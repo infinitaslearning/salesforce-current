@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>BeforeSaveContactValueAssignments</name>
+        <label>Before Save Contact Value Assignments</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.UniqueEmailId__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>UniqueEmailFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.UniqueExternalDatabaseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forUniqueExternalDatabaseNumber</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Update Contact Before the record is saved
+
+HdG: 20240320 Added assignment for Unique External Database Number</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forUniqueExternalDatabaseNumber</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT( ISBLANK(TEXT({!$Record.External_Database__c}))),NOT(ISBLANK({!$Record.ExternalContactId__c}))),
+TEXT({!$Record.External_Database__c})&amp;&quot;_&quot;&amp;{!$Record.ExternalContactId__c},
+NULL)</expression>
+    </formulas>
+    <formulas>
+        <name>UniqueEmailFormula</name>
+        <dataType>String</dataType>
+        <expression>CASE(TEXT({!$Record.OperatingCompany__c}),
+&quot;Plantyn&quot;,TEXT({!$Record.OperatingCompany__c})&amp;&apos;-&apos;&amp;IF(ISBLANK({!$Record.Email}), {!$Record.Id}, {!$Record.Email}),
+&quot;Liber&quot;,TEXT({!$Record.OperatingCompany__c})&amp;&apos;-&apos;&amp;IF(ISBLANK({!$Record.Email}), {!$Record.Id}, {!$Record.Email}),
+&quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>UniqueEmailIdFormulaPlantynOnly</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS(TEXT({!$Record.OperatingCompany__c}), &quot;Plantyn&quot;), 
+TEXT({!$Record.OperatingCompany__c})&amp;&apos;-&apos;&amp;IF(ISBLANK({!$Record.Email}), {!$Record.Id}, {!$Record.Email}), 
+&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>Before Save Updates Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Before Save Updates Contact</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>BeforeSaveContactValueAssignments</targetReference>
+        </connector>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

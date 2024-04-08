@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>CSF</name>
+    <queueMembers>
+        <users>
+            <user>a.walda@noordhoff.nl</user>
+            <user>c.degenkamp@noordhoff.nl</user>
+            <user>g.koekkoek@noordhoff.nl</user>
+            <user>j.zinatti@noordhoff.nl</user>
+            <user>j.hiemstra@noordhoff.nl</user>
+            <user>l.markovic@noordhoff.nl</user>
+            <user>m.vandepol@noordhoff.nl</user>
+            <user>n.sambo@noordhoff.nl</user>
+            <user>r.erven@noordhoff.nl</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Noordhoff_Low_Prio_Routing</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

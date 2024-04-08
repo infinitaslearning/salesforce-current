@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company</fullName>
+    <columns>NAME</columns>
+    <columns>CustomerDiscountGroup__c</columns>
+    <columns>ProductDiscountGroup__c</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>MarketSegment__c</columns>
+    <columns>OrderLineType__c</columns>
+    <columns>EndDate__c</columns>
+    <columns>StartDate__c</columns>
+    <columns>StartQuantity__c</columns>
+    <columns>Rate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CustomerDiscountGroup__c</field>
+        <operation>equals</operation>
+        <value>Educational Institution</value>
+    </filters>
+    <label>Company</label>
+</ListView>

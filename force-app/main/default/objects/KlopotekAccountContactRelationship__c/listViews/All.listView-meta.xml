@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>KlopotekAccount__c</columns>
+    <columns>SalesforceAccountId__c</columns>
+    <columns>KlopotekContact__c</columns>
+    <columns>SalesforceContactId__c</columns>
+    <columns>AccountContactRelationshipId__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

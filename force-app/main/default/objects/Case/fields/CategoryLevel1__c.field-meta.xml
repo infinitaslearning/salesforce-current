@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CategoryLevel1__c</fullName>
+    <externalId>false</externalId>
+    <label>Category Level 1</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>OperatingCompany__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>CategoryLevel1</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>General</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Primary Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Secondary Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Vocational Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Higher Education</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

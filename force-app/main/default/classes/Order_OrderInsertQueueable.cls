@@ -1,8 +1,5 @@
 public with sharing class Order_OrderInsertQueueable implements Queueable {
     
-   // Private List<Order_ProductSelectController.OrderLineItem> OrderItems;
-   // Private List<OrderItem> lstOrderItem;
-   //List<Order_ProductSelectController.OrderLineItem> OrderItems,
     Private String ContractId;    
     Private String OrderId; 
     Private Decimal TotalNumberofStudents;
@@ -10,7 +7,7 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
     Private List<Account> AccountbyShipto;
 
     public Order_OrderInsertQueueable(String ContractId,String OrderId, Decimal TotalNumberofStudents,Boolean AddShiptos,List<Account> AccountbyShipto) {
-      //  this.OrderItems = OrderItems;
+      
         this.OrderId = OrderId;
         this.TotalNumberofStudents = TotalNumberofStudents;
         this.AccountbyShipto = AccountbyShipto;
@@ -22,17 +19,9 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
 
                  Contract[] Contract = [Select AccountId,NumberofUsers__c,SoldUsers__c,StartDate,Pricebook2Id,PaymentMethod__c,ShippingCostMethod__c,PricingMethod__c,defaultBilltoAccount__c from Contract where id =: ContractId];
                 
-                system.debug('**OrderItems 1**');
+                system.debug('*Order_OrderInsertQueueable 1**');
 
-                //GET Subsidoaries
-                if(Contract.size()>0){    
-                    /*
-                    if(Contract[0].SoldUsers__c == null){
-                    //  Contract[0].SoldUsers__c =TotalNumberofStudents;                
-                    }
-                    update Contract;
-                    */
-                }
+               
 
                 Id NewOrderId = OrderId;
                 
@@ -41,8 +30,14 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                 Map<String,String> Map_Sub = new Map<String,String>(); 
                 Map<String,String> Map_Netsuite = new Map<String,String>(); 
                 
-                Order[] CurOrder = [Select Type,AccountSubsidiary__c,MultipleShippingLocations__c,Shipto__r.NetsuiteInternalId__c ,Account.NetsuiteInternalId__c,OperatingCompany__c,Source__c,InsertProductSelector__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c from Order where id=: NewOrderId];
+               // Order[] CurOrder = [Select Type,AccountSubsidiary__c,MultipleShippingLocations__c,Shipto__r.NetsuiteInternalId__c ,Account.NetsuiteInternalId__c,OperatingCompany__c,Source__c,InsertProductSelector__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c from Order where id=: NewOrderId];
                 
+               List<Id> SetOrderId = new List<Id>();
+
+               SetOrderId.add(OrderId);
+
+                Order[] CurOrder = Order_SoqlFactory.returnQueryOrder(SetOrderId,null,null);
+                system.debug('**Order_SoqlFactory.Order_OrderInsertQueueable.CurOrder :Size**'+CurOrder.size());
                
                 List<Id> OrderId = new List<Id>();
                 if(CurOrder.size()>0){
@@ -50,10 +45,9 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                 }
                 
                
-                List<OrderItem>   lstOrderItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
-                
-                
-
+                //List<OrderItem>   lstOrderItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+                OrderItem[]   lstOrderItem =  Order_SoqlFactory.returnQueryOrderItems(null,SetOrderId,null,null);
+                system.debug('**Order_SoqlFactory.Order_OrderInsertQueueable.lst_OrdItem :Size**'+lstOrderItem.size());
 
                 Date FixedStartDate;
                 Date FreeFromDate;
@@ -61,9 +55,6 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
 
 
                 //------ Order Item Calculations: Moved here to get Date for Order before order is updated
-                //Comment out
-                //Map<String,Date> Map_FixedStartDate = new Map<String,Date>();
-                //Map<String,Date> Map_FreeFromDate = new Map<String,Date>();
 
                 lstOrderItem = Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItem,CurOrder);
 
@@ -71,19 +62,22 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                 if(Contract.size()>0){
                     Set_Sub.add(Contract[0].defaultBilltoAccount__c);
 
-                    lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
+                  //  lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
                 }
                 else if(CurOrder.size()>0){
                     Set_Sub.add(CurOrder[0].Billto__c);
                     
-                    lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
+                   // lst_AccSubMaps = Order_ProductSelectController.returnAccountSubsidiary(Set_Sub);
                     if(CurOrder[0].ContractId != null){
                         ContractId = CurOrder[0].ContractId;
                     }
                 }    
+
+                lst_AccSubMaps =  Order_SoqlFactory.returnAccountSubsidiary(Set_Sub);
+                system.debug('**Order_SoqlFactory.Order_OrderInsertQueueable.lst_AccSubMaps :Size**'+lst_AccSubMaps.size());
                 
-                system.debug('**CurOrder**'+CurOrder);
-                system.debug('**lst_AccSubMaps**'+lst_AccSubMaps);
+                system.debug('**Order_OrderInsertQueueable: CurOrder**'+CurOrder);
+                system.debug('**Order_OrderInsertQueueable: lst_AccSubMaps**'+lst_AccSubMaps);
                 Map_Sub = lst_AccSubMaps[0];
                 Map_Netsuite = lst_AccSubMaps[1];
 
@@ -118,7 +112,6 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                         }
                                 
                         Insert NewOrder;
-                      //  lstOrderId.add(NewOrder.id);
                     }
 
                     //Add Subsidoaries Bill to
@@ -129,7 +122,7 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                 }
                 else{
                 
-                    system.debug('**Map_Sub**'+Map_Sub.get(CurOrder[0].Billto__c));
+                    system.debug('**Order_OrderInsertQueueable: Map_Sub**'+Map_Sub.get(CurOrder[0].Billto__c));
                     CurOrder[0].AccountSubsidiary__c =  Map_Sub.get(CurOrder[0].Billto__c);  
                     CurOrder[0].NetSuiteIdAccountSubsidiary__c = Map_Netsuite.get(CurOrder[0].Billto__c); 
                     CurOrder[0].NetSuiteIdShiptoAccount__c = CurOrder[0].Shipto__r.NetsuiteInternalId__c;        
@@ -147,33 +140,25 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                         if(ShipbyDate != CurOrder[0].EffectiveDate){
 
                             CurOrder[0].EffectiveDate = Order_ProductCalculationDates.Map_EffectiveDate.get(CurOrder[0].id);
-                            
-                            //Comment out
-                           // CurOrder[0].ShipByDate__c = Order_ProductCalculationDates.Map_ShipByDate.get(CurOrder[0].id); 
-                           // CurOrder[0].DateUpdateBlock__c = true; 
+                           
                         }
 
                         
-                            system.debug('***Dates :ord.ShipByDate'+CurOrder[0].ShipByDate__c);
-                            system.debug('***Dates :ord.EffectiveDate'+CurOrder[0].EffectiveDate);
+                            system.debug('***Order_OrderInsertQueueable: Dates :ord.ShipByDate'+CurOrder[0].ShipByDate__c);
+                            system.debug('***Order_OrderInsertQueueable:Dates :ord.EffectiveDate'+CurOrder[0].EffectiveDate);
                     }
-                  //  lstOrderId.add(CurOrder[0].id);
                     
 
                     try{
                         update CurOrder;
                        
                         update lstOrderItem;
-                        
-                       /* 
-                       if(CurOrder[0].DateUpdateBlock__c == true){
-                            CurOrder[0].DateUpdateBlock__c == false;
-                            update CurOrder;
-                       }
-                        */
 
                         if(Test.isRunningTest() && UTIL_TestClassExceptions.TESTCLASSEXCEPTION==True){
                             CalloutException e = new CalloutException();
+
+                            system.debug('***Order_OrderInsertQueueable: Dates :ord.ShipByDate'+CurOrder[0].ShipByDate__c);
+
                             e.setMessage('Error');
                             throw e;        
                         }
@@ -183,14 +168,6 @@ public with sharing class Order_OrderInsertQueueable implements Queueable {
                     }
 
                 }
-                
-                //Comment out
-                /*
-                if(CurOrder[0].DateUpdateBlock__c == true){
-                    System.enqueueJob(new Order_OrderUtilityQueueable('resetDates',OrderId));
-                }
-                */
-
 
                 
 }

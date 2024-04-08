@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NUCompetitorBAOCurrent__c</fullName>
+    <externalId>false</externalId>
+    <label>xRemove Competitor BAO - Current</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alles-in-1</fullName>
+                <default>false</default>
+                <label>Alles-in-1</label>
+            </value>
+            <value>
+                <fullName>Bazalt</fullName>
+                <default>false</default>
+                <label>Bazalt</label>
+            </value>
+            <value>
+                <fullName>Blink Educatie</fullName>
+                <default>false</default>
+                <label>Blink Educatie</label>
+            </value>
+            <value>
+                <fullName>Blink - Groove Me</fullName>
+                <default>false</default>
+                <label>Blink - Groove Me</label>
+            </value>
+            <value>
+                <fullName>Boreaal</fullName>
+                <default>false</default>
+                <label>Boreaal</label>
+            </value>
+            <value>
+                <fullName>CED</fullName>
+                <default>false</default>
+                <label>CED</label>
+            </value>
+            <value>
+                <fullName>CITO</fullName>
+                <default>false</default>
+                <label>CITO</label>
+            </value>
+            <value>
+                <fullName>DaVinci</fullName>
+                <default>false</default>
+                <label>DaVinci</label>
+            </value>
+            <value>
+                <fullName>Delubas</fullName>
+                <default>false</default>
+                <label>Delubas</label>
+            </value>
+            <value>
+                <fullName>Delubas - Leesparade</fullName>
+                <default>false</default>
+                <label>Delubas - Leesparade</label>
+            </value>
+            <value>
+                <fullName>Den Boer</fullName>
+                <default>false</default>
+                <label>Den Boer</label>
+            </value>
+            <value>
+                <fullName>Deviant</fullName>
+                <default>false</default>
+                <label>Deviant</label>
+            </value>
+            <value>
+                <fullName>Eigen materiaal</fullName>
+                <default>false</default>
+                <label>Eigen materiaal</label>
+            </value>
+            <value>
+                <fullName>Elsevier Educatief</fullName>
+                <default>false</default>
+                <label>Elsevier Educatief</label>
+            </value>
+            <value>
+                <fullName>Groen</fullName>
+                <default>false</default>
+                <label>Groen</label>
+            </value>
+            <value>
+                <fullName>Het verkeerde beentje</fullName>
+                <default>false</default>
+                <label>Het verkeerde beentje</label>
+            </value>
+            <value>
+                <fullName>Intersym EDM</fullName>
+                <default>false</default>
+                <label>Intersym EDM</label>
+            </value>
+            <value>
+                <fullName>Malmberg</fullName>
+                <default>false</default>
+                <label>Malmberg</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Argus Clou Akd</fullName>
+                <default>false</default>
+                <label>Malmberg - Argus Clou Akd</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Argus Clou Gsd</fullName>
+                <default>false</default>
+                <label>Malmberg - Argus Clou Gsd</label>
+            </value>
+            <value>
+                <fullName>Malmberg – Brandaan</fullName>
+                <default>false</default>
+                <label>Malmberg – Brandaan</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Handschrift</fullName>
+                <default>false</default>
+                <label>Malmberg - Handschrift</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Hello World</fullName>
+                <default>false</default>
+                <label>Malmberg - Hello World</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Join In</fullName>
+                <default>false</default>
+                <label>Malmberg - Join In</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Karakter</fullName>
+                <default>false</default>
+                <label>Malmberg - Karakter</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Meander</fullName>
+                <default>false</default>
+                <label>Malmberg - Meander</label>
+            </value>
+            <value>
+                <fullName>Malmberg – Naut</fullName>
+                <default>false</default>
+                <label>Malmberg – Naut</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Pluspunt</fullName>
+                <default>false</default>
+                <label>Malmberg - Pluspunt</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Staal</fullName>
+                <default>false</default>
+                <label>Malmberg - Staal</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Station Zuid</fullName>
+                <default>false</default>
+                <label>Malmberg - Station Zuid</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Taal Actief</fullName>
+                <default>false</default>
+                <label>Malmberg - Taal Actief</label>
+            </value>
+            <value>
+                <fullName>Malmberg - Wereld in Getallen</fullName>
+                <default>false</default>
+                <label>Malmberg - Wereld in Getallen</label>
+            </value>
+            <value>
+                <fullName>Natuur Buiten-Gewoon</fullName>
+                <default>false</default>
+                <label>Natuur Buiten-Gewoon</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Rekenrijk</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Taal op</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Taal op</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - The Team</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - The Team</label>
+            </value>
+            <value>
+                <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+                <default>false</default>
+                <label>Noordhoff Uitgevers - Timboektoe</label>
+            </value>
+            <value>
+                <fullName>NU</fullName>
+                <default>false</default>
+                <label>NU</label>
+            </value>
+            <value>
+                <fullName>onbekend</fullName>
+                <default>false</default>
+                <label>onbekend</label>
+            </value>
+            <value>
+                <fullName>Onlineklas</fullName>
+                <default>false</default>
+                <label>Onlineklas</label>
+            </value>
+            <value>
+                <fullName>Pearson</fullName>
+                <default>false</default>
+                <label>Pearson</label>
+            </value>
+            <value>
+                <fullName>SchoolTV</fullName>
+                <default>false</default>
+                <label>SchoolTV</label>
+            </value>
+            <value>
+                <fullName>Thieme - Alles Telt</fullName>
+                <default>false</default>
+                <label>Thieme - Alles Telt</label>
+            </value>
+            <value>
+                <fullName>Thieme - De Blauwe Planeet</fullName>
+                <default>false</default>
+                <label>Thieme - De Blauwe Planeet</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhoff</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhoff</label>
+            </value>
+            <value>
+                <fullName>ThiemeMeulenhoff - Taalverhaal</fullName>
+                <default>false</default>
+                <label>ThiemeMeulenhoff- Taalverhaal</label>
+            </value>
+            <value>
+                <fullName>Thieme - Take it Easy</fullName>
+                <default>false</default>
+                <label>Thieme - Take it Easy</label>
+            </value>
+            <value>
+                <fullName>VVN</fullName>
+                <default>false</default>
+                <label>VVN</label>
+            </value>
+            <value>
+                <fullName>Young and Connected</fullName>
+                <default>false</default>
+                <label>Young and Connected</label>
+            </value>
+            <value>
+                <fullName>Zwijsen</fullName>
+                <default>false</default>
+                <label>Zwijsen</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Estafette</fullName>
+                <default>false</default>
+                <label>Zwijssen - Estafette</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Pennenstreken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Pennenstreken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Spelling in Beeld</fullName>
+                <default>false</default>
+                <label>Zwijssen - Spelling in Beeld</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Taal in Beeld</fullName>
+                <default>false</default>
+                <label>Zwijssen - Taal in Beeld</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Wereldzaken</fullName>
+                <default>false</default>
+                <label>Zwijssen - Wereldzaken</label>
+            </value>
+            <value>
+                <fullName>Zwijssen - Wizwijs</fullName>
+                <default>false</default>
+                <label>Zwijssen - Wizwijs</label>
+            </value>
+            <value>
+                <fullName>ZZA</fullName>
+                <default>false</default>
+                <label>ZZA</label>
+            </value>
+            <value>
+                <fullName>ZZG</fullName>
+                <default>false</default>
+                <label>ZZG</label>
+            </value>
+            <value>
+                <fullName>ZZO</fullName>
+                <default>false</default>
+                <label>ZZO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

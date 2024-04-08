@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaxDiscount__c</fullName>
+    <description>The highest number (percentage), applied on a Product on this Opportunity.</description>
+    <externalId>false</externalId>
+    <label>Max. Discount</label>
+    <summarizedField>OpportunityLineItem.Discount</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

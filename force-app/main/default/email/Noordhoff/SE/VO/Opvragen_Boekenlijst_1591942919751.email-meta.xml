@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Opvragen Boekenlijst Email Template gebruiken bij contacten</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Opvragen Boekenlijst</name>
+    <relatedEntityType>Contact</relatedEntityType>
+    <style>none</style>
+    <subject>Opvragen Boekenlijst</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

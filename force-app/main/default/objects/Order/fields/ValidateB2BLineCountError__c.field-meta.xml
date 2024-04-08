@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateB2BLineCountError__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(AND(TEXT(Type)!=&apos;RenewalOrder&apos;,TEXT(Source__c)=&apos;B2B Salesforce&apos;),OrderImportLineCountSent__c =  OrderImportLineCount__c ), 0,
+IF(AND(TEXT(Type)=&apos;RenewalOrder&apos;,OrderImportLineCountSent__c =  OrderImportLineCount__c ), 0,			
+			1))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate B2B Line Count Error</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

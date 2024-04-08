@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationRulesDoNotApply__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Use - NOT($User.Validation_Rules_DO_NOT_Apply__c) - in your Validation Rule so it won&apos;t run/apply when creating or editing a record on an object.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked, Validation Rules that are set on objects do not run/apply.</inlineHelpText>
+    <label>Validation Rules DO NOT Apply</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MarketingactiondetailOPP__c</fullName>
+    <description>To be used only when Marketing action is selected in Lead Source</description>
+    <externalId>false</externalId>
+    <label>Marketing action detail</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>LeadSource</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Beleefsessies</fullName>
+                <default>false</default>
+                <label>Beleefsessies</label>
+            </value>
+            <value>
+                <fullName>Chill met Zill</fullName>
+                <default>false</default>
+                <label>Chill met Zill</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>GEX</fullName>
+                <default>false</default>
+                <label>GEX</label>
+            </value>
+            <value>
+                <fullName>Impact test campaign</fullName>
+                <default>false</default>
+                <label>Impact test campaign</label>
+            </value>
+            <value>
+                <fullName>Kanjercadeau</fullName>
+                <default>false</default>
+                <label>Kanjercadeau</label>
+            </value>
+            <value>
+                <fullName>Kanjerdagen</fullName>
+                <default>false</default>
+                <label>Kanjerdagen</label>
+            </value>
+            <value>
+                <fullName>Kanjerklas</fullName>
+                <default>false</default>
+                <label>Kanjerklas</label>
+            </value>
+            <value>
+                <fullName>Kanjerpakket</fullName>
+                <default>false</default>
+                <label>Kanjerpakket</label>
+            </value>
+            <value>
+                <fullName>Kerst in zicht</fullName>
+                <default>false</default>
+                <label>Kerst in zicht</label>
+            </value>
+            <value>
+                <fullName>Leadactie Kanjers</fullName>
+                <default>false</default>
+                <label>Leadactie Kanjers</label>
+            </value>
+            <value>
+                <fullName>Methodepagina</fullName>
+                <default>false</default>
+                <label>Methodepagina</label>
+            </value>
+            <value>
+                <fullName>Newsletter</fullName>
+                <default>false</default>
+                <label>Newsletter</label>
+            </value>
+            <value>
+                <fullName>Not applicable</fullName>
+                <default>true</default>
+                <label>Not applicable</label>
+            </value>
+            <value>
+                <fullName>Sneak preview</fullName>
+                <default>false</default>
+                <label>Sneak preview</label>
+            </value>
+            <value>
+                <fullName>Voorbeeldhoofdstuk</fullName>
+                <default>false</default>
+                <label>Voorbeeldhoofdstuk</label>
+            </value>
+            <value>
+                <fullName>Vraag het aan Plantyn</fullName>
+                <default>false</default>
+                <label>Vraag het aan Plantyn</label>
+            </value>
+            <value>
+                <fullName>Wij willen meer tijd</fullName>
+                <default>false</default>
+                <label>Wij willen meer tijd</label>
+            </value>
+            <value>
+                <fullName>Zorgtips</fullName>
+                <default>false</default>
+                <label>Zorgtips</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Each operating company can set their seasonal dates in this setting.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Contract period settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -53,7 +53,7 @@ public with sharing class Order_ImportOrderItemGroupCreate {
             responses.add( res);
 
         }
-        Order[] lstOrder = [Select id,Pricebook2Id, Source__c from Order where id in:Set_OrdId ];
+        Order[] lstOrder = [Select id,Pricebook2Id, Source__c,Pricebook2.StartDate__c,Pricebook2.EndDate__c from Order where id in:Set_OrdId ];
 
         Set<String> Set_PB = new Set<String>();
 
@@ -61,14 +61,18 @@ public with sharing class Order_ImportOrderItemGroupCreate {
             Set_PB.add(ord.Pricebook2Id);
         }
 
+        /*
         Pricing__c[] lstPriceActive = [Select ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,ListRate__c,ProductComponent__r.Product__r.Type__c,ProductComponent__r.Product__r.Name,Product__c,EndDate__c,IsActive__c,ProductComponent__r.Quantity__c,ProductComponent__r.Type__c,ProductComponent__r.MainProduct__c,ProductComponent__r.Product__c from Pricing__c 
         Where   (ProductComponent__r.MainProduct__c in: Set_ItemGroup )
         AND StartDate__c <=: system.today()
         AND EndDate__c >=: system.today()
         AND IsActive__c =:true];
-        
+        */
 
-        system.debug('**Order_ImportOrderItemGroupCreate:2: lstPriceActive.size**'+lstPriceActive.size());
+        Pricing__c[] lstPriceActive = Order_SoqlFactory.returnPricing('ItemgroupCreate',Set_ItemGroup,null,lstOrder[0].Pricebook2.StartDate__c,lstOrder[0].Pricebook2.EndDate__c);
+            system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate.lstPriceActive :Size**'+lstPriceActive.size());
+
+
         
         List<Pricing__c> lstPrice = new List<Pricing__c>();
         Set<String> Set_DupCheckComponent = new Set<String>();
@@ -91,10 +95,18 @@ public with sharing class Order_ImportOrderItemGroupCreate {
         Pricebook2 standardPB = [select id from Pricebook2 where isStandard=true];
         PricebookEntry[] lstPricebookEntryExist;
         if(Set_PB.size()>0){
-            lstPricebookEntryExist = [Select id,Product2Id,Product2.Name, Pricebook2Id,Product2.IsSuccessorItemActive__c,Product2.SuccessorItem__c,Product2.Stocknumber__c,Product2.StockLevel__c, Product2.PlannedPrintDate__c from PricebookEntry where Product2Id in:Set_ProdId AND Pricebook2Id !=:standardPB.id AND Pricebook2Id in: Set_PB]; // 
+           // lstPricebookEntryExist = [Select id,Product2Id,Product2.Name, Pricebook2Id,Product2.IsSuccessorItemActive__c,Product2.SuccessorItem__c,Product2.Stocknumber__c,Product2.StockLevel__c, Product2.PlannedPrintDate__c from PricebookEntry where Product2Id in:Set_ProdId AND Pricebook2Id !=:standardPB.id AND Pricebook2Id in: Set_PB]; // 
+            
+           lstPricebookEntryExist = Order_SoqlFactory.returnPricebookEntry('SuccessorPricebookentrycreate_1', null, Set_ProdId,Set_PB,null,null,null,null,null);
+            system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate1.lstPricebookEntryExist :Size**'+lstPricebookEntryExist.size());
+     
         }
         else{
-            lstPricebookEntryExist = [Select id,Product2Id,Product2.Name, Pricebook2Id,Product2.IsSuccessorItemActive__c,Product2.SuccessorItem__c,Product2.Stocknumber__c,Product2.StockLevel__c, Product2.PlannedPrintDate__c from PricebookEntry where Product2Id in:Set_ProdId AND Pricebook2Id !=:standardPB.id ]; // 
+           // lstPricebookEntryExist = [Select id,Product2Id,Product2.Name, Pricebook2Id,Product2.IsSuccessorItemActive__c,Product2.SuccessorItem__c,Product2.Stocknumber__c,Product2.StockLevel__c, Product2.PlannedPrintDate__c from PricebookEntry where Product2Id in:Set_ProdId AND Pricebook2Id !=:standardPB.id ]; // 
+            
+           lstPricebookEntryExist = Order_SoqlFactory.returnPricebookEntry('SuccessorPricebookentrycreate_2', null, Set_ProdId,null,null,null,null,null,null);
+            system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate2.lstPricebookEntryExist :Size**'+lstPricebookEntryExist.size());
+     
         }
 
         

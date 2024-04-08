@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OperatingCompany</fullName>
+    <active>true</active>
+    <description>This validation rule prevents any user from updating/changing the Operating Company value.</description>
+    <errorConditionFormula>AND(NOT($User.ValidationRulesDoNotApply__c = true),
+ISCHANGED(OperatingCompany__c)
+)</errorConditionFormula>
+    <errorMessage>It is not allowed to update the Operating Company!</errorMessage>
+</ValidationRule>

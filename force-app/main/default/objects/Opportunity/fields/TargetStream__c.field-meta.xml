@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TargetStream__c</fullName>
+    <externalId>false</externalId>
+    <label>Target Stream</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>hv ob</fullName>
+                <default>false</default>
+                <label>hv ob</label>
+            </value>
+            <value>
+                <fullName>hv tf</fullName>
+                <default>false</default>
+                <label>hv tf</label>
+            </value>
+            <value>
+                <fullName>vmbo bb</fullName>
+                <default>false</default>
+                <label>vmbo bb</label>
+            </value>
+            <value>
+                <fullName>vmbo ob</fullName>
+                <default>false</default>
+                <label>vmbo ob</label>
+            </value>
+            <value>
+                <fullName>HAVO TF</fullName>
+                <default>false</default>
+                <label>HAVO TF</label>
+            </value>
+            <value>
+                <fullName>VWO TF</fullName>
+                <default>false</default>
+                <label>VWO TF</label>
+            </value>
+            <value>
+                <fullName>04/Aug</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>04/Aug</label>
+            </value>
+            <value>
+                <fullName>07/Aug</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>07/Aug</label>
+            </value>
+            <value>
+                <fullName>1F</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1F</label>
+            </value>
+            <value>
+                <fullName>1F/2F</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1F/2F</label>
+            </value>
+            <value>
+                <fullName>2F</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2F</label>
+            </value>
+            <value>
+                <fullName>3F</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3F</label>
+            </value>
+            <value>
+                <fullName>4/8</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4/8</label>
+            </value>
+            <value>
+                <fullName>5/6</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>5/6</label>
+            </value>
+            <value>
+                <fullName>7/8</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>7/8</label>
+            </value>
+            <value>
+                <fullName>BB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BB</label>
+            </value>
+            <value>
+                <fullName>BWI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BWI</label>
+            </value>
+            <value>
+                <fullName>OB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OB</label>
+            </value>
+            <value>
+                <fullName>PIE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PIE</label>
+            </value>
+            <value>
+                <fullName>hv ob klas 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>hv ob klas 1</label>
+            </value>
+            <value>
+                <fullName>hv ob klas 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>hv ob klas 2</label>
+            </value>
+            <value>
+                <fullName>leerjaar 3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>leerjaar 3</label>
+            </value>
+            <value>
+                <fullName>leerjaar 3-4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>leerjaar 3-4</label>
+            </value>
+            <value>
+                <fullName>leerjaar 4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>leerjaar 4</label>
+            </value>
+            <value>
+                <fullName>niveau 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 1</label>
+            </value>
+            <value>
+                <fullName>niveau 1-2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 1-2</label>
+            </value>
+            <value>
+                <fullName>niveau 1-4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 1-4</label>
+            </value>
+            <value>
+                <fullName>niveau 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 2</label>
+            </value>
+            <value>
+                <fullName>niveau 2-3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 2-3</label>
+            </value>
+            <value>
+                <fullName>niveau 2-4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 2-4</label>
+            </value>
+            <value>
+                <fullName>niveau 3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 3</label>
+            </value>
+            <value>
+                <fullName>niveau 3-4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 3-4</label>
+            </value>
+            <value>
+                <fullName>niveau 4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niveau 4</label>
+            </value>
+            <value>
+                <fullName>nvt</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nvt</label>
+            </value>
+            <value>
+                <fullName>vmbo ob klas 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>vmbo ob klas 1</label>
+            </value>
+            <value>
+                <fullName>vmbo ob klas 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>vmbo ob klas 2</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ItemGroupIsBlockedActivation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( 
+				Product2.itemGroupManualBlock__c = true,  
+				TEXT(Order.Status) = &quot;Activated&quot;
+)</errorConditionFormula>
+    <errorMessage>This item group is blocked for ordering (manual), likely due to missing components in SF</errorMessage>
+</ValidationRule>

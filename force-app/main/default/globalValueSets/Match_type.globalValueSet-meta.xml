@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Schoolnumber + Email</fullName>
+        <default>false</default>
+        <label>Schoolnumber + Email</label>
+    </customValue>
+    <customValue>
+        <fullName>Teachernumber</fullName>
+        <default>false</default>
+        <label>Teachernumber</label>
+    </customValue>
+    <customValue>
+        <fullName>Email</fullName>
+        <default>false</default>
+        <label>Email</label>
+    </customValue>
+    <customValue>
+        <fullName>AccountId + Teachernumber</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>AccountId + Teachernumber</label>
+    </customValue>
+    <customValue>
+        <fullName>Schoolnumber + Teachernumber</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Schoolnumber + Teachernumber</label>
+    </customValue>
+    <masterLabel>Match type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

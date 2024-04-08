@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>opvolging telefoongesprek DWKA-WEKA</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>IS-opvolging-DWKA-WEKA</name>
+    <style>none</style>
+    <subject>Opvolging telefoongesprek De Wiskanjers en Wereldkanjers</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>LiberUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Liber Users</label>
+        <sharedTo>
+            <group>AllUsersLiber</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Liber</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Noordhoff Users</label>
+        <sharedTo>
+            <group>AllUsersNoordhoff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PlantynUsers</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Plantyn Users</label>
+        <sharedTo>
+            <group>AllUsersPlantyn</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Plantyn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

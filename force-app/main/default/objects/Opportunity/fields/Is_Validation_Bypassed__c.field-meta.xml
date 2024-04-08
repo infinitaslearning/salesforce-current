@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Validation_Bypassed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field is checked by the after save flow which allows the flow to bypass the validation rule then set the field value. The reason for this is the after save record triggered flow fires the validation.</description>
+    <externalId>false</externalId>
+    <label>Is Validation Bypassed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

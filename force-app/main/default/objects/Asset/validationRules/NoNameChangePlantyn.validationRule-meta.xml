@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoNameChangePlantyn</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(OperatingCompany__c,&apos;Plantyn&apos;) &amp;&amp; 
+ISCHANGED(Name) &amp;&amp;
+(RecordTypeName__c = &apos;Booklist Method&apos; || RecordTypeName__c = &apos;Booklist&apos;) &amp;&amp; 
+NOT( $Profile.Name = &apos;System Administrator&apos; ||  $User.Alias = &apos;mvan&apos; ||  $User.Alias = &apos;klero&apos;)</errorConditionFormula>
+    <errorMessage>You are not allowed to change the name of Booklists</errorMessage>
+</ValidationRule>

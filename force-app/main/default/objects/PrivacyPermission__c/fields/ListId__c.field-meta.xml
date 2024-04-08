@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ListId__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this Id to match the privacy permission to the (existing) Communication Preference. Marketing Cloud links these two based on the ListIds.</inlineHelpText>
+    <label>ListId</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreatedDate__c</fullName>
+    <description>This field is created to display the created date on the campaign member related list as the standard field is not available for selection</description>
+    <externalId>false</externalId>
+    <formula>CreatedDate</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Created Date</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

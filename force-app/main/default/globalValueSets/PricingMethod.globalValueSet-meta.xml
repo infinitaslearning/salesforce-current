@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>OrderProductQuantity</fullName>
+        <default>false</default>
+        <label>Order product quantity</label>
+    </customValue>
+    <customValue>
+        <fullName>AccountStudents</fullName>
+        <default>false</default>
+        <label>Students from account</label>
+    </customValue>
+    <customValue>
+        <fullName>ProductUsageBased</fullName>
+        <default>false</default>
+        <label>Usage based per product</label>
+    </customValue>
+    <customValue>
+        <fullName>ProductDiscountGroupUsageBased</fullName>
+        <default>false</default>
+        <label>Usage based per product rate group</label>
+    </customValue>
+    <customValue>
+        <fullName>OrderTotalAmount</fullName>
+        <default>false</default>
+        <label>Order Total Amount</label>
+    </customValue>
+    <customValue>
+        <fullName>LicenseUsageBasedRate</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Usage Based</label>
+    </customValue>
+    <customValue>
+        <fullName>OrderTotalRate</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Order</label>
+    </customValue>
+    <customValue>
+        <fullName>GroupBasedRate</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Student Based</label>
+    </customValue>
+    <customValue>
+        <fullName>Purchasing group</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Purchasing group</label>
+    </customValue>
+    <customValue>
+        <fullName>Foundation</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Foundation</label>
+    </customValue>
+    <masterLabel>Pricing Method</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

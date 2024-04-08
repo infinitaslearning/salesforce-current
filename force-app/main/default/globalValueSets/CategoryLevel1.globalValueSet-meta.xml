@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>General</fullName>
+        <default>false</default>
+        <label>General</label>
+    </customValue>
+    <customValue>
+        <fullName>Primary Education</fullName>
+        <default>false</default>
+        <label>Primary Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Secondary Education</fullName>
+        <default>false</default>
+        <label>Secondary Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Vocational Education</fullName>
+        <default>false</default>
+        <label>Vocational Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Higher Education</fullName>
+        <default>false</default>
+        <label>Higher Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Hoger onderwijs</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Hoger onderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Middelbaar beroepsonderwijs</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Middelbaar beroepsonderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Voortgezet onderwijs</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Voortgezet onderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Basisonderwijs</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Basisonderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Algemeen</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Algemeen</label>
+    </customValue>
+    <masterLabel>Category Level 1</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

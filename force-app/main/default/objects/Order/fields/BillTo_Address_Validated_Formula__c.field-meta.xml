@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BillTo_Address_Validated_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>BillToAddress__r.Validated_Address__c</formula>
+    <label>BillTo Address Validated Formula</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

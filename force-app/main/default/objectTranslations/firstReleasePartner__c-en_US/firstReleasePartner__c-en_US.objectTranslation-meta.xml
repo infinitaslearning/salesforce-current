@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>first release partner</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>first release partners</value>
+    </caseValues>
+    <layouts>
+        <layout>first release partner Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Parameters</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>QuantityOneOrPlus</name>
+    </validationRules>
+</CustomObjectTranslation>

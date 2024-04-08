@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Renewal_Orders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ShipbyDate__c</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>NumberOfStudents__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ORDERS.CREATED_DATE</columns>
+    <columns>PricingMethod__c</columns>
+    <columns>PRICEBOOK2.NAME</columns>
+    <columns>ORDERS.LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ORDERS.TYPE</field>
+        <operation>equals</operation>
+        <value>RenewalOrder</value>
+    </filters>
+    <filters>
+        <field>ORDERS.CREATED_DATE</field>
+        <operation>equals</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All Renewal Orders</label>
+</ListView>

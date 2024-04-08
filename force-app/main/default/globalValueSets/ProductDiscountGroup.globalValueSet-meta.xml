@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Activating Textbook</fullName>
+        <default>false</default>
+        <label>Activating Textbook</label>
+    </customValue>
+    <customValue>
+        <fullName>Study workbok</fullName>
+        <default>false</default>
+        <label>Study workbok</label>
+    </customValue>
+    <customValue>
+        <fullName>Online license</fullName>
+        <default>false</default>
+        <label>Online license</label>
+    </customValue>
+    <customValue>
+        <fullName>Informat Packs</fullName>
+        <default>false</default>
+        <label>Informat Packs</label>
+    </customValue>
+    <customValue>
+        <fullName>Workbooks</fullName>
+        <default>false</default>
+        <label>Workbooks</label>
+    </customValue>
+    <customValue>
+        <fullName>Textbook</fullName>
+        <default>false</default>
+        <label>Textbook</label>
+    </customValue>
+    <customValue>
+        <fullName>Online</fullName>
+        <default>false</default>
+        <label>Online</label>
+    </customValue>
+    <customValue>
+        <fullName>Solutions Book</fullName>
+        <default>false</default>
+        <label>Solutions Book</label>
+    </customValue>
+    <customValue>
+        <fullName>Supplement</fullName>
+        <default>false</default>
+        <label>Supplement</label>
+    </customValue>
+    <customValue>
+        <fullName>Workbook</fullName>
+        <default>false</default>
+        <label>Workbook</label>
+    </customValue>
+    <customValue>
+        <fullName>B2C Workbook</fullName>
+        <default>false</default>
+        <label>B2C Workbook</label>
+    </customValue>
+    <customValue>
+        <fullName>Agenda</fullName>
+        <default>false</default>
+        <label>Agenda</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Assigned</fullName>
+        <default>false</default>
+        <label>Not Assigned</label>
+    </customValue>
+    <customValue>
+        <fullName>French Agenda</fullName>
+        <default>false</default>
+        <label>French Agenda</label>
+    </customValue>
+    <customValue>
+        <fullName>French B2C Workbook</fullName>
+        <default>false</default>
+        <label>French B2C Workbook</label>
+    </customValue>
+    <customValue>
+        <fullName>French B2C Teacher Material</fullName>
+        <default>false</default>
+        <label>French B2C Teacher Material</label>
+    </customValue>
+    <customValue>
+        <fullName>French Handbook</fullName>
+        <default>false</default>
+        <label>French Handbook</label>
+    </customValue>
+    <customValue>
+        <fullName>French No Discount</fullName>
+        <default>false</default>
+        <label>French No Discount</label>
+    </customValue>
+    <customValue>
+        <fullName>French Teacher Material</fullName>
+        <default>false</default>
+        <label>French Teacher Material</label>
+    </customValue>
+    <customValue>
+        <fullName>French Textbook</fullName>
+        <default>false</default>
+        <label>French Textbook</label>
+    </customValue>
+    <customValue>
+        <fullName>French Workbook</fullName>
+        <default>false</default>
+        <label>French Workbook</label>
+    </customValue>
+    <customValue>
+        <fullName>Informat CVO Cursisten</fullName>
+        <default>false</default>
+        <label>Informat CVO Cursisten</label>
+    </customValue>
+    <customValue>
+        <fullName>Informat Pack Plus</fullName>
+        <default>false</default>
+        <label>Informat Pack Plus</label>
+    </customValue>
+    <customValue>
+        <fullName>Informat Pack Start</fullName>
+        <default>false</default>
+        <label>Informat Pack Start</label>
+    </customValue>
+    <customValue>
+        <fullName>No Discount</fullName>
+        <default>false</default>
+        <label>No Discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Teacher Material</fullName>
+        <default>false</default>
+        <label>Teacher Material</label>
+    </customValue>
+    <customValue>
+        <fullName>Handbook</fullName>
+        <default>false</default>
+        <label>Handbook</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital product</fullName>
+        <default>false</default>
+        <label>Digital product</label>
+    </customValue>
+    <customValue>
+        <fullName>Standard</fullName>
+        <default>false</default>
+        <label>Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>01 - Studybooks, Workbooks and Textbooks</fullName>
+        <default>false</default>
+        <label>01 - Studybooks, Workbooks and Textbooks</label>
+    </customValue>
+    <customValue>
+        <fullName>02 - Method related, manuals, wall charts</fullName>
+        <default>false</default>
+        <label>02 - Method related, manuals, wall charts</label>
+    </customValue>
+    <customValue>
+        <fullName>04 - HO products</fullName>
+        <default>false</default>
+        <label>04 - HO products</label>
+    </customValue>
+    <customValue>
+        <fullName>05 - Science books, semi-scientific textbooks</fullName>
+        <default>false</default>
+        <label>05 - Science books, semi-scientific textbooks</label>
+    </customValue>
+    <customValue>
+        <fullName>06 - Copy sheets</fullName>
+        <default>false</default>
+        <label>06 - Copy sheets</label>
+    </customValue>
+    <customValue>
+        <fullName>07 - Free brochures, leaflets and letters</fullName>
+        <default>false</default>
+        <label>07 - Free brochures, leaflets and letters</label>
+    </customValue>
+    <customValue>
+        <fullName>09 - General books</fullName>
+        <default>false</default>
+        <label>09 - General books</label>
+    </customValue>
+    <customValue>
+        <fullName>10 - Electronic products, educational, not method related</fullName>
+        <default>false</default>
+        <label>10 - Electronic products, educational, not method related</label>
+    </customValue>
+    <customValue>
+        <fullName>13 - Bosatlas</fullName>
+        <default>false</default>
+        <label>13 - Bosatlas</label>
+    </customValue>
+    <customValue>
+        <fullName>16 - Software (method related)</fullName>
+        <default>false</default>
+        <label>16 - Software (method related)</label>
+    </customValue>
+    <customValue>
+        <fullName>18 - Teacher sample package</fullName>
+        <default>false</default>
+        <label>18 - Teacher sample package</label>
+    </customValue>
+    <customValue>
+        <fullName>21 - Teacher&apos;s agenda</fullName>
+        <default>false</default>
+        <label>21 - Teacher&apos;s agenda</label>
+    </customValue>
+    <customValue>
+        <fullName>23 - Lijsters</fullName>
+        <default>false</default>
+        <label>23 - Lijsters</label>
+    </customValue>
+    <customValue>
+        <fullName>24 - Consumer Atlases</fullName>
+        <default>false</default>
+        <label>24 - Consumer Atlases</label>
+    </customValue>
+    <customValue>
+        <fullName>25 - Learning games &amp; learning and action books</fullName>
+        <default>false</default>
+        <label>25 - Learning games &amp; learning and action books</label>
+    </customValue>
+    <customValue>
+        <fullName>26 - Workbook with online components, old generation</fullName>
+        <default>false</default>
+        <label>26 - Workbook with online components, old generation</label>
+    </customValue>
+    <customValue>
+        <fullName>27 - BVE products</fullName>
+        <default>false</default>
+        <label>27 - BVE products</label>
+    </customValue>
+    <customValue>
+        <fullName>30 - Workbooks in Item Group</fullName>
+        <default>false</default>
+        <label>30 - Workbooks in Item Group</label>
+    </customValue>
+    <customValue>
+        <fullName>31 - Online license, available separately</fullName>
+        <default>false</default>
+        <label>31 - Online license, available separately</label>
+    </customValue>
+    <customValue>
+        <fullName>33 - Digibordsoftware</fullName>
+        <default>false</default>
+        <label>33 - Digibordsoftware</label>
+    </customValue>
+    <customValue>
+        <fullName>34 - Item Groups</fullName>
+        <default>false</default>
+        <label>34 - Item Groups</label>
+    </customValue>
+    <customValue>
+        <fullName>35 - Dummy Products</fullName>
+        <default>false</default>
+        <label>35 - Dummy Products</label>
+    </customValue>
+    <customValue>
+        <fullName>37 - AmbraSoft Schools</fullName>
+        <default>false</default>
+        <label>37 - AmbraSoft Schools</label>
+    </customValue>
+    <customValue>
+        <fullName>39 - BVE online licenses</fullName>
+        <default>false</default>
+        <label>39 - BVE online licenses</label>
+    </customValue>
+    <customValue>
+        <fullName>40 - Health products</fullName>
+        <default>false</default>
+        <label>40 - Health products</label>
+    </customValue>
+    <customValue>
+        <fullName>41 - Online license, in Item Group</fullName>
+        <default>false</default>
+        <label>41 - Online license, in Item Group</label>
+    </customValue>
+    <customValue>
+        <fullName>42 - MBO NU licenses</fullName>
+        <default>false</default>
+        <label>42 - MBO NU licenses</label>
+    </customValue>
+    <customValue>
+        <fullName>43 - E-books</fullName>
+        <default>false</default>
+        <label>43 - E-books</label>
+    </customValue>
+    <customValue>
+        <fullName>PPZ - Zorgpad Pro</fullName>
+        <default>false</default>
+        <label>PPZ - Zorgpad Pro</label>
+    </customValue>
+    <customValue>
+        <fullName>Rein - Studytube lic + AT</fullName>
+        <default>false</default>
+        <label>Rein - Studytube lic + AT</label>
+    </customValue>
+    <customValue>
+        <fullName>Assessor</fullName>
+        <default>false</default>
+        <label>Assessor</label>
+    </customValue>
+    <customValue>
+        <fullName>ZP P&amp;P AYCL Algemeen</fullName>
+        <default>false</default>
+        <label>ZP P&amp;P AYCL Algemeen</label>
+    </customValue>
+    <customValue>
+        <fullName>ZP P&amp;P AYCL GHZ</fullName>
+        <default>false</default>
+        <label>ZP P&amp;P AYCL GHZ</label>
+    </customValue>
+    <customValue>
+        <fullName>Studytube</fullName>
+        <default>false</default>
+        <label>Studytube</label>
+    </customValue>
+    <customValue>
+        <fullName>Rein - Studytube OI+OTB</fullName>
+        <default>false</default>
+        <label>Rein - Studytube OI+OTB</label>
+    </customValue>
+    <masterLabel>Product Discount Group</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

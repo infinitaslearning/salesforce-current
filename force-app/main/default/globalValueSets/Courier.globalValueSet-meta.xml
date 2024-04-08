@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>DHL | DHL regelverk</fullName>
+        <default>false</default>
+        <label>DHL | DHL regelverk</label>
+    </customValue>
+    <customValue>
+        <fullName>SCH | Schenker regelverk</fullName>
+        <default>false</default>
+        <label>SCH | Schenker regelverk</label>
+    </customValue>
+    <customValue>
+        <fullName>20 | Ekonomibrev</fullName>
+        <default>false</default>
+        <label>20 | Ekonomibrev</label>
+    </customValue>
+    <customValue>
+        <fullName>21 | 1:A-Klassbrev</fullName>
+        <default>false</default>
+        <label>21 | 1:A-Klassbrev</label>
+    </customValue>
+    <customValue>
+        <fullName>26 | PostNord Parcel</fullName>
+        <default>false</default>
+        <label>26 | PostNord Parcel</label>
+    </customValue>
+    <customValue>
+        <fullName>28 | PostNord Parcel 9.00</fullName>
+        <default>false</default>
+        <label>28 | PostNord Parcel 9.00</label>
+    </customValue>
+    <customValue>
+        <fullName>29 | PostNord Parcel 12.00</fullName>
+        <default>false</default>
+        <label>29 | PostNord Parcel 12.00</label>
+    </customValue>
+    <customValue>
+        <fullName>32 | Schenker Parcel Ombud</fullName>
+        <default>false</default>
+        <label>32 | Schenker Parcel Ombud</label>
+    </customValue>
+    <customValue>
+        <fullName>73 | HÄMTAS – utan fraktsedel</fullName>
+        <default>false</default>
+        <label>73 | HÄMTAS – utan fraktsedel</label>
+    </customValue>
+    <customValue>
+        <fullName>74 | HÄMTAS - med fraktsedel</fullName>
+        <default>false</default>
+        <label>74 | HÄMTAS - med fraktsedel</label>
+    </customValue>
+    <customValue>
+        <fullName>80 | Kungsbud</fullName>
+        <default>false</default>
+        <label>80 | Kungsbud</label>
+    </customValue>
+    <customValue>
+        <fullName>84 | UPS standard</fullName>
+        <default>false</default>
+        <label>84 | UPS standard</label>
+    </customValue>
+    <customValue>
+        <fullName>85 | UPS saver</fullName>
+        <default>false</default>
+        <label>85 | UPS saver</label>
+    </customValue>
+    <customValue>
+        <fullName>44 | DHL</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>44 | DHL</label>
+    </customValue>
+    <masterLabel>Courier</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

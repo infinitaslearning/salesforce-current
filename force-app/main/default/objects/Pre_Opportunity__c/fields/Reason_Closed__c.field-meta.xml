@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Closed__c</fullName>
+    <description>Reasons for closing a lead</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please give up a reason</inlineHelpText>
+    <label>Reason Closed</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Already Chosen Other Method</fullName>
+                <default>false</default>
+                <label>Already Chosen Other Method</label>
+            </value>
+            <value>
+                <fullName>Lead for next sales season</fullName>
+                <default>false</default>
+                <label>Lead for next sales season</label>
+            </value>
+            <value>
+                <fullName>Not applicable</fullName>
+                <default>true</default>
+                <label>Not applicable</label>
+            </value>
+            <value>
+                <fullName>Wrong Data Information</fullName>
+                <default>false</default>
+                <label>Wrong Data Information</label>
+            </value>
+            <value>
+                <fullName>Wrong Change Information</fullName>
+                <default>false</default>
+                <label>Wrong Change Information</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>New</controllingFieldValue>
+            <controllingFieldValue>Converted</controllingFieldValue>
+            <controllingFieldValue>In process</controllingFieldValue>
+            <controllingFieldValue>Linked</controllingFieldValue>
+            <valueName>Not applicable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Already Chosen Other Method</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Lead for next sales season</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Wrong Data Information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Wrong Change Information</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -8,8 +8,10 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
     // bg_AllObjectInvocableHandler.AllObjectInvocableHandler(Set_ItemId);
     
     private Boolean CalledFromInvocable;
-    Private List<Id> ItemIdFullList;
+    
     Private Set<Id> ItemId;
+    Private List<Id> ItemIdFullList;
+    
 
     
     Public Order_AssetsCreateOnOrderActivation(List<Id> ItemIdFullList, Set<Id> ItemId,Boolean CalledFromInvocable){
@@ -34,10 +36,10 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
 
       OrderItem[] lstOrderItem = [Select id from OrderItem where OrderId in: OrderId AND Asset__c =: null];
 
-      Set<Id> ItemId = new Set<Id>(new Map<Id, OrderItem>(lstOrderItem).keySet());
-      List<Id> ItemIdFullList = new List<Id>(new Map<Id, OrderItem>(lstOrderItem).keySet());
+        Set<Id> ItemId = new Set<Id>(new Map<Id, OrderItem>(lstOrderItem).keySet());
+        List<Id> ItemIdFullList = new List<Id>(new Map<Id, OrderItem>(lstOrderItem).keySet());
       
-      System.enqueueJob(new Order_AssetsCreateOnOrderActivation(ItemIdFullList,ItemId,true));
+        System.enqueueJob(new Order_AssetsCreateOnOrderActivation(ItemIdFullList,ItemId,true));
   }
 
     public static void processAssetsFromOrder(List<Id> ItemIdFullList, Set<Id> ItemId,Boolean CalledFromInvocable){
@@ -46,13 +48,22 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
         if(ItemId.size()>0){
 
         
-
+                    /*
                     OrderItem[] lstOrderItem = [Select id,Asset__c,Product2.EAN__c,Terms__c,Quantity,Order.Type,Order.CurrencyIsoCode,Order.ContractId,TrialStartDate__c,TrialEndDate__c,StartDate__c, Order.Pricebook2Id,Order.Pricebook2.Name,Order.Pricebook2.IndexationPercentage__c,UnitPrice,Order.Billto__c,Order.Source__c, EndDate,ManualDiscount__c,ManualDiscountPercent__c,
                                                         ListPrice,DiscountedPrice__c,ServiceDate,LicenseDuration__c,CreatedDate,ShipToAccount__c,Renewable__c,AssetIdValidate__c,ShipToAttentionOf__c,
                                                         Product2.CustomPricingAllowed__c,ComponentListPrice__c,Product2.Method__c,OrderLineType__c,CustomerReference__c,Product2.Name,OperatingCompany__c,Order.EndDate,ManualDiscountValue__c,NetsuiteQuantity__c,Order.shipToAttentionOf__c,
                                                         Order.PricingMethod__c,Product2Id,ShipToAccount__r.DigitalActivationEmail__c, Product2.Type__c,DigitalActivationEMail__c,
                                                         Order.Hfdstructuur__c,Hfdstructuur__c                                    
-                                                        From OrderItem where Id in:ItemId limit 200];                
+                                                        From OrderItem where Id in:ItemId limit 200];     
+                    */
+                    Set<string> Set_string = new Set<String>();
+                    for(Id  item:ItemId){
+                        Set_string.add(item);
+                    }  
+
+                    OrderItem[] lstOrderItem =  Order_SoqlFactory.returnQueryOrderItems(Set_string,null,null,'AssetsCreateOnOrderActivation');
+                    system.debug('**Order_SoqlFactory.Order_AssetsCreateOnOrderA.lstOrderItem :Size**'+lstOrderItem.size());                                    
+                                                        
                                                                 //!-- INFORMAT RENEWALS
                 
                     Set<String> Set_Asset = new Set<String>();

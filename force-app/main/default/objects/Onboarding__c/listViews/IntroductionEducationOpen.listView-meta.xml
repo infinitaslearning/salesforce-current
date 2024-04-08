@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IntroductionEducationOpen</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>CSM__c</columns>
+    <columns>Stages__c</columns>
+    <columns>Webinar__c</columns>
+    <columns>Video_Tutorial__c</columns>
+    <columns>Visit_Online_Physical__c</columns>
+    <columns>Manual_date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Webinar__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Video_Tutorial__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Visit_Online_Physical__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <filters>
+        <field>Manual_date__c</field>
+        <operation>equals</operation>
+        <value>Open</value>
+    </filters>
+    <label>Introduction/Education Open</label>
+</ListView>

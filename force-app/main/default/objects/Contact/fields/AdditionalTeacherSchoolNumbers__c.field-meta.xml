@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AdditionalTeacherSchoolNumbers__c</fullName>
+    <description>This field is used to concatenate teacher school numbers when merging contacts to be able to store multiple teacher school number values when the contact is merged because a teacher can working at more than one school</description>
+    <externalId>false</externalId>
+    <label>Additional Teacher School Numbers</label>
+    <length>500</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

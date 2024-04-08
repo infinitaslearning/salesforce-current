@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SectorHO__c</fullName>
+    <description>HO: 6 - Van welke sector maakt het vak/onderwerp/module onderdeel uit?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>HO: 6 - Van welke sector maakt het vak/onderwerp/module onderdeel uit?</inlineHelpText>
+    <label>Sector HO</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>Landbouw &amp; Natuurlijke Omgeving</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>Economie</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>Gezondheidszorg</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>Onderwijs</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>Gedrag &amp; Maatschappij</label>
+            </value>
+            <value>
+                <fullName>6</fullName>
+                <default>false</default>
+                <label>Techniek</label>
+            </value>
+            <value>
+                <fullName>7</fullName>
+                <default>false</default>
+                <label>Kunst</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

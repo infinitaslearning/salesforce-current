@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Import Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Import Orders</value>
+    </caseValues>
+    <layouts>
+        <layout>Import Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>User</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NetSuite Order Layout</layout>
+        <sections>
+            <label></label>
+            <section>Admin</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Bill To Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Pricing &amp; Payment Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Product information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Ship To Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Tax information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>User</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

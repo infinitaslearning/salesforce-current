@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Edit_Brands</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Edit Brands</label>
+        <sharedTo>
+            <group>Data_management_Plantyn</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Subsidiary__c</field>
+            <operation>equals</operation>
+            <value>Plantyn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>LiberMethods</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Liber Methods</label>
+        <sharedTo>
+            <group>AllUsersLiber</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Subsidiary__c</field>
+            <operation>equals</operation>
+            <value>Liber</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffMethods</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Noordhoff Methods</label>
+        <sharedTo>
+            <group>AllUsersNoordhoff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Subsidiary__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff Learnlinq,Noordhoff,Noordhoff Digitaal Bedrijf</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PlantynMethods</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Plantyn Methods</label>
+        <sharedTo>
+            <group>AllUsersPlantyn</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Subsidiary__c</field>
+            <operation>equals</operation>
+            <value>Plantyn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

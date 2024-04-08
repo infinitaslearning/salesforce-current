@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Liber Sales Schools AM</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Liber Sales Schools AM</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Liber_Sales_Manager_Rep</parentRole>
+</Role>

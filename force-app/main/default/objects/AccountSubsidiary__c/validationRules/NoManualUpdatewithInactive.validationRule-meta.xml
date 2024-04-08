@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoManualUpdatewithInactive</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ManualUpdate__c = true, OR(IsInactive__c = true, Deleted__c = true))</errorConditionFormula>
+    <errorMessage>Can&apos;t manually update a record that is inactive or pending inactive</errorMessage>
+</ValidationRule>

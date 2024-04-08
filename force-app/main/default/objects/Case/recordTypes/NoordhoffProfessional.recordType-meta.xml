@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoordhoffProfessional</fullName>
+    <active>true</active>
+    <businessProcess>Support Process</businessProcess>
+    <label>Noordhoff Professional</label>
+    <picklistValues>
+        <picklist>Browser__c</picklist>
+        <values>
+            <fullName>Google Chrome</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Microsoft Edge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Microsoft Internet Explorer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mozilla Firefox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opera</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safari</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CaseOriginDetail__c</picklist>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instagram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Learning Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CategoryLevel2__c</picklist>
+        <values>
+            <fullName>Assortiment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bestelling %26 Levering</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CategoryLevel3__c</picklist>
+        <values>
+            <fullName>Talen</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OperatingCompany__c</picklist>
+        <values>
+            <fullName>Infinitas Learning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liber</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Professional</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Plantyn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Incident</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Question</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

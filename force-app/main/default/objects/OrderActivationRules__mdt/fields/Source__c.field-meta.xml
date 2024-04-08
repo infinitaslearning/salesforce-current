@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Source</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B2B Shop</fullName>
+                <default>false</default>
+                <label>B2B Shop</label>
+            </value>
+            <value>
+                <fullName>B2B Salesforce</fullName>
+                <default>false</default>
+                <label>B2B Salesforce</label>
+            </value>
+            <value>
+                <fullName>Trade</fullName>
+                <default>true</default>
+                <label>Trade</label>
+            </value>
+            <value>
+                <fullName>eCommerce B2C</fullName>
+                <default>false</default>
+                <label>eCommerce B2C</label>
+            </value>
+            <value>
+                <fullName>eCommerce B2B</fullName>
+                <default>false</default>
+                <label>eCommerce B2B</label>
+            </value>
+            <value>
+                <fullName>NetSuite: Manual</fullName>
+                <default>false</default>
+                <label>NetSuite: Manual</label>
+            </value>
+            <value>
+                <fullName>Order Form</fullName>
+                <default>false</default>
+                <label>Order Form</label>
+            </value>
+            <value>
+                <fullName>Trade - Early Season Order</fullName>
+                <default>false</default>
+                <label>Trade - Early Season Order</label>
+            </value>
+            <value>
+                <fullName>Tender</fullName>
+                <default>false</default>
+                <label>Tender</label>
+            </value>
+            <value>
+                <fullName>Depot</fullName>
+                <default>false</default>
+                <label>Depot</label>
+            </value>
+            <value>
+                <fullName>Studiemeister</fullName>
+                <default>false</default>
+                <label>Studiemeister</label>
+            </value>
+            <value>
+                <fullName>B2B Salesforce Renewal</fullName>
+                <default>false</default>
+                <label>B2B Salesforce Renewal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

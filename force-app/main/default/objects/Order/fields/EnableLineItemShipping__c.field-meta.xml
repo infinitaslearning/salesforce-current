@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnableLineItemShipping__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this is not true then you are not allowed to ship to multiple ship-to&apos;s</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If set to true, you are allowed to ship to multiple ship-to&apos;s</inlineHelpText>
+    <label>Enable Line Item Shipping</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

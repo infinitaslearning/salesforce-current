@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CategoryLevel3__c</fullName>
+    <description>CategoryLevel3</description>
+    <externalId>false</externalId>
+    <label>Category Level 3</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CategoryLevel2__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>CategoryLevel3</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Taal &amp; Spelling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Stepping Stones Junior</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Nieuw Nederlands Junior</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Getal &amp; Ruimte Junior</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Zaakvakken</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Beschikbaarheid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Exact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Memij</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>De Grote Bosatlas Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Talen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Bestelling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Levering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Retour</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Docentmateriaal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
+            <valueName>Account voor docent &amp; particulier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
+            <valueName>Validator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
+            <valueName>Scholen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Factuur &amp; Betaling</controllingFieldValue>
+            <valueName>Factuur</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Factuur &amp; Betaling</controllingFieldValue>
+            <valueName>Betaling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Instellingen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Foutmeldingen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Toegang</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Toetsen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Klassen &amp; Lesmateriaal koppelen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Voor de docent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Resultaten</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Zorgpad</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>
+            <valueName>Opdrachten</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

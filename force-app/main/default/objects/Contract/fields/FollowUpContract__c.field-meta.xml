@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FollowUpContract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field links to the next Contract that has been renewed based on this Contract.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field links to the next Contract that has been renewed based on this Contract.</inlineHelpText>
+    <label>Follow Up Contract</label>
+    <referenceTo>Contract</referenceTo>
+    <relationshipLabel>Previous Contracts</relationshipLabel>
+    <relationshipName>PreviousContracts</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

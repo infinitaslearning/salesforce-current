@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Availability__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(PlanningNote__c = &apos;SO&apos; || PlanningNote__c = &apos;SOM&apos;,
+   &apos;Slutsåld&apos;,
+   if(PlanningNote__c = &apos;TOS&apos;|| PlanningNote__c = &apos;TOSM&apos;,
+    AvailabilityStatus__c,If(PlanningNote__c = null,  AvailabilityText__c,&apos;&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>zRemove Availability</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

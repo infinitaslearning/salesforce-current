@@ -4,16 +4,20 @@ public class KLOPOTEK_TestDataFactory {
     public static void createData() {
 
         List<String> objects = new List<String>{'Contact','Account'};
+        List<String> OpCos = new List<String>{'Noordhoff','Plantyn','Liber'};
 
         //Create Classification Attributes
         Map<String,ClassificationAttribute__c> caMap = new Map<String,ClassificationAttribute__c>();
 
         for (String objectName : objects) {
-            ClassificationAttribute__c ca = new ClassificationAttribute__c();
-            ca.Name = 'Test Attribute for ' + objectName + 's';
-            ca.OperatingCompany__c = 'Noordhoff';
-            ca.ObjectName__c = objectName;
-            caMap.put(ca.ObjectName__c,ca);
+            for (String opco : OpCos) {
+                ClassificationAttribute__c ca = new ClassificationAttribute__c();
+                ca.Name = 'Test Attribute for ' + objectName + 's';
+                ca.OperatingCompany__c = opco;
+                ca.ObjectName__c = objectName;
+                caMap.put(ca.ObjectName__c,ca);
+            }
+            
         }
         insert caMap.Values();
 
@@ -22,16 +26,19 @@ public class KLOPOTEK_TestDataFactory {
         List<ClassificationAttributeValue__c> cavInsertLst = new List<ClassificationAttributeValue__c>();
         for (String objectName : objects) {
             List<ClassificationAttributeValue__c> cavLst = new List<ClassificationAttributeValue__c>();
-            for (Integer i = 0; i < 5; i++) {
-                ClassificationAttributeValue__c cav = new ClassificationAttributeValue__c();
-                cav.Name = 'TestCustomAttribute ' + objectName + ' ' + i;
-                cav.ClassificationAttribute__c = caMap.get(objectName).Id;
-                cav.ObjectName__c = objectName;
-                cav.OperatingCompany__c = 'Noordhoff';
-                cav.Active__c = true;
-                cavLst.add(cav);
-                cavInsertLst.add(cav);
+            for (String opco : OpCos) {
+                for (Integer i = 0; i < 5; i++) {
+                    ClassificationAttributeValue__c cav = new ClassificationAttributeValue__c();
+                    cav.Name = 'TestCustomAttribute ' + objectName + ' ' + i;
+                    cav.ClassificationAttribute__c = caMap.get(objectName).Id;
+                    cav.ObjectName__c = objectName;
+                    cav.OperatingCompany__c = opco;
+                    cav.Active__c = true;
+                    cavLst.add(cav);
+                    cavInsertLst.add(cav);
+                }
             }
+            
             cavMap.put(objectName,cavLst);
         }
         insert cavInsertLst;
@@ -144,6 +151,11 @@ public class KLOPOTEK_TestDataFactory {
             } else {
                 kc.OperatingCompany__c = 'Noordhoff';
             }
+            if (i > 3) {
+                kc.DocNr__c = '';
+                kc.SchNr__c = '';
+                kc.ContactId__c = ctLst[i-1].Id;
+            }
             kcLst.add(kc);
         }
 
@@ -165,6 +177,10 @@ public class KLOPOTEK_TestDataFactory {
                 kc.OperatingCompany__c = 'Liber';
             } else if (i > -3) {
                 kc.OperatingCompany__c = 'Noordhoff';
+            }
+            if (i > 3) {
+                kc.SchNr__c = '';
+                kc.AccountId__c = accLst[i-1].Id;
             }
             kcLst.add(kc);
         }

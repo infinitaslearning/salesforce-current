@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Noordhoff_Failed_import_orders</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>ExternalOrderId__c</columns>
+    <columns>ProductId__c</columns>
+    <columns>Source__c</columns>
+    <columns>Status__c</columns>
+    <columns>Error__c</columns>
+    <columns>invoiceIdLocation__c</columns>
+    <columns>deliveryIdLocation__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Noordhoff</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed,Cancelled</value>
+    </filters>
+    <label>Noordhoff - Failed import orders</label>
+    <sharedTo>
+        <group>AllUsersNoordhoff</group>
+    </sharedTo>
+</ListView>

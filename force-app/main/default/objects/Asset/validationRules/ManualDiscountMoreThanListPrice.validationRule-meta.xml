@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ManualDiscountMoreThanListPrice</fullName>
+    <active>true</active>
+    <description>The validation will prevent a manual discount value that is higher than the list price of the asset record.</description>
+    <errorConditionFormula>AND
+(OR
+	(TEXT(ManualDiscount__c) =&apos;One-Off Amount&apos;,
+		TEXT(ManualDiscount__c) =&apos;Recurring Amount&apos; )
+				,ManualDiscountValue__c &gt; ListPrice__c)</errorConditionFormula>
+    <errorDisplayField>ManualDiscountValue__c</errorDisplayField>
+    <errorMessage>The Manual Discount Value cannot be more than the List Price of the asset.</errorMessage>
+</ValidationRule>

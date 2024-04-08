@@ -1,0 +1,17 @@
+Dear ServiceDesk, 
+
+Please make sure the following contact details are properly registered within KLOPOTEK.
+
+First name        : {!Contact.FirstName}
+Last name        : {!Contact.LastName}
+Title                  : {!Contact.Title}
+Gender             : {!Contact.Sex__c}
+Email address  : {!Contact.Email}
+Mobile              : {!Contact.MobilePhone}
+Phone              : {!Contact.Phone}
+Customer         : {!Contact.AccountName__c}
+Customer #      : {!Contact.Customer_Number__c}
+
+For more information please contact {!Contact.OwnerFullName} or {!Contact.LastModifiedBy}.
+
+This email has been as per automated process with reference LI-CNT-CRUP-v1

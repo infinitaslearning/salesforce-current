@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SoldToAccount__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Describes the account the products were sold to.</description>
+    <externalId>false</externalId>
+    <label>Sold to Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Retailer Statistics Imports</relationshipLabel>
+    <relationshipName>Retailer_Statistics_Imports</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

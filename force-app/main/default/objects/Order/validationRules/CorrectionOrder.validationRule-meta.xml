@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CorrectionOrder</fullName>
+    <active>true</active>
+    <description>Certain fields can&apos;t be updated in a correction order</description>
+    <errorConditionFormula>NOT(ISNEW()) &amp;&amp; CreatedDate &lt;&gt; LastModifiedDate &amp;&amp; CreatedByCorrectionProcess__c = true &amp;&amp; OR(ISCHANGED(ShippingAddress),ISCHANGED(ShippingAddressNote__c),
+ISCHANGED(Shipto__c), ISCHANGED(shipToAttentionOf__c), ISCHANGED(ShipbyDate__c),ISCHANGED(Courier__c), ISCHANGED(CourierInformation__c), ISCHANGED(CourierWholeSalerId__c),
+ISCHANGED(DeliveryEmail__c),ISCHANGED(DeliveryPhone__c),ISCHANGED(DeliveryRouting__c), ISCHANGED(ShippingCostExempt__c), ISCHANGED(MultipleShippingLocations__c))</errorConditionFormula>
+    <errorMessage>You can only update the billing related and communication related fields</errorMessage>
+</ValidationRule>

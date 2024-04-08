@@ -1,0 +1,27 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Hi,<br />
+<br />
+{{{Event.Extra_instructie__c}}}<br />
+<br />
+--------------------------<br />
+Reference : {{{Opportunity.Reference__c}}}<br />
+Starting date : {{{Event.StartDateTime}}}<br />
+Ending time : {{{Event.EndDateTime}}}<br />
+Type : {{{Event.Type}}}<br />
+Subject: {{{Event.Subject}}}<br />
+Company : {{{Account.Name}}} - {{{Account.Customer_Number__c}}}<br />
+---<br />
+City : {{{Account.ShippingCity}}}<br />
+Person : {{{Contact.Name}}}<br />
+Klopotek Code : {{{Contact.Klopotek_Number__c}}}<br />
+---<br />
+Owner : {{{Event.Assigned_To_Name__c}}}<br />
+Vak: {{{Opportunity.Vak__c}}}<br />
+Methode: {{{Opportunity.Educational_Program__c}}}<br />
+---<br />
+Description:<br />
+{{{Event.Description}}}<br />
+<br />
+URL naar Salesforce: {{{Event.Link}}}</body></html>

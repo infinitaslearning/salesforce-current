@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Liber_Pilotskola</fullName>
+    <columns>ExternalCustomerId__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Holding__c</columns>
+    <columns>ACCOUNT.ADDRESS2_CITY</columns>
+    <columns>TypeOfEducation__c</columns>
+    <columns>NumberofStudents__c</columns>
+    <columns>Categories__c</columns>
+    <columns>Email__c</columns>
+    <columns>ACCOUNT.LAST_UPDATE</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <filters>
+        <field>Topics</field>
+        <operation>includes</operation>
+        <value>Pilotskola</value>
+    </filters>
+    <label>Accounts Liber - Pilotskola</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

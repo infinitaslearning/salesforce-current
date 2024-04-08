@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>LiberLeads</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Liber Leads</label>
+        <sharedTo>
+            <group>AllUsersLiber</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Liber</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Noordhoff</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Noordhoff</label>
+        <sharedTo>
+            <group>AllUsersNoordhoff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffLeads</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Noordhoff Leads</label>
+        <sharedTo>
+            <group>AllUsersNoordhoff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffProfessional</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Noordhoff Professional</label>
+        <sharedTo>
+            <group>AllUsersNoordhoffProfessional</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff Professional</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffProfessionalLeadsOld</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Rule to share Noordhoff Professional Leads</description>
+        <label>Noordhoff Professional Leads</label>
+        <sharedTo>
+            <roleAndSubordinates>Noordhoff_Professional_Manager</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff Professional</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PlantynLeads</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Plantyn Leads</label>
+        <sharedTo>
+            <group>AllUsersPlantyn</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Plantyn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

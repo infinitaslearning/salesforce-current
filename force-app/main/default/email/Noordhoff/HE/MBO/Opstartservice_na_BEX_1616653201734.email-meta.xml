@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Aanbod gratis Noordhoff Opstartservice</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Opstartservice na BEX</name>
+    <relatedEntityType>Contact</relatedEntityType>
+    <style>none</style>
+    <subject>Maak gebruik van de gratis Noordhoff Opstartservice</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

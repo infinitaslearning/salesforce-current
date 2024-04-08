@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_at_least_one_Market_Group</fullName>
+    <active>true</active>
+    <errorConditionFormula>General__c = false  &amp;&amp;  
+SecondaryEducation__c = false  &amp;&amp; 
+HigherEducation__c = false  &amp;&amp; 
+PrimaryEducation__c = false  &amp;&amp; 
+VocationalEducation__c = false</errorConditionFormula>
+    <errorMessage>Please specify Market Group</errorMessage>
+</ValidationRule>

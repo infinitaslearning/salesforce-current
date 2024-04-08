@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TypeOfEducation__c</fullName>
+    <externalId>false</externalId>
+    <formula>If (Segment__c = &apos;Basisonderwijs&apos;,&apos;BAO&apos;,IF(Segment__c = &apos;Voortgezet Onderwijs&apos;,&apos;VOO&apos;,IF(Segment__c =&apos;Middelbaar Beroepsonderwijs&apos;, &apos;MBO&apos;,&apos;Undefined&apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Type of Education</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

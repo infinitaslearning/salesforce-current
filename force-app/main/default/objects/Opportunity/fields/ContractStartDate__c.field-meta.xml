@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractStartDate__c</fullName>
+    <description>The Date on which the Contract of Type &apos;License Agreement&apos; will Start.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Applies to Products of Type &apos;Recurring&apos;.</inlineHelpText>
+    <label>Contract Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

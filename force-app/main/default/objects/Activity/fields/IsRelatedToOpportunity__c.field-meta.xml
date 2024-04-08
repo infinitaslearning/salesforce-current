@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsRelatedToOpportunity__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(LEFT(WhatId  , 3) &lt;&gt; &apos;006&apos;, false, true)</formula>
+    <label>IsRelatedToOpportunity</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,18 @@
+<html><head> 
+  <title></title> 
+ </head> 
+ <body style="height: auto; min-height: auto;">Dag {{{Contact.FirstName}}} 
+  <br /> 
+  <br /> Naar aanleiding van ons telefonisch gesprek bevestig ik onze afspraak van {{{Event.StartDateTime}}} &lt;&lt;dag maand en uur invullen&gt;&gt;. 
+  <br /> U kunt hieronder mijn gegevens terugvinden. 
+  <br /> 
+  <br /> Aarzel niet indien u bijkomende vragen heeft of specifiek materiaal wenst in te kijken om contact op te nemen. 
+  <br /> &lt;&lt;aanvullen met doel van bezoek eventueel&gt;&gt; 
+  <br /> 
+  <br /> 
+  <br /> Vriendelijke groet, 
+  <br /> 
+  <br /> {{{Sender.Name}}}&nbsp; 
+  <br /> Regioverantwoordelijke en educatief adviseur basisonderwijs 
+  <br /> {{{Sender.MobilePhone}}} 
+  <br /> {{{Sender.Email}}}</body></html>

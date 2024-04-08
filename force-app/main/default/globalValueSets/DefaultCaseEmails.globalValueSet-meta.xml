@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>kennismanagement@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>kennismanagement@noordhoff.nl</label>
+    </customValue>
+    <customValue>
+        <fullName>orderdirect@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>orderdirect@noordhoff.nl</label>
+    </customValue>
+    <customValue>
+        <fullName>pgm@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>pgm@noordhoff.nl</label>
+    </customValue>
+    <customValue>
+        <fullName>salesbao@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>salesbao@noordhoff.nl</label>
+    </customValue>
+    <customValue>
+        <fullName>salesvo@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>salesvo@noordhoff.nl</label>
+    </customValue>
+    <customValue>
+        <fullName>services@noordhoff.nl</fullName>
+        <default>false</default>
+        <label>services@noordhoff.nl</label>
+    </customValue>
+    <description>A list of default addresses used to send emails from in Service Cloud</description>
+    <masterLabel>Default Case Emails</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

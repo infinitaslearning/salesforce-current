@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Workbooks</fullName>
+    <columns>NAME</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>CustomerDiscountGroup__c</columns>
+    <columns>ProductDiscountGroup__c</columns>
+    <columns>OrderLineType__c</columns>
+    <columns>StartQuantity__c</columns>
+    <columns>Rate__c</columns>
+    <columns>DiscountType__c</columns>
+    <columns>MarketSegment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ProductDiscountGroup__c</field>
+        <operation>equals</operation>
+        <value>Workbooks</value>
+    </filters>
+    <label>Workbooks</label>
+</ListView>

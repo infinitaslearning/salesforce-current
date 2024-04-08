@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Temp_PostalCodeMatch__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ShippingPostalCode = ShippingAddress__r.PostalCode__c, true, false)</formula>
+    <label>Temp_PostalCodeMatch</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

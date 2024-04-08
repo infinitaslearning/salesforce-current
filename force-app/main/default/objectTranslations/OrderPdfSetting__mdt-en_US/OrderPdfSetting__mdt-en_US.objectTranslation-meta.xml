@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order PDF Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Order PDF Settings</value>
+    </caseValues>
+    <layouts>
+        <layout>Order PDF Setting Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Language Settings</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>OpCo Settings</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

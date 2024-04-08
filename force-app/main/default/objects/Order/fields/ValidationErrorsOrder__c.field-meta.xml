@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationErrorsOrder__c</fullName>
+    <externalId>false</externalId>
+    <formula>ValidateActivateAccountSubsidiaryRequir__c +
+ValidateActivateEmailsRequired__c +
+ValidateActivateShippingAddressRequired__c +
+ValidateActivateValidation__c +
+ValidateB2BLineCountError__c +
+ValidateDigitalforNetherlands__c+
+ValidateInventoryOnMultipleLocations__c +
+ValidateReferenceNumberCheck__c +
+ValidateShipToEmpty__c +
+ValidateBillToEmpty__c +
+ValidateNetSalesPrice__c+
+ValidateOrderAmount__c +
+ValidateShippingCostExclVAT__c +
+ValidateTotalLineItemQuantities__c +
+ValidateBillingAddress__c +
+ValidateShippingAddress__c +
+ValidateFreeAndServiceMustbeZeroOnActiv__c +
+ValidateShipToTenderDistributor__c +
+ValidateAccountStatus__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validation errors Order</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

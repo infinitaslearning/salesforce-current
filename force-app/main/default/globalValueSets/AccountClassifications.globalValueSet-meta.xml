@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Pre-school</fullName>
+        <default>false</default>
+        <label>Pre-school</label>
+    </customValue>
+    <customValue>
+        <fullName>Primary</fullName>
+        <default>false</default>
+        <label>Primary</label>
+    </customValue>
+    <customValue>
+        <fullName>Lower Primary</fullName>
+        <default>false</default>
+        <label>Lower Primary</label>
+    </customValue>
+    <customValue>
+        <fullName>Upper Primary</fullName>
+        <default>false</default>
+        <label>Upper Primary</label>
+    </customValue>
+    <customValue>
+        <fullName>Lower Secondary</fullName>
+        <default>false</default>
+        <label>Lower Secondary</label>
+    </customValue>
+    <customValue>
+        <fullName>Secondary</fullName>
+        <default>false</default>
+        <label>Secondary</label>
+    </customValue>
+    <customValue>
+        <fullName>Gymnasium/Vuxenutbildning</fullName>
+        <default>false</default>
+        <label>Gymnasium/Vuxenutbildning</label>
+    </customValue>
+    <customValue>
+        <fullName>Higher</fullName>
+        <default>false</default>
+        <label>Higher</label>
+    </customValue>
+    <customValue>
+        <fullName>Högskola</fullName>
+        <default>false</default>
+        <label>Högskola</label>
+    </customValue>
+    <customValue>
+        <fullName>Generic</fullName>
+        <default>false</default>
+        <label>Generic</label>
+    </customValue>
+    <customValue>
+        <fullName>Kompetensutveckling</fullName>
+        <default>false</default>
+        <label>Kompetensutveckling</label>
+    </customValue>
+    <customValue>
+        <fullName>Vocational</fullName>
+        <default>false</default>
+        <label>Vocational</label>
+    </customValue>
+    <customValue>
+        <fullName>Adult</fullName>
+        <default>false</default>
+        <label>Adult</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional</fullName>
+        <default>false</default>
+        <label>Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>SFI</fullName>
+        <default>false</default>
+        <label>SFI</label>
+    </customValue>
+    <customValue>
+        <fullName>French Higher</fullName>
+        <default>false</default>
+        <label>French Higher</label>
+    </customValue>
+    <customValue>
+        <fullName>French Pre-school</fullName>
+        <default>false</default>
+        <label>French Pre-school</label>
+    </customValue>
+    <customValue>
+        <fullName>French Primary</fullName>
+        <default>false</default>
+        <label>French Primary</label>
+    </customValue>
+    <customValue>
+        <fullName>French Professional</fullName>
+        <default>false</default>
+        <label>French Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>French Secondary</fullName>
+        <default>false</default>
+        <label>French Secondary</label>
+    </customValue>
+    <customValue>
+        <fullName>Upper Secondary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Upper Secondary</label>
+    </customValue>
+    <masterLabel>AccountClassifications</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

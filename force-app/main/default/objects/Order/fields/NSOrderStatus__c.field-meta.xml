@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NSOrderStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>NS Order Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <label>Pending Approval</label>
+            </value>
+            <value>
+                <fullName>Pending Fulfillment</fullName>
+                <default>false</default>
+                <label>Pending Fulfillment</label>
+            </value>
+            <value>
+                <fullName>Partially Fulfilled</fullName>
+                <default>false</default>
+                <label>Partially Fulfilled</label>
+            </value>
+            <value>
+                <fullName>Pending Billing/Partially Fulfilled</fullName>
+                <default>false</default>
+                <label>Pending Billing/Partially Fulfilled</label>
+            </value>
+            <value>
+                <fullName>Pending Billing</fullName>
+                <default>false</default>
+                <label>Pending Billing</label>
+            </value>
+            <value>
+                <fullName>Billed</fullName>
+                <default>false</default>
+                <label>Billed</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

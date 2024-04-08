@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetsuiteListPrice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(ComponentListPrice__c&lt;&gt;ListPrice,NOT(ISNULL(ComponentListPrice__c)),ComponentListPrice__c&gt;=0), ComponentListPrice__c, ListPrice)
+/*
+IF(AND(ISPICKVAL(OrderLineType__c, &apos;Transfer&apos;), ComponentListPrice__c=0), ComponentListPrice__c, 
+IF(ComponentListPrice__c&gt;0, ComponentListPrice__c, ListPrice))*/</formula>
+    <label>Netsuite List Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

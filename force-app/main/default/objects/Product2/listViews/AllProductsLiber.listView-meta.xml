@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllProductsLiber</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>Type__c</columns>
+    <columns>DeliveryStatus__c</columns>
+    <columns>ISBNArticleNumber__c</columns>
+    <columns>QuantitySelectionType__c</columns>
+    <columns>DeliverComplete__c</columns>
+    <columns>NameBrand__c</columns>
+    <columns>OrderLineType__c</columns>
+    <columns>Stocknumber__c</columns>
+    <columns>SuccessorItem__c</columns>
+    <columns>IsSuccessorItemActive__c</columns>
+    <columns>PRODUCT2.ACTIVE</columns>
+    <columns>BlockReason__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <filters>
+        <field>PRODUCT2.ACTIVE</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Products Liber</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

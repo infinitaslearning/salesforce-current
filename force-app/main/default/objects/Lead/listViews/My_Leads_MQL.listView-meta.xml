@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Leads_MQL</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>FULL_NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Message__c</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Product__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>equals</operation>
+        <value>MQL</value>
+    </filters>
+    <label>My Leads - MQL</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClassificationAttributeValueId__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Classification Attribute Value Id</label>
+    <referenceTo>ClassificationAttributeValue__c</referenceTo>
+    <relationshipLabel>Classification Attribute Templates</relationshipLabel>
+    <relationshipName>Classification_Attribute_Templates</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

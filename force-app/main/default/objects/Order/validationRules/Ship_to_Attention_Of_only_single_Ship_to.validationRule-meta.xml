@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ship_to_Attention_Of_only_single_Ship_to</fullName>
+    <active>true</active>
+    <errorConditionFormula>MultipleShippingLocations__c &amp;&amp; NOT(ISBLANK( shipToAttentionOf__c ))</errorConditionFormula>
+    <errorDisplayField>shipToAttentionOf__c</errorDisplayField>
+    <errorMessage>Ship-To attention of can not be filled when multiple ship-to&apos;s is allowed</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ResetRenewalOrderCreated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is populated when the Reset Assets Renewal Dates button is clicked and the user selected that a new Renewal Order Should be created based on an existing Renewal Order.</description>
+    <externalId>false</externalId>
+    <label>Reset Renewal Order Created</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

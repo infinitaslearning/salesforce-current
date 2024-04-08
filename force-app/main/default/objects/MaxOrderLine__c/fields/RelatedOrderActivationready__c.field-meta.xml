@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RelatedOrderActivationready__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(ExpectedActivationCount__c &gt;0,ActivationReadyCount__c&gt;0,ExpectedActivationCount__c=ActivationReadyCount__c), True, False)</formula>
+    <label>Related Order Activation ready</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

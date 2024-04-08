@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DiscountedPrice__c</fullName>
+    <description>Price after structural/hierarchy discounts but before manual discounts.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Price after structural/hierarchy discounts but before manual discounts.</inlineHelpText>
+    <label>Discounted Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DiscountedPrice__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Product2.Type__c) != &apos;Item Group&apos;,ROUND(NetsuiteListPrice__c - (NetsuiteListPrice__c * List_Price_Rate__c ),2),0 )</formula>
+    <inlineHelpText>Excluding VAT, shows the List Price minus Structured Discounts</inlineHelpText>
+    <label>Discounted Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

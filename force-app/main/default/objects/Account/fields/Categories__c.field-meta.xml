@@ -296,6 +296,16 @@
                 <default>false</default>
                 <label>Huvudman</label>
             </value>
+            <value>
+                <fullName>Folkhögskola</fullName>
+                <default>false</default>
+                <label>Folkhögskola</label>
+            </value>
+            <value>
+                <fullName>Högskola</fullName>
+                <default>false</default>
+                <label>Högskola</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -328,6 +338,14 @@
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
             <valueName>Huvudman</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Folkhögskola</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Högskola</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>

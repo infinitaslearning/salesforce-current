@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Reference_Number</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(NOT(TEXT(Status) = &apos;Activated&apos;),
+(IF((TEXT(OperatingCompany__c) = &apos;Plantyn&apos; || TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;) &amp;&amp; LEN(CustomerReference__c) &gt; 10 &amp;&amp; NOT(CONTAINS(Pricebook2.Name, &apos;Informat&apos;)), true,
+IF(TEXT(OperatingCompany__c) = &apos;Liber&apos; &amp;&amp; LEN(CustomerReference__c) &gt; 25 &amp;&amp; NOT(CONTAINS(Pricebook2.Name, &apos;Informat&apos;)), true, false))), false)</errorConditionFormula>
+    <errorDisplayField>CustomerReference__c</errorDisplayField>
+    <errorMessage>The reference number contains too many characters.</errorMessage>
+</ValidationRule>

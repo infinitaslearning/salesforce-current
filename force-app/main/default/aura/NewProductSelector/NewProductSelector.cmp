@@ -296,16 +296,16 @@
                                 </th> 
                             </aura:if>  
  <!-- OPPORTUNITY -->                              
-                         <th style="width:5%" scope="row">
-                            <div class=" slds-cell-fixed" >Base Price</div>
-                        </th> 
                          <th style="width:9%" scope="row">
+                            <div class=" slds-cell-fixed" >List Price</div>
+                        </th> 
+                         <th style="width:7%" scope="row">
                             <div class=" slds-cell-fixed" >Discounted Price</div>
                         </th>
  <!-- OPPORTUNITY <aura:if isTrue="{! not( v.IsOpportunity == true)}">  -->
                                          
-                         <th style="width:8%" scope="row"> 
-                            <div class=" slds-cell-fixed" >Type </div>
+                         <th style="width:8%; text-align:center" scope="row" > 
+                            <div class=" slds-cell-fixed"  >Type </div>
                         </th>                                               
                          <th style="width:10%" scope="row">
                             <div class=" slds-cell-fixed" >Discount Type </div>
@@ -321,7 +321,7 @@
                          <th style="width:5%" scope="row">
                             <div class=" slds-cell-fixed" >Quantity</div>
                         </th>
-                         <th style="width:10%" scope="row">
+                         <th style="width:9%" scope="row">
                             <div class=" slds-cell-fixed" >Total</div>
                         </th>
                           
@@ -387,17 +387,49 @@
                             </aura:if>  
         <!-- OPPORTUNITY --> 
                                             <td>
-                                                <div class="slds-truncate">                                             
+                                                                                             
                                                     
-                                                    <div class="slds-truncate">
+                                                    <!--
+                                                    
                                                         <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c == 'Liber' }"> 
                                                             <ui:outputCurrency     value="{!item.BasePrice}" format="SEK###,###,###,##0.00" />    
                                                     </aura:if>
                                                     <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c != 'Liber' }">
                                                         <ui:outputCurrency     value="{!item.BasePrice}" format="€###,###,###,##0.00" />    
-                                                    </aura:if>     
-                                                </div>                                               
-                                			</div>
+                                                    </aura:if>    
+                                                -->
+                                                    
+                                                    <aura:if isTrue="{!item.CustomPricingAllowed == true}">                                                       
+                                                        <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c == 'Liber' }"> 
+                                                            <div>SEK  <input  height="15" width="35" class="slds-input" id="{!item.ItemId}" name="input4" type="number" min="0"   value="{!item.BasePrice}" onchange="{!c.ListPriceChangeProduct}"  />                                                          
+                                                            </div>
+                                                            </aura:if>
+                                                        <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c != 'Liber' }">
+                                                            
+                                                         <div>&euro;    
+                                                            <input  height="15" width="5" class="slds-input" id="{!item.ItemId}" type="number" step="0.00" name="input4" min="0"   value="{!item.BasePrice}" onchange="{!c.ListPriceChangeProduct}"  />
+                                                            <!-- <div data-id ="{!item.ItemId}"  onchange="{!c.ListPriceChangeProduct}">
+                                                                <ui:inputCurrency     value="{!item.BasePrice}" format="###,###,###,##0.00" /> 
+                                                            <input  height="15" width="5" class="slds-input" id="{!item.ItemId}" type="number" step="0.01" name="input4" min="0"   value="{!item.BasePrice}" onchange="{!c.ListPriceChangeProduct}"  />  
+                                                        </div>    
+                                                        -->    
+                                                         
+                                                        </div>
+                                                        </aura:if>                       
+                                                    </aura:if>
+                                                    <div class="slds-truncate">
+                                                    <aura:if isTrue="{! item.CustomPricingAllowed != true }">
+                                                        
+                                                        <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c == 'Liber' }"> 
+                                                              <ui:outputCurrency     value="{!item.BasePrice}" format="SEK###,###,###,##0.00" />    
+                                                        </aura:if>
+                                                        <aura:if isTrue="{!v.BillToAccount.OperatingCompany__c != 'Liber' }">
+                                                            <ui:outputCurrency     value="{!item.BasePrice}" format="€###,###,###,##0.00" />    
+                                                        </aura:if>
+                                                    </aura:if>
+                                                    </div>
+                                                                                               
+                                			
                                                 </td>
                                                 <td>
                                                    <div class="slds-truncate">                                                 
@@ -693,7 +725,7 @@
                        
                       <th style="width:7%">
                           <div class=" slds-cell-fixed" > 
-                          Base Price
+                          List Price
                           </div>
                           </th>
                           <th style="width:10%" scope="row">

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BlockSync__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If true will block the order from being synced to IF</description>
+    <externalId>false</externalId>
+    <label>Block Sync</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProductGroup__c</fullName>
+    <defaultValue>&apos;Other&apos;</defaultValue>
+    <externalId>false</externalId>
+    <label>Product Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Other</fullName>
+                <default>true</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Health</fullName>
+                <default>false</default>
+                <label>Health</label>
+            </value>
+            <value>
+                <fullName>Non-Health</fullName>
+                <default>false</default>
+                <label>Non-Health</label>
+            </value>
+            <value>
+                <fullName>VE/HE (MBO/HBO)</fullName>
+                <default>false</default>
+                <label>VE/HE (MBO/HBO)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

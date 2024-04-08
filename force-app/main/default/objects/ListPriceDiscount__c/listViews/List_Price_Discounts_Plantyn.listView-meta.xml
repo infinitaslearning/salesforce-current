@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>List_Price_Discounts_Plantyn</fullName>
+    <columns>NAME</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>EndDate__c</columns>
+    <columns>DiscountType__c</columns>
+    <columns>CustomerDiscountGroup__c</columns>
+    <columns>IsActive__c</columns>
+    <columns>Rate__c</columns>
+    <columns>StartQuantity__c</columns>
+    <columns>StartAmount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Plantyn</value>
+    </filters>
+    <filters>
+        <field>IsActive__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>List Price Discounts Plantyn</label>
+    <sharedTo>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingCostMethodNsId__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT( Order.OperatingCompany__c ) = &apos;Plantyn&apos;,
+CASE(ShippingIndicationRule__c ,
+&apos;Based on order total&apos;, IF( $Organization.Id = $Label.devOrgId, &apos;193&apos;,&apos;193&apos;),
+&apos;Based on weight Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;194&apos;,&apos;194&apos;),
+&apos;Based on weight non Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;195&apos;,&apos;195&apos;),
+&apos;Shipping Cost Exempt&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;196&apos;,&apos;196&apos;),
+&apos;&apos;
+),
+IF (TEXT( Order.OperatingCompany__c ) = &apos;Noordhoff&apos;,
+
+CASE(ShippingIndicationRule__c,
+&apos;Based on order total&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7521&apos;,&apos;36406&apos;),
+&apos;Based on weight Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7522&apos;,&apos;36407&apos;),
+&apos;Based on weight non Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7523&apos;,&apos;36408&apos;),
+&apos;Shipping Cost Exempt&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7524&apos;,&apos;20760&apos;),&apos;&apos;
+)
+,
+IF (TEXT( Order.OperatingCompany__c ) = &apos;Liber&apos;,
+CASE(ShippingIndicationRule__c,
+&apos;Based on order total&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7528&apos;,&apos;8260&apos;),
+&apos;Based on weight Domestic&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7526&apos;,&apos;8258&apos;),
+&apos;Based on weight non Domestic&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7527&apos;,&apos;8259&apos;),
+&apos;Shipping Cost Exempt&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7525&apos;,&apos;8256&apos;),&apos;&apos;
+) ,
+&apos;&apos;
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Shipping Cost Method NS Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

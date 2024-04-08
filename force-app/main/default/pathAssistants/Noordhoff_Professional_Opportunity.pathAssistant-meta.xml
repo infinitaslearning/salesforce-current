@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Noordhoff Professional Opportunity</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Singed contract received and counter-signed&lt;/li&gt;&lt;li&gt;Opportunity closed by PCSS&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Confirmation of receipt of contract &amp;amp; WO&lt;/li&gt;&lt;li&gt;Quote discussed with prospect&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>P. Close</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Contact (F2F, email, telephone)&lt;/li&gt;&lt;li&gt;Planned call, demo, visit&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>P. Incoming</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Quote discussed with prospect&lt;/li&gt;&lt;li&gt;New quote version(s)&lt;/li&gt;&lt;li&gt;Contract &amp;amp; work order for review PCSS&lt;/li&gt;&lt;li&gt;Approval PCSS&lt;/li&gt;&lt;li&gt;Contract sent&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>P. Negotiation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Visit, demo, meeting, Teams&lt;/li&gt;&lt;li&gt;Needs analysis &amp;amp; Value proposition&lt;/li&gt;&lt;li&gt;DMU, timeline, close date&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>P. Qualified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Quote raised and sent&lt;/li&gt;&lt;li&gt;Response from prospect&lt;/li&gt;&lt;li&gt;Quote discussed with prospect&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>P. Quote</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Professional</recordTypeName>
+</PathAssistant>

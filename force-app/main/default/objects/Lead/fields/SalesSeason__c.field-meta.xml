@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalesSeason__c</fullName>
+    <description>Calculate Sales Season</description>
+    <externalId>false</externalId>
+    <formula>IF(MONTH(DATEVALUE(CreatedDate))&lt;=MONTH(SalesSeasonEndDate__c),TEXT(YEAR(DATEVALUE(CreatedDate))-1)&amp;&quot;-&quot;&amp;TEXT(YEAR(DATEVALUE(CreatedDate))),TEXT(YEAR(DATEVALUE(CreatedDate)))&amp;&quot;-&quot;&amp;TEXT(YEAR(DATEVALUE(CreatedDate))+1))</formula>
+    <label>Sales Season</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Order Total</fullName>
+        <default>false</default>
+        <label>Order Total</label>
+    </customValue>
+    <customValue>
+        <fullName>PU - Based on weight Domestic</fullName>
+        <default>false</default>
+        <label>PU - Based on weight Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>PU - Based on weight non Domestic</fullName>
+        <default>false</default>
+        <label>PU - Based on weight non Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>PU - Shipping Cost Exempt</fullName>
+        <default>false</default>
+        <label>PU - Shipping Cost Exempt</label>
+    </customValue>
+    <customValue>
+        <fullName>LI - Based on weight Domestic</fullName>
+        <default>false</default>
+        <label>LI - Based on weight Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>LI - Based on weight Non Domestic</fullName>
+        <default>false</default>
+        <label>LI - Based on weight Non Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>LI - Shipping Costs Exempt</fullName>
+        <default>false</default>
+        <label>LI - Shipping Costs Exempt</label>
+    </customValue>
+    <customValue>
+        <fullName>NU - Based on weight Domestic</fullName>
+        <default>false</default>
+        <label>NU - Based on weight Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>NU - Based on weight Non Domestic</fullName>
+        <default>false</default>
+        <label>NU - Based on weight Non Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>NU - Shipping Costs Exempt</fullName>
+        <default>false</default>
+        <label>NU - Shipping Costs Exempt</label>
+    </customValue>
+    <customValue>
+        <fullName>NU - Based on order total</fullName>
+        <default>false</default>
+        <label>NU - Based on order total</label>
+    </customValue>
+    <customValue>
+        <fullName>PU - Shipping Cots Exempt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PU - Shipping Cots Exempt</label>
+    </customValue>
+    <masterLabel>Shipping Rule</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

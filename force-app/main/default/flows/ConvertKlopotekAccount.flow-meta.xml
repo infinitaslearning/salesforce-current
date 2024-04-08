@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Set_Account_Info</name>
+        <label>Set Account Info</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Account.Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ExternalCustomerId__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_externalCustID</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.KlopotekNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_klopotekNumber</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.Phone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accPhone</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accRecType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShippingCity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShippingCountry</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShippingPostalCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShippingStreet</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accStreet</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.Website</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accWebsite</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.Department__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accDepartment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShortCompanyName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Does_Account_exist</name>
+        <label>Does Account exist?</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Create_Account</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Account Does Not Exist</defaultConnectorLabel>
+        <rules>
+            <name>Account_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Account</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Info</targetReference>
+            </connector>
+            <label>Account Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Should_Run</name>
+        <label>Should Run?</label>
+        <locationX>710</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>bValueshaveChanged</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Inactive__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>CH 16/05/2023: Enabled updating of accounts</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>bValueshaveChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+ISCHANGED({!$Record.BRIN__c}),
+ISCHANGED({!$Record.CITY__c}),
+ISCHANGED({!$Record.COUNTRY__c}),
+ISCHANGED({!$Record.DEPARTMENT__c}),
+ISCHANGED({!$Record.EMAIL_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.FAX_CITY_PREFIX__c}),
+ISCHANGED({!$Record.FAX_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.FAX_COUNTRY_PREFIX__c}),
+ISCHANGED({!$Record.ID_ADDRESS__c}),
+ISCHANGED({!$Record.ID_JURISTIC_PERSON__c}),
+ISCHANGED({!$Record.ID_LOCATION__c}),
+ISCHANGED({!$Record.INSTITUTION__c}),
+ISCHANGED({!$Record.KlopotekCountry__c}),
+ISCHANGED({!$Record.PO_BOX_NUMBER__c}),
+ISCHANGED({!$Record.PO_DESCR__c}),
+ISCHANGED({!$Record.POSTAL_CODE__c}),
+ISCHANGED({!$Record.ROWNUM__c}),
+ISCHANGED({!$Record.SCHNR__c}),
+ISCHANGED({!$Record.STREET__c}),
+ISCHANGED({!$Record.STREET_NUMBER__c}),
+ISCHANGED({!$Record.SUB_DEPARTMENT__c}),
+ISCHANGED({!$Record.SUB_DEPARTMENT2__c}),
+ISCHANGED({!$Record.TEL_CITY_PREFIX__c}),
+ISCHANGED({!$Record.TEL_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.TEL_COUNTRY_PREFIX__c}),
+ISCHANGED({!$Record.URL_COMMUNICATION_NUMBER__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>forAccountId</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!varCreatedAccountId})),{!varCreatedAccountId},{!Get_Account.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>forAccountName</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT(ISBLANK({!$Record.DEPARTMENT__c})),ISBLANK({!$Record.SUB_DEPARTMENT__c}),ISBLANK({!$Record.SUB_DEPARTMENT2__c})),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.DEPARTMENT__c},
+IF(AND(NOT(ISBLANK({!$Record.DEPARTMENT__c})),NOT(ISBLANK({!$Record.SUB_DEPARTMENT__c})),ISBLANK({!$Record.SUB_DEPARTMENT2__c})),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.DEPARTMENT__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT__c},
+IF(AND(NOT(ISBLANK({!$Record.DEPARTMENT__c})),NOT(ISBLANK({!$Record.SUB_DEPARTMENT__c})),NOT(ISBLANK({!$Record.SUB_DEPARTMENT2__c}))),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.DEPARTMENT__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT2__c},
+IF(AND(ISBLANK({!$Record.DEPARTMENT__c}),NOT(ISBLANK({!$Record.SUB_DEPARTMENT__c})),ISBLANK({!$Record.SUB_DEPARTMENT2__c})),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT__c},
+IF(AND(ISBLANK({!$Record.DEPARTMENT__c}),ISBLANK({!$Record.SUB_DEPARTMENT__c}),NOT(ISBLANK({!$Record.SUB_DEPARTMENT2__c}))),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT2__c},
+IF(AND(ISBLANK({!$Record.DEPARTMENT__c}),NOT(ISBLANK({!$Record.SUB_DEPARTMENT__c})),NOT(ISBLANK({!$Record.SUB_DEPARTMENT2__c}))),{!$Record.INSTITUTION__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT__c} &amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT2__c},{!$Record.INSTITUTION__c}))))))</expression>
+    </formulas>
+    <formulas>
+        <name>forAccountPhone</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT(ISBLANK({!$Record.TEL_COUNTRY_PREFIX__c})),NOT(ISBLANK({!$Record.TEL_CITY_PREFIX__c})),NOT(ISBLANK({!$Record.TEL_COMMUNICATION_NUMBER__c}))),{!$Record.TEL_COUNTRY_PREFIX__c} &amp; &quot;-&quot; &amp; {!$Record.TEL_CITY_PREFIX__c} &amp; &quot;-&quot; &amp; {!$Record.TEL_COMMUNICATION_NUMBER__c},
+IF(AND(NOT(ISBLANK({!$Record.TEL_COUNTRY_PREFIX__c})),ISBLANK({!$Record.TEL_CITY_PREFIX__c}),NOT(ISBLANK({!$Record.TEL_COMMUNICATION_NUMBER__c}))),{!$Record.TEL_COUNTRY_PREFIX__c} &amp; &quot;-&quot; &amp; {!$Record.TEL_COMMUNICATION_NUMBER__c},
+IF(AND(ISBLANK({!$Record.TEL_COUNTRY_PREFIX__c}),NOT(ISBLANK({!$Record.TEL_CITY_PREFIX__c})),NOT(ISBLANK({!$Record.TEL_COMMUNICATION_NUMBER__c}))),{!$Record.TEL_CITY_PREFIX__c} &amp; &quot;-&quot; &amp; {!$Record.TEL_COMMUNICATION_NUMBER__c},
+IF(AND(ISBLANK({!$Record.TEL_COUNTRY_PREFIX__c}),ISBLANK({!$Record.TEL_CITY_PREFIX__c}),NOT(ISBLANK({!$Record.TEL_COMMUNICATION_NUMBER__c}))),{!$Record.TEL_COMMUNICATION_NUMBER__c},&quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <name>forDepartment</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.SUB_DEPARTMENT__c}), {!$Record.DEPARTMENT__c}, {!$Record.DEPARTMENT__c}&amp; &quot;, &quot; &amp; {!$Record.SUB_DEPARTMENT__c})</expression>
+    </formulas>
+    <formulas>
+        <name>forEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(REGEX(UPPER({!$Record.EMAIL_COMMUNICATION_NUMBER__c}) ,&quot;^[A-Z0-9._%+-/!#$%&amp;&apos;*=?^_`{|}~]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$&quot;)),&quot;check.email@klopotek.com&quot;,{!$Record.EMAIL_COMMUNICATION_NUMBER__c})</expression>
+    </formulas>
+    <formulas>
+        <name>forFaultMessage</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Flow.FaultMessage},Find(&quot;You can look up ExceptionCode&quot;, {!$Flow.FaultMessage})-1)</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accCity</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.City__c}), {!$Record__Prior.Account__r.ShippingCity}, {!$Record.City__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accCountry</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!Get_Country.COUNTRY_NAME_ENGLISH__c}), {!$Record__Prior.Account__r.ShippingCountry}, {!Get_Country.COUNTRY_NAME_ENGLISH__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accDepartment</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forDepartment}), {!$Record__Prior.Account__r.Department__c}, LEFT({!forDepartment}, 50))</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forEmail}), {!$Record__Prior.Account__r.Email__c}, {!forEmail})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accName</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.INSTITUTION__c}), {!$Record__Prior.Account__r.Name}, {!$Record.INSTITUTION__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accPhone</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forAccountPhone}), {!$Record__Prior.Account__r.Phone}, {!forAccountPhone})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accPostalCode</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.Postal_Code__c}), {!$Record__Prior.Account__r.ShippingPostalCode}, {!$Record.Postal_Code__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accRecType</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forRecordTypeEducational}), {!$Record__Prior.Account__r.RecordTypeId}, {!forRecordTypeEducational})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accShortName</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.INSTITUTION__c}), {!$Record__Prior.Account__r.ShortCompanyName__c}, {!$Record.INSTITUTION__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accStreet</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forStreet}), {!$Record__Prior.Account__r.ShippingStreet}, {!forStreet})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_accWebsite</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!forWebsite}), {!$Record__Prior.Account__r.Website}, {!forWebsite})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_externalCustID</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.SCHNR__c}), {!$Record__Prior.Account__r.ExternalCustomerId__c}, {!$Record.SCHNR__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_klopotekNumber</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.SCHNR__c}), {!$Record__Prior.Account__r.KlopotekNumber__c}, {!$Record.SCHNR__c})</expression>
+    </formulas>
+    <formulas>
+        <name>forRecordTypeEducational</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.AccountB2bEducationalId}</expression>
+    </formulas>
+    <formulas>
+        <name>forStreet</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.STREET__c} &amp; &quot; &quot; &amp; {!$Record.STREET_NUMBER__c}</expression>
+    </formulas>
+    <formulas>
+        <name>forWebsite</name>
+        <dataType>String</dataType>
+        <expression>IF(LEFT(LOWER({!$Record.URL_COMMUNICATION_NUMBER__c}),4)=&quot;www.&quot;,&quot;https://&quot;&amp;{!$Record.URL_COMMUNICATION_NUMBER__c},
+IF(LEFT(LOWER({!$Record.URL_COMMUNICATION_NUMBER__c}),4)=&quot;http&quot;,{!$Record.URL_COMMUNICATION_NUMBER__c},&quot;&quot;))</expression>
+    </formulas>
+    <interviewLabel>Convert Klopotek Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Convert Klopotek Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Account</name>
+        <label>Create Account</label>
+        <locationX>578</locationX>
+        <locationY>755</locationY>
+        <assignRecordIdToReference>varCreatedAccountId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Update_Success</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Update_Convert_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>CustomerCategory__c</field>
+            <value>
+                <stringValue>Educational Institution</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CustomerDiscountGroup__c</field>
+            <value>
+                <stringValue>Educational Institution</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Department__c</field>
+            <value>
+                <elementReference>forDepartment</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email__c</field>
+            <value>
+                <elementReference>forEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ExternalCustomerId__c</field>
+            <value>
+                <elementReference>$Record.SCHNR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>KlopotekNumber__c</field>
+            <value>
+                <elementReference>$Record.SCHNR__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Record.INSTITUTION__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OperatingCompany__c</field>
+            <value>
+                <stringValue>Noordhoff</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Phone</field>
+            <value>
+                <elementReference>forAccountPhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>forRecordTypeEducational</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingCity</field>
+            <value>
+                <elementReference>$Record.CITY__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingCountry</field>
+            <value>
+                <elementReference>Get_Country.COUNTRY_NAME_ENGLISH__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingPostalCode</field>
+            <value>
+                <elementReference>$Record.POSTAL_CODE__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingStreet</field>
+            <value>
+                <elementReference>forStreet</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Website</field>
+            <value>
+                <elementReference>forWebsite</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Account</name>
+        <label>Get Account</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Country</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>KlopotekNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SCHNR__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Noordhoff</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Country</name>
+        <label>Get Country</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Account_exist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>COUNTRY_CODE__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.COUNTRY__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>KlopotekCountry__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Update_Success</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Update_Convet_Error</targetReference>
+        </faultConnector>
+        <inputReference>Get_Account</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Convert_Error</name>
+        <label>Update Convet Error</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <inputAssignments>
+            <field>ConvertError__c</field>
+            <value>
+                <elementReference>forFaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Convet_Error</name>
+        <label>Update Convet Error</label>
+        <locationX>314</locationX>
+        <locationY>971</locationY>
+        <inputAssignments>
+            <field>ConvertError__c</field>
+            <value>
+                <elementReference>forFaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Success</name>
+        <label>Update Success</label>
+        <locationX>314</locationX>
+        <locationY>1295</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>forAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>KlopotekCountry__c</field>
+            <value>
+                <elementReference>Get_Country.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Should_Run</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Inactive__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>KlopotekAccount__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>Account</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>varCreatedAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plantyn_Prices</fullName>
+    <columns>NAME</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>CURRENCY_ISO_CODE</columns>
+    <columns>EndDate__c</columns>
+    <columns>StartDate__c</columns>
+    <columns>Product__c</columns>
+    <columns>ProductComponent__c</columns>
+    <columns>ListRate__c</columns>
+    <columns>ExternalId__c</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Plantyn</value>
+    </filters>
+    <label>Plantyn Prices</label>
+</ListView>

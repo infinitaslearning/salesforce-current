@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Standard template that is added in Noordhoff side conversations including Case Details</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>NoordhoffCustomerService</letterhead>
+    <name>Side Conversation Template + Case Detail</name>
+    <style>freeForm</style>
+    <subject>Re: {!Case.CaseNumber} {!Case.Subject}</subject>
+    <textOnly>Hallo,
+
+Tekst
+
+Met vriendelijke groet,
+
+{!User.EmailSignature__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

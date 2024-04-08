@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActiveWithItemGroupMismatch</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Text(Status) =&apos;Activated&apos;, IGComponentMismatch__c = true)</errorConditionFormula>
+    <errorMessage>You can&apos;t activate orders with Item Groups that don&apos;t have the correct number of components</errorMessage>
+</ValidationRule>

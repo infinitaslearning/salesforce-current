@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is a temporary permission set giving user access to the ECIN Merge field. To be deleted once not needed</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.ECIN_Merge__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ECIN Merge_Temp</label>
+</PermissionSet>

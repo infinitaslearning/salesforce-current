@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Omzetten_Marketing_Cloud_Prof_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Noordhoff Professional</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>equals</operation>
+        <value>Marketing Cloud Prof</value>
+    </filters>
+    <filters>
+        <field>Created_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>9/1/2023</value>
+    </filters>
+    <filters>
+        <field>IsInactive__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>CONTACT.EMAIL</field>
+        <operation>notContain</operation>
+        <value>@noordhoff.nl</value>
+    </filters>
+    <label>Omzetten Marketing Cloud Prof Contacts</label>
+    <sharedTo>
+        <role>Noordhoff_Professional_Manager</role>
+    </sharedTo>
+</ListView>

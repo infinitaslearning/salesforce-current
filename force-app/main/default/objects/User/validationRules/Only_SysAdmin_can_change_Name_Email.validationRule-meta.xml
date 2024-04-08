@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_SysAdmin_can_change_Name_Email</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+   OR (
+       ISCHANGED( FirstName ) ,
+ISCHANGED( LastName ) ,
+ISCHANGED(  MiddleName  ) ,
+ISCHANGED(  Email  ) 
+  
+      ),
+   $Profile.Name &lt;&gt; &apos;System Administrator&apos;
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to change your actual name or email, please reach out to helpdesk for support.</errorMessage>
+</ValidationRule>

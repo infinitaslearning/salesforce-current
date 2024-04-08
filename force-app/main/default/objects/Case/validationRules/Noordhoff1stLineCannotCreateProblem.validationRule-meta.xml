@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Noordhoff1stLineCannotCreateProblem</fullName>
+    <active>true</active>
+    <description>This validation rule ensures that online 2nd line agents &amp; management can create a Case of type Problem</description>
+    <errorConditionFormula>AND(
+ RecordType.Name = &apos;Noordhoff&apos;,
+ISPICKVAL(Type, &apos;Problem&apos;),
+ $UserRole.DeveloperName = &apos;Noordhoff_Customer_Service&apos;
+)</errorConditionFormula>
+    <errorMessage>As a Customer Service Agent you cannot create a Case of Type &apos;Problem&apos;. If such Case is required ask 2nd line assistance.</errorMessage>
+</ValidationRule>

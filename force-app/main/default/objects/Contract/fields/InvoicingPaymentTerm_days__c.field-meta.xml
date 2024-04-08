@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InvoicingPaymentTerm_days__c</fullName>
+    <defaultValue>30</defaultValue>
+    <description>The Payment Term in Days, to be used on Invoices to Accounts/Customers.
+The default value is set to 30 in the Custom Setting &quot;Auto-Invoicing - Invoicing Payment Term (days)&quot;.</description>
+    <externalId>false</externalId>
+    <label>Invoicing Payment Term (days)</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

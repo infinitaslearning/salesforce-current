@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateCalculatedVAT__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND(OrderImportVAT__c &gt; 0, 
+        VATCalculated__c !=  OrderImportVAT__c), 
+1, 0 )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Compares VAT &amp; Order Import VAT. (Currently Only Used for eCommerce Orders)</inlineHelpText>
+    <label>Validate Calculated VAT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

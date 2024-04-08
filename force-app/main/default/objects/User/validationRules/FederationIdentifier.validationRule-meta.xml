@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FederationIdentifier</fullName>
+    <active>true</active>
+    <description>FederationId is a required field for SSO</description>
+    <errorConditionFormula>ISBLANK( FederationIdentifier )</errorConditionFormula>
+    <errorMessage>FederationId is a required field for SSO</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StageChange</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(Stages__c,&apos;Completed&apos;), $User.CSM__c != true)</errorConditionFormula>
+    <errorDisplayField>Stages__c</errorDisplayField>
+    <errorMessage>Only the Customer Success Manager can change the status to Completed</errorMessage>
+</ValidationRule>

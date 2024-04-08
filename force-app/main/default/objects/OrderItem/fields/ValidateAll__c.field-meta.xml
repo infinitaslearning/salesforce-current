@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateAll__c</fullName>
+    <externalId>false</externalId>
+    <formula>ValidateActivateAccountSubsidiaryRequir__c +
+ValidateActivateDigitalActivationEmail__c + 
+ValidateActivateNetSuiteId__c +
+ValidateActivateShippingAddressRequired__c +
+ValidateOrderLineTypeCheck__c +
+ValidateCannotSellLicenseMoreThan12Mont__c +
+ValidateProductComponentNonRenewable__c +
+validateVATNetherlandsDigital__c +
+ValidateDigitalforNetherlands__c +
+ValidateActiveandNoAsset__c +
+ValidateNetSalesPrice__c +
+ValidateReferenceNumberCheck__c +
+ValidateNetSalesPriceAgainstDiscount__c +
+ValidateLineItemTotal__c +
+ValidateCalculatedVAT__c + 
+ValidateDigitalActivationEmail__c +
+ValidateNegativeDiscount__c + 
+ValidateNetSalesPriceCantbeNegative__c + 
+ValidateNetsuiteQuantityMustbegreaterth__c +
+ValidateProductMaxQuantity__c +
+ValidateStartDate__c + 
+ValidateEndDate__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate All</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

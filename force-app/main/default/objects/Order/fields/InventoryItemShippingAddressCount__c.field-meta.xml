@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InventoryItemShippingAddressCount__c</fullName>
+    <externalId>false</externalId>
+    <label>Inventory Item Shipping Address Count</label>
+    <summarizedField>OrderItem.MultiShipAddressRollingCount__c</summarizedField>
+    <summaryFilterItems>
+        <field>OrderItem.ProductType__c</field>
+        <operation>equals</operation>
+        <value>Inventory Item</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

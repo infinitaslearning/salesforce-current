@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BSR1__c</fullName>
+    <externalId>false</externalId>
+    <label>BSR1</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sociale Coach</fullName>
+                <default>false</default>
+                <label>Sociale Coach</label>
+            </value>
+            <value>
+                <fullName>Serieuze Begeleider</fullName>
+                <default>false</default>
+                <label>Serieuze Begeleider</label>
+            </value>
+            <value>
+                <fullName>Resultaatgerichte Vakspecialist</fullName>
+                <default>false</default>
+                <label>Resultaatgerichte Vakspecialist</label>
+            </value>
+            <value>
+                <fullName>Flexibele Innovator</fullName>
+                <default>false</default>
+                <label>Flexibele Innovator</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

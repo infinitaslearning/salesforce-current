@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateOrderAmount__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND( 
+         OR( ISPICKVAL( Source__c , &quot;eCommerce B2C&quot;), ISPICKVAL( Source__c , &quot;eCommerce B2B&quot;) ),
+          TotalAmount != OrderImportAmountExclVAT__c), 
+1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Compares Order Amount &amp; Order Import Amount (Excl VAT). (Currently Only Used for eCommerce Orders)</inlineHelpText>
+    <label>Validate Order Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

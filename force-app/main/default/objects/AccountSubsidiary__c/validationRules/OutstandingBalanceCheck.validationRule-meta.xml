@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OutstandingBalanceCheck</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED(Deleted__c),Deleted__c=True,OutstandingBalance__c &gt; 0 )</errorConditionFormula>
+    <errorMessage>You cannot Inactivate an Account/Account Subsidiary that has an Outstanding Balance. The Order needs be fulfilled before this action can take place.</errorMessage>
+</ValidationRule>

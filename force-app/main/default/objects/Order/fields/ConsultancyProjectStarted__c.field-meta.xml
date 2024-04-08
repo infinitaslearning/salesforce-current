@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConsultancyProjectStarted__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field for NH Professional where they can indicate that they have started a consultancy project for this order in an external system (Monday)</description>
+    <externalId>false</externalId>
+    <label>Consultancy Project Started</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

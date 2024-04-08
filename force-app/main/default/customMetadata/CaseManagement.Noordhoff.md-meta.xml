@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Noordhoff</label>
+    <protected>false</protected>
+    <values>
+        <field>Max_Hours_Allowed_In_Status_On_Hold__c</field>
+        <value xsi:type="xsd:double">45.0</value>
+    </values>
+    <values>
+        <field>Max_Hours_Allowed_In_Status_Pending__c</field>
+        <value xsi:type="xsd:double">45.0</value>
+    </values>
+    <values>
+        <field>Max_Hours_Allowed_In_Status_Solved__c</field>
+        <value xsi:type="xsd:double">90.0</value>
+    </values>
+    <values>
+        <field>MaximumAllowedDaysinStatus__c</field>
+        <value xsi:type="xsd:double">6.0</value>
+    </values>
+    <values>
+        <field>OperatingCompany__c</field>
+        <value xsi:type="xsd:string">Noordhoff</value>
+    </values>
+    <values>
+        <field>Reminder_after_X_Hours_In_Status_Pending__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>X1stLineQueueID__c</field>
+        <value xsi:type="xsd:string">00GJW000000wUxB2AU</value>
+    </values>
+    <values>
+        <field>X2ndLineQueueID__c</field>
+        <value xsi:type="xsd:string">00GJW000000wUxC2AU</value>
+    </values>
+    <values>
+        <field>X3rdLineQueueID__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>secondAutoResponseAfterXHrInNew__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadScore__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This score reflects the potential value of the record as determined by specific criteria set in Salesforce Marketing Cloud.</inlineHelpText>
+    <label>LeadScore</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

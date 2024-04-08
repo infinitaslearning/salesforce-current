@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>List_Prices_for_Liber</fullName>
+    <columns>NAME</columns>
+    <columns>Subsidiary__c</columns>
+    <columns>StartDate__c</columns>
+    <columns>EndDate__c</columns>
+    <columns>CustomerDiscountGroup__c</columns>
+    <columns>OrderLineType__c</columns>
+    <columns>ValueType__c</columns>
+    <columns>StartQuantity__c</columns>
+    <columns>StartAmount__c</columns>
+    <columns>Rate__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <filters>
+        <field>IsActive__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>EndDate__c</field>
+        <operation>lessOrEqual</operation>
+        <value>12/31/2024</value>
+    </filters>
+    <filters>
+        <field>EndDate__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2024</value>
+    </filters>
+    <label>List Prices for Liber</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

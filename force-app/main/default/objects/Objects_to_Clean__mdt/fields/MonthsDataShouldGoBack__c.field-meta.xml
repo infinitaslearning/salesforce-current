@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MonthsDataShouldGoBack__c</fullName>
+    <description>How many months should the data go back? Example: if the value is 3, records created in the last 3 months will be kept.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>How many months should the data go back? Example: if the value is 3, records created in the last 3 months will be kept.</inlineHelpText>
+    <label>Months Data Should Go Back</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllLiber</fullName>
+    <columns>NAME</columns>
+    <columns>inactive__c</columns>
+    <columns>Segment__c</columns>
+    <columns>Subject__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <label>All Liber</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

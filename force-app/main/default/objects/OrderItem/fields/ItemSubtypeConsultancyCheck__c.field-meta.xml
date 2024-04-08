@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ItemSubtypeConsultancyCheck__c</fullName>
+    <description>Field that checks when Item Subtype is &apos;Consultancy Hours&apos; (only for NH Professional)  they have checked the box Consultancy Project Started on Order level.</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+AND(
+ItemSubtype__c = &apos;Consultancy Hours&apos;,  
+Order.ConsultancyProjectStarted__c =false,
+CONTAINS(PricebookName__c, &quot;Professional&quot;) 
+), 
+1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Item Subtype Consultancy Check</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

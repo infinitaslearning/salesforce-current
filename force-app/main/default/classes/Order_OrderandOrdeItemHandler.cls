@@ -21,9 +21,13 @@ public with sharing class Order_OrderandOrdeItemHandler {
                 }
                 */
 
-
+                /*
                 lstOrderItem = [Select id,StartDate__c,Order.EffectiveDate,Order.Pricebook2.Name, Order.ShipByDate__c,LineItemTotal__c,ItemGroup__r.Product2Id,Product2.OrderLineType__c,Product2.MarketSegment__c,Product2.name,Product2.SoldInSegment__c,Product2.QuantitySelectionType__c,OrderId,ItemGroup__c,ShipToAccount__r.Name,ShipToAccount__r.CustomerDiscountGroup__c,ListPrice,UnitPrice,Quantity,Product2.ProductDiscountGroup__c,ListPriceDiscount__c,ListPriceDiscount__r.OrderLineType__c,ListPriceDiscount__r.Rate__c,Product2Id,PricebookEntryId,ShipToAccount__c,ManualDiscount__c,ManualDiscountPercent__c,ManualDiscountValue__c 
                 From OrderItem where OrderId in:recordIdStrings];
+                */
+
+                lstOrderItem =  Order_SoqlFactory.returnQueryOrderItems(null,recordIdStrings,null,null);
+                system.debug('**Order_SoqlFactory.UpdateShippingDates.lstOrderItem :Size**'+lstOrderItem.size());
 
                 lstOrderItem = Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItem,CurOrder);  
 
@@ -416,7 +420,7 @@ public with sharing class Order_OrderandOrdeItemHandler {
         return lstOrderItem;
     }
  //
-
+/*
     Public static List<OrderItem> returnQueryOrderItems(Set<String> Set_ItemId,List<Id> OrderId){
 
         String Querystr;
@@ -680,5 +684,8 @@ else{
 
      return lst_ListPriceDiscountRegular;
 }
+*/
+
+
 
 }

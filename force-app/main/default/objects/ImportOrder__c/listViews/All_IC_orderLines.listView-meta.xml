@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_IC_orderLines</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>ExternalOrderId__c</columns>
+    <columns>customerNo__c</columns>
+    <columns>orderDate__c</columns>
+    <columns>OperatingCompany__c</columns>
+    <columns>Error__c</columns>
+    <columns>ProductId__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LineItemType__c</field>
+        <operation>equals</operation>
+        <value>Inspection Copy</value>
+    </filters>
+    <label>All IC orderLines</label>
+    <sharedTo>
+        <group>AllAdmins</group>
+    </sharedTo>
+</ListView>

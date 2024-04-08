@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plantyn Sales Process</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>0%2E New MQL</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>0%2E Open</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>1%2E First Contacts</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>1%2E New SQL</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>1%2E1%2E In Process</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>2%2E First Contact</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>2%2E Pers Meeting</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3%2E Pers Meeting</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3a1%2E Renewal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3a2%2E Stay</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3a3%2E Exit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3b1%2E New Name</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3b2%2E Delay</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>3b3%2E Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4a1%2E Renewal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4a2%2E Stay</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4a3%2E Exit</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4b1%2E New Name</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4b2%2E Delay</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>4b3%2E Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>5%2E Discarded</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Success__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of samples sent or appointments made for Sales</inlineHelpText>
+    <label>Success</label>
+    <summaryFilterItems>
+        <field>CampaignMember.Status</field>
+        <operation>equals</operation>
+        <value>Afspraak Studiemeister, Bereikt en BOP, bereikt terugbel afspraak, Bex verstuurd, Bex verstuurd met Afspraak, Bex verstuurd met Afspraak Studiemeister, BOP reeds verwerkt, Terugbelafspraak</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

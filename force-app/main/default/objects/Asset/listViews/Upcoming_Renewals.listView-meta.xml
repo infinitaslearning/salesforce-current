@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upcoming_Renewals</fullName>
+    <columns>ASSET.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ShipToAccount__c</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>ASSET.QUANTITY</columns>
+    <columns>IsActive__c</columns>
+    <columns>RenewalDate__c</columns>
+    <columns>LastRenewalUpdate__c</columns>
+    <columns>IsUpForRenewal__c</columns>
+    <columns>PricingMethod__c</columns>
+    <columns>PriceBook__c</columns>
+    <columns>LicenseDuration__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RenewalDate__c</field>
+        <operation>greaterThan</operation>
+        <value>YESTERDAY</value>
+    </filters>
+    <filters>
+        <field>IsActive__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Upcoming Renewals</label>
+</ListView>

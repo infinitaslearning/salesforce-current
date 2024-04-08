@@ -1,0 +1,28 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Hi,<br />
+<br />
+{{{Task.Extra_instructie__c}}}<br />
+<br />
+----------------<br />
+Comment:<br />
+{{{Task.Description}}}<br />
+----------------<br />
+Subject: {{{Task.Subject}}}<br />
+<br />
+--------------------------------------------------------<br />
+Company : {{{Account.Name}}} - {{{Account.Customer_Number__c}}}<br />
+Reference : {{{Opportunity.Reference__c}}}<br />
+Date: {{{Task.ActivityDate}}}<br />
+Type : {{{Task.Type}}}<br />
+---<br />
+City : {{{Account.ShippingCity}}}<br />
+Person : {{{Contact.Name}}}<br />
+Klopotek Code : {{{Contact.Klopotek_Number__c}}}<br />
+---<br />
+Owner : {{{Task.Assigned_To_Name__c}}}<br />
+Vak: {{{Opportunity.Vak__c}}}<br />
+Methode: {{{Opportunity.Educational_Program__c}}}<br />
+---<br />
+URL naar Salesforce: {{{Task.Link}}}</body></html>

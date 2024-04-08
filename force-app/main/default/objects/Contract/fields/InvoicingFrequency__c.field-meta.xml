@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InvoicingFrequency__c</fullName>
+    <description>The Frequency with which Invoices should be created, according to this Contract.
+Values are taken from the (Global) Picklist Value Set &quot;Invoicing Frequency&quot;.</description>
+    <externalId>false</externalId>
+    <label>Invoicing Frequency</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Invoicing_Frequency</valueSetName>
+    </valueSet>
+</CustomField>

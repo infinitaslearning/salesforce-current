@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Arrangement__c</fullName>
+    <externalId>false</externalId>
+    <label>Arrangement</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arrangement</fullName>
+                <default>false</default>
+                <label>Arrangement</label>
+            </value>
+            <value>
+                <fullName>Flex</fullName>
+                <default>false</default>
+                <label>Flex</label>
+            </value>
+            <value>
+                <fullName>Folio</fullName>
+                <default>false</default>
+                <label>Folio</label>
+            </value>
+            <value>
+                <fullName>Methode licentie</fullName>
+                <default>false</default>
+                <label>Methode licentie</label>
+            </value>
+            <value>
+                <fullName>On-line</fullName>
+                <default>false</default>
+                <label>On-line</label>
+            </value>
+            <value>
+                <fullName>Studiemeister</fullName>
+                <default>false</default>
+                <label>Studiemeister</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

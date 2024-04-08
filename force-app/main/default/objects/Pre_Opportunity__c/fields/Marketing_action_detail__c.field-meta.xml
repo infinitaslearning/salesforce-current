@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_action_detail__c</fullName>
+    <description>To be used only when Marketing action is selected in Lead Source</description>
+    <externalId>false</externalId>
+    <label>Marketing action detail</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Lead_source__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Belactie Inside Sales BAO</fullName>
+                <default>false</default>
+                <label>Belactie Inside Sales BAO</label>
+            </value>
+            <value>
+                <fullName>Beleefsessies</fullName>
+                <default>false</default>
+                <label>Beleefsessies</label>
+            </value>
+            <value>
+                <fullName>Brusseldag</fullName>
+                <default>false</default>
+                <label>Brusseldag</label>
+            </value>
+            <value>
+                <fullName>Chill met Zill</fullName>
+                <default>false</default>
+                <label>Chill met Zill</label>
+            </value>
+            <value>
+                <fullName>Concours gain matériel didactique 102018</fullName>
+                <default>false</default>
+                <label>Concours gain matériel didactique 102018</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>GEX</fullName>
+                <default>false</default>
+                <label>GEX</label>
+            </value>
+            <value>
+                <fullName>Kanjercadeau</fullName>
+                <default>false</default>
+                <label>Kanjercadeau</label>
+            </value>
+            <value>
+                <fullName>Kanjerdagen</fullName>
+                <default>false</default>
+                <label>Kanjerdagen</label>
+            </value>
+            <value>
+                <fullName>Kanjerklas</fullName>
+                <default>false</default>
+                <label>Kanjerklas</label>
+            </value>
+            <value>
+                <fullName>Kanjerpakket</fullName>
+                <default>false</default>
+                <label>Kanjerpakket</label>
+            </value>
+            <value>
+                <fullName>Kerst in zicht</fullName>
+                <default>false</default>
+                <label>Kerst in zicht</label>
+            </value>
+            <value>
+                <fullName>Leadactie Kanjers</fullName>
+                <default>false</default>
+                <label>Leadactie Kanjers</label>
+            </value>
+            <value>
+                <fullName>Newsletter</fullName>
+                <default>false</default>
+                <label>Newsletter</label>
+            </value>
+            <value>
+                <fullName>Not applicable</fullName>
+                <default>true</default>
+                <label>Not applicable</label>
+            </value>
+            <value>
+                <fullName>Paquet découverte Essentia</fullName>
+                <default>false</default>
+                <label>Paquet découverte Essentia</label>
+            </value>
+            <value>
+                <fullName>Sneak preview</fullName>
+                <default>false</default>
+                <label>Sneak preview</label>
+            </value>
+            <value>
+                <fullName>Voorbeeldhoofdstuk</fullName>
+                <default>false</default>
+                <label>Voorbeeldhoofdstuk</label>
+            </value>
+            <value>
+                <fullName>Vraag het aan Plantyn</fullName>
+                <default>false</default>
+                <label>Vraag het aan Plantyn</label>
+            </value>
+            <value>
+                <fullName>Wij willen meer tijd</fullName>
+                <default>false</default>
+                <label>Wij willen meer tijd</label>
+            </value>
+            <value>
+                <fullName>Zorgtips</fullName>
+                <default>false</default>
+                <label>Zorgtips</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Belactie Inside Sales BAO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Beleefsessies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Brusseldag</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Chill met Zill</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>GEX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Kanjercadeau</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Kanjerklas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Kerst in zicht</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Newsletter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Not applicable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Paquet découverte Essentia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Sneak preview</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Voorbeeldhoofdstuk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Vraag het aan Plantyn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Wij willen meer tijd</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Marketing action</controllingFieldValue>
+            <valueName>Zorgtips</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

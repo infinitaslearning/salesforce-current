@@ -1,0 +1,31 @@
+<html><head> 
+  <title></title> 
+ </head> 
+ <body style="height: auto; min-height: auto;">Beste {{{Recipient.Salutation}}} {{{Recipient.LastName}}}, 
+  <br /> 
+  <br /> U heeft deelgenomen aan onze online plantyn beleefsessies en gaf aan interesse te hebben in (naam methode). Eerst en vooral bedankt voor je interesse! 
+  <br /> Ik contacteerde je al enkele malen telefonisch, maar kreeg geen contact. Daarom probeer ik even via mail. 
+  <br /> 
+  <br /> Zijn er nog bepaalde vragen over (naam methode)? Heb je het inkijkmateriaal al samen met de collega’s kunnen bekijken? Is er al een beslissing genomen? 
+  <br /> Vergeet zeker niet een kijkje te nemen in de sneak preview op scoodle. Daar vind je het voorbeeldmateriaal digitaal terug, alsook een voorbeeld van de handleiding, online oefeningen, toetsen, … 
+  <br /> Tijdens de komende weken vullen we deze ook verder aan. In bijlage vind je een eenvoudig stappenplan over hoe je de sneak preview activeert. 
+  <br /> 
+  <br /> Het leerwerkboek zelf gaat ten laatste 15 juni in druk. Dat betekent 
+  <ul> 
+   <li>Dat de definitieve versie van het leerwerkboek vanaf dan digitaal beschikbaar is;</li> 
+   <li>Je van start kan gaan, als je dat wenst, met de voorbereidingen;</li> 
+   <li>Dat je vanaf augustus jouw eigen exemplaar op papier in handen hebt;</li> 
+   <li>Dat elke leerling zijn/haar exemplaar tijdig heeft om op 1 september te starten.</li> 
+  </ul> 
+  <br /> Mochten jullie al een beslissing genomen hebben, zou het leuk zijn als jullie dat laten weten. Registreer je dan ook zeker via&nbsp; 
+  <a href="https://www.plantyn.com/startmateriaal" target="_blank">www.plantyn.com/startmateriaal</a>&nbsp;voor jouw eigen gratis exemplaar. 
+  <br /> Als er nog vragen zijn, mail me gerust. 
+  <br /> 
+  <br /> Vriendelijk groet, 
+  <br /> 
+  <br /> {{{Sender.Name}}} 
+  <br /> {{{Sender.Title}}} 
+  <br /> {{{Sender.Email}}} 
+  <br /> {{{Sender.Phone}}} 
+  <br /> 
+  <br /> Plantyn - The Link 2 | Posthofbrug 6-8, bus 3 - 2600 Berchem - Belgi&euml;</body></html>

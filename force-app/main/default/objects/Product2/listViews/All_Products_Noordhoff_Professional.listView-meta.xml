@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Products_Noordhoff_Professional</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>PRODUCT2.ACTIVE</columns>
+    <columns>ArticleNumber__c</columns>
+    <columns>MarketSegment__c</columns>
+    <columns>NameBrand__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Noordhoff</value>
+    </filters>
+    <filters>
+        <field>Department__c</field>
+        <operation>contains</operation>
+        <value>professional</value>
+    </filters>
+    <filters>
+        <field>PRODUCT2.ACTIVE</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Products Noordhoff Professional</label>
+    <sharedTo>
+        <group>AllUsersNoordhoffProfessional</group>
+    </sharedTo>
+</ListView>

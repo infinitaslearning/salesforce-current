@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alle_Zichtzending_Leads_BAO_2024</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>ProcessingDate__c</columns>
+    <columns>Account__c</columns>
+    <columns>LEAD.CITY</columns>
+    <columns>Product__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.EMPLOYEES</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Method__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Converted,Discarded</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>ICOrderForm</value>
+    </filters>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Noordhoff</value>
+    </filters>
+    <filters>
+        <field>UTMCampaign__c</field>
+        <operation>equals</operation>
+        <value>PE_Orderforms</value>
+    </filters>
+    <label>Alle Zichtzending Leads BAO - 2024</label>
+    <sharedTo>
+        <group>AllUsersNoordhoff</group>
+    </sharedTo>
+</ListView>

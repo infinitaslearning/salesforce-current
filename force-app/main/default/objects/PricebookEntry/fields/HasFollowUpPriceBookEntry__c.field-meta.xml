@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HasFollowUpPriceBookEntry__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicator to link to next Pricebook Entry (like a new pricebook entry for a new year or season)</description>
+    <externalId>false</externalId>
+    <label>Has Follow Up PriceBook Entry</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

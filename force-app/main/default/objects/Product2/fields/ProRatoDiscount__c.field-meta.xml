@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProRatoDiscount__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field indicates if a non-inventory item is eligible to have a pro rato discount when the duration is less than 12 months</description>
+    <externalId>false</externalId>
+    <label>Pro Rato Discount</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

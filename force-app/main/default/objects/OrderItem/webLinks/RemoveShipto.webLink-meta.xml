@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RemoveShipto</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Remove Ship to</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/Order_ProductSelector?OrderId={!Order.Id}&amp;deleteAccounts=true&amp;AccountId={!Order.BilltoId__c}&amp;PricingMethod={!Order.PricingMethod__c}&amp;retURL={!Order.Id}</url>
+</WebLink>

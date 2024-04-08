@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CanthaveNegativeDiscount</fullName>
+    <active>false</active>
+    <errorConditionFormula>Discount__c &lt; 0</errorConditionFormula>
+    <errorMessage>Cant have Negative Discount! Please click on the product and compare the price record and pricebook entry to verify net sales price</errorMessage>
+</ValidationRule>

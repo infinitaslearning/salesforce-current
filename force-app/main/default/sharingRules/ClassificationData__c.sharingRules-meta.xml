@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>LiberClassificationDataViewEditAccess</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Liber Classification Data View Edit Access</label>
+        <sharedTo>
+            <group>AllUsersLiber</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Liber</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffClassificationDataViewEditAccess</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Noordhoff Classification Data View Edit Access</label>
+        <sharedTo>
+            <group>AllUsersNoordhoff</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PlantynClassificationDataViewEditAccess</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Plantyn Classification Data View Edit Access</label>
+        <sharedTo>
+            <group>AllUsersPlantyn</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Plantyn</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

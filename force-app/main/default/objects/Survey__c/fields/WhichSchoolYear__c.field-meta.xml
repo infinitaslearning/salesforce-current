@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WhichSchoolYear__c</fullName>
+    <description>MBO: 2 - Mijn school stapt over op een nieuwe methode in
+VO: 2 - Mijn school stapt over op een nieuwe methode in</description>
+    <externalId>false</externalId>
+    <inlineHelpText>MBO: 2 - Mijn school stapt over op een nieuwe methode in
+VO: 2 - Mijn school stapt over op een nieuwe methode in</inlineHelpText>
+    <label>Which School Year</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

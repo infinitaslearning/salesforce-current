@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationErrorsOrderProducts__c</fullName>
+    <externalId>false</externalId>
+    <label>Validation errors Order Products</label>
+    <summaryFilterItems>
+        <field>OrderItem.ValidateAll__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

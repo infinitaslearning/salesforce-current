@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Search</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>ArticleNumber__c</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>PRODUCT2.DESCRIPTION</columns>
+    <columns>PRODUCT2.FAMILY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CustomPricingAllowed__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Custom Search</label>
+</ListView>

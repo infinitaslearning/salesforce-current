@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Plantyn Opportunity</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>2. First Contact</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>3. Pers Meeting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4a1. Renewal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4a2. Stay</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4a3. Exit</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4b1. New Name</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4b2. Delay</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Method__c</fieldNames>
+        <fieldNames>LeadSource</fieldNames>
+        <fieldNames>NumberOfStudents__c</fieldNames>
+        <picklistValueName>4b3. Lost</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Plantyn</recordTypeName>
+</PathAssistant>

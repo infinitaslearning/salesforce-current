@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AddressType__c</fullName>
+    <description>(R1-S1 by JD): Address Type, coming from Klopotk via the Interface.</description>
+    <externalId>false</externalId>
+    <label>Address Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>V</fullName>
+                <default>false</default>
+                <label>V</label>
+            </value>
+            <value>
+                <fullName>P</fullName>
+                <default>false</default>
+                <label>P</label>
+            </value>
+            <value>
+                <fullName>V/P</fullName>
+                <default>false</default>
+                <label>V/P</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

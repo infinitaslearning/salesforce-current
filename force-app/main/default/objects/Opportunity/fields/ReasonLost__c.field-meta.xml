@@ -1,0 +1,2252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonLost__c</fullName>
+    <externalId>false</externalId>
+    <label>Reason lost/won</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Andere</fullName>
+                <default>false</default>
+                <label>Andere</label>
+            </value>
+            <value>
+                <fullName>Author</fullName>
+                <default>false</default>
+                <label>Author</label>
+            </value>
+            <value>
+                <fullName>Bad experience accountmanager</fullName>
+                <default>false</default>
+                <label>Bad experience accountmanager</label>
+            </value>
+            <value>
+                <fullName>Bad experience delivery</fullName>
+                <default>false</default>
+                <label>Bad experience delivery</label>
+            </value>
+            <value>
+                <fullName>Bad experience services</fullName>
+                <default>false</default>
+                <label>Bad experience services</label>
+            </value>
+            <value>
+                <fullName>Bad service Noordhoff</fullName>
+                <default>false</default>
+                <label>Bad service Noordhoff</label>
+            </value>
+            <value>
+                <fullName>Begeleider/auteur</fullName>
+                <default>false</default>
+                <label>Begeleider/auteur</label>
+            </value>
+            <value>
+                <fullName>Beoordelingsmateriaal niet op tijd klaar</fullName>
+                <default>false</default>
+                <label>Beoordelingsmateriaal niet op tijd klaar</label>
+            </value>
+            <value>
+                <fullName>Booklist incorrect</fullName>
+                <default>false</default>
+                <label>Booklist incorrect</label>
+            </value>
+            <value>
+                <fullName>Budget</fullName>
+                <default>false</default>
+                <label>Budget</label>
+            </value>
+            <value>
+                <fullName>Colleague works with another method</fullName>
+                <default>false</default>
+                <label>Colleague works with another method</label>
+            </value>
+            <value>
+                <fullName>Commerciele actie</fullName>
+                <default>false</default>
+                <label>Commerciele actie</label>
+            </value>
+            <value>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+                <label>Competitor</label>
+            </value>
+            <value>
+                <fullName>Competitor Author</fullName>
+                <default>false</default>
+                <label>Competitor Author</label>
+            </value>
+            <value>
+                <fullName>Competitor Strength</fullName>
+                <default>false</default>
+                <label>Competitor Strength</label>
+            </value>
+            <value>
+                <fullName>Content</fullName>
+                <default>false</default>
+                <label>Content</label>
+            </value>
+            <value>
+                <fullName>Corona</fullName>
+                <default>false</default>
+                <label>Corona</label>
+            </value>
+            <value>
+                <fullName>Coronavirus</fullName>
+                <default>false</default>
+                <label>Coronavirus</label>
+            </value>
+            <value>
+                <fullName>Course discontinued</fullName>
+                <default>false</default>
+                <label>Course discontinued</label>
+            </value>
+            <value>
+                <fullName>Customer initiative cancelled</fullName>
+                <default>false</default>
+                <label>Customer initiative cancelled</label>
+            </value>
+            <value>
+                <fullName>Delay</fullName>
+                <default>false</default>
+                <label>Delay</label>
+            </value>
+            <value>
+                <fullName>Didactic cross and upsell</fullName>
+                <default>false</default>
+                <label>Didactic cross and upsell</label>
+            </value>
+            <value>
+                <fullName>Didactic reason</fullName>
+                <default>false</default>
+                <label>Didactic reason</label>
+            </value>
+            <value>
+                <fullName>Didactische reden</fullName>
+                <default>false</default>
+                <label>Didactische reden</label>
+            </value>
+            <value>
+                <fullName>Difficult implementation, technical</fullName>
+                <default>false</default>
+                <label>Difficult implementation, technical</label>
+            </value>
+            <value>
+                <fullName>Digital material</fullName>
+                <default>false</default>
+                <label>Digital material</label>
+            </value>
+            <value>
+                <fullName>Double opportunity created</fullName>
+                <default>false</default>
+                <label>Double opportunity created</label>
+            </value>
+            <value>
+                <fullName>Eigen materiaal docent</fullName>
+                <default>false</default>
+                <label>Eigen materiaal docent</label>
+            </value>
+            <value>
+                <fullName>Eigen platform</fullName>
+                <default>false</default>
+                <label>Eigen platform</label>
+            </value>
+            <value>
+                <fullName>Event</fullName>
+                <default>false</default>
+                <label>Event</label>
+            </value>
+            <value>
+                <fullName>ICT</fullName>
+                <default>false</default>
+                <label>ICT</label>
+            </value>
+            <value>
+                <fullName>Iddink meta-abonnement</fullName>
+                <default>false</default>
+                <label>Iddink meta-abonnement</label>
+            </value>
+            <value>
+                <fullName>Inertia</fullName>
+                <default>false</default>
+                <label>Inertia</label>
+            </value>
+            <value>
+                <fullName>Insufficient customer support</fullName>
+                <default>false</default>
+                <label>Insufficient customer support</label>
+            </value>
+            <value>
+                <fullName>Insufficient product offering</fullName>
+                <default>false</default>
+                <label>Insufficient product offering</label>
+            </value>
+            <value>
+                <fullName>Kwaliteit</fullName>
+                <default>false</default>
+                <label>Kwaliteit</label>
+            </value>
+            <value>
+                <fullName>Late publication date</fullName>
+                <default>false</default>
+                <label>Late publication date</label>
+            </value>
+            <value>
+                <fullName>Lay-out</fullName>
+                <default>false</default>
+                <label>Lay-out</label>
+            </value>
+            <value>
+                <fullName>Legacy</fullName>
+                <default>false</default>
+                <label>Legacy</label>
+            </value>
+            <value>
+                <fullName>Materials production not finis</fullName>
+                <default>false</default>
+                <label>Materials production not finis</label>
+            </value>
+            <value>
+                <fullName>Math4all</fullName>
+                <default>false</default>
+                <label>Math4all</label>
+            </value>
+            <value>
+                <fullName>Max van Malmberg</fullName>
+                <default>false</default>
+                <label>Max van Malmberg</label>
+            </value>
+            <value>
+                <fullName>Need</fullName>
+                <default>false</default>
+                <label>Need</label>
+            </value>
+            <value>
+                <fullName>Niet gekend</fullName>
+                <default>false</default>
+                <label>Niet gekend</label>
+            </value>
+            <value>
+                <fullName>No reaction</fullName>
+                <default>false</default>
+                <label>No reaction</label>
+            </value>
+            <value>
+                <fullName>Not allowed cross and upsell BFC</fullName>
+                <default>false</default>
+                <label>Not allowed cross and upsell BFC</label>
+            </value>
+            <value>
+                <fullName>Not satisfied about ICT</fullName>
+                <default>false</default>
+                <label>Not satisfied about ICT</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other (see notes)</fullName>
+                <default>false</default>
+                <label>Other (see notes)</label>
+            </value>
+            <value>
+                <fullName>Other influencer (author, ped. mentor,…)</fullName>
+                <default>false</default>
+                <label>Other influencer (author, ped. mentor,…)</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Price cross and upsell</fullName>
+                <default>false</default>
+                <label>Price cross and upsell</label>
+            </value>
+            <value>
+                <fullName>Prijs</fullName>
+                <default>false</default>
+                <label>Prijs</label>
+            </value>
+            <value>
+                <fullName>Product</fullName>
+                <default>false</default>
+                <label>Product</label>
+            </value>
+            <value>
+                <fullName>Product not suitable</fullName>
+                <default>false</default>
+                <label>Product not suitable</label>
+            </value>
+            <value>
+                <fullName>Publishing form</fullName>
+                <default>false</default>
+                <label>Publishing form</label>
+            </value>
+            <value>
+                <fullName>Quality</fullName>
+                <default>false</default>
+                <label>Quality</label>
+            </value>
+            <value>
+                <fullName>Quality, content</fullName>
+                <default>false</default>
+                <label>Quality, content</label>
+            </value>
+            <value>
+                <fullName>Quality, UX/customer experience</fullName>
+                <default>false</default>
+                <label>Quality, UX/customer experience</label>
+            </value>
+            <value>
+                <fullName>School mgmt. is not allowed to switch</fullName>
+                <default>false</default>
+                <label>School mgmt. is not allowed to switch</label>
+            </value>
+            <value>
+                <fullName>Sectie kiest voor Learnbeat / Dedact</fullName>
+                <default>false</default>
+                <label>Sectie kiest voor Learnbeat / Dedact</label>
+            </value>
+            <value>
+                <fullName>Timing</fullName>
+                <default>false</default>
+                <label>Timing</label>
+            </value>
+            <value>
+                <fullName>Too late available</fullName>
+                <default>false</default>
+                <label>Too late available</label>
+            </value>
+            <value>
+                <fullName>Trial licence not possible</fullName>
+                <default>false</default>
+                <label>Trial licence not possible</label>
+            </value>
+            <value>
+                <fullName>Uitgeefplanning</fullName>
+                <default>false</default>
+                <label>Uitgeefplanning</label>
+            </value>
+            <value>
+                <fullName>Van Dijk FLF</fullName>
+                <default>false</default>
+                <label>Van Dijk FLF</label>
+            </value>
+            <value>
+                <fullName>VO- content</fullName>
+                <default>false</default>
+                <label>VO- content</label>
+            </value>
+            <value>
+                <fullName>Waits for new edition</fullName>
+                <default>false</default>
+                <label>Waits for new edition</label>
+            </value>
+            <value>
+                <fullName>Whitespot analyse incorrect</fullName>
+                <default>false</default>
+                <label>Whitespot analyse incorrect</label>
+            </value>
+            <value>
+                <fullName>ZZZ - Other</fullName>
+                <default>false</default>
+                <label>ZZZ - Other</label>
+            </value>
+            <value>
+                <fullName>1-Content</fullName>
+                <default>false</default>
+                <label>1-Content</label>
+            </value>
+            <value>
+                <fullName>2-Digital Material</fullName>
+                <default>false</default>
+                <label>2-Digital Material</label>
+            </value>
+            <value>
+                <fullName>3-Publishing form</fullName>
+                <default>false</default>
+                <label>3-Publishing form</label>
+            </value>
+            <value>
+                <fullName>4-Too late available</fullName>
+                <default>false</default>
+                <label>4-Too late available</label>
+            </value>
+            <value>
+                <fullName>5-Price</fullName>
+                <default>false</default>
+                <label>5-Price</label>
+            </value>
+            <value>
+                <fullName>6-Duplicate/test/wrong data</fullName>
+                <default>false</default>
+                <label>6-Duplicate/test/wrong data</label>
+            </value>
+            <value>
+                <fullName>7-Unknown</fullName>
+                <default>false</default>
+                <label>7-Unknown</label>
+            </value>
+            <value>
+                <fullName>Internal Product</fullName>
+                <default>false</default>
+                <label>Internal Product</label>
+            </value>
+            <value>
+                <fullName>Relationship</fullName>
+                <default>false</default>
+                <label>Relationship</label>
+            </value>
+            <value>
+                <fullName>Terms</fullName>
+                <default>false</default>
+                <label>Terms</label>
+            </value>
+            <value>
+                <fullName>Wrong Data / Duplicate</fullName>
+                <default>false</default>
+                <label>Wrong Data / Duplicate</label>
+            </value>
+            <value>
+                <fullName>1 jaar uitstel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1 jaar uitstel</label>
+            </value>
+            <value>
+                <fullName>1 jaar uitstel/zieke collega&apos;s</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1 jaar uitstel/zieke collega&apos;s</label>
+            </value>
+            <value>
+                <fullName>2013-2014?</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2013-2014?</label>
+            </value>
+            <value>
+                <fullName>2013/2014 pas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2013/2014 pas</label>
+            </value>
+            <value>
+                <fullName>7246</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>7246</label>
+            </value>
+            <value>
+                <fullName>AIM (klas 1 en 2)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>AIM (klas 1 en 2)</label>
+            </value>
+            <value>
+                <fullName>Afschrijvingstermijn</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Afschrijvingstermijn</label>
+            </value>
+            <value>
+                <fullName>Alleen 4 havo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Alleen 4 havo</label>
+            </value>
+            <value>
+                <fullName>Alleen 4 vwo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Alleen 4 vwo</label>
+            </value>
+            <value>
+                <fullName>Alleen invoering lj 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Alleen invoering lj 1</label>
+            </value>
+            <value>
+                <fullName>Alleen lj 1 invoering</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Alleen lj 1 invoering</label>
+            </value>
+            <value>
+                <fullName>Andere doc willen geen methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Andere doc willen geen methode</label>
+            </value>
+            <value>
+                <fullName>Blijft nog Na Klar gebruiken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blijft nog Na Klar gebruiken</label>
+            </value>
+            <value>
+                <fullName>Blijven 2003 gebruiken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blijven 2003 gebruiken</label>
+            </value>
+            <value>
+                <fullName>Blijven bij Dautzenberg</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blijven bij Dautzenberg</label>
+            </value>
+            <value>
+                <fullName>Blijven bij huidige methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Blijven bij huidige methode</label>
+            </value>
+            <value>
+                <fullName>Carte Orange</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Carte Orange</label>
+            </value>
+            <value>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Delayed</label>
+            </value>
+            <value>
+                <fullName>Docent is verhuis naar Curacao</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Docent is verhuis naar Curacao</label>
+            </value>
+            <value>
+                <fullName>Eigen materiaal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Eigen materiaal</label>
+            </value>
+            <value>
+                <fullName>Franconville</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Franconville</label>
+            </value>
+            <value>
+                <fullName>Gaan 2013-2014 invoeren klas 1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gaan 2013-2014 invoeren klas 1</label>
+            </value>
+            <value>
+                <fullName>Gaan door met Salzgitter</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gaan door met Salzgitter</label>
+            </value>
+            <value>
+                <fullName>Gaan gefaseerd over: start lj2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gaan gefaseerd over: start lj2</label>
+            </value>
+            <value>
+                <fullName>Gaan voor NK 6e</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gaan voor NK 6e</label>
+            </value>
+            <value>
+                <fullName>Gaan voorlopig niet over.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gaan voorlopig niet over.</label>
+            </value>
+            <value>
+                <fullName>Gebruiken F-F methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gebruiken F-F methode</label>
+            </value>
+            <value>
+                <fullName>Gebruiken geen GL meer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gebruiken geen GL meer</label>
+            </value>
+            <value>
+                <fullName>Gebruiken nu Aula in l;as 5/6</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gebruiken nu Aula in l;as 5/6</label>
+            </value>
+            <value>
+                <fullName>Geen geld</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Geen geld</label>
+            </value>
+            <value>
+                <fullName>Geen keuze want geen boeken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Geen keuze want geen boeken</label>
+            </value>
+            <value>
+                <fullName>Geen tot paar lln examen Frans</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Geen tot paar lln examen Frans</label>
+            </value>
+            <value>
+                <fullName>Geen verbetering tav Milestone</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Geen verbetering tav Milestone</label>
+            </value>
+            <value>
+                <fullName>Gekozen voor Allright</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gekozen voor Allright</label>
+            </value>
+            <value>
+                <fullName>Gekozen voor Talent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Gekozen voor Talent</label>
+            </value>
+            <value>
+                <fullName>Handhaven gebruik Tio</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Handhaven gebruik Tio</label>
+            </value>
+            <value>
+                <fullName>Hebben al NK 5e TF</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hebben al NK 5e TF</label>
+            </value>
+            <value>
+                <fullName>Hebben al NN TF</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hebben al NN TF</label>
+            </value>
+            <value>
+                <fullName>Hebben net Op Niveau</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hebben net Op Niveau</label>
+            </value>
+            <value>
+                <fullName>Hebben net Op Niveau ingevoerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Hebben net Op Niveau ingevoerd</label>
+            </value>
+            <value>
+                <fullName>Huidig Intertaal Gente Joven</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Huidig Intertaal Gente Joven</label>
+            </value>
+            <value>
+                <fullName>Inge</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Inge</label>
+            </value>
+            <value>
+                <fullName>Inv. Neue Kontakte 5e</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Inv. Neue Kontakte 5e</label>
+            </value>
+            <value>
+                <fullName>Invoering voor 2012/2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Invoering voor 2012/2013</label>
+            </value>
+            <value>
+                <fullName>Keus al gemaakt;Franconvilee</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Keus al gemaakt;Franconvilee</label>
+            </value>
+            <value>
+                <fullName>Keus voor Talent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Keus voor Talent</label>
+            </value>
+            <value>
+                <fullName>Keuze NK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Keuze NK</label>
+            </value>
+            <value>
+                <fullName>Keuze Uitgesteld</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Keuze Uitgesteld</label>
+            </value>
+            <value>
+                <fullName>Kosten en digi</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Kosten en digi</label>
+            </value>
+            <value>
+                <fullName>Libre Service 3e editie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Libre Service 3e editie</label>
+            </value>
+            <value>
+                <fullName>Liever eigen materiaal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Liever eigen materiaal</label>
+            </value>
+            <value>
+                <fullName>Mag nog niet switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mag nog niet switchen</label>
+            </value>
+            <value>
+                <fullName>Met eigen materiaal a/d slag</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Met eigen materiaal a/d slag</label>
+            </value>
+            <value>
+                <fullName>Migration</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Migration</label>
+            </value>
+            <value>
+                <fullName>Moet eigen materiaal maken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Moet eigen materiaal maken</label>
+            </value>
+            <value>
+                <fullName>Moeten eigen materiaal maken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Moeten eigen materiaal maken</label>
+            </value>
+            <value>
+                <fullName>Mogen in 2012-2013 switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mogen in 2012-2013 switchen</label>
+            </value>
+            <value>
+                <fullName>Mogen niet switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mogen niet switchen</label>
+            </value>
+            <value>
+                <fullName>Mogen pas 2012-2013 switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mogen pas 2012-2013 switchen</label>
+            </value>
+            <value>
+                <fullName>Mogen pas in2012-2013 switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mogen pas in2012-2013 switchen</label>
+            </value>
+            <value>
+                <fullName>NK 5e ed al 2 jaar in gebruik</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NK 5e ed al 2 jaar in gebruik</label>
+            </value>
+            <value>
+                <fullName>Na Klar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Na Klar</label>
+            </value>
+            <value>
+                <fullName>Na Klar in TF, TT in OB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Na Klar in TF, TT in OB</label>
+            </value>
+            <value>
+                <fullName>Net 2 jr andere methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net 2 jr andere methode</label>
+            </value>
+            <value>
+                <fullName>Net 2 jr nwe meth Libre Serv</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net 2 jr nwe meth Libre Serv</label>
+            </value>
+            <value>
+                <fullName>Net Op Niveau ingevoerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net Op Niveau ingevoerd</label>
+            </value>
+            <value>
+                <fullName>Net nwe editie Na Klar in OB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Net nwe editie Na Klar in OB</label>
+            </value>
+            <value>
+                <fullName>New Headway</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>New Headway</label>
+            </value>
+            <value>
+                <fullName>Niet geschikt voor deze school</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Niet geschikt voor deze school</label>
+            </value>
+            <value>
+                <fullName>Niet goed voor FCE examen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Niet goed voor FCE examen</label>
+            </value>
+            <value>
+                <fullName>Nieuw opp aangemaakt</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nieuw opp aangemaakt</label>
+            </value>
+            <value>
+                <fullName>No Switch-Na Klar nog 2jr</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No Switch-Na Klar nog 2jr</label>
+            </value>
+            <value>
+                <fullName>No switch/New Interface blijft</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No switch/New Interface blijft</label>
+            </value>
+            <value>
+                <fullName>Nog geen keuze kunnen maken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nog geen keuze kunnen maken</label>
+            </value>
+            <value>
+                <fullName>Nog geen toestemming</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Nog geen toestemming</label>
+            </value>
+            <value>
+                <fullName>Not allowed cross and upsell B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not allowed cross and upsell B</label>
+            </value>
+            <value>
+                <fullName>OB al Talent-&gt; TF ook Talent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OB al Talent-&gt; TF ook Talent</label>
+            </value>
+            <value>
+                <fullName>Of Course ivm prijs</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Of Course ivm prijs</label>
+            </value>
+            <value>
+                <fullName>Ontevreden over saneringsbeleid</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ontevreden over saneringsbeleid</label>
+            </value>
+            <value>
+                <fullName>Onvoldoende niveau</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Onvoldoende niveau</label>
+            </value>
+            <value>
+                <fullName>Op Niveau</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Op Niveau</label>
+            </value>
+            <value>
+                <fullName>Oude methode gebruiken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Oude methode gebruiken</label>
+            </value>
+            <value>
+                <fullName>Pas 3e jr nwe methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pas 3e jr nwe methode</label>
+            </value>
+            <value>
+                <fullName>Per 2011-2012</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Per 2011-2012</label>
+            </value>
+            <value>
+                <fullName>Rekenstuurgroep kiest anders</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rekenstuurgroep kiest anders</label>
+            </value>
+            <value>
+                <fullName>Salzgitter</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Salzgitter</label>
+            </value>
+            <value>
+                <fullName>School mgmt. is not allowed to</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>School mgmt. is not allowed to</label>
+            </value>
+            <value>
+                <fullName>Service</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service</label>
+            </value>
+            <value>
+                <fullName>Switch per 2013-2014</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Switch per 2013-2014</label>
+            </value>
+            <value>
+                <fullName>Switch volgend jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Switch volgend jaar</label>
+            </value>
+            <value>
+                <fullName>TT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>TT</label>
+            </value>
+            <value>
+                <fullName>Talent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Talent</label>
+            </value>
+            <value>
+                <fullName>Te hoog nivo CO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Te hoog nivo CO</label>
+            </value>
+            <value>
+                <fullName>Te veel Nederlands</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Te veel Nederlands</label>
+            </value>
+            <value>
+                <fullName>Te weinig tijd voor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Te weinig tijd voor</label>
+            </value>
+            <value>
+                <fullName>Terra BB bevalt niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Terra BB bevalt niet</label>
+            </value>
+            <value>
+                <fullName>TrabiTour</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>TrabiTour</label>
+            </value>
+            <value>
+                <fullName>Uitgesteld</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitgesteld</label>
+            </value>
+            <value>
+                <fullName>Uitgesteld naar 2014/2015</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitgesteld naar 2014/2015</label>
+            </value>
+            <value>
+                <fullName>Uitsel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitsel</label>
+            </value>
+            <value>
+                <fullName>Uitstel 1 jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 1 jaar</label>
+            </value>
+            <value>
+                <fullName>Uitstel 2012</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 2012</label>
+            </value>
+            <value>
+                <fullName>Uitstel 2012-2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 2012-2013</label>
+            </value>
+            <value>
+                <fullName>Uitstel 2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 2013</label>
+            </value>
+            <value>
+                <fullName>Uitstel 2013-2014</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 2013-2014</label>
+            </value>
+            <value>
+                <fullName>Uitstel 2013/2014</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel 2013/2014</label>
+            </value>
+            <value>
+                <fullName>Uitstel ivm taalbeleid / 2012</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel ivm taalbeleid / 2012</label>
+            </value>
+            <value>
+                <fullName>Uitstel met 1 jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel met 1 jaar</label>
+            </value>
+            <value>
+                <fullName>Uitstel naar 2011-2012</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel naar 2011-2012</label>
+            </value>
+            <value>
+                <fullName>Uitstel naar 2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel naar 2013</label>
+            </value>
+            <value>
+                <fullName>Uitstel naar 2013-2014</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel naar 2013-2014</label>
+            </value>
+            <value>
+                <fullName>Uitstel van 1 jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Uitstel van 1 jaar</label>
+            </value>
+            <value>
+                <fullName>VO Content</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VO Content</label>
+            </value>
+            <value>
+                <fullName>VWO gaat Na Klar gebruiken!</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VWO gaat Na Klar gebruiken!</label>
+            </value>
+            <value>
+                <fullName>Verder met oude editie/methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Verder met oude editie/methode</label>
+            </value>
+            <value>
+                <fullName>Voeren zeker in  in 2013/2014!</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Voeren zeker in  in 2013/2014!</label>
+            </value>
+            <value>
+                <fullName>Volgend jaar?</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Volgend jaar?</label>
+            </value>
+            <value>
+                <fullName>Vorig jr nwe Na Klar ingevoerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vorig jr nwe Na Klar ingevoerd</label>
+            </value>
+            <value>
+                <fullName>WErkt pas 2 jr met Of course</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>WErkt pas 2 jr met Of course</label>
+            </value>
+            <value>
+                <fullName>Wachten nog 1 jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wachten nog 1 jaar</label>
+            </value>
+            <value>
+                <fullName>Wel retour, keuze?</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wel retour, keuze?</label>
+            </value>
+            <value>
+                <fullName>Werkt pas 2 jr met Na Klar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Werkt pas 2 jr met Na Klar</label>
+            </value>
+            <value>
+                <fullName>Wil 1 jaar na release wachten</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wil 1 jaar na release wachten</label>
+            </value>
+            <value>
+                <fullName>Willen eerst alle boeken zien</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Willen eerst alle boeken zien</label>
+            </value>
+            <value>
+                <fullName>Willen klas 3</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Willen klas 3</label>
+            </value>
+            <value>
+                <fullName>Ze willen gefaseerd invoeren</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ze willen gefaseerd invoeren</label>
+            </value>
+            <value>
+                <fullName>Zie info</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Zie info</label>
+            </value>
+            <value>
+                <fullName>Zijn gestart in 2011-2012</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Zijn gestart in 2011-2012</label>
+            </value>
+            <value>
+                <fullName>afspraak gecancelled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>afspraak gecancelled</label>
+            </value>
+            <value>
+                <fullName>al 2 jaar gebruik</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al 2 jaar gebruik</label>
+            </value>
+            <value>
+                <fullName>al 2 jr gebruik</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al 2 jr gebruik</label>
+            </value>
+            <value>
+                <fullName>al gebruiker</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al gebruiker</label>
+            </value>
+            <value>
+                <fullName>al geswitch dit jaar B/V v jou</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al geswitch dit jaar B/V v jou</label>
+            </value>
+            <value>
+                <fullName>al in gebruik</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al in gebruik</label>
+            </value>
+            <value>
+                <fullName>al ingebruik</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al ingebruik</label>
+            </value>
+            <value>
+                <fullName>al ingevoerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>al ingevoerd</label>
+            </value>
+            <value>
+                <fullName>alleen 4-5 vwo litterature</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>alleen 4-5 vwo litterature</label>
+            </value>
+            <value>
+                <fullName>alleen Reference</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>alleen Reference</label>
+            </value>
+            <value>
+                <fullName>alleen havo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>alleen havo</label>
+            </value>
+            <value>
+                <fullName>alleen hv</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>alleen hv</label>
+            </value>
+            <value>
+                <fullName>andere locatie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>andere locatie</label>
+            </value>
+            <value>
+                <fullName>andere methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>andere methode</label>
+            </value>
+            <value>
+                <fullName>andere methode gekozen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>andere methode gekozen</label>
+            </value>
+            <value>
+                <fullName>blijf tnog even bij huidige</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijf tnog even bij huidige</label>
+            </value>
+            <value>
+                <fullName>blijft bij oude methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijft bij oude methode</label>
+            </value>
+            <value>
+                <fullName>blijft met 8e ed. doorwerken!</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijft met 8e ed. doorwerken!</label>
+            </value>
+            <value>
+                <fullName>blijven bij BvJ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven bij BvJ</label>
+            </value>
+            <value>
+                <fullName>blijven bij MW9</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven bij MW9</label>
+            </value>
+            <value>
+                <fullName>blijven bij huidige</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven bij huidige</label>
+            </value>
+            <value>
+                <fullName>blijven bij thieme</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven bij thieme</label>
+            </value>
+            <value>
+                <fullName>blijven nog bij huidige method</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven nog bij huidige method</label>
+            </value>
+            <value>
+                <fullName>blijven nog met explora werken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>blijven nog met explora werken</label>
+            </value>
+            <value>
+                <fullName>docent bestaat niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>docent bestaat niet</label>
+            </value>
+            <value>
+                <fullName>docent geeft geen les meer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>docent geeft geen les meer</label>
+            </value>
+            <value>
+                <fullName>docent onbekend</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>docent onbekend</label>
+            </value>
+            <value>
+                <fullName>dubbel geregistreerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>dubbel geregistreerd</label>
+            </value>
+            <value>
+                <fullName>dubbele opp.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>dubbele opp.</label>
+            </value>
+            <value>
+                <fullName>dubbele opportunity</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>dubbele opportunity</label>
+            </value>
+            <value>
+                <fullName>dubble invoer opportunity</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>dubble invoer opportunity</label>
+            </value>
+            <value>
+                <fullName>eigen methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>eigen methode</label>
+            </value>
+            <value>
+                <fullName>gaan 2012 switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan 2012 switchen</label>
+            </value>
+            <value>
+                <fullName>gaan naar Nectar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan naar Nectar</label>
+            </value>
+            <value>
+                <fullName>gaan niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan niet over</label>
+            </value>
+            <value>
+                <fullName>gaan niet switchen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan niet switchen</label>
+            </value>
+            <value>
+                <fullName>gaan nog niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan nog niet over</label>
+            </value>
+            <value>
+                <fullName>gaan projecten gebruiken</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gaan projecten gebruiken</label>
+            </value>
+            <value>
+                <fullName>gebruiken al</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruiken al</label>
+            </value>
+            <value>
+                <fullName>gebruiken al, gaat om jaar 4</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruiken al, gaat om jaar 4</label>
+            </value>
+            <value>
+                <fullName>gebruiken het</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruiken het</label>
+            </value>
+            <value>
+                <fullName>gebruiken het al</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruiken het al</label>
+            </value>
+            <value>
+                <fullName>gebruiken het al !!</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruiken het al !!</label>
+            </value>
+            <value>
+                <fullName>gebruikt al</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gebruikt al</label>
+            </value>
+            <value>
+                <fullName>geeft Frans</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geeft Frans</label>
+            </value>
+            <value>
+                <fullName>geen belangstelling</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen belangstelling</label>
+            </value>
+            <value>
+                <fullName>geen belangstelling meer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen belangstelling meer</label>
+            </value>
+            <value>
+                <fullName>geen budget</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen budget</label>
+            </value>
+            <value>
+                <fullName>geen docent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen docent</label>
+            </value>
+            <value>
+                <fullName>geen docent meer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen docent meer</label>
+            </value>
+            <value>
+                <fullName>geen interesse</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen interesse</label>
+            </value>
+            <value>
+                <fullName>geen lj 2</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen lj 2</label>
+            </value>
+            <value>
+                <fullName>geen nieuwe methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen nieuwe methode</label>
+            </value>
+            <value>
+                <fullName>geen reactie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen reactie</label>
+            </value>
+            <value>
+                <fullName>geen rreactie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen rreactie</label>
+            </value>
+            <value>
+                <fullName>geen switch</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen switch</label>
+            </value>
+            <value>
+                <fullName>geen switch 2012/2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen switch 2012/2013</label>
+            </value>
+            <value>
+                <fullName>geen uitsluitsel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen uitsluitsel</label>
+            </value>
+            <value>
+                <fullName>geen vmbo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>geen vmbo</label>
+            </value>
+            <value>
+                <fullName>gekozen voor hv</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>gekozen voor hv</label>
+            </value>
+            <value>
+                <fullName>ging om jaar 4 vmbo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ging om jaar 4 vmbo</label>
+            </value>
+            <value>
+                <fullName>ging over tweede fase</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ging over tweede fase</label>
+            </value>
+            <value>
+                <fullName>hadden al ingevoer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>hadden al ingevoer</label>
+            </value>
+            <value>
+                <fullName>het nivo hun havisten te laag</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>het nivo hun havisten te laag</label>
+            </value>
+            <value>
+                <fullName>inv stst</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>inv stst</label>
+            </value>
+            <value>
+                <fullName>inv. NK 5e</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>inv. NK 5e</label>
+            </value>
+            <value>
+                <fullName>inv. Station</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>inv. Station</label>
+            </value>
+            <value>
+                <fullName>ivm fusie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ivm fusie</label>
+            </value>
+            <value>
+                <fullName>ivm komende aanbesteding</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ivm komende aanbesteding</label>
+            </value>
+            <value>
+                <fullName>jaar uitstel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>jaar uitstel</label>
+            </value>
+            <value>
+                <fullName>keuze TT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>keuze TT</label>
+            </value>
+            <value>
+                <fullName>keuze voor andere methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>keuze voor andere methode</label>
+            </value>
+            <value>
+                <fullName>krijg nooit antwoord op vraag</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>krijg nooit antwoord op vraag</label>
+            </value>
+            <value>
+                <fullName>lang niet vervangen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>lang niet vervangen</label>
+            </value>
+            <value>
+                <fullName>mag niet van directie</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>mag niet van directie</label>
+            </value>
+            <value>
+                <fullName>mag nog niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>mag nog niet over</label>
+            </value>
+            <value>
+                <fullName>mogen niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>mogen niet over</label>
+            </value>
+            <value>
+                <fullName>mogen nog niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>mogen nog niet</label>
+            </value>
+            <value>
+                <fullName>mogen nog niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>mogen nog niet over</label>
+            </value>
+            <value>
+                <fullName>naar Op Niveau</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>naar Op Niveau</label>
+            </value>
+            <value>
+                <fullName>niet aangevraagd, klacht</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>niet aangevraagd, klacht</label>
+            </value>
+            <value>
+                <fullName>nieuwe opp aangemaakt</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nieuwe opp aangemaakt</label>
+            </value>
+            <value>
+                <fullName>nog geen beslissing genomen</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog geen beslissing genomen</label>
+            </value>
+            <value>
+                <fullName>nog geen keuze</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog geen keuze</label>
+            </value>
+            <value>
+                <fullName>nog geen nieuwe methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog geen nieuwe methode</label>
+            </value>
+            <value>
+                <fullName>nog geen nieuwe metode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog geen nieuwe metode</label>
+            </value>
+            <value>
+                <fullName>nog lang niet toe aan nieuwe m</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog lang niet toe aan nieuwe m</label>
+            </value>
+            <value>
+                <fullName>nog niet over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nog niet over</label>
+            </value>
+            <value>
+                <fullName>nw examenprogramma</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>nw examenprogramma</label>
+            </value>
+            <value>
+                <fullName>pas over 3 jaar over</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>pas over 3 jaar over</label>
+            </value>
+            <value>
+                <fullName>pas switch in 2013</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>pas switch in 2013</label>
+            </value>
+            <value>
+                <fullName>reageer niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>reageer niet</label>
+            </value>
+            <value>
+                <fullName>reageert niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>reageert niet</label>
+            </value>
+            <value>
+                <fullName>reagert niet</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>reagert niet</label>
+            </value>
+            <value>
+                <fullName>reeds NK ingevoerd</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>reeds NK ingevoerd</label>
+            </value>
+            <value>
+                <fullName>stellen switch 4 jaar uit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>stellen switch 4 jaar uit</label>
+            </value>
+            <value>
+                <fullName>switchvolledig engelse methode</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>switchvolledig engelse methode</label>
+            </value>
+            <value>
+                <fullName>te hoog niveau</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>te hoog niveau</label>
+            </value>
+            <value>
+                <fullName>uitstel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uitstel</label>
+            </value>
+            <value>
+                <fullName>uitstel meerdere jarenl</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uitstel meerdere jarenl</label>
+            </value>
+            <value>
+                <fullName>uitstel via SIM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uitstel via SIM</label>
+            </value>
+            <value>
+                <fullName>uitstel voorlopig</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uitstel voorlopig</label>
+            </value>
+            <value>
+                <fullName>uittel</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uittel</label>
+            </value>
+            <value>
+                <fullName>uittel (zeker 3 jaar)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>uittel (zeker 3 jaar)</label>
+            </value>
+            <value>
+                <fullName>verkeerde docent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>verkeerde docent</label>
+            </value>
+            <value>
+                <fullName>vmbo school</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>vmbo school</label>
+            </value>
+            <value>
+                <fullName>volgend jaar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>volgend jaar</label>
+            </value>
+            <value>
+                <fullName>was alleen hv</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>was alleen hv</label>
+            </value>
+            <value>
+                <fullName>was alleen sp voor ob</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>was alleen sp voor ob</label>
+            </value>
+            <value>
+                <fullName>werken al met GL TF</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>werken al met GL TF</label>
+            </value>
+            <value>
+                <fullName>werken al met StSt</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>werken al met StSt</label>
+            </value>
+            <value>
+                <fullName>werken net met Na Klar</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>werken net met Na Klar</label>
+            </value>
+            <value>
+                <fullName>wil geen info meer uit KVS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>wil geen info meer uit KVS</label>
+            </value>
+            <value>
+                <fullName>wil geen sp</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>wil geen sp</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>1-Content</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>2-Digital Material</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>3-Publishing form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>4-Too late available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>5-Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>6-Duplicate/test/wrong data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>4b3. Lost</controllingFieldValue>
+            <controllingFieldValue>4a3. Exit</controllingFieldValue>
+            <valueName>7-Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Budget</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Quality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Internal Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Relationship</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Won</controllingFieldValue>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Andere</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Author</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Bad service Noordhoff</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Booklist incorrect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Commerciele actie</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Competitor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Coronavirus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Delay</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Didactic cross and upsell</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Didactic reason</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Didactische reden</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Double opportunity created</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>ICT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Kwaliteit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Legacy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Materials production not finis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Math4all</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Niet gekend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>No reaction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Not allowed cross and upsell BFC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Not satisfied about ICT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Price cross and upsell</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Prijs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>School mgmt. is not allowed to switch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Trial licence not possible</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Uitgeefplanning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Waits for new edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Whitespot analyse incorrect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>ZZZ - Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Wrong Data / Duplicate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Bad experience accountmanager</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Bad experience delivery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Bad experience services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Beoordelingsmateriaal niet op tijd klaar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Eigen materiaal docent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Eigen platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Iddink meta-abonnement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Max van Malmberg</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Sectie kiest voor Learnbeat / Dedact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>Van Dijk FLF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>S6 Closed Won</controllingFieldValue>
+            <controllingFieldValue>S6 Loss</controllingFieldValue>
+            <controllingFieldValue>S6 Postponed</controllingFieldValue>
+            <controllingFieldValue>S6 Withdraw</controllingFieldValue>
+            <valueName>VO- content</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

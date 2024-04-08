@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Analyze apex jobs and remove system monitors</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>SF Apex Job Analyser &amp; Monitor Deletion</label>
+    <navType>Standard</navType>
+    <tabs>ApexJobSummary__c</tabs>
+    <tabs>Apex_Job_Analyser</tabs>
+    <tabs>Apex_Jobs_Report</tabs>
+    <tabs>SummaryofObjectsCleaned__c</tabs>
+    <tabs>Clean_Objects_and_Create_Summaires</tabs>
+    <tabs>System_Monitors_Report</tabs>
+    <tabs>standard-report</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>SF_Apex_Job_Analyser_Monitor_Deletion_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProRataProduct__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is this a Pro Rata product that needs to be invoiced pro rata?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is this a Pro Rata product that needs to be invoiced pro rata?</inlineHelpText>
+    <label>Pro Rata Product</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scheduled_Next_Review_Date_del__c</fullName>
+    <externalId>false</externalId>
+    <formula>If 
+(    OR (ISBLANK(NextReviewDate),NextReviewDate &lt;=  DATETIMEVALUE(Today())) ,
+    
+ IF(ISPICKVAL( Type__c , &quot;Temporary&quot;) , LastPublishedDate + 30, 
+ IF(ISPICKVAL( Type__c , &quot;FAQ&quot;) , LastPublishedDate + 90, null)) ,
+ NextReviewDate
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Please refresh page to get latest information</inlineHelpText>
+    <label>Scheduled Next Review Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

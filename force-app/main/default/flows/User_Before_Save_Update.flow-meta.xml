@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Assign_Default_Side_Conversation_Email</name>
+        <label>Assign Default Side Conversation Email</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.DefaultSideConversationEmail__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>services@noordhoff.nl</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Need_Signature_Update</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Messaging_Name</name>
+        <label>Assign Messaging Name</label>
+        <locationX>50</locationX>
+        <locationY>1103</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.MessagingName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.FirstName</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_Signature</name>
+        <label>Assign Signature</label>
+        <locationX>50</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.EmailSignature__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Template_Signature</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Messaging_Name_filled</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>To check if a MessagingName was already filled. We should only apply the default if it is empty</description>
+        <name>Messaging_Name_filled</name>
+        <label>Messaging Name filled?</label>
+        <locationX>182</locationX>
+        <locationY>995</locationY>
+        <defaultConnectorLabel>Yes filled</defaultConnectorLabel>
+        <rules>
+            <name>No_not_filled2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.MessagingName__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Messaging_Name</targetReference>
+            </connector>
+            <label>No not filled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Need_Signature_Update</name>
+        <label>Need Signature Update</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Messaging_Name_filled</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>YesSignature</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Department</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Signature</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Operating_Company</name>
+        <label>Operating Company?</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Liber</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Liber</label>
+        </rules>
+        <rules>
+            <name>Noordhoff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Side_Conversation_filled</targetReference>
+            </connector>
+            <label>Noordhoff</label>
+        </rules>
+        <rules>
+            <name>Plantyn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plantyn</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Plantyn</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>To check if a side conversation address is chosen</description>
+        <name>Side_Conversation_filled</name>
+        <label>Side Conversation filled?</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Need_Signature_Update</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes filled</defaultConnectorLabel>
+        <rules>
+            <name>No_not_filled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.DefaultSideConversationEmail__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Default_Side_Conversation_Email</targetReference>
+            </connector>
+            <label>No not filled</label>
+        </rules>
+    </decisions>
+    <description>MR 21/03/24: Added Assignment of Messaging name
+MV 02/04/24: Added checks to only add Default Side Conv Email and Messaging Name when not yet filled</description>
+    <environments>Default</environments>
+    <interviewLabel>User - Before Save Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>User - Before Save Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Operating_Company</targetReference>
+        </connector>
+        <object>User</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Template_Signature</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.FirstName}
+{!$Record.Department}</text>
+    </textTemplates>
+</Flow>

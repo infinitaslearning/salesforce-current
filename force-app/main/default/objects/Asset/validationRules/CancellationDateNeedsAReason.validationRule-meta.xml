@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CancellationDateNeedsAReason</fullName>
+    <active>true</active>
+    <description>When cancellation date is filled, a reason has to be set.</description>
+    <errorConditionFormula>AND(
+	NOT(
+					ISBLANK(CancellationDate__c)), 
+					ISBLANK(TEXT(CancellationReason__c)) )</errorConditionFormula>
+    <errorDisplayField>CancellationReason__c</errorDisplayField>
+    <errorMessage>A cancellation date is set, please enter a cancellation reason.</errorMessage>
+</ValidationRule>

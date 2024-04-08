@@ -1,0 +1,10 @@
+Good day,
+
+There is an Opportunity that is currently in Stage: Close and requires approval to proceed with the deal.
+To access this Opportunity you can click on this link below:
+{!Opportunity.Link}
+
+Opportunity: {!Opportunity.Name}
+Account: {!Opportunity.Account}
+
+Kind Regards

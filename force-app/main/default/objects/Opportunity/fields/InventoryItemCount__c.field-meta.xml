@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InventoryItemCount__c</fullName>
+    <externalId>false</externalId>
+    <label>Inventory Item Count</label>
+    <summaryFilterItems>
+        <field>OpportunityLineItem.ProductType__c</field>
+        <operation>equals</operation>
+        <value>Inventory Item</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

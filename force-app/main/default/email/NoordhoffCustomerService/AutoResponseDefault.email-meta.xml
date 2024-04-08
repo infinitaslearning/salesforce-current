@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Auto Response Default</name>
+    <style>none</style>
+    <subject>{!Case.CaseNumber} {!Case.Subject}</subject>
+    <textOnly>Bekijk de browserversie
+
+Beste {!EmailMessage.FromName},
+
+Bedankt voor je bericht. Ons Services team bekijkt je bericht en stuurt het indien nodig door naar de meest geschikte persoon binnen onze organisatie. Binnen 2 werkdagen ontvang je een reactie. Wist je dat de antwoorden op de meest gestelde vragen kunt vinden op www.noordhoff.nl/klantenservice? Mocht de situatie dringend zijn, dan kun je ons bereiken van maandag t/m vrijdag van 08:00 tot 17:00 uur via 088-5226888, of live chat.
+
+Met vriendelijke groet,
+
+Team Services
+Noordhoff
+
+
+Dit is een automatisch gegenereerde e-mail.
+Wij kunnen een reply op deze e-mail niet beantwoorden.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

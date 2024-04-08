@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonDiscarded__c</fullName>
+    <description>Reason discarded to be populated when the opportunity is updated to the Discarded stage. Only applicable to Plantyn.</description>
+    <externalId>false</externalId>
+    <label>Reason discarded</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1-Already Chosen other method</fullName>
+                <default>false</default>
+                <label>1-Already Chosen other method</label>
+            </value>
+            <value>
+                <fullName>2-Lead for next sales season</fullName>
+                <default>false</default>
+                <label>2-Lead for next sales season</label>
+            </value>
+            <value>
+                <fullName>3-Too late available</fullName>
+                <default>false</default>
+                <label>3-Too late available</label>
+            </value>
+            <value>
+                <fullName>4-Content</fullName>
+                <default>false</default>
+                <label>4-Content</label>
+            </value>
+            <value>
+                <fullName>5-Duplicate/test/wrong data</fullName>
+                <default>false</default>
+                <label>5-Duplicate/test/wrong data</label>
+            </value>
+            <value>
+                <fullName>6-Wrong change information</fullName>
+                <default>false</default>
+                <label>6-Wrong change information</label>
+            </value>
+            <value>
+                <fullName>7-Unknown</fullName>
+                <default>false</default>
+                <label>7-Unknown</label>
+            </value>
+            <value>
+                <fullName>8-MQL (season close)</fullName>
+                <default>false</default>
+                <label>8-MQL (season close)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>1-Already Chosen other method</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>2-Lead for next sales season</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>3-Too late available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>4-Content</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>5-Duplicate/test/wrong data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>6-Wrong change information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>7-Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>5. Discarded</controllingFieldValue>
+            <valueName>8-MQL (season close)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

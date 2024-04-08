@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission allowing access to view Noordhoff Professional - PCSS specific things like dashboard, buttons, etc.</description>
+    <isLicensed>false</isLicensed>
+    <label>View Noordhoff Professional - PCSS</label>
+</CustomPermission>

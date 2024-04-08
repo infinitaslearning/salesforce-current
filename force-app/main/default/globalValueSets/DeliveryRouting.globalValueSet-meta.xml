@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>LIBAZ</fullName>
+        <default>false</default>
+        <label>LIBAZ - Liber Amazon</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBBRE</fullName>
+        <default>false</default>
+        <label>LIBBRE - Liber Letters</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBBUD</fullName>
+        <default>false</default>
+        <label>LIBBUD - Liber Bud</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBDHL</fullName>
+        <default>false</default>
+        <label>LIBDHL - Liber DHL</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBEXP</fullName>
+        <default>false</default>
+        <label>LIBEXP - Liber Exports</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBHÄM</fullName>
+        <default>false</default>
+        <label>LIBHÄM - Liber Pick up at WH</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBHÄS</fullName>
+        <default>false</default>
+        <label>LIBHÄS - Hämtas Skuggan</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBMAK</fullName>
+        <default>false</default>
+        <label>LIBMAK - Liber MAK</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBNRM</fullName>
+        <default>false</default>
+        <label>LIBNRM - Liber Default</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBNÄR</fullName>
+        <default>false</default>
+        <label>LIBNÄR - Liber Läromedia Örebro</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBPOS</fullName>
+        <default>false</default>
+        <label>LIBPOS - Liber Postal</label>
+    </customValue>
+    <customValue>
+        <fullName>LIBSCH</fullName>
+        <default>false</default>
+        <label>LIBSCH - Liber Schenker</label>
+    </customValue>
+    <masterLabel>Delivery Routing</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

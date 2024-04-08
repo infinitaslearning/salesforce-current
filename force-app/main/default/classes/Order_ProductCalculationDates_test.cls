@@ -38,7 +38,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+        //   lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+        lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test1.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -102,7 +105,11 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test2.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -165,7 +172,11 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test3.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -227,7 +238,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test4.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -289,7 +303,12 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test5.lstOrderItems :Size**'+lstOrderItems.size());
+
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -351,7 +370,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test6.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -413,7 +435,11 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test7.lstOrderItems :Size**'+lstOrderItems.size());
+
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -475,7 +501,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+          // lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test8.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -537,7 +566,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test9.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -599,7 +631,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test10.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -660,7 +695,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+          // lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test11.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          
@@ -710,7 +748,10 @@ public with sharing class Order_ProductCalculationDates_test {
            }
         
 
-           lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           //lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+           lstOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+           system.debug('**Order_SoqlFactory.Order_ProductCalculationDates_test12.lstOrderItems :Size**'+lstOrderItems.size());
+
            Order_ProductCalculationDates.UpdateOrderItemDate(lstOrderItems, lstOrder);
    
          

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MarketSegment__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Market Segment</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PreSchool</fullName>
+                <default>false</default>
+                <label>Pre-school</label>
+            </value>
+            <value>
+                <fullName>PrimaryEducation</fullName>
+                <default>true</default>
+                <label>Primary Education</label>
+            </value>
+            <value>
+                <fullName>SecondaryEducation</fullName>
+                <default>false</default>
+                <label>Secondary Education</label>
+            </value>
+            <value>
+                <fullName>HigherEducation</fullName>
+                <default>false</default>
+                <label>Higher Education</label>
+            </value>
+            <value>
+                <fullName>VocationalEducation</fullName>
+                <default>false</default>
+                <label>Vocational Education</label>
+            </value>
+            <value>
+                <fullName>Professional</fullName>
+                <default>false</default>
+                <label>Professional</label>
+            </value>
+            <value>
+                <fullName>SIMSLMS</fullName>
+                <default>false</default>
+                <label>SIMS / LMS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

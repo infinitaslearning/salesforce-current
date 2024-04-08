@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadRank__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the lead&apos;s ranking compared to other leads, based on its score. Each lead is ranked within its own company&apos;s list.</inlineHelpText>
+    <label>LeadRank</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

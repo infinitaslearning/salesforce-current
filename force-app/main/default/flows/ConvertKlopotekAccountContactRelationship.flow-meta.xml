@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <assignments>
+        <name>Set_AccountContact_Details</name>
+        <label>Set AccountContact Details</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>GetAccountContactRelationship.AccountId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_acc</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GetAccountContactRelationship.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_contact</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>GetAccountContactRelationship.IsActive</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateAccountContactRelationship</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>DoesAccountContactRelationshipexist</name>
+        <label>Does Account Contact Relationship exist?</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Set_AccountContact_Details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Contact_Relationship_Does_Not_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetAccountContactRelationship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CreateAccountContactRelationship</targetReference>
+            </connector>
+            <label>Account Contact Relationship Does Not Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Should_Run</name>
+        <label>Should Run?</label>
+        <locationX>710</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>(1 AND 2) OR 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SalesforceAccountId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SalesforceContactId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>bValuesHaveChanged</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetAccountContactRelationship</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>CH 16/05/2023: Enabled updating of account contact relationships</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>bValuesHaveChanged</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+ISCHANGED({!$Record.DEPARTMENT__c}),
+ISCHANGED({!$Record.DEPARTMENT2__c}),
+ISCHANGED({!$Record.DOCNR__c}),
+ISCHANGED({!$Record.EMAIL_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.FAX_CITY_PREFIX__c}),
+ISCHANGED({!$Record.FAX_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.FAX_COUNTRY_PREFIX__c}),
+ISCHANGED({!$Record.ID_JURISTIC_PERSON_CONTACT__c}),
+ISCHANGED({!$Record.ID_LOCATION__c}),
+ISCHANGED({!$Record.ID_JURISTIC_PERSON_INSTITUUT__c}),
+ISCHANGED({!$Record.KlopotekContact__c}),
+ISCHANGED({!$Record.KlopotekAccount__c}),
+ISCHANGED({!$Record.POSITION__c}),
+ISCHANGED({!$Record.ROWNUM__c}),
+ISCHANGED({!$Record.RowNumber__c}),
+ISCHANGED({!$Record.SalesforceAccountId__c}),
+ISCHANGED({!$Record.SalesforceContactId__c}),
+ISCHANGED({!$Record.SCHNR__c}),
+ISCHANGED({!$Record.TEL_CITY_PREFIX__c}),
+ISCHANGED({!$Record.TEL_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.TEL_COUNTRY_PREFIX__c}),
+ISCHANGED({!$Record.TEL06_CITY_PREFIX__c}),
+ISCHANGED({!$Record.TEL06_COMMUNICATION_NUMBER__c}),
+ISCHANGED({!$Record.TEL06_COUNTRY_PREFIX__c}),
+ISCHANGED({!$Record.URL_COMMUNICATION_NUMBER__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>forAccountContactRelationshipId</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISBLANK({!varCreatedRelationshipId})),{!varCreatedRelationshipId},{!GetAccountContactRelationship.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>forFaultMessage</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Flow.FaultMessage},Find(&quot;You can look up ExceptionCode&quot;, {!$Flow.FaultMessage})-1)</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_acc</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.KlopotekAccount__r.Account__c}), {!$Record__Prior.KlopotekAccount__r.Account__c}, {!$Record.KlopotekAccount__r.Account__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_update_contact</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.KlopotekContact__r.Contact__c}), {!$Record__Prior.KlopotekContact__r.Contact__c}, {!$Record.KlopotekContact__r.Contact__c})</expression>
+    </formulas>
+    <interviewLabel>Convert Klopotek Account Contact Relationship {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Convert Klopotek Account Contact Relationship</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>CreateAccountContactRelationship</name>
+        <label>Create Account Contact Relationship</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <assignRecordIdToReference>varCreatedRelationshipId</assignRecordIdToReference>
+        <connector>
+            <targetReference>Update_Account_Contact_Relationship</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Update_Convert_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.KlopotekAccount__r.Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>$Record.KlopotekContact__r.Contact__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsActive</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>AccountContactRelation</object>
+    </recordCreates>
+    <recordLookups>
+        <name>GetAccountContactRelationship</name>
+        <label>Get Account Contact Relationship</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesAccountContactRelationshipexist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.KlopotekAccount__r.Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.KlopotekContact__r.Contact__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AccountContactRelation</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Copy_2_of_Update_Convert_Error</name>
+        <label>Update Convert Error</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <inputAssignments>
+            <field>ConvertError__c</field>
+            <value>
+                <elementReference>forFaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_Contact_Relationship</name>
+        <label>Update Account Contact Relationship</label>
+        <locationX>314</locationX>
+        <locationY>1187</locationY>
+        <inputAssignments>
+            <field>AccountContactRelationshipId__c</field>
+            <value>
+                <elementReference>forAccountContactRelationshipId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Convert_Error</name>
+        <label>Update Convert Error</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <inputAssignments>
+            <field>ConvertError__c</field>
+            <value>
+                <elementReference>forFaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateAccountContactRelationship</name>
+        <label>Update AccountContactRelationship</label>
+        <locationX>578</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Update_Account_Contact_Relationship</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Copy_2_of_Update_Convert_Error</targetReference>
+        </faultConnector>
+        <inputReference>GetAccountContactRelationship</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Should_Run</targetReference>
+        </connector>
+        <object>KlopotekAccountContactRelationship__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>varCreatedRelationshipId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ProductComponentNonRenewable</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND(ItemGroupId__c != null,   Renewable__c = true),
+ 		AND(ProductType__c = &apos;Item Group&apos;,   Renewable__c = true))</errorConditionFormula>
+    <errorMessage>Product Components can&apos;t be renewed</errorMessage>
+</ValidationRule>

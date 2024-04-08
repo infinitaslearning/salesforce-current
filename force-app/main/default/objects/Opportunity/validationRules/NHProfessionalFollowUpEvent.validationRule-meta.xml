@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHProfessionalFollowUpEvent</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Professional&quot;,
+    Is_Event_Created__c = False, 
+    NOT($User.ValidationRulesDoNotApply__c  = true),
+  OR(
+     ISPICKVAL(StageName, &quot;P. Qualified&quot;), 
+     ISPICKVAL(StageName, &quot;P. Quote&quot;),
+     ISPICKVAL(StageName, &quot;P. Negotiation&quot;), 
+     ISPICKVAL(StageName, &quot;P. Close&quot;) 
+  )
+)</errorConditionFormula>
+    <errorMessage>The Opportunity cannot move to the next Stage if there is no follow up event or task created.</errorMessage>
+</ValidationRule>

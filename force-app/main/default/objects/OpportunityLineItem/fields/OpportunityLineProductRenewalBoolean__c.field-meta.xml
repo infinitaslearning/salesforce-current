@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpportunityLineProductRenewalBoolean__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>An Actual Checkbox - set by Process Builder - to quickly filter the OpportunityLineItems (Products) on either (Record)Type &apos;Recurring&apos; or not. 
+We need an Actual Checkbox (and not a formula) to use it in a Roll-Up Summary and display &apos;Contract Value&apos; on the Opportunity.</description>
+    <externalId>false</externalId>
+    <label>OpportunityLineProductRenewalBoolean</label>
+    <type>Checkbox</type>
+</CustomField>

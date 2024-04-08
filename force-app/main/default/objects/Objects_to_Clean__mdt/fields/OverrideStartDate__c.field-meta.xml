@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OverrideStartDate__c</fullName>
+    <description>Use this if you do not want the process to start from today. It will then rather go back X months from the specified date</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>The process will use this date instead of today&apos;s date (if filled out)</inlineHelpText>
+    <label>Override Start Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

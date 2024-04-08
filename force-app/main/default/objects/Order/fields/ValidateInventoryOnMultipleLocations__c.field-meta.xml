@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateInventoryOnMultipleLocations__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    NOT(
+        TEXT(Status) = &apos;Activated&apos;
+    ),
+    if(InventoryItemCount__c&gt;0,1,if(InventoryItemShippingAddressCount__c&gt;1,1,0)),
+    0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Validate Inventory On Multiple Locations</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

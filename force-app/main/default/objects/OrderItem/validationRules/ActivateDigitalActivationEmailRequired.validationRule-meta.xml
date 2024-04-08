@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActivateDigitalActivationEmailRequired</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(
+				AND(
+								ProductType__c = &quot;Non-inventory Item&quot;,
+				    TEXT(Order.Status)=&apos;Activated&apos;),
+			 DigitalActivationEMail__c = null,false)</errorConditionFormula>
+    <errorMessage>Digital Activation Email is required with productype &quot;Non-Inventory Item</errorMessage>
+</ValidationRule>

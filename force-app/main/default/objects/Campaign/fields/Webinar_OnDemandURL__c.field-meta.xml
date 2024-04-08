@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Webinar_OnDemandURL__c</fullName>
+    <description>Contains the on-demand link which can be used to view the event after it has taken place</description>
+    <externalId>false</externalId>
+    <label>Webinar On-demand URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Url</type>
+</CustomField>

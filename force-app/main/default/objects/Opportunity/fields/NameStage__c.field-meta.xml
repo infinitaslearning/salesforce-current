@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NameStage__c</fullName>
+    <description>System field, only used to give back the name and stage in the bulkupdateopportuntiy flow</description>
+    <externalId>false</externalId>
+    <formula>Name + &quot; - &quot; +Text(StageName)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Name &amp; Stage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

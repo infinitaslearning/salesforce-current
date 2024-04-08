@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>IL - Liber - Reminder on Order Onboarding SLA</name>
+    <style>none</style>
+    <subject>Order onboarding not completed</subject>
+    <textOnly>Hi, the below order has not yet been completed the onboarding. Please make sure the order is fully completed and onboarded within 24 business hours.
+
+Order created: {!Order.CreatedDate}
+Order owner: {!Order.OwnerFullName}
+Order delivered: {!Order.OrderDelivered__c}
+Order placed: {!Order.OrderPlaced__c}
+
+The following link will direct you to the order:
+{!Order.Link}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

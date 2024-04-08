@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Webcat__c</fullName>
+    <externalId>false</externalId>
+    <label>Webcat</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NU algemeen</fullName>
+                <default>false</default>
+                <label>NU algemeen</label>
+            </value>
+            <value>
+                <fullName>Bosatlas</fullName>
+                <default>false</default>
+                <label>Bosatlas</label>
+            </value>
+            <value>
+                <fullName>Lijsters</fullName>
+                <default>false</default>
+                <label>Lijsters</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

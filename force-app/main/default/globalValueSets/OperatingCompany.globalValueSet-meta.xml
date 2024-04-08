@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Liber</fullName>
+        <default>false</default>
+        <label>Liber</label>
+    </customValue>
+    <customValue>
+        <fullName>Noordhoff</fullName>
+        <default>false</default>
+        <label>Noordhoff</label>
+    </customValue>
+    <customValue>
+        <fullName>Plantyn</fullName>
+        <default>false</default>
+        <label>Plantyn</label>
+    </customValue>
+    <customValue>
+        <fullName>Infinitas Learning</fullName>
+        <default>false</default>
+        <label>Infinitas Learning</label>
+    </customValue>
+    <customValue>
+        <fullName>Noordhoff Professional</fullName>
+        <default>false</default>
+        <label>Noordhoff Professional</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Professional</label>
+    </customValue>
+    <masterLabel>Operating Company</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Transforms the original status field to a translated Status field</description>
+    <externalId>false</externalId>
+    <formula>CASE(StatusOriginal__c,
+&quot;Levererade&quot;,&quot;Delivered&quot;,
+&quot;Avbeställd&quot;,&quot;Cancelled&quot;,
+&quot;Beställd&quot;,&quot;Ordered&quot;,
+&quot;EB Manuell order&quot;,&quot;Ordered&quot;,
+&quot;Vilande&quot;,&quot;Resting&quot;,
+&quot;Utgått&quot;,&quot;Expired&quot;,
+&quot;Restnoterade&quot;,&quot;Back Ordered&quot;,&quot;&quot;)</formula>
+    <label>Status (Translated)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

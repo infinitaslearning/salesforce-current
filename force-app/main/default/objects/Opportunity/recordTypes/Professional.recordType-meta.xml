@@ -1,0 +1,3218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Professional</fullName>
+    <active>true</active>
+    <businessProcess>Professional</businessProcess>
+    <label>Professional</label>
+    <picklistValues>
+        <picklist>ApprovalStatus__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Arrangement__c</picklist>
+        <values>
+            <fullName>Arrangement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Methode licentie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studiemeister</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Classification__c</picklist>
+        <values>
+            <fullName>Arrangement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Methode licentie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-line</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CompetitorCurrentPU__c</picklist>
+        <values>
+            <fullName>Abimo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Academia Press</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Andere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Averbode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Broekx</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CUP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambridge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Con%2Btact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Coutinho</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De Boeck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De Garve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dessain</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Die Keure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diligentia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigen reader</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eng%2E uitgeverijen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GO%21</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informat cv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integrado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intersentia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kluwer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lannoo Campus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Longman</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Macmillan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maklu</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Novum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P%2EI%2EM%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pelckmans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ph%2E Music</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plantyn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Questi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Read Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>School</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Schoolonline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Smartschool</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Universa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VOLG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vyncke</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Werkgroep Didactische Middelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Werkgroep Wetenschappen Boom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wisa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zorgkompas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijsen</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ContractRenewalType__c</picklist>
+        <values>
+            <fullName>Auto-Renewal</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>No Renewal %28One Off%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CourseStartdate__c</picklist>
+        <values>
+            <fullName>Fall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fall %2F Spring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spring</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CustomerRelationship__c</picklist>
+        <values>
+            <fullName>Cross-sell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retention</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Up-sell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Distributor__c</picklist>
+        <values>
+            <fullName>Direkt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Läromedia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Skolon</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>EducationLevel__c</picklist>
+        <values>
+            <fullName>Bachelor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Master</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>GradeYear__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ICSDelivered__c</picklist>
+        <values>
+            <fullName>0</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>InvoicingFrequency__c</picklist>
+        <values>
+            <fullName>Monthly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>One-off</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yearly</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Language__c</picklist>
+        <values>
+            <fullName>fr</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>nl_NL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>se</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Accountmanager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agodi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beleefsessies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Booklist %28lead%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chatbot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google Ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ICOrderForm</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instagram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liber Online</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LinkedIn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Representative action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telemarketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web-to-lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White Paper Download</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>eCommerce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LiteratureType__c</picklist>
+        <values>
+            <fullName>Compulsory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Compulsory</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LossReason__c</picklist>
+        <values>
+            <fullName>Internal Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget %2F Lost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision %2F Non-Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MarketingactiondetailOPP__c</picklist>
+        <values>
+            <fullName>Beleefsessies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chill met Zill</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impact test campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kanjercadeau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kanjerdagen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kanjerklas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kanjerpakket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kerst in zicht</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leadactie Kanjers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Methodepagina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not applicable</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Sneak preview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voorbeeldhoofdstuk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vraag het aan Plantyn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wij willen meer tijd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zorgtips</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NUCompetitorBAOCurrent__c</picklist>
+        <values>
+            <fullName>Alles-in-1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bazalt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Groove Me</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink Educatie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boreaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DaVinci</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas - Leesparade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Den Boer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigen materiaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elsevier Educatief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Groen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Het verkeerde beentje</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intersym EDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Brandaan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Naut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Akd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Gsd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Handschrift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Hello World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Join In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Karakter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Meander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Pluspunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Staal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Station Zuid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taal Actief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereld in Getallen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Natuur Buiten-Gewoon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - The Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onlineklas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SchoolTV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Alles Telt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - De Blauwe Planeet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Take it Easy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhoff - Taalverhaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VVN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Young and Connected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Estafette</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Pennenstreken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Spelling in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Taal in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wereldzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wizwijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>onbekend</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NUCompetitorBAONew__c</picklist>
+        <values>
+            <fullName>Alles-in-1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bazalt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Groove Me</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink Educatie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boreaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DaVinci</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas - Leesparade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Den Boer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigen materiaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Elsevier Educatief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Groen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Het verkeerde beentje</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intersym EDM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Brandaan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Naut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Akd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Gsd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Handschrift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Hello World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Join In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Karakter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Meander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Pluspunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Staal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Station Zuid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taal Actief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereld in Getallen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Natuur Buiten-Gewoon</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - The Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onlineklas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SchoolTV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Alles Telt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - De Blauwe Planeet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Take it Easy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Taalverhaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thiememeulenhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YVN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Young and Connected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Estafette</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Pennenstreken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Spelling in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Taal in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wereldzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wizwijs</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NUCompetitorVOCurrent__c</picklist>
+        <values>
+            <fullName>Betawerk - 10voorBiologie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bettermarks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink %E2%80%93 Eigentijds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Binnenstebuiten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Grenzenloos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Groove Me</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Plot26</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Saga</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Wired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom - Forum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom - Polaris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambridge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambridge - Think Starters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cornelsen - Prima Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De Geo %28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dedact - Leswijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas - Leesparade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driestar Educatief - Taalpunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EduHint - SmartRekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Educatief - Banas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigen materiaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eisma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essener - Thema%27s Maatschappijleer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FFrekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GS Compact %28Uitgeverij Lambo%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hueber - Sicher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - Apuntate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - Aula Joven</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - New Opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Klett - Genial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kunskapsskolan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LWEO - Fundament</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LWEO - Lesbrieven</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Learnbeat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Learnbeat - Leswijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Mathplus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Talent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - All right</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Akd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Gsd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou N%26T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Biologie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Biologie voor jou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Brandaan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - D%E2%80%99accord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - De Wereld Van</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Economisch bekeken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Gamma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Grip op Lezen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Handschrift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Hello World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Humboldt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Let%27s go</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - MeMo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Meander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Na klar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Naut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Nova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Of Course</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Pluspunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Praktische Economie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Rekenblokken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Sensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Staal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Station Zuid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taal Actief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taallijnen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Talent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereld in Getallen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereldwijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Muisklik</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - BuiteNLand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Chemie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Chemie Overal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Explora</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Geobas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Geschiedenis werkplaats</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en Ruimte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en Ruimte rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grandes Lignes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 53ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 54ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed llnlic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Impuls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Indigo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Klaar Over</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Leefwereld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne wiskunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne wiskunde rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Muziek op Maat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nasteq</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nectar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Netwerk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Neue Kontakte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nieuw Nederlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Overal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Paso Adelante</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pincode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Plein M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pulsar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pulsar Chemie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Reken Zeker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Schrijven in de basisschool</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Spelling op Maat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Stepping Stones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op Maat Spelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op Maat Taal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Technologisch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Tekst Verwerken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Terra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - TrabiTour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door %2E%2E%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door Natuur en Techniek</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door de Tijd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door de Wereld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door het Verkeer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OVD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OVD - Bricks Biology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Op niveau %28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - Insight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - New Headway</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Activate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Choices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Expert Proficiency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Live Beat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Next Move</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Schrijven leer je zo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Snappet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>St%2E Praktijk Leren</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studyflow - Rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talenland - á Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Alles Telt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Franconville</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Go for it</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Just do it%21</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Libre Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Speurtocht</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Taal en Spelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Take it Easy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - 200%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Carte Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - De Geo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Feniks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Got it</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Interface</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Intro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Laagland Literatuur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Mundo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Newton</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Nu voor straks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Op niveau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Percent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Saltzgitter heute</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Sprekend verleden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Systematische natuurkunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Taalverhaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Wasp Reporter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Zugspitze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uitgever Pelckmans methode Mistral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uitgever Pelckmans methode Quartier Latin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO - Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO-digitaal - BeatsnBits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO-digitaal - Tijd voor geschiedenis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van Vlimmeren - Economie Integraal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wageningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Estafette</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Natuurzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Pennenstreken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Spelling in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Taal in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Tijdzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Veilig De Wereld In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wereldzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wizwijs</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NUCompetitorVONew__c</picklist>
+        <values>
+            <fullName>Betawerk - 10voorBiologie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bettermarks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink %E2%80%93 Eigentijds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Binnenstebuiten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Grenzenloos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Groove Me</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Plot26</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Saga</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blink - Wired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom - Forum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boom - Polaris</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambridge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambridge - Think Starters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cornelsen - Prima Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dedact - Leswijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delubas - Leesparade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deviant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Driestar Educatief - Taalpunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EduHint - SmartRekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Educatief - Banas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eigen materiaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eisma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Essener - Thema%27s Maatschappijleer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FFrekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GS Compact %28Uitgeverij Lambo%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gamma %28M%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hueber - Sicher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - Apuntate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - Aula Joven</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intertaal - New Opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intro %28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Klett - Genial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kunskapsskolan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LWEO - Fundament</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LWEO - Lesbrieven</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Learnbeat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Learnbeat - Leswijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Mathplus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg %E2%80%93 Talent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - All right</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Akd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou Gsd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Argus Clou N%26T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Biologie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Biologie voor jou</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Brandaan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - D%E2%80%99accord</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - De Wereld Van</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Economisch bekeken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Gamma</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Grip op Lezen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Handschrift</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Hello World</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Humboldt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Let%27s go</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - MeMo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Meander</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Na klar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Naut</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Nova</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Of Course</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Pluspunt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Praktische Economie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Rekenblokken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Sensor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Staal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Station Zuid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taal Actief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Taallijnen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Talent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereld in Getallen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malmberg - Wereldwijs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Muisklik</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Na klar %28M%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - BuiteNLand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Chemie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Chemie Overal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Explora</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Geobas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Geschiedenis werkplaats</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en Ruimte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Getal en Ruimte rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grandes Lignes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 53ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 54ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Grote Bosatlas 55ed llnlic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Impuls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Indigo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Klaar Over</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Leefwereld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne wiskunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Moderne wiskunde rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Muziek op Maat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nasteq</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nectar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Netwerk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Neue Kontakte</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Nieuw Nederlands</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Overal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Paso Adelante</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pincode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Plein M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pulsar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Pulsar Chemie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Reken Zeker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Rekenrijk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Schrijven in de basisschool</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Spelling op Maat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Stepping Stones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op Maat Spelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Taal op Maat Taal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Technologisch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Tekst Verwerken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Terra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Timboektoe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - TrabiTour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door %2E%2E%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door Natuur en Techniek</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door de Tijd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door de Wereld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Uitgevers - Wijzer door het Verkeer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OVD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OVD - Bricks Biology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Op niveau %28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - Insight</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - New Headway</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oxford - Solutions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Activate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Expert Proficiency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pearson - Live Beat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Schrijven leer je zo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Snappet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>St%2E Praktijk Leren</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stepping Stones %28NU-VO%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Studyflow - Rekenen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Talenland - á Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Alles Telt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Franconville</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Go for it</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Just do it%21</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Libre Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Speurtocht</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Taal en Spelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thieme - Take it Easy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - 200%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Carte Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - De Geo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Feniks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Got it</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Interface</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Laagland Literatuur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Mundo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Newton</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Nu voor straks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Op niveau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Percent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Saltzgitter heute</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Sprekend verleden</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Systematische natuurkunde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Taalverhaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Wasp Reporter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThiemeMeulenhof - Zugspitze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uitgever Pelckmans methode Mistral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Uitgever Pelckmans methode Quartier Latin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO - Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO-digitaal - BeatsnBits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VO-digitaal - Tijd voor geschiedenis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Van Vlimmeren - Economie Integraal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wageningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Estafette</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Natuurzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Pennenstreken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Spelling in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Taal in Beeld</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Tijdzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Veilig De Wereld In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wereldzaken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zwijssen - Wizwijs</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OperatingCompany__c</picklist>
+        <values>
+            <fullName>Infinitas Learning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liber</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plantyn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OrderType__c</picklist>
+        <values>
+            <fullName>Free</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inspection Copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regular</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Scrap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use Copy</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PricingMethod__c</picklist>
+        <values>
+            <fullName>AccountStudents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OrderProductQuantity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OrderTotalAmount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ProductDiscountGroupUsageBased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ProductUsageBased</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ReasonDiscarded__c</picklist>
+        <values>
+            <fullName>1-Already Chosen other method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2-Lead for next sales season</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3-Too late available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4-Content</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5-Duplicate%2Ftest%2Fwrong data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6-Wrong change information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7-Unknown</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8-MQL %28season close%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ReasonLost__c</picklist>
+        <values>
+            <fullName>Budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong Data %2F Duplicate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Salesseason__c</picklist>
+        <values>
+            <fullName>2020-2021</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2021-2022</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2022-2023</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>2023-2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2024-2025</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Segment__c</picklist>
+        <values>
+            <fullName>HE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Semester__c</picklist>
+        <values>
+            <fullName>Blok 1 %E2%80%93 Semester 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blok 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blok 3 %E2%80%93 Semester 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blok 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Semester 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Semester 2</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Source__c</picklist>
+        <values>
+            <fullName>AA - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aanvraag docentenpakket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accountmanager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accountmanager visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BEX-aanvraag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BEX-koerier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME 15k top titel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME 15k top title - Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME ATTACK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME Edumundo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME Edumundo- Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME MBO Attack onbekend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME concurrentie overig muv Edumundo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BME concurrentie overig muv Edumundo- Platform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BVE Copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekenlijst BME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekenlijst Iddink</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekenlijst Osinga de Jong</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekenlijst VDE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekenlijst retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bop automaat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bop%2FGex aanvraag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Breuker TM bureau</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cross en upsell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De Rolf Groep %2F Reinders</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Event attendance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HO Copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heutink</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ICT coordinator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IVP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Intern sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KG %26 Rolf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LMO lijst</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leermiddelencoördinator %28LMC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MBO Copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mail campaign</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Methode Oriëntatie Dag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT 2015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT 2017</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-scan ADL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retentie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sample copy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switch Opp automaat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Target Creation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Whitespot analyse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZZ - Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TargetStream__c</picklist>
+        <values>
+            <fullName>HAVO TF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VWO TF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>hv ob</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>hv tf</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>vmbo bb</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>vmbo ob</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

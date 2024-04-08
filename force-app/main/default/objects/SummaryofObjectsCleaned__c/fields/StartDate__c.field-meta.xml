@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StartDate__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(WEEKDAY(DATE(Year__c, 1, 1)),
+2, (DATE(Year__c, 1, 1) - 0) + ((WeekinYear__c - 1) * 7),
+3, (DATE(Year__c, 1, 1) - 1) + ((WeekinYear__c - 1) * 7),
+4, (DATE(Year__c, 1, 1) - 2) + ((WeekinYear__c - 1) * 7),
+5, (DATE(Year__c, 1, 1) - 3) + ((WeekinYear__c - 1) * 7),
+6, (DATE(Year__c, 1, 1) + 3) + ((WeekinYear__c - 1) * 7),
+7, (DATE(Year__c, 1, 1) + 2) + ((WeekinYear__c - 1) * 7),
+1, (DATE(Year__c, 1, 1) + 1) + ((WeekinYear__c - 1) * 7),
+null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Start Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

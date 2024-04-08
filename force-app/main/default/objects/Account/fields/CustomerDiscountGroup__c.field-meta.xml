@@ -57,6 +57,11 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 17,01% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
             <valueName>Tender 18,01% discount</valueName>
         </valueSettings>
         <valueSettings>
@@ -274,6 +279,10 @@
         <valueSettings>
             <controllingFieldValue>Reseller</controllingFieldValue>
             <valueName>Plantyn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Reseller</controllingFieldValue>
+            <valueName>Reseller 3%</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Reseller</controllingFieldValue>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Educational Institution</fullName>
+        <default>false</default>
+        <label>Educational Institution</label>
+    </customValue>
+    <customValue>
+        <fullName>Author</fullName>
+        <default>false</default>
+        <label>Author</label>
+    </customValue>
+    <customValue>
+        <fullName>Company</fullName>
+        <default>false</default>
+        <label>Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Library</fullName>
+        <default>false</default>
+        <label>Library</label>
+    </customValue>
+    <customValue>
+        <fullName>Concern</fullName>
+        <default>false</default>
+        <label>Concern</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade (French Region)</fullName>
+        <default>false</default>
+        <label>Trade (French Region)</label>
+    </customValue>
+    <customValue>
+        <fullName>Government Agency (lower)</fullName>
+        <default>false</default>
+        <label>Government Agency (lower)</label>
+    </customValue>
+    <customValue>
+        <fullName>Teacher</fullName>
+        <default>false</default>
+        <label>Teacher</label>
+    </customValue>
+    <customValue>
+        <fullName>Government Agency</fullName>
+        <default>false</default>
+        <label>Government Agency</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner (French Region)</fullName>
+        <default>false</default>
+        <label>Partner (French Region)</label>
+    </customValue>
+    <customValue>
+        <fullName>Private Individual</fullName>
+        <default>false</default>
+        <label>Private Individual</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Specialists</fullName>
+        <default>false</default>
+        <label>Trade Specialists</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade (direct debit)</fullName>
+        <default>false</default>
+        <label>Trade (direct debit)</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Regular</fullName>
+        <default>false</default>
+        <label>Trade Regular</label>
+    </customValue>
+    <customValue>
+        <fullName>Wolters Kluwer Belgium</fullName>
+        <default>false</default>
+        <label>Wolters Kluwer Belgium</label>
+    </customValue>
+    <customValue>
+        <fullName>Staff</fullName>
+        <default>false</default>
+        <label>Staff</label>
+    </customValue>
+    <customValue>
+        <fullName>Standaard Boekhandel</fullName>
+        <default>false</default>
+        <label>Standaard Boekhandel</label>
+    </customValue>
+    <customValue>
+        <fullName>Student</fullName>
+        <default>false</default>
+        <label>Student</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade (Flemish Region)</fullName>
+        <default>false</default>
+        <label>Trade (Flemish Region)</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner (Flemish Region)</fullName>
+        <default>false</default>
+        <label>Partner (Flemish Region)</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller</fullName>
+        <default>false</default>
+        <label>Reseller</label>
+    </customValue>
+    <customValue>
+        <fullName>School Group</fullName>
+        <default>false</default>
+        <label>School Group</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore</fullName>
+        <default>false</default>
+        <label>Trade Bookstore</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore - No Discount</fullName>
+        <default>false</default>
+        <label>Trade Bookstore - No Discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore - Combined</fullName>
+        <default>false</default>
+        <label>Trade Bookstore - Combined</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore 8%</fullName>
+        <default>false</default>
+        <label>Trade Bookstore 8%</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore 9%</fullName>
+        <default>false</default>
+        <label>Trade Bookstore 9%</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Bookstore 20%</fullName>
+        <default>false</default>
+        <label>Trade Bookstore 20%</label>
+    </customValue>
+    <customValue>
+        <fullName>Van Dijk</fullName>
+        <default>false</default>
+        <label>Van Dijk</label>
+    </customValue>
+    <customValue>
+        <fullName>Bygg Tryckta 20%</fullName>
+        <default>false</default>
+        <label>Bygg Tryckta 20%</label>
+    </customValue>
+    <customValue>
+        <fullName>PPZ Member</fullName>
+        <default>false</default>
+        <label>PPZ Member</label>
+    </customValue>
+    <customValue>
+        <fullName>VGN Academy Member</fullName>
+        <default>false</default>
+        <label>VGN Academy Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Medical Institution - Care</fullName>
+        <default>false</default>
+        <label>Medical Institution - Care</label>
+    </customValue>
+    <customValue>
+        <fullName>Medical Institution - Cure</fullName>
+        <default>false</default>
+        <label>Medical Institution - Cure</label>
+    </customValue>
+    <customValue>
+        <fullName>REIN Member</fullName>
+        <default>false</default>
+        <label>REIN Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Iddink</fullName>
+        <default>false</default>
+        <label>Iddink</label>
+    </customValue>
+    <customValue>
+        <fullName>Studystore</fullName>
+        <default>false</default>
+        <label>Studystore</label>
+    </customValue>
+    <customValue>
+        <fullName>Osinga de Jong</fullName>
+        <default>false</default>
+        <label>Osinga de Jong</label>
+    </customValue>
+    <customValue>
+        <fullName>Heutink-Reinders</fullName>
+        <default>false</default>
+        <label>Heutink-Reinders</label>
+    </customValue>
+    <customValue>
+        <fullName>De Rolf Groep</fullName>
+        <default>false</default>
+        <label>De Rolf Groep</label>
+    </customValue>
+    <customValue>
+        <fullName>NHA</fullName>
+        <default>false</default>
+        <label>NHA</label>
+    </customValue>
+    <customValue>
+        <fullName>Noordhoff</fullName>
+        <default>false</default>
+        <label>Noordhoff</label>
+    </customValue>
+    <customValue>
+        <fullName>Advance</fullName>
+        <default>false</default>
+        <label>Advance</label>
+    </customValue>
+    <customValue>
+        <fullName>Mainpress</fullName>
+        <default>false</default>
+        <label>Mainpress</label>
+    </customValue>
+    <customValue>
+        <fullName>MBOWebshop</fullName>
+        <default>false</default>
+        <label>MBOWebshop</label>
+    </customValue>
+    <customValue>
+        <fullName>Studiebijdehand</fullName>
+        <default>false</default>
+        <label>Studiebijdehand</label>
+    </customValue>
+    <customValue>
+        <fullName>HLBookshop</fullName>
+        <default>false</default>
+        <label>HLBookshop</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 10% discount</fullName>
+        <default>false</default>
+        <label>Tender 10% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 11% discount</fullName>
+        <default>false</default>
+        <label>Tender 11% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 11,5% discount</fullName>
+        <default>false</default>
+        <label>Tender 11,5% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 11,9% discount</fullName>
+        <default>false</default>
+        <label>Tender 11,9% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 12% discount</fullName>
+        <default>false</default>
+        <label>Tender 12% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 13% discount</fullName>
+        <default>false</default>
+        <label>Tender 13% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 13,5% discount</fullName>
+        <default>false</default>
+        <label>Tender 13,5% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 14% discount</fullName>
+        <default>false</default>
+        <label>Tender 14% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 14,01% discount</fullName>
+        <default>false</default>
+        <label>Tender 14,01% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 14,5% discount</fullName>
+        <default>false</default>
+        <label>Tender 14,5% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 16% discount</fullName>
+        <default>false</default>
+        <label>Tender 16% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 16,5% discount</fullName>
+        <default>false</default>
+        <label>Tender 16,5% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 17,01% discount</fullName>
+        <default>false</default>
+        <label>Tender 17,01% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 18,01% discount</fullName>
+        <default>false</default>
+        <label>Tender 18,01% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Plantyn</fullName>
+        <default>false</default>
+        <label>Plantyn</label>
+    </customValue>
+    <customValue>
+        <fullName>Centraal Boekhuis</fullName>
+        <default>false</default>
+        <label>Centraal Boekhuis</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Market</fullName>
+        <default>false</default>
+        <label>Enterprise Market</label>
+    </customValue>
+    <customValue>
+        <fullName>Explorer</fullName>
+        <default>false</default>
+        <label>Explorer</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender Distributor</fullName>
+        <default>false</default>
+        <label>Tender Distributor</label>
+    </customValue>
+    <customValue>
+        <fullName>Dilibel</fullName>
+        <default>false</default>
+        <label>Dilibel</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller 3%</fullName>
+        <default>false</default>
+        <label>Reseller 3%</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller 5%</fullName>
+        <default>false</default>
+        <label>Reseller 5%</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller 6%</fullName>
+        <default>false</default>
+        <label>Reseller 6%</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller 8%</fullName>
+        <default>false</default>
+        <label>Reseller 8%</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller 9%</fullName>
+        <default>false</default>
+        <label>Reseller 9%</label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller Discount Incremental</fullName>
+        <default>false</default>
+        <label>Reseller Discount Incremental</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership 1</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner </fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Partner </label>
+    </customValue>
+    <customValue>
+        <fullName>B2B</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>School Group </fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>School Group </label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller </fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Reseller </label>
+    </customValue>
+    <customValue>
+        <fullName>Membership 2</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership 2</label>
+    </customValue>
+    <masterLabel>Customer Discount Group</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

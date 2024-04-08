@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherCancellationReason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OtherCancellationReason__c = null,
+				 ISPICKVAL(CancellationReason__c, &apos;Other, specify below&apos;))</errorConditionFormula>
+    <errorDisplayField>OtherCancellationReason__c</errorDisplayField>
+    <errorMessage>Please fill in the cancellation reason</errorMessage>
+</ValidationRule>

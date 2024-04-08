@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RegistrationActivationOpen</fullName>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>CSM__c</columns>
+    <columns>Stages__c</columns>
+    <columns>Activation_date__c</columns>
+    <columns>Implementation_date__c</columns>
+    <columns>Registration_date__c</columns>
+    <columns>Completed_activation_date__c</columns>
+    <columns>Completed_implementation_date__c</columns>
+    <columns>Completed_registration_date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Completed_activation_date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Completed_implementation_date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>Completed_registration_date__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Registration/Activation Open</label>
+</ListView>

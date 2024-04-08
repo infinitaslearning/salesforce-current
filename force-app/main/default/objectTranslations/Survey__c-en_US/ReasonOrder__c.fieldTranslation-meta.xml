@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help></help>
+    <label></label>
+    <name>ReasonOrder__c</name>
+    <picklistValues>
+        <masterLabel>Algemene interesse</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gebruikersexemplaar (we schrijven deze methode al voor)</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gebruikersexemplaar: de huidige editie staat al op de boekenlijst</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gebruikersexemplaar: de vorige editie staat al op de boekenlijst</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Niet tevreden met huidig lesmateriaal</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Oriëntatie op leermiddel dat beter geschikt is dan de huidige leermiddelen</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Oriëntatie op nieuw leermiddel in verband met gewijzigd curriculum</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Orïentatie voor nieuw leermiddel op de boekenlijst voor komend schooljaar</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

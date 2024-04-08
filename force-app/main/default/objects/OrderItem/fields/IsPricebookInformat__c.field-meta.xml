@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsPricebookInformat__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is the pricebook an Informat Pricebook or not. If Yes then TRUE, If No then FALSE</description>
+    <externalId>false</externalId>
+    <label>Is Pricebook Informat</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

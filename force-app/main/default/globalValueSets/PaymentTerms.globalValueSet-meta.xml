@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Prepayment</fullName>
+        <default>false</default>
+        <label>Prepayment</label>
+    </customValue>
+    <customValue>
+        <fullName>Invoice</fullName>
+        <default>true</default>
+        <label>Invoice</label>
+    </customValue>
+    <masterLabel>Payment Terms</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShippingCostfromNSId__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OperatingCompany__c = &apos;Plantyn&apos;,
+IF($Organization.Id = $Label.devOrgId, CASE(ShippingCostMethodNsId__c,
+&apos;193&apos;,&apos;Based on order total&apos;,
+&apos;194&apos;,&apos;Based on weight Domestic&apos;,
+&apos;195&apos;,&apos;Based on weight non Domestic&apos;,
+&apos;196&apos;,&apos;Shipping Cost Exempt&apos;,
+&apos;&apos;
+), CASE(ShippingCostMethodNsId__c,
+&apos;193&apos;,&apos;Based on order total&apos;,
+&apos;194&apos;,&apos;Based on weight Domestic&apos;,
+&apos;195&apos;,&apos;Based on weight non Domestic&apos;,
+&apos;196&apos;,&apos;Shipping Cost Exempt&apos;,
+&apos;&apos;
+)),
+IF (OperatingCompany__c = &apos;Noordhoff&apos;,
+IF($Organization.Id = $Label.devOrgId, CASE(ShippingCostMethodNsId__c ,
+&apos;7521&apos;,&apos;Based on order total&apos;,
+&apos;7522&apos;,&apos;Based on weight Domestic&apos;,
+&apos;7523&apos;,&apos;Based on weight non Domestic&apos;,
+&apos;7524&apos;,&apos;Shipping Cost Exempt&apos;,
+&apos;&apos;
+), CASE(ShippingCostMethodNsId__c ,
+&apos;36406&apos;,&apos;Based on order total&apos;,
+&apos;36407&apos;,&apos;Based on weight Domestic&apos;,
+&apos;36408&apos;,&apos;Based on weight non Domestic&apos;,
+&apos;20760&apos;,&apos;Shipping Cost Exempt&apos;,
+&apos;&apos;
+)),
+IF (OperatingCompany__c = &apos;Liber&apos;,
+CASE(ShippingCostMethodNsId__c,
+&apos;0&apos;,&apos;Based on order total&apos;,
+&apos;0&apos;,&apos;Based on weight Domestic&apos;,
+&apos;0&apos;,&apos;Based on weight non Domestic&apos;,
+&apos;0&apos;,&apos;Shipping Cost Exempt&apos;,
+&apos;&apos;
+),
+&apos;&apos;
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Shipping Cost from NSId</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

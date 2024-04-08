@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClassificationAttributeName__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Account__r.CommunicationLanguage__c, &apos;nl_NL&apos;), ClassificationAttribute__r.AttributeNameNL__c, IF(ISPICKVAL(Account__r.CommunicationLanguage__c, &apos;fr&apos;), ClassificationAttribute__r.AttributeNameFR__c, IF(ISPICKVAL(Account__r.CommunicationLanguage__c, &apos;se&apos;), ClassificationAttribute__r.AttributeNameSE__c, ClassificationAttribute__r.Name)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Classification Attribute Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

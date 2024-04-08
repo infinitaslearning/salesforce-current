@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Draft_Orders_B2B_Salesforce</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>ORDERS.TYPE</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>ErrorReason__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>TriggerBusinessRules__c</columns>
+    <columns>ActivateforBatchProcessing__c</columns>
+    <columns>OperatingCompany__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Source__c</field>
+        <operation>equals</operation>
+        <value>B2B Salesforce</value>
+    </filters>
+    <filters>
+        <field>ORDERS.STATUS</field>
+        <operation>equals</operation>
+        <value>Draft,Under Review</value>
+    </filters>
+    <filters>
+        <field>LineCount__c</field>
+        <operation>notEqual</operation>
+        <value>0</value>
+    </filters>
+    <label>All Draft Orders B2B Salesforce</label>
+</ListView>

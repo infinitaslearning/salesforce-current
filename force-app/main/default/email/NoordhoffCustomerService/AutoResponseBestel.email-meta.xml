@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Auto Response Bestel</name>
+    <style>none</style>
+    <subject>{!Case.CaseNumber} {!Case.Subject}</subject>
+    <textOnly>Bekijk de browserversie
+
+Beste {!Case.SuppliedName},
+
+Bedankt voor je bestelling. We gaan ermee aan de slag, je ontvangt bericht wanneer de bestelling is verwerkt. Wist je dat je de antwoorden op de meestgestelde vragen kunt vinden op onze  klantenservice pagina? Wil je een medewerker spreken dan kan je ons bereiken van maandag t/m vrijdag van 08:00 tot 17:00 uur via 088-5226888 of chat met ons via de chat knop op onze klantenservice pagina.
+
+Met vriendelijke groet,
+
+Team Services
+Noordhoff
+
+
+Dit is een automatisch gegenereerde e-mail.
+Wij kunnen een reply op deze e-mail niet beantwoorden.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

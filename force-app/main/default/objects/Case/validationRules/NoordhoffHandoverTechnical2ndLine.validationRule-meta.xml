@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoordhoffHandoverTechnical2ndLine</fullName>
+    <active>true</active>
+    <description>This rule checks if the Case meets the minimum requirements before handing it over to Technical 2nd line queue</description>
+    <errorConditionFormula>AND(
+ RecordType.Name =&apos;Noordhoff&apos;,
+ISCHANGED( OwnerId ),  
+Owner:Queue.DeveloperName = &apos;NoordhoffTH&apos;,
+OR(
+ISPICKVAL( Type , &apos;Question&apos;),
+NOT(ISPICKVAL( Status , &apos;Open&apos;)),
+ISBLANK(AccountId),
+ISBLANK( ContactId ) 
+)   
+)</errorConditionFormula>
+    <errorMessage>To handover a Case to &apos;Technical Help&apos; please make sure the Type is set to &apos;Incident&apos; and both Account and Contact are filled.</errorMessage>
+</ValidationRule>

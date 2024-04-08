@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuoteReference__c</fullName>
+    <description>This field contains the quote/opportunity reference used in the previous Salesforce environment</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field contains the quote/opportunity reference used in the previous Salesforce environment</inlineHelpText>
+    <label>QuoteReference</label>
+    <length>80</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

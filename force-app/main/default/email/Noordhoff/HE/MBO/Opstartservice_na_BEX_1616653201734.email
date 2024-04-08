@@ -1,0 +1,24 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Beste </span></span>{{{Recipient.Name}}}<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">,</span></span><br />
+<br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Je hebt beoordelingsmateriaal van Noordhoff besteld. Wat leuk dat je ge&iuml;nteresseerd bent in onze methode!&nbsp;</span></span><br />
+<br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">We snappen dat opstarten met een nieuwe methode lastig kan zijn. Voordat je aan de slag kunt, moet een aantal zaken ingesteld en ingericht worden. Wist je dat we hiervoor een speciale gratis service aanbieden?</span></span><br />
+<br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Met onze opstartservice krijg je:</span></span><br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Segoe UI Emoji&quot;,sans-serif">? </span>Een opstartcoach die je helpt bij een vlekkeloze start</span></span><br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Segoe UI Emoji&quot;,sans-serif">? </span>Heldere communicatie via een persoonlijk portaal</span></span><br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-family:&quot;Segoe UI Emoji&quot;,sans-serif">? </span>Ondersteuning bij de eerste keer inloggen</span></span><br />
+<br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Kijk op <a href="https://www.noordhoff.nl/opstartservice" style="color:#0563c1; text-decoration:underline">noordhoff.nl/opstartservice</a> en meld je aan, of neem voor vragen contact met mij op.</span></span><br />
+<br />
+<span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Vriendelijke groet,</span></span><br />
+<br />
+{{{Sender.Name}}}<br />
+{{{Sender.Title}}}<br />
+{{{Sender.Email}}}<br />
+{{{Sender.Phone}}}<br />
+<br />
+&nbsp;</body></html>

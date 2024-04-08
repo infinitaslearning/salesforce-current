@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonClosed__c</fullName>
+    <description>Reasons for closing a lead</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If the status is set to Closed, please indicate a reason</inlineHelpText>
+    <label>Reason closed</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1-Already chosen other method</fullName>
+                <default>false</default>
+                <label>1-Already chosen other method</label>
+            </value>
+            <value>
+                <fullName>2-Lead for next sales season</fullName>
+                <default>false</default>
+                <label>2-Lead for next sales season</label>
+            </value>
+            <value>
+                <fullName>3-Too late available</fullName>
+                <default>false</default>
+                <label>3-Too late available</label>
+            </value>
+            <value>
+                <fullName>4-Content</fullName>
+                <default>false</default>
+                <label>4-Content</label>
+            </value>
+            <value>
+                <fullName>5-Info sent for follow-up</fullName>
+                <default>false</default>
+                <label>5-Info sent for follow-up</label>
+            </value>
+            <value>
+                <fullName>6-Corona</fullName>
+                <default>false</default>
+                <label>6-Corona</label>
+            </value>
+            <value>
+                <fullName>7-Duplicate/test/wrong data</fullName>
+                <default>false</default>
+                <label>7-Duplicate/test/wrong data</label>
+            </value>
+            <value>
+                <fullName>8-Unknown</fullName>
+                <default>false</default>
+                <label>8-Unknown</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>1-Already chosen other method</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>2-Lead for next sales season</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>3-Too late available</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>4-Content</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>5-Info sent for follow-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>6-Corona</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>7-Duplicate/test/wrong data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Discarded</controllingFieldValue>
+            <valueName>8-Unknown</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

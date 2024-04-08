@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LinkedInSearch__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://www.linkedin.com/search/results/people/?keywords=&quot;&amp; FirstName &amp; &quot;%20&quot; &amp; LastName &amp; &quot;%20&quot;&amp;&quot;&amp;origin=GLOBAL_SEARCH_HEADER&quot;,&quot;Search this person on LinkedIn&quot;,&quot;_target&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>LinkedIn Search</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

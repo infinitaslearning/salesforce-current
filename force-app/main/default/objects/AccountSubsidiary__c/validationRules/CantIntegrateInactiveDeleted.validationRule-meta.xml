@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CantIntegrateInactiveDeleted</fullName>
+    <active>true</active>
+    <errorConditionFormula>And(Deleted__c=true,IntegrationFactorySend__c=true)</errorConditionFormula>
+    <errorMessage>Can&apos;t Integrate Inactive/Deleted Record. To activate (uncheck the deleted box and uncheck Integration send check box)</errorMessage>
+</ValidationRule>

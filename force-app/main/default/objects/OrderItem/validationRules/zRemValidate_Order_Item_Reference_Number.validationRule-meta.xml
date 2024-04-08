@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zRemValidate_Order_Item_Reference_Number</fullName>
+    <active>false</active>
+    <errorConditionFormula>Validation__c  = 1</errorConditionFormula>
+    <errorDisplayField>CustomerReference__c</errorDisplayField>
+    <errorMessage>The order item reference number contains too many characters.</errorMessage>
+</ValidationRule>

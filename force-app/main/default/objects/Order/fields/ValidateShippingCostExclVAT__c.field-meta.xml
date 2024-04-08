@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateShippingCostExclVAT__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+				AND(
+								ISPICKVAL(OperatingCompany__c,&quot;Planyn&quot;),
+								OR(
+												ISPICKVAL( Source__c , &quot;eCommerce B2C&quot;), ISPICKVAL( Source__c , &quot;eCommerce B2B&quot;)
+								),
+								ShippingCost__c != OrderImportShippingCost__c
+				),
+				1,
+				0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Compares Expected Shipping Cost &amp; Order Import Shipping Cost. (Currently Only Used for eCommerce Orders)</inlineHelpText>
+    <label>Validate Shipping Cost (Excl VAT)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

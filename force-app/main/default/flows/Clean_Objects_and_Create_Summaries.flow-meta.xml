@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Clean_objects_and_create_summaries_APX</name>
+        <label>Clean objects and create summaries</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <actionName>UTIL_CleanObjectRecordsInvocable</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Copy_1_of_Clean_Objects_and_Create_Summaries</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <nameSegment>UTIL_CleanObjectRecordsInvocable</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Clean Objects and Create Summaries {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Clean Objects and Create Summaries</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Clean_Objects_and_Create_Summaries</name>
+        <label>Clean Objects and Create Summaries</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Clean_objects_and_create_summaries_APX</targetReference>
+        </connector>
+        <fields>
+            <name>disp1</name>
+            <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;Clicking on &apos;Next&apos; will summarize &amp;amp; delete records that form part of the configurations in the Objects_to_Clean__mdt metadata setting. &lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;The results get stored in the SummaryofObjectsCleaned__c object. &lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Copy_1_of_Clean_Objects_and_Create_Summaries</name>
+        <label>Clean Objects and Create Summaries</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_disp1</name>
+            <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;The job has kicked off. It may take a while.&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;You will be able to view the results in the following reports:&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;a href=&quot;https://infinitaslearning--uat.sandbox.lightning.force.com/lightning/r/sObject/00O0E000001soT8UAI/view?queryScope=userFolders&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); user-select: auto;&quot;&gt;Summary of Records&lt;/a&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;a href=&quot;https://infinitaslearning--uat.sandbox.lightning.force.com/lightning/r/sObject/00O0E000001soT7UAI/view?queryScope=userFolders&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;user-select: auto;&quot;&gt;Summ&lt;/a&gt;&lt;a href=&quot;https://infinitaslearning--uat.sandbox.lightning.force.com/lightning/r/sObject/00O0E000001soT7UAI/view?queryScope=userFolders&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255); user-select: auto;&quot;&gt;ary of Integration Records&lt;/a&gt; (System Monitors that are of Integration type)&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Clean_Objects_and_Create_Summaries</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>

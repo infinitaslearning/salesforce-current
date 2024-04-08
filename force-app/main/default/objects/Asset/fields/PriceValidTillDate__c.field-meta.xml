@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PriceValidTillDate__c</fullName>
+    <description>Indicates until when a price is valid. Crucial information for renewals and invoicing frequency. If the End date of an order = the Price Valid Till Date, a renewal (and a new invoice) will use new pricing (not quantities, which is something different). If the end date of an order &gt; Price Valid Till Date then an invoice must be created with the price registered on the Asset.</description>
+    <externalId>false</externalId>
+    <label>Price Valid Till Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

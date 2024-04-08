@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidateTotalLineItemQuantities__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( AND( 
+         OR( ISPICKVAL( Source__c , &quot;eCommerce B2C&quot;), ISPICKVAL( Source__c , &quot;eCommerce B2B&quot;) ),
+          TotalLineItemQuantity__c != OrderImportTotalLineQuantities__c), 
+1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Compares Total Line Item Quantity &amp; Order Import Total Line Quantities. (Currently Only Used for eCommerce Orders)</inlineHelpText>
+    <label>Validate Total Line Item Quantities</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

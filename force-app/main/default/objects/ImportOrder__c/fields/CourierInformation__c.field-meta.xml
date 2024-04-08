@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CourierInformation__c</fullName>
+    <description>Information to be printed on the parcel labels for the carriers and sometimes for the trade partners if they are picking up the goods at the warehouse with their own trucks.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Information to be printed on the parcel labels for the carriers and sometimes for the trade partners if they are picking up the goods at the warehouse with their own trucks.</inlineHelpText>
+    <label>Courier Information</label>
+    <length>200</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

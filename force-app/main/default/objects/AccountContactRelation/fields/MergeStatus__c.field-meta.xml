@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MergeStatus__c</fullName>
+    <externalId>false</externalId>
+    <label>MergeStatus</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Correct</fullName>
+                <color>#33FF33</color>
+                <default>false</default>
+                <label>Correct</label>
+            </value>
+            <value>
+                <fullName>Correct - Created by AM</fullName>
+                <color>#33FF33</color>
+                <default>false</default>
+                <label>Correct - Created by AM</label>
+            </value>
+            <value>
+                <fullName>Probably correct</fullName>
+                <color>#B6E32E</color>
+                <default>false</default>
+                <label>Probably correct</label>
+            </value>
+            <value>
+                <fullName>Not Sure</fullName>
+                <color>#FFFF66</color>
+                <default>false</default>
+                <label>Not Sure</label>
+            </value>
+            <value>
+                <fullName>Probably incorrect - Relation not found in IL</fullName>
+                <color>#FFCC66</color>
+                <default>false</default>
+                <label>Probably incorrect - Relation not found in IL</label>
+            </value>
+            <value>
+                <fullName>Probably incorrect - Different Area</fullName>
+                <color>#FFCC66</color>
+                <default>false</default>
+                <label>Probably incorrect - Different Area</label>
+            </value>
+            <value>
+                <fullName>Incorrect - Different Opcos</fullName>
+                <color>#FF6666</color>
+                <default>false</default>
+                <label>Incorrect - Different Opcos</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

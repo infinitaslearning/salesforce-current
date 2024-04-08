@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NH_Prof_Lead_Source_Mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff Professional&quot;),
+ISPICKVAL(LeadSource, &quot;&quot;), false)</errorConditionFormula>
+    <errorDisplayField>LeadSource</errorDisplayField>
+    <errorMessage>Lead Source cannot be blank</errorMessage>
+</ValidationRule>

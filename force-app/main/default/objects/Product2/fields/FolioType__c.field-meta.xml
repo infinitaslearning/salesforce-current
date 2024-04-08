@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FolioType__c</fullName>
+    <externalId>false</externalId>
+    <label>Folio Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activating textbook</fullName>
+                <default>false</default>
+                <label>Activating textbook</label>
+            </value>
+            <value>
+                <fullName>Textbook</fullName>
+                <default>false</default>
+                <label>Textbook</label>
+            </value>
+            <value>
+                <fullName>Teacher material</fullName>
+                <default>false</default>
+                <label>Teacher material</label>
+            </value>
+            <value>
+                <fullName>Learning material</fullName>
+                <default>false</default>
+                <label>Learning material</label>
+            </value>
+            <value>
+                <fullName>Answer Book</fullName>
+                <default>false</default>
+                <label>Answer Book</label>
+            </value>
+            <value>
+                <fullName>Online license Unit</fullName>
+                <default>false</default>
+                <label>Online license Unit</label>
+            </value>
+            <value>
+                <fullName>Online Subscription</fullName>
+                <default>false</default>
+                <label>Online Subscription</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

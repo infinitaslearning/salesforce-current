@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set to give access to all Noordhoff Professional fields accross all objects.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.NoordhoffProfessionalTestField__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.NoordhoffProfessionalTestField__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Noordhoff Professional Fields</label>
+</PermissionSet>

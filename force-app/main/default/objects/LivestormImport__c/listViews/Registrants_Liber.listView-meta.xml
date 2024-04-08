@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registrants_Liber</fullName>
+    <columns>NAME</columns>
+    <columns>AttendeeEmail__c</columns>
+    <columns>WebinarSlug__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>WebinarIdentify__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Liber</value>
+    </filters>
+    <label>Registrants Liber</label>
+    <sharedTo>
+        <group>AllUsersLiber</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TradePartnerOrderProcessingDate__c</fullName>
+    <description>Describes the date when the order was processed by the trade partner.</description>
+    <externalId>false</externalId>
+    <label>Trade Partner Order Processing Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SyncedWithNS__c</fullName>
+    <description>Order status will be synced Hourly</description>
+    <externalId>false</externalId>
+    <formula>IF(NOW() - ActivatedDate &lt; 1 ,
+    IF(ISPICKVAL(NSOrderStatus__c,&quot;&quot;), false, true), true)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Synced with NS</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

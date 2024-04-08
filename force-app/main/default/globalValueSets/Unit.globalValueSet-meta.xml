@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Basisonderwijs</fullName>
+        <default>false</default>
+        <label>Basisonderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Voortgezet Onderwijs</fullName>
+        <default>false</default>
+        <label>Voortgezet Onderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Praktijkopleidingen</fullName>
+        <default>false</default>
+        <label>Praktijkopleidingen</label>
+    </customValue>
+    <customValue>
+        <fullName>Middelbaar Beroepsonderwijs</fullName>
+        <default>false</default>
+        <label>Middelbaar Beroepsonderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Hoger Onderwijs</fullName>
+        <default>false</default>
+        <label>Hoger Onderwijs</label>
+    </customValue>
+    <customValue>
+        <fullName>Health</fullName>
+        <default>false</default>
+        <label>Health</label>
+    </customValue>
+    <customValue>
+        <fullName>Thuismarkt en Bosatlassen</fullName>
+        <default>false</default>
+        <label>Thuismarkt en Bosatlassen</label>
+    </customValue>
+    <customValue>
+        <fullName>Dummy</fullName>
+        <default>false</default>
+        <label>Dummy</label>
+    </customValue>
+    <customValue>
+        <fullName>Franstalig</fullName>
+        <default>false</default>
+        <label>Franstalig</label>
+    </customValue>
+    <customValue>
+        <fullName>Nederlandstalig</fullName>
+        <default>false</default>
+        <label>Nederlandstalig</label>
+    </customValue>
+    <customValue>
+        <fullName>Educatieve producten</fullName>
+        <default>false</default>
+        <label>Educatieve producten</label>
+    </customValue>
+    <description>Unit</description>
+    <masterLabel>Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

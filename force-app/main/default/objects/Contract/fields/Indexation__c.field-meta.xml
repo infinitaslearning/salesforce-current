@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Indexation__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>When ticked, all products are indexed. Default is TRUE</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When ticked, all products are indexed. Default is ON.</inlineHelpText>
+    <label>Indexation (all products)</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

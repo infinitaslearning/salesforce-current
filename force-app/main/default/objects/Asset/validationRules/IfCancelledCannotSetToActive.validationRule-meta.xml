@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IfCancelledCannotSetToActive</fullName>
+    <active>true</active>
+    <description>IF Cancellation Date =&lt; Today you cannot set the Asset to active</description>
+    <errorConditionFormula>AND(
+				IsActive__c  = true,
+				NOT(ISBLANK(CancellationDate__c)),
+				IF(CancellationDate__c &gt; TODAY(), false, true)
+				)</errorConditionFormula>
+    <errorDisplayField>IsActive__c</errorDisplayField>
+    <errorMessage>You cannot set an Asset with a cancellation date in the past.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Informat_Products</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>ArticleNumber__c</columns>
+    <columns>Department__c</columns>
+    <columns>EAN__c</columns>
+    <columns>MarketSegment__c</columns>
+    <columns>LicenseDuration__c</columns>
+    <columns>ProductDiscountGroup__c</columns>
+    <columns>ProductRateGroup__c</columns>
+    <columns>HasBlock__c</columns>
+    <columns>BlockReason__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CREATEDBY_USER.ALIAS</field>
+        <operation>equals</operation>
+        <value>ifact</value>
+    </filters>
+    <filters>
+        <field>Department__c</field>
+        <operation>contains</operation>
+        <value>SIMS</value>
+    </filters>
+    <filters>
+        <field>PRODUCT2.NAME</field>
+        <operation>notContain</operation>
+        <value>test</value>
+    </filters>
+    <filters>
+        <field>UPDATEDBY_USER.ALIAS</field>
+        <operation>equals</operation>
+        <value>rwill</value>
+    </filters>
+    <label>Informat Products</label>
+    <sharedTo>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

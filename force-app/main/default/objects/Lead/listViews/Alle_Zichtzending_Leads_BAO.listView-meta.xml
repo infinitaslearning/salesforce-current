@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alle_Zichtzending_Leads_BAO</fullName>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>ProcessingDate__c</columns>
+    <columns>Account__c</columns>
+    <columns>LEAD.CITY</columns>
+    <columns>Product__c</columns>
+    <columns>LEAD.LEAD_SOURCE</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.PHONE</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.STATUS</columns>
+    <columns>LEAD.EMPLOYEES</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Converted,Discarded</value>
+    </filters>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>eCommerce</value>
+    </filters>
+    <filters>
+        <field>Product__c</field>
+        <operation>contains</operation>
+        <value>Zichtzending</value>
+    </filters>
+    <filters>
+        <field>AccountSegmentPE__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Alle Zichtzending Leads BAO</label>
+    <sharedTo>
+        <group>AllUsersNoordhoff</group>
+    </sharedTo>
+</ListView>

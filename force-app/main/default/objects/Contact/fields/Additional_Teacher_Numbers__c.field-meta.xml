@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Teacher_Numbers__c</fullName>
+    <description>This field stores all additional (legacy) teacher numbers for Noordhoff and Plantyn after deduplication, in case they are needed for reference.</description>
+    <externalId>false</externalId>
+    <label>Additional Teacher Numbers</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

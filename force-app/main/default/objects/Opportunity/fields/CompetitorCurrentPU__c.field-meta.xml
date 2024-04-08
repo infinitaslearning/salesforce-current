@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompetitorCurrentPU__c</fullName>
+    <externalId>false</externalId>
+    <label>Competitor Current PU</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Abimo</fullName>
+                <default>false</default>
+                <label>Abimo</label>
+            </value>
+            <value>
+                <fullName>Academia Press</fullName>
+                <default>false</default>
+                <label>Academia Press</label>
+            </value>
+            <value>
+                <fullName>Acco</fullName>
+                <default>false</default>
+                <label>Acco</label>
+            </value>
+            <value>
+                <fullName>Andere</fullName>
+                <default>false</default>
+                <label>Andere</label>
+            </value>
+            <value>
+                <fullName>Averbode</fullName>
+                <default>false</default>
+                <label>Averbode</label>
+            </value>
+            <value>
+                <fullName>Boom</fullName>
+                <default>false</default>
+                <label>Boom</label>
+            </value>
+            <value>
+                <fullName>Broekx</fullName>
+                <default>false</default>
+                <label>Broekx</label>
+            </value>
+            <value>
+                <fullName>Cambridge</fullName>
+                <default>false</default>
+                <label>Cambridge</label>
+            </value>
+            <value>
+                <fullName>Con+tact</fullName>
+                <default>false</default>
+                <label>Con+tact</label>
+            </value>
+            <value>
+                <fullName>Coutinho</fullName>
+                <default>false</default>
+                <label>Coutinho</label>
+            </value>
+            <value>
+                <fullName>CUP</fullName>
+                <default>false</default>
+                <label>CUP</label>
+            </value>
+            <value>
+                <fullName>De Boeck</fullName>
+                <default>false</default>
+                <label>De Boeck</label>
+            </value>
+            <value>
+                <fullName>De Garve</fullName>
+                <default>false</default>
+                <label>De Garve</label>
+            </value>
+            <value>
+                <fullName>Dessain</fullName>
+                <default>false</default>
+                <label>Dessain</label>
+            </value>
+            <value>
+                <fullName>Die Keure</fullName>
+                <default>false</default>
+                <label>Die Keure</label>
+            </value>
+            <value>
+                <fullName>Diligentia</fullName>
+                <default>false</default>
+                <label>Diligentia</label>
+            </value>
+            <value>
+                <fullName>Eigen reader</fullName>
+                <default>false</default>
+                <label>Eigen reader</label>
+            </value>
+            <value>
+                <fullName>Eng. uitgeverijen</fullName>
+                <default>false</default>
+                <label>Eng. uitgeverijen</label>
+            </value>
+            <value>
+                <fullName>GO!</fullName>
+                <default>false</default>
+                <label>GO!</label>
+            </value>
+            <value>
+                <fullName>Informat</fullName>
+                <default>false</default>
+                <label>Informat</label>
+            </value>
+            <value>
+                <fullName>Informat cv</fullName>
+                <default>false</default>
+                <label>Informat cv</label>
+            </value>
+            <value>
+                <fullName>Integrado</fullName>
+                <default>false</default>
+                <label>Integrado</label>
+            </value>
+            <value>
+                <fullName>Intersentia</fullName>
+                <default>false</default>
+                <label>Intersentia</label>
+            </value>
+            <value>
+                <fullName>Intertaal</fullName>
+                <default>false</default>
+                <label>Intertaal</label>
+            </value>
+            <value>
+                <fullName>Kluwer</fullName>
+                <default>false</default>
+                <label>Kluwer</label>
+            </value>
+            <value>
+                <fullName>Lannoo Campus</fullName>
+                <default>false</default>
+                <label>Lannoo Campus</label>
+            </value>
+            <value>
+                <fullName>Licap</fullName>
+                <default>false</default>
+                <label>Licap</label>
+            </value>
+            <value>
+                <fullName>Longman</fullName>
+                <default>false</default>
+                <label>Longman</label>
+            </value>
+            <value>
+                <fullName>Macmillan</fullName>
+                <default>false</default>
+                <label>Macmillan</label>
+            </value>
+            <value>
+                <fullName>Maklu</fullName>
+                <default>false</default>
+                <label>Maklu</label>
+            </value>
+            <value>
+                <fullName>Noordhoff</fullName>
+                <default>false</default>
+                <label>Noordhoff</label>
+            </value>
+            <value>
+                <fullName>Novum</fullName>
+                <default>false</default>
+                <label>Novum</label>
+            </value>
+            <value>
+                <fullName>Oxford</fullName>
+                <default>false</default>
+                <label>Oxford</label>
+            </value>
+            <value>
+                <fullName>P.I.M.</fullName>
+                <default>false</default>
+                <label>P.I.M.</label>
+            </value>
+            <value>
+                <fullName>Pearson</fullName>
+                <default>false</default>
+                <label>Pearson</label>
+            </value>
+            <value>
+                <fullName>Pelckmans</fullName>
+                <default>false</default>
+                <label>Pelckmans</label>
+            </value>
+            <value>
+                <fullName>Ph. Music</fullName>
+                <default>false</default>
+                <label>Ph. Music</label>
+            </value>
+            <value>
+                <fullName>Plantyn</fullName>
+                <default>false</default>
+                <label>Plantyn</label>
+            </value>
+            <value>
+                <fullName>Questi</fullName>
+                <default>false</default>
+                <label>Questi</label>
+            </value>
+            <value>
+                <fullName>Read Business</fullName>
+                <default>false</default>
+                <label>Read Business</label>
+            </value>
+            <value>
+                <fullName>School</fullName>
+                <default>false</default>
+                <label>School</label>
+            </value>
+            <value>
+                <fullName>Schoolonline</fullName>
+                <default>false</default>
+                <label>Schoolonline</label>
+            </value>
+            <value>
+                <fullName>Smartschool</fullName>
+                <default>false</default>
+                <label>Smartschool</label>
+            </value>
+            <value>
+                <fullName>Thieme</fullName>
+                <default>false</default>
+                <label>Thieme</label>
+            </value>
+            <value>
+                <fullName>Universa</fullName>
+                <default>false</default>
+                <label>Universa</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+            <value>
+                <fullName>Van In</fullName>
+                <default>false</default>
+                <label>Van In</label>
+            </value>
+            <value>
+                <fullName>VOLG</fullName>
+                <default>false</default>
+                <label>VOLG</label>
+            </value>
+            <value>
+                <fullName>Vyncke</fullName>
+                <default>false</default>
+                <label>Vyncke</label>
+            </value>
+            <value>
+                <fullName>Werkgroep Didactische Middelen</fullName>
+                <default>false</default>
+                <label>Werkgroep Didactische Middelen</label>
+            </value>
+            <value>
+                <fullName>Werkgroep Wetenschappen Boom</fullName>
+                <default>false</default>
+                <label>Werkgroep Wetenschappen Boom</label>
+            </value>
+            <value>
+                <fullName>Wisa</fullName>
+                <default>false</default>
+                <label>Wisa</label>
+            </value>
+            <value>
+                <fullName>Zorgkompas</fullName>
+                <default>false</default>
+                <label>Zorgkompas</label>
+            </value>
+            <value>
+                <fullName>Zwijsen</fullName>
+                <default>false</default>
+                <label>Zwijsen</label>
+            </value>
+            <value>
+                <fullName>1 De Boeck</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1 De Boeck</label>
+            </value>
+            <value>
+                <fullName>2 Pelckmans</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2 Pelckmans</label>
+            </value>
+            <value>
+                <fullName>3 Van In</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>3 Van In</label>
+            </value>
+            <value>
+                <fullName>4 Unknown</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4 Unknown</label>
+            </value>
+            <value>
+                <fullName>Van In (De Boeck)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Van In (De Boeck)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

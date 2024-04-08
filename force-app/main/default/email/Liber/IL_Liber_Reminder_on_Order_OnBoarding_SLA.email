@@ -1,0 +1,14 @@
+<HTML>
+<BR>
+<BR>
+Hi, the below order has not yet been completed the onboarding. Please make sure the order is fully completed and onboarded within 24 business hours.<BR>
+<BR>
+Order created: {!Order.CreatedDate}<BR>
+Order owner: {!Order.OwnerFullName}<BR>
+Order delivered: {!Order.OrderDelivered__c}<BR>
+Order placed: {!Order.OrderPlaced__c}<BR>
+<BR>
+The following link will direct you to the order:<BR>
+{!Order.Link}<BR>
+<BR>
+</HTML>

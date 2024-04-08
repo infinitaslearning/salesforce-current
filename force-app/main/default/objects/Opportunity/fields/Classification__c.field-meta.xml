@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Classification__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Selectie van het arrangement is voor VO verplicht bij het sluiten van een opportunity.</inlineHelpText>
+    <label>Classification</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flex</fullName>
+                <default>false</default>
+                <label>Flex</label>
+            </value>
+            <value>
+                <fullName>Methode licentie</fullName>
+                <default>false</default>
+                <label>Methode licentie</label>
+            </value>
+            <value>
+                <fullName>Arrangement</fullName>
+                <default>false</default>
+                <label>Arrangement</label>
+            </value>
+            <value>
+                <fullName>On-line</fullName>
+                <default>false</default>
+                <label>On-line</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

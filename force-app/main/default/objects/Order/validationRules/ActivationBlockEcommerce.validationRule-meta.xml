@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActivationBlockEcommerce</fullName>
+    <active>false</active>
+    <errorConditionFormula>And(Text(Status) = &apos;Activated&apos;,
+		OR(Text(Source__c)=&apos;eCommerce B2C&apos;,Text(Source__c)=&apos;eCommerce B2B&apos;))</errorConditionFormula>
+    <errorMessage>Temporay pause on activating Ecommerce Orders</errorMessage>
+</ValidationRule>

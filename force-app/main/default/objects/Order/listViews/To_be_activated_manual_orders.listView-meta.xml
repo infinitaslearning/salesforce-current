@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_be_activated_manual_orders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>ORDERS.TYPE</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>ErrorReason__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>TriggerBusinessRules__c</columns>
+    <columns>ActivateforBatchProcessing__c</columns>
+    <columns>LineCount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Source__c</field>
+        <operation>equals</operation>
+        <value>B2B Salesforce</value>
+    </filters>
+    <filters>
+        <field>ORDERS.STATUS</field>
+        <operation>equals</operation>
+        <value>Under Review</value>
+    </filters>
+    <filters>
+        <field>ErrorReason__c</field>
+        <operation>equals</operation>
+        <value>None</value>
+    </filters>
+    <filters>
+        <field>LineCount__c</field>
+        <operation>notEqual</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ORDERS.TYPE</field>
+        <operation>equals</operation>
+        <value>RegularOrder</value>
+    </filters>
+    <label>To be activated manual orders</label>
+    <sharedTo>
+        <group>AllAdmins</group>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_Payment_Method_Invoice_Manually</fullName>
+    <active>true</active>
+    <description>Users can set payment type to prepayment on an order level manually. 
+Users cannot set the payment type to invoice on an order level manually.</description>
+    <errorConditionFormula>AND( NOT(ISNEW()),
+     ISCHANGED(PaymentMethod__c), 
+     ISPICKVAL(PaymentMethod__c, &apos;Invoice&apos;)
+)</errorConditionFormula>
+    <errorDisplayField>PaymentMethod__c</errorDisplayField>
+    <errorMessage>Payment Method cannot be changed from Prepayment to Invoice manually on the Order!</errorMessage>
+</ValidationRule>

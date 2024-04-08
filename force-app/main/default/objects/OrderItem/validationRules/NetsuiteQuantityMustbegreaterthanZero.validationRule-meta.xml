@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NetsuiteQuantityMustbegreaterthanZero</fullName>
+    <active>false</active>
+    <errorConditionFormula>NetsuiteQuantity__c &lt; 1</errorConditionFormula>
+    <errorDisplayField>NetsuiteQuantity__c</errorDisplayField>
+    <errorMessage>Netsuite Quantity is required. This is used due item Group group component</errorMessage>
+</ValidationRule>

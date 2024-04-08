@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShipToLegalName__c</fullName>
+    <description>Legal Name of the Ship-to party</description>
+    <externalId>false</externalId>
+    <formula>Shipto__r.FullLegalName__c</formula>
+    <label>Ship to Legal Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

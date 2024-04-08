@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DefaultSideConversationEmail__c</fullName>
+    <description>This field can be edited by a user to change his default email address used in Side Conversations. Side Conversations are email threads with third parties on a customer&apos;s Case.</description>
+    <externalId>false</externalId>
+    <label>Default Side Conversation Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>OperatingCompany__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>DefaultCaseEmails</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>kennismanagement@noordhoff.nl</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>orderdirect@noordhoff.nl</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>pgm@noordhoff.nl</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>salesbao@noordhoff.nl</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>salesvo@noordhoff.nl</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>services@noordhoff.nl</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

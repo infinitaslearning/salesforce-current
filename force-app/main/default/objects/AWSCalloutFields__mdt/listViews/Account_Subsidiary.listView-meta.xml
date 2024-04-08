@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Subsidiary</fullName>
+    <columns>MasterLabel</columns>
+    <columns>DeveloperName</columns>
+    <columns>DestinationFieldName__c</columns>
+    <columns>SourceFieldName__c</columns>
+    <columns>SourceObject__c</columns>
+    <columns>DataType__c</columns>
+    <columns>IncludeFieldIfNull__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SourceObject__c</field>
+        <operation>contains</operation>
+        <value>subsid</value>
+    </filters>
+    <label>Account Subsidiary</label>
+    <language>en_US</language>
+</ListView>

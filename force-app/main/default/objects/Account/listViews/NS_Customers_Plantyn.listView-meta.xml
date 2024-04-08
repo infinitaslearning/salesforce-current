@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NS_Customers_Plantyn</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ExternalCustomerId__c</columns>
+    <columns>ACCOUNT.SITE</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>ExternalDatabase__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OperatingCompany__c</field>
+        <operation>equals</operation>
+        <value>Plantyn</value>
+    </filters>
+    <filters>
+        <field>ValidateErrors__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>ConverseImport__c</field>
+        <operation>equals</operation>
+        <value>Informat Converse migration,Plantyn Converse migration</value>
+    </filters>
+    <label>NS Customers Plantyn</label>
+    <sharedTo>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

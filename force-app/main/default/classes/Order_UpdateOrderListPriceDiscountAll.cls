@@ -2,7 +2,7 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
 
 
 
-    
+    /*
     Public static void UpdateOrdeItemswithListPriceDiscount(Decimal NoStudents, List<String> lstOrderId , String PricebookId){
         
         
@@ -27,7 +27,7 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
         }
         
      }
-
+*/
     
     Public static List<OrderItem>  ProcessUpdate(Decimal NoStudents, List<String> lstOrderId , String PricebookId,OrderItem[] lstOrderItem, ListPriceDiscount__c[] lst_ListPriceDiscountRegular){
 
@@ -37,14 +37,11 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
       Order[] curOrder = [Select Pricebook2Id,Billto__r.OperatingCompany__c,Billto__r.CustomerDiscountGroup__c,Type,PricingMethod__c,Billto__c from Order where id in: lstOrderId];
     
       /* OrderLineItemType__c, */
+    /*  
     if(lstOrderItem == null){
         lstOrderItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,lstOrderId);
      
-    }
-     
-
-    
-                      
+    }         
 
     Date CurDate = system.today();
 
@@ -54,7 +51,7 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
                                                                                         AND StartDate__c  <=:CurDate  
                                                                                         ORDER BY StartQuantity__c DESC];
     }
-    
+    */
 
 
         system.debug('**Order_UpdateOrderListPrice 2: lstOrderItem**'+lstOrderItem);
@@ -96,7 +93,7 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
     
 
   //  if(PricingMethod.contains('UsageBased')){
-
+/*
         asset[] loadAssetsListGroupRate  = [Select id,Name,Product2.Name,Product2.OrderLineType__c,PriceBook__c,PriceBook__r.FollowUpPriceBook__c,RenewalDate__c,Account.DigitalActivationEmail__c ,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,RenewalTerm__c,IsUpForRenewal__c,AccountId,PricingMethod__c,BillToAccount__r.ShippingCostMethod__c,BillToAccount__r.PaymentMethod__c,Price,Quantity, BillToAccount__c,Product2Id 
                                                 from asset 
                                                 where (CancellationDate__c >: CurrrentDay OR CancellationDate__c =:null)
@@ -108,6 +105,12 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
                                                 //AND Contract__c =:null
 
         system.debug('**Order_UpdateOrderListPrice: loadAssetsListGroupRate**'+loadAssetsListGroupRate.size());
+*/
+
+Date CurrentDay = system.today();
+Date RenewalDay = system.today();
+asset[] loadAssetsListGroupRate  = Database.query(Order_SoqlFactory.returnasset('ListPriceDiscount',Set_BillTo,null));
+system.debug('**Order_SoqlFactory.Order_UpdateOrderListPriceDiscountAll.loadAssetsListGroupRate :Size**'+loadAssetsListGroupRate.size());
 
         for(asset ass:loadAssetsListGroupRate){
             String ProdAcc=ass.Product2Id;
@@ -247,22 +250,23 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
                     
                 }
 
-    
+                /*
+                No need to check Prodct type: Match Order line type with LDP?
                 List<String> PriceProductType = new List<String>();
                 PriceProductType.AddAll(Item.Product2.OrderLineType__c.Split(';'));                
                 Map_PriceProductType.put(Item.Product2Id,PriceProductType);
-            
+                */
                 
     }
 
     system.debug('**Order_UpdateOrderListPrice: Map_OrderProdMap Final'+Map_OrderProdMap);
 
-    lstOrderItem = returnItemswithListpriceId(OrderType,lstOrderItem,lst_ListPriceDiscountRegular,Map_OrderProdMap,Map_PriceProductType);
+    lstOrderItem = returnItemswithListpriceId(OrderType,lstOrderItem,lst_ListPriceDiscountRegular,Map_OrderProdMap); //,Map_PriceProductType
 
     return lstOrderItem;
 }    
 
-Public static List<OrderItem> returnItemswithListpriceId(String Type, List<OrderItem> lstOrderItem, List<ListPriceDiscount__c> lst_ListPriceDiscountRegular,Map<String,Decimal> Map_OrderProdMap, Map<String,List<String>> Map_PriceProductType){ 
+Public static List<OrderItem> returnItemswithListpriceId(String Type, List<OrderItem> lstOrderItem, List<ListPriceDiscount__c> lst_ListPriceDiscountRegular,Map<String,Decimal> Map_OrderProdMap){ //, Map<String,List<String>> Map_PriceProductType
 
     Boolean listPriceSelected;
     String ProdGroup;

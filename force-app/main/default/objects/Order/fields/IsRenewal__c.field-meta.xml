@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsRenewal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>We need to know whether an order was a renewal order or not. Otherwise we can not calculate indexations correctly.</description>
+    <externalId>false</externalId>
+    <label>Renewal Order</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

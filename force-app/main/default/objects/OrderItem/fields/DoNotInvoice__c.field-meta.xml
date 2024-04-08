@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DoNotInvoice__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Records whether normal invoicing will occur or by exception.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When checked this orderline will not be invoiced through normal processing. Instead it will be listed separately and invoiced manually or by exception.</inlineHelpText>
+    <label>Do Not Invoice</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

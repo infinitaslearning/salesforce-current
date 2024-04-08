@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Leads_Bokm_ssan_2023</fullName>
+    <columns>LEAD.STATUS</columns>
+    <columns>Account__c</columns>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>Message__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Campaign__c</field>
+        <operation>equals</operation>
+        <value>Bokmässan 2023</value>
+    </filters>
+    <filters>
+        <field>LEAD.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Converted</value>
+    </filters>
+    <label>My Leads - Bokmässan 2023</label>
+    <sharedTo>
+        <roleAndSubordinates>Liber_Manager</roleAndSubordinates>
+        <roleAndSubordinates>Liber_Marketing_Manager</roleAndSubordinates>
+        <roleAndSubordinates>Liber_Sales_Manager_Rep</roleAndSubordinates>
+        <roleAndSubordinates>Liber_Sales_School_KAM</roleAndSubordinates>
+    </sharedTo>
+</ListView>

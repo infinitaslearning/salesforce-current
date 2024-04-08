@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllPlantyn</fullName>
+    <columns>NAME</columns>
+    <columns>inactive__c</columns>
+    <columns>Segment__c</columns>
+    <columns>Subject__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Subsidiary__c</field>
+        <operation>equals</operation>
+        <value>Plantyn</value>
+    </filters>
+    <label>All Plantyn</label>
+    <sharedTo>
+        <group>AllUsersPlantyn</group>
+    </sharedTo>
+</ListView>

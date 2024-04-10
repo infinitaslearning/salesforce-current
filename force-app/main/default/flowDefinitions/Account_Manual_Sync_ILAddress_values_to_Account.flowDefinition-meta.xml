@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>(TO BE DELETED) This flow will sync the ILAddress values in the Address lookup back to the address fields of the Account</description>
-    <masterLabel>Account_Manual Sync ILAddress values to Account (REMOVE)</masterLabel>
-</FlowDefinition>

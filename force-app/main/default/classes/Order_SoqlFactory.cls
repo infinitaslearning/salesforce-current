@@ -120,6 +120,7 @@ public with sharing class Order_SoqlFactory {
              +' Product2.PlannedPrintDate__c,'
              +' Product2.QuantitySelectionType__c,'
              +' Product2.Renewable__c,'
+             +' Product2.Renewal__c'
              +' Product2.SoldInSegment__c,'
              +' Product2.SuccessorItem__c,'
              +' Product2.Stocknumber__c,'
@@ -359,7 +360,9 @@ public with sharing class Order_SoqlFactory {
         +'FixedStartDate__c,'
         +'StartDate__c,'
         +'LicenseDuration__c,'
+        +'Renewal__c,'
         +'Renewable__c '
+        
         +'from Product2 where id in: Set_Products';
                
 

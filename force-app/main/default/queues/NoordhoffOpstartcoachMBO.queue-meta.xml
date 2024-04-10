@@ -2,6 +2,7 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>Opstartcoach MBO</name>
+    <queueRoutingConfig>Noordhoff_Medium_Prio_Routing</queueRoutingConfig>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

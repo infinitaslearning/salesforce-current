@@ -11,5 +11,10 @@
     <columns>rv2Status__c</columns>
     <columns>LAST_UPDATE</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Street__c</field>
+        <operation>contains</operation>
+        <value>box</value>
+    </filters>
     <label>All</label>
 </ListView>

@@ -761,6 +761,7 @@ public with sharing class Order_SoqlFactory {
                 +')'
             +')'
             +' AND LastRenewalUpdate__c !=: CurrentDay'
+            + 'AND Active__c = true '
             +' AND AutomatedRenewProcess__c = true' 
             +' AND Product2.Type__c != \'Item Group\' '
             +' )'
@@ -789,7 +790,8 @@ public with sharing class Order_SoqlFactory {
             Querystr += '(CancellationDate__c >: CurrentDay OR CancellationDate__c =null)'
             + 'AND RenewalDate__c  >=: CurrentDay '
             + 'AND (ActivationDate__c <=: CurrentDay OR  ActivationDate__c = null) '
-            + 'AND IsActive__c = true '
+           // + 'AND IsActive__c = true '
+            + 'AND Active__c = true '
             + 'AND BillToAccount__c in:Set_BillTo '
             + 'AND Contract__c =null';  
         }

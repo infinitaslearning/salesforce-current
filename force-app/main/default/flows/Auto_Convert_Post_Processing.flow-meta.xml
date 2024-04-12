@@ -26,7 +26,7 @@
             <assignToReference>sov_Opportunity.RecordTypeId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Label.OpportunityNoordhoffProfessional</elementReference>
+                <elementReference>$Label.OpportunityNoordhoffZorg</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -34,19 +34,19 @@
         </connector>
     </assignments>
     <decisions>
-        <name>Is_Lead_NH_Prof</name>
-        <label>Is Lead NH Prof</label>
+        <name>Is_Lead_NH_Zorg</name>
+        <label>Is Lead NH Zorg</label>
         <locationX>710</locationX>
         <locationY>638</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_NHProf</name>
+            <name>Yes_NHZorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Interaction_To_See_if_It_s_NH_Prof.Lead__r.OperatingCompany__c</leftValueReference>
+                <leftValueReference>Get_Interaction_To_See_if_It_s_NH_Zorg.Lead__r.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -123,7 +123,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Interaction_To_See_if_It_s_NH_Prof</targetReference>
+                <targetReference>Get_Interaction_To_See_if_It_s_NH_Zorg</targetReference>
             </connector>
             <label>Noordhoff</label>
         </rules>
@@ -180,13 +180,13 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Interaction_To_See_if_It_s_NH_Prof</name>
-        <label>Get Interaction To See if It&apos;s NH Prof</label>
+        <name>Get_Interaction_To_See_if_It_s_NH_Zorg</name>
+        <label>Get Interaction To See if It&apos;s NH Zorg</label>
         <locationX>710</locationX>
         <locationY>518</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Is_Lead_NH_Prof</targetReference>
+            <targetReference>Is_Lead_NH_Zorg</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

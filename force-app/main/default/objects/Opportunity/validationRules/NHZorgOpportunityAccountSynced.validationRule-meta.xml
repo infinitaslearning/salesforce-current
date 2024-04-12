@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHZorgOpportunityAccountSynced</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    ISBLANK(Account.NetsuiteCustomerNumber__c), 
+    ISBLANK(Account.NetsuiteInternalId__c), 
+    NOT($User.ValidationRulesDoNotApply__c  = true),
+     ISPICKVAL(StageName, &quot;P. Close&quot;) 
+)</errorConditionFormula>
+    <errorMessage>The Opportunity Account needs to be synced to Netsuite before the Opportunity can move the next Stage. Please check the Account details that are required for Netsuite.</errorMessage>
+</ValidationRule>

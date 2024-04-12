@@ -280,7 +280,7 @@ public with sharing class Order_OrderandOrdeItemHandler {
                 }
             } 
            
-           item.PricebookName__c = item.Order.Pricebook2.Name; // used for filtering for professional
+           item.PricebookName__c = item.Order.Pricebook2.Name; // used for filtering for Zorg
 
         
             if(item.DigitalActivationEMail__c != null){

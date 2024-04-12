@@ -24,13 +24,13 @@ public with sharing class Order_Batch_ContractRenewal_test {
         List<Product2> lstProduct = TestDataFactory.insertProducts(1,true);
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
         List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
-        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Professional','Noordhoff');
+        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Zorg','Noordhoff');
         List<Contract> lstContract = TestDataFactory.insertContract(1,lstAccount,ProfPricebook.id,false);
 
         for(Contract con:lstContract){
             con.StartDate = system.today()-364;
             con.ContractTerm = 12;
-            con.OperatingCompany__c ='Noordhoff Professional';
+            con.OperatingCompany__c ='Noordhoff Zorg';
         }
         insert lstContract;
         List<Asset>lst_Asset = TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,false);
@@ -76,14 +76,14 @@ public with sharing class Order_Batch_ContractRenewal_test {
         List<Product2> lstProduct = TestDataFactory.insertProducts(1,true);
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
         List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
-        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Professional','Noordhoff');
+        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Zorg','Noordhoff');
         List<Contract> lstContract = TestDataFactory.insertContract(1,lstAccount,ProfPricebook.id,false);
         
 
         for(Contract con:lstContract){
             con.StartDate = system.today()-364;
             con.ContractTerm = 12;
-            con.OperatingCompany__c ='Noordhoff Professional';
+            con.OperatingCompany__c ='Noordhoff Zorg';
         }
         insert lstContract;
         List<Asset>lst_Asset = TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,false);
@@ -123,13 +123,13 @@ public with sharing class Order_Batch_ContractRenewal_test {
         List<Product2> lstProduct = TestDataFactory.insertProducts(1,true);
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
         List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
-        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Professional','Noordhoff');
+        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Zorg','Noordhoff');
         List<Contract> lstContract = TestDataFactory.insertContract(1,lstAccount,ProfPricebook.id,false);
 
         for(Contract con:lstContract){
             con.StartDate = system.today()-364;
             con.ContractTerm = 12;
-            con.OperatingCompany__c ='Noordhoff Professional';
+            con.OperatingCompany__c ='Noordhoff Zorg';
         }
         insert lstContract;
         List<Asset>lst_Asset = TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,false);

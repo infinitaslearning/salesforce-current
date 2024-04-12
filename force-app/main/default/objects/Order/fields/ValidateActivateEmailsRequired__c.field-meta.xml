@@ -8,7 +8,7 @@ AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), Account.isProfessiona
 InvoiceEmail__c = null ,
 OrderNotificationEmail__c = null ,
 BillingReminderEmail__c = null)),1,
-IF(AND((ISPICKVAL(OperatingCompany__c, &apos;Noordhoff Professional&apos;) || AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), Account.isProfessional__c = true)), OR(
+IF(AND((ISPICKVAL(OperatingCompany__c, &apos;Noordhoff Zorg&apos;) || AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), Account.isProfessional__c = true)), OR(
 InvoiceEmail__c = null ,
 BillingReminderEmail__c = null)),1,0))</formula>
     <label>Validate ActivateEmailsRequired</label>

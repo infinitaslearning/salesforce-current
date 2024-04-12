@@ -1,114 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>LiberEditKnowledge</fullName>
+        <fullName>NoordhoffZorgEditKnowledge</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Liber Edit Knowledge</label>
+        <label>Noordhoff Zorg Edit Knowledge</label>
         <sharedTo>
-            <group>KnowledgeEditLiber</group>
+            <group>KnowledgeEditNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>LiberKnowledge</fullName>
+        <fullName>NoordhoffZorgKnowledge</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Liber Knowledge</label>
+        <label>Noordhoff Zorg Knowledge</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffEditKnowledge</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Edit Knowledge</label>
-        <sharedTo>
-            <group>KnowledgeEditNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffKnowledge</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Knowledge</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalEditKnowledge</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Professional Edit Knowledge</label>
-        <sharedTo>
-            <group>KnowledgeEditNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalKnowledge</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Professional Knowledge</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynEditKnowledge</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Plantyn Edit Knowledge</label>
-        <sharedTo>
-            <group>KnowledgeEditPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Plantyn_Knowledge</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Plantyn Knowledge</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

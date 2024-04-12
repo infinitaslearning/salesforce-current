@@ -13,7 +13,8 @@ Tekst
 
 Met vriendelijke groet,
 
-{!User.EmailSignature__c}</textOnly>
+{!User.FirstName}
+Noordhoff Customer Service</textOnly>
     <type>html</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>

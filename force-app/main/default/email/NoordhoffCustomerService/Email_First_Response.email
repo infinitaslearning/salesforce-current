@@ -377,8 +377,9 @@ line-height:1;
                                                                                                             <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="background-color: transparent; min-width: 100%; " class="stylingblock-content-wrapper">
                                                                                                                 <tr>
                                                                                                                     <td style="padding: 20px; " class="stylingblock-content-wrapper camarker-inner">Met vriendelijke groet,<br><br>
-                                                                                                                      {!User.EmailSignature__c}
-                                                                                                                        
+                                                                                                                       {!User.FirstName}
+                                                                                                                        <br>
+                                                                                                                        Noordhoff Customer Service
                                                                                                                     </td>
                                                                                                                 </tr>
                                                                                                             </table>

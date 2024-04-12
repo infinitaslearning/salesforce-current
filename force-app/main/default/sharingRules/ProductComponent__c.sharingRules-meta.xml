@@ -15,44 +15,16 @@
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>Product_Component_Noordhoff</fullName>
+        <fullName>Product_Component_Noordhoff_Zorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Product Component - Noordhoff</label>
+        <label>Product Component - Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersNoordhoff</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>Subsidiary__c</field>
             <operation>equals</operation>
             <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Product_Component_Noordhoff_Professional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Product Component - Noordhoff Professional</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Product_Component_Plantyn</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Product Component - Plantyn</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

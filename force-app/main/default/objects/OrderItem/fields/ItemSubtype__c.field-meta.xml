@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ItemSubtype__c</fullName>
-    <description>Field that copies over the value of Item Subtype on the Product2 level. Field is for NH Professional to help indicating they have started a consultancy project for this order in an external system (Monday)</description>
+    <description>Field that copies over the value of Item Subtype on the Product2 level. Field is for NH Zorg to help indicating they have started a consultancy project for this order in an external system (Monday)</description>
     <externalId>false</externalId>
     <formula>TEXT(Product2.ItemSubtype__c)</formula>
     <label>Item Subtype</label>

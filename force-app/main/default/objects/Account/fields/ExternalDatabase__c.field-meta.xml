@@ -50,14 +50,14 @@
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>BRIN</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>RIO</valueName>
         </valueSettings>
         <valueSettings>

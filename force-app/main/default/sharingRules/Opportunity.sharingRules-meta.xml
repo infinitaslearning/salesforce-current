@@ -1,37 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>LiberEditOpportunity</fullName>
+        <fullName>NoordhoffOpportunities</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Liber Edit Opportunity</label>
-        <sharedTo>
-            <group>LiberEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>LiberOpportunities</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Liber Opportunities</label>
-        <sharedTo>
-            <group>AllUsersLiber</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Noordhoff</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff</label>
+        <label>Noordhoff Opportunities</label>
         <sharedTo>
             <group>AllUsersNoordhoff</group>
         </sharedTo>
@@ -40,38 +12,14 @@
             <operation>equals</operation>
             <value>Noordhoff</value>
         </criteriaItems>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Professional</value>
-        </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>NoordhoffEditOpportunity</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Edit Opportunity</label>
-        <sharedTo>
-            <group>NoordhoffEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessional</fullName>
+        <fullName>NoordhoffZorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Noordhoff Professional</label>
+        <label>Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
@@ -81,16 +29,16 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Professional</value>
+            <value>Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalEdit</fullName>
+        <fullName>NoordhoffZorgEdit</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Professional</label>
+        <label>Noordhoff Zorg</label>
         <sharedTo>
-            <group>NoordhoffProfessionalEditRecords</group>
+            <group>NoordhoffZorgEditRecords</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
@@ -100,50 +48,22 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Professional</value>
+            <value>Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalOpportunitiesOld</fullName>
+        <fullName>NoordhoffZorgOpportunitiesOld</fullName>
         <accessLevel>Read</accessLevel>
-        <description>Rule to share Noordhoff Professional opportunities</description>
-        <label>Noordhoff Professional Opportunities</label>
+        <description>Rule to share Noordhoff Zorg opportunities</description>
+        <label>Noordhoff Zorg Opportunities</label>
         <sharedTo>
-            <roleAndSubordinates>Noordhoff_Professional_Manager</roleAndSubordinates>
+            <roleAndSubordinates>Noordhoff_Zorg_Manager</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynEditOpportunities</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Plantyn Edit Opportunities</label>
-        <sharedTo>
-            <group>PlantynEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynOpportunities</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Plantyn Opportunities</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

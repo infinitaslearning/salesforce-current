@@ -43,33 +43,33 @@
             <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Daily</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Monthly</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Biweekly</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Quarterly</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Yearly</valueName>
         </valueSettings>
     </valueSet>

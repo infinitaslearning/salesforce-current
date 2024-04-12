@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Noordhoff Zorg PCSS Team Queue</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Noordhoff_Zorg_PCSS_Team_Group</publicGroup>
+        </publicGroups>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Pre_Opportunity__c</sobjectType>
+    </queueSobject>
+</Queue>

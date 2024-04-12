@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHZorgOpportunityNameLimit</fullName>
+    <active>true</active>
+    <description>Prevents the user from creating an Opportunity Name with a longer than 80 character limit same as is the Contract Name limit (Opportunity name copied to Contract name)</description>
+    <errorConditionFormula>AND(
+    OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    LEN(Name) &gt; 80 
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>The Opportunity Name cannot be longer than 80 characters for Zorg</errorMessage>
+</ValidationRule>

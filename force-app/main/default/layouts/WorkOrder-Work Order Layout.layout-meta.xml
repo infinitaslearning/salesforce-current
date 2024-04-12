@@ -59,10 +59,6 @@
                 <field>CaseId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ServiceContractId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>CurrencyIsoCode</field>
             </layoutItems>
@@ -83,10 +79,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>AssetId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>EntitlementId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

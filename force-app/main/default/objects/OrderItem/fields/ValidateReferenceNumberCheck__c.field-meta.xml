@@ -7,10 +7,10 @@ IF(
 NOT(
 TEXT(OrderStatus__c) = &apos;Activated&apos;
 )
-,(IF((TEXT(OperatingCompany__c) = &apos;Plantyn&apos; || AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, NOT(CONTAINS(PricebookName__c, &apos;Professional&apos;)))) &amp;&amp; NOT(IsPricebookInformat__c) &amp;&amp; LEN(CustomerReference__c) &gt; 10, 1,
+,(IF((TEXT(OperatingCompany__c) = &apos;Plantyn&apos; || AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, NOT(CONTAINS(PricebookName__c, &apos;Zorg&apos;)))) &amp;&amp; NOT(IsPricebookInformat__c) &amp;&amp; LEN(CustomerReference__c) &gt; 10, 1,
 IF(TEXT(OperatingCompany__c) = &apos;Liber&apos; &amp;&amp; NOT(IsPricebookInformat__c) &amp;&amp; LEN(CustomerReference__c) &gt; 35, 1,
 IF(IsPricebookInformat__c &amp;&amp; LEN(CustomerReference__c) &gt; 45, 1, 
-IF(AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, CONTAINS(PricebookName__c, &apos;Professional&apos;), ProductType__c = &apos;Inventory Item&apos;, LEN(CustomerReference__c) &gt; 10), 1, 0))))),
+IF(AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, CONTAINS(PricebookName__c, &apos;Zorg&apos;), ProductType__c = &apos;Inventory Item&apos;, LEN(CustomerReference__c) &gt; 10), 1, 0))))),
 0)
 **/
 

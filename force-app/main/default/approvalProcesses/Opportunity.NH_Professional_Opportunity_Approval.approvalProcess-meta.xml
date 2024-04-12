@@ -3,7 +3,7 @@
     <active>true</active>
     <allowRecall>true</allowRecall>
     <allowedSubmitters>
-        <submitter>AllUsersNoordhoffProfessional</submitter>
+        <submitter>AllUsersNoordhoffZorg</submitter>
         <type>group</type>
     </allowedSubmitters>
     <allowedSubmitters>
@@ -47,13 +47,13 @@
             </action>
         </rejectionActions>
     </approvalStep>
-    <description>Approval Process for Noordhoff Professional Opportunity</description>
+    <description>Approval Process for Noordhoff Zorg Opportunity</description>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <criteriaItems>
             <field>Opportunity.OpportunityRecordTypeName__c</field>
             <operation>equals</operation>
-            <value>Professional</value>
+            <value>Zorg</value>
         </criteriaItems>
         <criteriaItems>
             <field>Opportunity.StageName</field>
@@ -69,7 +69,7 @@
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>NH Professional Opportunity Approval</label>
+    <label>NH Zorg Opportunity Approval</label>
     <nextAutomatedApprover>
         <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
         <userHierarchyField>Manager</userHierarchyField>

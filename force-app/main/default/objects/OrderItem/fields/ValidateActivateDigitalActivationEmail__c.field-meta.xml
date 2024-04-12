@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ValidateActivateDigitalActivationEmail__c</fullName>
     <externalId>false</externalId>
-    <formula>IF(AND(NOT(CONTAINS(PricebookName__c, &quot;Professional&quot;)), AND(
+    <formula>IF(AND(NOT(CONTAINS(PricebookName__c, &quot;Zorg&quot;)), AND(
 ProductType__c = &quot;Non-inventory Item&quot;,
 DigitalActivationEMail__c = null)),1,0)</formula>
     <label>Validate ActivateDigitalActivationEmail</label>

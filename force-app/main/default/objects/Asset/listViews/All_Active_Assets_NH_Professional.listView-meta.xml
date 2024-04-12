@@ -22,6 +22,6 @@
     </filters>
     <label>All Active Assets NH Professional</label>
     <sharedTo>
-        <group>AllUsersNoordhoffProfessional</group>
+        <group>AllUsersNoordhoffZorg</group>
     </sharedTo>
 </ListView>

@@ -14,46 +14,4 @@
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>LiberMethods</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Liber Methods</label>
-        <sharedTo>
-            <group>AllUsersLiber</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffMethods</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Methods</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Learnlinq,Noordhoff,Noordhoff Digitaal Bedrijf</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynMethods</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Plantyn Methods</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
 </SharingRules>

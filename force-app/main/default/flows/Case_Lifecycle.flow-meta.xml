@@ -174,12 +174,12 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Assign_to_Professional_CM</name>
-        <label>Assign to Professional CM</label>
+        <name>Assign_to_Zorg_CM</name>
+        <label>Assign to Zorg CM</label>
         <locationX>2602</locationX>
         <locationY>576</locationY>
         <assignmentItems>
-            <assignToReference>SRV_Professional_CaseManagement</assignToReference>
+            <assignToReference>SRV_Zorg_CaseManagement</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>Devide_CaseManagement_per_Opco</elementReference>
@@ -421,14 +421,14 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>SV_BusinessHoursSinceLastStatusChange</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>SRV_Professional_CaseManagement.Max_Hours_Allowed_In_Status_On_Hold__c</elementReference>
+                    <elementReference>SRV_Zorg_CaseManagement.Max_Hours_Allowed_In_Status_On_Hold__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -514,14 +514,14 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>SV_BusinessHoursSinceLastStatusChange</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>SRV_Professional_CaseManagement.Max_Hours_Allowed_In_Status_Pending__c</elementReference>
+                    <elementReference>SRV_Zorg_CaseManagement.Max_Hours_Allowed_In_Status_Pending__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -578,14 +578,14 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>SV_BusinessHoursSinceLastStatusChange</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>SRV_Professional_CaseManagement.Reminder_after_X_Hours_In_Status_Pending__c</elementReference>
+                    <elementReference>SRV_Zorg_CaseManagement.Reminder_after_X_Hours_In_Status_Pending__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -649,14 +649,14 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>SV_BusinessHoursSinceLastStatusChange</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>SRV_Professional_CaseManagement.Max_Hours_Allowed_In_Status_Solved__c</elementReference>
+                    <elementReference>SRV_Zorg_CaseManagement.Max_Hours_Allowed_In_Status_Solved__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -720,19 +720,19 @@
             <label>Liber</label>
         </rules>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Devide_CaseManagement_per_Opco.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_to_Professional_CM</targetReference>
+                <targetReference>Assign_to_Zorg_CM</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
     </decisions>
     <decisions>
@@ -790,14 +790,14 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>SV_BusinessHoursSinceLastStatusChange</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>SRV_Professional_CaseManagement.secondAutoResponseAfterXHrInNew__c</elementReference>
+                    <elementReference>SRV_Zorg_CaseManagement.secondAutoResponseAfterXHrInNew__c</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
@@ -1080,7 +1080,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
         <objectType>CaseManagement__mdt</objectType>
     </variables>
     <variables>
-        <name>SRV_Professional_CaseManagement</name>
+        <name>SRV_Zorg_CaseManagement</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

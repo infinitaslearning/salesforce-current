@@ -30,6 +30,11 @@
         <default>false</default>
         <label>Infinitas Learning</label>
     </customValue>
+    <customValue>
+        <fullName>Noordhoff Zorg</fullName>
+        <default>false</default>
+        <label>Noordhoff Zorg</label>
+    </customValue>
     <masterLabel>Subsidiary</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

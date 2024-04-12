@@ -72,7 +72,7 @@
     
 //OPPORTUNITY
     var errorrequired=false;   
-    if((IsOpportunity == true && IsPricebookName == 'Professional') || IsPricebookName == 'Professional'){
+    if((IsOpportunity == true && IsPricebookName == 'Zorg') || IsPricebookName == 'Zorg'){
        for(var key in OrderItems){
           //  console.log('**OrderItems[key]**: OppTerms'+OrderItems[key].OppTerms);
          //  console.log('**OrderItems[key]**: OppServiceDate'+OrderItems[key].OppServiceDate); 

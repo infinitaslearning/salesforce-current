@@ -14,7 +14,7 @@
     <filters>
         <field>OperatingCompany__c</field>
         <operation>equals</operation>
-        <value>Noordhoff Professional</value>
+        <value>Noordhoff Zorg</value>
     </filters>
     <filters>
         <field>Account__c</field>
@@ -33,6 +33,6 @@
     </filters>
     <label>Omzetten Marketing Cloud Prof Leads</label>
     <sharedTo>
-        <role>Noordhoff_Professional_Manager</role>
+        <role>Noordhoff_Zorg_Manager</role>
     </sharedTo>
 </ListView>

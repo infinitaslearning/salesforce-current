@@ -10,7 +10,7 @@
 
 
 Met vriendelijke groeten,
-{!User.EmailSignature__c}</textOnly>
+Customer Service</textOnly>
     <type>custom</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>

@@ -15,25 +15,25 @@
         </assignmentItems>
     </assignments>
     <decisions>
-        <name>Is_Professional</name>
-        <label>Is Professional</label>
+        <name>Is_Zorg</name>
+        <label>Is Zorg</label>
         <locationX>182</locationX>
         <locationY>311</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.RecordType.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Get_Inactive_Products</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -90,7 +90,7 @@
         <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_Professional</targetReference>
+            <targetReference>Is_Zorg</targetReference>
         </connector>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>

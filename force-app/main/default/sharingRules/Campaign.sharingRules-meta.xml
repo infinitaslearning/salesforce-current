@@ -1,129 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>LiberCampaigns</fullName>
+        <fullName>NoordhoffZorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Liber Campaigns</label>
+        <label>Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>LiberEditCampaign</fullName>
+        <fullName>NoordhoffZorgCampaignsOld</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing rule to share Noordhoff Zorg Campaigns with users</description>
+        <label>Noordhoff Zorg Campaigns</label>
+        <sharedTo>
+            <roleAndSubordinates>Noordhoff_Zorg_Manager</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>OperatingCompany__c</field>
+            <operation>equals</operation>
+            <value>Noordhoff Zorg</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NoordhoffZorgWrite</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Liber Edit Campaign</label>
+        <label>Noordhoff Zorg</label>
         <sharedTo>
-            <group>LiberEditRecords</group>
+            <group>NoordhoffZorgEditRecords</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffCampaigns</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Campaigns</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffEditCampaign</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Edit Campaign</label>
-        <sharedTo>
-            <group>NoordhoffEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Professional</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalCampaignsOld</fullName>
-        <accessLevel>Read</accessLevel>
-        <description>Sharing rule to share Noordhoff Professional Campaigns with users</description>
-        <label>Noordhoff Professional Campaigns</label>
-        <sharedTo>
-            <roleAndSubordinates>Noordhoff_Professional_Manager</roleAndSubordinates>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalWrite</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Professional</label>
-        <sharedTo>
-            <group>NoordhoffProfessionalEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff Professional</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynCampaigns</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Plantyn Campaigns</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynEditCampaigns</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Plantyn Edit Campaigns</label>
-        <sharedTo>
-            <group>PlantynEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

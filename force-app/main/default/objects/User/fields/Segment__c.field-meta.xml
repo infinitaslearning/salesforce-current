@@ -11,7 +11,7 @@ IF(CONTAINS(UserRole.DeveloperName,&quot;_BAO&quot;),&quot;Noordhoff PE&quot;,
 IF(CONTAINS(UserRole.DeveloperName,&quot;_HO_VE&quot;),&quot;Noordhoff HE&quot;,
 IF(CONTAINS(UserRole.DeveloperName,&quot;_MBO&quot;),&quot;Noordhoff VE&quot;,
 IF(CONTAINS(UserRole.DeveloperName,&quot;_VO&quot;),&quot;Noordhoff SE&quot;,
-IF(CONTAINS(UserRole.DeveloperName,&quot;_Professional&quot;),&quot;Noordhoff Professional&quot;,
+IF(CONTAINS(UserRole.DeveloperName,&quot;_Zorg&quot;),&quot;Noordhoff Zorg&quot;,
 IF(ISPICKVAL(OperatingCompany__c,&quot;Noordhoff&quot;),&quot;Noordhoff&quot;,&quot;&quot;))))))))))</formula>
     <label>Segment</label>
     <required>false</required>

@@ -1,58 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>VAT_Liber</fullName>
+        <fullName>VAT_Noordhoff_Zorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>VAT Liber</label>
+        <label>VAT - Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>VAT_Noordhoff</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>VAT Noordhoff</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>Subsidiary__c</field>
             <operation>equals</operation>
             <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>VAT_Noordhoff_Professional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>VAT - Noordhoff Professional</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>VAT_Plantyn</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>VAT Plantyn</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

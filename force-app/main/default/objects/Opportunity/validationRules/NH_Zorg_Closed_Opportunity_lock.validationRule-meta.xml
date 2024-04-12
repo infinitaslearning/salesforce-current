@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NH_Zorg_Closed_Opportunity_lock</fullName>
+    <active>false</active>
+    <description>Does not allow any edit on a Noordhoff Opportunity when the record is Closed (lost/won)</description>
+    <errorConditionFormula>AND( RecordType.Name = &quot;Zorg&quot;, 
+     OR(ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Won&quot;), 
+        ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Lost&quot;)
+     ),
+      NOT($Profile.Name = &quot;System Administrator&quot;)
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to make any update to an Opportunity that has been Closed Won or Closed Lost!</errorMessage>
+</ValidationRule>

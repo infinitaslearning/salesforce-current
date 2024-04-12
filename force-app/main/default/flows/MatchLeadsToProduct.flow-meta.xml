@@ -147,8 +147,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_lead_NH_Professional</name>
-        <label>Is lead NH Professional?</label>
+        <name>Is_lead_NH_Zorg</name>
+        <label>Is lead NH Zorg?</label>
         <locationX>380</locationX>
         <locationY>278</locationY>
         <defaultConnector>
@@ -156,19 +156,19 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>NH_Prof</name>
+            <name>NH_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>GetProducts_0</targetReference>
             </connector>
-            <label>NH Prof</label>
+            <label>NH Zorg</label>
         </rules>
         <rules>
             <name>NH</name>
@@ -228,15 +228,15 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Is_lead_NH_Professional</targetReference>
+                <targetReference>Is_lead_NH_Zorg</targetReference>
             </connector>
             <label>No</label>
         </rules>
     </decisions>
-    <description>2023/01/23 CH - Added segment/opco check for NH and NH Professional
+    <description>2023/01/23 CH - Added segment/opco check for NH and NH Zorg
 2023/03/15 DB: Removed Get Leads element to reduce queries. Lead record is passed in.
                           Removed Update Lead element. Lead will be updated in parent flow.
-2023/03/09 CH: Updated lead professional check</description>
+2023/03/09 CH: Updated lead Zorg check</description>
     <environments>Default</environments>
     <interviewLabel>Match Leads To Product {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Match Leads To Product</label>
@@ -401,7 +401,7 @@
             <field>MarketSegment__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Product2</object>
@@ -473,7 +473,7 @@
             <field>MarketSegment__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Product2</object>

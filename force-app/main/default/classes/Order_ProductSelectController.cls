@@ -59,12 +59,12 @@ public class Order_ProductSelectController {
                     if(PricebookId != null){
                         PriceBook2[] curPricebook = [Select name from PriceBook2 where id =: PricebookId];
 
-                        if(curPricebook[0].Name.contains('Professional')){
-                            return 'Professional';
+                        if(curPricebook[0].Name.contains('Zorg')){
+                            return 'Zorg';
                         }
                         else{
                             return 'Standard';
-                           // return 'Professional';
+                           // return 'Zorg';
                         }
                     }
                     else{
@@ -1880,7 +1880,7 @@ public class Order_ProductSelectController {
                 OItem.ProRataMonths__c = item.ProRataMonths;
                 OItem.ProRataRate__c = item.ProRataRate;
 
-                if(CurOrder[0].Pricebook2.Name.contains('Professional')){
+                if(CurOrder[0].Pricebook2.Name.contains('Zorg')){
                     Oitem.StartDate__c = item.OppServiceDate;
 
                     if(item.OppServiceDate >= CurOrder[0].EffectiveDate ){

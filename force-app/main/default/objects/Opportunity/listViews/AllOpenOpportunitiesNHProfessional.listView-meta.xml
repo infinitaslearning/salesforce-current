@@ -16,7 +16,7 @@
     <filters>
         <field>OPPORTUNITY.RECORDTYPE</field>
         <operation>equals</operation>
-        <value>Opportunity.Professional</value>
+        <value>Opportunity.Zorg</value>
     </filters>
     <filters>
         <field>OPPORTUNITY.STAGE_NAME</field>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHZorgCannotEditClosedOpp</fullName>
+    <active>true</active>
+    <description>Prevents a user making changes to an Opportunity that was closed won or closed lost.</description>
+    <errorConditionFormula>AND(
+    OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    NOT(ISCHANGED(Is_Validation_Bypassed__c)), 
+    OR(
+       ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Won&quot;), 
+       ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Lost&quot;) 
+    ), 
+    NOT($Profile.Name = &quot;System Administrator&quot;)
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to edit an Opportunity that is Closed Won/Closed Lost.</errorMessage>
+</ValidationRule>

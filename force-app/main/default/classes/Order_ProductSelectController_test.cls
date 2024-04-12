@@ -839,7 +839,7 @@ public with sharing class Order_ProductSelectController_test {
         test.startTest();
         
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
-        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Professional','Noordhoff');
+        Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Zorg','Noordhoff');
         Order_ProductSelectController.returnPricebook(ProfPricebook.id);
         Order_ProductSelectController.returnPricebook(null);
       	

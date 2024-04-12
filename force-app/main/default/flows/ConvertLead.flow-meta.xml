@@ -3,8 +3,8 @@
     <actionCalls>
         <name>ConvertLead</name>
         <label>Convert Lead</label>
-        <locationX>776</locationX>
-        <locationY>3362</locationY>
+        <locationX>644</locationX>
+        <locationY>3062</locationY>
         <actionName>IL_LeadConversion</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -35,7 +35,7 @@
     <actionCalls>
         <name>GetDefaultOpportunityRecordType</name>
         <label>Get Default Opportunity Record Type</label>
-        <locationX>413</locationX>
+        <locationX>347</locationX>
         <locationY>458</locationY>
         <actionName>ecflc__flowUserRecordType</actionName>
         <actionType>apex</actionType>
@@ -58,26 +58,10 @@
     </actionCalls>
     <apiVersion>50.0</apiVersion>
     <assignments>
-        <name>Assign_found_Contact</name>
-        <label>Assign found Contact</label>
-        <locationX>314</locationX>
-        <locationY>1538</locationY>
-        <assignmentItems>
-            <assignToReference>sov_Lead.Contact__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>check_if_Contact_already_exists.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Opportunity</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>Assign_values</name>
         <label>Assign values</label>
-        <locationX>776</locationX>
-        <locationY>2630</locationY>
+        <locationX>644</locationX>
+        <locationY>2330</locationY>
         <assignmentItems>
             <assignToReference>sov_Lead.ReadytoConvert__c</assignToReference>
             <operator>Assign</operator>
@@ -120,7 +104,7 @@
     <assignments>
         <name>AssignLookups</name>
         <label>Assign Lookups</label>
-        <locationX>776</locationX>
+        <locationX>644</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>sov_Lead.Account__c</assignToReference>
@@ -164,8 +148,8 @@
     <assignments>
         <name>AssignNewContactToLead</name>
         <label>Assign new Contact to Lead</label>
-        <locationX>578</locationX>
-        <locationY>1538</locationY>
+        <locationX>380</locationX>
+        <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>sov_Lead.Contact__c</assignToReference>
             <operator>Assign</operator>
@@ -180,8 +164,8 @@
     <assignments>
         <name>AssignNewOpportunityToLead</name>
         <label>Assign new Opportunity to Lead</label>
-        <locationX>578</locationX>
-        <locationY>2438</locationY>
+        <locationX>446</locationX>
+        <locationY>2138</locationY>
         <assignmentItems>
             <assignToReference>sov_Lead.Opportunity__c</assignToReference>
             <operator>Assign</operator>
@@ -196,8 +180,8 @@
     <assignments>
         <name>AssignVariables</name>
         <label>Assign variables</label>
-        <locationX>776</locationX>
-        <locationY>3254</locationY>
+        <locationX>644</locationX>
+        <locationY>2954</locationY>
         <assignmentItems>
             <assignToReference>soc_Leads</assignToReference>
             <operator>Add</operator>
@@ -212,8 +196,8 @@
     <assignments>
         <name>Set_AccountId</name>
         <label>Set AccountId</label>
-        <locationX>864</locationX>
-        <locationY>3578</locationY>
+        <locationX>732</locationX>
+        <locationY>3278</locationY>
         <assignmentItems>
             <assignToReference>soc_Account</assignToReference>
             <operator>Assign</operator>
@@ -228,8 +212,8 @@
     <assignments>
         <name>Set_ContactIds</name>
         <label>Set ContactIds</label>
-        <locationX>864</locationX>
-        <locationY>3878</locationY>
+        <locationX>732</locationX>
+        <locationY>3578</locationY>
         <assignmentItems>
             <assignToReference>soc_Contact</assignToReference>
             <operator>Assign</operator>
@@ -244,8 +228,8 @@
     <assignments>
         <name>Set_OpportunityIds</name>
         <label>Set OpportunityIds</label>
-        <locationX>864</locationX>
-        <locationY>4178</locationY>
+        <locationX>732</locationX>
+        <locationY>3878</locationY>
         <assignmentItems>
             <assignToReference>soc_Opportunity</assignToReference>
             <operator>Assign</operator>
@@ -258,34 +242,9 @@
         </connector>
     </assignments>
     <decisions>
-        <name>contact_found</name>
-        <label>Contact found?</label>
-        <locationX>446</locationX>
-        <locationY>1322</locationY>
-        <defaultConnector>
-            <targetReference>createContact0</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
-        <rules>
-            <name>Yes_Contact_found</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>check_if_Contact_already_exists</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Contact_already_exists</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>convertCreateContact</name>
         <label>Create Contact?</label>
-        <locationX>776</locationX>
+        <locationX>644</locationX>
         <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>Create_Opportunity</targetReference>
@@ -302,7 +261,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>check_if_Contact_already_exists</targetReference>
+                <targetReference>createContact0</targetReference>
             </connector>
             <label>Create Contact</label>
         </rules>
@@ -351,10 +310,10 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Copy_1_of_Is_lead_NH_Professional</name>
-        <label>Is lead NH Professional?</label>
-        <locationX>578</locationX>
-        <locationY>2138</locationY>
+        <name>Copy_1_of_Is_lead_NH_Zorg</name>
+        <label>Is lead NH Zorg?</label>
+        <locationX>446</locationX>
+        <locationY>1838</locationY>
         <defaultConnector>
             <targetReference>createOpportunity</targetReference>
         </defaultConnector>
@@ -373,14 +332,14 @@
                 <leftValueReference>sov_Lead.Segment__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -392,8 +351,8 @@
     <decisions>
         <name>Create_Opportunity</name>
         <label>Create Opportunity</label>
-        <locationX>776</locationX>
-        <locationY>1814</locationY>
+        <locationX>644</locationX>
+        <locationY>1514</locationY>
         <defaultConnector>
             <targetReference>updatePrimaryContact</targetReference>
         </defaultConnector>
@@ -424,8 +383,8 @@
     <decisions>
         <name>Does_Interaction_Exist</name>
         <label>Does Interaction Exist</label>
-        <locationX>776</locationX>
-        <locationY>2954</locationY>
+        <locationX>644</locationX>
+        <locationY>2654</locationY>
         <defaultConnector>
             <targetReference>createInteractionBeforeConvert</targetReference>
         </defaultConnector>
@@ -449,8 +408,8 @@
     <decisions>
         <name>DoesAccountContactRelationshipExist</name>
         <label>Does Account Contact Relationship exist?</label>
-        <locationX>622</locationX>
-        <locationY>4694</locationY>
+        <locationX>490</locationX>
+        <locationY>4394</locationY>
         <defaultConnector>
             <targetReference>Update_Privacy_Permissions</targetReference>
         </defaultConnector>
@@ -488,7 +447,7 @@
     <decisions>
         <name>Is_Lead_Converted</name>
         <label>Is Lead Converted</label>
-        <locationX>413</locationX>
+        <locationX>347</locationX>
         <locationY>566</locationY>
         <defaultConnector>
             <targetReference>Convert_Lead</targetReference>
@@ -513,8 +472,8 @@
     <decisions>
         <name>Leadconversion</name>
         <label>Leadconversion</label>
-        <locationX>776</locationX>
-        <locationY>4478</locationY>
+        <locationX>644</locationX>
+        <locationY>4178</locationY>
         <defaultConnector>
             <targetReference>Result</targetReference>
         </defaultConnector>
@@ -545,8 +504,8 @@
 20220318 RF - Enrich Create new Opportunity mapping to include Campaign from Lead
 20220420 HdG - Add Operating Company to the new opportunity mapping
 20220610 MR add Salesseason to Create opportunity
-20230123 CH - Update Professional = true for NH Professional leads
-20230403 CH - Fixed opportunity opco assignment for professional
+20230123 CH - Update Zorg = true for NH Zorg leads
+20230403 CH - Fixed opportunity opco assignment for Zorg
 20230413 CH - Fixed default opportunity record type for NH Prof &amp; added pricebook assignment for opps</description>
     <environments>Default</environments>
     <formulas>
@@ -587,7 +546,7 @@
     <formulas>
         <name>forOpportunityRT</name>
         <dataType>String</dataType>
-        <expression>IF(ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Professional&quot;), {!$Label.OpportunityNoordhoffProfessional},CASE({!GetUser.Segment__c},
+        <expression>IF(ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Zorg&quot;), {!$Label.OpportunityNoordhoffZorg},CASE({!GetUser.Segment__c},
 &quot;Liber University&quot;,{!$Label.OpportunityLiberUniversity},
 &quot;Liber School&quot;,{!$Label.OpportunityLiberSchool},
 &quot;Noordhoff PE&quot;,{!$Label.OpportunityNoordhoffBao},
@@ -619,8 +578,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <loops>
         <name>Loop_Converted_AccountIDs</name>
         <label>Loop Converted AccountIDs</label>
-        <locationX>776</locationX>
-        <locationY>3470</locationY>
+        <locationX>644</locationX>
+        <locationY>3170</locationY>
         <collectionReference>soc_Accounts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -633,8 +592,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <loops>
         <name>Loop_Converted_ContactIDs</name>
         <label>Loop Converted ContactIDs</label>
-        <locationX>776</locationX>
-        <locationY>3770</locationY>
+        <locationX>644</locationX>
+        <locationY>3470</locationY>
         <collectionReference>soc_Contacts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -647,8 +606,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <loops>
         <name>Loop_Converted_OpportunityIDs</name>
         <label>Loop Converted OpportunityIDs</label>
-        <locationX>776</locationX>
-        <locationY>4070</locationY>
+        <locationX>644</locationX>
+        <locationY>3770</locationY>
         <collectionReference>soc_Opportunities</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -680,8 +639,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordCreates>
         <name>Copy_1_of_Create_Opportunity</name>
         <label>Create Opportunity</label>
-        <locationX>446</locationX>
-        <locationY>2246</locationY>
+        <locationX>314</locationX>
+        <locationY>1946</locationY>
         <assignRecordIdToReference>var_CreatedOpportunity</assignRecordIdToReference>
         <connector>
             <targetReference>AssignNewOpportunityToLead</targetReference>
@@ -755,7 +714,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>$Label.OpportunityNoordhoffProfessional</elementReference>
+                <elementReference>$Label.OpportunityNoordhoffZorg</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -767,7 +726,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>Segment__c</field>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -781,8 +740,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordCreates>
         <name>CreateAccountContactRelationship</name>
         <label>Create Account Contact Relationship</label>
-        <locationX>490</locationX>
-        <locationY>4910</locationY>
+        <locationX>358</locationX>
+        <locationY>4610</locationY>
         <connector>
             <targetReference>Update_Privacy_Permissions</targetReference>
         </connector>
@@ -816,8 +775,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordCreates>
         <name>createContact0</name>
         <label>Create Contact</label>
-        <locationX>578</locationX>
-        <locationY>1430</locationY>
+        <locationX>380</locationX>
+        <locationY>1214</locationY>
         <assignRecordIdToReference>var_CreatedContact</assignRecordIdToReference>
         <connector>
             <targetReference>AssignNewContactToLead</targetReference>
@@ -923,8 +882,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordCreates>
         <name>createOpportunity</name>
         <label>Create Opportunity</label>
-        <locationX>710</locationX>
-        <locationY>2246</locationY>
+        <locationX>578</locationX>
+        <locationY>1946</locationY>
         <assignRecordIdToReference>var_CreatedOpportunity</assignRecordIdToReference>
         <connector>
             <targetReference>AssignNewOpportunityToLead</targetReference>
@@ -1052,52 +1011,10 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <object>Opportunity</object>
     </recordCreates>
     <recordLookups>
-        <name>check_if_Contact_already_exists</name>
-        <label>check if Contact already exists</label>
-        <locationX>446</locationX>
-        <locationY>1214</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>contact_found</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Email</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.Email</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>LastName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.LastName</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>FirstName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.FirstName</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>OperatingCompany__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.OperatingCompany__c</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_interaction</name>
         <label>Get interaction</label>
-        <locationX>776</locationX>
-        <locationY>2846</locationY>
+        <locationX>644</locationX>
+        <locationY>2546</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Does_Interaction_Exist</targetReference>
@@ -1117,11 +1034,11 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>Get_Pricebook</name>
         <label>Get Pricebook</label>
-        <locationX>578</locationX>
-        <locationY>2030</locationY>
+        <locationX>446</locationX>
+        <locationY>1730</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_1_of_Is_lead_NH_Professional</targetReference>
+            <targetReference>Copy_1_of_Is_lead_NH_Zorg</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1138,8 +1055,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>Get_Pricebook_Name</name>
         <label>Get Pricebook Name</label>
-        <locationX>578</locationX>
-        <locationY>1922</locationY>
+        <locationX>446</locationX>
+        <locationY>1622</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Pricebook</targetReference>
@@ -1159,8 +1076,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>GetAccountContactRelationship</name>
         <label>Get Account Contact Relationship</label>
-        <locationX>622</locationX>
-        <locationY>4586</locationY>
+        <locationX>490</locationX>
+        <locationY>4286</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>DoesAccountContactRelationshipExist</targetReference>
@@ -1187,7 +1104,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>getContact</name>
         <label>Get Contact</label>
-        <locationX>776</locationX>
+        <locationX>644</locationX>
         <locationY>998</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1208,8 +1125,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>getConvertedAccount</name>
         <label>Get Converted Account</label>
-        <locationX>490</locationX>
-        <locationY>4802</locationY>
+        <locationX>358</locationX>
+        <locationY>4502</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CreateAccountContactRelationship</targetReference>
@@ -1229,7 +1146,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>GetLead</name>
         <label>Get Lead</label>
-        <locationX>413</locationX>
+        <locationX>347</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1287,7 +1204,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>getNoordhoffCustomMetadata</name>
         <label>Get Noordhoff Custom Metadata</label>
-        <locationX>413</locationX>
+        <locationX>347</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1308,7 +1225,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>GetProduct</name>
         <label>Get Product</label>
-        <locationX>776</locationX>
+        <locationX>644</locationX>
         <locationY>782</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1329,7 +1246,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordLookups>
         <name>GetUser</name>
         <label>Get User</label>
-        <locationX>413</locationX>
+        <locationX>347</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1350,8 +1267,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordUpdates>
         <name>Update_Lead</name>
         <label>Update Lead</label>
-        <locationX>776</locationX>
-        <locationY>2738</locationY>
+        <locationX>644</locationX>
+        <locationY>2438</locationY>
         <connector>
             <targetReference>Get_interaction</targetReference>
         </connector>
@@ -1360,8 +1277,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordUpdates>
         <name>Update_Privacy_Permissions</name>
         <label>Update Privacy Permissions</label>
-        <locationX>622</locationX>
-        <locationY>5102</locationY>
+        <locationX>490</locationX>
+        <locationY>4802</locationY>
         <connector>
             <targetReference>UpdateInteractionAfterConvert</targetReference>
         </connector>
@@ -1384,7 +1301,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordUpdates>
         <name>UpdateContactVaues</name>
         <label>Update Contact Values</label>
-        <locationX>842</locationX>
+        <locationX>644</locationX>
         <locationY>1214</locationY>
         <connector>
             <targetReference>Create_Opportunity</targetReference>
@@ -1414,8 +1331,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <recordUpdates>
         <name>updatePrimaryContact</name>
         <label>Update Primary Contact</label>
-        <locationX>974</locationX>
-        <locationY>1922</locationY>
+        <locationX>842</locationX>
+        <locationY>1622</locationY>
         <connector>
             <targetReference>Assign_values</targetReference>
         </connector>
@@ -1444,39 +1361,9 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     </recordUpdates>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
-        <name>Contact_already_exists</name>
-        <label>Contact already exists</label>
-        <locationX>314</locationX>
-        <locationY>1430</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
-        <connector>
-            <targetReference>Assign_found_Contact</targetReference>
-        </connector>
-        <fields>
-            <name>Contact_Found_warning</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 14px;&quot;&gt;We already found a Contact, that seems to be tha same:&lt;/strong&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>DoubleContactName</name>
-            <fieldText>&lt;p&gt;Name: {!check_if_Contact_already_exists.FirstName} {!check_if_Contact_already_exists.LastName}&lt;/p&gt;&lt;p&gt;E-mail: {!check_if_Contact_already_exists.Email}&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>WeWillUseThisContactWarning</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 14px;&quot;&gt;We will use this contact. If you want to create a new contact make sure that the double contact is corrected first.&lt;/strong&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <nextOrFinishButtonLabel>continue</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
         <name>Convert_Lead</name>
         <label>Convert Lead</label>
-        <locationX>776</locationX>
+        <locationX>644</locationX>
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -1742,8 +1629,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <screens>
         <name>Result</name>
         <label>Result</label>
-        <locationX>776</locationX>
-        <locationY>5402</locationY>
+        <locationX>644</locationX>
+        <locationY>5102</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -1811,7 +1698,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>287</locationX>
+        <locationX>221</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>GetLead</targetReference>
@@ -1821,8 +1708,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <subflows>
         <name>Auto_Convert_Post_Processing</name>
         <label>Auto Convert Post Processing</label>
-        <locationX>864</locationX>
-        <locationY>4286</locationY>
+        <locationX>732</locationX>
+        <locationY>3986</locationY>
         <connector>
             <targetReference>Loop_Converted_OpportunityIDs</targetReference>
         </connector>
@@ -1837,8 +1724,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <subflows>
         <name>createInteractionBeforeConvert</name>
         <label>Create Interaction before convert</label>
-        <locationX>864</locationX>
-        <locationY>3062</locationY>
+        <locationX>732</locationX>
+        <locationY>2762</locationY>
         <connector>
             <targetReference>AssignVariables</targetReference>
         </connector>
@@ -1877,8 +1764,8 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
     <subflows>
         <name>UpdateInteractionAfterConvert</name>
         <label>Update Interaction after convert</label>
-        <locationX>622</locationX>
-        <locationY>5210</locationY>
+        <locationX>490</locationX>
+        <locationY>4910</locationY>
         <connector>
             <targetReference>Result</targetReference>
         </connector>

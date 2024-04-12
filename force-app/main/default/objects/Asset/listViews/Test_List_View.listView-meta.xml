@@ -12,7 +12,7 @@
     <filters>
         <field>PriceBook__c</field>
         <operation>contains</operation>
-        <value>professional</value>
+        <value>Zorg</value>
     </filters>
     <filters>
         <field>IsActive__c</field>

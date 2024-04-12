@@ -18,7 +18,7 @@
     <filters>
         <field>OperatingCompany__c</field>
         <operation>equals</operation>
-        <value>Noordhoff,Noordhoff Professional,Infinitas Learning</value>
+        <value>Noordhoff,Noordhoff Zorg,Infinitas Learning</value>
     </filters>
     <filters>
         <field>PRODUCT2.ACTIVE</field>

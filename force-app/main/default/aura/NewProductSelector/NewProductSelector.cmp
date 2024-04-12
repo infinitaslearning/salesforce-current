@@ -257,14 +257,14 @@
                         <th scope="row">
                             
                         </th>   
-                        <aura:if isTrue="{! and(v.PricebookName == 'Professional')}">  
+                        <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}">  
                             <th style="width:9%" scope="row">
                                 <div class=" slds-cell-fixed" >    
                                     School 
                                 </div>
                         </th>
                         </aura:if>
-                        <aura:if isTrue="{! and(v.PricebookName != 'Professional')}">  
+                        <aura:if isTrue="{! and(v.PricebookName != 'Zorg')}">  
                             <th style="width:17%" scope="row">
                                 <div class=" slds-cell-fixed" >    
                                     School 
@@ -272,22 +272,22 @@
                         </th>
                         </aura:if>    
                                 
-                        <aura:if isTrue="{! and(v.PricebookName == 'Professional')}">  
+                        <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}">  
                             <th style="width:9%" scope="row">
                                 <div class=" slds-cell-fixed" > 
                                     Product Name</div>
                             </th>
                         </aura:if>
-                        <aura:if isTrue="{! and(v.PricebookName != 'Professional')}">  
+                        <aura:if isTrue="{! and(v.PricebookName != 'Zorg')}">  
                             <th style="width:17%" scope="row">
                                 <div class=" slds-cell-fixed" > 
                                     Product Name</div>
                             </th>
                         </aura:if>
                             
- <!-- OPPORTUNITY , v.PricebookName == 'Professional')  v.IsOpportunity-->  
+ <!-- OPPORTUNITY , v.PricebookName == 'Zorg')  v.IsOpportunity-->  
 
-                            <aura:if isTrue="{! and(v.PricebookName == 'Professional')}"> <!-- ,v.IsOpportunity-->
+                            <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}"> <!-- ,v.IsOpportunity-->
                                 <th style="width:5%" scope="row">
                                     <div class=" slds-cell-fixed" >Terms</div>
                                 </th> 
@@ -339,12 +339,12 @@
                         </td> 
                                     <td >
                                                  <div class="slds-truncate-p-horizontal_none">
-                                                    <aura:if isTrue="{! and(v.PricebookName != 'Professional')}">  
+                                                    <aura:if isTrue="{! and(v.PricebookName != 'Zorg')}">  
                                                             <div class="slds-truncate-p-horizontal_none" style="width: 250px;word-wrap: break-word;white-space: normal;">
                                                                 <output type="text" name="input3"   value="{!item.ShipToAccountName}"  />  
                                                             </div>
                                                     </aura:if>
-                                                    <aura:if isTrue="{! and(v.PricebookName == 'Professional')}">  
+                                                    <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}">  
                                                             <div class="slds-truncate-p-horizontal_none" style="width: 150px;word-wrap: break-word;white-space: normal;">
                                                                 <output type="text" name="input3"   value="{!item.ShipToAccountName}"  />  
                                                             </div>
@@ -353,12 +353,12 @@
                                                     </td>
                                 			 <td >
                                                  <div class="slds-truncate-p-horizontal_none">
-                                                    <aura:if isTrue="{! and(v.PricebookName != 'Professional')}"> 
+                                                    <aura:if isTrue="{! and(v.PricebookName != 'Zorg')}"> 
                                                         <div class="slds-truncate-p-horizontal_none" style="width: 270px;word-wrap: break-word;white-space: normal;">
                                                             <output type="text" name="input3"   value="{!item.ProductName}"  />  
                                                         </div>
                                                     </aura:if>
-                                                    <aura:if isTrue="{! and(v.PricebookName == 'Professional')}"> 
+                                                    <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}"> 
                                                         <div class="slds-truncate-p-horizontal_none" style="width: 180px;word-wrap: break-word;white-space: normal;">
                                                             <output type="text" name="input3"   value="{!item.ProductName}"  />  
                                                         </div>
@@ -366,7 +366,7 @@
                         					</div>
                                             </td>
          <!-- OPPORTUNITY -->                        
-                        <aura:if isTrue="{! and(v.PricebookName == 'Professional')}">    <!-- ,v.IsOpportunity-->                        
+                        <aura:if isTrue="{! and(v.PricebookName == 'Zorg')}">    <!-- ,v.IsOpportunity-->                        
                                     <td>
                                         <div class="slds-truncate" >                                             
                                             <aura:if isTrue="{! or(item.ProRata == false, item.MasterOrder == null) }">    
@@ -443,7 +443,7 @@
                                                 </div>
                                                      </td> 
                 <!-- OPPORTUNITY                                      
-                    <aura:if isTrue="{! or(v.PricebookName == 'Professional',not( v.IsOpportunity == true))}">   
+                    <aura:if isTrue="{! or(v.PricebookName == 'Zorg',not( v.IsOpportunity == true))}">   
                         -->                                                                            
                                                 <td>
                                                 <div class="slds-truncate">

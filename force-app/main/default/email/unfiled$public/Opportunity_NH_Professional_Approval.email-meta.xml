@@ -2,9 +2,9 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>ISO-8859-1</encodingKey>
-    <name>Opportunity: NH Professional Approval</name>
+    <name>Opportunity: NH Zorg Approval</name>
     <style>none</style>
-    <subject>Professional Opportunity Awaiting Approval</subject>
+    <subject>Zorg Opportunity Awaiting Approval</subject>
     <type>text</type>
     <uiType>Aloha</uiType>
 </EmailTemplate>

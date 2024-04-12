@@ -17,6 +17,6 @@
     </filters>
     <label>All Campaigns Noordhoff Professional</label>
     <sharedTo>
-        <group>AllUsersNoordhoffProfessional</group>
+        <group>AllUsersNoordhoffZorg</group>
     </sharedTo>
 </ListView>

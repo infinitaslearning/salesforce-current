@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHZorgInactiveProducts</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    ISCHANGED(StageName), 
+    ISPICKVAL(StageName, &quot;Closed Won&quot;), 
+    Inactive_Product_Count__c &gt; 0,
+    NOT($User.ValidationRulesDoNotApply__c  = true)
+)</errorConditionFormula>
+    <errorMessage>Cannot set Stage to Closed Won, there are 1 or more Inactive Opportunity Products.</errorMessage>
+</ValidationRule>

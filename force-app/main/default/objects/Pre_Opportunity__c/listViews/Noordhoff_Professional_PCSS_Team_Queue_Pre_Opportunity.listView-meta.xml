@@ -2,8 +2,8 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Noordhoff_Professional_PCSS_Team_Queue_Pre_Opportunity</fullName>
     <filterScope>Queue</filterScope>
-    <label>Noordhoff Professional PCSS Team Queue</label>
-    <queue>Noordhoff_Professional_PCSS_Team_Queue</queue>
+    <label>Noordhoff Zorg PCSS Team Queue</label>
+    <queue>Noordhoff_Zorg_PCSS_Team_Queue</queue>
     <sharedTo>
         <allInternalUsers></allInternalUsers>
     </sharedTo>

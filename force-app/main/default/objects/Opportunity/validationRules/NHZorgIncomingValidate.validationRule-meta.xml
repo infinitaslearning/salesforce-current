@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NHZorgIncomingValidate</fullName>
+    <active>true</active>
+    <description>Should not allow any other Status/Stage other than P. Incoming for new NH Zorg Opportunities.</description>
+    <errorConditionFormula>AND(
+    ISNEW(), 
+    NOT(ISPICKVAL(StageName, &quot;P. Incoming&quot;)), 
+    RecordType.Name = &quot;Zorg&quot;,
+    NOT($User.ValidationRulesDoNotApply__c  = true)
+)</errorConditionFormula>
+    <errorMessage>Status: P. Incoming should be the value for a new Opportunity.</errorMessage>
+</ValidationRule>

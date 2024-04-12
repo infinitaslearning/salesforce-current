@@ -74,7 +74,7 @@
             <fieldType>ObjectProvided</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
-            <objectFieldReference>getAsset.CancelationDate__c</objectFieldReference>
+            <objectFieldReference>getAsset.CancellationDate__c</objectFieldReference>
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>

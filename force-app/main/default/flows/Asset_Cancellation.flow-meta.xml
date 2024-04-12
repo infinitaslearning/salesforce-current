@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>60.0</apiVersion>
-    <assignments>
-        <name>assCancellation</name>
-        <label>assCancellation</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
-        <assignmentItems>
-            <assignToReference>getAsset.CancellationDate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>CancellationDate</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>getAsset.CancellationReason__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>CancellationReason</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Update_Records_1</targetReference>
-        </connector>
-    </assignments>
     <dynamicChoiceSets>
         <name>assCancellationReason</name>
         <dataType>Picklist</dataType>
@@ -44,7 +21,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -57,8 +34,8 @@
     <recordLookups>
         <name>getAsset</name>
         <label>getAsset</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>584</locationX>
+        <locationY>182</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>scrCancelAsset</targetReference>
@@ -78,48 +55,39 @@
     <recordUpdates>
         <name>Update_Records_1</name>
         <label>Update Records 1</label>
-        <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationX>584</locationX>
+        <locationY>506</locationY>
         <inputReference>getAsset</inputReference>
     </recordUpdates>
     <screens>
         <name>scrCancelAsset</name>
         <label>scrCancelAsset</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>592</locationX>
+        <locationY>326</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>assCancellation</targetReference>
+            <targetReference>Update_Records_1</targetReference>
         </connector>
         <fields>
-            <name>CancellationDate</name>
-            <dataType>Date</dataType>
-            <defaultValue>
-                <elementReference>getAsset.CancellationDate__c</elementReference>
-            </defaultValue>
-            <fieldText>Cancellation Date</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>true</isRequired>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>getAsset.CancelationDate__c</objectFieldReference>
         </fields>
         <fields>
-            <name>CancellationReason</name>
-            <choiceReferences>assCancellationReason</choiceReferences>
-            <dataType>String</dataType>
-            <defaultValue>
-                <elementReference>getAsset.CancellationReason__c</elementReference>
-            </defaultValue>
-            <fieldText>Cancellation Reason</fieldText>
-            <fieldType>DropdownBox</fieldType>
-            <isRequired>true</isRequired>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>getAsset.CancellationReason__c</objectFieldReference>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
-        <locationY>0</locationY>
+        <locationX>458</locationX>
+        <locationY>48</locationY>
         <connector>
             <targetReference>getAsset</targetReference>
         </connector>

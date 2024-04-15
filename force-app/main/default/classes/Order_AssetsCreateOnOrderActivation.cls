@@ -302,7 +302,7 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             else{
                                                 NewAsset.ActivationDate__c = item.ServiceDate;
                                             }
-                                            //Replaced with Formula field NewAsset.IsActive__c = true;
+                                            //Replaced with Formula field NewAsset.IsActive__c = true; 
 
                                             if(item.Order.Source__c == 'B2B Salesforce'){
                                                 NewAsset.PurchaseDate = NewAsset.ActivationDate__c;

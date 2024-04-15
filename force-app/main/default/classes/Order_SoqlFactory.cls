@@ -792,7 +792,7 @@ public with sharing class Order_SoqlFactory {
            // + 'AND IsActive__c = true '
             + 'AND Active__c = true '
             + 'AND BillToAccount__c in:Set_BillTo '
-            + 'AND Contract__c =null';  
+            //+ 'AND Contract__c =null';  
         }
        
 

@@ -761,6 +761,7 @@ public with sharing class Order_SoqlFactory {
                 +')'
             +')'
             +' AND LastRenewalUpdate__c !=: CurrentDay'
+            + 'AND Active__c = true '
             +' AND AutomatedRenewProcess__c = true' 
             +' AND Product2.Type__c != \'Item Group\' '
             +' )'
@@ -792,7 +793,7 @@ public with sharing class Order_SoqlFactory {
            // + 'AND IsActive__c = true '
             + 'AND Active__c = true '
             + 'AND BillToAccount__c in:Set_BillTo '
-            //+ 'AND Contract__c =null';  
+            + 'AND Contract__c =null';  
         }
        
 

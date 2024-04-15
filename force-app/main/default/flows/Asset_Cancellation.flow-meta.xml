@@ -57,6 +57,9 @@
         <label>Update Records 1</label>
         <locationX>584</locationX>
         <locationY>506</locationY>
+        <faultConnector>
+            <targetReference>scrError</targetReference>
+        </faultConnector>
         <inputReference>getAsset</inputReference>
     </recordUpdates>
     <screens>
@@ -81,6 +84,31 @@
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
             <objectFieldReference>getAsset.CancellationReason__c</objectFieldReference>
+        </fields>
+        <fields>
+            <fieldType>ObjectProvided</fieldType>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>false</isRequired>
+            <objectFieldReference>getAsset.OtherCancellationReason__c</objectFieldReference>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>scrError</name>
+        <label>scrError</label>
+        <locationX>319</locationX>
+        <locationY>364</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>scrCancelAsset</targetReference>
+        </connector>
+        <fields>
+            <name>txtError</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(244, 8, 8);&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(253, 6, 6);&quot;&gt;Please make sure  you enter a cancellation reason&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>

@@ -4,18 +4,22 @@
     <externalId>false</externalId>
     <formula>If(
 				AND(
-								OR(TODAY()&lt;CancellationDate__c,ISNULL(CancellationDate__c)),
-						   OR( 
+								OR(CancellationDate__c &gt; RenewalDate__c,TODAY()&lt;CancellationDate__c,ISNULL(CancellationDate__c)),      
+						   OR(  
 									    AND(
-						         NOT(ISNULL(RenewalDate__c)),
-								        RenewalDate__c &gt;= TODAY()
-						        ),
-					        AND(EndDate__c &gt;= TODAY(),ISNULL(RenewalDate__c))	
-			       )
-				)		
-, true, false)  
-
+						             NOT(ISNULL(RenewalDate__c)),
+								           RenewalDate__c &gt;= TODAY(),
+																			OR(ISNULL(RenewalRunDate__c) ,RenewalRunDate__c &gt; Today())
+															)
+												
+			       )	
+				) 		
+, true, false)   
+    
 /*
+		,
+					        AND(EndDate__c &gt;= TODAY(),ISNULL(RenewalDate__c))
+AND(OR(ISNULL(RenewalDate__c), CancellationDate__c &lt;= RenewalDate__c, OR(ISNULL(RenewalRunDate__c) ,RenewalRunDate__c &gt; Today())))
 RenewalDate__c 
 EndDate__c 
 */</formula>

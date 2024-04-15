@@ -232,7 +232,7 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             NewAsset.BillToAccount__c = item.Order.Billto__c;
                                             NewAsset.DiscountedPrice__c = item.DiscountedPrice__c;
                                             NewAsset.CurrencyIsoCode = item.Order.CurrencyIsoCode;
-                                            NewAsset.IsActive__c = true;
+                                          
                                             NewAsset.OrderLineType__c = item.OrderLineType__c;
                                             
                                             if(item.Product2.CustomPricingAllowed__c == true && item.ComponentListPrice__c != item.ListPrice){
@@ -302,7 +302,7 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             else{
                                                 NewAsset.ActivationDate__c = item.ServiceDate;
                                             }
-                                            
+                                            //Replaced with Formula field NewAsset.IsActive__c = true;
 
                                             if(item.Order.Source__c == 'B2B Salesforce'){
                                                 NewAsset.PurchaseDate = NewAsset.ActivationDate__c;

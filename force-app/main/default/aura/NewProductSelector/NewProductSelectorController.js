@@ -985,6 +985,7 @@
                                     fullOrderList[key].UnitPrice = fullOrderList[key].BasePrice;
                                     fullOrderList[key].STDPrice = fullOrderList[key].BasePrice;
                                     fullOrderList[key].Amount = fullOrderList[key].STDPrice * fullOrderList[key].Quantity;
+                                    fullOrderList[key].listPriceRateId = null;
 
                                 if(fullOrderList[key].ItemId == ItemId || fullOrderList[key].ItemGroup == ItemId){
                                     var tmpQuantity;

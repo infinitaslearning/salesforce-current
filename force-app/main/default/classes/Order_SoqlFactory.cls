@@ -755,7 +755,7 @@ public with sharing class Order_SoqlFactory {
                 +'   OR (RenewalDate__c  <: CurrentDay AND QuantityUpdateCheckYearly__c = True)'
                 +  ')'
                 +'AND '
-                +'(' 
+                +'('
                 +' (QuantityUpdateCheckYearly__c = false)'
                 +' OR(QuantityUpdateCheckYearly__c = True AND QuantityStartDate__c <=:CurrentDay AND QuantityEndDate__c >=:CurrentDay  )'
                 +')'

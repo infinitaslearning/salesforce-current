@@ -764,7 +764,7 @@ public with sharing class Order_SoqlFactory {
             +' AND LastRenewalUpdate__c !=: CurrentDay'
             + 'AND Active__c = true '
             + 'AND Product2.Renewal__c = \'Automatic\' '
-            +' AND AutomatedRenewProcess__c = true' 
+          //  +' AND AutomatedRenewProcess__c = true' 
             +' AND Product2.Type__c != \'Item Group\' '
             +' )'
             +' OR('

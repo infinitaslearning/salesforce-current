@@ -93,10 +93,10 @@
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
-                    <leftValueReference>getAsset.PriceBook__c</leftValueReference>
-                    <operator>Contains</operator>
+                    <leftValueReference>getAsset.OperatingCompany__c</leftValueReference>
+                    <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>Professional</stringValue>
+                        <stringValue>Noordhoff Zorg</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>

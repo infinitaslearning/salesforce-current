@@ -392,7 +392,9 @@ Boolean UpdateItemGroup = false;
                                if(Item.Order.PricingMethod__c !='OrderTotalAmount' && Map_OrderProdMap.get(ProdGroup) >= lpr.StartQuantity__c
                                || Item.Order.PricingMethod__c =='OrderTotalAmount' && Map_OrderProdMap.get(ProdGroup) >= lpr.StartAmount__c){
                                                             
-                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2**');
+                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2_1**'+lpr.ProductDiscountGroup__c);
+                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2_2**'+item.Product2.ProductDiscountGroup__c);
+
                                         if(lpr.ProductDiscountGroup__c == item.Product2.ProductDiscountGroup__c){ 
                                                 /*
                                                 if(Map_PriceProductType.get(Item.Product2Id) != null){

@@ -1226,6 +1226,16 @@
     </customMetadataTypeAccesses>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Asset.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.ProductRenewalType__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>AWSCalloutFields__mdt.DataType__c</field>
         <readable>false</readable>
     </fieldPermissions>

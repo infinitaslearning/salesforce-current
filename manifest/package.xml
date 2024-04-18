@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>AWSPricebookMapping__mdt.Subsidiary__c</members>
 		<members>Account.CustomerCategory__c</members>
 		<members>Account.OperatingCompany__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
-		<members>OrderRequestPricebook.NoordhoffZorg</members>
+		<members>AWSPricebookMapping.Noordhoff_Zorg</members>
 		<name>CustomMetadata</name>
 	</types>
 	<types>

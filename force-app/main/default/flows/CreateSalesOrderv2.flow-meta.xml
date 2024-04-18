@@ -59,7 +59,7 @@
             <assignToReference>getPricebooks_var</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getProfessionalPricebook</elementReference>
+                <elementReference>getZorgPricebook</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -82,7 +82,7 @@
             <assignToReference>getPricebooks_var</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getNonProfPricebook</elementReference>
+                <elementReference>getNonZorgPricebook</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -2551,13 +2551,13 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>getAccountDetails.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -2603,9 +2603,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>getProfessionalPricebook</targetReference>
+                <targetReference>getZorgPricebook</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
         <rules>
             <name>Noordhoff</name>
@@ -2660,7 +2660,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>getNonProfPricebook</targetReference>
+                <targetReference>getNonZorgPricebook</targetReference>
             </connector>
             <label>Noordhoff</label>
         </rules>
@@ -2914,7 +2914,7 @@
     <formulas>
         <name>formShipByDate</name>
         <dataType>Date</dataType>
-        <expression>IF(AND(CONTAINS({!varPricebookName}, &quot;Professional&quot;), {!bCreatedFromContract} = true), null, IF(NOT(ISNULL({!getContractDetails.StartDate})),{!getContractDetails.StartDate}, today()))</expression>
+        <expression>IF(AND(CONTAINS({!varPricebookName}, &quot;Zorg&quot;), {!bCreatedFromContract} = true), null, IF(NOT(ISNULL({!getContractDetails.StartDate})),{!getContractDetails.StartDate}, today()))</expression>
     </formulas>
     <formulas>
         <name>formulaCalendarOrderEndDate</name>
@@ -3759,8 +3759,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>getNonProfPricebook</name>
-        <label>getNonProfPricebook</label>
+        <name>getNonZorgPricebook</name>
+        <label>getNonZorgPricebook</label>
         <locationX>1633</locationX>
         <locationY>2952</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
@@ -3901,8 +3901,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>getProfessionalPricebook</name>
-        <label>getProfessionalPricebook</label>
+        <name>getZorgPricebook</name>
+        <label>getZorgPricebook</label>
         <locationX>1453</locationX>
         <locationY>2839</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>

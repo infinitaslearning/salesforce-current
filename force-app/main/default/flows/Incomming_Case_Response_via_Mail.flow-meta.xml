@@ -5,7 +5,7 @@
         <description>Assignment to update the Case Owner to Knowledge Help queue</description>
         <name>Set_owner_to_Knowledge</name>
         <label>Set owner to Knowledge Help</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>1271</locationY>
         <assignmentItems>
             <assignToReference>Get_Case.OwnerId</assignToReference>
@@ -18,15 +18,63 @@
             <targetReference>Update_Case</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>SetFromPendingToOpen</name>
+        <label>Set status to Open</label>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Operating_Company</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SetStatusFromOnHoldToOpen</name>
+        <label>Set status to Open</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Operating_Company</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>SetStatusFromSolvedToOpen</name>
+        <label>Set status to Open</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Operating_Company</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Case_Status</name>
         <label>Case Status</label>
-        <locationX>270</locationX>
+        <locationX>402</locationX>
         <locationY>539</locationY>
         <defaultConnector>
             <targetReference>Operating_Company</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
             <name>New</name>
             <conditionLogic>and</conditionLogic>
@@ -43,6 +91,21 @@
             <label>New</label>
         </rules>
         <rules>
+            <name>Open</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Operating_Company</targetReference>
+            </connector>
+            <label>Open</label>
+        </rules>
+        <rules>
             <name>OnHold</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
@@ -53,7 +116,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Operating_Company</targetReference>
+                <targetReference>SetStatusFromOnHoldToOpen</targetReference>
             </connector>
             <label>On Hold</label>
         </rules>
@@ -68,7 +131,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Operating_Company</targetReference>
+                <targetReference>SetStatusFromSolvedToOpen</targetReference>
             </connector>
             <label>Solved</label>
         </rules>
@@ -83,7 +146,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Operating_Company</targetReference>
+                <targetReference>SetFromPendingToOpen</targetReference>
             </connector>
             <label>Pending</label>
         </rules>
@@ -106,7 +169,7 @@
     <decisions>
         <name>Incomming_or_Outgoing</name>
         <label>Incomming or Outgoing?</label>
-        <locationX>600</locationX>
+        <locationX>842</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Outgoing</defaultConnectorLabel>
         <rules>
@@ -129,7 +192,7 @@
         <description>What Operating Company does the Case belong to?</description>
         <name>Operating_Company</name>
         <label>Operating Company</label>
-        <locationX>270</locationX>
+        <locationX>402</locationX>
         <locationY>947</locationY>
         <defaultConnector>
             <targetReference>Update_Case</targetReference>
@@ -185,7 +248,7 @@
         <description>To check if the owner of the Case is one of the &apos;Openstaande Klantvragen&apos; queues</description>
         <name>Owner_is_Openstaande_Klantvragen_queues</name>
         <label>Owner is Openstaande Klantvragen queues?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>1055</locationY>
         <defaultConnector>
             <targetReference>Update_Case</targetReference>
@@ -233,7 +296,7 @@
     <recordCreates>
         <name>Create_Case</name>
         <label>Create Case</label>
-        <locationX>490</locationX>
+        <locationX>842</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>AccountId</field>
@@ -289,7 +352,7 @@
     <recordLookups>
         <name>Get_Case</name>
         <label>Get Case</label>
-        <locationX>270</locationX>
+        <locationX>402</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -310,7 +373,7 @@
     <recordLookups>
         <name>Get_Knowledge_Help_queue_id</name>
         <label>Get Knowledge Help queue id</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>1163</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -338,12 +401,12 @@
     <recordUpdates>
         <name>Update_Case</name>
         <label>Update Case</label>
-        <locationX>270</locationX>
+        <locationX>402</locationX>
         <locationY>1547</locationY>
         <inputReference>Get_Case</inputReference>
     </recordUpdates>
     <start>
-        <locationX>474</locationX>
+        <locationX>716</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Incomming_or_Outgoing</targetReference>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoordhoffHandoverOpenstaandeKlantvragen</fullName>
+    <active>true</active>
+    <description>This rule checks if first line try to add the Case to one of the Openstaande Klantvragen queues</description>
+    <errorConditionFormula>AND(
+RecordType.Name =&apos;Noordhoff&apos;,
+$UserRole.DeveloperName = &apos;Noordhoff_Customer_Service&apos;,
+ISCHANGED( OwnerId ),  
+CONTAINS(Owner:Queue.DeveloperName, &apos;OpenstaandeKlantvragen&apos;)
+)</errorConditionFormula>
+    <errorMessage>You cannot place a Case on a &apos;Openstaande Klantvragen&apos; queue directly, these can be used by Knowledge Management only.</errorMessage>
+</ValidationRule>

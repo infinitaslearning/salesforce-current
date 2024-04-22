@@ -77,6 +77,8 @@ public with sharing class Order_UpdateOrderListPriceDiscountAll {
             String ProdAcc=item.Product2Id;
             ProdAcc += item.ShipToAccount__c;
             Set_ProdAccId.add(ProdAcc);
+
+            //Potentially change this exclude the Asset rather than the Product
         }    
     }
 
@@ -116,20 +118,19 @@ system.debug('**Order_SoqlFactory.Order_UpdateOrderListPriceDiscountAll.loadAsse
             String ProdAcc=ass.Product2Id;
             ProdAcc += ass.AccountId;
 
+            //Potentially change this exclude the Asset rather than the Product
+
             if(!Set_ProdAccId.contains(ProdAcc)){
 
             
-                    //'ProductDiscountGroupUsageBased
-                   // system.debug('**LPD: ass.Quantity**'+ass.Quantity);         
-                    //'ProductUsageBased
+                    
                     
                     ProdGroup = ass.BillToAccount__c;
-                    //ProdGroup =+ ass.Product2Id;
+                    
 
                     if(ass.Quantity != null){ 
 
-                     //   if(ass.PricingMethod__c=='ProductDiscountGroupUsageBased'){
-
+                    
                             if(ass.Product2.ProductRateGroup__c != null){
                                 ProdGroup = ass.BillToAccount__c + ass.Product2.ProductRateGroup__c;
                             } 
@@ -168,7 +169,7 @@ system.debug('**Order_SoqlFactory.Order_UpdateOrderListPriceDiscountAll.loadAsse
 
             }
         }    
-   // }
+  
         system.debug('**Order_UpdateOrderListPrice:Map_OrderProdMap ***'+Map_OrderProdMap);
        
         
@@ -392,7 +393,9 @@ Boolean UpdateItemGroup = false;
                                if(Item.Order.PricingMethod__c !='OrderTotalAmount' && Map_OrderProdMap.get(ProdGroup) >= lpr.StartQuantity__c
                                || Item.Order.PricingMethod__c =='OrderTotalAmount' && Map_OrderProdMap.get(ProdGroup) >= lpr.StartAmount__c){
                                                             
-                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2**');
+                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2_1**'+lpr.ProductDiscountGroup__c);
+                                system.debug('**Order_UpdateOrderListPrice: IN LPD 2_2**'+item.Product2.ProductDiscountGroup__c);
+
                                         if(lpr.ProductDiscountGroup__c == item.Product2.ProductDiscountGroup__c){ 
                                                 /*
                                                 if(Map_PriceProductType.get(Item.Product2Id) != null){

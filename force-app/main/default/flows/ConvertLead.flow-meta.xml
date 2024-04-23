@@ -332,7 +332,7 @@
                 <leftValueReference>sov_Lead.Segment__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Zorg</stringValue>
+                    <stringValue>Professional</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -690,7 +690,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>OperatingCompany__c</field>
             <value>
-                <stringValue>Noordhoff</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -726,7 +726,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>Segment__c</field>
             <value>
-                <stringValue>Zorg</stringValue>
+                <stringValue>Professional</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>

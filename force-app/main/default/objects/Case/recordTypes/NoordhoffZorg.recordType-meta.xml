@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>NoordhoffProfessional</fullName>
+    <fullName>NoordhoffZorg</fullName>
     <active>true</active>
     <businessProcess>Support Process</businessProcess>
-    <label>Noordhoff Professional</label>
+    <label>Noordhoff Zorg</label>
     <picklistValues>
         <picklist>Browser__c</picklist>
         <values>
@@ -91,7 +91,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Noordhoff Professional</fullName>
+            <fullName>Noordhoff Zorg</fullName>
             <default>true</default>
         </values>
         <values>

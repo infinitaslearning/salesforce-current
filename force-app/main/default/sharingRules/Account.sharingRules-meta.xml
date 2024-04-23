@@ -15,7 +15,7 @@
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <criteriaItems>
             <field>isProfessional__c</field>
@@ -39,7 +39,7 @@
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <criteriaItems>
             <field>isProfessional__c</field>

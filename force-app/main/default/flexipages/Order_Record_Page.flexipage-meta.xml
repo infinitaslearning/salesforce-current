@@ -101,7 +101,7 @@
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
                                     <operator>CONTAINS</operator>
-                                    <rightValue>Professional</rightValue>
+                                    <rightValue>Zorg</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -117,10 +117,10 @@
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
                                     <operator>NE</operator>
-                                    <rightValue>Noordhoff Professional</rightValue>
+                                    <rightValue>Noordhoff Zorg</rightValue>
                                 </criteria>
                                 <criteria>
-                                    <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                                    <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>true</rightValue>
                                 </criteria>
@@ -186,7 +186,7 @@
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
                                     <operator>NE</operator>
-                                    <rightValue>Noordhoff Professional</rightValue>
+                                    <rightValue>Noordhoff Zorg</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -267,10 +267,10 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
-                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>true</rightValue>
                     </criteria>
@@ -306,10 +306,10 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
-                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>

@@ -33,10 +33,10 @@
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
                                     <operator>NE</operator>
-                                    <rightValue>Noordhoff Professional</rightValue>
+                                    <rightValue>Noordhoff Zorg</rightValue>
                                 </criteria>
                                 <criteria>
-                                    <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                                    <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>true</rightValue>
                                 </criteria>
@@ -76,7 +76,7 @@
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Noordhoff Professional</rightValue>
+                                    <rightValue>Noordhoff Zorg</rightValue>
                                 </criteria>
                                 <criteria>
                                     <leftValue>{!$User.Profile.Name}</leftValue>
@@ -872,7 +872,7 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -906,7 +906,7 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
@@ -1030,7 +1030,7 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

@@ -23,7 +23,7 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -63,7 +63,7 @@
                 <identifier>desktopDashboards_embeddedDashboard2</identifier>
                 <visibilityRule>
                     <criteria>
-                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>true</rightValue>
                     </criteria>
@@ -87,17 +87,17 @@
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
-                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!$User.UserRole.Name}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional Manager Sales</rightValue>
+                        <rightValue>Noordhoff Zorg Manager Sales</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -117,19 +117,19 @@
                 <visibilityRule>
                     <booleanFilter>1 AND 2 AND 3</booleanFilter>
                     <criteria>
-                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffProfessional}</leftValue>
+                        <leftValue>{!$Permission.CustomPermission.ViewNoordhoffZorg}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!$User.UserRole.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Noordhoff Professional Manager Sales</rightValue>
+                        <rightValue>Noordhoff Zorg Manager Sales</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

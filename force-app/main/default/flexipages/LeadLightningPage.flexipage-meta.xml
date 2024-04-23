@@ -159,7 +159,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -342,7 +342,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -359,7 +359,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -376,7 +376,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -403,7 +403,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -420,7 +420,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -990,7 +990,7 @@
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>NE</operator>
-                        <rightValue>Noordhoff Professional</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>

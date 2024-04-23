@@ -5,6 +5,25 @@
     <businessProcess>Professional</businessProcess>
     <label>Zorg</label>
     <picklistValues>
+        <picklist>CustomerRelationship__c</picklist>
+        <values>
+            <fullName>Cross-sell</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retention</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Up-sell</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>ForecastCategoryName</picklist>
         <values>
             <fullName>Best Case</fullName>
@@ -151,29 +170,6 @@
         </values>
         <values>
             <fullName>eCommerce</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>OperatingCompany__c</picklist>
-        <values>
-            <fullName>Infinitas Learning</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Liber</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Noordhoff</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Noordhoff Zorg</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Plantyn</fullName>
             <default>false</default>
         </values>
     </picklistValues>

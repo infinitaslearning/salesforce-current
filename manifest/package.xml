@@ -4,6 +4,7 @@
 		<members>AWSPricebookMapping__mdt.Subsidiary__c</members>
 		<members>Account.CustomerCategory__c</members>
 		<members>Account.OperatingCompany__c</members>
+		<members>Opportunity.CustomerRelationship__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
@@ -18,6 +19,7 @@
 		<members>Account.B2CIndividual</members>
 		<members>Account.B2C_Private_Individuals</members>
 		<members>Account.B2bB2cAuthors</members>
+		<members>Opportunity.Zorg</members>
 		<name>RecordType</name>
 	</types>
 	<version>58.0</version>

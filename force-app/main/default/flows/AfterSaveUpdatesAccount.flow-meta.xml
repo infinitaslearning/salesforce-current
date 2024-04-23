@@ -942,11 +942,13 @@ TEXT({!$Record.OperatingCompany__c}) = &apos;Liber&apos;, true, false)</expressi
     ISBLANK({!$Record.BillingReminderEmail__c}),
     IF(
         OR(
+           /*
             AND(
                 ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff&apos;),
                 {!$Record.isProfessional__c }= true
             ),
-            ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff Professional&apos;)
+            */
+            ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff Zorg&apos;)
         ),
         false,
         OR(

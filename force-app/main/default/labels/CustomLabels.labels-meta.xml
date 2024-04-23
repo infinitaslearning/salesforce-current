@@ -121,11 +121,11 @@
         <value>0013V00000CN5bbQAD</value>
     </labels>
     <labels>
-        <fullName>LeadConversionAccountNHProfessional</fullName>
+        <fullName>LeadConversionAccountNHZorg</fullName>
         <categories>Lead Conversion</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>LeadConversionAccountNHProfessional</shortDescription>
+        <shortDescription>LeadConversionAccountNHZorg</shortDescription>
         <value>001Qv000001ChR5IAK</value>
     </labels>
     <labels>
@@ -185,11 +185,11 @@
         <value>0123V000000gC8RQAU</value>
     </labels>
     <labels>
-        <fullName>OpportunityNoordhoffProfessional</fullName>
+        <fullName>OpportunityNoordhoffZorg</fullName>
         <categories>Flow</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>OpportunityNoordhoffProfessional</shortDescription>
+        <shortDescription>OpportunityNoordhoffZorg</shortDescription>
         <value>0123V000000PSEfQAO</value>
     </labels>
     <labels>
@@ -225,11 +225,11 @@
         <value>0053V000000nVI3</value>
     </labels>
     <labels>
-        <fullName>SalesAdminNoordhoffProfessional</fullName>
+        <fullName>SalesAdminNoordhoffZorg</fullName>
         <categories>Sales Admin</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Sales Admin Noordhoff Professional</shortDescription>
+        <shortDescription>Sales Admin Noordhoff Zorg</shortDescription>
         <value>0053V000001EyOz</value>
     </labels>
     <labels>

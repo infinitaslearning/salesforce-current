@@ -16,7 +16,7 @@
         <duplicateRuleFilterItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber, Plantyn, Noordhoff, Noordhoff Professional</value>
+            <value>Liber, Plantyn, Noordhoff, Noordhoff Zorg</value>
             <sortOrder>2</sortOrder>
             <table>Contact</table>
         </duplicateRuleFilterItems>

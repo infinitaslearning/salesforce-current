@@ -364,7 +364,7 @@ DB: 13/09/2039 added Source Studiemeister (same decision route as eCommerce B2C)
     <formulas>
         <name>form_OperatingCompany</name>
         <dataType>String</dataType>
-        <expression>IF({!sov_NetsuiteOrder.OperatingCompany__c}=&apos;Noordhoff Professional&apos;, &apos;Noordhoff&apos;, {!sov_NetsuiteOrder.OperatingCompany__c})</expression>
+        <expression>IF({!sov_NetsuiteOrder.OperatingCompany__c}=&apos;Noordhoff Zorg&apos;, &apos;Noordhoff Zorg&apos;, {!sov_NetsuiteOrder.OperatingCompany__c})</expression>
     </formulas>
     <formulas>
         <name>OldCustomerNumber_Formula</name>

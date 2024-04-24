@@ -4,11 +4,13 @@
 		<members>AWSPricebookMapping__mdt.Subsidiary__c</members>
 		<members>Account.CustomerCategory__c</members>
 		<members>Account.OperatingCompany__c</members>
+		<members>Case.OperatingCompany__c</members>
 		<members>Opportunity.CustomerRelationship__c</members>
 		<name>CustomField</name>
 	</types>
 	<types>
 		<members>AWSPricebookMapping.Noordhoff_Zorg</members>
+		<members>CaseManagement.NoordhoffZorg</members>
 		<name>CustomMetadata</name>
 	</types>
 	<types>

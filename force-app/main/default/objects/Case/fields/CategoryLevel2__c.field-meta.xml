@@ -62,11 +62,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>General</controllingFieldValue>
-            <controllingFieldValue>Primary Education</controllingFieldValue>
-            <controllingFieldValue>Secondary Education</controllingFieldValue>
-            <controllingFieldValue>Vocational Education</controllingFieldValue>
-            <controllingFieldValue>Higher Education</controllingFieldValue>
-            <valueName>Service</valueName>
+            <valueName>Rapportage</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

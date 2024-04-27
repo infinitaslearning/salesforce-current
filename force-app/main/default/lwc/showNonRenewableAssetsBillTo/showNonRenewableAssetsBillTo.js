@@ -165,8 +165,8 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                 elt.CancelationDate = element.CancellationDate__c;
                // elt.EndDate = element.UsageEndDate;
                 elt.EndDate = element.EndDate__c;
-                elt.active = element.IsActive__c;
-                if (element.IsActive__c) {
+                elt.active = element.Active__c;
+                if (element.Active__c) {
                     elt.activeSymbol = 'utility:check';
                 } else {
                     elt.activeSymbol = null;
@@ -256,7 +256,7 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                         elt.CancelationDate = element.CancellationDate__c;
                        // elt.EndDate = element.UsageEndDate;
                        elt.EndDate = element.EndDate__c;
-                        if (element.IsActive__c) {
+                        if (element.Active__c) {
                             elt.activeSymbol = 'utility:check';
                         } else {
                             elt.activeSymbol = null;
@@ -386,7 +386,7 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                     elt.CancelationDate = element.CancellationDate__c;
                     //elt.EndDate = element.UsageEndDate;
                     elt.EndDate = element.EndDate__c;
-                    if (element.IsActive__c) {
+                    if (element.Active__c) {
                         elt.activeSymbol = 'utility:check';
                     } else {
                         elt.activeSymbol = null;

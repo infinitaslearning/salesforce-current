@@ -167,7 +167,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                // elt.EndDate = element.UsageEndDate;
                elt.EndDate = element.EndDate__c;
 
-                if (element.IsActive__c) {
+                if (element.Active__c) {
                     elt.activeSymbol = 'utility:check';
                 } else {
                     elt.activeSymbol = null;
@@ -257,7 +257,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                         elt.CancelationDate = element.CancellationDate__c;
                        // elt.EndDate = element.UsageEndDate;
                        elt.EndDate = element.EndDate__c;
-                        if (element.IsActive__c) {
+                        if (element.Active__c) {
                             elt.activeSymbol = 'utility:check';
                         } else {
                             elt.activeSymbol = null;
@@ -387,7 +387,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                     elt.CancelationDate = element.CancellationDate__c;
                    // elt.EndDate = element.UsageEndDate;
                    elt.EndDate = element.EndDate__c;
-                    if (element.IsActive__c) {
+                    if (element.Active__c) {
                         elt.activeSymbol = 'utility:check';
                     } else {
                         elt.activeSymbol = null;

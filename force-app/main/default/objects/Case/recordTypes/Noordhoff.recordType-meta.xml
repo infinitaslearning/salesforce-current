@@ -104,6 +104,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Rapportage</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Werken met het digitaal lesmateriaal</fullName>
             <default>false</default>
         </values>
@@ -112,6 +116,14 @@
         <picklist>CategoryLevel3__c</picklist>
         <values>
             <fullName>Account voor docent %26 particulier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Backorder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beschadigd</fullName>
             <default>false</default>
         </values>
         <values>
@@ -127,11 +139,19 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>De Grote Bosatlas Flex</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Docentmateriaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eindejaarsretour</fullName>
             <default>false</default>
         </values>
         <values>
@@ -167,7 +187,15 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Manco%2Fsurplus</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Memij</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misdruk</fullName>
             <default>false</default>
         </values>
         <values>
@@ -191,6 +219,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Startmateriaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Stepping Stones Junior</fullName>
             <default>false</default>
         </values>
@@ -211,7 +243,15 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>VSO Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Validator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vitalsource</fullName>
             <default>false</default>
         </values>
         <values>
@@ -331,7 +371,7 @@
         </values>
         <values>
             <fullName>Question</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
     </picklistValues>
 </RecordType>

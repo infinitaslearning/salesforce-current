@@ -120,6 +120,7 @@ public with sharing class Order_SoqlFactory {
              +' Product2.PlannedPrintDate__c,'
              +' Product2.QuantitySelectionType__c,'
              +' Product2.Renewable__c,'
+             +' Product2.Renewal__c,'
              +' Product2.SoldInSegment__c,'
              +' Product2.SuccessorItem__c,'
              +' Product2.Stocknumber__c,'
@@ -359,7 +360,9 @@ public with sharing class Order_SoqlFactory {
         +'FixedStartDate__c,'
         +'StartDate__c,'
         +'LicenseDuration__c,'
+        +'Renewal__c,'
         +'Renewable__c '
+        
         +'from Product2 where id in: Set_Products';
                
 
@@ -722,6 +725,7 @@ public with sharing class Order_SoqlFactory {
         +' Product2.SuccessorItem__r.IsActive,'
         +' Product2.SuccessorItem__r.Type__c,'
         +' Product2.SuccessorItem__r.LicenseDuration__c,'
+        +' Product2.Renewal__c,'
         +' Product2.Type__c,'
         +' Product2.LicenseDuration__c, '
         +' Product2.OrderLineType__c, '
@@ -757,8 +761,10 @@ public with sharing class Order_SoqlFactory {
                 +' OR(QuantityUpdateCheckYearly__c = True AND QuantityStartDate__c <=:CurrentDay AND QuantityEndDate__c >=:CurrentDay  )'
                 +')'
             +')'
-            +' AND LastRenewalUpdate__c !=: CurrentDay'
-            +' AND AutomatedRenewProcess__c = true' 
+            +' AND LastRenewalUpdate__c !=: CurrentDay '
+          //  + ' AND Active__c = true '
+            + 'AND Product2.Renewal__c = \'Automatic\' '
+          //  +' AND AutomatedRenewProcess__c = true' 
             +' AND Product2.Type__c != \'Item Group\' '
             +' )'
             +' OR('
@@ -786,9 +792,10 @@ public with sharing class Order_SoqlFactory {
             Querystr += '(CancellationDate__c >: CurrentDay OR CancellationDate__c =null)'
             + 'AND RenewalDate__c  >=: CurrentDay '
             + 'AND (ActivationDate__c <=: CurrentDay OR  ActivationDate__c = null) '
-            + 'AND IsActive__c = true '
-            + 'AND BillToAccount__c in:Set_BillTo '
-            + 'AND Contract__c =null';  
+           // + 'AND IsActive__c = true '
+            + 'AND Active__c = true '
+            + 'AND BillToAccount__c in:Set_BillTo ';
+          //  + 'AND Contract__c =null';  
         }
        
 

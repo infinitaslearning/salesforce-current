@@ -9,8 +9,10 @@ ISCHANGED( OwnerId ),
 Owner:Queue.DeveloperName = &apos;NoordhoffTH&apos;,
 OR(
 ISPICKVAL( Type , &apos;Question&apos;),
-NOT(ISPICKVAL( Status , &apos;Open&apos;)),
-ISBLANK(AccountId)
+AND(NOT(ISPICKVAL( Status , &apos;Open&apos;)),
+ISPICKVAL (Type, &apos;Incident&apos;)),
+AND(ISBLANK(AccountId),
+ISPICKVAL (Type, &apos;Incident&apos;))
 )   
 )</errorConditionFormula>
     <errorMessage>To handover a Case to &apos;Technical Help&apos; please make sure the Type is not a &apos;Question&apos;, the Status is &apos;Open&apos; and Account is filled.</errorMessage>

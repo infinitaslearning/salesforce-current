@@ -613,7 +613,7 @@ public with sharing class Order_SoqlFactory {
        +' from Pricing__c where IsActive__c =true ';
     
        if(Type != 'Pricebookentrycreate' && Type != 'UpdatePricingfromProduct'){
-        Querystr += ' AND ((EndDate__c >=: CurDate AND ProductComponent__c != null) OR ProductComponent__c = null)'
+        Querystr += ' AND ((StartDate__c <=: CurDate AND EndDate__c >=: CurDate AND ProductComponent__c != null) OR ProductComponent__c = null)'
                     + '  AND ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)'
                     + ' OR (StartDate__c <=: PricebookEnd AND EndDate__c >=: PricebookEnd)'
                     + ' OR (StartDate__c >=: PricebookStart AND EndDate__c <=: PricebookEnd)'

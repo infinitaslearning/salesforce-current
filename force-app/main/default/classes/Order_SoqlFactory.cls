@@ -605,42 +605,63 @@ public with sharing class Order_SoqlFactory {
        +' ProductComponent__r.Quantity__c,'
        +' ProductComponent__r.Type__c,'
        +' ProductComponent__r.MainProduct__c,'
+       +' ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,' 
+       +' ProductComponent__r.MainProduct__r.EAN__c,' 
        +' ProductComponent__r.Product__c,'
+       +' ProductComponent__r.Product__r.EAN__c,'
        +' ProductComponent__r.Product__r.MarketSegment__c,'
        +' ProductComponent__r.Product__r.Type__c,'
-       +' ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,'  
        +' ProductComponent__r.Product__r.Name'
        +' from Pricing__c where IsActive__c =true ';
-    
+        
+       String PricebookYear;
        if(Type != 'Pricebookentrycreate' && Type != 'UpdatePricingfromProduct'){
-        Querystr += ' AND ((StartDate__c <=: CurDate AND EndDate__c >=: CurDate AND ProductComponent__c != null) OR ProductComponent__c = null)'
-                    + '  AND ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)'
-                    + ' OR (StartDate__c <=: PricebookEnd AND EndDate__c >=: PricebookEnd)'
-                    + ' OR (StartDate__c >=: PricebookStart AND EndDate__c <=: PricebookEnd)'
-                    + ' OR  (StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookEnd))';
+        
+            if(CurDate >= PricebookEnd){
+                PricebookYear = 'Previous';
+            }
+            else if(CurDate <= PricebookStart){
+                PricebookYear = 'Future';
+            }
+            else if(PricebookStart <= CurDate && CurDate  <= PricebookEnd){
+                PricebookYear = 'Current';
+                Querystr += ' AND StartDate__c <=: CurDate AND EndDate__c >=: CurDate';
+            }
+       
+            Querystr += ' AND ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)'
+            + ' OR (StartDate__c <=: PricebookEnd AND EndDate__c >=: PricebookEnd)'
+            + ' OR (StartDate__c >=: PricebookStart AND EndDate__c <=: PricebookEnd)'
+            + ' OR  (StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookEnd))';
                     
             
        } 
        if(Type == 'ProductSelector1'){
-            Querystr += 'AND(ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR ProductComponent__r.Product__c in: Set_ProdItemGroup OR Product__c in: Set_ProdItemGroup )';
+            Querystr += ' AND(ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR ProductComponent__r.Product__c in: Set_ProdItemGroup OR Product__c in: Set_ProdItemGroup )';
         }
        else if(Type == 'ProductSelector2'){   
-            Querystr += 'AND (ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR id in: lst_ProdPriceId)';
+            Querystr += ' AND (ProductComponent__r.MainProduct__c in: Set_ProdItemGroup OR id in: lst_ProdPriceId)';
         } 
        else if(Type == 'ItemgroupCreate'){
-            Querystr += 'AND (ProductComponent__r.MainProduct__c in: Set_ProdItemGroup )'; 
+            Querystr += ' AND (ProductComponent__r.MainProduct__c in: Set_ProdItemGroup )'; 
        }
        else if(Type == 'Itemgroupupdate'){
-            Querystr += 'AND (ProductComponent__r.Product__c in: lst_ProdPriceId AND ProductComponent__r.MainProduct__c in: Set_ProdItemGroup)';
+            Querystr += ' AND (ProductComponent__r.Product__c in: lst_ProdPriceId AND ProductComponent__r.MainProduct__c in: Set_ProdItemGroup)';
         }
        else if(Type == 'Pricebookentrycreate'){
-            Querystr += 'AND id in:lst_ProdPriceId AND ProductComponent__c = null';
+            Querystr += ' AND id in:lst_ProdPriceId AND ProductComponent__c = null';
                            
         }
        else if(Type == 'UpdatePricingfromProduct'){
-            Querystr += 'AND (Product__c in:lst_ProdPriceId OR ProductComponent__r.Product__c in: lst_ProdPriceId)';
+            Querystr += ' AND (Product__c in:lst_ProdPriceId OR ProductComponent__r.Product__c in: lst_ProdPriceId)';
        }
-  
+       
+       if(PricebookYear == 'Previous' || PricebookYear == 'Current'){  
+            Querystr += ' ORDER BY enddate__c DESC'; //the loop in handler map ensures Last END date is used
+       }
+       else if(PricebookYear == 'Future'){
+            Querystr += ' ORDER BY startdate__c ASC'; //the loop in handler map ensures earlist Start date is used
+       }
+
        system.debug('**Order_SoqlFactory.returnPricing :Querystr**'+Querystr);
        Pricing__c[] lst_Pricing =  Database.query(querystr);
        system.debug('**Order_SoqlFactory.returnPricing :Size**'+lst_Pricing.size());

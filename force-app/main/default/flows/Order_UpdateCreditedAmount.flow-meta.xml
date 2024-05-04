@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Order_UpdateCreditedAmount {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Order_UpdateCreditedAmount</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>GetOrder</name>
+        <label>Get Order</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Credited_Amount</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Order</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>UpdateOrder</name>
+        <label>Update Order</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CreditedAmount__c</field>
+            <value>
+                <elementReference>CreditedAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Order</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Credited_Amount</name>
+        <label>Credited Amount</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>UpdateOrder</targetReference>
+        </connector>
+        <fields>
+            <name>InformCredit</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 14px;&quot;&gt;Warning:&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(255, 0, 0); font-size: 14px;&quot;&gt;This flow is used to mark orders that have been credited. Only orders that have been credited in NetSuite should be updated with a credited amount. If this order was not (yet) credited in NetSuite, please cancel this flow.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>CreditedAmount</name>
+            <dataType>Currency</dataType>
+            <defaultValue>
+                <elementReference>GetOrder.RoundedTotalAmount__c</elementReference>
+            </defaultValue>
+            <fieldText>Credited Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;p&gt;Please indicate what the credited amount is. If it&apos;s a full credit, the credited amount is equal to the order amount. The credited amount can never be higher than the original order amount.&lt;/p&gt;</helpText>
+            <isRequired>true</isRequired>
+            <scale>2</scale>
+            <validationRule>
+                <errorMessage>&lt;p&gt;The Credited amount cannot be higher than the order amount.&lt;/p&gt;</errorMessage>
+                <formulaExpression>{!GetOrder.RoundedTotalAmount__c} &gt;= {!CreditedAmount}</formulaExpression>
+            </validationRule>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetOrder</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

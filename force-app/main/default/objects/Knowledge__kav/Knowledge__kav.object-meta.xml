@@ -18,7 +18,7 @@
             <template>Toc</template>
         </articleTypeTemplates>
     </articleTypeChannelDisplay>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Recommended_Compact_Layout</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -26,6 +26,9 @@
     <label>Knowledge</label>
     <pluralLabel>Knowledge</pluralLabel>
     <searchLayouts>
+        <excludedStandardButtons>MassDeleteArchiveKnowledgeArticleVersion</excludedStandardButtons>
+        <excludedStandardButtons>MassDeleteDraftKnowledgeArticleVersion</excludedStandardButtons>
+        <massQuickActions>Flag</massQuickActions>
         <searchResultsAdditionalFields>TITLE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ARTICLE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>

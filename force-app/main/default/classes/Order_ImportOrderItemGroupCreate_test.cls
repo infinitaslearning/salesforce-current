@@ -27,6 +27,7 @@ public with sharing class Order_ImportOrderItemGroupCreate_test {
 
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
         Pricebook2 PricebookCustom = TestDataFactory.insertPricebookCustom('Plantyn - All 2023');
+        
 
         List<PricebookEntry> lstPricebookEntryItemGroup = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProductItemGroup,true);
         List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
@@ -47,6 +48,7 @@ public with sharing class Order_ImportOrderItemGroupCreate_test {
 
 
         system.debug('***InsertPricing***'+InsertPricing);
+        system.debug('***PricebookCustom***'+PricebookCustom);
 
         List<Order> lstOrder = TestDataFactory.insertOrderHeader(1,lstAccount,lstContract,PricebookCustom.id,true);
         List<OrderItem> lstOrderItems = TestDataFactory.insertOrderItems(1,lstAccount,Map_AccSub,lstOrder,lstPricebookEntry,true);

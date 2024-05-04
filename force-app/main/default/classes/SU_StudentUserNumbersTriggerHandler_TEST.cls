@@ -19,7 +19,7 @@ public class SU_StudentUserNumbersTriggerHandler_TEST {
             Acc.ShippingPostalCode = '1224AM';
             Acc.ShippingStreet = 'DePijp22';
             Acc.invoicingEmail__c = 'test' + (i + 1) + '@test.be';
-            Acc.Phone = '0123456789';
+            Acc.Phone = '+123456789';
             Acc.Website = 'http://www.testwebsite.be';
             Acc.Type = 'Customer';
             accounts.add(Acc);

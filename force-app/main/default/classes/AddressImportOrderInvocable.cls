@@ -33,8 +33,8 @@ public without sharing class AddressImportOrderInvocable {
         List<ILAddress__c> addressRecordLs = [SELECT Id, rv2Status__c, rv2Validation__c
                                               FROM ILAddress__c
                                               WHERE HouseNumber__c =: requests[0].housenumber
-                                              AND HouseNumberAddition__c =: requests[0].housenumberAddition
-                                              AND PostalCode__c =: requests[0].postalcode
+                                              AND HouseNumberAdditionFormatted__c =: requests[0].housenumberAddition
+                                              AND PostalCodeFormatted__c =: requests[0].postalcode
                                               AND Country__c =: requests[0].country];
         
         System.debug('***addressRecordLs: ' + addressRecordLs);

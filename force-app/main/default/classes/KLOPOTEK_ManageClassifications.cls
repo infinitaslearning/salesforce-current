@@ -19,8 +19,13 @@ public class KLOPOTEK_ManageClassifications {
         List<Id> noordhoffAccountIdList = new List<Id>();
         noordhoffAccountIdList.addAll(noordhoffAccounts.values());
         List<ClassificationData__c> noordhoffCdList = new List<ClassificationData__c>();
+        List<Id> noordhoffContactIdList = new List<Id>();
+        noordhoffContactIdList.addAll(noordhoffContacts.values());
+        List<ClassificationData__c> noordhoffContactCdList = new List<ClassificationData__c>();
+
         noordhoffCdList = [SELECT Id, 
             Account__c, 
+            Active__c, 
             ClassificationAttribute__c, 
             ClassificationAttributeValue__c, 
             ClassificationAttributeSubValue__c, 
@@ -29,7 +34,20 @@ public class KLOPOTEK_ManageClassifications {
             ClassificationAttributeSubValue4__c, 
             NumberOfStudents__c 
             FROM ClassificationData__c WHERE Account__c IN :noordhoffAccountIdList ORDER BY Account__c];
+        noordhoffContactCdList = [SELECT Id, 
+            Contact__c, 
+            Active__c, 
+            ClassificationAttribute__c, 
+            ClassificationAttributeValue__c, 
+            ClassificationAttributeSubValue__c, 
+            ClassificationAttributeSubValue2__c, 
+            ClassificationAttributeSubValue3__c, 
+            ClassificationAttributeSubValue4__c, 
+            NumberOfStudents__c 
+            FROM ClassificationData__c WHERE Contact__c IN :noordhoffContactIdList ORDER BY Contact__c];
+
         Map<Id, List<ClassificationData__c>> noordhoffAccountClassificationMap = new Map<Id, List<ClassificationData__c>>();
+        Map<Id, List<ClassificationData__c>> noordhoffContactClassificationMap = new Map<Id, List<ClassificationData__c>>();
         
         Id currentNhAccountId;
         List<ClassificationData__c> tempNhCdLst = new List<ClassificationData__c>();
@@ -43,7 +61,20 @@ public class KLOPOTEK_ManageClassifications {
                 tempNhCdLst = new List<ClassificationData__c>();
                 tempNhCdLst.add(cd);
             }
-            // noordhoffAccountClassificationMap.put(cd.Account__c, cd);
+        }
+
+        Id currentNhContactId;
+        List<ClassificationData__c> tempNhContactCdLst = new List<ClassificationData__c>();
+        for (ClassificationData__c cd : noordhoffContactCdList) {
+            if (currentNhContactId == null || currentNhContactId == cd.Contact__c) {
+                currentNhContactId = cd.Contact__c;
+                tempNhContactCdLst.add(cd);
+            } else {
+                noordhoffContactClassificationMap.put(currentNhContactId, tempNhContactCdLst);
+                currentNhContactId = cd.Contact__c;
+                tempNhContactCdLst = new List<ClassificationData__c>();
+                tempNhContactCdLst.add(cd);
+            }
         }
 
         // Get Plantyn Data
@@ -54,8 +85,13 @@ public class KLOPOTEK_ManageClassifications {
         List<Id> plantynAccountIdList = new List<Id>();
         plantynAccountIdList.addAll(plantynAccounts.values());
         List<ClassificationData__c> plantynCdList = new List<ClassificationData__c>();
+        List<Id> plantynContactIdList = new List<Id>();
+        plantynContactIdList.addAll(plantynContacts.values());
+        List<ClassificationData__c> plantynContactCdList = new List<ClassificationData__c>();
+
         plantynCdList = [SELECT Id, 
             Account__c, 
+            Active__c, 
             ClassificationAttribute__c, 
             ClassificationAttributeValue__c, 
             ClassificationAttributeSubValue__c, 
@@ -64,7 +100,20 @@ public class KLOPOTEK_ManageClassifications {
             ClassificationAttributeSubValue4__c, 
             NumberOfStudents__c 
             FROM ClassificationData__c WHERE Account__c IN :plantynAccountIdList ORDER BY Account__c];
+        plantynContactCdList = [SELECT Id, 
+            Contact__c, 
+            Active__c, 
+            ClassificationAttribute__c, 
+            ClassificationAttributeValue__c, 
+            ClassificationAttributeSubValue__c, 
+            ClassificationAttributeSubValue2__c, 
+            ClassificationAttributeSubValue3__c, 
+            ClassificationAttributeSubValue4__c, 
+            NumberOfStudents__c 
+            FROM ClassificationData__c WHERE Contact__c IN :plantynContactIdList ORDER BY Contact__c];
+
         Map<Id, List<ClassificationData__c>> plantynAccountClassificationMap = new Map<Id, List<ClassificationData__c>>();
+        Map<Id, List<ClassificationData__c>> plantynContactClassificationMap = new Map<Id, List<ClassificationData__c>>();
         
         Id currentPlAccountId;
         List<ClassificationData__c> tempPlCdLst = new List<ClassificationData__c>();
@@ -78,7 +127,20 @@ public class KLOPOTEK_ManageClassifications {
                 tempPlCdLst = new List<ClassificationData__c>();
                 tempPlCdLst.add(cd);
             }
-            // plantynAccountClassificationMap.put(cd.Account__c, cd);
+        }
+
+        Id currentPlContactId;
+        List<ClassificationData__c> tempPlContactCdLst = new List<ClassificationData__c>();
+        for (ClassificationData__c cd : plantynContactCdList) {
+            if (currentPlContactId == null || currentPlContactId == cd.Contact__c) {
+                currentPlContactId = cd.Contact__c;
+                tempPlContactCdLst.add(cd);
+            } else {
+                plantynContactClassificationMap.put(currentPlContactId, tempPlContactCdLst);
+                currentPlContactId = cd.Contact__c;
+                tempPlContactCdLst = new List<ClassificationData__c>();
+                tempPlContactCdLst.add(cd);
+            }
         }
 
         // Get Liber Data
@@ -89,8 +151,13 @@ public class KLOPOTEK_ManageClassifications {
         List<Id> liberAccountIdList = new List<Id>();
         liberAccountIdList.addAll(liberAccounts.values());
         List<ClassificationData__c> liberCdList = new List<ClassificationData__c>();
+        List<Id> liberContactIdList = new List<Id>();
+        liberContactIdList.addAll(liberContacts.values());
+        List<ClassificationData__c> liberContactCdList = new List<ClassificationData__c>();
+
         liberCdList = [SELECT Id, 
             Account__c, 
+            Active__c, 
             ClassificationAttribute__c, 
             ClassificationAttributeValue__c, 
             ClassificationAttributeSubValue__c, 
@@ -99,8 +166,20 @@ public class KLOPOTEK_ManageClassifications {
             ClassificationAttributeSubValue4__c, 
             NumberOfStudents__c 
             FROM ClassificationData__c WHERE Account__c IN :liberAccountIdList ORDER BY Account__c];
+        liberContactCdList = [SELECT Id, 
+            Contact__c, 
+            Active__c, 
+            ClassificationAttribute__c, 
+            ClassificationAttributeValue__c, 
+            ClassificationAttributeSubValue__c, 
+            ClassificationAttributeSubValue2__c, 
+            ClassificationAttributeSubValue3__c, 
+            ClassificationAttributeSubValue4__c, 
+            NumberOfStudents__c 
+            FROM ClassificationData__c WHERE Contact__c IN :liberContactIdList ORDER BY Contact__c];
 
         Map<Id, List<ClassificationData__c>> liberAccountClassificationMap = new Map<Id, List<ClassificationData__c>>();
+        Map<Id, List<ClassificationData__c>> liberContactClassificationMap = new Map<Id, List<ClassificationData__c>>();
         
         Id currentLiAccountId;
         List<ClassificationData__c> tempLiCdLst = new List<ClassificationData__c>();
@@ -114,7 +193,20 @@ public class KLOPOTEK_ManageClassifications {
                 tempLiCdLst = new List<ClassificationData__c>();
                 tempLiCdLst.add(cd);
             }
-            // liberAccountClassificationMap.put(cd.Account__c, cd);
+        }
+
+        Id currentLiContactId;
+        List<ClassificationData__c> tempLiContactCdLst = new List<ClassificationData__c>();
+        for (ClassificationData__c cd : liberContactCdList) {
+            if (currentLiContactId == null || currentLiContactId == cd.Contact__c) {
+                currentLiContactId = cd.Contact__c;
+                tempLiContactCdLst.add(cd);
+            } else {
+                liberContactClassificationMap.put(currentLiContactId, tempLiContactCdLst);
+                currentLiContactId = cd.Contact__c;
+                tempLiContactCdLst = new List<ClassificationData__c>();
+                tempLiContactCdLst.add(cd);
+            }
         }
         
 
@@ -175,8 +267,18 @@ public class KLOPOTEK_ManageClassifications {
                     if (kc.AccountId__c != null) {
                         cd.ContactClassificationAccount__c = kc.AccountId__c;
                     }
+                    if (noordhoffContactClassificationMap.keySet().contains(cd.Contact__c)) {
+                        if (noordhoffAccountClassificationMap.get(cd.Contact__c).size() > 0) {
+                            duplicateCheckList = noordhoffAccountClassificationMap.get(cd.Contact__c);
+                        }
+                    }
                 } else if (kc.AccountId__c != null) {
                     cd.Account__c = kc.AccountId__c;
+                    if (noordhoffAccountClassificationMap.keySet().contains(cd.Account__c)) {
+                        if (noordhoffAccountClassificationMap.get(cd.Account__c).size() > 0) {
+                            duplicateCheckList = noordhoffAccountClassificationMap.get(cd.Account__c);
+                        }
+                    }
                 } else if (kc.DocNr__c != null && kc.DocNr__c != '') {
                     cd.Contact__c = noordhoffContacts.get(kc.DocNr__c);
                     cd.ContactClassificationAccount__c = noordhoffAccounts.get(kc.SchNr__c);
@@ -187,11 +289,6 @@ public class KLOPOTEK_ManageClassifications {
                     }
                 }
 
-                if (noordhoffAccountClassificationMap.keySet().contains(cd.Account__c)) {
-                    if (noordhoffAccountClassificationMap.get(cd.Account__c).size() > 0) {
-                        duplicateCheckList = noordhoffAccountClassificationMap.get(cd.Account__c);
-                    }
-                }
 
             } else if (kc.OperatingCompany__c == 'Plantyn') {
 
@@ -206,8 +303,18 @@ public class KLOPOTEK_ManageClassifications {
                     if (kc.AccountId__c != null) {
                         cd.ContactClassificationAccount__c = kc.AccountId__c;
                     }
+                    if (plantynContactClassificationMap.keyset().contains(cd.Contact__c)) {
+                        if (plantynContactClassificationMap.get(cd.Contact__c).size() > 0) {
+                            duplicateCheckList = plantynContactClassificationMap.get(cd.Contact__c);
+                        }
+                    }
                 } else if (kc.AccountId__c != null) {
                     cd.Account__c = kc.AccountId__c;
+                    if (plantynAccountClassificationMap.keySet().contains(cd.Account__c)) {
+                        if (plantynAccountClassificationMap.get(cd.Account__c).size() > 0) {
+                            duplicateCheckList = plantynAccountClassificationMap.get(cd.Account__c);
+                        }
+                    }
                 } else if (kc.DocNr__c != null && kc.DocNr__c != '') {
                     cd.Contact__c = plantynContacts.get(kc.DocNr__c);
                     cd.ContactClassificationAccount__c = plantynAccounts.get(kc.SchNr__c);
@@ -218,11 +325,6 @@ public class KLOPOTEK_ManageClassifications {
                     }
                 }
 
-                if (plantynAccountClassificationMap.keySet().contains(cd.Account__c)) {
-                    if (plantynAccountClassificationMap.get(cd.Account__c).size() > 0) {
-                        duplicateCheckList = plantynAccountClassificationMap.get(cd.Account__c);
-                    }
-                }
 
             } else if (kc.OperatingCompany__c == 'Liber') {
 
@@ -237,8 +339,18 @@ public class KLOPOTEK_ManageClassifications {
                     if (kc.AccountId__c != null) {
                         cd.ContactClassificationAccount__c = kc.AccountId__c;
                     }
+                    if (liberContactClassificationMap.keyset().contains(cd.Contact__c)) {
+                        if (liberContactClassificationMap.get(cd.Contact__c).size() > 0) {
+                            duplicateCheckList = liberContactClassificationMap.get(cd.Contact__c);
+                        }
+                    }
                 } else if (kc.AccountId__c != null) {
                     cd.Account__c = kc.AccountId__c;
+                    if (liberAccountClassificationMap.keySet().contains(cd.Account__c)) {
+                        if (liberAccountClassificationMap.get(cd.Account__c).size() > 0) {
+                            duplicateCheckList = liberAccountClassificationMap.get(cd.Account__c);
+                        }
+                    }
                 } else if (kc.DocNr__c != null && kc.DocNr__c != '') {
                     cd.Contact__c = liberContacts.get(kc.DocNr__c);
                     cd.ContactClassificationAccount__c = liberAccounts.get(kc.SchNr__c);
@@ -249,11 +361,6 @@ public class KLOPOTEK_ManageClassifications {
                     }
                 }
 
-                if (liberAccountClassificationMap.keySet().contains(cd.Account__c)) {
-                    if (liberAccountClassificationMap.get(cd.Account__c).size() > 0) {
-                        duplicateCheckList = liberAccountClassificationMap.get(cd.Account__c);
-                    }
-                }
 
             } else {
                 System.debug('ERROR - No OperatingCompany found on Klopotek Classification Record with Id ' + kc.Id);
@@ -373,17 +480,27 @@ public class KLOPOTEK_ManageClassifications {
     public static Boolean checkDuplicates(ClassificationData__c newCd, List<ClassificationData__c> cdList) {
         Boolean isDulicate = false;
 
+        System.debug('#### Checking for duplicates ####');
+
         for (ClassificationData__c cd : cdList) {
-            if (cd.ClassificationAttribute__c == newCd.ClassificationAttribute__c && 
+            System.debug('Active = ' + cd.Active__c);
+            System.debug('Compare ClassificationAttribute__c ==> Check: ' + Cd.ClassificationAttribute__c + ' New: ' + newCd.ClassificationAttribute__c);
+            System.debug('Compare ClassificationAttributeValue__c ==> Check: ' + Cd.ClassificationAttributeValue__c + ' New: ' + newCd.ClassificationAttributeValue__c);
+            System.debug('Compare ClassificationAttributeSubValue__c ==> Check: ' + Cd.ClassificationAttributeSubValue__c + ' New: ' + newCd.ClassificationAttributeSubValue__c);
+            System.debug('Compare ClassificationAttributeSubValue2__c ==> Check: ' + Cd.ClassificationAttributeSubValue2__c + ' New: ' + newCd.ClassificationAttributeSubValue2__c);
+            System.debug('Compare ClassificationAttributeSubValue3__c ==> Check: ' + Cd.ClassificationAttributeSubValue3__c + ' New: ' + newCd.ClassificationAttributeSubValue3__c);
+            System.debug('Compare ClassificationAttributeSubValue4__c ==> Check: ' + Cd.ClassificationAttributeSubValue4__c + ' New: ' + newCd.ClassificationAttributeSubValue4__c);
+            if (cd.Active__c && 
+                cd.ClassificationAttribute__c == newCd.ClassificationAttribute__c && 
                 cd.ClassificationAttributeValue__c == newCd.ClassificationAttributeValue__c && 
                 cd.ClassificationAttributeSubValue__c == newCd.ClassificationAttributeSubValue__c && 
                 cd.ClassificationAttributeSubValue2__c == newCd.ClassificationAttributeSubValue2__c &&
                 cd.ClassificationAttributeSubValue3__c == newCd.ClassificationAttributeSubValue3__c &&
-                cd.ClassificationAttributeSubValue4__c == newCd.ClassificationAttributeSubValue4__c &&
-                cd.NumberOfStudents__c == newCd.NumberOfStudents__c) {
+                cd.ClassificationAttributeSubValue4__c == newCd.ClassificationAttributeSubValue4__c) {
                     isDulicate = true;
                 }
         }
+        System.debug('IsDuplicate = ' + isDulicate);
 
         return isDulicate;
     }

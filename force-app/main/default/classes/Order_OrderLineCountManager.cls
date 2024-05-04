@@ -2,7 +2,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
     
     public static Decimal FIXEDLINECOUNT;
 
-    Public static String DebugLogs;
+    
     Private String load;
     Private Order CurOrder ;
     Private List<Order> MaxOrder;
@@ -12,7 +12,8 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
         
         
 
-        system.debug('**OrderLineCountManager: FIXEDLINECOUNT**'+FIXEDLINECOUNT);
+        system.debug('**Order_OrderLineCountManager: FIXEDLINECOUNT**'+FIXEDLINECOUNT);
+        //Handles bulkification of big orders. One at a time in the recursive queueable.
 
         if(load == 'Start'){           
             this.MaxOrder = MaxOrder;
@@ -29,18 +30,24 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
           
         }   
 
-        system.debug('**OrderLineCountManager: Cur**'+CurOrder);
-          system.debug('**OrderLineCountManager: Max**'+MaxOrder);
+        system.debug('**Order_OrderLineCountManager: Cur**'+CurOrder);
+          system.debug('**Order_OrderLineCountManager: Max**'+MaxOrder);
 
     }
     public void execute(System.QueueableContext qc) {
-         system.debug('**OrderLineCountManager: CurOrder Order size exe**'+CurOrder);
+         system.debug('**Order_OrderLineCountManager: CurOrder Order size exe**'+CurOrder);
         if(CurOrder != null){
 
         
                 List<Id> OrderId = new List<Id>();
                 OrderId.add(CurOrder.id);
-                OrderItem[] lst_OrdItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+
+                //OrderItem[] lst_OrdItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,OrderId);
+
+                OrderItem[]   lst_OrdItem =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+                system.debug('**Order_SoqlFactory.Order_OrderLineCountManager.lst_OrdItem :Size**'+lst_OrdItem.size());
+
+                
 
                 try{
                     ItemGroupSync(lst_OrdItem,CurOrder);
@@ -65,16 +72,15 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
 
         List<Integer> lstItemremoveIndex = new List<Integer>();
 
-        system.debug('**Line Count: ProcessLineCount**: ItemGroupSync1');
-        DebugLogs= '**Line Count: ProcessLineCount**: ItemGroupSync1';
-        DebugLogs += '\r\n';
+        system.debug('**Order_OrderLineCountManager**: ItemGroupSync1');
+
 
         Integer index = 0;
         
         List<id> lstRemove = new List<id>();
 
         //Create Map of all Item Groups with Components. Order of loop is not certain. therefore use ItemGroupId with ItemGroup record
-
+        // Item group item record is included in the list and the key in the map
 
         for(OrderItem item:lst_OrdItem){
 
@@ -124,6 +130,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
         //Changed i > 0 to i>=0 to ensure list is completely empty if need be
 
         //NB TEST THIS PROPERLY
+        //Remove item Groups from list.  
 
         for(Integer i=listsize-1; i>=0; i-- ){                                                
                if(lst_OrdItem.get(i).ProductType__c == 'Item Group' || lst_OrdItem.get(i).ItemGroup__c != null){
@@ -155,15 +162,18 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
         Map<String, String> Map_IGLookup = new Map<String, String>();
         
         Map<Integer, Integer> Map_ImpLineCount = new Map<Integer, Integer>();
+        Map<Integer, Decimal> Map_ImpLineCountQuantity = new Map<Integer, Decimal>();
 
         List<OrderItem> lstNewOrderitems;
-                system.debug('**Line Count: ProcessLineCount**: NI fullistsize'+ fullistsize);
-                system.debug('**Line Count: ProcessLineCount**: NI NoChunks'+ NoChunks);
+                system.debug('**Order_OrderLineCountManager: ProcessLineCount**: NI fullistsize'+ fullistsize);
+                system.debug('**Order_OrderLineCountManager: ProcessLineCount**: NI NoChunks'+ NoChunks);
 
        
 
         Integer count = 0;
         Integer LoopChunks=0;
+
+        //If list size larger than max after item groups removed
         if(NoChunks>1){
             
             lstNewOrderitems = new List<OrderItem>(); 
@@ -183,12 +193,15 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                     if(item.orderImportNumber__c != null){
                         if(Map_ImpLineCount.get(LoopChunks)==null){
                             Map_ImpLineCount.put(LoopChunks,1);
+                            Map_ImpLineCountQuantity.put(LoopChunks,item.Quantity);
                         }
                         else{
                             Map_ImpLineCount.put(LoopChunks,Map_ImpLineCount.get(LoopChunks)+1);
+                            Map_ImpLineCountQuantity.put(LoopChunks,Map_ImpLineCountQuantity.get(LoopChunks)+item.Quantity);
                         }    
                     }
 
+                    //Creates the next Order Item list. Maxline for current is reached
                     if(Map_Itemlist.get(LoopChunks).size() == FIXEDLINECOUNT){
                         LoopChunks++;
                         lstNewOrderitems = new List<OrderItem>();
@@ -197,13 +210,17 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                  else{
 
                     //Line count sent for Master Order
-                    
+                    //Calculate Main line count now in Non Item group list and later in Item Group list
                     if(item.orderImportNumber__c != null){
                         if(Map_ImpLineCount.get(99999999)==null){
                             Map_ImpLineCount.put(99999999,1);
+                            Map_ImpLineCountQuantity.put(99999999,item.Quantity);
                         }
                         else{
                             Map_ImpLineCount.put(99999999,Map_ImpLineCount.get(99999999)+1);
+                            
+                            Map_ImpLineCountQuantity.put(99999999,Map_ImpLineCountQuantity.get(99999999)+item.Quantity);
+
                         }    
                     }
 
@@ -215,7 +232,16 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             }
         }
         else{
-            Map_ImpLineCount.put(99999999,lst_OrdItem.size());  
+            Map_ImpLineCount.put(99999999,lst_OrdItem.size()); 
+            for(OrderItem item:lst_OrdItem){
+                if(Map_ImpLineCountQuantity.get(99999999)==null){
+                    Map_ImpLineCountQuantity.put(99999999,item.Quantity);
+                }
+                else{
+                    Map_ImpLineCountQuantity.put(99999999,Map_ImpLineCountQuantity.get(99999999)+item.Quantity);
+                }    
+            }    
+
         }
 
         
@@ -236,6 +262,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             //Splitting Item groups into their Set of orders per FIXEDLINE SIZE
             //Add Item Groups into full Map List of all items based on their chunks
 
+            //Loop per Item group
             for(OrderItem item: Map_ItemGroup.keyset()){
                 
                 Integer CurListSize = count + Map_ItemGroup.get(item).size();
@@ -244,6 +271,8 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
 
                 if(CurListSize  < FIXEDLINECOUNT){
                     CurrentChunkSize = Map_Itemlist.get(LoopChunks).size();
+
+                    //Loop per items in Group
                      for(OrderItem itemComp:Map_ItemGroup.get(item)){
                       
                         //add Components to the list
@@ -254,9 +283,11 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                         if(itemComp.orderImportNumber__c != null){
                             if(Map_ImpLineCount.get(LoopChunks)==null){
                                 Map_ImpLineCount.put(LoopChunks,1);
+                                Map_ImpLineCountQuantity.put(LoopChunks,item.Quantity);
                             }
                             else{
-                                Map_ImpLineCount.put(LoopChunks,Map_ImpLineCount.get(LoopChunks)+1);
+                                Map_ImpLineCount.put(LoopChunks,Map_ImpLineCount.get(LoopChunks)+1);      
+                                Map_ImpLineCountQuantity.put(LoopChunks,Map_ImpLineCountQuantity.get(LoopChunks)+item.Quantity);
                             }    
                         }
                     }
@@ -295,9 +326,11 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                         if(itemComp.orderImportNumber__c != null){
                             if(Map_ImpLineCount.get(LoopChunks)==null){
                                 Map_ImpLineCount.put(LoopChunks,1);
+                                Map_ImpLineCountQuantity.put(LoopChunks,item.Quantity);
                             }
                             else{
                                 Map_ImpLineCount.put(LoopChunks,Map_ImpLineCount.get(LoopChunks)+1);
+                                Map_ImpLineCountQuantity.put(LoopChunks,Map_ImpLineCountQuantity.get(LoopChunks)+item.Quantity);
                             }    
                         }
                     }
@@ -310,13 +343,13 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
        
 
         if(count>0){
-            ReparentItems(CurOrder, Map_Itemlist,lst_OrdItem,Map_IGLookup,Map_ImpLineCount);
+            ReparentItems(CurOrder, Map_Itemlist,lst_OrdItem,Map_IGLookup,Map_ImpLineCount,Map_ImpLineCountQuantity);
         }
    
 
     }
 
-    Public static void ReparentItems(Order CurOrder, Map<Integer,List<OrderItem>> Map_Itemlist,OrderItem[] lst_OrdItem, Map<String, String> Map_IGLookup, Map<Integer, Integer> Map_ImpLineCount ){
+    Public static void ReparentItems(Order CurOrder, Map<Integer,List<OrderItem>> Map_Itemlist,OrderItem[] lst_OrdItem, Map<String, String> Map_IGLookup, Map<Integer, Integer> Map_ImpLineCount,Map<Integer, Decimal> Map_ImpLineCountQuantity ){
        
        
         Order newOrder;
@@ -337,7 +370,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
 
         //Non Item Groups list == 0
         Integer ItemGroupListsize = lst_OrdItem.size();
-        system.debug('**Line Count: ProcessLineCount**: NI ItemGroupListsize'+ ItemGroupListsize);
+        system.debug('**Order_OrderLineCountManager: ProcessLineCount**: NI ItemGroupListsize'+ ItemGroupListsize);
         OrderActivationRules__mdt[] OrderActivationRules;
         
         
@@ -384,11 +417,19 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                 NewOrder.CurrencyIsoCode = CurOrder.CurrencyIsoCode;               
                 NewOrder.RelatedOrderActivationBlock__c = true;
                 NewOrder.OrderImportLineCountSent__c = Map_ImpLineCount.get(LoopChunks);
+                NewOrder.OrderImportTotalLineQuantities__c = Map_ImpLineCountQuantity.get(LoopChunks);
                 NewOrder.ActivateforBatchProcessing__c = ActivateforBatchProcessing;
                 
 
                 Insert newOrder;
                  Set_OrdId.add(newOrder.id);
+            }
+            else{
+                newOrder = new Order();
+                newOrder = CurOrder;
+                CurOrder.OrderImportLineCountSent__c = Map_ImpLineCount.get(LoopChunks);
+                CurOrder.OrderImportTotalLineQuantities__c = Map_ImpLineCountQuantity.get(LoopChunks);
+                ItemGroupListsize++;
             }
                                                                              
           
@@ -406,12 +447,14 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                     if(Item.orderImportNumber__c != null){
                         newItem.orderImportNumber__c = Item.orderImportNumber__c;
                         
-                        //Line count sent for Master Order
+                        //Line count sent for Master Order if Item Group the only order and main. Due to split lists above
                         if(Map_ImpLineCount.get(99999999)==null){
                             Map_ImpLineCount.put(99999999,1);
+                            Map_ImpLineCountQuantity.put(99999999,item.Quantity);
                         }
                         else{
                             Map_ImpLineCount.put(99999999,Map_ImpLineCount.get(99999999)+1);
+                            Map_ImpLineCountQuantity.put(99999999,Map_ImpLineCountQuantity.get(99999999)+item.Quantity);
                         }   
                     }
                     else{
@@ -462,20 +505,20 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                    Map_IGLookup2.put(item.ImportItemGroupEAN__c,Item.id);
                 }
             }
-            system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate Size:**' +lst_InsertItemGroup.size());
+            system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate Size:**' +lst_InsertItemGroup.size());
                 
             for(OrderItem item: lst_InsertItemGroup){ 
                 
                 if(item.ProductType__c != 'Item Group'){
-                    system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate 1_:' + Map_IGLookup.get(item.ImportItemGroupEAN__c));
-                    system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate 1a:' +Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)));
-                    system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate 1b:' +item.ProductType__c);
-                    system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate 1c:' +item.ItemGroup__c);    
+                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1_:' + Map_IGLookup.get(item.ImportItemGroupEAN__c));
+                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1a:' +Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)));
+                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1b:' +item.ProductType__c);
+                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1c:' +item.ItemGroup__c);    
                 }
                 
                 if(Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)) != null && item.ProductType__c != 'Item Group' ){ //&& item.ItemGroup__c == null
                     //item.ItemGroup__c =    Map_IGLookup2.get(Map_IGLookup.get(item.ProductEAN__c));
-                    system.debug('**Line Count: ProcessLineCount**: ItemGroup Populate 2');
+                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 2');
                     item.ItemGroup__c =    Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c));
                     
                 }
@@ -485,16 +528,15 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             update lst_InsertItemGroup;
         }
         catch(exception e){
-            system.debug('**Line Count: ProcessLineCount**: IG Update Final Grp 2 : Error:'+ e.getMessage());
-            DebugLogs+= '**Line Count: ProcessLineCount**: IG Update Final Grp 2 : Error:'+ e.getMessage();
-
+            system.debug('**Order_OrderLineCountManager: ProcessLineCount**: IG Update Final Grp 2 : Error:'+ e.getMessage());
+        
             HandleCustomException.LogException(e,newOrder.id);
         }
 
 
         try{
 
-            system.debug('**Line Count: lst_Delete**'+lst_Delete.size());
+            system.debug('**Order_OrderLineCountManager: lst_Delete**'+lst_Delete.size());
  
             delete lst_Delete;
  
@@ -504,18 +546,23 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             MaxOrderLine.OrderTotal__c = CurOrder.TotalAmount;
             
             Order[] CurOrderGET = [Select id,LineCount__c from Order where id =:CurOrder.id];                                                                                                
-
-            CurOrder.OrderImportLineCountSent__c = Map_ImpLineCount.get(99999999); //CurOrderGET[0].LineCount__c;
+            
+            if(Map_ImpLineCount.get(99999999) != null){
+                CurOrder.OrderImportLineCountSent__c = Map_ImpLineCount.get(99999999); //CurOrderGET[0].LineCount__c;
+                CurOrder.OrderImportTotalLineQuantities__c = Map_ImpLineCountQuantity.get(99999999);
+            }
+            
             CurOrder.MaxOrderLine__c = MaxOrderLine.id;
             CurOrder.ActivateforBatchProcessing__c= ActivateforBatchProcessing;
             CurOrder.RelatedOrderActivationBlock__c = true; 
+            
             Update CurOrder;
             
-            List<Order> lstInsertedOrd = [Select ValidationErrorsOrder__c,ValidationErrorsOrderProducts__c from Order where id in: Set_OrdId];
+            List<Order> lstInsertedOrd = [Select ValidationErrorsOrder__c,ValidationErrorsOrderProducts__c,TotalLineItemQuantity__c,OrderImportTotalLineQuantities__c from Order where id in: Set_OrdId];
             
             Integer Count=0, ActiveReady=0;
             for(Order ord:lstInsertedOrd){
-
+                
                 if(ord.ValidationErrorsOrder__c==0 && ord.ValidationErrorsOrderProducts__c==0){
                     ActiveReady++;
                 }

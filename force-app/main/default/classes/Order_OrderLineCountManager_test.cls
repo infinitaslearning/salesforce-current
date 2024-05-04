@@ -49,7 +49,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+            //Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test1.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 
@@ -59,6 +62,70 @@ public with sharing class Order_OrderLineCountManager_test {
                    
             }
     }
+    /*
+    public static testmethod void OrderLineCountManage1(){
+
+        List<Account> lstAccount = TestDataFactory.insertAccountsSubsidiary(2, 'Noordhoff',true,true);
+
+        Set<String> Set_AccId = new Set<String>();
+        for(Account acc:lstAccount){
+            Set_AccId.add(acc.id);
+        }
+
+        AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,Account__c from AccountSubsidiary__c where Account__c in:Set_AccId ];
+
+        Map<String,String> Map_AccSub = new Map<String,String>();
+        Integer i=0;
+        for(AccountSubsidiary__c  sub:lstAccountSubsidiary){
+            sub.NetsuiteInternalId__c = '88776'+i;
+            Map_AccSub.put(sub.Account__c,sub.id);
+            i++;
+        }
+
+        update lstAccountSubsidiary;
+
+        OrderLineItemMaxCount__mdt[] OrderLineItemMaxCount = [Select Count__c from OrderLineItemMaxCount__mdt where MasterLabel='TestCount'];
+
+        Integer count = integer.valueof(OrderLineItemMaxCount[0].Count__c)-1;
+
+        List<Product2> lstProduct = TestDataFactory.insertProducts(1,true);
+        Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
+        List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
+        List<Contract> lstContract = TestDataFactory.insertContract(1,lstAccount,standardPricebook.id,true);
+        List<Order> lstOrder = TestDataFactory.insertOrderHeader(1,lstAccount,lstContract,standardPricebook.id,false);
+        
+        for(Order ord:lstOrder){
+            ord.source__c = 'eCommerce B2B';
+        }
+        Insert lstOrder;
+
+        List<OrderItem> lstOrderItems = TestDataFactory.insertOrderItems(count,lstAccount,Map_AccSub,lstOrder,lstPricebookEntry,true);
+         
+
+        List<Id> OrderId = new List<Id>();
+
+
+        for(Order ord:lstOrder){
+            OrderId.add(ord.id);
+        }
+
+            UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
+
+            //Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test1.lst_Order :Size**'+lst_Order.size());
+            
+            system.debug('**LineCount**'+lst_Order[0].LineCount__c);
+
+           
+           
+            System.enqueueJob(new Order_OrderLineCountManager(lst_Order,'Start'));
+                   
+           
+    }
+
+*/
 
     /*
         public static testmethod void OrderLineCountManage2(){
@@ -170,6 +237,7 @@ public with sharing class Order_OrderLineCountManager_test {
 
         List<Account> lstAccount = TestDataFactory.insertAccountsSubsidiary(2, 'Noordhoff',true,true);
         
+        List<Product2> lstProduct = TestDataFactory.insertProducts(1,true); 
         List<Product2> lstProductItemGroup = TestDataFactory.insertProducts(2,true);
         List<Product2> lstProductItem = TestDataFactory.insertProducts(3,false);
 
@@ -194,6 +262,8 @@ public with sharing class Order_OrderLineCountManager_test {
        
         List<PricebookEntry> lstPricebookEntryItemGroup = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProductItemGroup,true);
         List<PricebookEntry> lstPricebookEntryItem = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProductItem,true);
+        List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
+       
         lstPricebookEntryItemGroup.AddAll(lstPricebookEntryItem);
         
         //Fires Process Builder (Invocable method)
@@ -269,7 +339,9 @@ public with sharing class Order_OrderLineCountManager_test {
         }
 
         update lstOrderItems;
-
+        
+        lstOrderItems = TestDataFactory.insertOrderItems(1,lstAccount,Map_AccSub,lstOrder,lstPricebookEntry,true);
+        
 
         List<Id> OrderId = new List<Id>();
 
@@ -279,7 +351,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+           // Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test2.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 
@@ -407,7 +482,10 @@ public with sharing class Order_OrderLineCountManager_test {
 
             UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;
 
-            Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+            //Order[] lst_Order = Order_OrderandOrdeItemHandler.returnQueryOrder(OrderId, null);
+
+            Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+            system.debug('**Order_SoqlFactory.Order_OrderLineCountManager_test3.lst_Order :Size**'+lst_Order.size());
             
             system.debug('**LineCount**'+lst_Order[0].LineCount__c);
 
@@ -419,6 +497,9 @@ public with sharing class Order_OrderLineCountManager_test {
 
            test.stopTest();
     }
+
+
+
 
 
 }

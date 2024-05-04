@@ -6,6 +6,14 @@ global with sharing class Order_Batch_AccountswithRenwalAssets implements Databa
 
     global Database.QueryLocator start(Database.BatchableContext BC){  
            
+        String Querystr = Order_SoqlFactory.returnasset('renewal',null,null);
+        system.debug('**Order_SoqlFactory.Order_Batch_AccountswithRenwalAssets.Querystr**'+Querystr);
+        Date CurrentDay = system.today();
+        Date RenewalDay = system.today(); 
+
+        return Database.getQueryLocator(Querystr);
+
+/*
         Date CurrentDay = system.today();
         Date RenewalDay = system.today();
         return Database.getQueryLocator([SELECT BillToAccount__c  from asset     where
@@ -37,7 +45,9 @@ global with sharing class Order_Batch_AccountswithRenwalAssets implements Databa
             ))
 
             ]  ); 
+            */
             
+
             // WHERE ACCOUNT HAS ACTIVE ASSET
     }
     

@@ -396,6 +396,17 @@
                     <stringValue>Success</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>sov_Lead.Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_Lead.Account__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
             <connector>
                 <targetReference>MatchAccount</targetReference>
             </connector>

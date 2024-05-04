@@ -466,7 +466,7 @@ ISCHANGED({!$Record.Message__c})
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Auto_Convert_Flow</name>
         <label>Auto Convert Flow</label>
@@ -480,7 +480,7 @@ ISCHANGED({!$Record.Message__c})
         <inputAssignments>
             <name>sov_Lead</name>
             <value>
-                <elementReference>Get_Lead_Record</elementReference>
+                <elementReference>$Record</elementReference>
             </value>
         </inputAssignments>
     </subflows>

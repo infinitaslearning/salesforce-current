@@ -5,7 +5,7 @@
         <name>BeforeSaveContactValueAssignments</name>
         <label>Before Save Contact Value Assignments</label>
         <locationX>176</locationX>
-        <locationY>311</locationY>
+        <locationY>287</locationY>
         <assignmentItems>
             <assignToReference>$Record.UniqueEmailId__c</assignToReference>
             <operator>Assign</operator>
@@ -13,10 +13,26 @@
                 <elementReference>UniqueEmailFormula</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.UniqueExternalDatabaseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forUniqueExternalDatabaseNumber</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
-    <description>Update Contact Before the record is saved</description>
+    <description>Update Contact Before the record is saved
+
+HdG: 20240320 Added assignment for Unique External Database Number</description>
+    <environments>Default</environments>
     <formulas>
-        <description>Updates custom field UniqueEmail to create unique key</description>
+        <name>forUniqueExternalDatabaseNumber</name>
+        <dataType>String</dataType>
+        <expression>IF(AND(NOT( ISBLANK(TEXT({!$Record.External_Database__c}))),NOT(ISBLANK({!$Record.ExternalContactId__c}))),
+TEXT({!$Record.External_Database__c})&amp;&quot;_&quot;&amp;{!$Record.ExternalContactId__c},
+NULL)</expression>
+    </formulas>
+    <formulas>
         <name>UniqueEmailFormula</name>
         <dataType>String</dataType>
         <expression>CASE(TEXT({!$Record.OperatingCompany__c}),

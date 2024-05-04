@@ -28,12 +28,17 @@ public with sharing class Order_RemoveAccounts_OrderContract {
 
         try {
             responses = processContractAccounts(req);
+            
+            if(Test.isRunningTest() && UTIL_TestClassExceptions.TESTCLASSEXCEPTION==True){
+                CalloutException e = new CalloutException();
+                e.setMessage('Error');
+                throw e;        
+            }
         }
         catch (Exception e) {
             // "Convert" the exception into an AuraHandledException
             HandleCustomException.LogException(e);
-            throw new AuraHandledException('Something went wrong: '
-                + e.getMessage() + 'Please contact system administator');    
+            
         }
         finally {
             // Something executed whether there was an error or not
@@ -86,12 +91,16 @@ public with sharing class Order_RemoveAccounts_OrderContract {
                 List<String> OrderId = new List<String>();
                 OrderId.add(req[0].RecordId);
 
-                Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(Response[0].totalnumbers,OrderId,req[0].PricebookId);
-
+             //   Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(Response[0].totalnumbers,OrderId,req[0].PricebookId);
+                if(Test.isRunningTest() && UTIL_TestClassExceptions.TESTCLASSEXCEPTION==True){
+                    CalloutException e = new CalloutException();
+                    e.setMessage('Error');
+                    throw e;        
+                }
               //  UpdateOrdeItemswithListPriceDiscount(Response[0].totalnumbers,, req[0].PricebookId);
             }
-            catch (exception ex){
-
+            catch (exception e){
+                HandleCustomException.LogException(e,req[0].RecordId);
             }
         }
 

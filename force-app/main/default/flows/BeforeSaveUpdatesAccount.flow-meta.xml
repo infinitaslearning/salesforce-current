@@ -623,8 +623,11 @@ OR(ISPICKVAL({!$Record.CustomerCategory__c}, &apos;Author&apos;), ISPICKVAL({!$R
         <name>F_ValidatePhone</name>
         <dataType>Boolean</dataType>
         <expression>AND({!$Record.Phone} != null,
-OR(NOT(ISNUMBER({!$Record.Phone})),
-LEN({!$Record.Phone}) &gt; 10, LEN({!$Record.Phone}) &lt; 7))</expression>
+OR(
+NOT({!$User.ValidationRulesDoNotApply__c}),
+NOT(REGEX({!$Record.Phone}, &quot;^\\+[1-9]\\d{1,14}$&quot;))
+)
+)</expression>
     </formulas>
     <formulas>
         <name>F_ValidateShippingAddress</name>

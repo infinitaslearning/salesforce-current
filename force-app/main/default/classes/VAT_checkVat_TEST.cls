@@ -1,10 +1,5 @@
 @IsTest
 public class VAT_checkVat_TEST {
-    
-    @TestSetup
-    static void makeData(){
-        
-    }
 
     @IsTest
     static void testInsert(){
@@ -56,7 +51,7 @@ public class VAT_checkVat_TEST {
             Acc.ShippingPostalCode = '1224AM';
             Acc.ShippingStreet = 'DePijp22';
             Acc.invoicingEmail__c = 'test@test.be';
-            Acc.Phone = '0123456789';
+            Acc.Phone = '+123456789';
             Acc.Website = 'http://www.testwebsite.be';
             Acc.Type = 'Customer';
             Acc.ExternalDatabase__c = 'Agodi';

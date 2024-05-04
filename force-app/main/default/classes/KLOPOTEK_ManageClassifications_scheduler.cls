@@ -15,6 +15,6 @@ global class KLOPOTEK_ManageClassifications_scheduler implements Schedulable {
 
     global void execute(SchedulableContext sc) {
         KLOPOTEK_ManageClassifications_Batch kmc = new KLOPOTEK_ManageClassifications_Batch();
-        Database.executeBatch(kmc, 100);
+        Database.executeBatch(kmc, 50);
     }
 }

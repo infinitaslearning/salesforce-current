@@ -842,6 +842,7 @@ public with sharing class Order_ProductSelectController_test {
         Pricebook2 ProfPricebook = TestDataFactory.insertPricebookCustom2('Professional','Noordhoff');
         Order_ProductSelectController.returnPricebook(ProfPricebook.id);
         Order_ProductSelectController.returnPricebook(null);
+        Order_ProductSelectController.returnOrderLineItemMaxCount();
       	
       test.stopTest();
     }    

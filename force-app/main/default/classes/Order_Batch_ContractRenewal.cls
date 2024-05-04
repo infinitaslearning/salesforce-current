@@ -2,9 +2,14 @@ global with sharing class Order_Batch_ContractRenewal implements Database.Batcha
     
     global Database.QueryLocator start(Database.BatchableContext BC){  
            
-        Date CurrrentDay = system.today()+3;
-        Date RenewalDay = system.today()+3;
+        Date CurrentDay = system.today()+1;
+        Date RenewalDay = system.today()+1;
 
+        String Querystr = Order_SoqlFactory.returnasset('Contractrenewal',null,null);
+        system.debug('**Order_SoqlFactory.Order_Batch_ContractRenewal.Querystr**'+Querystr);
+        return Database.getQueryLocator(Querystr);
+        /*
+         
         return Database.getQueryLocator([SELECT BillToAccount__c,Contract__c  from asset     where
             BillToAccount__r.RenewalAssetToday__c =: false
             AND 
@@ -19,7 +24,8 @@ global with sharing class Order_Batch_ContractRenewal implements Database.Batcha
                     (QuantityUpdateCheckYearly__c =: false)
                     OR(QuantityUpdateCheckYearly__c =: True AND RenewalDate__c  <=: RenewalDay AND QuantityStartDate__c <=:CurrrentDay AND QuantityEndDate__c >=:CurrrentDay  )
                 )
-                */
+                *
+                /
             )
             AND LastRenewalUpdate__c !=: CurrrentDay              
             AND AutomatedRenewProcess__c =: true  
@@ -31,14 +37,15 @@ global with sharing class Order_Batch_ContractRenewal implements Database.Batcha
                 AND Product2.Type__c != 'Item Group'
             ))
 
-            ]  ); 
+            ]  );
+            */ 
        // return Database.getQueryLocator([SELECT Id,ContractTerm  FROM Contract where EndDate =: system.today() AND OperatingCompany__c ='Noordhoff']  ); 
     }
     
     global void execute(Database.BatchableContext BC, List<Asset> scope){
 
             Set<String> Set_ContractId = new Set<String>();
-            
+    
             for(Asset var:scope){
                 Set_ContractId.add(var.Contract__c);
             }

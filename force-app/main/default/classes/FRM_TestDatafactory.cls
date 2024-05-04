@@ -51,20 +51,22 @@ public class FRM_TestDatafactory {
             Acc.ShippingPostalCode = '1224AM';
             Acc.ShippingStreet = 'DePijp22';
             Acc.invoicingEmail__c = 'test@test.be';
-            Acc.Phone = '0123456789';
+            Acc.Phone = '+123456789';
             Acc.Website = 'http://www.testwebsite.be';
             Acc.Type = 'Customer';
             acc.Area__c = 'Dutch';
             acc.ConverseImport__c = 'Plantyn Converse migration';
             AccountList.Add(Acc);
         }
-        //[0] Plantyn
+        // [0] Plantyn
         accountList[0].ExternalDatabase__c = 'Agodi';
         accountList[0].ExternalCustomerId__c = '123456';
+
         //[1] Noordhoff
         accountList[1].OperatingCompany__c = 'Noordhoff';
         accountList[1].ExternalDatabase__c = 'RIO';
         accountList[1].ExternalCustomerId__c = '654321';
+
         //[2] Liber
         accountList[2].OperatingCompany__c = 'Liber';
         accountList[2].ExternalCustomerId__c = '987654';

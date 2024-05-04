@@ -203,7 +203,7 @@ public class IL_LeadConversion {
             lc.setContactId(contactId);
         }
         
-        if(String.isNotBlank(OpportunityId) && !createOpp && leadId != OpportunityId){
+        if(String.isNotBlank(OpportunityId) && leadId != OpportunityId){
             lc.setOpportunityId(OpportunityId);
         }
         

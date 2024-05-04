@@ -16,6 +16,12 @@ global with sharing class Order_Batch_AssetRenewal implements Database.Batchable
         }
         Date CurrentDay = system.today();
         Date RenewalDay = system.today();
+
+        asset[] lstAssets =  Database.query(Order_SoqlFactory.returnasset('renewal',Set_BillTo,null));
+        system.debug('**Order_SoqlFactory.Order_Batch_AssetRenewal.lstAssets**'+lstAssets.size());
+        system.debug('**Order_Batch_AssetRenewal : Set_BillTo**'+Set_BillTo);
+
+        /*
         asset[] lstAssets = [Select id,PriceBook__c,AssetRenewalTrigger__c,CurrencyIsoCode,LastRenewalUpdate__c,RenewalRunDate__c,Reference__c,PriceBook__r.FollowUpPriceBook__c,OrderLineType__c,
                                     Product2.LicenseDuration__c,Product2.OrderLineType__c,RenewalDate__c,Account.DigitalActivationEmail__c ,DigitalActivationEMail__c,
                                     IndexationPercentage__c,ApplyIndexationPercentage__c,Product2.CustomPricingAllowed__c,Product2.ProductDiscountGroup__c,ListPrice__c,Contract__r.Indexation__c,Product2.ProductRateGroup__c,RenewalTerm__c,DiscountedPrice__c,ManualDiscount__c,
@@ -54,7 +60,7 @@ global with sharing class Order_Batch_AssetRenewal implements Database.Batchable
                                         AND Product2.Type__c != 'Item Group'
                                     ))
                                     ];
-
+        */
                                     
         system.debug('**Order_Batch : lstAssets**'+lstAssets );
         system.debug('**Order_Batch : Size**'+lstAssets.size());

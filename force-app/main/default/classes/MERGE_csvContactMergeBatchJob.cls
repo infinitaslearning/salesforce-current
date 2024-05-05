@@ -37,9 +37,28 @@ global class MERGE_csvContactMergeBatchJob implements Database.Batchable<sObject
             Contact masterContact = scope[0];
             System.debug('masterContact: ' + masterContact);
             String duplicateContactId = masterAndDuplicateIdMap.get(masterContact.Id);
-            System.debug('duplicateContactId: ' + duplicateContactId);
             Contact duplicateContact = [SELECT Id FROM Contact WHERE Id = :duplicateContactId];
             System.debug('duplicateContact: ' + duplicateContact);
+
+
+            /*
+            AccountContactRelation MasterAccountContactRelation = [SELECT Id, AccountId, isDirect FROM AccountContactRelation WHERE ContactId = :masterContact.Id];
+            AccountContactRelation DuplicateAccountContactRelation = [SELECT Id, AccountId, isDirect FROM AccountContactRelation WHERE ContactId = :duplicateContactId];
+
+            if (MasterAccountContactRelation?.AccountId == DuplicateAccountContactRelation?.AccountId) {
+                Id AccountId = masterAccountContactRelation?.AccountId;
+                if (DuplicateAccountContactRelation?.isDirect) {
+                    masterContact.AccountId = AccountId;
+                    List<AccountContactRelation> acrLst = new List<AccountContactRelation>();
+                    acrLst.add(MasterAccountContactRelation);
+                    acrLst.add(DuplicateAccountContactRelation);
+                    delete acrLst;
+                } else {
+                    delete duplicateAccountContactRelation;
+                }
+            }
+            */
+
             Database.MergeResult res = Database.merge(masterContact, duplicateContact, false);
                     
             if (res.isSuccess()) {

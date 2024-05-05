@@ -396,17 +396,6 @@
                     <stringValue>Success</stringValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <leftValueReference>sov_Lead.Account__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>sov_Lead.Account__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-            </conditions>
             <connector>
                 <targetReference>MatchAccount</targetReference>
             </connector>
@@ -590,7 +579,8 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>05-03-2024 JK: updated the Create Opportunity to also populate the Account and Primary Contact fields
+    <description>with Contact owner2
+
 15/03/2023 DB: Removed Get Leads element to reduce queries. Lead record is passed in.
                           Update Lead element now in parent flow (Auto Convert). Lead no longer converted per subflow.
 09/03/2023 CH: Updated Lead professional checks
@@ -876,12 +866,6 @@ IF(AND(NOT(ISNULL({!sov_Lead.Account__c})),ISNULL({!sov_Lead.Contact__c})),&quot
             <targetReference>Assign_Opportunity_to_Lead</targetReference>
         </connector>
         <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>sov_Lead.Account__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>CloseDate</field>
             <value>
                 <elementReference>OpportunityCloseDateFormula</elementReference>
@@ -909,12 +893,6 @@ IF(AND(NOT(ISNULL({!sov_Lead.Account__c})),ISNULL({!sov_Lead.Contact__c})),&quot
             <field>OperatingCompany__c</field>
             <value>
                 <elementReference>sov_Lead.OperatingCompany__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>PrimaryContact__c</field>
-            <value>
-                <elementReference>sov_Lead.Contact__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

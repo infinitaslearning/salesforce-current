@@ -859,18 +859,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <formulas>
         <name>SV_StartDate</name>
         <dataType>DateTime</dataType>
-        <expression>IF(
-    OR(
-        ISNULL(
-            {!$Record.LastStatusChange__c}
-        ),
-        ISBLANK(
-            {!$Record.LastStatusChange__c}
-        )
-    ),
-{!$Record.LastModifiedDate},
-{!$Record.LastStatusChange__c}
-)</expression>
+        <expression>IF(NOT(ISNULL({!$Record.LastStatusChange__c}) &amp;&amp; NOT(ISBLANK({!$Record.LastStatusChange__c}))),{!$Record.LastStatusChange__c},{!$Record.LastModifiedDate})</expression>
     </formulas>
     <interviewLabel>Case - Lifecycle {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case - Lifecycle</label>

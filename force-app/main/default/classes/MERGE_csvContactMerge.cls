@@ -52,10 +52,6 @@ public class MERGE_csvContactMerge {
             duplicateRecord = csvRowData[1];
 
             masterAndDuplicateMap.put(masterRecord,duplicateRecord);
-            System.debug('--------- ContactIdMap: ----------');
-            for (String masterId : masterAndDuplicateMap.keySet()) {
-                System.debug('MasterContact ID: ' + masterId + ' // DuplicateContact ID: ' + masterAndDuplicateMap.get(masterId));
-            }
         }
 
         Id batchprocessId;

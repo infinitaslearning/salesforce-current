@@ -232,7 +232,7 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             NewAsset.BillToAccount__c = item.Order.Billto__c;
                                             NewAsset.DiscountedPrice__c = item.DiscountedPrice__c;
                                             NewAsset.CurrencyIsoCode = item.Order.CurrencyIsoCode;
-                                            NewAsset.IsActive__c = true;
+                                          
                                             NewAsset.OrderLineType__c = item.OrderLineType__c;
                                             
                                             if(item.Product2.CustomPricingAllowed__c == true && item.ComponentListPrice__c != item.ListPrice){
@@ -273,17 +273,24 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             NewAsset.PricingMethod__c = item.Order.PricingMethod__c;
                                             NewAsset.Product2Id= item.Product2Id;                                        
                                             NewAsset.Description = string.valueof(varIterator);
-                                            NewAsset.AutomatedRenewProcess__c = item.Renewable__c;
+                                            
+                                            if(item.Product2.Renewal__c == 'Automatic'){
+                                                NewAsset.AutomatedRenewProcess__c = true;
+                                            }
+                                            else{
+                                                NewAsset.AutomatedRenewProcess__c =false;
+                                            }
+                                            
                                             NewAsset.LicenseDuration__c = item.LicenseDuration__c;
                                             NewAsset.InstallDate = item.ServiceDate;
                                             NewAsset.Terms__c = item.Terms__c;
                                             NewAsset.Quantity = item.Quantity;
                                             NewAsset.Reference__c = item.CustomerReference__c;
                                                                                                     
-                                            if(item.Renewable__c == false && item.LicenseDuration__c>0 && item.StartDate__c != null){
+                                            if(NewAsset.AutomatedRenewProcess__c == false && item.LicenseDuration__c>0 && item.StartDate__c != null){
                                                 NewAsset.EndDate__c = item.StartDate__c.addMonths(integer.valueof(item.LicenseDuration__c))-1;                                                
                                             }
-                                            else if(item.Renewable__c == true && item.LicenseDuration__c>0 && item.StartDate__c != null){
+                                            else if(NewAsset.AutomatedRenewProcess__c == true && item.LicenseDuration__c>0 && item.StartDate__c != null){
                                                 NewAsset.EndDate__c = item.StartDate__c.addMonths(integer.valueof(item.LicenseDuration__c))-1;
                                                 NewAsset.RenewalDate__c = NewAsset.EndDate__c+1;
                                             }
@@ -295,7 +302,7 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             else{
                                                 NewAsset.ActivationDate__c = item.ServiceDate;
                                             }
-                                            
+                                            //Replaced with Formula field NewAsset.IsActive__c = true;
 
                                             if(item.Order.Source__c == 'B2B Salesforce'){
                                                 NewAsset.PurchaseDate = NewAsset.ActivationDate__c;

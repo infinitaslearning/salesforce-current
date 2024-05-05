@@ -106,7 +106,7 @@
             <targetReference>PEorSE</targetReference>
         </connector>
     </start>
-    <status>InvalidDraft</status>
+    <status>Obsolete</status>
     <variables>
         <name>VARUserId</name>
         <dataType>String</dataType>

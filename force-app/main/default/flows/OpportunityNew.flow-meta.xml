@@ -333,8 +333,8 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assRecordTypeProf</name>
-        <label>assRecordTypeProf</label>
+        <name>assRecordTypeZorg</name>
+        <label>assRecordTypeZorg</label>
         <locationX>1525</locationX>
         <locationY>971</locationY>
         <assignmentItems>
@@ -548,38 +548,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Zorg_Opp_Name_Check</name>
-        <label>Zorg Opp Name Check</label>
-        <locationX>2173</locationX>
-        <locationY>1140</locationY>
-        <defaultConnector>
-            <targetReference>assOpportunity_0</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Name_length_80</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>OppZorgNameLimitExceeded</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>OpportunityNameErrorScreen</targetReference>
-            </connector>
-            <label>Name length &gt; 80</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>What_pricebook</name>
         <label>What pricebook?</label>
         <locationX>759</locationX>
@@ -598,13 +566,7 @@
                     <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
+            
             <conditions>
                 <leftValueReference>getAccount.isPrimaryEducation__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -666,6 +628,38 @@
                 <targetReference>getPricebook_0_0</targetReference>
             </connector>
             <label>Noordhoff</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Zorg_Opp_Name_Check</name>
+        <label>Zorg Opp Name Check</label>
+        <locationX>2173</locationX>
+        <locationY>1140</locationY>
+        <defaultConnector>
+            <targetReference>assOpportunity_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Name_length_80</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OppZorgNameLimitExceeded</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OpportunityNameErrorScreen</targetReference>
+            </connector>
+            <label>Name length &gt; 80</label>
         </rules>
     </decisions>
     <description>15/11/2023 CH: Made Lead Source available and required
@@ -960,7 +954,7 @@
             <field>PricebookType__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Pricebook2</object>
@@ -1005,7 +999,7 @@
             <field>PricebookType__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Pricebook2</object>
@@ -1022,7 +1016,7 @@
         <locationY>970</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>assRecordTypeProf</targetReference>
+            <targetReference>assRecordTypeZorg</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1125,7 +1119,7 @@
             <targetReference>Is_Lead_Source_Filled</targetReference>
         </connector>
         <fields>
-            <name>NHProfNameLengthNotification</name>
+            <name>NHZorgNameLengthNotification</name>
             <fieldText>&lt;p&gt;&lt;em style=&quot;color: rgb(255, 0, 0); font-size: 10px;&quot;&gt;Please note that the Opportunity Name length for Zorg is 80 characters. Please enter a name of 80 characters or less.&lt;/em&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>

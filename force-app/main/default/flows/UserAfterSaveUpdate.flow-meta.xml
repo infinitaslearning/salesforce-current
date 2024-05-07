@@ -9,7 +9,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Role_change</name>
-            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.UserRoleId</leftValueReference>
                 <operator>IsChanged</operator>
@@ -36,6 +36,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Noordhoff_Customer_Service_Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NoordhoffPGMCustomerService</stringValue>
                 </rightValue>
             </conditions>
             <connector>

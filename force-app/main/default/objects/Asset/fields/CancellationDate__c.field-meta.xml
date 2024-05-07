@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>CancellationDate__c</fullName>
     <externalId>false</externalId>
+    <inlineHelpText>Please use the Cancel Asset button to cancel assets</inlineHelpText>
     <label>Cancellation Date</label>
     <required>false</required>
     <trackHistory>true</trackHistory>

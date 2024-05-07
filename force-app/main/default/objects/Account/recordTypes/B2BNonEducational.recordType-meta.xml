@@ -616,11 +616,19 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Tender 13%25 discount GRDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Tender 13%2C5%25 discount</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Tender 14%25 discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tender 14%25 discount GRDP</fullName>
             <default>false</default>
         </values>
         <values>
@@ -633,6 +641,10 @@
         </values>
         <values>
             <fullName>Tender 16%25 discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tender 16%25 discount GRDP</fullName>
             <default>false</default>
         </values>
         <values>

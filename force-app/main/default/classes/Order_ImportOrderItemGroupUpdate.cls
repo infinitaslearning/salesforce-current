@@ -112,7 +112,10 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         Map<String,String> Map_ManualDiscount = new Map<String,String>();
         Map<String,Decimal> Map_ManualDiscountPercent = new Map<String,Decimal>();
         Map<String,Decimal> Map_CustomNSPrice = new Map<String,Decimal>();
+        Map<String,String> Map_EANListPrice = new Map<String,String>();
+
         String 	LineItemTypeItemGrp;
+        String 	ProductItemGrp;
         for(ImportOrder__c imp:ListOfImportOrder){
             
             system.debug('**Order_ImportOrderItemGroupUpdate:itemGroupId**'+imp.itemGroupId__c);
@@ -132,6 +135,9 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                 //OLD Map_ItemId.put(imp.OrderProduct__c,imp.itemGroupId__c);
                 Map_ManageQuantity.put(imp.OrderProduct__c,imp.quantity__c); 
                 Map_CustomNSPrice.put(imp.OrderProduct__c,imp.NetSalesPrice__c);
+                ProductItemGrp = imp.itemGroupId__c+imp.ProductId__c;
+
+                Map_EANListPrice.put(imp.OrderProduct__c,ProductItemGrp);
 
                 system.debug('**Order_ImportOrderItemGroupUpdate :Map_ItemId**'+Map_ItemId);
             }
@@ -151,27 +157,7 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
             }
         }
 
-//IF Map_ItemIdEAN.size() > 0 then run code else do nothing
-         
-/* REPLACED by Price loop below to handle successor
-        if(Map_ImportId.size()>0){
 
-           //OLD Product2[] lstItemGroupProd = [Select id,EAN__c,ISBN__c from Product2 where (EAN__c in: Map_ImportId.keyset() OR ISBN__c in: Map_ImportId.keyset())];
-           Product2[] lstItemGroupProd = [Select id,EAN__c,ISBN__c from Product2 where (EAN__c in: Set_GroupEAN OR ISBN__c in: Set_GroupEAN)];
-
-            for(Product2 prod:lstItemGroupProd){
-                if(prod.EAN__c != null){
-                    Map_GroupProdId.put(prod.EAN__c,prod.Id);
-                }
-                if(prod.ISBN__c != null){
-                    Map_GroupProdId.put(prod.ISBN__c,prod.Id);
-                }
-
-            }
-
-            system.debug('**Order_ImportOrderItemGroupUpdate: Map_GroupProdI**'+ Map_GroupProdId);
-        }
-*/
         List<Id> OrderId = new List<Id>();
 
         for(OrderItem item: ListOfOrderItems){
@@ -208,14 +194,7 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
 
         system.debug('**Order_ImportOrderItemGroupUpdate: Set_GroupId**'+Set_GroupId);
         system.debug('**Order_ImportOrderItemGroupUpdate: Lst_ProductId**'+Lst_ProductId);
-/*
-        Pricing__c[] lstPrice = [Select ListRate__c,ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,ProductComponent__r.Product__r.Name,Product__c,EndDate__c,IsActive__c,ProductComponent__r.Quantity__c,ProductComponent__r.Type__c,ProductComponent__r.MainProduct__c,ProductComponent__r.Product__c from Pricing__c 
-       // Where   ((ProductComponent__r.MainProduct__c in: Set_GroupId) OR (ProductComponent__r.Product__c in: Set_GroupId AND ProductComponent__r.MainProduct__c !=: null))
-       Where   ((ProductComponent__r.Product__c in: Lst_ProductId AND ProductComponent__r.MainProduct__c in: Set_GroupId))
-        
-       AND StartDate__c <=: system.today()
-        AND EndDate__c >=: system.today()];
-*/        
+
 
         Order[] curOrder = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
         system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.curOrder :Size**'+curOrder.size());
@@ -230,31 +209,42 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         Set<String> Set_ItemGroupBlock  = new Set<String>();
 
         String GroupComponentId;
+        Set<String> Set_CompPrice = new Set<String>();
 
         for(Pricing__c price:lstPrice){ 
             
             //New for Item loop below
-            Map_GroupProdId.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.MainProduct__c);
-            GroupComponentId = price.ProductComponent__r.MainProduct__c;
-            GroupComponentId += price.ProductComponent__r.Product__c;
-            Map_ListPrice.put(GroupComponentId,price.ListRate__c);
-            Map_ProductComponent.put(GroupComponentId,price.ProductComponent__c);
+            if(!Set_CompPrice.contains(price.ProductComponent__c)){
+                Set_CompPrice.add(price.ProductComponent__c);
 
-            system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId1**'+GroupComponentId);
-            system.debug('**Order_ImportOrderItemGroupUpdate: price.ProductComponent__r.Quantity__c: ' + price.ProductComponent__r.Quantity__c);
-
-            //Map_Quantity.put(GroupComponentId,price.ProductComponent__r.Quantity__c); // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-           // Map_Quantity.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.Quantity__c);
-          //  Map_ListPrice.put(price.ProductComponent__r.Product__c,price.ListRate__c);
-            //Map_ProductComponent.put(price.ProductComponent__r.Product__c,price.ProductComponent__c);
+               // price.ProductComponent__r.Product__c
             
-            
-           system.debug('**Order_ImportOrderItemGroupUpdate: Price**'+price.id);
+              //  Map_GroupProdId.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.MainProduct__c);        
+                //GroupComponentId = price.ProductComponent__r.MainProduct__c;
+                //GroupComponentId += price.ProductComponent__r.Product__c;
+
+                GroupComponentId = price.ProductComponent__r.MainProduct__r.EAN__c;
+                GroupComponentId += price.ProductComponent__r.Product__r.EAN__c;
+                       
+                Map_ListPrice.put(GroupComponentId,price.ListRate__c);
+                Map_ProductComponent.put(GroupComponentId,price.ProductComponent__c);
+
+                system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId1**'+GroupComponentId);
+                system.debug('**Order_ImportOrderItemGroupUpdate: price.ProductComponent__r.Quantity__c: ' + price.ProductComponent__r.Quantity__c);
+
+                //Map_Quantity.put(GroupComponentId,price.ProductComponent__r.Quantity__c); // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+            // Map_Quantity.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.Quantity__c);
+            //  Map_ListPrice.put(price.ProductComponent__r.Product__c,price.ListRate__c);
+                //Map_ProductComponent.put(price.ProductComponent__r.Product__c,price.ProductComponent__c);
+                
+                
+                system.debug('**Order_ImportOrderItemGroupUpdate: Price**'+price.id);
 
 
-            if(price.ProductComponent__r.MainProduct__r.itemGroupManualBlock__c == true){
-                Set_ItemGroupBlock.add(price.ProductComponent__r.MainProduct__c);
-                Set_ItemGroupBlock.add(price.ProductComponent__r.Product__c);
+                if(price.ProductComponent__r.MainProduct__r.itemGroupManualBlock__c == true){
+                    Set_ItemGroupBlock.add(price.ProductComponent__r.MainProduct__c);
+                    Set_ItemGroupBlock.add(price.ProductComponent__r.Product__c);
+                }
             }
         } 
         
@@ -281,11 +271,17 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                           //Previous GroupComponentId = Map_GroupProdId.get(Map_ItemIdEAN.get(item.Id)); 
 
                           //New Mapped in Price loop
-                          GroupComponentId = Map_GroupProdId.get(item.Product2Id);
-                          GroupComponentId +=  item.Product2Id;
+
+                          //GroupComponentId = Map_GroupProdId.get(item.Product2Id);
+                          //GroupComponentId +=  item.Product2Id;
+                          
+                            GroupComponentId = Map_EANListPrice.get(Item.id);                         
+                          
                             system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId2**'+GroupComponentId);
 
                             String ItemGroupId = Map_ItemGroupId.get(item.Id);
+                            
+                            
 
                             Set_GroupId.add(ItemGroupId);
 
@@ -294,36 +290,20 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                             
 
                             //Only update item from current order import, otherwise it double counts
-                           
-                            // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-                                /*if(Map_Quantity.get(GroupComponentId) != null){
-
-                                    if(Map_ManageQuantity.get(item.id) != null){
-                                        item.NetsuiteQuantity__c = Map_Quantity.get(GroupComponentId) * Map_ManageQuantity.get(item.id);    
-                                        item.Quantity = Map_Quantity.get(GroupComponentId) * Map_ManageQuantity.get(item.id);
-                                        
-                                        system.debug('Map_Quantity.get(GroupComponentId): ' + Map_Quantity.get(GroupComponentId) );
-                                        system.debug('Map_ManageQuantity.get(item.id): ' + Map_ManageQuantity.get(item.id) ) ;
-                                        system.debug('item.Quantity 1: ' + item.Quantity);
-                                    }
-                                    else{
-                                        item.NetsuiteQuantity__c = Map_Quantity.get(GroupComponentId);    
-                                        item.Quantity = Map_Quantity.get(GroupComponentId);
-                                    }
-                                    
-                                }
-                                else{
-                                    item.NetsuiteQuantity__c = item.Quantity;  
-                                }*/
+                           // Quantity populated in flow. 
+                            // devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+                            
                           
                              if(Map_CustomNSPrice.get(item.id) != null){                                
                                 item.UnitPrice = Map_CustomNSPrice.get(item.id);
                              }   
                              else{
-                                item.UnitPrice = Map_ListPrice.get(GroupComponentId);    
-                             }
+                                item.UnitPrice = Map_ListPrice.get(GroupComponentId);  
 
-                            item.ComponentListPrice__c = Map_ListPrice.get(GroupComponentId);
+                             }
+                            
+
+                             item.ComponentListPrice__c = Map_ListPrice.get(GroupComponentId);
                             item.ProductComponent__c = Map_ProductComponent.get(GroupComponentId);
                             
 
@@ -345,16 +325,8 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                                     
                                 }
                                 
-                                // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-                                /*if(Map_NetSalesPrice.get(ItemGroupId)==null){
-                                    Map_NetSalesPrice.put(ItemGroupId,item.UnitPrice * Map_Quantity.get(GroupComponentId));
-                                    Map_ListPrice.put(ItemGroupId,item.ComponentListPrice__c * Map_Quantity.get(GroupComponentId));
-                                    
-                                }
-                                else{
-                                    Map_NetSalesPrice.put(ItemGroupId,Map_NetSalesPrice.get(ItemGroupId)+ (item.UnitPrice * Map_Quantity.get(GroupComponentId)));
-                                    Map_ListPrice.put(ItemGroupId,Map_ListPrice.get(ItemGroupId)+ (item.ComponentListPrice__c * Map_Quantity.get(GroupComponentId)));
-                                }*/
+                                // Pricing update because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+                               
                                 if(Map_NetSalesPrice.get(ItemGroupId)==null){
                                     Map_NetSalesPrice.put(ItemGroupId,item.UnitPrice * item.Quantity);
                                     Map_ListPrice.put(ItemGroupId,item.ComponentListPrice__c * item.Quantity);

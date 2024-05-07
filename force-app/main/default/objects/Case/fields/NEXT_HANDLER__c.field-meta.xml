@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NEXT_HANDLER__c</fullName>
+    <description>This field is created for report that sends daily to VIamet. This field will be always empty. Should be removed when survey functionality goes to Marketing Cloud</description>
+    <externalId>false</externalId>
+    <label>NEXT_HANDLER</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

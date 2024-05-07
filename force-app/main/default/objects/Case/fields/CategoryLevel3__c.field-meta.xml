@@ -29,6 +29,34 @@
             <valueName>Docentmateriaal</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Misdruk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Beschadigd</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Manco/surplus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Eindejaarsretour</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Startmateriaal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>VSO Order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Vitalsource</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
             <valueName>Account voor docent &amp; particulier</valueName>
         </valueSettings>
@@ -47,6 +75,10 @@
         <valueSettings>
             <controllingFieldValue>Factuur &amp; Betaling</controllingFieldValue>
             <valueName>Betaling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Factuur &amp; Betaling</controllingFieldValue>
+            <valueName>Credit</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Werken met het digitaal lesmateriaal</controllingFieldValue>

@@ -3,7 +3,7 @@
     <actionCalls>
         <name>Calculate_BusinessHours</name>
         <label>Calculate BusinessHours</label>
-        <locationX>1722</locationX>
+        <locationX>2272</locationX>
         <locationY>852</locationY>
         <actionName>UTIL_CalculateBusinessHoursDiff</actionName>
         <actionType>apex</actionType>
@@ -40,7 +40,7 @@
         <name>Send_reminder_e_mail</name>
         <label>Send reminder e-mail</label>
         <locationX>314</locationX>
-        <locationY>1500</locationY>
+        <locationY>1608</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
@@ -81,10 +81,54 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
+        <name>Send_Reminder_e_mail_No_Contact</name>
+        <label>Send Reminder e-mail No Contact</label>
+        <locationX>578</locationX>
+        <locationY>1608</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Case_record</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.SuppliedEmail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>noreply@noordhoff.nl</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SV_PendingReminderMailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>{!Mail_NoContactBodyHeader}, Een tijdje geleden heeft u contact gehad met de Noordhoff klantenservice. Om uw bericht volledig te kunnen beantwoorden hebben wij u om meer informatie gevraagd. Dit is een automatische herinnering van ons bericht. Indien u geen antwoord meer nodig heeft en niet reageert op dit bericht zal dit bericht worden afgesloten. Met vriendelijke groet,  TeamServices Noordhoff</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
         <name>Send_second_Auto_response_E_mail</name>
         <label>Send second Auto-response E-mail</label>
-        <locationX>2338</locationX>
-        <locationY>1500</locationY>
+        <locationX>2778</locationX>
+        <locationY>1608</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
@@ -124,11 +168,58 @@
         <nameSegment>emailSimple</nameSegment>
         <versionSegment>1</versionSegment>
     </actionCalls>
+    <actionCalls>
+        <name>Send_Second_reminder_no_COntact</name>
+        <label>Send Second reminder - no Contact</label>
+        <locationX>3042</locationX>
+        <locationY>1608</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Case_record</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.SuppliedEmail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>noreply@noordhoff.nl</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SV_SatatusNewSecondAutoResponseMailSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue>{!Mail_NoContactBodyHeader}, Je hebt ons 2 werkdagen geleden een bericht gestuurd. Bedankt voor je geduld! Op dit moment is het drukker dan verwacht. We doen ons uiterste best om je melding zo snel mogelijk op te pakken. Wanneer we je melding hebben opgepakt ontvang je bericht van ons. Met vriendelijke groet,  TeamServices Noordhoff</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>60.0</apiVersion>
     <assignments>
         <name>Assign_to_Liber_CM</name>
         <label>Assign to Liber CM</label>
-        <locationX>2338</locationX>
+        <locationX>2888</locationX>
         <locationY>576</locationY>
         <assignmentItems>
             <assignToReference>SRV_Liber_CaseManagement</assignToReference>
@@ -144,7 +235,7 @@
     <assignments>
         <name>Assign_to_Noordhoff_CM</name>
         <label>Assign to Noordhoff CM</label>
-        <locationX>1810</locationX>
+        <locationX>2360</locationX>
         <locationY>576</locationY>
         <assignmentItems>
             <assignToReference>SRV_Noordhoff_CaseManagement</assignToReference>
@@ -160,7 +251,7 @@
     <assignments>
         <name>Assign_to_Plantyn_CM</name>
         <label>Assign to Plantyn CM</label>
-        <locationX>2074</locationX>
+        <locationX>2624</locationX>
         <locationY>576</locationY>
         <assignmentItems>
             <assignToReference>SRV_Plantyn_CaseManagement</assignToReference>
@@ -176,7 +267,7 @@
     <assignments>
         <name>Assign_to_Professional_CM</name>
         <label>Assign to Professional CM</label>
-        <locationX>2602</locationX>
+        <locationX>3152</locationX>
         <locationY>576</locationY>
         <assignmentItems>
             <assignToReference>SRV_Professional_CaseManagement</assignToReference>
@@ -192,7 +283,7 @@
     <assignments>
         <name>Set_Status_from_OnHold_to_Open</name>
         <label>Set Status to Open</label>
-        <locationX>1018</locationX>
+        <locationX>1458</locationX>
         <locationY>1176</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status</assignToReference>
@@ -224,7 +315,7 @@
     <assignments>
         <name>Set_Status_to_Closed</name>
         <label>Set Status to Closed</label>
-        <locationX>1810</locationX>
+        <locationX>2250</locationX>
         <locationY>1176</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status</assignToReference>
@@ -240,7 +331,7 @@
     <assignments>
         <name>Set_Status_to_open_and_clear_DueDate</name>
         <label>Set Status to open and clear DueDate</label>
-        <locationX>1282</locationX>
+        <locationX>1722</locationX>
         <locationY>1176</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status</assignToReference>
@@ -263,7 +354,7 @@
     <decisions>
         <name>Case_origin</name>
         <label>Case origin</label>
-        <locationX>2668</locationX>
+        <locationX>3504</locationX>
         <locationY>1068</locationY>
         <defaultConnector>
             <targetReference>Update_Case_record</targetReference>
@@ -295,7 +386,7 @@
     <decisions>
         <name>Current_Status</name>
         <label>Current Status</label>
-        <locationX>1722</locationX>
+        <locationX>2272</locationX>
         <locationY>960</locationY>
         <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
@@ -362,7 +453,7 @@
     <decisions>
         <name>Due_Date_or_Max_time_reached</name>
         <label>On Hold actions</label>
-        <locationX>1282</locationX>
+        <locationX>1722</locationX>
         <locationY>1068</locationY>
         <defaultConnectorLabel>Do nothing</defaultConnectorLabel>
         <rules>
@@ -462,7 +553,7 @@
     <decisions>
         <name>Max_time_in_Pending_reached</name>
         <label>Pending actions</label>
-        <locationX>402</locationX>
+        <locationX>622</locationX>
         <locationY>1068</locationY>
         <defaultConnectorLabel>Do nothing</defaultConnectorLabel>
         <rules>
@@ -597,7 +688,7 @@
     <decisions>
         <name>Max_time_in_Solved_reached</name>
         <label>Solved actions</label>
-        <locationX>1942</locationX>
+        <locationX>2382</locationX>
         <locationY>1068</locationY>
         <defaultConnectorLabel>Do nothing</defaultConnectorLabel>
         <rules>
@@ -668,7 +759,7 @@
     <decisions>
         <name>OpCo</name>
         <label>OpCo</label>
-        <locationX>2338</locationX>
+        <locationX>2888</locationX>
         <locationY>468</locationY>
         <defaultConnector>
             <targetReference>Devide_CaseManagement_per_Opco</targetReference>
@@ -738,12 +829,12 @@
     <decisions>
         <name>Send_second_auto_response</name>
         <label>Send second auto-response?</label>
-        <locationX>2470</locationX>
+        <locationX>3262</locationX>
         <locationY>1284</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
-            <conditionLogic>(1 AND 2) OR (3 AND 4) OR (5 AND 6) OR (7 AND 8) AND 9</conditionLogic>
+            <conditionLogic>((1 AND 2) OR (3 AND 4) OR (5 AND 6) OR (7 AND 8 ))  AND 9 AND 10</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -807,6 +898,13 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_emailTemplate_second_autoresponse</targetReference>
             </connector>
@@ -816,7 +914,7 @@
     <decisions>
         <name>SendReminder</name>
         <label>Send Reminder?</label>
-        <locationX>446</locationX>
+        <locationX>798</locationX>
         <locationY>1284</locationY>
         <defaultConnector>
             <targetReference>Update_Case_record</targetReference>
@@ -838,6 +936,86 @@
             <label>Send Reminder Mail</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>What_EmailAddress_to_Use</name>
+        <label>What EmailAddress to Use</label>
+        <locationX>578</locationX>
+        <locationY>1500</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No EmailAddress Available</defaultConnectorLabel>
+        <rules>
+            <name>Yes_we_have_a_contact</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_reminder_e_mail</targetReference>
+            </connector>
+            <label>From Contact</label>
+        </rules>
+        <rules>
+            <name>From_Supplied_Email1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Reminder_e_mail_No_Contact</targetReference>
+            </connector>
+            <label>From Supplied Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>What_emailaddress_to_use2</name>
+        <label>What Emailaddress to use</label>
+        <locationX>3042</locationX>
+        <locationY>1500</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Emailaddress available</defaultConnectorLabel>
+        <rules>
+            <name>from_contact2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_second_Auto_response_E_mail</targetReference>
+            </connector>
+            <label>From Contact</label>
+        </rules>
+        <rules>
+            <name>From_Supplied_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Second_reminder_no_COntact</targetReference>
+            </connector>
+            <label>From Supplied Email</label>
+        </rules>
+    </decisions>
     <description>JK 2024/03/13 - Added functionality for reminder mails
 JK 2024/02/21 - Added BusinessHour Functionality</description>
     <environments>Default</environments>
@@ -845,6 +1023,11 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
         <name>EmptyDate</name>
         <dataType>Date</dataType>
         <expression>NULL</expression>
+    </formulas>
+    <formulas>
+        <name>Mail_NoContactBodyHeader</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.SuppliedName}), &apos;Beste &apos;&amp; {!$Record.SuppliedName}, &apos; Beste mijnheer / mevrouw&apos;)</expression>
     </formulas>
     <formulas>
         <name>SV_PendingReminderMailSubject</name>
@@ -877,7 +1060,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <loops>
         <name>Devide_CaseManagement_per_Opco</name>
         <label>Devide CaseManagement per Opco</label>
-        <locationX>1722</locationX>
+        <locationX>2272</locationX>
         <locationY>360</locationY>
         <collectionReference>Get_Case_Management_Metadata</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -910,7 +1093,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordLookups>
         <name>Get_Case_Management_Metadata</name>
         <label>Get Case Management Metadata</label>
-        <locationX>1722</locationX>
+        <locationX>2272</locationX>
         <locationY>252</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -923,11 +1106,11 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordLookups>
         <name>Get_e_mail_Template</name>
         <label>Get e-mail Template</label>
-        <locationX>314</locationX>
+        <locationX>578</locationX>
         <locationY>1392</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Send_reminder_e_mail</targetReference>
+            <targetReference>What_EmailAddress_to_Use</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -944,7 +1127,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordLookups>
         <name>Get_EmailMessages</name>
         <label>Get EmailMessages</label>
-        <locationX>446</locationX>
+        <locationX>798</locationX>
         <locationY>1176</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -972,11 +1155,11 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordLookups>
         <name>Get_emailTemplate_second_autoresponse</name>
         <label>Get emailTemplate for second auro-response</label>
-        <locationX>2338</locationX>
+        <locationX>3042</locationX>
         <locationY>1392</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Send_second_Auto_response_E_mail</targetReference>
+            <targetReference>What_emailaddress_to_use2</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -993,7 +1176,7 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordLookups>
         <name>Get_Sent_E_mail</name>
         <label>Get Sent E-mail</label>
-        <locationX>2470</locationX>
+        <locationX>3262</locationX>
         <locationY>1176</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1014,12 +1197,12 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
     <recordUpdates>
         <name>Update_Case_record</name>
         <label>Update Case</label>
-        <locationX>1722</locationX>
-        <locationY>1860</locationY>
+        <locationX>2272</locationX>
+        <locationY>2052</locationY>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1596</locationX>
+        <locationX>2146</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Case_Management_Metadata</targetReference>
@@ -1039,22 +1222,15 @@ JK 2024/02/21 - Added BusinessHour Functionality</description>
                 <stringValue>Merged</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>Status</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>New</stringValue>
-            </value>
-        </filters>
         <object>Case</object>
         <schedule>
             <frequency>Daily</frequency>
             <startDate>2024-02-22</startDate>
-            <startTime>13:45:00.000Z</startTime>
+            <startTime>08:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>SRV_Liber_CaseManagement</name>
         <dataType>SObject</dataType>

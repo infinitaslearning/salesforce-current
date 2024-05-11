@@ -99,11 +99,11 @@
         <schedule>
             <frequency>Daily</frequency>
             <startDate>2024-03-06</startDate>
-            <startTime>01:00:00.000Z</startTime>
+            <startTime>18:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>CasesToUpdate</name>
         <dataType>SObject</dataType>

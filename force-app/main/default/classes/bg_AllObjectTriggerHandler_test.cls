@@ -104,17 +104,21 @@ Public static testmethod void bg_AllObjectTriggerHandler3(){
 
 
     test.starttest();
-       
+    system.debug('**bg_AllObjectTriggerHandler_test:3 : Before**');
     List<Account> lstAccount = TestDataFactory.insertAccountsSubsidiary(2, 'Plantyn',true,true);
+
+    Account[] lstAccountCheck = [Select OperatingCompany__c From Account];
+
+    system.debug('**bg_AllObjectTriggerHandler_test:3 : After**'+lstAccountCheck[0].OperatingCompany__c);
 
     List<Id> Set_AccId = new List<Id>();
         for(Account acc:lstAccount){
             Set_AccId.add(acc.id);
         }
+        system.debug('**bg_AllObjectTriggerHandler_test:3 :Set_AccId**'+Set_AccId);
+       // Order_AccountSubsidiary.AccountSubsidiary(Set_AccId);
 
-        Order_AccountSubsidiary.AccountSubsidiary(Set_AccId);
-
-        AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,Account__c from AccountSubsidiary__c where Account__c in:Set_AccId ];
+        AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,Account__c from AccountSubsidiary__c ];
 
         Map<String,String> Map_AccSub = new Map<String,String>();
         Integer i=0;
@@ -123,7 +127,7 @@ Public static testmethod void bg_AllObjectTriggerHandler3(){
             Map_AccSub.put(sub.Account__c,sub.id);
             i++;
         }
-
+        system.debug('**bg_AllObjectTriggerHandler_test: AccountSubsidiary**'+lstAccountSubsidiary);
         update lstAccountSubsidiary;
 
         List<Product2> lstProduct = TestDataFactory.insertProducts(3,false);
@@ -167,6 +171,7 @@ Public static testmethod void bg_AllObjectTriggerHandler3(){
         system.debug('**ValidationErrorsOrderProducts**'+lstOrder[0].ValidationErrorsOrderProducts__c);
         system.debug('**ValidationErrorsOrder**'+lstOrder[0].ValidationErrorsOrder__c);
         
+
 
         lstOrder[0].Status ='Activated';
         update lstOrder;
@@ -250,7 +255,7 @@ Public static testmethod void bg_AllObjectInvocableHandler(){
             Set_AccId.add(acc.id);
         }
 
-        Order_AccountSubsidiary.AccountSubsidiary(Set_AccId);
+      //  Order_AccountSubsidiary.AccountSubsidiary(Set_AccId);
 
         AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,Account__c from AccountSubsidiary__c where Account__c in:Set_AccId ];
 
@@ -264,7 +269,8 @@ Public static testmethod void bg_AllObjectInvocableHandler(){
             RecordIds.add(sub.id);
         }
 
-    
+        system.debug('**bg_AllObjectTriggerHandler_test: lstAccountSubsidiary**'+lstAccountSubsidiary);
+
         update lstAccountSubsidiary;
 
         bg_AllObjectInvocableHandler.AllObjectInvocableHandler(RecordIds);

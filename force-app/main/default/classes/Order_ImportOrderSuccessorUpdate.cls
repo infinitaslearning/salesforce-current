@@ -128,19 +128,6 @@ public with sharing class Order_ImportOrderSuccessorUpdate {
                 Set_Successor.add(pbe.Product2.SuccessorItem__c);
 
             }
-            else if(pbe.Product2.SuccessorItem__c != null && (pbe.Product2.IsSuccessorItemActive__c == false || pbe.Product2.SuccessorItem__r.IsActive == false) && pbe.Product2.Stocknumber__c > 0){
-                system.debug('**Order_ImportOrderSuccessorUpdate: 5**');
-                //Successor item active = false & Successor item != NULL & available stock > 0 for ordered product -> Backorder ordered product
-                //Product stays the same
-            }
-            else if(pbe.Product2.SuccessorItem__c != null && (pbe.Product2.IsSuccessorItemActive__c == false || pbe.Product2.SuccessorItem__r.IsActive == false) && (pbe.Product2.Stocknumber__c == 0 || pbe.Product2.Stocknumber__c == null) && (pbe.Product2.PlannedPrintDate__c < ReprintDateCheck || pbe.Product2.PlannedPrintDate__c ==null)){
-                //Successor item switch = false & available stock = 0 for regular product & no reprint planned & Successor item != NULL -> Pick successor item Id
-                Map_Prod.put(pbe.Product2Id, pbe.Product2.SuccessorItem__c);
-                Set_Successor.add(pbe.Product2.SuccessorItem__c);
-
-                system.debug('**Order_ImportOrderSuccessorUpdate: 6**');
-            
-            }
         }
 
         String Pricebook2Id;

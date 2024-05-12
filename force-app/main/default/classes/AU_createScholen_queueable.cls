@@ -73,16 +73,20 @@ public class AU_createScholen_queueable implements Queueable {
         Integer doubleAccounts = 0;
         Date todaysDate = date.today();
         Integer countLoops = 0;
+        String resultString = '';
+
         // Create Account for each Agodi Account
         try {
 
             Set<Id> accountsAddedToUpdateList = new Set<Id>();
             Id GuyId;
             if (!Test.isRunningTest()) {
-                GuyId = [SELECT Id, Name FROM User WHERE Alias = 'GHect' LIMIT 1].Id;
+                GuyId = [SELECT Id, Name FROM User WHERE Username = 'maarten.vanhoof@plantyn.com' LIMIT 1].Id;
             }
             for(Map<String,String> agodiAccount : fileMap) {
-                if (!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
+                if (Date.valueOf(agodiAccount.get('datum_opheffing')) > todaysDate || agodiAccount.get('datum_opheffing') == '' || agodiAccount.get('datum_opheffing') == null) {
+                    resultString += 'Inrichtende Machten,' + '' + ',' + agodiAccount.get('nummer') + ',' + agodiAccount.get('telefoon').replace('-','').replace('.','').replace('/','').replace(' ','') + ',skipped -- closed,\n';
+                } else if(!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
                     processedAgodiNumbers.add(agodiAccount.get('nummer'));
                     countLoops ++;
 
@@ -102,7 +106,7 @@ public class AU_createScholen_queueable implements Queueable {
                     a.LegalName__c = agodiAccount.get('lange_naam_instelling').replace('�', 'è');
                     a.LastAgodiUpdate__c = todaysDate;
                     a.AgodiUpdateInProgress__c = true;
-                    
+                    a.DataMigrationHistory__c = 'Agodi Update - ' + Date.today();
 
                     // Update Scholengemeenschap (ParentId) lookup
                     if (this.plantynAccountmap.containsKey(agodiAccount.get('scholengemeenschap'))) {
@@ -114,7 +118,6 @@ public class AU_createScholen_queueable implements Queueable {
                     if (this.plantynAccountmap.containsKey(agodiAccount.get('nummer'))) {
                         Account currentAccount = this.plantynAccountmap.get(agodiAccount.get('nummer'));
                         Id inrichtendeMachtenId = null;
-                        a.DataMigrationHistory__c = 'Agodi Update - ' + Date.today();
 
                         if (!accountsAddedToUpdateList.contains(currentAccount.Id)) {
                             a.Id = currentAccount.Id;
@@ -155,12 +158,7 @@ public class AU_createScholen_queueable implements Queueable {
                         a.Name = agodiAccount.get('lange_naam_instelling').replace('�', 'è');
                         a.TypeOfAccount__c = 'Sales and Order';
                         a.ConverseImport__c = 'Agodi import';
-                        a.DataMigrationHistory__c = 'Agodi Insert - ' + Date.today();
                         a.ExternalCustomerId__c = agodiAccount.get('nummer');
-                        a.BillingStreet = street;
-                        a.BillingPostalCode = agodiAccount.get('postcode');
-                        a.BillingCity = agodiAccount.get('fusiegemeente');
-                        a.BillingCountry = 'Belgium';
                         a.PhoneCountry__c = 'Belgium';
                         a.Phone = agodiAccount.get('telefoon').replace('-','').replace('.','').replace('/','').replace(' ','');
                         a.fax = agodiAccount.get('telefax');
@@ -191,6 +189,10 @@ public class AU_createScholen_queueable implements Queueable {
                         a.ShippingPostalCode = agodiAccount.get('postcode');
                         a.ShippingCity = agodiAccount.get('fusiegemeente');
                         a.ShippingCountry = 'Belgium';
+                        a.BillingStreet = street;
+                        a.BillingPostalCode = agodiAccount.get('postcode');
+                        a.BillingCity = agodiAccount.get('fusiegemeente');
+                        a.BillingCountry = 'Belgium';
                         a.CommunicationLanguage__c = 'nl_NL'; // UPDATED
                         if (agodiAccount.get('kbo_nummer') != null) {
                             if (agodiAccount.get('kbo_nummer').length() == 10 && agodiAccount.get('kbo_nummer').left(1) == '0') {
@@ -226,7 +228,7 @@ public class AU_createScholen_queueable implements Queueable {
         Integer updatedAccounts = 0;
         Integer insertedAccounts = 0;
         Integer errorAccounts = 0;
-        String resultString = '';
+        
         // upsert Accounts and post Error to Debug log when an error occurs
         Database.UpsertResult[] results = Database.upsert(accountsForUpsert, false);
 

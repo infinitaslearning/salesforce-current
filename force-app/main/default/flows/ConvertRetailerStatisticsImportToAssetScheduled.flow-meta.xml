@@ -298,7 +298,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <connector>
             <targetReference>IsEndCustomerNumberPopulated</targetReference>
         </connector>
-        <filterLogic>1 AND 2</filterLogic>
+        <filterLogic>1 AND 2 AND 3 AND 4</filterLogic>
         <filters>
             <field>Asset__c</field>
             <operator>IsNull</operator>
@@ -313,11 +313,25 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
                 <stringValue>Delivered</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>EndCustomerNumber__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsbnEan__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
         <object>Retailer_Statistics_Import__c</object>
         <schedule>
-            <frequency>Once</frequency>
-            <startDate>2022-11-22</startDate>
-            <startTime>17:15:00.000Z</startTime>
+            <frequency>Daily</frequency>
+            <startDate>2021-10-22</startDate>
+            <startTime>12:15:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>

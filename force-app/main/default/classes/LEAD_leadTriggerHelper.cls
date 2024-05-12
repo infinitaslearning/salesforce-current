@@ -9,12 +9,6 @@ public without sharing class LEAD_leadTriggerHelper {
         Map<Id, Account> accountMap;
         Map<String, Id> userIdMap = new Map<String, Id>();
 
-        List<User> userList = [SELECT Id, Alias FROM User WHERE Username = 'jessika.steen@liber.se' OR Username = 'maarten.vanhoof@plantyn.com' OR Alias = 'suser'];
-        
-        for (User u : userList) {
-            userIdMap.put(u.Alias,u.Id);
-        }
-
         List<Id> accountIds = New List<Id>();
         for (Lead l : newMap.values()) {
             accountIds.add(l.Account__c);
@@ -42,12 +36,12 @@ public without sharing class LEAD_leadTriggerHelper {
                     if (String.ValueOf(l.OwnerId).substring(0,3) != '005') {
                         if (l.Account__c != null) {
                             ld.OwnerId = accountMap.get(l.Account__c).OwnerId;
-                        } else if (l.OperatingCompany__c == 'Liber') {
-                            ld.OwnerId = userIdMap.get('jstee');
-                        } else if (l.OperatingCompany__c == 'Plantyn') {
-                            ld.OwnerId = userIdMap.get('mvan');
+                        } else if (l.OperatingCompany__c == 'Liber' && ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').LiberId__c != null) {
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').LiberId__c);
+                        } else if (l.OperatingCompany__c == 'Plantyn' && ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').PlantynId__c != null) {
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').PlantynId__c);
                         } else {
-                            ld.OwnerId = userIdMap.get('suser');
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').GeneralId__c);
                         }
                     }
 
@@ -77,12 +71,6 @@ public without sharing class LEAD_leadTriggerHelper {
         Map<Id, Account> accountMap;
         Map<String, Id> userIdMap = new Map<String, Id>();
 
-        List<User> userList = [SELECT Id, Alias FROM User WHERE Username = 'jessika.steen@liber.se' OR Username = 'maarten.vanhoof@plantyn.com' OR Alias = 'suser'];
-        
-        for (User u : userList) {
-            userIdMap.put(u.Alias,u.Id);
-        }
-
         List<Id> accountIds = New List<Id>();
         for (Lead l : leads) {
             accountIds.add(l.Account__c);
@@ -110,12 +98,12 @@ public without sharing class LEAD_leadTriggerHelper {
                     if (String.ValueOf(l.OwnerId).substring(0,3) != '005') {
                         if (l.Account__c != null) {
                             ld.OwnerId = accountMap.get(l.Account__c).OwnerId;
-                        } else if (l.OperatingCompany__c == 'Liber') {
-                            ld.OwnerId = userIdMap.get('jstee');
-                        } else if (l.OperatingCompany__c == 'Plantyn') {
-                            ld.OwnerId = userIdMap.get('mvan');
+                        } else if (l.OperatingCompany__c == 'Liber' && ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').LiberId__c != null) {
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').LiberId__c);
+                        } else if (l.OperatingCompany__c == 'Plantyn' && ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').PlantynId__c != null) {
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').PlantynId__c);
                         } else {
-                            ld.OwnerId = userIdMap.get('suser');
+                            ld.OwnerId = Id.valueOf(ApexIds__mdt.getInstance('LEAD_leadTriggerHelper').GeneralId__c);
                         }
                     }
 

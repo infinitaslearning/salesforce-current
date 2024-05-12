@@ -5,7 +5,7 @@
         <name>Addcontacttolist</name>
         <label>Add contact to list</label>
         <locationX>754</locationX>
-        <locationY>1440</locationY>
+        <locationY>1487</locationY>
         <assignmentItems>
             <assignToReference>ContactsToUpdate</assignToReference>
             <operator>Add</operator>
@@ -21,7 +21,7 @@
         <name>AssignSelectedContact</name>
         <label>Assign Selected Contact</label>
         <locationX>446</locationX>
-        <locationY>708</locationY>
+        <locationY>755</locationY>
         <assignmentItems>
             <assignToReference>SelectedContact</assignToReference>
             <operator>Assign</operator>
@@ -34,26 +34,10 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Set_Contact_As_Inactive</name>
-        <label>Set Contact As Inactive</label>
-        <locationX>1634</locationX>
-        <locationY>600</locationY>
-        <assignmentItems>
-            <assignToReference>Loop_through_contacts.IsInactive__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_through_contacts</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>SetContactInfo</name>
         <label>Set Contact Info</label>
         <locationX>754</locationX>
-        <locationY>1332</locationY>
+        <locationY>1379</locationY>
         <assignmentItems>
             <assignToReference>Iteratethroughcontacts.AccountId</assignToReference>
             <operator>Assign</operator>
@@ -175,7 +159,7 @@
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Contacts</label>
         <locationX>358</locationX>
-        <locationY>492</locationY>
+        <locationY>539</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>GetContacts</collectionReference>
         <connector>
@@ -197,7 +181,7 @@
         <name>DoesContact_Exist</name>
         <label>Does Contact Exist?</label>
         <locationX>358</locationX>
-        <locationY>1116</locationY>
+        <locationY>1163</locationY>
         <defaultConnector>
             <targetReference>Iteratethroughcontacts</targetReference>
         </defaultConnector>
@@ -219,43 +203,14 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Last_Modified_was_10_days_ago</name>
-        <label>Last Modified was 10 days ago</label>
-        <locationX>1678</locationX>
-        <locationY>276</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>YesLastModified</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.LastModifiedDate</leftValueReference>
-                <operator>LessThanOrEqualTo</operator>
-                <rightValue>
-                    <elementReference>form_tenDaysAgo</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Contact__r.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Copy_1_of_Get_Contacts</targetReference>
-            </connector>
-            <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Should_Run</name>
         <label>Should Run?</label>
         <locationX>776</locationX>
-        <locationY>276</locationY>
+        <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Contact__c</leftValueReference>
                 <operator>IsNull</operator>
@@ -268,6 +223,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Inactive__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -449,7 +411,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>Iteratethroughcontacts</name>
         <label>Iterate through contacts</label>
         <locationX>666</locationX>
-        <locationY>1224</locationY>
+        <locationY>1271</locationY>
         <collectionReference>GetContacts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -460,24 +422,10 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         </noMoreValuesConnector>
     </loops>
     <loops>
-        <name>Loop_through_contacts</name>
-        <label>Loop through contacts</label>
-        <locationX>1546</locationX>
-        <locationY>492</locationY>
-        <collectionReference>Copy_1_of_Get_Contacts</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
-        <nextValueConnector>
-            <targetReference>Set_Contact_As_Inactive</targetReference>
-        </nextValueConnector>
-        <noMoreValuesConnector>
-            <targetReference>Update_Contacts</targetReference>
-        </noMoreValuesConnector>
-    </loops>
-    <loops>
         <name>LoopContacts</name>
         <label>Loop Contacts</label>
         <locationX>358</locationX>
-        <locationY>600</locationY>
+        <locationY>647</locationY>
         <collectionReference>GetContacts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -510,7 +458,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>CreateContact</name>
         <label>Create Contact</label>
         <locationX>50</locationX>
-        <locationY>1224</locationY>
+        <locationY>1271</locationY>
         <assignRecordIdToReference>varCreatedContactId</assignRecordIdToReference>
         <connector>
             <targetReference>UpdateKlopotekContact</targetReference>
@@ -629,45 +577,10 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <object>Contact</object>
     </recordCreates>
     <recordLookups>
-        <name>Copy_1_of_Get_Contacts</name>
-        <label>Get Contacts</label>
-        <locationX>1546</locationX>
-        <locationY>384</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Loop_through_contacts</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>TeacherNumber__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.DOCNR__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>OperatingCompany__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Noordhoff</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>AccountId</field>
-            <operator>IsNull</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>GetContacts</name>
         <label>Get Contacts</label>
         <locationX>358</locationX>
-        <locationY>384</locationY>
+        <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>SortContacts</targetReference>
@@ -702,7 +615,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>GetCountry</name>
         <label>Get Country</label>
         <locationX>358</locationX>
-        <locationY>900</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>GetKlopotekAccountContactRelationship</targetReference>
@@ -723,7 +636,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>GetKlopotekAccountContactRelationship</name>
         <label>Get Klopotek Account Contact Relationship</label>
         <locationX>358</locationX>
-        <locationY>1008</locationY>
+        <locationY>1055</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>DoesContact_Exist</targetReference>
@@ -746,7 +659,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>Copy_2_of_Update_Convert_Error</name>
         <label>Update Convert Error</label>
         <locationX>930</locationX>
-        <locationY>1740</locationY>
+        <locationY>1787</locationY>
         <inputAssignments>
             <field>ConvertError__c</field>
             <value>
@@ -756,17 +669,10 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Update_Contacts</name>
-        <label>Update Contacts</label>
-        <locationX>1546</locationX>
-        <locationY>792</locationY>
-        <inputReference>Loop_through_contacts</inputReference>
-    </recordUpdates>
-    <recordUpdates>
         <name>UpdateContacts</name>
         <label>Update Contacts</label>
         <locationX>666</locationX>
-        <locationY>1632</locationY>
+        <locationY>1679</locationY>
         <connector>
             <targetReference>UpdateKlopotekContact</targetReference>
         </connector>
@@ -779,7 +685,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>UpdateConvertError</name>
         <label>Update Convert Error</label>
         <locationX>314</locationX>
-        <locationY>1332</locationY>
+        <locationY>1379</locationY>
         <inputAssignments>
             <field>ConvertError__c</field>
             <value>
@@ -792,7 +698,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>UpdateKlopotekAccountContactRelationships</name>
         <label>Update Klopotek Account Contact Relationships</label>
         <locationX>358</locationX>
-        <locationY>2172</locationY>
+        <locationY>2219</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DOCNR__c</field>
@@ -813,7 +719,7 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <name>UpdateKlopotekContact</name>
         <label>Update Klopotek Contact</label>
         <locationX>358</locationX>
-        <locationY>2064</locationY>
+        <locationY>2111</locationY>
         <connector>
             <targetReference>UpdateKlopotekAccountContactRelationships</targetReference>
         </connector>
@@ -832,24 +738,21 @@ IF(AND(ISBLANK({!GetKlopotekAccountContactRelationship.TEL_COUNTRY_PREFIX__c}),I
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1101</locationX>
+        <locationX>650</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Should_Run</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Inactive__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
         <object>KlopotekContact__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
-        <scheduledPaths>
-            <name>Mark_contact_as_inactive</name>
-            <connector>
-                <targetReference>Last_Modified_was_10_days_ago</targetReference>
-            </connector>
-            <label>Mark contact as inactive</label>
-            <offsetNumber>10</offsetNumber>
-            <offsetUnit>Days</offsetUnit>
-            <recordField>LastModifiedDate</recordField>
-            <timeSource>RecordField</timeSource>
-        </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>

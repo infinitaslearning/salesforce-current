@@ -119,7 +119,7 @@ system.debug('**Import Handler: Size*'+lstImportShippingCosts.size());
 Public static List<ImportShippingCosts__c> HandleErrors(List<ImportShippingCosts__c> lstImportShippingCosts,Map<String,Decimal> Map_ImpCount){    
     for(ImportShippingCosts__c imp:lstImportShippingCosts){
 
-        system.debug('** HandleErrors*'+Map_ImpCount.get(imp.name__c)+ imp.ImportExpectedCount__c);
+        system.debug('** HandleErrors*'+Map_ImpCount.get(imp.name__c)+ '*****' + imp.ImportExpectedCount__c);
         
         if(Map_ImpCount.get(imp.name__c) != imp.ImportExpectedCount__c){
             imp.Error__c = 'Mismatch: Number expected vs number reveiced for: ' + imp.name__c;

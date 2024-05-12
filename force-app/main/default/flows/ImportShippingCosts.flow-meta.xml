@@ -18,6 +18,7 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>55.0</apiVersion>
+    <environments>Default</environments>
     <interviewLabel>Import Shipping Costs {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Import Shipping Costs</label>
     <processMetadataValues>

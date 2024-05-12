@@ -3,11 +3,11 @@ global without sharing class AddressValidation {
     public class Request {
         @InvocableVariable
         public string street;
-        @InvocableVariable(required=true)
+        @InvocableVariable
         public string housenumber;
         @InvocableVariable
         public string housenumberAddition;
-        @InvocableVariable
+        @InvocableVariable(required=true)
         public string postalcode;
         @InvocableVariable(required=true)
         public string country;
@@ -30,6 +30,7 @@ global without sharing class AddressValidation {
         public boolean credit;
         @InvocableVariable
         public string statusMessage;
+        public recordval.AddressValidationOutput_v1 addressValidationOutput;
     }
     
     @InvocableMethod(label='Validate Address')
@@ -38,12 +39,17 @@ global without sharing class AddressValidation {
         
         recordval.RecordValidationAPI_v1 api = new recordval.RecordValidationAPI_v1();
         recordval.AddressValidationInput_V1 input = new recordval.AddressValidationInput_V1();
+        recordval.AddressOptions_v1 addressOptions = new recordval.AddressOptions_v1();
         
         input.street = requests[0].street;
         input.housenumber = requests[0].housenumber;
         input.housenumberAddition = requests[0].housenumberAddition;
         input.postalcode = requests[0].postalcode;
         input.country = requests[0].country;
+
+        addressOptions.housenumber = true;
+        addressOptions.housenumberAddition = true;
+        input.addressOptions = addressOptions;
         //input.note = 'demo';
         
         system.debug('INPUT: ' + input);
@@ -55,7 +61,7 @@ global without sharing class AddressValidation {
             System.debug(LoggingLevel.DEBUG, output);
             System.debug(LoggingLevel.DEBUG, output.advice);
             
-            
+            result.addressValidationOutput = output;
             result.statusColour = String.valueOf(output.advice);
             result.statusCode = String.valueOf(output.addresses.get(0).status.code);
             result.fullAddress = String.valueOf(output.addresses.get(0).fullAddress);

@@ -8,7 +8,7 @@ public class Order_ProductSelectController {
                 List<PermissionSetAssignment> lstcurrentUserPerSet =    [   SELECT Id, PermissionSet.Name,AssigneeId
                                                                 FROM PermissionSetAssignment
                                                                 WHERE AssigneeId = :Userinfo.getUserId()
-                                                        		AND PermissionSet.Name = 'NoordhoffCustomerService_OmniChannelRouting'];
+                                                        		AND PermissionSet.Name LIKE :'%OmniChannelRouting%'];
 
                     Boolean OmniChannelPS;
                     system.debug('****'+lstcurrentUserPerSet.size());

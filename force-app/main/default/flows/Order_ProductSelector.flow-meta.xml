@@ -1642,7 +1642,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>scrViewOrder</name>
-            <fieldText>&lt;p&gt;Your order is ready to view. {!txtOrderRedirect}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt;Your order has been successfully saved.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt;Select &lt;/em&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;&lt;em&gt;{!txtOrderRedirect}&lt;/em&gt;&lt;/strong&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt; to check the details in Draft and to activate your order&lt;/em&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>false</showFooter>

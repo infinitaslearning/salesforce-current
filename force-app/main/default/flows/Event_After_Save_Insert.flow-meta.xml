@@ -18,10 +18,10 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.Account.OperatingCompany__c</leftValueReference>
+                <leftValueReference>$Record.Account.isProfessional__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Zorg</stringValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>

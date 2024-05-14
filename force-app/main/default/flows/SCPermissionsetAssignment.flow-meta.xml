@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_to_Collection</name>
         <label>Add to Collection</label>
-        <locationX>1700</locationX>
+        <locationX>1898</locationX>
         <locationY>1058</locationY>
         <assignmentItems>
             <assignToReference>soc_AssignPermissionsets</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_PermissionSet</name>
         <label>Assign PermissionSet</label>
-        <locationX>1700</locationX>
+        <locationX>1898</locationX>
         <locationY>950</locationY>
         <assignmentItems>
             <assignToReference>sov_AssignPermissionSet.PermissionSetId</assignToReference>
@@ -50,7 +50,7 @@
     <assignments>
         <name>Default_user_checkbox</name>
         <label>Default user checkbox</label>
-        <locationX>1612</locationX>
+        <locationX>1810</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>sov_User.UserPermissionsMarketingUser</assignToReference>
@@ -132,10 +132,26 @@
             <targetReference>Loop_Permissionsets</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>User_CheckboxNH4</name>
+        <label>User Checkbox</label>
+        <locationX>842</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>sov_User.UserPermissionsSupportUser</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Permissionsets</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Operating_Company</name>
         <label>Operating Company</label>
-        <locationX>1612</locationX>
+        <locationX>1810</locationX>
         <locationY>242</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -202,7 +218,7 @@
     <decisions>
         <name>Role_Liber</name>
         <label>Role Liber</label>
-        <locationX>2382</locationX>
+        <locationX>2646</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -224,7 +240,7 @@
     <decisions>
         <name>Role_Noordhoff</name>
         <label>Role Noordhoff</label>
-        <locationX>446</locationX>
+        <locationX>578</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -272,11 +288,26 @@
             </connector>
             <label>Noordhoff Customer Service Manager</label>
         </rules>
+        <rules>
+            <name>Noordhoff_PGM_Customer_Service</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_User.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NoordhoffPGMCustomerService</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_PermissionsetsNH4</targetReference>
+            </connector>
+            <label>Noordhoff PGM Customer Service</label>
+        </rules>
     </decisions>
     <decisions>
         <name>Role_Noordhoff_Zorg</name>
         <label>Role Noordhoff Zorg</label>
-        <locationX>1282</locationX>
+        <locationX>1546</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -313,7 +344,7 @@
     <decisions>
         <name>Role_Plantyn</name>
         <label>Role Plantyn</label>
-        <locationX>1854</locationX>
+        <locationX>2118</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -332,15 +363,18 @@
             <label>Plantyn Customer Service</label>
         </rules>
     </decisions>
-    <description>MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions
-MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</description>
+    <description>MR 16/02/24 Added Knowledge_LSF_Permission_Set assignment
+MV 02/04/24: Added Noordhoff PGM customer Service Role with assignments
+MR 19/03/24: Added Set checkbox Service Cloud user for KB Agent
+MR 13/02/24: Added ManageQuickTexts permissions
+MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</description>
     <environments>Default</environments>
     <interviewLabel>Sub {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Permissionset Assignment</label>
     <loops>
         <name>Loop_Permissionsets</name>
         <label>Loop Permissionsets</label>
-        <locationX>1612</locationX>
+        <locationX>1810</locationX>
         <locationY>842</locationY>
         <collectionReference>soc_Permissionsets</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -373,14 +407,14 @@ MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</desc
     <recordCreates>
         <name>Assign_Permissionsets</name>
         <label>Assign Permissionsets</label>
-        <locationX>1612</locationX>
+        <locationX>1810</locationX>
         <locationY>1358</locationY>
         <inputReference>soc_AssignPermissionsets</inputReference>
     </recordCreates>
     <recordLookups>
         <name>Get_PermissionsetLI1</name>
         <label>Get Permissionsets</label>
-        <locationX>2250</locationX>
+        <locationX>2514</locationX>
         <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -548,6 +582,13 @@ MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</desc
                 <stringValue>ManageQuickTexts</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Knowledge_LSF_Permission_Set</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -616,9 +657,65 @@ MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</desc
         <queriedFields>Id</queriedFields>
     </recordLookups>
     <recordLookups>
+        <name>Get_PermissionsetsNH4</name>
+        <label>Get Permissionsets</label>
+        <locationX>842</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>User_CheckboxNH4</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageCases</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageAccounts</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>OrderActivation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceUserPsl</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CreateOrders</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageVIPCustomers</stringValue>
+            </value>
+        </filters>
+        <object>PermissionSet</object>
+        <outputReference>soc_Permissionsets</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Get_PermissionsetsP1</name>
         <label>Get Permissionsets</label>
-        <locationX>1722</locationX>
+        <locationX>1986</locationX>
         <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -681,7 +778,7 @@ MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</desc
     <recordUpdates>
         <name>Update_User</name>
         <label>Update User</label>
-        <locationX>1612</locationX>
+        <locationX>1810</locationX>
         <locationY>1250</locationY>
         <connector>
             <targetReference>Assign_Permissionsets</targetReference>
@@ -689,7 +786,7 @@ MR 21/03/24 Added ManageQuickTexts PS for KB Agent and for Service Manager</desc
         <inputReference>sov_User</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1486</locationX>
+        <locationX>1684</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Default_user_checkbox</targetReference>

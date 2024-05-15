@@ -731,7 +731,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>OperatingCompany__c</field>
             <value>
-                <stringValue>Noordhoff</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>

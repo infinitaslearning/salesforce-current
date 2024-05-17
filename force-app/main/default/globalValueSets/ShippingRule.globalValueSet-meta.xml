@@ -61,6 +61,12 @@
         <isActive>false</isActive>
         <label>PU - Shipping Cots Exempt</label>
     </customValue>
+    <customValue>
+        <fullName>NZ - Shipping Costs Exempt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>NZ - Shipping Costs Exempt</label>
+    </customValue>
     <masterLabel>Shipping Rule</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

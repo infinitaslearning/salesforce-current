@@ -8,7 +8,7 @@
         <picklist>Browser__c</picklist>
         <values>
             <fullName>Google Chrome</fullName>
-            <default>false</default>
+            <default>false</default> 
         </values>
         <values>
             <fullName>Microsoft Edge</fullName>

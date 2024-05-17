@@ -11,6 +11,8 @@
 	<types>
 		<members>AWSPricebookMapping.Noordhoff_Zorg</members>
 		<members>CaseManagement.NoordhoffZorg</members>
+		<members>OrderActivationRules.NoordhoffZorgB2BShop</members>
+		<members>OrderActivationRules.NoordhoffZorgRenewal</members>
 		<name>CustomMetadata</name>
 	</types>
 	<types>

@@ -14,7 +14,7 @@
     <aura:attribute name="PricingMethod" type="String"  />
     <aura:attribute name="isSpinner" type="Boolean" default="false" />
     <aura:attribute name="isSpinnerProd" type="Boolean" default="false"  />
-    
+    <aura:attribute name="isPermissionSet" type="Boolean" default="false" />
     
     <aura:attribute name="BillToAccount" type="Account"/>
     <aura:attribute name="PricebookId" type="String" />

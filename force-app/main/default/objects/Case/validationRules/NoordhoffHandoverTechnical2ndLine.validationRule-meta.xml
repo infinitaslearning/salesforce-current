@@ -4,17 +4,23 @@
     <active>true</active>
     <description>This rule checks if the Case meets the minimum requirements before handing it over to Technical 2nd line queue</description>
     <errorConditionFormula>AND(
- RecordType.Name =&apos;Noordhoff&apos;,
-ISCHANGED( OwnerId ),  
-Owner:Queue.DeveloperName = &apos;NoordhoffTH&apos;,
-OR(
-ISPICKVAL( Type , &apos;Question&apos;),
-AND(NOT(ISPICKVAL( Status , &apos;Open&apos;)),
- NOT(ISPICKVAL( Status , &apos;On Hold&apos;)),
-ISPICKVAL (Type, &apos;Incident&apos;)),
-AND(ISBLANK(AccountId),
-ISPICKVAL (Type, &apos;Incident&apos;))
-)   
+  RecordType.Name =&apos;Noordhoff&apos;,
+  ISCHANGED( OwnerId ),  
+  Owner:Queue.DeveloperName = &apos;NoordhoffTH&apos;,
+  ISBLANK(OldId__c),  
+  OR(
+    ISPICKVAL( Type , &apos;Question&apos;),
+    ISPICKVAL( Type, &apos;&apos;),
+    AND(
+      NOT(ISPICKVAL( Status , &apos;Open&apos;)),
+      NOT(ISPICKVAL( Status , &apos;On Hold&apos;))
+      ),
+    AND(
+      ISPICKVAL (Type, &apos;Incident&apos;),
+      ISBLANK(AccountId)
+      )
+)
+         
 )</errorConditionFormula>
-    <errorMessage>To handover a Case to &apos;Technical Help&apos; please make sure the Type is not a &apos;Question&apos;, the Status is &apos;Open&apos; or &apos;On Hold&apos; and Account is filled.</errorMessage>
+    <errorMessage>To handover a Case to &apos;Technical Help&apos; please make sure the Type is not a &apos;Question&apos; or empty, the Status is &apos;Open&apos; or &apos;On Hold&apos; and Account is filled.</errorMessage>
 </ValidationRule>

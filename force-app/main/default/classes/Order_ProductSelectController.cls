@@ -2,7 +2,34 @@ public class Order_ProductSelectController {
     
 
     //------------------------------ Aura Methods
-    
+        @AuraEnabled
+        public static Boolean PermissionSetChecker(String OrderId){
+            try {
+                List<PermissionSetAssignment> lstcurrentUserPerSet =    [   SELECT Id, PermissionSet.Name,AssigneeId
+                                                                FROM PermissionSetAssignment
+                                                                WHERE AssigneeId = :Userinfo.getUserId()
+                                                        		AND PermissionSet.Name LIKE :'%OmniChannelRouting%'];
+
+                    Boolean OmniChannelPS;
+                    system.debug('****'+lstcurrentUserPerSet.size());
+                    if(lstcurrentUserPerSet.size() > 0 ){
+                        OmniChannelPS = true;
+                    }
+                    else{
+                        OmniChannelPS = false;
+                    }
+
+                    return OmniChannelPS;   
+                    
+            } catch (Exception e) {
+                HandleCustomException.LogException(e,OrderId);
+                    system.debug('**Order_ProductSelectController ReturnOrder: '+ e.getMessage());
+                    throw new AuraHandledException('Something went wrong: ' + e.getMessage() + 'Please contact system administator'); 
+               
+            }
+        }
+
+
         @auraenabled
         Public static  OrderOpportunity  returnOrder(String OrderId){       
             
@@ -915,7 +942,7 @@ public class Order_ProductSelectController {
                  List<ListPriceDiscount> AddlistPriceDiscount;
                  
                 
-                 if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                 if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                     Item.BasePrice = OItem.ComponentListPrice__c;
                 }
                 else{
@@ -938,7 +965,7 @@ public class Order_ProductSelectController {
                         }                      
                      }
                      else{
-                        if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                        if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                             Item.STDPrice  = OItem.ComponentListPrice__c;
                         }
                         else{

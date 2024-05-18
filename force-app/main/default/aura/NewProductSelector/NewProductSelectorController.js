@@ -15,6 +15,9 @@
             helper.fetchListPriceDiscountUtil(component);
             helper.fetchListPriceBook(component);
             helper.fetchMaxOrderlineCount(component);
+            helper.UserPermissionSets(component);
+
+            
           
      var Assetlist = component.get('v.Assetlist');
 
@@ -32,6 +35,10 @@
             component.set("v.canFinish", true);
          }
       }
+
+        component.set("v.canNext",false);
+        component.set("v.canFinish",true);
+
     },
 
     onButtonPressed: function(component, event, helper) {
@@ -108,7 +115,25 @@
             if (state === "SUCCESS") {
                 var OrderId = response.getReturnValue();
        			//window.location.assign("/"+OrderId);
-                   window.location.assign("/lightning/r/Order/"+OrderId+"/view");   
+                
+                var isPermissionSet = component.get("v.isPermissionSet");
+                console.log('**UserPermissionSets Save**'+ isPermissionSet);
+
+                if(isPermissionSet == false){
+                    window.location.assign("/lightning/r/Order/"+OrderId+"/view");  
+                }
+                else{
+                    component.set("v.canNext",true);
+                    component.set("v.canFinish",false);
+                    component.set("v.isSpinner",false);
+                    var navigate = component.get('v.navigateFlow');
+                    var actionClicked = 'NEXT';
+                    navigate(actionClicked);
+                }
+                   
+                   
+
+
             }
             else if (state === "INCOMPLETE") {
                 

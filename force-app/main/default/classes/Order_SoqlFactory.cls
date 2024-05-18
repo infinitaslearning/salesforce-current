@@ -746,6 +746,7 @@ public with sharing class Order_SoqlFactory {
         +' Product2.SuccessorItem__r.IsActive,'
         +' Product2.SuccessorItem__r.Type__c,'
         +' Product2.SuccessorItem__r.LicenseDuration__c,'
+        +' Product2.SuccessorItem__r.CustomPricingAllowed__c,'
         +' Product2.Renewal__c,'
         +' Product2.Type__c,'
         +' Product2.LicenseDuration__c, '

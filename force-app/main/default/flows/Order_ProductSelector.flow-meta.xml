@@ -327,6 +327,24 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
+        <name>Redirect</name>
+        <label>Redirect</label>
+        <locationX>1950</locationX>
+        <locationY>3880</locationY>
+        <actionName>ecflc:flowURLRedirect</actionName>
+        <actionType>component</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>urlRedirect</name>
+            <value>
+                <elementReference>OrderRedirectURL</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>ecflc:flowURLRedirect</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
         <name>RemoveAccountsfromOrder</name>
         <label>RemoveAccountsfromOrder</label>
         <locationX>1235</locationX>
@@ -1458,6 +1476,9 @@
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
+        <connector>
+            <targetReference>scrtabredirect</targetReference>
+        </connector>
         <fields>
             <name>SelectProductForOrder</name>
             <extensionName>c:NewProductSelector</extensionName>
@@ -1472,12 +1493,6 @@
                 <name>TotalNumberofStudents</name>
                 <value>
                     <elementReference>varTotalPupils</elementReference>
-                </value>
-            </inputParameters>
-            <inputParameters>
-                <name>accountsData</name>
-                <value>
-                    <elementReference>colSelectedAccounts</elementReference>
                 </value>
             </inputParameters>
             <inputParameters>
@@ -1519,7 +1534,13 @@
             <inputParameters>
                 <name>BillToAccount</name>
                 <value>
-                    <elementReference>GetBilltoAccount</elementReference>
+                    <elementReference>varAccountBillto</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>accountsData</name>
+                <value>
+                    <elementReference>colSelectedAccounts</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -1612,6 +1633,22 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <name>scrtabredirect</name>
+        <label>scrtabredirect</label>
+        <locationX>1724</locationX>
+        <locationY>3944</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>scrViewOrder</name>
+            <fieldText>&lt;p&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt;Your order has been successfully saved.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt;Select &lt;/em&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;&lt;em&gt;{!txtOrderRedirect}&lt;/em&gt;&lt;/strong&gt;&lt;em style=&quot;background-color: rgb(248, 248, 248); font-size: 15px; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; color: rgb(29, 28, 29);&quot;&gt; to check the details in Draft and to activate your order&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>Select_Accounts</name>
         <label>Select Accounts</label>
         <locationX>413</locationX>
@@ -1659,6 +1696,21 @@
         </connector>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>OrderRedirect</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;a href=&quot;/lightning/r/Order/801JW00000IkYqjYAF/view&quot; target=&quot;_parent&quot;&gt;View Order&lt;/a&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>OrderRedirectURL</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(106, 153, 85);&quot;&gt;/lightning/r/Order/{!OrderId}/view&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>txtOrderRedirect</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;a href=&quot;/lightning/r/Order/{!OrderId}/view&quot; target=&quot;_self&quot;&gt;View Order&lt;/a&gt;</text>
+    </textTemplates>
     <variables>
         <name>AccountId</name>
         <dataType>String</dataType>

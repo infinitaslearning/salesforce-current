@@ -2050,6 +2050,21 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
         <connector>
             <targetReference>UDB_Account_Address</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ExternalContactId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ExternalCustomerId__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>External_Database__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ExternalDatabase__c</elementReference>
+            </value>
+        </filters>
         <inputAssignments>
             <field>CommunicationLanguage__c</field>
             <value>
@@ -2060,18 +2075,6 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
             <field>Email</field>
             <value>
                 <elementReference>$Record.Email__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ExternalContactId__c</field>
-            <value>
-                <elementReference>$Record.ExternalCustomerId__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>External_Database__c</field>
-            <value>
-                <elementReference>$Record.ExternalDatabase__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

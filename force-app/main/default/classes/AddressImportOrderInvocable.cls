@@ -15,8 +15,12 @@ public without sharing class AddressImportOrderInvocable {
         
         //Call the address validation method
         List<AddressValidation.Response> responseWrapper = AddressValidation.validateAddress(requests);
-        System.debug('***responseWrapper: ' + responseWrapper);
-        System.debug('***responseWrapper: ' + responseWrapper[0].addressValidationOutput);
+        System.debug('***responseWrapper1: ' + responseWrapper);
+        System.debug('***responseWrapper2: ' + responseWrapper[0].addressValidationOutput);
+        System.debug('***responseWrapper3: ' + responseWrapper[0].addressValidationOutput.addresses[0]);
+        System.debug('***responseWrapper4: ' + responseWrapper[0].addressValidationOutput.addresses[0].status);
+        System.debug('***responseWrapper5: ' + responseWrapper[0].addressValidationOutput.status);
+        System.debug('***responseWrapper6: ' + responseWrapper[0].addressValidationOutput.advice);
 
         //Query the address to update with validation result
         List<ILAddress__c> addressRecordLs = [SELECT Id, rv2Status__c, rv2Validation__c
@@ -36,7 +40,7 @@ public without sharing class AddressImportOrderInvocable {
         // Set the recordId in which the result needs to be stored
         saveResults.setRecordId(addressRecordLs[0].Id);
         // Pass the fieldName that needs to be validated and the result from the validation
-        saveResults.setValidationResult('addresses', responseWrapper[0].addressValidationOutput);
+        saveResults.setValidationResult('Street__c', responseWrapper[0].addressValidationOutput);
         recordval.rv2SaveValidationResultOutput_v1 result = api.saveValidationResult(saveResults);
 
         System.debug(LoggingLevel.debug, result.recordId);

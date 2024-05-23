@@ -12,9 +12,11 @@
     IF(
     OR(
     AND(
+        /*
     ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;),
     isProfessional__c = true
     ),
+    */
     ISPICKVAL(OperatingCompany__c, &apos;Noordhoff Zorg&apos;)
     ),
     false,

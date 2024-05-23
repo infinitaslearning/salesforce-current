@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Professional_must_be_False</fullName>
-    <active>true</active>
-    <errorConditionFormula>AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff&quot;), isProfessional__c=true)</errorConditionFormula>
-    <errorDisplayField>isProfessional__c</errorDisplayField>
-    <errorMessage>&apos;Professional&apos; cannot be ticked</errorMessage>
-</ValidationRule>

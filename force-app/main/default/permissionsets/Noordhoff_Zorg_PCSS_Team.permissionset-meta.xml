@@ -50,7 +50,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Noordhoff Professional PCSS Team</label>
+    <label>Noordhoff Zorg PCSS Team</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>

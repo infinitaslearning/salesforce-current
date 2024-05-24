@@ -1,5 +1,57 @@
 ({
-	fetchAccountsUtil : function(component) {
+	
+    UserPermissionSets : function(component) {
+        
+        
+        console.log('**UserPermissionSets1**');
+        var OrderId =  component.get("v.OrderId"); 
+
+        if(OrderId == undefined || OrderId == null){
+            OrderId =  component.get("v.recordId");
+        }
+
+        var action = component.get("c.PermissionSetChecker");
+ 		 action.setParams({ 
+            "OrderId": OrderId,  
+    	});
+        console.log('**UserPermissionSets2**');
+
+
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            console.log('**UserPermissionSets 2.1**');
+            if (state === "SUCCESS") {
+                console.log('**UserPermissionSets 4**');
+                var PermissionSet = response.getReturnValue();
+                console.log('**UserPermissionSets 1**'+PermissionSet);
+
+                component.set("v.isPermissionSet",PermissionSet);
+
+                console.log('**UserPermissionSets 2**'+PermissionSet);
+            }
+            else if (state === "INCOMPLETE") {
+                
+            }
+            else if (state === "ERROR") {
+                    var errors = response.getError();
+                    if (errors) {
+                        if (errors[0] && errors[0].message) {
+                            console.log("fetchAccountsUtil: Error message: " + errors[0].message);
+                            alert("Error message: " + errors[0].message);
+                        }
+                    } else {
+                        alert("Something went wrong: Please contact System Administrator");
+                    }
+                }
+        });
+        
+        
+        $A.enqueueAction(action);
+        
+
+    },
+
+    fetchAccountsUtil : function(component) {
         
         console.time('Start Accounts'); 
      

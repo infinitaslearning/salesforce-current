@@ -3,7 +3,7 @@
     <fullName>Zorg</fullName>
     <active>true</active>
     <businessProcess>Noordhoff Zorg</businessProcess>
-    <label>Zorg</label>
+    <label>Noordhoff Zorg</label>
     <picklistValues>
         <picklist>CustomerRelationship__c</picklist>
         <values>

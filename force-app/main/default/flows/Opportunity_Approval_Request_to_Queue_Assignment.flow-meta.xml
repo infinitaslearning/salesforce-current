@@ -174,7 +174,7 @@
             <field>OpportunityRecordTypeName__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Zorg</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>

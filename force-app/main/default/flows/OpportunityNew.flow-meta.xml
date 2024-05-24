@@ -1156,7 +1156,7 @@
                     <leftValueReference>getZorgRecordTypeId.DeveloperName</leftValueReference>
                     <operator>NotEqualTo</operator>
                     <rightValue>
-                        <stringValue>Zorg</stringValue>
+                        <stringValue>Noordhoff Zorg</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>

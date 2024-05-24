@@ -264,7 +264,7 @@
                     <criteria>
                         <leftValue>{!Record.RecordType.Name}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>Zorg</rightValue>
+                        <rightValue>Noordhoff Zorg</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

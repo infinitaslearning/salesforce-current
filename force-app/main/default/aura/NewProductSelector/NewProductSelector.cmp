@@ -442,7 +442,7 @@
                                                     </aura:if>                                                             
                                                 </div>
                                                      </td> 
-                <!-- OPPORTUNITY                                      
+                <!-- OPPORTUNITY                                       
                     <aura:if isTrue="{! or(v.PricebookName == 'Zorg',not( v.IsOpportunity == true))}">   
                         -->                                                                            
                                                 <td>

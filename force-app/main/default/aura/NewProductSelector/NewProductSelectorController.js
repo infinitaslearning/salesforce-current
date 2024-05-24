@@ -65,7 +65,7 @@
         if(OrderId == undefined || OrderId == null){
             OrderId =  component.get("v.recordId");
         }
-
+ 
         var OrderItems = component.get("v.OrderItemList");  
         
         var action = component.get("c.InsertOrderItems");

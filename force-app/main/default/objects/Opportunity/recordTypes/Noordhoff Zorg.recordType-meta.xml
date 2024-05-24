@@ -2,7 +2,7 @@
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Zorg</fullName>
     <active>true</active>
-    <businessProcess>Professional</businessProcess>
+    <businessProcess>Noordhoff Zorg</businessProcess>
     <label>Zorg</label>
     <picklistValues>
         <picklist>CustomerRelationship__c</picklist>

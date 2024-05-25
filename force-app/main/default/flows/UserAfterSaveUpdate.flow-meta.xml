@@ -117,6 +117,9 @@
         <label>Permissionset Assignment</label>
         <locationX>50</locationX>
         <locationY>539</locationY>
+        <connector>
+            <targetReference>Queue_Assignment2</targetReference>
+        </connector>
         <flowName>SCPermissionsetAssignment</flowName>
         <inputAssignments>
             <name>sov_User</name>
@@ -130,6 +133,9 @@
         <label>Permissionset Assignment</label>
         <locationX>314</locationX>
         <locationY>431</locationY>
+        <connector>
+            <targetReference>Queue_Assignment</targetReference>
+        </connector>
         <flowName>SCPermissionsetAssignment</flowName>
         <inputAssignments>
             <name>sov_User</name>
@@ -147,6 +153,32 @@
             <targetReference>Permissionset_Assignment</targetReference>
         </connector>
         <flowName>SCPermissionsetRemoval</flowName>
+        <inputAssignments>
+            <name>sov_User</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Queue_Assignment</name>
+        <label>Queue Assignment</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <flowName>QueueAssignment</flowName>
+        <inputAssignments>
+            <name>sov_User</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <name>Queue_Assignment2</name>
+        <label>Queue Assignment</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <flowName>QueueAssignment</flowName>
         <inputAssignments>
             <name>sov_User</name>
             <value>

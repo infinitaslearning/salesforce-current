@@ -2,8 +2,72 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
     <assignments>
+        <name>Set_Owner_to_Generic_Queue</name>
+        <label>Set Owner to Generic Queue</label>
+        <locationX>314</locationX>
+        <locationY>792</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Generic_services_queue.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Owner_to_PE_Queue</name>
+        <label>Set Owner to PE Queue</label>
+        <locationX>578</locationX>
+        <locationY>792</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_PE_services_queue.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Owner_to_SE_Queue</name>
+        <label>Set Owner to SE Queue</label>
+        <locationX>842</locationX>
+        <locationY>792</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_SE_services_queue.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Owner_to_VE_HE_Queue</name>
+        <label>Set Owner to VE/HE Queue</label>
+        <locationX>1106</locationX>
+        <locationY>792</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_VE_HE_services_queue.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Owner</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_to_Queue</name>
-        <label>Set to Queue</label>
+        <label>Set Owner to last known Queue</label>
         <locationX>50</locationX>
         <locationY>360</locationY>
         <assignmentItems>
@@ -18,11 +82,97 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Category_Level_1</name>
+        <label>Category Level 1</label>
+        <locationX>974</locationX>
+        <locationY>576</locationY>
+        <defaultConnectorLabel>No Category 1 found</defaultConnectorLabel>
+        <rules>
+            <name>General</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CategoryLevel1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>General</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Generic_services_queue</targetReference>
+            </connector>
+            <label>General</label>
+        </rules>
+        <rules>
+            <name>Primary_Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CategoryLevel1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Primary Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_PE_services_queue</targetReference>
+            </connector>
+            <label>Primary Education</label>
+        </rules>
+        <rules>
+            <name>Secondary_Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CategoryLevel1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Secondary Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_SE_services_queue</targetReference>
+            </connector>
+            <label>Secondary Education</label>
+        </rules>
+        <rules>
+            <name>Vocational_Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CategoryLevel1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Vocational Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_VE_HE_services_queue</targetReference>
+            </connector>
+            <label>Vocational Education</label>
+        </rules>
+        <rules>
+            <name>Higher_Education</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CategoryLevel1__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Higher Education</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Get_VE_HE_services_queue</targetReference>
+            </connector>
+            <label>Higher Education</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Decision_1</name>
         <label>If Agent is owner?</label>
-        <locationX>182</locationX>
+        <locationX>743</locationX>
         <locationY>252</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Get_Chat_queue_for_ID</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Outcome_1_of_Decision_1</name>
             <conditionLogic>and</conditionLogic>
@@ -35,6 +185,28 @@
             </conditions>
             <connector>
                 <targetReference>Set_to_Queue</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Owner_Chat</name>
+        <label>Is Owner Chat?</label>
+        <locationX>1436</locationX>
+        <locationY>468</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Owner_is_Chat</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Get_Chat_queue_for_ID.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Category_Level_1</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -67,15 +239,155 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Chat_queue_for_ID</name>
+        <label>Get Chat queue for ID</label>
+        <locationX>1436</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Owner_Chat</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NoordhoffChat</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Generic_services_queue</name>
+        <label>Get Generic services queue</label>
+        <locationX>314</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Owner_to_Generic_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NoordhoffServices</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_PE_services_queue</name>
+        <label>Get PE services queue</label>
+        <locationX>578</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Owner_to_PE_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NoordhoffServicesPE</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_SE_services_queue</name>
+        <label>Get SE services queue</label>
+        <locationX>842</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Owner_to_SE_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NoordhoffServicesSE</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_VE_HE_services_queue</name>
+        <label>Get VE/HE services queue</label>
+        <locationX>1106</locationX>
+        <locationY>684</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Owner_to_VE_HE_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Type</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Queue</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>NoordhoffServicesVEHE</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Owner</name>
         <label>Update Owner</label>
-        <locationX>50</locationX>
-        <locationY>468</locationY>
+        <locationX>743</locationX>
+        <locationY>1152</locationY>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>56</locationX>
+        <locationX>617</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Decision_1</targetReference>
@@ -98,7 +410,7 @@
         <object>Case</object>
         <schedule>
             <frequency>Daily</frequency>
-            <startDate>2024-03-06</startDate>
+            <startDate>2024-04-13</startDate>
             <startTime>01:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>

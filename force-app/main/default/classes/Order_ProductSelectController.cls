@@ -942,7 +942,7 @@ public class Order_ProductSelectController {
                  List<ListPriceDiscount> AddlistPriceDiscount;
                  
                 
-                 if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                 if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                     Item.BasePrice = OItem.ComponentListPrice__c;
                 }
                 else{
@@ -965,7 +965,7 @@ public class Order_ProductSelectController {
                         }                      
                      }
                      else{
-                        if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                        if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                             Item.STDPrice  = OItem.ComponentListPrice__c;
                         }
                         else{

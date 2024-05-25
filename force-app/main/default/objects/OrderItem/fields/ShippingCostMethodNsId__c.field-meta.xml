@@ -4,29 +4,38 @@
     <externalId>false</externalId>
     <formula>IF( TEXT( Order.OperatingCompany__c ) = &apos;Plantyn&apos;,
 CASE(ShippingIndicationRule__c ,
-&apos;Based on order total&apos;, IF( $Organization.Id = $Label.devOrgId, &apos;193&apos;,&apos;193&apos;),
-&apos;Based on weight Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;194&apos;,&apos;194&apos;),
-&apos;Based on weight non Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;195&apos;,&apos;195&apos;),
-&apos;Shipping Cost Exempt&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;196&apos;,&apos;196&apos;),
+&apos;Based on order total&apos;, $Label.ShipPU_OrderTotal,
+&apos;Based on weight Domestic&apos;, $Label.ShipPU_Domestic,
+&apos;Based on weight non Domestic&apos;, $Label.ShipPU_NonDomestic,
+&apos;Shipping Cost Exempt&apos;, $Label.ShipPU_Exempt,
 &apos;&apos;
 ),
 IF (TEXT( Order.OperatingCompany__c ) = &apos;Noordhoff&apos;,
-
 CASE(ShippingIndicationRule__c,
-&apos;Based on order total&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7521&apos;,&apos;36406&apos;),
-&apos;Based on weight Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7522&apos;,&apos;36407&apos;),
-&apos;Based on weight non Domestic&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7523&apos;,&apos;36408&apos;),
-&apos;Shipping Cost Exempt&apos;, IF( $Organization.Id = $Label.devOrgId,&apos;7524&apos;,&apos;20760&apos;),&apos;&apos;
-)
-,
+&apos;Based on order total&apos;, $Label.ShipNU_OrderTotal,
+&apos;Based on weight Domestic&apos;, $Label.ShipNU_Domestic,
+&apos;Based on weight non Domestic&apos;, $Label.ShipNU_NonDomestic,
+&apos;Shipping Cost Exempt&apos;, $Label.ShipNU_Exempt,
+&apos;&apos;
+),
+IF (TEXT( Order.OperatingCompany__c ) = &apos;Noordhoff Zorg&apos;,
+CASE(ShippingIndicationRule__c,
+&apos;Based on order total&apos;, $Label.ShipNZ_OrderTotal,
+&apos;Based on weight Domestic&apos;, $Label.ShipNZ_Domestic,
+&apos;Based on weight non Domestic&apos;, $Label.ShipNZ_NonDomestic,
+&apos;Shipping Cost Exempt&apos;, $Label.ShipNZ_Exempt,
+&apos;&apos;
+),
 IF (TEXT( Order.OperatingCompany__c ) = &apos;Liber&apos;,
 CASE(ShippingIndicationRule__c,
-&apos;Based on order total&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7528&apos;,&apos;8260&apos;),
-&apos;Based on weight Domestic&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7526&apos;,&apos;8258&apos;),
-&apos;Based on weight non Domestic&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7527&apos;,&apos;8259&apos;),
-&apos;Shipping Cost Exempt&apos;, IF($Organization.Id = $Label.uatOrgId,&apos;7525&apos;,&apos;8256&apos;),&apos;&apos;
-) ,
+&apos;Based on order total&apos;, $Label.ShipLI_OrderTotal,
+&apos;Based on weight Domestic&apos;, $Label.ShipLI_Domestic,
+&apos;Based on weight non Domestic&apos;, $Label.ShipLI_NonDomestic,
+&apos;Shipping Cost Exempt&apos;, $Label.ShipLI_Exempt,
 &apos;&apos;
+),
+&apos;&apos;
+)
 )
 )
 )</formula>

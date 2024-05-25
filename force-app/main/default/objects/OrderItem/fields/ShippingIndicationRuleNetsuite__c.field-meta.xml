@@ -3,9 +3,10 @@
     <fullName>ShippingIndicationRuleNetsuite__c</fullName>
     <externalId>false</externalId>
     <formula>IF(ISPICKVAL(OperatingCompany__c, &quot;Plantyn&quot;), &quot;PU - &quot; &amp; TEXT(ShippingIndicationRule__c),
-		IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff&quot;), &quot;NU - &quot; &amp; TEXT(ShippingIndicationRule__c),
-				IF(ISPICKVAL(OperatingCompany__c, &quot;Liber&quot;), &quot;LI - &quot; &amp; TEXT(ShippingIndicationRule__c),
-						&quot;&quot;)))</formula>
+			IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff&quot;), &quot;NU - &quot; &amp; TEXT(ShippingIndicationRule__c),
+						IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff Zorg&quot;), &quot;NZ - &quot; &amp; TEXT(ShippingIndicationRule__c),
+									IF(ISPICKVAL(OperatingCompany__c, &quot;Liber&quot;), &quot;LI - &quot; &amp; TEXT(ShippingIndicationRule__c),
+												&quot;&quot;))))</formula>
     <label>Shipping Indication Rule Netsuite</label>
     <required>false</required>
     <trackHistory>false</trackHistory>

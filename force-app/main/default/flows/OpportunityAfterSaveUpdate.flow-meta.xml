@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Send_Notification_to_Opp_Owner</name>
         <label>Send Notification to Opp Owner</label>
-        <locationX>182</locationX>
-        <locationY>1151</locationY>
+        <locationX>402</locationX>
+        <locationY>2231</locationY>
         <actionName>customNotificationAction</actionName>
         <actionType>customNotificationAction</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -45,8 +45,8 @@
     <assignments>
         <name>Assign_Recipient_Id</name>
         <label>Assign Recipient Id</label>
-        <locationX>182</locationX>
-        <locationY>911</locationY>
+        <locationX>402</locationX>
+        <locationY>2015</locationY>
         <assignmentItems>
             <assignToReference>varRecipeintIDs</assignToReference>
             <operator>Add</operator>
@@ -61,8 +61,8 @@
     <assignments>
         <name>AssignAmountBME</name>
         <label>AssignAmountBME</label>
-        <locationX>50</locationX>
-        <locationY>455</locationY>
+        <locationX>270</locationX>
+        <locationY>1415</locationY>
         <assignmentItems>
             <assignToReference>$Record.Amount</assignToReference>
             <operator>Assign</operator>
@@ -70,15 +70,22 @@
                 <elementReference>AmountBME</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DoUpdateOpportunity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Update_Opportunity</targetReference>
+            <targetReference>Do_Update_Opportunity</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>AssignAmountPlantyn</name>
         <label>AssignAmountPlantyn</label>
-        <locationX>314</locationX>
-        <locationY>455</locationY>
+        <locationX>534</locationX>
+        <locationY>1415</locationY>
         <assignmentItems>
             <assignToReference>$Record.Amount</assignToReference>
             <operator>Assign</operator>
@@ -86,15 +93,120 @@
                 <elementReference>AmountItemsPlantyn</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DoUpdateOpportunity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Update_Opportunity</targetReference>
+            <targetReference>Do_Update_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Account_Owner_as_Opportunity_Owner</name>
+        <label>Set Account Owner as Opportunity Owner</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>OpportunityAccount.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DoUpdateOpportunity</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity_Ammount</targetReference>
         </connector>
     </assignments>
     <decisions>
+        <name>Do_Update_Opportunity</name>
+        <label>Update Opportunity?</label>
+        <locationX>534</locationX>
+        <locationY>1607</locationY>
+        <defaultConnector>
+            <targetReference>Notify_of_Approval_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Update_Opportunity</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>DoUpdateOpportunity</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Does_opportunity_have_an_Account</name>
+        <label>Does opportunity have an Account?</label>
+        <locationX>336</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_Ammount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_opportunity_has_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AccountId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account_from_Opportunity</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Account_Owner_Opportunity_Owner</name>
+        <label>Is Account Owner Opportunity Owner</label>
+        <locationX>182</locationX>
+        <locationY>755</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_Ammount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No_Account_Owner_is_not_Opportunity_Owner</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OpportunityOwnerIsAccountOwner</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Owner_as_Opportunity_Owner</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Notify_of_Approval_Status</name>
         <label>Notify of Approval Status</label>
-        <locationX>314</locationX>
-        <locationY>791</locationY>
+        <locationX>534</locationX>
+        <locationY>1907</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Send_Notification</name>
@@ -121,13 +233,114 @@
         </rules>
     </decisions>
     <decisions>
+        <name>OpCo</name>
+        <label>OpCo</label>
+        <locationX>534</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_Ammount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Noordhoff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_Ammount</targetReference>
+            </connector>
+            <label>Noordhoff</label>
+        </rules>
+        <rules>
+            <name>Plantyn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plantyn</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OpportunityIsNew</targetReference>
+            </connector>
+            <label>Plantyn</label>
+        </rules>
+        <rules>
+            <name>Liber</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_Ammount</targetReference>
+            </connector>
+            <label>Liber</label>
+        </rules>
+        <rules>
+            <name>NoordhoffZorg</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff Professional</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_Ammount</targetReference>
+            </connector>
+            <label>Noordhoff Zorg</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>OpportunityIsNew</name>
+        <label>Is New?</label>
+        <locationX>501</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_Ammount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>YES_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Does_opportunity_have_an_Account</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Update_Opportunity_Ammount</name>
         <label>Update Opportunity Ammount</label>
-        <locationX>314</locationX>
-        <locationY>335</locationY>
+        <locationX>534</locationX>
+        <locationY>1307</locationY>
         <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Notify_of_Approval_Status</targetReference>
+            <targetReference>Do_Update_Opportunity</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -222,6 +435,16 @@
         <dataType>String</dataType>
         <expression>IF(ISPICKVAL({!$Record.ApprovalStatus__c}, &quot;Approved&quot;), &quot;Opportunity Approved&quot;, &quot;Opportunity Rejected&quot;)</expression>
     </formulas>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>OpportunityOwnerIsAccountOwner</name>
+        <dataType>Boolean</dataType>
+        <expression>LEFT({!$Record.OwnerId}, 15) = LEFT({!OpportunityAccount.OwnerId}, 15)</expression>
+    </formulas>
     <interviewLabel>Opportunity - After Save Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity - After Save Update</label>
     <processMetadataValues>
@@ -244,10 +467,32 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
+        <name>Get_Account_from_Opportunity</name>
+        <label>Get Account from Opportunity</label>
+        <locationX>182</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Account_Owner_Opportunity_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>OpportunityAccount</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Custom_Notification_Type</name>
         <label>Get Custom Notification Type</label>
-        <locationX>182</locationX>
-        <locationY>1031</locationY>
+        <locationX>402</locationX>
+        <locationY>2123</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Send_Notification_to_Opp_Owner</targetReference>
@@ -267,24 +512,42 @@
     <recordUpdates>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
-        <locationX>314</locationX>
-        <locationY>671</locationY>
+        <locationX>402</locationX>
+        <locationY>1715</locationY>
         <connector>
             <targetReference>Notify_of_Approval_Status</targetReference>
         </connector>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>188</locationX>
+        <locationX>408</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Update_Opportunity_Ammount</targetReference>
+            <targetReference>OpCo</targetReference>
         </connector>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
+    <variables>
+        <name>DoUpdateOpportunity</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>OpportunityAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
     <variables>
         <name>varRecipeintIDs</name>
         <dataType>String</dataType>

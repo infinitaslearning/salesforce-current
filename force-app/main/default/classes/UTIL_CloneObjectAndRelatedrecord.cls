@@ -75,6 +75,11 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
             for(sObject sObj : lstSobj){
                 res.clonedRecordLs.add(sObj.Id);
             }
+            system.debug('**Util_Clone Item Group**'+SObjectType);
+            if(SObjectType == 'Order'){
+                orderlineItemhelper(lstSobj[0].id);
+            }
+
 
             response.add(res);
         }
@@ -87,6 +92,39 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
         InsertRecords(Map_ObjField,Map_Objrecord,lstSobj[0].id,SObjectType);
     }
     */
+
+    public static void orderlineItemhelper(String RecordId){
+
+       OrderItem[] lstCloneItems =  [Select Id,ItemGroup__c,ProductType__c,ImportItemGroupEAN__c from OrderItem where OrderId =: RecordId];
+
+       Map<String, String> Map_IGLookup = new Map<String, String>();
+       
+       system.debug('**Util_Clone Item Group**: In');
+       for(OrderItem  item: lstCloneItems){
+                if(item.ProductType__c == 'Item Group'){                  
+                   Map_IGLookup.put(item.ImportItemGroupEAN__c,Item.id);
+                }
+       }
+       
+       for(OrderItem  item:lstCloneItems){
+            if(item.ItemGroup__c != null){                  
+                item.ItemGroup__c = Map_IGLookup.get(item.ImportItemGroupEAN__c);
+            }
+       }
+
+       try{
+            system.debug('**Util_Clone Item Group**: Before Update');    
+            update lstCloneItems;
+            system.debug('**Util_Clone Item Group**: After Update');
+       }
+       catch(exception e){
+            system.debug('**Util_Clone Item Group: Error on Item Groups ***'+e.getMessage());
+       }
+
+
+    }
+
+
 
     public static Map<String, Map<String,String>> ReturnAllFields(List<String> lstofObjects){
     
@@ -273,10 +311,23 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                                 } else if (obj == 'OrderItem' && field == 'TotalDiscountAmount__c'){
                                     sObj.put(field ,val.get(field));
                                     system.debug('=-= TotalDiscountAmount__c: ' + val.get(field));
-                                } else {
+                                } else if(field != 'ImportItemGroupEAN__c') {
                                     sObj.put(field ,val.get(field));
                                 }
                                 
+                                System.debug('**Util_Clone Object: ITEM group** field == '+ field +'' +  val.get(field));
+                                if(obj == 'OrderItem' && field == 'ProductType__c' && val.get('ItemGroup__c') != null){
+
+                                    System.debug('**Util_Clone Object: ProductType** field == '+ field +'' +  val.get(field));
+                                    sObj.put('ImportItemGroupEAN__c' ,val.get('ItemGroup__c'));
+                                }
+                                
+                                else if(field == 'ProductType__c' && val.get(field) == 'Item Group'){ 
+                                    System.debug('**Util_Clone Object: ProductType: IG** field == '+ field +'' +  val.get('Id'));
+                                    sObj.put('ImportItemGroupEAN__c' ,val.get('Id'));
+                                }    
+
+
                                 system.debug('**field**'+field+'**value*'+val.get(field));
                             }   
                         }    

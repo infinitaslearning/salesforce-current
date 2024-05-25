@@ -23,14 +23,16 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         List<OrderItem> FlowOrderItems = new List<OrderItem>();
         List<ImportOrder__c> FlowImportOrder = new List<ImportOrder__c>();
         List<ImportOrder__c> ListOfImportOrder = new List<ImportOrder__c>();
-        Set<String> Set_OrderId = new Set<String>();
+        //Set<String> Set_OrderId = new Set<String>();
         Set<String> Set_OrderLineId = new Set<String>();
+        List<Id> OrderId = new List<Id>();
 
         Set<String> Set_ExternalOrderId = new Set<String>();
         Set<String> Set_ImportOrderId = new Set<String>();
 
         for(Request r:req){
-            Set_OrderId.add(r.SingleOrderItems.OrderId);
+           // Set_OrderId.add(r.SingleOrderItems.OrderId);
+            OrderId.add(r.SingleOrderItems.OrderId);
             FlowOrderItems.add(r.SingleOrderItems);
             FlowImportOrder.add(r.ImportOrder);
             Set_OrderLineId.add(r.SingleOrderItems.id);
@@ -41,8 +43,12 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
 
         }
         
-        ListOfOrderItems = [Select id,ItemGroup__c,Product2Id,NetsuiteQuantity__c,Quantity,ProductComponent__c,ProductType__c,NetSalesPriceItemGroup__c,DiscountedPriceItemGroup__c,ListPriceItemGroup__c,ComponentListPrice__c,ManualDiscount__c,ManualDiscountPercent__c,ManualDiscountValue__c from OrderItem where OrderId in: Set_OrderId];
-       // ListOfOrderItems.addAll(FlowOrderItems);
+       // ListOfOrderItems = [Select id,ItemGroup__c,Product2Id,NetsuiteQuantity__c,Quantity,ProductComponent__c,ProductType__c,NetSalesPriceItemGroup__c,DiscountedPriceItemGroup__c,ListPriceItemGroup__c,ComponentListPrice__c,ManualDiscount__c,ManualDiscountPercent__c,ManualDiscountValue__c from OrderItem where OrderId in: Set_OrderId];
+       
+       ListOfOrderItems =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);		
+        system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.ListOfOrderItems :Size**'+ListOfOrderItems.size()); 
+          
+        // ListOfOrderItems.addAll(FlowOrderItems);
         
        /*
         for(OrderItem item:ListOfOrderItems){
@@ -50,11 +56,13 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         }
         */
 
-        ListOfImportOrder = [Select id,itemGroupId__c,	LineItemType__c,NetSalesPrice__c,OrderProduct__c,ProductId__c,OrderProduct__r.Product2Id,Status__c,Error__c,quantity__c From ImportOrder__c where ExternalOrderId__c in: Set_ExternalOrderId AND ProductId__c !=: null AND id not in: Set_ImportOrderId];
-        ListOfImportOrder.addAll(FlowImportOrder);
-
         
-      
+      //  ListOfImportOrder = [Select id,itemGroupId__c,    LineItemType__c,NetSalesPrice__c,OrderProduct__c,ProductId__c,OrderProduct__r.Product2Id,Status__c,Error__c,quantity__c From ImportOrder__c where ExternalOrderId__c in: Set_ExternalOrderId AND ProductId__c !=: null AND id not in: Set_ImportOrderId];	
+        ListOfImportOrder =  Order_SoqlFactory.returnImportOrders('ImportOrderItemGroupUpdate',null,Set_ExternalOrderId,Set_ImportOrderId);		    
+	        system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.ListOfImportOrder :Size**'+ListOfImportOrder.size()); 
+
+            ListOfImportOrder.addAll(FlowImportOrder);
+
         
         system.debug('**Order_ImportOrderItemGroupUpdate: Items Size**'+ListOfOrderItems.size());
         system.debug('**Order_ImportOrderItemGroupUpdatee: Import**'+ListOfImportOrder.size());
@@ -92,7 +100,8 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         Map<String,String> Map_ItemIdEAN = new Map<String,String>();
         Set<String> Set_GroupId = new Set<String>();
         Set<String> Set_GroupEAN = new Set<String>();
-        Set<String> Set_ProductId = new Set<String>();
+        //Set<String> Set_ProductId = new Set<String>();
+        List<Id> lst_ProductId = new List<Id>();
         Set<String> Set_ItemId = new Set<String>();
         Set<String> Set_ItemPriceErrorId = new Set<String>();
         //Map<String,Decimal> Map_Quantity = new Map<String,Decimal>(); // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
@@ -103,7 +112,10 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
         Map<String,String> Map_ManualDiscount = new Map<String,String>();
         Map<String,Decimal> Map_ManualDiscountPercent = new Map<String,Decimal>();
         Map<String,Decimal> Map_CustomNSPrice = new Map<String,Decimal>();
+        Map<String,String> Map_EANListPrice = new Map<String,String>();
+
         String 	LineItemTypeItemGrp;
+        String 	ProductItemGrp;
         for(ImportOrder__c imp:ListOfImportOrder){
             
             system.debug('**Order_ImportOrderItemGroupUpdate:itemGroupId**'+imp.itemGroupId__c);
@@ -123,6 +135,9 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                 //OLD Map_ItemId.put(imp.OrderProduct__c,imp.itemGroupId__c);
                 Map_ManageQuantity.put(imp.OrderProduct__c,imp.quantity__c); 
                 Map_CustomNSPrice.put(imp.OrderProduct__c,imp.NetSalesPrice__c);
+                ProductItemGrp = imp.itemGroupId__c+imp.ProductId__c;
+
+                Map_EANListPrice.put(imp.OrderProduct__c,ProductItemGrp);
 
                 system.debug('**Order_ImportOrderItemGroupUpdate :Map_ItemId**'+Map_ItemId);
             }
@@ -142,37 +157,18 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
             }
         }
 
-//IF Map_ItemIdEAN.size() > 0 then run code else do nothing
-         
-/* REPLACED by Price loop below to handle successor
-        if(Map_ImportId.size()>0){
 
-           //OLD Product2[] lstItemGroupProd = [Select id,EAN__c,ISBN__c from Product2 where (EAN__c in: Map_ImportId.keyset() OR ISBN__c in: Map_ImportId.keyset())];
-           Product2[] lstItemGroupProd = [Select id,EAN__c,ISBN__c from Product2 where (EAN__c in: Set_GroupEAN OR ISBN__c in: Set_GroupEAN)];
-
-            for(Product2 prod:lstItemGroupProd){
-                if(prod.EAN__c != null){
-                    Map_GroupProdId.put(prod.EAN__c,prod.Id);
-                }
-                if(prod.ISBN__c != null){
-                    Map_GroupProdId.put(prod.ISBN__c,prod.Id);
-                }
-
-            }
-
-            system.debug('**Order_ImportOrderItemGroupUpdate: Map_GroupProdI**'+ Map_GroupProdId);
-        }
-*/
+        List<Id> OrderId = new List<Id>();
 
         for(OrderItem item: ListOfOrderItems){
-           
+            OrderId.add(item.OrderId);
             if(Map_ItemId.get(item.Id) != null){
 
                 system.debug('**Order_ImportOrderItemGroupUpdate :item.Id**'+item.Id+'**Map_ItemId**'+Map_ItemId.get(item.Id)+'****');
 
                 Map_ItemGroupId.put(item.id,Map_ImportId.get(Map_ItemId.get(item.Id)));
                 Set_ItemId.add(item.id);
-                Set_ProductId.add(item.Product2Id);
+                Lst_ProductId.add(item.Product2Id);
 
                 //ItemGroupProductId+ProductComponent
                 
@@ -197,46 +193,58 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
        
 
         system.debug('**Order_ImportOrderItemGroupUpdate: Set_GroupId**'+Set_GroupId);
-        system.debug('**Order_ImportOrderItemGroupUpdate: Set_ProductId**'+Set_ProductId);
+        system.debug('**Order_ImportOrderItemGroupUpdate: Lst_ProductId**'+Lst_ProductId);
 
-        Pricing__c[] lstPrice = [Select ListRate__c,ProductComponent__r.MainProduct__r.itemGroupManualBlock__c,ProductComponent__r.Product__r.Name,Product__c,EndDate__c,IsActive__c,ProductComponent__r.Quantity__c,ProductComponent__r.Type__c,ProductComponent__r.MainProduct__c,ProductComponent__r.Product__c from Pricing__c 
-       // Where   ((ProductComponent__r.MainProduct__c in: Set_GroupId) OR (ProductComponent__r.Product__c in: Set_GroupId AND ProductComponent__r.MainProduct__c !=: null))
-       Where   ((ProductComponent__r.Product__c in: Set_ProductId AND ProductComponent__r.MainProduct__c in: Set_GroupId))
+
+        Order[] curOrder = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+        system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.curOrder :Size**'+curOrder.size());
         
-       AND StartDate__c <=: system.today()
-        AND EndDate__c >=: system.today()];
         
+        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('Itemgroupupdate',Set_GroupId,Lst_ProductId,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);		
+      system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupCreate.lstPrice :Size**'+lstPrice.size());
+
 
         system.debug('**Item Group Update: Price**'+lstPrice);
         
         Set<String> Set_ItemGroupBlock  = new Set<String>();
 
         String GroupComponentId;
+        Set<String> Set_CompPrice = new Set<String>();
 
         for(Pricing__c price:lstPrice){ 
             
             //New for Item loop below
-            Map_GroupProdId.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.MainProduct__c);
-            GroupComponentId = price.ProductComponent__r.MainProduct__c;
-            GroupComponentId += price.ProductComponent__r.Product__c;
-            Map_ListPrice.put(GroupComponentId,price.ListRate__c);
-            Map_ProductComponent.put(GroupComponentId,price.ProductComponent__c);
+            if(!Set_CompPrice.contains(price.ProductComponent__c)){
+                Set_CompPrice.add(price.ProductComponent__c);
 
-            system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId1**'+GroupComponentId);
-            system.debug('**Order_ImportOrderItemGroupUpdate: price.ProductComponent__r.Quantity__c: ' + price.ProductComponent__r.Quantity__c);
-
-            //Map_Quantity.put(GroupComponentId,price.ProductComponent__r.Quantity__c); // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-           // Map_Quantity.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.Quantity__c);
-          //  Map_ListPrice.put(price.ProductComponent__r.Product__c,price.ListRate__c);
-            //Map_ProductComponent.put(price.ProductComponent__r.Product__c,price.ProductComponent__c);
+               // price.ProductComponent__r.Product__c
             
-            
-           system.debug('**Order_ImportOrderItemGroupUpdate: Price**'+price.id);
+              //  Map_GroupProdId.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.MainProduct__c);        
+                //GroupComponentId = price.ProductComponent__r.MainProduct__c;
+                //GroupComponentId += price.ProductComponent__r.Product__c;
+
+                GroupComponentId = price.ProductComponent__r.MainProduct__r.EAN__c;
+                GroupComponentId += price.ProductComponent__r.Product__r.EAN__c;
+                       
+                Map_ListPrice.put(GroupComponentId,price.ListRate__c);
+                Map_ProductComponent.put(GroupComponentId,price.ProductComponent__c);
+
+                system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId1**'+GroupComponentId);
+                system.debug('**Order_ImportOrderItemGroupUpdate: price.ProductComponent__r.Quantity__c: ' + price.ProductComponent__r.Quantity__c);
+
+                //Map_Quantity.put(GroupComponentId,price.ProductComponent__r.Quantity__c); // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+            // Map_Quantity.put(price.ProductComponent__r.Product__c,price.ProductComponent__r.Quantity__c);
+            //  Map_ListPrice.put(price.ProductComponent__r.Product__c,price.ListRate__c);
+                //Map_ProductComponent.put(price.ProductComponent__r.Product__c,price.ProductComponent__c);
+                
+                
+                system.debug('**Order_ImportOrderItemGroupUpdate: Price**'+price.id);
 
 
-            if(price.ProductComponent__r.MainProduct__r.itemGroupManualBlock__c == true){
-                Set_ItemGroupBlock.add(price.ProductComponent__r.MainProduct__c);
-                Set_ItemGroupBlock.add(price.ProductComponent__r.Product__c);
+                if(price.ProductComponent__r.MainProduct__r.itemGroupManualBlock__c == true){
+                    Set_ItemGroupBlock.add(price.ProductComponent__r.MainProduct__c);
+                    Set_ItemGroupBlock.add(price.ProductComponent__r.Product__c);
+                }
             }
         } 
         
@@ -248,7 +256,11 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
             system.debug('**Order_ImportOrderItemGroupUpdate: Set_ItemId**'+Set_ItemId);
             Map<String,Decimal> Map_NetSalesPrice = new Map<String,Decimal>();
 
-                    OrderItem[] lstItemGroupComponent = [Select id,UnitPrice,ListPrice,ProductType__c,ComponentListPrice__c,Product2Id,ItemGroupId__c,ManualDiscountPercent__c ,Quantity,NetsuiteQuantity__c,ManualDiscountValue__c,ManualDiscount__c from OrderItem where id in: Set_ItemId AND Product2Id not in: Set_ItemGroupBlock];
+                    //OrderItem[] lstItemGroupComponent = [Select id,UnitPrice,ListPrice,ProductType__c,ComponentListPrice__c,Product2Id,ItemGroupId__c,ManualDiscountPercent__c ,Quantity,NetsuiteQuantity__c,ManualDiscountValue__c,ManualDiscount__c from OrderItem where id in: Set_ItemId AND Product2Id not in: Set_ItemGroupBlock];
+
+
+                    OrderItem[] lstItemGroupComponent =  Order_SoqlFactory.returnQueryOrderItems(Set_ItemId,null,Set_ItemGroupBlock,null);		
+                    system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.lstItemGroupComponent :Size**'+lstItemGroupComponent.size()); 
 
                     for(OrderItem item: lstItemGroupComponent){
 
@@ -259,11 +271,17 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                           //Previous GroupComponentId = Map_GroupProdId.get(Map_ItemIdEAN.get(item.Id)); 
 
                           //New Mapped in Price loop
-                          GroupComponentId = Map_GroupProdId.get(item.Product2Id);
-                          GroupComponentId +=  item.Product2Id;
+
+                          //GroupComponentId = Map_GroupProdId.get(item.Product2Id);
+                          //GroupComponentId +=  item.Product2Id;
+                          
+                            GroupComponentId = Map_EANListPrice.get(Item.id);                         
+                          
                             system.debug('**Order_ImportOrderItemGroupUpdate: GroupComponentId2**'+GroupComponentId);
 
                             String ItemGroupId = Map_ItemGroupId.get(item.Id);
+                            
+                            
 
                             Set_GroupId.add(ItemGroupId);
 
@@ -272,36 +290,20 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                             
 
                             //Only update item from current order import, otherwise it double counts
-                           
-                            // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-                                /*if(Map_Quantity.get(GroupComponentId) != null){
-
-                                    if(Map_ManageQuantity.get(item.id) != null){
-                                        item.NetsuiteQuantity__c = Map_Quantity.get(GroupComponentId) * Map_ManageQuantity.get(item.id);    
-                                        item.Quantity = Map_Quantity.get(GroupComponentId) * Map_ManageQuantity.get(item.id);
-                                        
-                                        system.debug('Map_Quantity.get(GroupComponentId): ' + Map_Quantity.get(GroupComponentId) );
-                                        system.debug('Map_ManageQuantity.get(item.id): ' + Map_ManageQuantity.get(item.id) ) ;
-                                        system.debug('item.Quantity 1: ' + item.Quantity);
-                                    }
-                                    else{
-                                        item.NetsuiteQuantity__c = Map_Quantity.get(GroupComponentId);    
-                                        item.Quantity = Map_Quantity.get(GroupComponentId);
-                                    }
-                                    
-                                }
-                                else{
-                                    item.NetsuiteQuantity__c = item.Quantity;  
-                                }*/
+                           // Quantity populated in flow. 
+                            // devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+                            
                           
                              if(Map_CustomNSPrice.get(item.id) != null){                                
                                 item.UnitPrice = Map_CustomNSPrice.get(item.id);
                              }   
                              else{
-                                item.UnitPrice = Map_ListPrice.get(GroupComponentId);    
-                             }
+                                item.UnitPrice = Map_ListPrice.get(GroupComponentId);  
 
-                            item.ComponentListPrice__c = Map_ListPrice.get(GroupComponentId);
+                             }
+                            
+
+                             item.ComponentListPrice__c = Map_ListPrice.get(GroupComponentId);
                             item.ProductComponent__c = Map_ProductComponent.get(GroupComponentId);
                             
 
@@ -323,16 +325,8 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                                     
                                 }
                                 
-                                // commented out because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
-                                /*if(Map_NetSalesPrice.get(ItemGroupId)==null){
-                                    Map_NetSalesPrice.put(ItemGroupId,item.UnitPrice * Map_Quantity.get(GroupComponentId));
-                                    Map_ListPrice.put(ItemGroupId,item.ComponentListPrice__c * Map_Quantity.get(GroupComponentId));
-                                    
-                                }
-                                else{
-                                    Map_NetSalesPrice.put(ItemGroupId,Map_NetSalesPrice.get(ItemGroupId)+ (item.UnitPrice * Map_Quantity.get(GroupComponentId)));
-                                    Map_ListPrice.put(ItemGroupId,Map_ListPrice.get(ItemGroupId)+ (item.ComponentListPrice__c * Map_Quantity.get(GroupComponentId)));
-                                }*/
+                                // Pricing update because of this devops item: https://dev.azure.com/infinitas/Converse/_workitems/edit/212385
+                               
                                 if(Map_NetSalesPrice.get(ItemGroupId)==null){
                                     Map_NetSalesPrice.put(ItemGroupId,item.UnitPrice * item.Quantity);
                                     Map_ListPrice.put(ItemGroupId,item.ComponentListPrice__c * item.Quantity);
@@ -353,8 +347,10 @@ public with sharing class Order_ImportOrderItemGroupUpdate {
                         }
    
                     }
-
-                    OrderItem[] lstItemGroup = [Select id,UnitPrice,ManualDiscountPercent__c ,ManualDiscount__c,ProductType__c,FormGroupId__c,NetSalesPriceItemGroup__c,DiscountedPriceItemGroup__c,ListPriceItemGroup__c from OrderItem where id in: Set_GroupId AND product2Id not in: Set_ItemGroupBlock];
+    
+                    //  OrderItem[] lstItemGroup = [Select id,UnitPrice,ManualDiscountPercent__c ,ManualDiscount__c,ProductType__c,FormGroupId__c,NetSalesPriceItemGroup__c,DiscountedPriceItemGroup__c,ListPriceItemGroup__c from OrderItem where id in: Set_GroupId AND product2Id not in: Set_ItemGroupBlock];		
+                    OrderItem[] lstItemGroup =  Order_SoqlFactory.returnQueryOrderItems(Set_GroupId,null,Set_ItemGroupBlock,null);		
+                    system.debug('**Order_SoqlFactory.Order_ImportOrderItemGroupUpdate.lstItemGroup :Size**'+lstItemGroup.size()); 
 
                     for(OrderItem item:lstItemGroup){
                                 item.UnitPrice = 0;

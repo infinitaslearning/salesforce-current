@@ -34,15 +34,10 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
             totalAccs = [SELECT COUNT() FROM Account WHERE OperatingCompany__c = :stressTestSetting.OperatingCompany__c AND NetsuiteCustomerNumber__c != NULL AND ValidateIntegrationerrors__c = FALSE AND ValidateErrors__c = FALSE];
             //Integer rand = Math.floor(Math.random() * totalAccs).intValue();
             
-            // just limit the accounts to use to 1000 if there are more than 1k
-            if(totalAccs > 1000){
-                totalAccs = 1000;
-            }
-            
             // get synced accounts for opco (NEW ACCOUNT FOR EACH ORDER)
             accountList = [SELECT Id, NetsuiteCustomerNumber__c, CurrencyIsoCode 
                            FROM Account 
-                           WHERE OperatingCompany__c = :stressTestSetting.OperatingCompany__c AND NetsuiteCustomerNumber__c != NULL AND ValidateIntegrationerrors__c = FALSE
+                           WHERE OperatingCompany__c = :stressTestSetting.OperatingCompany__c AND NetsuiteCustomerNumber__c != NULL AND ValidateIntegrationerrors__c = FALSE AND status__c = 'Active'
                            AND ValidateErrors__c = FALSE
                            LIMIT :totalAccs];
         } else {
@@ -52,13 +47,12 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
             // get synced accounts for opco (NEW ACCOUNT FOR EACH ORDER)
             accountList = [SELECT Id, NetsuiteCustomerNumber__c, CurrencyIsoCode 
                            FROM Account 
-                           WHERE OperatingCompany__c = :stressTestSetting.OperatingCompany__c
+                           WHERE OperatingCompany__c = :stressTestSetting.OperatingCompany__c AND status__c = 'Active'
                            LIMIT :totalAccs];
         }
         
         
         system.debug('accountList: ' + accountList);
-        system.debug('stressTestSetting.OperatingCompany__c: ' + stressTestSetting.OperatingCompany__c);
         
         // get active pricebook for OpCo. EXCLUDE INFORMAT
         Pricebook2 pricebookRecord = [SELECT Id FROM Pricebook2 
@@ -82,7 +76,6 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
                                                   AND Product2.HasBlock__c = FALSE
                                                   AND Product2.itemGroupManualBlock__c = FALSE
                                                   AND Product2.Type__c = 'Item Group'
-                                                  AND Product2.ISBNArticleNumber__c != NULL // NEW
                                                   LIMIT :itemGroupsToGet];
             
             // make sure remaining products are non item-group products
@@ -95,8 +88,7 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
                                                   AND (Product2.DeliveryStatus__c = 'Published' OR Product2.DeliveryStatus__c = 'Production')
                                                   AND Product2.HasBlock__c = FALSE
                                                   AND Product2.itemGroupManualBlock__c = FALSE
-                                                  AND Product2.Type__c != 'Item Group'  
-                                                  AND Product2.ISBNArticleNumber__c != NULL // NEW
+                                                  AND Product2.Type__c != 'Item Group'   
                                                   LIMIT :nonIGsToGet];
             
             // add the two different sets of products to one list
@@ -112,7 +104,6 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
                                                AND Product2.HasBlock__c = FALSE
                                                AND Product2.itemGroupManualBlock__c = FALSE
                                                AND Product2.Type__c != 'Item Group'
-                                               AND Product2.ISBNArticleNumber__c != NULL // NEW
                                                LIMIT :numProductsToUse];
         }
         
@@ -136,7 +127,7 @@ global class Order_StressTest_BATCH implements Database.Batchable<sObject>, Data
                 ImportOrder__c ioHeader = new ImportOrder__c();
                 ioHeader.customerNo__c = randAcc.NetsuiteCustomerNumber__c;
                 ioHeader.orderDate__c = String.valueOf(dateVal.format());
-                ioHeader.Source__c = 'B2B Salesforce';
+                ioHeader.Source__c = 'Trade';
                 ioHeader.OperatingCompany__c = stressTestSetting.OperatingCompany__c;
                 ioHeader.ExternalOrderId__c = stressTestSetting.Name + '-' + randAcc.NetsuiteCustomerNumber__c + '-' + String.valueOf(dateVal) + '-' + Integer.valueof((Math.random() * 100));
                 ioHeader.LineCount__c = records.size();

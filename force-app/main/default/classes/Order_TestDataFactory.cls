@@ -270,6 +270,7 @@ public with sharing class Order_TestDataFactory {
             ListPrice.CustomerDiscountGroup__c='Educational Institution';
             ListPrice.ProductDiscountGroup__c = ProductDiscountGroup;
             ListPrice.OrderLineType__c   = OrderLineType; 
+            ListPrice.ValueType__c = 'Quantity';
             ListPrice.EndDate__c = system.today()+30;
             ListPrice.StartDate__c = system.today()-30;     
             lst_ListPriceDiscount.add(ListPrice);       

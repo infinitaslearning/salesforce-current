@@ -4,7 +4,7 @@
         <name>Validate_Address</name>
         <label>Validate Address</label>
         <locationX>842</locationX>
-        <locationY>674</locationY>
+        <locationY>1082</locationY>
         <actionName>AddressImportOrderInvocable</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -52,7 +52,7 @@
         <name>Assign_Created_Address</name>
         <label>Assign Created Address</label>
         <locationX>974</locationX>
-        <locationY>458</locationY>
+        <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>var_AddressIdOutput</assignToReference>
             <operator>Assign</operator>
@@ -61,19 +61,19 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Copy_1_of_Allow_Address_Validation</targetReference>
+            <targetReference>Allow_Address_Validation2</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Assign_Found_Address</name>
         <label>Assign Found Address</label>
         <locationX>248</locationX>
-        <locationY>350</locationY>
+        <locationY>650</locationY>
         <assignmentItems>
             <assignToReference>var_AddressIdOutput</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Address.Id</elementReference>
+                <elementReference>varGetAddressRecord.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -81,10 +81,42 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_from_Get_Address</name>
+        <label>Assign from Get Address</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>varGetAddressRecord</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Address_with_house_number</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Found_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_from_Get_Address_1</name>
+        <label>Assign from Get Address</label>
+        <locationX>842</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>varGetAddressRecord</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Address_with_street</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Found_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Validated_True</name>
         <label>Assign Validated True</label>
         <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>var_AddressValidatedStatus</assignToReference>
             <operator>Assign</operator>
@@ -97,33 +129,40 @@
         <name>Allow_Address_Validation</name>
         <label>Allow Address Validation</label>
         <locationX>446</locationX>
-        <locationY>566</locationY>
+        <locationY>866</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_Allow</name>
-            <conditionLogic>or</conditionLogic>
+            <name>Validate</name>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Label.ValidateAddress</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>true</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ImportOrderRecord.Source__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>eCommerce</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <isGoTo>true</isGoTo>
                 <targetReference>Validate_Address</targetReference>
             </connector>
-            <label>Yes Allow</label>
+            <label>Validate</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Copy_1_of_Allow_Address_Validation</name>
+        <name>Allow_Address_Validation2</name>
         <label>Allow Address Validation</label>
         <locationX>974</locationX>
-        <locationY>566</locationY>
+        <locationY>974</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Copy_1_of_Yes_Allow</name>
+            <name>Validate2</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Label.ValidateAddress</leftValueReference>
@@ -132,26 +171,62 @@
                     <stringValue>true</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>ImportOrderRecord.Source__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>eCommerce</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Validate_Address</targetReference>
             </connector>
-            <label>Yes Allow</label>
+            <label>Validate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Create_Validate_Address</name>
+        <label>Create/Validate Address</label>
+        <locationX>1172</locationX>
+        <locationY>650</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Create_Validate</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>ImportOrderRecord.Source__c</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>eCommerce</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ImportOrderRecord.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Studiemeister</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_New_Address</targetReference>
+            </connector>
+            <label>Create/Validate</label>
         </rules>
     </decisions>
     <decisions>
         <name>Found_Address</name>
         <label>Found Address</label>
-        <locationX>611</locationX>
-        <locationY>242</locationY>
+        <locationX>710</locationX>
+        <locationY>542</locationY>
         <defaultConnector>
-            <targetReference>Create_New_Address</targetReference>
+            <targetReference>Create_Validate_Address</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Address</leftValueReference>
+                <leftValueReference>varGetAddressRecord</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -167,7 +242,7 @@
         <name>Is_Address_Validated</name>
         <label>Is Address Validated</label>
         <locationX>248</locationX>
-        <locationY>458</locationY>
+        <locationY>758</locationY>
         <defaultConnector>
             <targetReference>Allow_Address_Validation</targetReference>
         </defaultConnector>
@@ -176,14 +251,14 @@
             <name>Validated</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Get_Address.rv2Status__c</leftValueReference>
+                <leftValueReference>varGetAddressRecord.rv2Status__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>GREEN</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Get_Address.Validated_Address__c</leftValueReference>
+                <leftValueReference>varGetAddressRecord.Validated_Address__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -195,8 +270,47 @@
             <label>Validated</label>
         </rules>
     </decisions>
-    <description>This flow queries the custom address, verifies if it can find a match. If not it creates &amp; validates a new address if no match is found</description>
+    <decisions>
+        <name>Query_on_HouseNumber_or_StreetName</name>
+        <label>Query on StreetName or HouseNumber</label>
+        <locationX>710</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Get_Address_with_street</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Street Name</defaultConnectorLabel>
+        <rules>
+            <name>House_Number</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>var_HouseNumber</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>var_HouseNumber</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue></stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Address_with_house_number</targetReference>
+            </connector>
+            <label>House Number</label>
+        </rules>
+    </decisions>
+    <description>This flow queries the custom address, verifies if it can find a match. If not it creates &amp; validates a new address if no match is found
+DB: 2024/03/13 Limit validation only for eCommerce Import Orders
+DB: 2024/04/09 Query based between housenumber or streetname based on input</description>
     <environments>Default</environments>
+    <formulas>
+        <name>F_SourceFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(CONTAINS({!ImportOrderRecord.Source__c}, &apos;eCommerce&apos;), &apos;eCommerce&apos;, {!ImportOrderRecord.Source__c})</expression>
+    </formulas>
     <formulas>
         <description>Street + HouseNumber + HouseNUmberAddition + PostalCode + Country</description>
         <name>form_AddressLabel</name>
@@ -245,7 +359,7 @@
         <name>Create_New_Address</name>
         <label>Create New Address</label>
         <locationX>974</locationX>
-        <locationY>350</locationY>
+        <locationY>758</locationY>
         <connector>
             <targetReference>Assign_Created_Address</targetReference>
         </connector>
@@ -292,6 +406,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Source__c</field>
+            <value>
+                <elementReference>F_SourceFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Street__c</field>
             <value>
                 <elementReference>var_Street</elementReference>
@@ -301,13 +421,13 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Get_Address</name>
-        <label>Get Address</label>
-        <locationX>611</locationX>
-        <locationY>134</locationY>
+        <name>Get_Address_with_house_number</name>
+        <label>Get Address with house number</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Found_Address</targetReference>
+            <targetReference>Assign_from_Get_Address</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -349,14 +469,64 @@
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Address_with_street</name>
+        <label>Get Address with street</label>
+        <locationX>842</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_from_Get_Address_1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PostalCodeFormatted__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>formattedPostalCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>var_Country</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>var_OperatingCompany</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>var_Street</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>485</locationX>
+        <locationX>584</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Address</targetReference>
+            <targetReference>Query_on_HouseNumber_or_StreetName</targetReference>
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>ImportOrderRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ImportOrder__c</objectType>
+    </variables>
     <variables>
         <name>var_AddressIdOutput</name>
         <dataType>String</dataType>
@@ -422,5 +592,13 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varGetAddressRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>ILAddress__c</objectType>
     </variables>
 </Flow>

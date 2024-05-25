@@ -5,26 +5,11 @@
         <name>Delete_Inactive_Swell_Users</name>
         <label>Delete Inactive Swell Users</label>
         <locationX>176</locationX>
-        <locationY>984</locationY>
+        <locationY>876</locationY>
         <actionName>SWELL_deleteInactiveUsers_Invocable</actionName>
         <actionType>apex</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <nameSegment>SWELL_deleteInactiveUsers_Invocable</nameSegment>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <actionCalls>
-        <description>Suspends users that have not logged in for over 1 month --&gt; Only Agents, Admins are excluded.</description>
-        <name>Suspend_Inactive_Zendesk_Users</name>
-        <label>Suspend Inactive Zendesk Users</label>
-        <locationX>176</locationX>
-        <locationY>876</locationY>
-        <actionName>ZD_suspendInactiveUsers_Invocable</actionName>
-        <actionType>apex</actionType>
-        <connector>
-            <targetReference>Delete_Inactive_Swell_Users</targetReference>
-        </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <nameSegment>ZD_suspendInactiveUsers_Invocable</nameSegment>
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>56.0</apiVersion>
@@ -148,7 +133,7 @@
         <locationX>176</locationX>
         <locationY>768</locationY>
         <connector>
-            <targetReference>Suspend_Inactive_Zendesk_Users</targetReference>
+            <targetReference>Delete_Inactive_Swell_Users</targetReference>
         </connector>
         <inputReference>UserUpdateList</inputReference>
     </recordUpdates>

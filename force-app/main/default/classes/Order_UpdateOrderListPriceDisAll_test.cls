@@ -37,16 +37,19 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
 
             TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,true);
 
-            List<String> lstOrderId = new List<String>();
+            List<String> OrderId = new List<String>();
 
             for(Order ord:lstOrder ){
-                lstOrderId.add(ord.id);
+                OrderId.add(ord.id);
             }
 
-            Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+            processListPriceDiscount(OrderId);
+           // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
         
     }
-  
+    
+
+    
 
     public static testmethod void UpdateOrderListPriceDiscountAll2_test() {
           
@@ -116,20 +119,20 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
         
 
 
-        //OrderItem[]   lst_OrdItem = [Select Product2.OrderLineType__c from OrderItem  ];
-       // String querystr = 'Select Product2.OrderLineType__c from OrderItem where OrderId in: lstOrderId';
-       // OrderItem[] lst_OrdItem =  Database.query(querystr);
-      //  system.debug('***TC: OrderLineType IND***'+lst_OrdItem[0].Product2.OrderLineType__c);
         
-        lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,lstOrderId);
-        
+       // lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,lstOrderId);
+
+        lstOrderItems = Order_SoqlFactory.returnQueryOrderItems(null,lstOrderId, null, null);
+
+        system.debug('**Order_SoqlFactory.Order_UpdateOrderListPriceDisAll_test1.lstOrderItems :Size**'+lstOrderItems.size());
+
         Product2[] lstProd = [Select OrderLineType__c from Product2]; 
 
         
         x=0;
         for(OrderItem item:lstOrderItems){
 
-           // system.debug('***TC: OrderLineType***'+item.Product2.OrderLineType__c);
+          
             
             Map_itemGroup.put(item.Product2Id ,item.id );
 
@@ -177,14 +180,13 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
         update lstOrderItems;
 
 
-      //  system.debug('***TC: ItemGroup***'+lstOrderItems[0].ProductComponent__r.Quantity__c);
-        
-        lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,lstOrderId);
+       // lstOrderItems = Order_OrderandOrdeItemHandler.returnQueryOrderItems(null,lstOrderId);
+
+        lstOrderItems = Order_SoqlFactory.returnQueryOrderItems(null,lstOrderId, null, null);
+        system.debug('**Order_SoqlFactory.Order_UpdateOrderListPriceDisAll_test2.lstOrderItems :Size**'+lstOrderItems.size());
+
 
         Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(null,lstOrderId , standardPricebook.id,lstOrderItems, ListPriceDiscount);
-
-       // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
-
 
 
     }
@@ -228,14 +230,14 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
 
             TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,true);
 
-            List<String> lstOrderId = new List<String>();
+            List<String> OrderId = new List<String>();
 
             for(Order ord:lstOrder ){
-                lstOrderId.add(ord.id);
+                OrderId.add(ord.id);
             }
 
-            Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
-        
+           // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+            processListPriceDiscount(OrderId);
     }
     public static testmethod void UpdateOrderListPriceDiscountAll1c_test() {
           
@@ -279,13 +281,15 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
 
             TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,true);
 
-            List<String> lstOrderId = new List<String>();
+            List<String> OrderId = new List<String>();
 
             for(Order ord:lstOrder ){
-                lstOrderId.add(ord.id);
+                OrderId.add(ord.id);
             }
 
-            Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+           // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+
+            processListPriceDiscount(OrderId);
         
     }
 
@@ -334,20 +338,22 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
 
         TestDataFactory.insertAsset(standardPricebook.id ,lstProduct,lstAccount, lstAccount,true);
 
-        List<String> lstOrderId = new List<String>();
+        List<String> OrderId = new List<String>();
 
         for(Order ord:lstOrder ){
-            lstOrderId.add(ord.id);
+            OrderId.add(ord.id);
         }
-//1
-        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
-
+//1     
+    //    Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);        
+        processListPriceDiscount(OrderId);
+    
         for(Order ord:lstOrder ){
             ord.PricingMethod__c ='ProductUsageBased';
         }
         update lstOrder;
 //2
-        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+    // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+        processListPriceDiscount(OrderId);
         
         for(OrderItem item:lstOrderItems){
             item.ManualDiscount__c='One-Off Percentage';
@@ -361,27 +367,63 @@ public with sharing class Order_UpdateOrderListPriceDisAll_test {
         }
 //3
         update lstOrder;
-        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+       // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+       processListPriceDiscount(OrderId);
 
         for(Order ord:lstOrder ){
             ord.PricingMethod__c ='AccountStudents';
         }
 //4
         update lstOrder;
-        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
-/*
+      //  Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+        processListPriceDiscount(OrderId);
+
         for(Order ord:lstOrder ){
             ord.PricingMethod__c ='OrderTotalAmount';
         }
 //5
         update lstOrder;
-        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
-*/
+        //        Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);
+        processListPriceDiscount(OrderId);
 
     //6
     UTIL_TestClassExceptions.TESTCLASSEXCEPTION=True;       
-    Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null);   
+   // Order_UpdateOrderListPriceDiscountAll.UpdateOrdeItemswithListPriceDiscount(null,lstOrderId ,null); 
+    
+    processListPriceDiscount(OrderId);
 }
 
+public static void processListPriceDiscount(List<String> OrderId){
 
+    OrderItem[]   lst_OrdItem =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);
+    system.debug('**UpdateOrderListPriceDiscountAll1_test.lst_OrdItem :Size**'+lst_OrdItem.size());
+    Order[] lst_Order = Order_SoqlFactory.returnQueryOrder(OrderId,null,null);
+    system.debug('**UpdateOrderListPriceDiscountAll1_test.lst_Order :Size**'+lst_Order.size());
+
+    Set<String> Set_CusDiscountGroup = new Set<String>();
+    Set<String> Set_OperatingCo = new Set<String>();
+    Set<String> Set_ProdDiscountGroup = new Set<String>();
+    Set<String> Set_OrderLineItemType = new Set<String>();
+    Set<String> Set_MarketSegment = new Set<String>();
+
+
+    for(OrderItem item:lst_OrdItem){ 
+        Set_CusDiscountGroup.add(item.Order.Billto__r.CustomerDiscountGroup__c); 
+        Set_OperatingCo.add(item.Order.Billto__r.OperatingCompany__c);
+        Set_ProdDiscountGroup.add(item.Product2.ProductDiscountGroup__c);
+        Set_OrderLineItemType.add(item.OrderLineType__c);
+    }
+
+    ListPriceDiscount__c[] lst_ListPriceDiscountRegular = Order_SoqlFactory.returnListPriceDiscount('AllDiscount','OrderProductQuantity', Set_CusDiscountGroup, Set_OperatingCo, Set_ProdDiscountGroup, Set_OrderLineItemType, Set_MarketSegment);
+    system.debug('**UpdateOrderListPriceDiscountAll1_test:LPD 1**'+lst_ListPriceDiscountRegular);
+
+    Date CurDate = system.today();
+    lst_ListPriceDiscountRegular = [Select Id,DiscountType__c,ProductDiscountGroup__c,StartAmount__c,Subsidiary__c,CustomerDiscountGroup__c,OrderLineType__c, MarketSegment__c,Rate__c,StartQuantity__c From ListPriceDiscount__c  
+                                                                                        where  EndDate__c >=:CurDate 
+                                                                                        AND StartDate__c  <=:CurDate  
+                                                                                        ORDER BY StartQuantity__c DESC];
+
+    Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(50,OrderId, lst_Order[0].Pricebook2Id,lst_OrdItem, lst_ListPriceDiscountRegular);
+
+}
 }

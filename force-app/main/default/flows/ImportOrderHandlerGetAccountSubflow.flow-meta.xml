@@ -4,8 +4,8 @@
     <assignments>
         <name>Assign_B2B_Location_Order_Account</name>
         <label>Assign B2B Location Order Account</label>
-        <locationX>314</locationX>
-        <locationY>566</locationY>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -17,8 +17,8 @@
     <assignments>
         <name>Assign_B2B_Location_Order_Account_OldCustomerNo</name>
         <label>Assign B2B Location Order Account OldCustomerNo</label>
-        <locationX>578</locationX>
-        <locationY>566</locationY>
+        <locationX>842</locationX>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -30,8 +30,8 @@
     <assignments>
         <name>Assign_B2B_Order_Account</name>
         <label>Assign B2B Order Account</label>
-        <locationX>842</locationX>
-        <locationY>458</locationY>
+        <locationX>1106</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -41,10 +41,23 @@
         </assignmentItems>
     </assignments>
     <assignments>
+        <name>Assign_Bokinfo_Account</name>
+        <label>Assign Bokinfo Account</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>sov_OrderAccount</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Bokinfo_Account</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Assign_Depot_Tender_Order_Account</name>
         <label>Assign Depot/Tender Order Account</label>
-        <locationX>2162</locationX>
-        <locationY>350</locationY>
+        <locationX>2426</locationX>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -56,8 +69,8 @@
     <assignments>
         <name>Assign_eCom_Private_Order_Account</name>
         <label>Assign eCom Private Order Account</label>
-        <locationX>1370</locationX>
-        <locationY>674</locationY>
+        <locationX>1634</locationX>
+        <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -69,8 +82,8 @@
     <assignments>
         <name>Assign_eCom_Private_Order_Account_2</name>
         <label>Assign eCom Private Order Account</label>
-        <locationX>1106</locationX>
-        <locationY>566</locationY>
+        <locationX>1370</locationX>
+        <locationY>674</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -82,8 +95,8 @@
     <assignments>
         <name>Assign_Non_Private_Order_Account</name>
         <label>Assign Non Private Order Account</label>
-        <locationX>1634</locationX>
-        <locationY>458</locationY>
+        <locationX>1898</locationX>
+        <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -95,8 +108,8 @@
     <assignments>
         <name>Assign_Order_Form_Order_Account</name>
         <label>Assign Order Form Order Account</label>
-        <locationX>2426</locationX>
-        <locationY>350</locationY>
+        <locationX>2690</locationX>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -108,8 +121,8 @@
     <assignments>
         <name>Assign_Trade_Order_Account</name>
         <label>Assign Trade Order Account</label>
-        <locationX>50</locationX>
-        <locationY>350</locationY>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>sov_OrderAccount</assignToReference>
             <operator>Assign</operator>
@@ -121,8 +134,8 @@
     <decisions>
         <name>Accept_school_info</name>
         <label>Accept school info?</label>
-        <locationX>1238</locationX>
-        <locationY>350</locationY>
+        <locationX>1502</locationX>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Get_Private_Individual_Record_Type</targetReference>
         </defaultConnector>
@@ -165,10 +178,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Find_Account_by_External_Database</name>
+        <label>Find Account by External Database</label>
+        <locationX>842</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>GetAccountBySource</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Find_Bokinfo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.External_Database__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bokinfo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Bokinfo_Account</targetReference>
+            </connector>
+            <label>Find Bokinfo</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Find_By_Identifier</name>
         <label>Find By Identifier</label>
-        <locationX>446</locationX>
-        <locationY>350</locationY>
+        <locationX>710</locationX>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>B2B_Shop_Location_OldCustomerNumberNo</targetReference>
         </defaultConnector>
@@ -199,8 +237,8 @@
     <decisions>
         <name>GetAccountBySource</name>
         <label>Get Account By Source</label>
-        <locationX>1370</locationX>
-        <locationY>134</locationY>
+        <locationX>1634</locationX>
+        <locationY>242</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Trade</name>
@@ -337,8 +375,8 @@
     <decisions>
         <name>Private_Individual</name>
         <label>Private Individual</label>
-        <locationX>1568</locationX>
-        <locationY>242</locationY>
+        <locationX>1832</locationX>
+        <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Private</name>
@@ -381,8 +419,8 @@
     <decisions>
         <name>Use_Import_Order_Location_B2B</name>
         <label>Use Import Order Location B2B</label>
-        <locationX>644</locationX>
-        <locationY>242</locationY>
+        <locationX>908</locationX>
+        <locationY>350</locationY>
         <defaultConnector>
             <targetReference>Get_Account_B2B</targetReference>
         </defaultConnector>
@@ -418,7 +456,8 @@ CH: 25/09/2023 private ind orders can have different shipping address for Noordh
 DB: 09/10/2023 updated filter conditions for Order Form Account search
 CH: 07/11/2023 added operating company check to each get Account element
 DB: 29/11/2023 adjusted matching logic for private individual if NS Number is provided
-CH: 20/12/2023 added Status check against all account gets</description>
+CH: 20/12/2023 added Status check against all account gets
+DB: 15/04/2024 find account using External Database Id then if null based on Source</description>
     <environments>Default</environments>
     <formulas>
         <name>forEcinNumberMatch</name>
@@ -460,8 +499,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>B2B_Shop_Location_OldCustomerNumberNo</name>
         <label>B2B Shop Location OldCustomerNumberNo</label>
-        <locationX>578</locationX>
-        <locationY>458</locationY>
+        <locationX>842</locationX>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_B2B_Location_Order_Account_OldCustomerNo</targetReference>
@@ -495,8 +534,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Account</name>
         <label>Get Account</label>
-        <locationX>1106</locationX>
-        <locationY>458</locationY>
+        <locationX>1370</locationX>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_eCom_Private_Order_Account_2</targetReference>
@@ -537,8 +576,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Account_B2B</name>
         <label>Get Account B2B</label>
-        <locationX>842</locationX>
-        <locationY>350</locationY>
+        <locationX>1106</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_B2B_Order_Account</targetReference>
@@ -579,8 +618,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Account_B2B_Shop_Location</name>
         <label>Get Account B2B Shop Location</label>
-        <locationX>314</locationX>
-        <locationY>458</locationY>
+        <locationX>578</locationX>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_B2B_Location_Order_Account</targetReference>
@@ -621,13 +660,13 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Account_Trade</name>
         <label>Get Account (Trade)</label>
-        <locationX>50</locationX>
-        <locationY>242</locationY>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Trade_Order_Account</targetReference>
         </connector>
-        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND 8)) AND 9 AND 10</filterLogic>
+        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND (8 OR 9))) AND 10 AND 11</filterLogic>
         <filters>
             <field>WholeSalerId__c</field>
             <operator>EqualTo</operator>
@@ -685,6 +724,55 @@ CH: 20/12/2023 added Status check against all account gets</description>
             </value>
         </filters>
         <filters>
+            <field>ExternalDatabase__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Bokinfo</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>form_OperatingCompany</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Bokinfo_Account</name>
+        <label>Get Bokinfo Account</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Bokinfo_Account</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ExternalDatabase__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Bokinfo</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ExternalCustomerId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ImportOrderCustomerIdentifier</elementReference>
+            </value>
+        </filters>
+        <filters>
             <field>OperatingCompany__c</field>
             <operator>EqualTo</operator>
             <value>
@@ -705,8 +793,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Depot_Tender_Account</name>
         <label>Get Depot/Tender Account</label>
-        <locationX>2162</locationX>
-        <locationY>242</locationY>
+        <locationX>2426</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Depot_Tender_Order_Account</targetReference>
@@ -754,8 +842,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Non_Private_Account</name>
         <label>Get Non Private Account</label>
-        <locationX>1634</locationX>
-        <locationY>350</locationY>
+        <locationX>1898</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Non_Private_Order_Account</targetReference>
@@ -810,8 +898,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Order_Form_Account</name>
         <label>Get Order Form Account</label>
-        <locationX>2426</locationX>
-        <locationY>242</locationY>
+        <locationX>2690</locationX>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Order_Form_Order_Account</targetReference>
@@ -845,8 +933,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Private_Account</name>
         <label>Get Private Account</label>
-        <locationX>1370</locationX>
-        <locationY>566</locationY>
+        <locationX>1634</locationX>
+        <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_eCom_Private_Order_Account</targetReference>
@@ -901,8 +989,8 @@ CH: 20/12/2023 added Status check against all account gets</description>
     <recordLookups>
         <name>Get_Private_Individual_Record_Type</name>
         <label>Get Private Individual Record Type</label>
-        <locationX>1370</locationX>
-        <locationY>458</locationY>
+        <locationX>1634</locationX>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Private_Account</targetReference>
@@ -927,10 +1015,10 @@ CH: 20/12/2023 added Status check against all account gets</description>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>1244</locationX>
+        <locationX>716</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>GetAccountBySource</targetReference>
+            <targetReference>Find_Account_by_External_Database</targetReference>
         </connector>
     </start>
     <status>Active</status>

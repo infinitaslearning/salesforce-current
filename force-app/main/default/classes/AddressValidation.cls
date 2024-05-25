@@ -3,11 +3,11 @@ global without sharing class AddressValidation {
     public class Request {
         @InvocableVariable
         public string street;
-        @InvocableVariable(required=true)
+        @InvocableVariable
         public string housenumber;
         @InvocableVariable
         public string housenumberAddition;
-        @InvocableVariable
+        @InvocableVariable(required=true)
         public string postalcode;
         @InvocableVariable(required=true)
         public string country;

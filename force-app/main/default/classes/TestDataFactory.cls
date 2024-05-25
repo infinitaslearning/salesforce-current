@@ -39,6 +39,8 @@ Public Class TestDataFactory{
         Id educationalRecordTypeId = [SELECT Id FROM RecordType WHERE sObjectType='Account' AND Name = 'B2B Educational' LIMIT 1].Id;
         List<Account> lst_Account = new List<Account>();
         for(Integer i=0;i<Count;i++){
+
+            ILAddress__c address = insertILAddress(OpCo, true);
             
             Account Acc = new Account();
             acc.RecordTypeId = educationalRecordTypeId;
@@ -53,6 +55,12 @@ Public Class TestDataFactory{
             Acc.ShippingCountry = 'Netherlands';
             Acc.ShippingPostalCode = '1224AM';
             Acc.ShippingStreet = 'DePijp22';  
+            Acc.ShippingAddress__c =  address.Id;
+            Acc.ShippingStreetName__c = address.Street__c;
+            Acc.ShippingHouseNumber__c = address.HouseNumber__c;
+            Acc.ShippingHouseNumberAddition__c = address.HouseNumberAddition__c;
+            Acc.ShipToAddressValidated__c = address.Validated_Address__c;
+            Acc.ShippingAddressStatusCode__c = address.rv2Status__c;
             Acc.Area__c = 'Dutch';
             lst_Account.Add(Acc);
         }
@@ -64,11 +72,12 @@ Public Class TestDataFactory{
     }
     
     Public static List<Account> insertAccountsSubsidiary(Integer Count, String Opco,Boolean HigherEducation,Boolean doInsert){
-
     
         List<Account> lst_Account = new List<Account>();
         for(Integer i=0;i<Count;i++){
             
+            ILAddress__c address = insertILAddress(OpCo, true);
+
             Account Acc = new Account();
             Acc.Name = 'School'+i;
             Acc.LegalName__c = Acc.Name;
@@ -85,7 +94,13 @@ Public Class TestDataFactory{
             Acc.ShippingCity = 'Amsterdam';
             Acc.ShippingCountry = 'Netherlands';
             Acc.ShippingPostalCode = '1224AM';
-            Acc.ShippingStreet = 'DePijp22'; 
+            Acc.ShippingStreet = 'DePijp22';
+            Acc.ShippingAddress__c =  address.Id;
+            Acc.ShippingStreetName__c = address.Street__c;
+            Acc.ShippingHouseNumber__c = address.HouseNumber__c;
+            Acc.ShippingHouseNumberAddition__c = address.HouseNumberAddition__c;
+            Acc.ShipToAddressValidated__c = address.Validated_Address__c;
+            Acc.ShippingAddressStatusCode__c = address.rv2Status__c;
             Acc.BillingReminderEmail__c ='test@test.com';
             Acc.BillingReminderEmail2__c ='test2@test.com';
             Acc.DigitalActivationEmail__c ='test@test.com';
@@ -165,7 +180,19 @@ Public static List<Order> insertOrderHeader(Integer Count,List<Account> lst_Acc,
                         ord.DigitalActivationEmail__c = acc.DigitalActivationEmail__c ;
                         ord.InvoiceEmail__c =  acc.InvoicingEmail__c ;
                         ord.InvoiceEmail2__c =  acc.InvoiceEmail2__c ;
-                        ord.OrderNotificationEmail__c = acc.OrderNotificationEmail__c ;
+                        ord.OrderNotificationEmail__c = 'test@test.com' ;
+                        ord.OrderNotificationEmail2__c = ord.OrderNotificationEmail__c;
+                        ord.shipToAttentionOf__c = 'John Doe';
+
+                        ord.ShippingCity = 'Amsterdam';
+                        ord.ShippingCountry = 'Netherlands';
+                        ord.ShippingPostalCode = '1224AM';
+                        ord.ShippingStreet = 'DePijp22';
+                        ord.ShipToAddress__c =  acc.ShippingAddress__c;
+                        ord.ShippingStreetName__c = acc.ShippingStreetName__c;
+                        ord.ShippingHouseNumber__c = acc.ShippingHouseNumber__c;
+                        ord.ShippingHouseNumberAddition__c = acc.ShippingHouseNumberAddition__c;
+                        ord.ShipToAddressValidated__c = acc.ShipToAddressValidated__c;
 
                         lst_Order.add(ord);
                     }
@@ -222,13 +249,19 @@ Public static List<OrderItem> insertOrderItems(Integer Count,List<Account> lstAc
                     ordItem.NetsuiteInternalId__c = '3456'+i;
                     ordItem.PricebookEntryId  = pbe.id ; 
                     ordItem.ComponentListPrice__c = 123;
-
+                    ordItem.ProductType__c = 'Non-inventory Item';
                     ordItem.ShippingCity__c =acc.ShippingCity;
                     ordItem.ShippingCountry__c =acc.ShippingCountry;
                     ordItem.ShippingPostalCode__c=acc.ShippingPostalCode ;
                     ordItem.ShippingState__c=acc.ShippingState;
                     ordItem.ShippingStreet__c  =acc.ShippingStreet;
+                    ordItem.ShipToAddress__c =  acc.ShippingAddress__c;
+                    ordItem.ShippingStreetName__c = acc.ShippingStreetName__c;
+                    ordItem.ShippingHouseNumber__c = acc.ShippingHouseNumber__c;
+                    ordItem.ShippingHouseNumberAddition__c = acc.ShippingHouseNumberAddition__c;
+                    ordItem.ShipToAddressValidated__c = acc.ShipToAddressValidated__c;
                     ordItem.orderImportNumber__c = '1111'+i;
+                    ordItem.DigitalActivationEmail__c ='test@test.com';
                     if(doInsert) {
                         ordItem.ManualDiscount__c ='One-Off Percentage';
                         ordItem.ManualDiscountPercent__c=1;
@@ -357,13 +390,15 @@ Public static List<Product2> insertProducts(Integer Count,Boolean doInsert){
             prod.HasBlock__c= false;
             prod.VAT__c = 'Low';
             prod.ISBN__c = '99-9999-999'+i;
-            prod.EAN__c = '88-88-uiuy-88'+i;
+            prod.EAN__c = '88-88-uiuy-88'+i; 
             prod.Weight__c = 1;
             prod.CoreLicense__c =true;
             prod.LicenseDuration__c = '6';
             prod.FixedStartDate__c = system.today()-5;
             prod.MarketSegment__c = 'SecondaryEducation';
             prod.SoldInSegment__c = 'SecondaryEducation';
+            prod.CustomPricingAllowed__c = true;
+            prod.Type__c = 'Non-inventory Item';
            // prod.Renewal__c = 'Automatic';
             lst_prod.add(prod);
     }     
@@ -378,7 +413,7 @@ Public static List<Product2> insertProducts(Integer Count,Boolean doInsert){
 //INSERT PRICEBOOKS
 Public static Pricebook2 insertPricebook(){
  
-    Pricebook2 standardPricebook = new Pricebook2(Id = Test.getStandardPricebookId(),StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = 'Plantyn');
+    Pricebook2 standardPricebook = new Pricebook2(Id = Test.getStandardPricebookId(),StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = 'Plantyn',IndexationPercentage__c =5);
 
     update standardPricebook;
 
@@ -390,7 +425,7 @@ Public static Pricebook2 insertPricebookCustom(String PBName){
     OrderRequestPricebook__mdt[] OrderRequestPricebook = [Select Pricebook__c,OperatingCompany__c from OrderRequestPricebook__mdt where OperatingCompany__c ='Plantyn'   ];
 
 
-    Pricebook2 CustomPricebook = new Pricebook2(Name= OrderRequestPricebook[0].Pricebook__c /*PBName*/,StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = 'Plantyn');
+    Pricebook2 CustomPricebook = new Pricebook2(Name= OrderRequestPricebook[0].Pricebook__c /*PBName*/,StartDate__c= system.today()-16,EndDate__c = system.today()+116,PricebookType__c='PrimaryEducation', IsActive = true,Subsidiary__c = 'Plantyn',IndexationPercentage__c =5);
 
     Insert CustomPricebook;
 
@@ -437,7 +472,7 @@ Public static List<Asset> insertAsset(Id Pricebook ,List<Product2> lst_prod,List
     
     
         
-        
+    
         for(Account acc:lst_Billto){   
             
             
@@ -457,17 +492,24 @@ Public static List<Asset> insertAsset(Id Pricebook ,List<Product2> lst_prod,List
                 asset.CancellationReason__c = null;
                 asset.IsActive__c = true;
                 asset.RenewalDate__c =system.today();
+                asset.RenewalRunDate__c = system.today();
                 asset.PricingMethod__c ='OrderProductQuantity';
-    
+                asset.DigitalActivationEmail__c = 'test@test.com';
                 asset.UsageEndDate = system.today()+22;
                 asset.PurchaseDate = system.today()-2;
-    
+                
+                asset.ApplyIndexationPercentage__c = true;
+                asset.ManualDiscount__c = 'Recurring Percentage';
+                asset.ManualDiscountPercent__c = 6;
+                asset.IndexationPercentage__c = 5;
+                asset.ListPrice__c = 100;
                 asset.Quantity = 100;
                 asset.SoldUsers__c = 100;
                 asset.NumberofActiveUsers__c = 100;
                 asset.BillToAccount__c = acc.id;
                 asset.AccountId = acc.id;
                 lst_Asset.add(asset);        
+               
             }  
             /*
             for(Asset ass:lst_Asset){
@@ -536,6 +578,28 @@ Public static void testInsert(){
     
            
 
+}
+
+Public static ILAddress__c insertILAddress (String OpCo, Boolean doInsert){
+
+    ILAddress__c address = new ILAddress__c();
+    address.Street__c = 'DePijp';
+    address.HouseNumber__c = '22';
+    address.HouseNumberAddition__c = '';
+    address.City__c = 'Amsterdam';
+    address.PostalCode__c = '1224AM';
+    address.Country__c = 'Netherlands';
+    address.CountryCode__c = 'NL';
+    address.rv2Status__c = 'GREEN';
+    address.rv2ValidationDate__c = System.now();
+    address.ValidationOverridden__c = true;
+    address.OperatingCompany__c = OpCo;
+
+
+    if(doInsert){
+        insert address;
+    }
+    return address;
 }
 
 

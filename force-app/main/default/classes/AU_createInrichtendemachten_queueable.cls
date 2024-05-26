@@ -71,16 +71,20 @@ public class AU_createInrichtendemachten_queueable implements Queueable {
         Integer doubleAccounts = 0;
         Date todaysDate = date.today();
         Integer countLoops = 0;
+        String resultString = '';
+
         // Create Account for each Agodi Account
         try {
 
             Set<Id> accountsAddedToUpdateList = new Set<Id>();
-            Id GuyId;
+            Id MaartenId;
             if (!Test.isRunningTest()) {
-                GuyId = [SELECT Id, Name FROM User WHERE Alias = 'GHect' LIMIT 1].Id;
+                MaartenId = [SELECT Id, Name FROM User WHERE Username = 'maarten.vanhoof@plantyn.com' LIMIT 1].Id;
             }
             for(Map<String,String> agodiAccount : fileMap) {
-                if (!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
+                if (Date.valueOf(agodiAccount.get('datum_opheffing')) > todaysDate || agodiAccount.get('datum_opheffing') == '' || agodiAccount.get('datum_opheffing') == null) {
+                    resultString += 'Inrichtende Machten,' + '' + ',' + agodiAccount.get('nummer') + ',' + agodiAccount.get('telefoon').replace('-','').replace('.','').replace('/','').replace(' ','') + ',skipped -- closed,\n';
+                } else if(!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
                     processedAgodiNumbers.add(agodiAccount.get('nummer'));
                     countLoops ++;
 
@@ -136,7 +140,7 @@ public class AU_createInrichtendemachten_queueable implements Queueable {
                     else {
                         
                         if (!Test.isRunningTest()) {
-                            a.OwnerId = GuyId;
+                            a.OwnerId = MaartenId;
                         }
                         a.DataMigrationHistory__c = 'Agodi Insert - ' + Date.today();
                         a.ConverseImport__c = 'Agodi import';
@@ -207,7 +211,6 @@ public class AU_createInrichtendemachten_queueable implements Queueable {
         Integer updatedAccounts = 0;
         Integer insertedAccounts = 0;
         Integer errorAccounts = 0;
-        String resultString = '';
         String errormessages = '';
 
         // upsert Accounts and post Error to Debug log when an error occurs
@@ -241,15 +244,6 @@ public class AU_createInrichtendemachten_queueable implements Queueable {
         if (errorAccounts > 0) {
             System.debug('ERRORS: ' + errormessages);
         }
-
-        // Map<String,String> resultMap = AU_AccountUpsertRESTAPI.doPost(accountsForUpsert);
-        // System.debug('AU_AccountUpsertRESTAPI - doPost - END');
-
-        // Integer updatedAccounts = Integer.valueOf(resultMap.get('updatedAccounts'));
-        // Integer insertedAccounts = Integer.valueOf(resultMap.get('insertedAccounts'));
-        // Integer errorAccounts = Integer.valueOf(resultMap.get('errorAccounts'));
-        // String resultString = resultMap.get('resultString');
-        // String errormessages = resultMap.get('errormessages');
 
         String content = 'AccountType,ID,ExternalCustomerNumber,Phone,Result,error\n';
         content += resultString;

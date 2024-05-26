@@ -23,6 +23,8 @@ public with sharing class bg_LogResponse {
         */
 
         Map<String, Object> Map_FullList =    (Map<String, Object>) JSON.deserializeUntyped(jsonInput);
+
+        system.debug('**bg_LogResponse**'+Map_FullList);
         List<Object> listFail = (List<Object>)Map_FullList.get('failures');
        
         

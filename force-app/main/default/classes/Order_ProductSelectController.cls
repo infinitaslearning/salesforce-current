@@ -2,7 +2,34 @@ public class Order_ProductSelectController {
     
 
     //------------------------------ Aura Methods
-    
+        @AuraEnabled
+        public static Boolean PermissionSetChecker(String OrderId){
+            try {
+                List<PermissionSetAssignment> lstcurrentUserPerSet =    [   SELECT Id, PermissionSet.Name,AssigneeId
+                                                                FROM PermissionSetAssignment
+                                                                WHERE AssigneeId = :Userinfo.getUserId()
+                                                        		AND PermissionSet.Name LIKE :'%OmniChannelRouting%'];
+
+                    Boolean OmniChannelPS;
+                    system.debug('****'+lstcurrentUserPerSet.size());
+                    if(lstcurrentUserPerSet.size() > 0 ){
+                        OmniChannelPS = true;
+                    }
+                    else{
+                        OmniChannelPS = false;
+                    }
+
+                    return OmniChannelPS;   
+                    
+            } catch (Exception e) {
+                HandleCustomException.LogException(e,OrderId);
+                    system.debug('**Order_ProductSelectController ReturnOrder: '+ e.getMessage());
+                    throw new AuraHandledException('Something went wrong: ' + e.getMessage() + 'Please contact system administator'); 
+               
+            }
+        }
+
+
         @auraenabled
         Public static  OrderOpportunity  returnOrder(String OrderId){       
             
@@ -59,12 +86,12 @@ public class Order_ProductSelectController {
                     if(PricebookId != null){
                         PriceBook2[] curPricebook = [Select name from PriceBook2 where id =: PricebookId];
 
-                        if(curPricebook[0].Name.contains('Professional')){
-                            return 'Professional';
+                        if(curPricebook[0].Name.contains('Zorg')){
+                            return 'Zorg';
                         }
                         else{
                             return 'Standard';
-                           // return 'Professional';
+                           // return 'Zorg';
                         }
                     }
                     else{
@@ -915,7 +942,7 @@ public class Order_ProductSelectController {
                  List<ListPriceDiscount> AddlistPriceDiscount;
                  
                 
-                 if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                 if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                     Item.BasePrice = OItem.ComponentListPrice__c;
                 }
                 else{
@@ -938,7 +965,7 @@ public class Order_ProductSelectController {
                         }                      
                      }
                      else{
-                        if(OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true){
+                        if((OItem.ItemGroup__c != null || OItem.Product2.CustomPricingAllowed__c == true) && OItem.ComponentListPrice__c != null){
                             Item.STDPrice  = OItem.ComponentListPrice__c;
                         }
                         else{
@@ -994,41 +1021,7 @@ public class Order_ProductSelectController {
           
             system.debug('***Order_ProductSelectController: Product Search: Start ');
      
-            /*
-            List<PricebookEntry> ProductsbyPriceBook;
-            if(SearchString == null){
-               
-                ProductsbyPriceBook = new List <PricebookEntry>([Select Price__c,PriceBook2.StartDate__c,PriceBook2.EndDate__c,Product2.CustomPricingAllowed__c,Product2.Stocknumber__c,Product2.maxQuantity__c,Product2.DeliveryStatus__c,Product2.Renewable__c,Product2.OrderLineType__c,Product2.ISBNArticleNumber__c,Product2.MarketSegment__c,Product2.name,Product2.SoldInSegment__c, Product2.QuantitySelectionType__c,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,Product2.Type__c,productcode,unitprice,Product2Id,Product2.LicenseDuration__c from PricebookEntry //,
-                where Pricebook2Id =:Pricebook2Id 
-                AND Price__r.IsActive__c =: true
-                AND PriceBook2.StartDate__c =: PricebookStart
-                AND PriceBook2.EndDate__c =: PricebookEnd
-                AND IsActive =: true 
-                AND Product2.itemGroupManualBlock__c =: false
-                AND Product2Id not in: Set_OrdProd
-                AND Product2.HasBlock__c=: false Order by Product2.Name ASC limit 70 ]); //AND IsActive =:true
-    
-            }
-            else{
-
-                String Search = '%'+SearchString+'%';
-                ProductsbyPriceBook = new List <PricebookEntry>([Select Price__c,PriceBook2.StartDate__c,PriceBook2.EndDate__c,Product2.CustomPricingAllowed__c,Product2.Stocknumber__c,Product2.maxQuantity__c,Product2.DeliveryStatus__c,Product2.Renewable__c,Product2.OrderLineType__c,Product2.ISBNArticleNumber__c,Product2.MarketSegment__c,Product2.name,Product2.SoldInSegment__c, Product2.QuantitySelectionType__c,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,Product2.Type__c,productcode,unitprice,Product2Id,Product2.LicenseDuration__c from PricebookEntry //,
-                where Pricebook2Id =:Pricebook2Id 
-                AND Price__r.IsActive__c =: true
-                AND IsActive =: true
-                AND PriceBook2.StartDate__c =: PricebookStart
-                AND PriceBook2.EndDate__c =: PricebookEnd
-                AND Product2Id not in: Set_OrdProd
-                AND Product2.HasBlock__c=: false
-                AND Product2.itemGroupManualBlock__c =: false
-                AND (Product2.Name  like:Search 
-                OR Product2.ISBNArticleNumber__c like:Search
-                OR Product2.EAN__c like:Search
-                OR Product2.ISBN__c like:Search
-                OR Product2.Type__c like: Search
-                ) Order by Product2.Name ASC limit 70]);
-            }
-            */
+           
             
             PricebookEntry[] ProductsbyPriceBook;		        
 	        Set<String> Set_ProdId = new Set<String>();
@@ -1043,8 +1036,7 @@ public class Order_ProductSelectController {
 	                system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Search :Size**'+ProductsbyPriceBook.size());            		
 	            }   
         
-           // Set<String> Set_ItemGroup = new Set<String>();
-           // Set<String> Set_ItemPrice = new Set<String>();
+          
 
             Set<String> Set_ProdItemGroup = new Set<String>();
             List<Id>  lst_ItemPrice = new List<Id>();
@@ -1057,17 +1049,7 @@ public class Order_ProductSelectController {
             system.debug('**Order_ProductSelectController: Search Set_ProdItemGroup**'+Set_ProdItemGroup);
             system.debug('**Order_ProductSelectController: Search lst_ItemPrice**'+lst_ItemPrice);
             
-            
-            /*
-            Pricing__c[] lstPrice = [Select ListRate__c,Product__c,Product__r.Type__c,EndDate__c,IsActive__c,ProductComponent__r.Quantity__c,ProductComponent__r.Type__c,ProductComponent__r.MainProduct__c,ProductComponent__r.Product__c from Pricing__c 
-            Where (ProductComponent__r.MainProduct__c in: Set_ItemGroup OR id in: Set_ItemPrice)
-            AND 
-            ((StartDate__c <=: PricebookStart AND EndDate__c >=: PricebookStart)
-            OR 
-            (StartDate__c <=: PricebookEnd AND EndDate__c >=: PricebookEnd)
-            )
-            AND IsActive__c =: true];
-            */
+          
 
             Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector2',Set_ProdItemGroup,lst_ItemPrice,PricebookStart,PricebookEnd);
             system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.lstPrice :Size**'+lstPrice.size());
@@ -1087,18 +1069,21 @@ public class Order_ProductSelectController {
             Map<String,Decimal> Map_ComponentCount  =  new Map<String,Decimal>();
             
             Set<String> Set_ItemKitId =  new Set<String>();
-          //  Set_ItemGroup = new Set<String>();
+         
     
       
-    
+        //All the Pricing records of the selected Products   
+        
+        Set<String> Set_CompPrice = new Set<String>();
+
         for(Pricing__c item:lstPrice){   
             
-                if(item.ProductComponent__r.Type__c=='Item Group Component' || item.ProductComponent__r.Type__c=='Kit Component' ){ //
+                if(item.ProductComponent__r.Type__c=='Item Group Component' || item.ProductComponent__r.Type__c=='Kit Component'){ //
+                    
                     Map_ItemGroup.put(item.ProductComponent__r.Product__c,item.ProductComponent__r.MainProduct__c);
-                    Map_ItemGroupId.put(item.ProductComponent__r.Product__c,item.ProductComponent__c); //item.id
+                    Map_ItemGroupId.put(item.ProductComponent__r.Product__c,item.ProductComponent__c); 
                     Map_ItemGroupPrice.put(item.ProductComponent__r.Product__c,item.ListRate__c);
                     Map_ComponentQuantity.put(item.ProductComponent__r.Product__c,item.ProductComponent__r.Quantity__c);
-                 //  Set_ItemGroup.add(item.ProductComponent__r.MainProduct__c);
                     
                     
                     Decimal ListRateMain;
@@ -1115,22 +1100,23 @@ public class Order_ProductSelectController {
                     }
                     else{
                         Map_ItemGroupPrice.put(item.ProductComponent__r.MainProduct__c,Map_ItemGroupPrice.get(item.ProductComponent__r.MainProduct__c)+ListRateMain);
-                    }
-                   
-    
-                
+                    }           
                 }
                 
                 if(item.ProductComponent__r.Type__c=='Kit Component'){
                     Set_ItemKitId.add(item.ProductComponent__r.Product__c); 
                 }
-    
-                
-              // NETSUITE QUANTITY UPDATE// MAIN PRODUCT RATE &&  item.Product__r.Type__c !='Item Group'
-               if(item.Product__c != null ){
+
+                // NETSUITE QUANTITY UPDATE// MAIN PRODUCT RATE &&  item.Product__r.Type__c !='Item Group'
+                if(item.Product__c != null && item.ProductComponent__c == null && !Set_CompPrice.contains(item.Product__c)){
+                    Map_ProductPrice.put(item.Product__c,item.ListRate__c);
+                    Set_CompPrice.add(item.Product__c);
+               }   
+                /*
+                if(item.Product__c != null && item.ProductComponent__c == null){
                     Map_ProductPrice.put(item.Product__c,item.ListRate__c);
                } 
-               
+               */
     
         }        
      
@@ -1151,10 +1137,7 @@ public class Order_ProductSelectController {
  
             List<PricebookEntry> ProductsbyItemGroup;
             if(Map_ItemGroup.size()>0){
-                /*
-                ProductsbyItemGroup = new List <PricebookEntry>([Select Product2.CustomPricingAllowed__c,Product2.Renewable__c,Product2.OrderLineType__c,Product2.ISBNArticleNumber__c,Product2.MarketSegment__c,Product2.name,Product2.SoldInSegment__c, Product2.QuantitySelectionType__c,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,Product2.Type__c,productcode,unitprice,Product2Id from PricebookEntry //,
-                where Pricebook2Id =:Pricebook2Id AND Product2Id in:Map_ItemGroup.keyset() ]); //AND IsActive =:true
-                */
+                
                 
                 Map<string,ProductListPrice> Map_ProdLP = new Map<string,ProductListPrice>();
 
@@ -1177,10 +1160,7 @@ public class Order_ProductSelectController {
                                 prodlp.BasePrice  = Map_ItemGroupPrice.get(pbe.Product2Id);
                                 prodlp.ComponentQuantity = Map_ComponentQuantity.get(pbe.Product2Id);
                                 prodlp.ComponentQuantityTitle = 'Pack quantity: '+Map_ComponentQuantity.get(pbe.Product2Id);
-                                prodlp.CustomPricingAllowed = pbe.Product2.CustomPricingAllowed__c;
-                                
-                             
-    
+                                prodlp.CustomPricingAllowed = pbe.Product2.CustomPricingAllowed__c; 
                                 prodlp.UnitPrice  = pbe.UnitPrice; 
                                 prodlp.STDPrice = prodlp.BasePrice;
                                 
@@ -1231,25 +1211,17 @@ public class Order_ProductSelectController {
                                 
                                 Map_ProdLP.put(pbe.Product2Id,prodlp);
                                 system.debug('**Order_ProductSelectController: ProdComp1**'+pbe.Product2Id);
-                                
-        /*------REMOVE-----------      
-                            if(Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)) == null){
-                                lstProductListPrice = new List<ProductListPrice>();
-                                lstProductListPrice.add(prodlp);
-                                Map_ProductListPrice.put(Map_ItemGroup.get(pbe.Product2Id),lstProductListPrice);
-                            }
-                            else if(Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)) != null){
-                                Map_ProductListPrice.get(Map_ItemGroup.get(pbe.Product2Id)).add(prodlp);
-                            }
-        -----------------*/
-
-        
+   
                         }        
                 }
 
-//------ADD----------- 
+
+                //Check if there are multiple item groups that contain the same component
                 for(Pricing__c item:lstPrice){
-                    if((item.ProductComponent__r.Type__c=='Item Group Component' || item.ProductComponent__r.Type__c=='Kit Component') && Map_ProdLP.get(item.ProductComponent__r.Product__c) != null ){
+
+                    if((item.ProductComponent__r.Type__c=='Item Group Component' || item.ProductComponent__r.Type__c=='Kit Component')  && !Set_CompPrice.contains(item.ProductComponent__c) && Map_ProdLP.get(item.ProductComponent__r.Product__c) != null ){
+                            
+                            Set_CompPrice.add(item.ProductComponent__c);
                             ProductListPrice prodlp = new ProductListPrice();
                             system.debug('**Order_ProductSelectController: ProdComp2**'+item.ProductComponent__r.Product__c);
                             prodlp = Map_ProdLP.get(item.ProductComponent__r.Product__c).clone();
@@ -1274,17 +1246,8 @@ public class Order_ProductSelectController {
                                     Map_ProductListPrice.get(item.ProductComponent__r.MainProduct__c).add(prodlp); //item.ProductComponent__r.MainProduct__c
                             }
 
-                            /* FOR TESTING 
-                            
-                            for(String pid:Map_ProductListPrice.keyset()){
-                                for(ProductListPrice prodlp2:Map_ProductListPrice.get(pid)){
-                                    system.debug('**Order_ProductSelectController: lstProductListPrice: prodlp.BasePrice_0**'+i+'**'+pid+'**'+prodlp2.ProductId+'****'+prodlp2.BasePrice);
-                                } 
-                            }
-                            i++;
-                            */
                     }
-                            
+                          
         
                 }
         //----------------- 
@@ -1295,18 +1258,18 @@ public class Order_ProductSelectController {
         }
         
             lstProductListPrice = new List<ProductListPrice>();
+    
+        //Populating Item group header and non item group components    
         for(PricebookEntry pbe:ProductsbyPriceBook){
             
-            if(Map_ProductPrice.get(pbe.Product2Id) != null  ){    // Exclude Item Group items from main list       
+            if(Map_ProductPrice.get(pbe.Product2Id) != null  ){    // Exclude Item Group component items from main list       
                     ProductListPrice prodlp = new ProductListPrice();                  
                     prodlp.ProductName =  pbe.Product2.name;
                
                  
                     prodlp.listPriceDiscountType = pbe.Product2.ProductDiscountGroup__c;
                     prodlp.ProductRateGroup = pbe.Product2.ProductRateGroup__c;
-                    prodlp.CustomPricingAllowed = pbe.Product2.CustomPricingAllowed__c;
-                    
-                     
+                    prodlp.CustomPricingAllowed = pbe.Product2.CustomPricingAllowed__c; 
                     prodlp.ProductId = pbe.Product2Id;
     
                     //Removed the option to use component price in main product list
@@ -1318,81 +1281,67 @@ public class Order_ProductSelectController {
                         
     
                     prodlp.STDPrice = prodlp.UnitPrice;
-                 
-    
                     prodlp.STDPrice = prodlp.UnitPrice;
-    
                     prodlp.ProductTYPE = pbe.Product2.Type__c; 
                     prodlp.ProductEAN = pbe.Product2.ISBNArticleNumber__c;
                     prodlp.Stocknumber = pbe.Product2.Stocknumber__c;
                     prodlp.maxQuantity = pbe.Product2.maxQuantity__c;
-                    
                     prodlp.DeliveryStatus = pbe.Product2.DeliveryStatus__c;
     
-    
-                        Set<String> Set_SoldInSegment = new Set<String>();
-                        prodlp.lstMarketSegment = new List<String>();
-                       
-                       
-    
-                        List<ListPriceDiscount> AddlistPriceDiscount = new List<ListPriceDiscount>();
-                        
-    
-                        prodlp.MarketSegment =  pbe.Product2.MarketSegment__c;
-                       
-    
-                       
-                        List<String> PriceProductType = new List<String>();
-                        // PriceProductType.add('--None--');
-                        PriceProductType.AddAll(pbe.Product2.OrderLineType__c.Split(';'));
-                        prodlp.listPriceProductType = PriceProductType;
-                        List<String> AmountDiscountManual  = new List<String>();
-                        List<String> PercentDiscountManual = new List<String>();
-            
-                            ManualDiscount  = new List<String>();
-                            ManualDiscount.add('--None--');
-    
-                                if(pbe.Product2.Renewable__c ==true){
-                                    ManualDiscount.add('Recurring Percentage');
-                                    ManualDiscount.add('Recurring Amount');
-                                    ManualDiscount.add('One-Off Percentage');                                               
-                                    ManualDiscount.add('One-Off Amount');
-                                    ManualDiscount.add('One-Off Amount (Subtotal)');
-                                }
-                                else{
-                                    ManualDiscount.add('One-Off Percentage');
-                                    ManualDiscount.add('One-Off Amount');
-                                    ManualDiscount.add('One-Off Amount (Subtotal)');
-                                }
-    
-                                prodlp.ManualDiscount = ManualDiscount;
-                            prodlp.QuantitySelectionType =  pbe.Product2.QuantitySelectionType__c;
-                            if(prodlp.QuantitySelectionType == 'Defaulted to Quantity'){
-                                prodlp.Quantity =1;
-                            }    
-                            else{
-                                prodlp.Quantity=null;
-                            }
-    
-                            prodlp.PricebookEntryId = pbe.Id;
+                    Set<String> Set_SoldInSegment = new Set<String>();
+                    prodlp.lstMarketSegment = new List<String>();
                     
-                            
-                            
-                            
-    
-                            if(Map_ProductListPrice.get(pbe.Product2Id) != null){
-                                prodlp.listItemGroupComponent  = Map_ProductListPrice.get(pbe.Product2Id);
-                                prodlp.ItemGroupComponent = true;
-                                
-                            }
-                            else{
-                                prodlp.ItemGroupComponent = false;   
-                            }
-    
+                    List<ListPriceDiscount> AddlistPriceDiscount = new List<ListPriceDiscount>();
                         
     
-                            Set_ProductId.add(prodlp.ProductId);
-                            lstProductListPrice.add(prodlp);
+                    prodlp.MarketSegment =  pbe.Product2.MarketSegment__c;
+                       
+                    List<String> PriceProductType = new List<String>();
+                        // PriceProductType.add('--None--');
+                    PriceProductType.AddAll(pbe.Product2.OrderLineType__c.Split(';'));
+                    prodlp.listPriceProductType = PriceProductType;
+                    List<String> AmountDiscountManual  = new List<String>();
+                    List<String> PercentDiscountManual = new List<String>();
+            
+                    ManualDiscount  = new List<String>();
+                    ManualDiscount.add('--None--');
+    
+                    if(pbe.Product2.Renewable__c ==true){
+                            ManualDiscount.add('Recurring Percentage');
+                            ManualDiscount.add('Recurring Amount');
+                            ManualDiscount.add('One-Off Percentage');                                               
+                            ManualDiscount.add('One-Off Amount');
+                            ManualDiscount.add('One-Off Amount (Subtotal)');
+                    }
+                    else{
+                            ManualDiscount.add('One-Off Percentage');
+                            ManualDiscount.add('One-Off Amount');
+                            ManualDiscount.add('One-Off Amount (Subtotal)');
+                    }
+    
+                    prodlp.ManualDiscount = ManualDiscount;
+                    prodlp.QuantitySelectionType =  pbe.Product2.QuantitySelectionType__c;
+                    if(prodlp.QuantitySelectionType == 'Defaulted to Quantity'){
+                            prodlp.Quantity =1;
+                    }    
+                    else{
+                            prodlp.Quantity=null;
+                    }
+    
+                    prodlp.PricebookEntryId = pbe.Id;
+                    
+                    
+                    if(Map_ProductListPrice.get(pbe.Product2Id) != null){
+                            prodlp.listItemGroupComponent  = Map_ProductListPrice.get(pbe.Product2Id);
+                            prodlp.ItemGroupComponent = true;
+                                
+                    }
+                    else{
+                            prodlp.ItemGroupComponent = false;   
+                    }
+    
+                    Set_ProductId.add(prodlp.ProductId);
+                    lstProductListPrice.add(prodlp);
                 }
                 
             }
@@ -1880,7 +1829,7 @@ public class Order_ProductSelectController {
                 OItem.ProRataMonths__c = item.ProRataMonths;
                 OItem.ProRataRate__c = item.ProRataRate;
 
-                if(CurOrder[0].Pricebook2.Name.contains('Professional')){
+                if(CurOrder[0].Pricebook2.Name.contains('Zorg')){
                     Oitem.StartDate__c = item.OppServiceDate;
 
                     if(item.OppServiceDate >= CurOrder[0].EffectiveDate ){

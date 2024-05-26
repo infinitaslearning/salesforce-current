@@ -1,4 +1,4 @@
-public with sharing class HandleCustomException extends Exception {
+global with sharing class HandleCustomException extends Exception {
 
     // Method when errorlogging does not receive relatedToId
     public static void  LogException(Exception e) {
@@ -22,6 +22,7 @@ public with sharing class HandleCustomException extends Exception {
             errorLog.RelatedToId__c = relatedToId;
             errorLog.ClassName__c = className;
             errorLog.MethodName__c = methodName;
+            system.debug('**HandleCustom Exception 0**'+e.getMessage());
             errorLog.ExceptionMessage__c = e.getMessage();
             errorLog.ExceptionType__c = e.getTypeName();
             errorLog.LineNumber__c = e.getLineNumber();
@@ -47,6 +48,7 @@ public with sharing class HandleCustomException extends Exception {
                     dmle.FieldNames__c = fieldNames;
                     dmle.IDofFailedRecord__c = e.getDmlId(i);
                     dmle.Index__c = e.getDmlIndex(i);
+                    system.debug('**HandleCustom Exception 1**'+e.getDmlMessage(i));
                     dmle.Message__c = e.getDmlMessage(i);
                     dmlErrorLogs.add(dmle);
                 }
@@ -54,6 +56,23 @@ public with sharing class HandleCustomException extends Exception {
             }
         }
         finally { }
+    }
+
+    @invocableMethod(label='show governor limits' description='Returns a string with the current Governor Limit information.')
+    public static list<invocableVariables> showGovernorLimits() {
+
+        List<invocableVariables> returnList = new List<invocableVariables>();
+
+        invocableVariables iv = new invocableVariables();
+        iv.GovernorLimits = createGovernorLimtsString(getGovernorLimts());
+        
+
+        returnList.add(iv);
+        return returnList;
+    }
+
+    public static String showGovernorLimit() {
+        return showGovernorLimits()[0].GovernorLimits;
     }
 
     public static void checkCriticalGovernorLimits(String stacktraceString) {
@@ -89,6 +108,7 @@ public with sharing class HandleCustomException extends Exception {
                 errorLog.MethodName__c = methodName;
                 errorLog.ExceptionType__c = 'Critical Governor Limits';
                 errorLog.GovtLimitExecutingCode__c = createGovernorLimtsString(governorLimitMap);
+                system.debug('**HandleCustom Exception 2**'+createGovernorLimtsString(governorLimitMap));
                 database.insert(errorLog);
             }
 
@@ -178,11 +198,16 @@ public with sharing class HandleCustomException extends Exception {
         
         // Create Governer Limit overview
         String queryLimit = '- SOQL Queries used / SOQL queries allowd: ' + governorLimits.get('SOQL').get('usage') + ' / ' + governorLimits.get('SOQL').get('limits') + ' (' + SOQLPercentage.setScale(2) + ' %)';
-        String DMLimit = '- Number of records queried so far / Number of allowd: ' + governorLimits.get('DML').get('usage') + ' / ' + governorLimits.get('DML').get('limits') + ' (' + DMLPercentage.setScale(2) + ' %)';
+        String DMLimit = '- Number of DML rows so far / Number of allowd: ' + governorLimits.get('DML').get('usage') + ' / ' + governorLimits.get('DML').get('limits') + ' (' + DMLPercentage.setScale(2) + ' %)';
         String DMLStatements = '- Number of DML Statements used so far / Number of allowed: ' + governorLimits.get('DML Statements').get('usage') + ' / ' + governorLimits.get('DML Statements').get('limits') + ' (' + DMLstatPercentge.setScale(2) + ' %)';
         String CPUTime = '- Amount of CPU time (in ms) used so far / CPU usage time (in ms) allowed: ' + governorLimits.get('CPU').get('usage') + ' / ' + governorLimits.get('CPU').get('limits') + ' (' + CPUTimePercentage.setScale(2) + ' %)';
 
         return String.format('{0}\n{1}\n{2}\n{3}', new List<String>{queryLimit, DMLimit, DMLStatements, CPUTime});
+    }
+
+    global class invocableVariables {
+        @InvocableVariable(label='Governor Limits')
+        global String GovernorLimits;
     }
 
 }

@@ -197,6 +197,7 @@
             <label>Already converted</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>forEcinNumber</name>
         <dataType>String</dataType>

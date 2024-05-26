@@ -53,7 +53,7 @@ public with sharing class Order_UpdateVatOnItems {
             system.debug('**Set_OperatingComapny**'+ Set_OperatingComapny);
 
             VAT__c[] lstVAT = [Select NexusCountry__c,Product__c,Rate__c,Subsidiary__c from VAT__c where toLabel(NexusCountry__c) in:Set_ShippingCountry AND Product__c in:Set_VAT AND Subsidiary__c in:Set_OperatingComapny];
-            
+            system.debug('lstVAT: ' + lstVAT);
             
 
             String VatProduct;

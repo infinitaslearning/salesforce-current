@@ -1087,7 +1087,7 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -1113,7 +1113,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>RenewalOrder_OR_Professional</name>
+            <name>RenewalOrder_OR_Zorg</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Type</leftValueReference>
@@ -1126,13 +1126,13 @@
                 <leftValueReference>$Record.Pricebook2.Name</leftValueReference>
                 <operator>Contains</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>assDontSendConfirmationEmails</targetReference>
             </connector>
-            <label>RenewalOrder OR Professional</label>
+            <label>RenewalOrder OR Zorg</label>
         </rules>
     </decisions>
     <decisions>
@@ -1284,8 +1284,8 @@ CH 2023/03/2023 - Removed Order Notification 2 assignment from Account
 CH 2023/03/28 - changed logic for order notification email 1 and 2
 CH 2023/04/19 - added logic for not sending confirmation emails
 CH 2023/05/10 - added logic for hfdstructuur assignment
-DB 2023/09/05 -  added condition to isactive to block sync for Noordhoff and NH Professional OpCo Orders
-SP 2023/09/22 - added abiblity to create Assets for NH professional 00D3V0000008fs9
+DB 2023/09/05 -  added condition to isactive to block sync for Noordhoff and NH Zorg OpCo Orders
+SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00D3V0000008fs9
 DB 2023/10/11 - added Resync Order via API functionality
 HdG 2023/11/17 - allowing orders to be activated for Noordhoff again
 DB 2023/11/30 - When IF Send clicked resend full order if order products weren&apos;t synced</description>

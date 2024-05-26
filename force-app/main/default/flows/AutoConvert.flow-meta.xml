@@ -225,7 +225,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Should_contact_be_NH_Prof</targetReference>
+                <targetReference>Should_contact_be_NH_Zorg</targetReference>
             </connector>
             <label>Create Contact</label>
         </rules>
@@ -306,19 +306,19 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_Lead_NH_Professional</name>
-        <label>Is Lead NH Professional?</label>
+        <name>Is_Lead_NH_Zorg</name>
+        <label>Is Lead NH Zorg?</label>
         <locationX>1634</locationX>
         <locationY>3638</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>YesNHProf</name>
+            <name>YesNHZorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -566,8 +566,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Should_contact_be_NH_Prof</name>
-        <label>Should contact be NH Prof?</label>
+        <name>Should_contact_be_NH_Zorg</name>
+        <label>Should contact be NH Zorg?</label>
         <locationX>1502</locationX>
         <locationY>458</locationY>
         <defaultConnector>
@@ -575,13 +575,13 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>YesNHProfContact</name>
+            <name>YesNHZorgContact</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -593,8 +593,8 @@
     <description>05-03-2024 JK: updated the Create Opportunity to also populate the Account and Primary Contact fields
 15/03/2023 DB: Removed Get Leads element to reduce queries. Lead record is passed in.
                           Update Lead element now in parent flow (Auto Convert). Lead no longer converted per subflow.
-09/03/2023 CH: Updated Lead professional checks
-16/10/2023 CH: changed contact owner for NH Professional
+09/03/2023 CH: Updated Lead Zorg checks
+16/10/2023 CH: changed contact owner for NH Zorg
 24/01/2023: DB create Opportunity before Lead auto convert (if auto convert create opportunity is true)</description>
     <environments>Default</environments>
     <formulas>
@@ -608,7 +608,7 @@
         <expression>IF(NOT(ISBLANK({!sov_Lead.Account__c})),{!sov_Lead.Account__c},
 IF( ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Plantyn&quot;) , {!$Label.LeadConversionAccountPlantyn} , 
 IF( ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Liber&quot;),{!$Label.LeadConversionAccountLiber} ,
-IF( ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Professional&quot;),{!$Label.LeadConversionAccountNHProfessional} ,
+IF( ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Zorg&quot;),{!$Label.LeadConversionAccountNHZorg} ,
 IF( ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff&quot;),{!$Label.LeadConversionAccountNoordhoff} ,&quot;&quot;)))))</expression>
     </formulas>
     <formulas>
@@ -742,7 +742,7 @@ IF(AND(NOT(ISNULL({!sov_Lead.Account__c})),ISNULL({!sov_Lead.Contact__c})),&quot
         <inputAssignments>
             <field>OperatingCompany__c</field>
             <value>
-                <stringValue>Noordhoff Professional</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1351,7 +1351,7 @@ IF(AND(NOT(ISNULL({!sov_Lead.Account__c})),ISNULL({!sov_Lead.Contact__c})),&quot
         <locationX>1634</locationX>
         <locationY>3530</locationY>
         <connector>
-            <targetReference>Is_Lead_NH_Professional</targetReference>
+            <targetReference>Is_Lead_NH_Zorg</targetReference>
         </connector>
         <flowName>InteractionLead</flowName>
         <inputAssignments>

@@ -66,16 +66,20 @@ public class AU_createScholenGemeenschappen_queueable implements Queueable {
         Integer doubleAccounts = 0;
         Date todaysDate = date.today();
         Integer countLoops = 0;
+        String resultString = '';
+
         // Create Account for each Agodi Account
         try {
 
             Set<Id> accountsAddedToUpdateList = new Set<Id>();
-            Id GuyId;
+            Id MaartenId;
             if (!Test.isRunningTest()) {
-                GuyId = [SELECT Id, Name FROM User WHERE Alias = 'GHect' LIMIT 1].Id;
+                MaartenId = [SELECT Id, Name FROM User WHERE Username = 'maarten.vanhoof@plantyn.com' LIMIT 1].Id;
             }
             for(Map<String,String> agodiAccount : fileMap) {
-                if (!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
+                if (Date.valueOf(agodiAccount.get('datum_opheffing')) > todaysDate || agodiAccount.get('datum_opheffing') == '' || agodiAccount.get('datum_opheffing') == null) {
+                    resultString += 'Inrichtende Machten,' + '' + ',' + agodiAccount.get('nummer') + ',' + agodiAccount.get('telefoon').replace('-','').replace('.','').replace('/','').replace(' ','') + ',skipped -- closed,\n';
+                } else if(!processedAgodiNumbers.contains(agodiAccount.get('nummer'))) {
                     processedAgodiNumbers.add(agodiAccount.get('nummer'));
                     countLoops ++;
                     // concatenate street for shipping and billing
@@ -95,12 +99,11 @@ public class AU_createScholenGemeenschappen_queueable implements Queueable {
                     a.LegalName__c = agodiAccount.get('lange_naam_instelling').replace('�', 'è');
                     a.LastAgodiUpdate__c = todaysDate;
                     a.AgodiUpdateInProgress__c = true;
-                    
+                    a.DataMigrationHistory__c = 'Agodi Update - ' + Date.today();
 
                     // ONLY ON UPDATE
                     if(this.plantynAccountmap.get(agodiAccount.get('nummer')) != null) {
                         Account currentAccount = this.plantynAccountmap.get(agodiAccount.get('nummer'));
-                        a.DataMigrationHistory__c = 'Agodi Update - ' + Date.today();
 
                         if (!accountsAddedToUpdateList.contains(currentAccount.Id)) {
                             a.Id = currentAccount.Id;
@@ -129,9 +132,8 @@ public class AU_createScholenGemeenschappen_queueable implements Queueable {
                     // ONLY ON INSERT
                     else {
                         if (!Test.isRunningTest()) {
-                            a.OwnerId = GuyId;
+                            a.OwnerId = MaartenId;
                         }
-                        a.DataMigrationHistory__c = 'Agodi Insert - ' + Date.today();
                         a.ConverseImport__c = 'Agodi import';
                         a.Name = agodiAccount.get('lange_naam_instelling').replace('�', 'è');
                         a.TypeOfAccount__c = 'Sales and Order';
@@ -156,7 +158,7 @@ public class AU_createScholenGemeenschappen_queueable implements Queueable {
                         a.SchoolType__c = 'School Group'; // ADDED
                         a.CustomerCategory__c = 'School Group'; // ADDED
                         a.CustomerDiscountGroup__c = a.CustomerCategory__c; // ADDED
-                        a.ShippingCostMethod__c = 'Based on weight Domestic'; // UPDATED
+                    a.ShippingCostMethod__c = 'Based on weight Domestic'; // UPDATED
                         a.AccountSource = 'Agodi';
                         a.InvoicingEmail__c = emailAdres;
                         a.OrderNotificationEmail__c = emailAdres;
@@ -201,7 +203,7 @@ public class AU_createScholenGemeenschappen_queueable implements Queueable {
         Integer updatedAccounts = 0;
         Integer insertedAccounts = 0;
         Integer errorAccounts = 0;
-        String resultString = '';
+        
         // upsert Accounts and post Error to Debug log when an error occurs
         Database.UpsertResult[] results = Database.upsert(accountsForUpsert, false);
 

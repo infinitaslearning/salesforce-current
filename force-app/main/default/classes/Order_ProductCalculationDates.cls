@@ -84,7 +84,7 @@ public with sharing class Order_ProductCalculationDates {
                  AddOrSubtractYear = 'Empty';
                  for(OrderItem item:lstOrderItem){
 
-                    if(!item.Order.Pricebook2.Name.contains('Professional') || item.StartDate__c == null ){
+                    if(!item.Order.Pricebook2.Name.contains('Zorg') || item.StartDate__c == null ){
 
                             if(Map_OrderType.get(item.OrderId) !='RenewalOrder' || (Map_OrderType.get(item.OrderId) =='RenewalOrder' && item.StartDate__c ==null )){
 

@@ -39,6 +39,7 @@ public with sharing class Order_CheckItemGroupComponents {
         for(OrderItem item:lstItemGroups){
           if(item.Product2.ItemGroupCountActual__c !=  Map_CompCount.get(item.id)){
             Set_OrdMismatch.add(item.OrderId);
+            system.debug('**Order_CheckItemGroupComponents: ID Mismatch**'+ item.id + '**' + Map_CompCount.get(item.id));
           }
         }
 

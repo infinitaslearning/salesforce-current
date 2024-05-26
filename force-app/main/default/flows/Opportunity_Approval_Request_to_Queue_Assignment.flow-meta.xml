@@ -11,7 +11,7 @@
         <inputParameters>
             <name>processDefinitionNameOrId</name>
             <value>
-                <stringValue>NH_Professional_Opportunity_Approval</stringValue>
+                <stringValue>NH_Zorg_Opportunity_Approval</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -67,7 +67,7 @@
                 <leftValueReference>$UserRole.Name</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional MBO HBO Sales User</stringValue>
+                    <stringValue>Noordhoff Zorg MBO HBO Sales User</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -135,7 +135,7 @@
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Noordhoff_Professional_PCSS_Team_Queue</stringValue>
+                <stringValue>Noordhoff_Zorg_PCSS_Team_Queue</stringValue>
             </value>
         </filters>
         <filters>
@@ -174,7 +174,7 @@
             <field>OpportunityRecordTypeName__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>

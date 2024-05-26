@@ -208,6 +208,7 @@
             <label>Noordhoff</label>
         </rules>
     </decisions>
+    <description>UAT testing version - Do not deploy (Danie)</description>
     <environments>Default</environments>
     <formulas>
         <name>daysTillExpiration</name>
@@ -254,7 +255,7 @@
         <schedule>
             <frequency>Daily</frequency>
             <startDate>2023-02-01</startDate>
-            <startTime>08:00:00.000Z</startTime>
+            <startTime>14:15:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
@@ -262,7 +263,7 @@
     <textTemplates>
         <name>emailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p style=&quot;user-select: auto;&quot;&gt;Good day,&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;This is a reminder that the {!$Record.Name} pricebook will be expiring in {!daysTillExpiration} day(s), which will be on {!$Record.EndDate__c}.&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;Please ensure that the following will be actioned timeously:&lt;/p&gt;&lt;ol&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;New prices with the the relevant dates for the next period need to be set in NetSuite per product&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The current pricebook ({!$Record.Name}) will need to be marked as inactive on Salesforce, and the follow up pricebook should be set (the follow up pricebook will be the pricebook for the next period)&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The new pricebook must be marked as active (make sure that the start and end date are correct)&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The prices on Salesforce will need to be retriggered so that the new pricebook entries will be created&lt;/li&gt;&lt;/ol&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;Thank you.&lt;/p&gt;</text>
+        <text>&lt;p style=&quot;user-select: auto;&quot;&gt;Good day,&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;This is a reminder that the {!$Record.Name} pricebook will be expiring in {!daysTillExpiration} day(s), which will be on &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); user-select: auto;&quot;&gt;{!&lt;/span&gt;$Record&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); user-select: auto;&quot;&gt;.EndDate__c}&lt;/span&gt;.&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;Please ensure that the following will be actioned timeously:&lt;/p&gt;&lt;ol&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;New prices with the the relevant dates for the next period need to be set in NetSuite per product&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The current pricebook ({!$Record.Name}) will need to be marked as inactive on Salesforce, and the follow up pricebook should be set (the follow up pricebook will be the pricebook for the next period)&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The new pricebook must be marked as active (make sure that the start and end date are correct)&lt;/li&gt;&lt;li style=&quot;user-select: auto;&quot;&gt;The prices on Salesforce will need to be retriggered so that the new pricebook entries will be created&lt;/li&gt;&lt;/ol&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;Thank you.&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>liberEmailAddresses</name>
@@ -271,7 +272,7 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <value>
-            <stringValue>anna.svensson@liber.se,hdegraaf@infinitaslearning.com,mverstappen@infinitaslearning.com,dbooysen@infinitaslearning.com,CHuglin@infinitaslearning.com</stringValue>
+            <stringValue>connor@cloudmuscle.nl,dbooysen@infinitaslearning.com</stringValue>
         </value>
     </variables>
     <variables>
@@ -281,7 +282,7 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <value>
-            <stringValue>p.bakker@noordhoff.nl,hdegraaf@infinitaslearning.com,mverstappen@infinitaslearning.com,dbooysen@infinitaslearning.com,CHuglin@infinitaslearning.com</stringValue>
+            <stringValue>connor@cloudmuscle.nl,dbooysen@infinitaslearning.com</stringValue>
         </value>
     </variables>
     <variables>
@@ -291,7 +292,7 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <value>
-            <stringValue>kris.leysen@plantyn.com,hdegraaf@infinitaslearning.com,mverstappen@infinitaslearning.com,dbooysen@infinitaslearning.com,CHuglin@infinitaslearning.com</stringValue>
+            <stringValue>connor@cloudmuscle.nl,dbooysen@infinitaslearning.com</stringValue>
         </value>
     </variables>
 </Flow>

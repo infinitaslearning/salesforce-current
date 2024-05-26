@@ -351,8 +351,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Copy_1_of_Is_lead_NH_Professional</name>
-        <label>Is lead NH Professional?</label>
+        <name>Copy_1_of_Is_lead_NH_Zorg</name>
+        <label>Is lead NH Zorg?</label>
         <locationX>578</locationX>
         <locationY>2138</locationY>
         <defaultConnector>
@@ -366,7 +366,7 @@
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -380,7 +380,7 @@
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -545,9 +545,9 @@
 20220318 RF - Enrich Create new Opportunity mapping to include Campaign from Lead
 20220420 HdG - Add Operating Company to the new opportunity mapping
 20220610 MR add Salesseason to Create opportunity
-20230123 CH - Update Professional = true for NH Professional leads
-20230403 CH - Fixed opportunity opco assignment for professional
-20230413 CH - Fixed default opportunity record type for NH Prof &amp; added pricebook assignment for opps</description>
+20230123 CH - Update Zorg = true for NH Zorg leads
+20230403 CH - Fixed opportunity opco assignment for Zorg
+20230413 CH - Fixed default opportunity record type for NH Zorg &amp; added pricebook assignment for opps</description>
     <environments>Default</environments>
     <formulas>
         <name>forAccountId</name>
@@ -587,7 +587,7 @@
     <formulas>
         <name>forOpportunityRT</name>
         <dataType>String</dataType>
-        <expression>IF(ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Professional&quot;), {!$Label.OpportunityNoordhoffProfessional},CASE({!GetUser.Segment__c},
+        <expression>IF(ISPICKVAL({!sov_Lead.OperatingCompany__c}, &quot;Noordhoff Zorg&quot;), {!$Label.OpportunityNoordhoffZorg},CASE({!GetUser.Segment__c},
 &quot;Liber University&quot;,{!$Label.OpportunityLiberUniversity},
 &quot;Liber School&quot;,{!$Label.OpportunityLiberSchool},
 &quot;Noordhoff PE&quot;,{!$Label.OpportunityNoordhoffBao},
@@ -731,7 +731,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>OperatingCompany__c</field>
             <value>
-                <stringValue>Noordhoff</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -755,7 +755,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>$Label.OpportunityNoordhoffProfessional</elementReference>
+                <elementReference>$Label.OpportunityNoordhoffZorg</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1121,7 +1121,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <locationY>2030</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_1_of_Is_lead_NH_Professional</targetReference>
+            <targetReference>Copy_1_of_Is_lead_NH_Zorg</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

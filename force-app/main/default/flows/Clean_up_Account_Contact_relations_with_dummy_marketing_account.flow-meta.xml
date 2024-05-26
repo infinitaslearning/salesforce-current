@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>56.0</apiVersion>
-    <description>Changed to &quot;Plantyn Salesforce Marketing Cloud&quot;</description>
     <environments>Default</environments>
     <interviewLabel>Clean-up Account-Contact relations with dummy marketing account {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Clean-up Account-Contact relations with dummy marketing account</label>
@@ -29,7 +28,7 @@
         <label>Delete ACR</label>
         <locationX>176</locationX>
         <locationY>396</locationY>
-        <inputReference>List_of_records</inputReference>
+        <inputReference>$Record</inputReference>
     </recordDeletes>
     <recordLookups>
         <name>Get_ACR</name>
@@ -59,7 +58,7 @@
             <field>Account_name__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Plantyn Salesforce Marketing Cloud</stringValue>
+                <stringValue>Plantyn Marketing Cloud</stringValue>
             </value>
         </filters>
         <filters>
@@ -105,18 +104,18 @@
             <field>Account_name__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Plantyn Salesforce Marketing Cloud</stringValue>
+                <stringValue>Plantyn Marketing Cloud</stringValue>
             </value>
         </filters>
         <object>AccountContactRelation</object>
         <schedule>
-            <frequency>Weekly</frequency>
+            <frequency>Daily</frequency>
             <startDate>2022-10-13</startDate>
             <startTime>13:30:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>ACR</name>
         <dataType>String</dataType>

@@ -64,6 +64,13 @@
                 <elementReference>getOrderHeader.ShipbyDate__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>assShippingState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>getOrderHeader.ShippingState</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>frmEnterNewShippingAddress</targetReference>
         </connector>
@@ -120,6 +127,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>getOrderHeader.ShippingState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>assShippingState</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -250,7 +264,9 @@
             <label>No</label>
         </rules>
     </decisions>
-    <description>CH: 2022/05/20 - added Ship By Date</description>
+    <description>CH: 2022/05/20 - added Ship By Date
+CH: 2023/03/20 - added fault handler</description>
+    <environments>Default</environments>
     <interviewLabel>Order_UpdateShippingAddresonItems {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Order_UpdateShippingAddresonItems</label>
     <loops>
@@ -336,6 +352,10 @@
         <connector>
             <targetReference>finished</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>flt1</targetReference>
+        </faultConnector>
         <inputReference>getOrderHeader</inputReference>
     </recordUpdates>
     <recordUpdates>
@@ -346,6 +366,9 @@
         <connector>
             <targetReference>assOrderShipping</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>flt1</targetReference>
+        </faultConnector>
         <inputReference>lstUpdateItems</inputReference>
     </recordUpdates>
     <screens>
@@ -359,6 +382,22 @@
         <fields>
             <name>updateCompleted</name>
             <fieldText>&lt;p&gt;Update completed&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>flt1</name>
+        <label>flt1</label>
+        <locationX>1194</locationX>
+        <locationY>1670</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>err1</name>
+            <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;color: rgb(255, 1, 1); user-select: auto;&quot;&gt;It looks like something went wrong when trying to update this record.&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;Please contact your system admin, and give them this error message: {!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -406,6 +445,12 @@
                 <name>city</name>
                 <value>
                     <elementReference>assShippingCity</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>province</name>
+                <value>
+                    <elementReference>assShippingState</elementReference>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
@@ -511,6 +556,13 @@
     </variables>
     <variables>
         <name>assShippingProvince</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>assShippingState</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

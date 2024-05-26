@@ -150,7 +150,7 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
 
             //update accountUpdateList;
             List<Database.SaveResult> srLst = Database.update(updateNow,false);
-            System.debug('We have updated ' + updateNow.size() + ' Accounts with the StudenNumber information.');
+            System.debug('We have updated ' + updateNow.size() + ' Accounts with the StudentNumber information.');
 
             for (Database.SaveResult sr : srLst) {
                 if (!sr.success) {

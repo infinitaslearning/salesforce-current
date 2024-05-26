@@ -59,6 +59,8 @@ public with sharing class bg_AWSInvocableUtils {
             {
                 errorMessage += Label.GeneralIntegrationSettingNotDefined + ' - invalid Notdefined';
             }
+
+            System.debug('DEBUG: errorMessage'+errorMessage);
         }
         if (errorMessage == '' && !endPoint.integrationDisabled__c)
         {

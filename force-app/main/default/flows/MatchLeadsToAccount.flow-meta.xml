@@ -170,8 +170,8 @@
         </assignmentItems>
     </assignments>
     <assignments>
-        <name>Assign_lead_information_NH_Prof</name>
-        <label>Assign lead information NH Prof</label>
+        <name>Assign_lead_information_NH_Zorg</name>
+        <label>Assign lead information NH Zorg</label>
         <locationX>50</locationX>
         <locationY>518</locationY>
         <assignmentItems>
@@ -218,7 +218,7 @@
         <locationX>776</locationX>
         <locationY>158</locationY>
         <defaultConnector>
-            <targetReference>Lead_is_NH_Professional</targetReference>
+            <targetReference>Lead_is_NH_Zorg</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -258,14 +258,14 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_1_of_Lead_is_NH_Professional</targetReference>
+                <targetReference>Copy_1_of_Lead_is_NH_Zorg</targetReference>
             </connector>
             <label>Account populated</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Account_is_NOT_Professional</name>
-        <label>Account is NOT Professional</label>
+        <name>Account_is_NOT_Zorg</name>
+        <label>Account is NOT Zorg</label>
         <locationX>710</locationX>
         <locationY>398</locationY>
         <defaultConnector>
@@ -273,7 +273,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>YesAccNotProfessional</name>
+            <name>YesAccNotZorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.Account__r.isProfessional__c</leftValueReference>
@@ -296,8 +296,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Copy_1_of_Lead_is_NH_Professional</name>
-        <label>Lead is NH Professional</label>
+        <name>Copy_1_of_Lead_is_NH_Zorg</name>
+        <label>Lead is NH Zorg</label>
         <locationX>644</locationX>
         <locationY>278</locationY>
         <defaultConnector>
@@ -305,19 +305,19 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Copy_1_of_Yes_Prof</name>
+            <name>Copy_1_of_Yes_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Is_The_Linked_Account_a_Professional_Account</targetReference>
+                <targetReference>Is_The_Linked_Account_a_Zorg_Account</targetReference>
             </connector>
-            <label>Yes_Prof</label>
+            <label>Yes_Zorg</label>
         </rules>
         <rules>
             <name>Is_NH</name>
@@ -330,7 +330,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Account_is_NOT_Professional</targetReference>
+                <targetReference>Account_is_NOT_Zorg</targetReference>
             </connector>
             <label>Is NH</label>
         </rules>
@@ -391,8 +391,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_The_Linked_Account_a_Professional_Account</name>
-        <label>Is The Linked Account a Professional Account</label>
+        <name>Is_The_Linked_Account_a_Zorg_Account</name>
+        <label>Is The Linked Account a Zorg Account</label>
         <locationX>182</locationX>
         <locationY>398</locationY>
         <defaultConnector>
@@ -403,28 +403,21 @@
             <name>YesAccountIsCorrect</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>sov_Lead.Account__r.isProfessional__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>sov_Lead.Account__r.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_lead_information_NH_Prof</targetReference>
+                <targetReference>Assign_lead_information_NH_Zorg</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Lead_is_NH_Professional</name>
-        <label>Lead is NH Professional</label>
+        <name>Lead_is_NH_Zorg</name>
+        <label>Lead is NH Zorg</label>
         <locationX>1766</locationX>
         <locationY>278</locationY>
         <defaultConnector>
@@ -432,19 +425,19 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_Prof</name>
+            <name>Yes_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Find_NH_Professional_Acc</targetReference>
+                <targetReference>Find_NH_Zorg_Acc</targetReference>
             </connector>
-            <label>Yes_Prof</label>
+            <label>Yes_Zorg</label>
         </rules>
         <rules>
             <name>No_But_is_NH</name>
@@ -457,17 +450,17 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Find_NH_Acc_Non_professional</targetReference>
+                <targetReference>Find_NH_Acc_Non_Zorg</targetReference>
             </connector>
             <label>No But is NH</label>
         </rules>
     </decisions>
     <description>15/03/2023 DB: Removed Get Leads element to reduce queries. Lead record is passed in.
                           Removed Update Lead element. Lead will be updated in parent flow.
-21/02/2023 CH: Added NH and Professional checks
+21/02/2023 CH: Added NH and Zorg checks
 24/03/2023 DB: Updated Account match and filter criteria
 28/02/2023 CH: Fixed account opco match
-09/03/2023 CH: Added additional Nh and NH Professional matching checks</description>
+09/03/2023 CH: Added additional Nh and NH Zorg matching checks</description>
     <environments>Default</environments>
     <interviewLabel>MatchLeadsToAccount {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Match Leads To Account</label>
@@ -505,8 +498,8 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Find_NH_Acc_Non_professional</name>
-        <label>Find NH Acc (Non professional)</label>
+        <name>Find_NH_Acc_Non_Zorg</name>
+        <label>Find NH Acc (Non Zorg)</label>
         <locationX>1766</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
@@ -565,20 +558,20 @@
         <sortOrder>Asc</sortOrder>
     </recordLookups>
     <recordLookups>
-        <name>Find_NH_Professional_Acc</name>
-        <label>Find NH Professional Acc</label>
+        <name>Find_NH_Zorg_Acc</name>
+        <label>Find NH Zorg Acc</label>
         <locationX>1502</locationX>
         <locationY>398</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>CountAccountRecords</targetReference>
         </connector>
-        <filterLogic>1 AND ((2 AND 3) OR (4 AND 5)) AND 6</filterLogic>
+        <filterLogic>1 AND ((2 AND 3) OR (4 AND 5))</filterLogic>
         <filters>
             <field>OperatingCompany__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Noordhoff</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <filters>
@@ -607,13 +600,6 @@
             <operator>IsNull</operator>
             <value>
                 <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>isProfessional__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
             </value>
         </filters>
         <object>Account</object>

@@ -4,7 +4,7 @@
         <name>Copy_1_of_Send_Email</name>
         <label>Send Email</label>
         <locationX>314</locationX>
-        <locationY>516</locationY>
+        <locationY>468</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -39,7 +39,7 @@
         <name>Copy_2_of_Send_Email</name>
         <label>Send Email</label>
         <locationX>578</locationX>
-        <locationY>516</locationY>
+        <locationY>468</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -71,10 +71,45 @@
         <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
+        <name>Copy_3_of_Send_Email</name>
+        <label>Send Email</label>
+        <locationX>842</locationX>
+        <locationY>468</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>noordhoffZorgEmailAddresses</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Upcoming Pricebook Expiration</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
         <name>Send_Email</name>
         <label>Send Email</label>
         <locationX>50</locationX>
-        <locationY>516</locationY>
+        <locationY>468</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -109,8 +144,8 @@
     <decisions>
         <name>PB_Expiration_Soon</name>
         <label>PB Expiration Soon</label>
-        <locationX>776</locationX>
-        <locationY>276</locationY>
+        <locationX>974</locationX>
+        <locationY>252</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -159,8 +194,8 @@
     <decisions>
         <name>Which_OpCo_is_it</name>
         <label>Which OpCo is it?</label>
-        <locationX>446</locationX>
-        <locationY>396</locationY>
+        <locationX>578</locationX>
+        <locationY>360</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Plantyn</name>
@@ -207,6 +242,21 @@
             </connector>
             <label>Noordhoff</label>
         </rules>
+        <rules>
+            <name>NoordhoffZorg</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Subsidiary__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_3_of_Send_Email</targetReference>
+            </connector>
+            <label>Noordhoff Zorg</label>
+        </rules>
     </decisions>
     <environments>Default</environments>
     <formulas>
@@ -237,7 +287,7 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>650</locationX>
+        <locationX>848</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>PB_Expiration_Soon</targetReference>
@@ -282,6 +332,16 @@
         <isOutput>false</isOutput>
         <value>
             <stringValue>p.bakker@noordhoff.nl,hdegraaf@infinitaslearning.com,mverstappen@infinitaslearning.com,dbooysen@infinitaslearning.com,CHuglin@infinitaslearning.com</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>noordhoffZorgEmailAddresses</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>hdegraaf@infinitaslearning.com,dbooysen@infinitaslearning.com,sparker@infinitaslearning.com</stringValue>
         </value>
     </variables>
     <variables>

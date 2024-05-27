@@ -5,6 +5,7 @@
     <externalId>false</externalId>
     <formula>CASE(TEXT(OperatingCompany__c),&apos;Liber&apos;,$CustomMetadata.Operating_Company__mdt.Liber.defaultCloseDate__c,
 					&apos;Noordhoff&apos;,$CustomMetadata.Operating_Company__mdt.Noordhoff.defaultCloseDate__c,
+					&apos;Noordhoff Zorg&apos;,$CustomMetadata.Operating_Company__mdt.NoordhoffZorg.defaultCloseDate__c,
 					&apos;Plantyn&apos;,$CustomMetadata.Operating_Company__mdt.Plantyn.defaultCloseDate__c,
 					NULL
 )</formula>

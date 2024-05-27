@@ -15,7 +15,7 @@ IF(AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, CONTAINS(PricebookName
 **/
 
 IF(NOT(ISPICKVAL(OrderStatus__c,&quot;Activated&quot;)),
-			(IF(AND(OR(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),ISPICKVAL(OperatingCompany__c,&quot;Noordhoff&quot;)),NOT(IsPricebookInformat__c),LEN(CustomerReference__c) &gt; 30),1,
+			(IF(AND(OR(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),ISPICKVAL(OperatingCompany__c,&quot;Noordhoff&quot;),ISPICKVAL(OperatingCompany__c,&quot;Noordhoff Zorg&quot;)),NOT(IsPricebookInformat__c),LEN(CustomerReference__c) &gt; 30),1,
 				    IF(AND(ISPICKVAL(OperatingCompany__c,&quot;Liber&quot;),LEN(CustomerReference__c) &gt; 35),1,
 				        IF(AND(IsPricebookInformat__c,LEN(CustomerReference__c) &gt; 45),1,0
 														)

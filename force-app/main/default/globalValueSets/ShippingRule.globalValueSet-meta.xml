@@ -56,16 +56,30 @@
         <label>NU - Based on order total</label>
     </customValue>
     <customValue>
-        <fullName>PU - Shipping Cots Exempt</fullName>
+        <fullName>NZ - Based on weight Domestic</fullName>
         <default>false</default>
-        <isActive>false</isActive>
-        <label>PU - Shipping Cots Exempt</label>
+        <label>NZ - Based on weight Domestic</label>
+    </customValue>
+    <customValue>
+        <fullName>NZ - Based on weight Non Domestic</fullName>
+        <default>false</default>
+        <label>NZ - Based on weight Non Domestic</label>
     </customValue>
     <customValue>
         <fullName>NZ - Shipping Costs Exempt</fullName>
         <default>false</default>
-        <isActive>false</isActive>
         <label>NZ - Shipping Costs Exempt</label>
+    </customValue>
+    <customValue>
+        <fullName>NZ - Based on order total</fullName>
+        <default>false</default>
+        <label>NZ - Based on order total</label>
+    </customValue>
+    <customValue>
+        <fullName>PU - Shipping Cots Exempt</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>PU - Shipping Cots Exempt</label>
     </customValue>
     <masterLabel>Shipping Rule</masterLabel>
     <sorted>false</sorted>

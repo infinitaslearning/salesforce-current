@@ -4,5 +4,5 @@
     <entityName>Opportunity</entityName>
     <fieldName>StageName</fieldName>
     <masterLabel>Opportunity Noordhoff Zorg</masterLabel>
-    <recordTypeName>Zorg</recordTypeName>
+    <recordTypeName>NoordhoffZorg</recordTypeName>
 </PathAssistant>

@@ -90,7 +90,7 @@
                 <componentName>flexipage:richText</componentName>
                 <identifier>flexipage_richText1</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND (2 OR 3) AND 4</booleanFilter>
+                    <booleanFilter>1 AND (2 OR 3 OR (4 AND 5)) AND 6</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.ValidateReferenceNumberCheck__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -105,6 +105,16 @@
                         <leftValue>{!Record.OperatingCompany__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Plantyn</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.OperatingCompany__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Noordhoff Zorg</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.ProductType__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Inventory Item</rightValue>
                     </criteria>
                     <criteria>
                         <leftValue>{!Record.IsPricebookInformat__c}</leftValue>
@@ -159,7 +169,7 @@
                 <componentName>flexipage:richText</componentName>
                 <identifier>flexipage_richText17</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
+                    <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.ValidateReferenceNumberCheck__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -169,6 +179,16 @@
                         <leftValue>{!Record.IsPricebookInformat__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>true</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.OperatingCompany__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Noordhoff Zorg</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.ProductType__c}</leftValue>
+                        <operator>NE</operator>
+                        <rightValue>Inventory Item</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

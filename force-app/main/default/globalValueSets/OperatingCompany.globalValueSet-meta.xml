@@ -40,7 +40,7 @@
     <customValue>
         <fullName>Noordhoff Professional</fullName>
         <default>false</default>
-        <isActive>true</isActive>
+        <isActive>false</isActive>
         <label>Noordhoff Professional</label>
     </customValue>
     <masterLabel>Operating Company</masterLabel>

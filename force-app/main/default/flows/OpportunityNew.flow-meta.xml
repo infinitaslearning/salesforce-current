@@ -999,7 +999,7 @@
             <field>PricebookType__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Zorg</stringValue>
+                <stringValue>Professional</stringValue>
             </value>
         </filters>
         <object>Pricebook2</object>

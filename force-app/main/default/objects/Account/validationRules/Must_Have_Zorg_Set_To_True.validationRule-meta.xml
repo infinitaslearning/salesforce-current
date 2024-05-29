@@ -4,5 +4,5 @@
     <active>true</active>
     <errorConditionFormula>AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Zorg&quot;), isProfessional__c=false)</errorConditionFormula>
     <errorDisplayField>isProfessional__c</errorDisplayField>
-    <errorMessage>&apos;Zorg&apos; needs to be ticked</errorMessage>
+    <errorMessage>&apos;Professional&apos; needs to be ticked</errorMessage>
 </ValidationRule>

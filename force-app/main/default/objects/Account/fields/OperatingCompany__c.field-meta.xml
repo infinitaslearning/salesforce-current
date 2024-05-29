@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>OperatingCompany__c</fullName>
-    <defaultValue>
-        Text($User.OperatingCompany__c)
-    </defaultValue>
+    <defaultValue>IF(ISPICKVAL($User.OperatingCompany__c, &quot;Plantyn&quot;), &quot;Plantyn&quot;,
+IF(ISPICKVAL($User.OperatingCompany__c, &quot;Liber&quot;), &quot;Liber&quot;,
+IF(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff&quot;), &quot;Noordhoff&quot;,
+IF(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Zorg&quot;), &quot;Noordhoff Zorg&quot;,
+			&quot;&quot;))))</defaultValue>
     <externalId>false</externalId>
     <label>Operating Company</label>
     <required>true</required>

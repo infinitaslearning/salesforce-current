@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>NoordhoffProfessionalLeadQueue</fullName>
+    <fullName>NoordhoffZorgLeadQueue</fullName>
     <booleanFilter>1 AND (2 OR 3)</booleanFilter>
     <columns>CORE.USERS.ALIAS</columns>
     <columns>FULL_NAME</columns>
@@ -19,15 +19,15 @@
     <filters>
         <field>CORE.USERS.ALIAS</field>
         <operation>equals</operation>
-        <value>Noordhoff Professional Lead Queue</value>
+        <value>Noordhoff Zorg Lead Queue</value>
     </filters>
     <filters>
         <field>CORE.USERS.LAST_NAME</field>
         <operation>equals</operation>
         <value>clar metzke,rammers,vermeule</value>
     </filters>
-    <label>Noordhoff Professional Lead Queue</label>
+    <label>Noordhoff Zorg Lead Queue</label>
     <sharedTo>
-        <group>AllUsersNoordhoffProfessional</group>
+        <group>AllUsersNoordhoffZorg</group>
     </sharedTo>
 </ListView>

@@ -8,7 +8,7 @@
    ), 
    AND(
        PRIORVALUE(IsOpen__c) = false, 
-       Opportunity.OpportunityRecordTypeName__c = &quot;Zorg&quot;,  
+       Opportunity.OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;,  
        OR(
           ISPICKVAL(Opportunity.StageName,&quot;Closed Won&quot;), 
           ISPICKVAL(Opportunity.StageName,&quot;Closed Lost&quot;) 

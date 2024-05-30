@@ -5,7 +5,7 @@
     <description>Proof that an Approval Process was triggered before a Status/Stage can be set as Closed Won.</description>
     <errorConditionFormula>AND(
     NOT(ISPICKVAL(ApprovalStatus__c , &quot;Approved&quot;)), 
-    OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;, 
     ISCHANGED(StageName), 
     ISPICKVAL(StageName, &quot;Closed Won&quot;),
     NOT($User.ValidationRulesDoNotApply__c  = true),

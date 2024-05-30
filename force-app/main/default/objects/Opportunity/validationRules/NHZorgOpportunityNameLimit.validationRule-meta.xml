@@ -4,7 +4,7 @@
     <active>true</active>
     <description>Prevents the user from creating an Opportunity Name with a longer than 80 character limit same as is the Contract Name limit (Opportunity name copied to Contract name)</description>
     <errorConditionFormula>AND(
-    OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;, 
     LEN(Name) &gt; 80 
 )</errorConditionFormula>
     <errorDisplayField>Name</errorDisplayField>

@@ -4,7 +4,7 @@
     <active>true</active>
     <description>Prevents a user making changes to an Opportunity that was closed won or closed lost.</description>
     <errorConditionFormula>AND(
-    OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;, 
     NOT(ISCHANGED(Is_Validation_Bypassed__c)), 
     OR(
        ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Won&quot;), 

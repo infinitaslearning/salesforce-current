@@ -6,7 +6,7 @@
     <errorConditionFormula>AND(
     ISNEW(), 
     NOT(ISPICKVAL(StageName, &quot;P. Incoming&quot;)), 
-    RecordType.Name = &quot;Zorg&quot;,
+    RecordType.Name = &quot;Noordhoff Zorg&quot;,
     NOT($User.ValidationRulesDoNotApply__c  = true)
 )</errorConditionFormula>
     <errorMessage>Status: P. Incoming should be the value for a new Opportunity.</errorMessage>

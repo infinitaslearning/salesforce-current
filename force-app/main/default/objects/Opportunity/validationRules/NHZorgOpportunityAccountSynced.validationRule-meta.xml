@@ -2,7 +2,7 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NHZorgOpportunityAccountSynced</fullName>
     <active>true</active>
-    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;, 
     ISBLANK(Account.NetsuiteCustomerNumber__c), 
     ISBLANK(Account.NetsuiteInternalId__c), 
     NOT($User.ValidationRulesDoNotApply__c  = true),

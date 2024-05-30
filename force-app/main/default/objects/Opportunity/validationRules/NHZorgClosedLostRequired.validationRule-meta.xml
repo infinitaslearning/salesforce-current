@@ -3,7 +3,7 @@
     <fullName>NHZorgClosedLostRequired</fullName>
     <active>true</active>
     <description>Closed Lost Reason Only required when the Opportunity Stage is Closed Lost and not for Closed Won</description>
-    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Zorg&quot;,  
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;,  
     ISPICKVAL(StageName, &quot;Closed Lost&quot;),
     ISBLANK(TEXT(ReasonLost__c)),
     NOT($User.ValidationRulesDoNotApply__c  = true)

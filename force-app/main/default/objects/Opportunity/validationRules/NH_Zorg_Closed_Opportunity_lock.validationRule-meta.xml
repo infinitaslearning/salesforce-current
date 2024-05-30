@@ -3,7 +3,7 @@
     <fullName>NH_Zorg_Closed_Opportunity_lock</fullName>
     <active>false</active>
     <description>Does not allow any edit on a Noordhoff Opportunity when the record is Closed (lost/won)</description>
-    <errorConditionFormula>AND( RecordType.Name = &quot;Zorg&quot;, 
+    <errorConditionFormula>AND( RecordType.Name = &quot;Noordhoff Zorg&quot;, 
      OR(ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Won&quot;), 
         ISPICKVAL(PRIORVALUE(StageName),&quot;Closed Lost&quot;)
      ),

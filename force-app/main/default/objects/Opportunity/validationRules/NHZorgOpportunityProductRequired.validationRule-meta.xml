@@ -2,7 +2,7 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NHZorgOpportunityProductRequired</fullName>
     <active>true</active>
-    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Zorg&quot;, 
+    <errorConditionFormula>AND(OpportunityRecordTypeName__c = &quot;Noordhoff Zorg&quot;, 
     LineItemCount__c = 0, 
   OR(
      ISPICKVAL(StageName, &quot;P. Quote&quot;), 

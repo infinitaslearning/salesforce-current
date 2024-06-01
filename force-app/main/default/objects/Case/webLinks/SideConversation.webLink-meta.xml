@@ -20,7 +20,6 @@
     <url>/_ui/core/email/author/EmailAuthor?
 p3_lkid={!Case.Id} &amp;
 p6= Re:{!Case.CaseNumber} {!Case.Subject}&amp;
-p26={!User.DefaultSideConversationEmail__c} &amp;
 Template_Id=00XJW000000lWHN &amp;
 retURL=/{!Case.Id}</url>
 </WebLink>

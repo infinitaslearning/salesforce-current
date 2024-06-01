@@ -701,6 +701,7 @@ public with sharing class Order_SoqlFactory {
         +' DigitalActivationEMail__c,'
         +' Informhfdstructuur__c,'
         +' IsUpForRenewal__c,'
+        +' IndexationPercentage__c,'
         +' LastRenewalUpdate__c, '
         +' ListPrice__c,'
         +' ManualDiscountPercent__c, '

@@ -30,6 +30,10 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
+            <valueName>Backorder</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
             <valueName>Misdruk</valueName>
         </valueSettings>
         <valueSettings>
@@ -67,6 +71,14 @@
         <valueSettings>
             <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
             <valueName>Scholen</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
+            <valueName>Trade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Klantgegevens &amp; Account</controllingFieldValue>
+            <valueName>Boekhandel</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Factuur &amp; Betaling</controllingFieldValue>

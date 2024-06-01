@@ -15,6 +15,8 @@ global without sharing class AddressValidation {
         public string accountId;
         @InvocableVariable
         public boolean bCreateAddress;
+        @InvocableVariable
+        public string OperatingCompany;
     }
     
     public class Response {
@@ -30,6 +32,7 @@ global without sharing class AddressValidation {
         public boolean credit;
         @InvocableVariable
         public string statusMessage;
+        public recordval.AddressValidationOutput_v1 addressValidationOutput;
     }
     
     @InvocableMethod(label='Validate Address')
@@ -38,12 +41,17 @@ global without sharing class AddressValidation {
         
         recordval.RecordValidationAPI_v1 api = new recordval.RecordValidationAPI_v1();
         recordval.AddressValidationInput_V1 input = new recordval.AddressValidationInput_V1();
+        recordval.AddressOptions_v1 addressOptions = new recordval.AddressOptions_v1();
         
         input.street = requests[0].street;
         input.housenumber = requests[0].housenumber;
         input.housenumberAddition = requests[0].housenumberAddition;
         input.postalcode = requests[0].postalcode;
         input.country = requests[0].country;
+
+        addressOptions.housenumber = true;
+        addressOptions.housenumberAddition = true;
+        input.addressOptions = addressOptions;
         //input.note = 'demo';
         
         system.debug('INPUT: ' + input);
@@ -52,10 +60,10 @@ global without sharing class AddressValidation {
         
         if(!Test.isRunningTest()){
             recordval.AddressValidationOutput_v1 output = api.validateAddress(input);
-            System.debug(LoggingLevel.DEBUG, output);
+            System.debug(LoggingLevel.DEBUG, '***validateAddress AddressValidationOutput_v1: ' + output);
             System.debug(LoggingLevel.DEBUG, output.advice);
             
-            
+            result.addressValidationOutput = output;
             result.statusColour = String.valueOf(output.advice);
             result.statusCode = String.valueOf(output.addresses.get(0).status.code);
             result.fullAddress = String.valueOf(output.addresses.get(0).fullAddress);
@@ -63,11 +71,31 @@ global without sharing class AddressValidation {
             result.statusMessage = String.valueOf(output.addresses.get(0).status.message); 
         } else {
             String testRes = '[addresses=(Address_v1:[advice=GREEN, city=ZEEWOLDE, country=Netherlands, countryCode=NL, fullAddress=Test  123, 3871 BK  ZEEWOLDE, housenumber=null, housenumberAddition=null, postalCode=3891 BK, state=Flevoland, stateCode=0012, status=Status_v1:[code=594, credit=true, message=Current address is verified up to Housenumber level.], street=Horlo  57]), advice=GREEN, status=Status_v1:[code=560, credit=true, message=Validation succeeded]]';
+            String addressValidationOutputString = '{"addresses": [{"street": "Groenestraat","housenumber": "5","housenumberAddition": "","state": "Utrecht","city": "Utrecht","postalCode": "3512 PV","country": "Netherlands","countryCode": "NL","fullAddress": "Groenestraat  5, 3512 PV  UTRECHT","status": {"code": "594","message": "Current address is verified up to Housenumber level.","credit": true},"advice": "GREEN"}],"status": {"code": "560","message": "Validation succeeded","credit": true},"advice": "GREEN"}';
+
             result.statusColour = 'GREEN';
-            result.statusCode = '591';
-            result.fullAddress = 'ABC 123';
+            result.statusCode = '594';
+            result.fullAddress = 'DePijp 22, 1224AM  AMSTERDAM';
             result.credit = true;
-            result.statusMessage = 'hi'; 
+            result.statusMessage = 'Current address is verified up to Housenumber level.';
+            recordval.AddressValidationOutput_v1 addressValidationOutputType= new recordval.AddressValidationOutput_v1();
+            recordval.Address_v1 addresses = new recordval.Address_v1();
+            addresses.city = 'Amsterdam';
+            addresses.country = 'Netherlands';
+            addresses.countryCode = 'NL';
+            addresses.housenumber = '22';
+            addresses.postalCode = '1224AM';
+            addresses.state = 'AM';
+            addresses.street = 'DePijp';
+            recordval.Status_v1 status = new recordval.Status_v1();
+            status.code = '594';
+            status.credit = true;
+            status.message = 'Current address is verified up to Housenumber level.';
+            addresses.status = status;
+            List<recordval.Address_v1> addressesList = new List<recordval.Address_v1>();
+            addressesList.add(addresses);
+            addressValidationOutputType.addresses = addressesList;
+            result.addressValidationOutput = addressValidationOutputType;
         }
 
         system.debug('RESPONSE: ' + result);

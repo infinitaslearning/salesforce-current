@@ -33,6 +33,12 @@
             </value>
         </inputParameters>
         <inputParameters>
+            <name>OperatingCompany</name>
+            <value>
+                <elementReference>var_OperatingCompany</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
             <name>postalcode</name>
             <value>
                 <elementReference>formattedPostalCode</elementReference>
@@ -304,7 +310,8 @@
     </decisions>
     <description>This flow queries the custom address, verifies if it can find a match. If not it creates &amp; validates a new address if no match is found
 DB: 2024/03/13 Limit validation only for eCommerce Import Orders
-DB: 2024/04/09 Query based between housenumber or streetname based on input</description>
+DB: 2024/04/09 Query based between housenumber or streetname based on input
+DB: 2024/05/21 Operating Company passed into Invocable method</description>
     <environments>Default</environments>
     <formulas>
         <name>F_SourceFormula</name>

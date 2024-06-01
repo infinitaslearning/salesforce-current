@@ -295,7 +295,7 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                                         String externalOrderId = val.get('OrderNumberId__c') + '-Correction';
                                         sObj.put(field,externalOrderId);
                                     } else {
-                                        String externalOrderId = val.get('OrderNumberId__c') + '-Clone';
+                                        String externalOrderId = String.valueOf(val.get('ExternalOrderId__c'));
                                         sObj.put(field,externalOrderId);
                                     }
                                     
@@ -311,6 +311,10 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                                 } else if (obj == 'OrderItem' && field == 'TotalDiscountAmount__c'){
                                     sObj.put(field ,val.get(field));
                                     system.debug('=-= TotalDiscountAmount__c: ' + val.get(field));
+                                } else if (field == 'NSOrderStatus__c' || field == 'NSOrderInternalId__c' || field == 'SuccessStatusOfLastAWSUpdate__c' || field == 'LastUpdateToAWS__c') {
+                                    //clear fields that should not be cloned with original master record values
+                                    System.debug('**clearing fied: ' + field);
+                                    sObj.put(field, null);
                                 } else if(field != 'ImportItemGroupEAN__c') {
                                     sObj.put(field ,val.get(field));
                                 }

@@ -277,7 +277,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
             <field>OpportunityRecordTypeName__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Zorg</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>
@@ -379,7 +379,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
             <field>OpportunityRecordTypeName__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Zorg</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>

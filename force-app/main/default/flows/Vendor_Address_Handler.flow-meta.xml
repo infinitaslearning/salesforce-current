@@ -8,7 +8,7 @@
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Create_Address_Values</targetReference>
+            <targetReference>Create_Validated_Address_Values</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -56,7 +56,7 @@
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Create_BillingAddress_Values</targetReference>
+            <targetReference>Create_Validated_BillingAddress_Values</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -104,7 +104,7 @@
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>Create_ShippingAddress_Values</targetReference>
+            <targetReference>Create_Validated_ShippingAddress_Values</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -236,24 +236,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>accountRecord.BillToAddressValidated__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>See_If_Address_Exists.Validated_Address__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>accountRecord.ShippingAddress__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference>ILAddressRecord.Id</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>accountRecord.ShipToAddressValidated__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>See_If_Address_Exists.Validated_Address__c</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -273,255 +259,6 @@
     <assignments>
         <name>Create_Address_Values</name>
         <label>Create Address Values</label>
-        <locationX>842</locationX>
-        <locationY>674</locationY>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>F_BillingAddressLabel</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Street__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingStreetName__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingPostalCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.City__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingCity</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Country__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingCountry</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.OperatingCompany__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.State__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingState</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>dtNow</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Source__c</assignToReference>
-            <operator>Assign</operator>
-        </assignmentItems>
-        <connector>
-            <targetReference>CreateAddress</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Create_BillingAddress_Values</name>
-        <label>Create BillingAddress Values</label>
-        <locationX>1634</locationX>
-        <locationY>674</locationY>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>F_BillingAddressLabel</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Street__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingStreetName__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingPostalCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.City__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingCity</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Country__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingCountry</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.OperatingCompany__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.State__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.BillingState</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>dtNow</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Source__c</assignToReference>
-            <operator>Assign</operator>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Billing_Address</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Create_ShippingAddress_Values</name>
-        <label>Create ShippingAddress Values</label>
-        <locationX>1634</locationX>
-        <locationY>1706</locationY>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Name</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>F_ShippingAddressLabel</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Street__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingStreetName__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingHouseNumber__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingHouseNumberAddition__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingPostalCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.City__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingCity</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Country__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingCountry</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.OperatingCompany__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.State__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>accountRecord.ShippingState</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>dtNow</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>ILAddressRecord.Source__c</assignToReference>
-            <operator>Assign</operator>
-        </assignmentItems>
-        <connector>
-            <targetReference>Create_Shipping_Address</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Create_UDB_Address_Values</name>
-        <label>Create UDB Address Values</label>
         <locationX>578</locationX>
         <locationY>566</locationY>
         <assignmentItems>
@@ -620,8 +357,8 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Create_UDB_BillingAddress_Values</name>
-        <label>Create UDB BillingAddress Values</label>
+        <name>Create_BillingAddress_Values</name>
+        <label>Create BillingAddress Values</label>
         <locationX>1370</locationX>
         <locationY>566</locationY>
         <assignmentItems>
@@ -720,8 +457,8 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Create_UDB_ShippingAddress_Values</name>
-        <label>Create UDB ShippingAddress Values</label>
+        <name>Create_ShippingAddress_Values</name>
+        <label>Create ShippingAddress Values</label>
         <locationX>1370</locationX>
         <locationY>1598</locationY>
         <assignmentItems>
@@ -820,6 +557,255 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Create_Validated_Address_Values</name>
+        <label>Create Validated Address Values</label>
+        <locationX>842</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>F_BillingAddressLabel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Street__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.City__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Country__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.State__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>dtNow</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Source__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>CreateAddress</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Create_Validated_BillingAddress_Values</name>
+        <label>Create Validated BillingAddress Values</label>
+        <locationX>1634</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>F_BillingAddressLabel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Street__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.City__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Country__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.State__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.BillingState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>dtNow</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Source__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Billing_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Create_Validated_ShippingAddress_Values</name>
+        <label>Create Validated ShippingAddress Values</label>
+        <locationX>1634</locationX>
+        <locationY>1706</locationY>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>F_ShippingAddressLabel</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Street__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.HouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.PostalCode__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingPostalCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.City__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingCity</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Country__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingCountry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.OperatingCompany__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.State__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>accountRecord.ShippingState</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.rv2ValidationDate__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>dtNow</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>ILAddressRecord.Source__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Shipping_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Billing_Address</name>
         <label>Set Billing Address</label>
         <locationX>1106</locationX>
@@ -889,7 +875,7 @@
         <locationX>446</locationX>
         <locationY>350</locationY>
         <defaultConnector>
-            <targetReference>UDB_Account_Decision</targetReference>
+            <targetReference>Create_OR_Validate_Address</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -914,7 +900,7 @@
         <locationX>1304</locationX>
         <locationY>350</locationY>
         <defaultConnector>
-            <targetReference>Billing_UDB_Account_Decision</targetReference>
+            <targetReference>Billing_Create_OR_Validate</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -934,19 +920,19 @@
         </rules>
     </decisions>
     <decisions>
-        <description>If UDB DO NOTHING.
+        <description>If UDB OR VENDOR DO NOTHING.
 Skip Validate.</description>
-        <name>Billing_UDB_Account_Decision</name>
-        <label>Billing UDB Account Decision</label>
+        <name>Billing_Create_OR_Validate</name>
+        <label>Billing Create OR Validate</label>
         <locationX>1502</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>Validate_Billing_Address</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>Billing Address Validate</defaultConnectorLabel>
         <rules>
-            <name>Billing_Is_UDB_Account</name>
-            <conditionLogic>and</conditionLogic>
+            <name>Billing_Address_Create</name>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
             <conditions>
                 <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -954,10 +940,24 @@ Skip Validate.</description>
                     <stringValue>UDB</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Create_UDB_BillingAddress_Values</targetReference>
+                <targetReference>Create_BillingAddress_Values</targetReference>
             </connector>
-            <label>Billing Is UDB Account</label>
+            <label>Billing Address Create</label>
         </rules>
     </decisions>
     <decisions>
@@ -996,12 +996,26 @@ Skip Validate.</description>
         <defaultConnectorLabel>Yes</defaultConnectorLabel>
         <rules>
             <name>No2</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
             <conditions>
                 <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>UDB</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -1021,7 +1035,7 @@ Skip Validate.</description>
         <defaultConnectorLabel>Yes</defaultConnectorLabel>
         <rules>
             <name>Copy3</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
             <conditions>
                 <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -1029,7 +1043,62 @@ Skip Validate.</description>
                     <stringValue>UDB</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If UDB OR VENDOR DO NOTHING.
+Skip Validate.</description>
+        <name>Create_OR_Validate_Address</name>
+        <label>Create OR Validate Address</label>
+        <locationX>710</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Validate_Address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Validate</defaultConnectorLabel>
+        <rules>
+            <name>Create</name>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>UDB</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Address_Values</targetReference>
+            </connector>
+            <label>Create</label>
         </rules>
     </decisions>
     <decisions>
@@ -1077,7 +1146,7 @@ Skip Validate.</description>
         <locationX>1304</locationX>
         <locationY>1382</locationY>
         <defaultConnector>
-            <targetReference>Shipping_UDB_Account_Decision</targetReference>
+            <targetReference>Shipping_Create_OR_Validate</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1099,17 +1168,17 @@ Skip Validate.</description>
     <decisions>
         <description>If UDB DO NOTHING.
 Skip Validate.</description>
-        <name>Shipping_UDB_Account_Decision</name>
-        <label>Shipping UDB Account Decision</label>
+        <name>Shipping_Create_OR_Validate</name>
+        <label>Shipping Create OR Validate</label>
         <locationX>1502</locationX>
         <locationY>1490</locationY>
         <defaultConnector>
             <targetReference>Validate_Shipping_Address</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>Shipping Address Validate</defaultConnectorLabel>
         <rules>
-            <name>Shipping_Is_UDB_Account</name>
-            <conditionLogic>and</conditionLogic>
+            <name>Shipping_Address_Create</name>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
             <conditions>
                 <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -1117,40 +1186,28 @@ Skip Validate.</description>
                     <stringValue>UDB</stringValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <targetReference>Create_UDB_ShippingAddress_Values</targetReference>
-            </connector>
-            <label>Shipping Is UDB Account</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <description>If UDB DO NOTHING.
-Skip Validate.</description>
-        <name>UDB_Account_Decision</name>
-        <label>UDB Account Decision</label>
-        <locationX>710</locationX>
-        <locationY>458</locationY>
-        <defaultConnector>
-            <targetReference>Validate_Address</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Is_UDB_Account</name>
-            <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
                 <rightValue>
-                    <stringValue>UDB</stringValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Create_UDB_Address_Values</targetReference>
+                <targetReference>Create_ShippingAddress_Values</targetReference>
             </connector>
-            <label>Is UDB Account</label>
+            <label>Shipping Address Create</label>
         </rules>
     </decisions>
-    <description>DB 07/03/2024: Added validation skip if Account is from UDB</description>
+    <description>DB 07/03/2024: Added validation skip if Account is from UDB
+DB 30/05/2024: Vendor addresses excluded from validation</description>
     <environments>Default</environments>
     <formulas>
         <name>dtNow</name>
@@ -1459,21 +1516,9 @@ Skip Validate.</description>
             </value>
         </filters>
         <inputAssignments>
-            <field>BillToAddressValidated__c</field>
-            <value>
-                <elementReference>See_If_Address_Exists.Validated_Address__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
             <field>BillingAddress__c</field>
             <value>
                 <elementReference>ILAddressRecord.Id</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ShipToAddressValidated__c</field>
-            <value>
-                <elementReference>See_If_Address_Exists.Validated_Address__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

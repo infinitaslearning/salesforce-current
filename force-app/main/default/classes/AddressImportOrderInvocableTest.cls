@@ -8,11 +8,11 @@ public without sharing class AddressImportOrderInvocableTest {
         //create ILAddress__c
         ILAddress__c accountShippinAddress = new ILAddress__c();
         accountShippinAddress.Account__c = testAcc[0].Id;
-        accountShippinAddress.Street__c = 'Daalsesingel';
-        accountShippinAddress.HouseNumber__c = '51';
+        accountShippinAddress.Street__c = 'DePijp';
+        accountShippinAddress.HouseNumber__c = '22';
         accountShippinAddress.HouseNumberAddition__c = '';
-        accountShippinAddress.PostalCode__c = '3511SW';
-        accountShippinAddress.City__c = 'Utrecht';
+        accountShippinAddress.PostalCode__c = '1224AM';
+        accountShippinAddress.City__c = 'Amsterdam';
         accountShippinAddress.Country__c = 'Netherlands';
         insert accountShippinAddress;
     }
@@ -23,10 +23,10 @@ public without sharing class AddressImportOrderInvocableTest {
             
         List<AddressValidation.Request> requests = new List<AddressValidation.Request>();
         AddressValidation.Request request = new AddressValidation.Request();
-        request.street = 'Daalsesingel';
-        request.housenumber = '51';
+        request.street = 'DePijp';
+        request.housenumber = '22';
         request.housenumberAddition = '';
-        request.postalcode = '3511SW';
+        request.postalcode = '1224AM';
         request.country = 'Netherlands';
         request.accountId = testAcc[0].Id;
         requests.add(request);

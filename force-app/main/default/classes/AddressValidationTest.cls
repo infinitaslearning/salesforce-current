@@ -22,31 +22,20 @@ public class AddressValidationTest {
         
         update lstAccountSubsidiary;
         
-        //create ILAddress__c
-        ILAddress__c accountShippinAddress = new ILAddress__c();
-        accountShippinAddress.Account__c = lstAccount[0].Id;
-        accountShippinAddress.Street__c = 'Daalsesingel';
-        accountShippinAddress.HouseNumber__c = '51';
-        accountShippinAddress.HouseNumberAddition__c = '';
-        accountShippinAddress.PostalCode__c = '3511SW';
-        accountShippinAddress.City__c = 'Utrecht';
-        accountShippinAddress.Country__c = 'Netherlands';
-        insert accountShippinAddress;
-        
         List<Product2> lstProduct = TestDataFactory.insertProducts(3,true);
         Pricebook2 standardPricebook = TestDataFactory.insertPricebook();
         List<PricebookEntry> lstPricebookEntry = TestDataFactory.insertPricebookEntry(standardPricebook.id ,lstProduct,true);
         List<Contract> lstContract = TestDataFactory.insertContract(1,lstAccount,standardPricebook.id,true);
         List<Order> lstOrder = TestDataFactory.insertOrderHeader(1,lstAccount,lstContract,standardPricebook.id,false);
         for(Order ord : lstOrder){
-            ord.BillToAddress__c = accountShippinAddress.Id;
-            ord.ShipToAddress__c = accountShippinAddress.Id;
+            ord.BillToAddress__c = lstAccount[0].ShippingAddress__c;
+            ord.ShipToAddress__c = lstAccount[0].ShippingAddress__c;
         }
         insert lstOrder;
         
         List<OrderItem> lstOrderItems = TestDataFactory.insertOrderItems(1,lstAccount,Map_AccSub,lstOrder,lstPricebookEntry,false);
         for(OrderItem ordIt : lstOrderItems){
-            ordIt.ShipToAddress__c = accountShippinAddress.Id;
+            ordIt.ShipToAddress__c = lstAccount[0].ShippingAddress__c;
             ordIt.OrderStatus__c = 'Draft';
         }
         
@@ -60,10 +49,10 @@ public class AddressValidationTest {
             
         List<AddressValidation.Request> requests = new List<AddressValidation.Request>();
         AddressValidation.Request request = new AddressValidation.Request();
-        request.street = 'Daalsesingel';
-        request.housenumber = '51';
+        request.street = 'DePijp';
+        request.housenumber = '22';
         request.housenumberAddition = '';
-        request.postalcode = '3511SW';
+        request.postalcode = '1224AM';
         request.country = 'Netherlands';
         request.accountId = testAcc[0].Id;
         requests.add(request);

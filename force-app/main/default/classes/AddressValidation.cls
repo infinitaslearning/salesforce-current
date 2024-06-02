@@ -71,17 +71,31 @@ global without sharing class AddressValidation {
             result.statusMessage = String.valueOf(output.addresses.get(0).status.message); 
         } else {
             String testRes = '[addresses=(Address_v1:[advice=GREEN, city=ZEEWOLDE, country=Netherlands, countryCode=NL, fullAddress=Test  123, 3871 BK  ZEEWOLDE, housenumber=null, housenumberAddition=null, postalCode=3891 BK, state=Flevoland, stateCode=0012, status=Status_v1:[code=594, credit=true, message=Current address is verified up to Housenumber level.], street=Horlo  57]), advice=GREEN, status=Status_v1:[code=560, credit=true, message=Validation succeeded]]';
-            //String addressValidationOutputString = JSON.serialize('[addresses=(Address_v1:[advice=GREEN, city=ZEEWOLDE, country=Netherlands, countryCode=NL, fullAddress=Test  123, 3871 BK  ZEEWOLDE, housenumber=57, housenumberAddition=null, postalCode=3891 BK, state=Flevoland, stateCode=0012, status=Status_v1:[code=594, credit=true, message=Current address is verified up to Housenumber level.], street=Horlo]), advice=GREEN, status=Status_v1:[code=560, credit=true, message=Validation succeeded]]');
-            String addressValidationOutputString = '[AddressValidationOutput_v1:[addresses=(Address_v1:[advice=GREEN, city=UTRECHT, country=Netherlands, countryCode=NL, fullAddress=Groenestraat  5, 3512 PV  UTRECHT, geoStatus=null, housenumber=5, housenumberAddition=null, latitude=null, longitude=null, postalCode=3512 PV, state=Utrecht, stateCode=UT, status=Status_v1:[code=594, credit=true, message=Current address is verified up to Housenumber level.], street=Groenestraat]), advice=GREEN, status=Status_v1:[code=560, credit=true, message=Validation succeeded]]]';
-            System.debug('***addressValidationOutputString: ' + addressValidationOutputString);
+            String addressValidationOutputString = '{"addresses": [{"street": "Groenestraat","housenumber": "5","housenumberAddition": "","state": "Utrecht","city": "Utrecht","postalCode": "3512 PV","country": "Netherlands","countryCode": "NL","fullAddress": "Groenestraat  5, 3512 PV  UTRECHT","status": {"code": "594","message": "Current address is verified up to Housenumber level.","credit": true},"advice": "GREEN"}],"status": {"code": "560","message": "Validation succeeded","credit": true},"advice": "GREEN"}';
+
             result.statusColour = 'GREEN';
             result.statusCode = '594';
-            result.fullAddress = 'Test  123, 3871 BK  ZEEWOLDE';
+            result.fullAddress = 'DePijp 22, 1224AM  AMSTERDAM';
             result.credit = true;
             result.statusMessage = 'Current address is verified up to Housenumber level.';
-            List<recordval.AddressValidationOutput_v1> addressValidationOutputTypeList = (List<recordval.AddressValidationOutput_v1>)JSON.deserialize(addressValidationOutputString, List<recordval.AddressValidationOutput_v1>.class);
-            System.debug('***addressValidationOutputTypeList: ' + addressValidationOutputTypeList[0]);
-            result.addressValidationOutput = addressValidationOutputTypeList[0];
+            recordval.AddressValidationOutput_v1 addressValidationOutputType= new recordval.AddressValidationOutput_v1();
+            recordval.Address_v1 addresses = new recordval.Address_v1();
+            addresses.city = 'Amsterdam';
+            addresses.country = 'Netherlands';
+            addresses.countryCode = 'NL';
+            addresses.housenumber = '22';
+            addresses.postalCode = '1224AM';
+            addresses.state = 'AM';
+            addresses.street = 'DePijp';
+            recordval.Status_v1 status = new recordval.Status_v1();
+            status.code = '594';
+            status.credit = true;
+            status.message = 'Current address is verified up to Housenumber level.';
+            addresses.status = status;
+            List<recordval.Address_v1> addressesList = new List<recordval.Address_v1>();
+            addressesList.add(addresses);
+            addressValidationOutputType.addresses = addressesList;
+            result.addressValidationOutput = addressValidationOutputType;
         }
 
         system.debug('RESPONSE: ' + result);

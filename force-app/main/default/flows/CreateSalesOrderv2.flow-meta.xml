@@ -51,6 +51,38 @@
     </actionCalls>
     <apiVersion>50.0</apiVersion>
     <assignments>
+        <name>Assign_BillToPartyOverride</name>
+        <label>Assign BillToPartyOverride</label>
+        <locationX>2010</locationX>
+        <locationY>3666</locationY>
+        <assignmentItems>
+            <assignToReference>varBillToParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>choiceBillTo.selectedValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_useWarehouseReference_NULL</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_OrderType_default_0</name>
+        <label>Assign OrderType default</label>
+        <locationX>1508</locationX>
+        <locationY>2247</locationY>
+        <assignmentItems>
+            <assignToReference>varOrderTypePicklistVal</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>choiceTenderSalesOrder</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>assignSelectedAccountAsShipTo</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Pricebook1</name>
         <label>Assign Pricebook</label>
         <locationX>1453</locationX>
@@ -185,6 +217,23 @@
         </connector>
     </assignments>
     <assignments>
+        <description>Assign Purchasing Group as Bill to from account</description>
+        <name>assignAccount_0</name>
+        <label>assignAccount</label>
+        <locationX>1365</locationX>
+        <locationY>2408</locationY>
+        <assignmentItems>
+            <assignToReference>varBillToParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varDataTableShippingAccount.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_stock_been_reserved_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assigns the accounts filled default ship to account</description>
         <name>assignAccountAsShipTo</name>
         <label>assignAccountAsShipTo</label>
@@ -249,8 +298,8 @@
         <description>We need to assign different methods for different billto&apos;s</description>
         <name>assignBillToMethods</name>
         <label>assignBillToMethods</label>
-        <locationX>1987</locationX>
-        <locationY>2228</locationY>
+        <locationX>2314</locationX>
+        <locationY>2253</locationY>
         <assignmentItems>
             <assignToReference>varShippingCostMethod</assignToReference>
             <operator>Assign</operator>
@@ -273,7 +322,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>decShiptTo</targetReference>
+            <targetReference>Was_ShipTo_Select_Screen_Visited</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -331,13 +380,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>getContractDetails.AccountId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varOrderEndDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>getContractDetails.EndDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -661,6 +703,23 @@
         </connector>
     </assignments>
     <assignments>
+        <description>Assign Default Bill To from account</description>
+        <name>assignDefaultBillTo_0</name>
+        <label>assignDefaultBillTo</label>
+        <locationX>1191</locationX>
+        <locationY>2667</locationY>
+        <assignmentItems>
+            <assignToReference>varBillToParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varDataTableShippingAccount.DefaultBillto__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_stock_been_reserved_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>assignDefaultPricing</name>
         <label>assignDefaultPricing</label>
         <locationX>1394</locationX>
@@ -789,27 +848,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varOrderStartDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>inputShipByDate</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varBillToParty</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>choiceBillTo.selectedValue</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varShipToParty</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>choiceShipTo.selectedValue</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>varCourierInformation</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -914,6 +952,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>AssignNumberOfShippingFromBillingAccount</name>
+        <label>AssignNumOfShipFromBillAccount</label>
+        <locationX>2019</locationX>
+        <locationY>2133</locationY>
+        <assignmentItems>
+            <assignToReference>varNumberOfRelatedShippingAccounts</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>GetShippingFromBillingAccount</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>RelatedShippingAccountsFound</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>AssignOnlyShipComplete</name>
         <label>Assign Only Ship Complete</label>
         <locationX>2131</locationX>
@@ -964,13 +1018,6 @@
         <label>assignOrderUpdateVariables</label>
         <locationX>537</locationX>
         <locationY>2041</locationY>
-        <assignmentItems>
-            <assignToReference>varOrderEndDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>getOrderDetails.EndDate</elementReference>
-            </value>
-        </assignmentItems>
         <assignmentItems>
             <assignToReference>varOrderStartDate</assignToReference>
             <operator>Assign</operator>
@@ -1214,6 +1261,40 @@
         </connector>
     </assignments>
     <assignments>
+        <description>Assign account as BillTo</description>
+        <name>assignPurchasingGroup_0</name>
+        <label>assignPurchasingGroup</label>
+        <locationX>1274</locationX>
+        <locationY>2483</locationY>
+        <assignmentItems>
+            <assignToReference>varBillToParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varDataTableShippingAccount.PurchasingGroup__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_stock_been_reserved_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigns the accounts from the Account selected in the ShipTo datatable screen</description>
+        <name>assignSelectedAccountAsShipTo</name>
+        <label>assignSelectedAccountAsShipTo</label>
+        <locationX>1568</locationX>
+        <locationY>2056</locationY>
+        <assignmentItems>
+            <assignToReference>varShipToParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varDataTableShippingAccount.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getBillToDetails</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>We needs some variables to be bound so we can proceed to the subflow.</description>
         <name>assignUpdateOrderVariables</name>
         <label>assignUpdateOrderVariables</label>
@@ -1238,13 +1319,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>inputUpdateOrderPaymentMethod.value</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varOrderEndDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>inputUpdateOrderEndDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1556,7 +1630,7 @@
         <choiceText>Yes</choiceText>
         <dataType>String</dataType>
         <value>
-            <stringValue>true</stringValue>
+            <stringValue>Yes</stringValue>
         </value>
     </choices>
     <choices>
@@ -1664,6 +1738,47 @@
             </conditions>
             <connector>
                 <targetReference>assignAccount</targetReference>
+            </connector>
+            <label>PurchasingGroup</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks whether 1 Default Billto is filled, if not, purchasing group.</description>
+        <name>decBillTo_0</name>
+        <label>decBillTo</label>
+        <locationX>1688</locationX>
+        <locationY>2487</locationY>
+        <defaultConnector>
+            <targetReference>assignAccount_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>defaultBillToFilled_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varDataTableShippingAccount.DefaultBillto__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>assignDefaultBillTo_0</targetReference>
+            </connector>
+            <label>defaultBillToFilled</label>
+        </rules>
+        <rules>
+            <name>PurchasingGroup_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varDataTableShippingAccount.PurchasingGroup__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>assignPurchasingGroup_0</targetReference>
             </connector>
             <label>PurchasingGroup</label>
         </rules>
@@ -1991,6 +2106,13 @@
                     <stringValue>Contract</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Get_Account_Info</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_Account_Info</targetReference>
             </connector>
@@ -2172,7 +2294,7 @@
         <name>decShiptTo</name>
         <label>decShiptTo</label>
         <locationX>1952</locationX>
-        <locationY>2338</locationY>
+        <locationY>2339</locationY>
         <defaultConnector>
             <targetReference>assignAccountAsShipTo</targetReference>
         </defaultConnector>
@@ -2314,6 +2436,31 @@
                 <targetReference>Has_CourierWholeSalerId</targetReference>
             </connector>
             <label>Courier Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_stock_been_reserved_0</name>
+        <label>Has stock been reserved</label>
+        <locationX>1199</locationX>
+        <locationY>2114</locationY>
+        <defaultConnector>
+            <targetReference>assignSelectedAccountAsShipTo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_stock_reserved_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>StockReserved</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_OrderType_default_0</targetReference>
+            </connector>
+            <label>Yes stock reserved</label>
         </rules>
     </decisions>
     <decisions>
@@ -2666,6 +2813,70 @@
         </rules>
     </decisions>
     <decisions>
+        <name>RelatedShippingAccountsFound</name>
+        <label>RelatedShippingAccountsFound</label>
+        <locationX>1819</locationX>
+        <locationY>2135</locationY>
+        <defaultConnector>
+            <targetReference>decShiptTo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Ship To</defaultConnectorLabel>
+        <rules>
+            <name>Choose_ShipTo_Account</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>GetShippingFromBillingAccount</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>getAccountDetails.CustomerCategory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tender Distributor</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SelectShippingAccount</targetReference>
+            </connector>
+            <label>Choose ShipTo Account</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Selected_Accounts_Overwritten</name>
+        <label>Selected Accounts Overwritten</label>
+        <locationX>1824</locationX>
+        <locationY>3589</locationY>
+        <defaultConnector>
+            <targetReference>Is_useWarehouseReference_NULL</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BillToParty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Override_Default_Bill_To</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>choiceBillTo.selectedValue</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_BillToPartyOverride</targetReference>
+            </connector>
+            <label>BillToParty</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Shipping_cost_exempt_decision</name>
         <label>Shipping cost exempt</label>
         <locationX>2179</locationX>
@@ -2779,6 +2990,31 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Was_ShipTo_Select_Screen_Visited</name>
+        <label>Was ShipTo Select Screen Visited</label>
+        <locationX>2375</locationX>
+        <locationY>2385</locationY>
+        <defaultConnector>
+            <targetReference>GetShippingFromBillingAccount</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Shipping Not Selected</defaultConnectorLabel>
+        <rules>
+            <name>Shipping_Selected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>SelectShippingAccount</leftValueReference>
+                <operator>WasVisited</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getShipToDetails</targetReference>
+            </connector>
+            <label>Shipping Selected</label>
+        </rules>
+    </decisions>
     <description>Flow as input for ordering without contracts (no renewals, one-offs).
 20210113: WK - Added a track for updating existing orders and using an existing order to move on to the next step.
 20210117: WK - several bug-fixes.
@@ -2823,7 +3059,10 @@
 20230906: CH added shipping state assignment
 20231211: CH rerouted assignPricebook -&gt; GetOrderPricingTable
 20231212: CH mapped attention of fields
-20232012: CH added filter for pricebooks where PricingMethod != null</description>
+20232012: CH added filter for pricebooks where PricingMethod != null
+20240402: DB added address validated value assignments
+20240403: DB update BillTo &amp; ShipTo selection logic
+20240502: DB removed Order End Date assignments &amp; default ShipByDate to today()</description>
     <dynamicChoiceSets>
         <name>choicePreferredCourier</name>
         <dataType>String</dataType>
@@ -2914,7 +3153,7 @@
     <formulas>
         <name>formShipByDate</name>
         <dataType>Date</dataType>
-        <expression>IF(AND(CONTAINS({!varPricebookName}, &quot;Professional&quot;), {!bCreatedFromContract} = true), null, IF(NOT(ISNULL({!getContractDetails.StartDate})),{!getContractDetails.StartDate}, today()))</expression>
+        <expression>today()</expression>
     </formulas>
     <formulas>
         <name>formulaCalendarOrderEndDate</name>
@@ -3013,6 +3252,12 @@
             <field>AccountId</field>
             <value>
                 <elementReference>varAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillToAddressValidated__c</field>
+            <value>
+                <elementReference>getFinalBillTo.BillToAddressValidated__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3118,6 +3363,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DefaultBillToOverritten__c</field>
+            <value>
+                <elementReference>Override_Default_Bill_To</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DeliveryEmail__c</field>
             <value>
                 <elementReference>formDeliveryEmail</elementReference>
@@ -3145,12 +3396,6 @@
             <field>EffectiveDate</field>
             <value>
                 <elementReference>varOrderStartDate</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>EndDate</field>
-            <value>
-                <elementReference>varOrderEndDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3282,6 +3527,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>BillToAddressValidated__c</field>
+            <value>
+                <elementReference>getFinalBillTo.BillToAddressValidated__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>BillToAddress__c</field>
             <value>
                 <elementReference>getFinalBillTo.BillingAddress__c</elementReference>
@@ -3384,6 +3635,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>DefaultBillToOverritten__c</field>
+            <value>
+                <elementReference>Override_Default_Bill_To</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>DeliveryEmail__c</field>
             <value>
                 <elementReference>formDeliveryEmail</elementReference>
@@ -3411,12 +3668,6 @@
             <field>EffectiveDate</field>
             <value>
                 <elementReference>varOrderStartDate</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>EndDate</field>
-            <value>
-                <elementReference>varOrderEndDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3483,6 +3734,12 @@
             <field>ShipComplete__c</field>
             <value>
                 <elementReference>varShipComplete</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShipToAddressValidated__c</field>
+            <value>
+                <elementReference>getFinalShipTo.ShipToAddressValidated__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -3604,8 +3861,8 @@
     <recordLookups>
         <name>Get_Account_Info</name>
         <label>Get Account Info</label>
-        <locationX>2398</locationX>
-        <locationY>2004</locationY>
+        <locationX>2647</locationX>
+        <locationY>1974</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>assignUseWarehouseRefferenceContract</targetReference>
@@ -3651,7 +3908,7 @@
         <name>getBillToDetails</name>
         <label>getBillToDetails</label>
         <locationX>1949</locationX>
-        <locationY>1997</locationY>
+        <locationY>1996</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>decisionObjectName_0</targetReference>
@@ -3982,6 +4239,62 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>GetShippingFromBillingAccount</name>
+        <label>GetShippingFromBillingAccount</label>
+        <locationX>2160</locationX>
+        <locationY>2185</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AssignNumberOfShippingFromBillingAccount</targetReference>
+        </connector>
+        <filterLogic>4 AND (1 OR 2 OR 3 OR 5 OR 6)</filterLogic>
+        <filters>
+            <field>DefaultBillto__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PurchasingGroup__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>TenderDistributor__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.DefaultShipTo__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>getShipToDetails</name>
         <label>getShipToDetails</label>
         <locationX>1951</locationX>
@@ -4034,12 +4347,6 @@
             <field>EffectiveDate</field>
             <value>
                 <elementReference>varOrderStartDate</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>EndDate</field>
-            <value>
-                <elementReference>varOrderEndDate</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4348,13 +4655,13 @@
     <screens>
         <name>screenOrderDetails</name>
         <label>Order Details</label>
-        <locationX>1898</locationX>
-        <locationY>3652</locationY>
+        <locationX>1715</locationX>
+        <locationY>3572</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Is_useWarehouseReference_NULL</targetReference>
+            <targetReference>Selected_Accounts_Overwritten</targetReference>
         </connector>
         <fields>
             <name>textContractDefaults</name>
@@ -4370,6 +4677,28 @@
                     </rightValue>
                 </conditions>
             </visibilityRule>
+        </fields>
+        <fields>
+            <name>DefaultBillToReadOnly</name>
+            <fieldText>&lt;p&gt;Bill To Account: {!getBillToDetails.Name}, {!getBillToDetails.ExternalCustomerId__c}, {!getBillToDetails.BillingStreet}, {!getBillToDetails.BillingCity}, {!getBillToDetails.BillingPostalCode}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Override_Default_Bill_To</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Override_Default_Bill_To</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Override Default Bill To</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
         </fields>
         <fields>
             <name>choiceBillTo</name>
@@ -4414,6 +4743,31 @@
             <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Override_Default_Bill_To</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>DefaultShipToReadOnly</name>
+            <fieldText>&lt;p&gt;Ship To Account: {!getShipToDetails.Name}, {!getShipToDetails.ExternalCustomerId__c}, {!getShipToDetails.ShippingStreet}, {!getShipToDetails.ShippingCity}, {!getShipToDetails.ShippingPostalCode}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>varShipToParty</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>choiceShipTo</name>
@@ -4452,6 +4806,16 @@
             <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>varShipToParty</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>inputEnableMultipleShippingLocations</name>
@@ -4616,7 +4980,9 @@
             <choiceReferences>choiceFreeOrder</choiceReferences>
             <choiceReferences>choiceTenderSalesOrder</choiceReferences>
             <dataType>String</dataType>
-            <defaultSelectedChoiceReference>choiceRegularOrder</defaultSelectedChoiceReference>
+            <defaultValue>
+                <elementReference>varOrderTypePicklistVal</elementReference>
+            </defaultValue>
             <fieldText>Order Type</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>true</isRequired>
@@ -5136,16 +5502,6 @@
             <fieldType>InputField</fieldType>
             <isRequired>false</isRequired>
         </fields>
-        <fields>
-            <name>inputUpdateOrderEndDate</name>
-            <dataType>Date</dataType>
-            <defaultValue>
-                <elementReference>varOrderEndDate</elementReference>
-            </defaultValue>
-            <fieldText>Choose an order end date</fieldText>
-            <fieldType>InputField</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -5173,6 +5529,102 @@
             <fieldText>I would like to:</fieldText>
             <fieldType>RadioButtons</fieldType>
             <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>SelectShippingAccount</name>
+        <label>Select Shipping Account</label>
+        <locationX>1685</locationX>
+        <locationY>2287</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>decBillTo_0</targetReference>
+        </connector>
+        <fields>
+            <name>StockReserved</name>
+            <choiceReferences>choiceYes</choiceReferences>
+            <choiceReferences>choiceNo</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Was the stock for this order reserved and allocated by a transfer order?</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+            <visibilityRule>
+                <conditionLogic>or</conditionLogic>
+                <conditions>
+                    <leftValueReference>getContractDetails.ContractType__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Tender</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>getAccountDetails.CustomerCategory__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Tender Distributor</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>SelectShipToLabel</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 12px;&quot;&gt;Please confirm the ShipTo Account for this Order:&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>SelectShippingAccountDataTable</name>
+            <dataTypeMappings>
+                <typeName>T</typeName>
+                <typeValue>Account</typeValue>
+            </dataTypeMappings>
+            <extensionName>flowruntime:datatable</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Data Table</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>selectionMode</name>
+                <value>
+                    <stringValue>SINGLE_SELECT</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>minRowSelection</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>maxRowSelection</name>
+                <value>
+                    <numberValue>1.0</numberValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>tableData</name>
+                <value>
+                    <elementReference>GetShippingFromBillingAccount</elementReference>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>columns</name>
+                <value>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-88ea&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Account Name&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;NetsuiteCustomerNumber__c&quot;,&quot;guid&quot;:&quot;column-830d&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;NetSuite Customer Number&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingStreet&quot;,&quot;guid&quot;:&quot;column-c038&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:2,&quot;label&quot;:&quot;Shipping Street&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingCity&quot;,&quot;guid&quot;:&quot;column-eba1&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:3,&quot;label&quot;:&quot;Shipping City&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingPostalCode&quot;,&quot;guid&quot;:&quot;column-23a7&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:4,&quot;label&quot;:&quot;Shipping Zip/Postal Code&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ExternalCustomerId__c&quot;,&quot;guid&quot;:&quot;column-ee56&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:5,&quot;label&quot;:&quot;External Customer ID&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>varDataTableShippingAccount</assignToReference>
+                <name>firstSelectedRow</name>
+            </outputParameters>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -5407,6 +5859,14 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>varBillToPartyRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
         <name>varContractId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -5492,6 +5952,14 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
+        <name>varDataTableShippingAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
         <name>varDeliveryEmail</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -5570,6 +6038,14 @@
         <scale>0</scale>
     </variables>
     <variables>
+        <name>varNumberOfRelatedShippingAccounts</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
         <name>varObjectName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
@@ -5579,13 +6055,6 @@
     <variables>
         <name>varOperatingCompany</name>
         <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>varOrderEndDate</name>
-        <dataType>Date</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
@@ -5627,6 +6096,16 @@
         <isOutput>false</isOutput>
         <value>
             <elementReference>picklistOrderType2</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>varOrderTypePicklistVal</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>choiceRegularOrder</elementReference>
         </value>
     </variables>
     <variables>

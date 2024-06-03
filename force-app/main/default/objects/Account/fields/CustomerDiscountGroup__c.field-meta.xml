@@ -53,7 +53,22 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 13% discount GRDP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 14% discount GRDP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
             <valueName>Tender 14,01% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 16% discount GRDP</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>

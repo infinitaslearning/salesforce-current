@@ -4,7 +4,7 @@
     <assignments>
         <name>Assign_Default_Side_Conversation_Email</name>
         <label>Assign Default Side Conversation Email</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>503</locationY>
         <assignmentItems>
             <assignToReference>$Record.DefaultSideConversationEmail__c</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_Messaging_Name</name>
         <label>Assign Messaging Name</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>1103</locationY>
         <assignmentItems>
             <assignToReference>$Record.MessagingName__c</assignToReference>
@@ -29,6 +29,22 @@
                 <elementReference>$Record.FirstName</elementReference>
             </value>
         </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assign_PGM_signature</name>
+        <label>Assign PGM signature</label>
+        <locationX>314</locationX>
+        <locationY>803</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.EmailSignature__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TemplatePGMSignature</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Messaging_Name_filled</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Assign_Signature</name>
@@ -50,7 +66,7 @@
         <description>To check if a MessagingName was already filled. We should only apply the default if it is empty</description>
         <name>Messaging_Name_filled</name>
         <label>Messaging Name filled?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>995</locationY>
         <defaultConnectorLabel>Yes filled</defaultConnectorLabel>
         <rules>
@@ -72,7 +88,7 @@
     <decisions>
         <name>Need_Signature_Update</name>
         <label>Need Signature Update</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>695</locationY>
         <defaultConnector>
             <targetReference>Messaging_Name_filled</targetReference>
@@ -80,7 +96,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YesSignature</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.FirstName</leftValueReference>
                 <operator>IsChanged</operator>
@@ -95,16 +111,73 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>NoordhoffPGMCustomerService</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Assign_Signature</targetReference>
             </connector>
-            <label>Yes</label>
+            <label>Yes Regular Update</label>
+        </rules>
+        <rules>
+            <name>PGMSignatureUpdate</name>
+            <conditionLogic>(1 OR 2 OR 3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Department</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NoordhoffPGMCustomerService</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_PGM_signature</targetReference>
+            </connector>
+            <label>PGM Signature Update</label>
         </rules>
     </decisions>
     <decisions>
         <name>Operating_Company</name>
         <label>Operating Company?</label>
-        <locationX>314</locationX>
+        <locationX>402</locationX>
         <locationY>287</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -151,7 +224,7 @@
         <description>To check if a side conversation address is chosen</description>
         <name>Side_Conversation_filled</name>
         <label>Side Conversation filled?</label>
-        <locationX>182</locationX>
+        <locationX>314</locationX>
         <locationY>395</locationY>
         <defaultConnector>
             <targetReference>Need_Signature_Update</targetReference>
@@ -173,7 +246,8 @@
             <label>No not filled</label>
         </rules>
     </decisions>
-    <description>MR 21/03/24: Added Assignment of Messaging name
+    <description>MV 22/05/24: Added distinction in Noordhoff Customer Service and PGM signature
+MR 21/03/24: Added Assignment of Messaging name
 MV 02/04/24: Added checks to only add Default Side Conv Email and Messaging Name when not yet filled</description>
     <environments>Default</environments>
     <interviewLabel>User - Before Save Update {!$Flow.CurrentDateTime}</interviewLabel>
@@ -198,7 +272,7 @@ MV 02/04/24: Added checks to only add Default Side Conv Email and Messaging Name
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>188</locationX>
+        <locationX>276</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Operating_Company</targetReference>
@@ -213,5 +287,14 @@ MV 02/04/24: Added checks to only add Default Side Conv Email and Messaging Name
         <isViewedAsPlainText>true</isViewedAsPlainText>
         <text>{!$Record.FirstName}
 {!$Record.Department}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>TemplatePGMSignature</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.FirstName} {!$Record.LastName}
+{!$Record.Department}
+Noordhoff
+Winschoterdiep 70A | 9723 AB Groningen
+Postbus 58 | 9700 MB Groningen</text>
     </textTemplates>
 </Flow>

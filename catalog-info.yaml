@@ -1,0 +1,19 @@
+apiVersion: v59
+kind: package
+metadata:
+  name: Salesforce Deployment
+  description: Salesforce Main Branch
+  links:
+    - url: 
+      title: Azure
+      icon: dashboard
+  tags:
+    - Converse
+    - application
+spec:
+  type: application
+  lifecycle: production
+  owner: Salesforce
+  system: Salesforce
+  dependsOn:
+    - 

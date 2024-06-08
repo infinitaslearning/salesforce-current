@@ -5,7 +5,7 @@
         <name>Assign_Country_Code</name>
         <label>Assign Country Code</label>
         <locationX>600</locationX>
-        <locationY>3227</locationY>
+        <locationY>3335</locationY>
         <assignmentItems>
             <assignToReference>$Record.PhoneCountryCode__c</assignToReference>
             <operator>Assign</operator>
@@ -18,7 +18,7 @@
         <name>Assign_Liber</name>
         <label>Assign Liber</label>
         <locationX>314</locationX>
-        <locationY>719</locationY>
+        <locationY>827</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -34,7 +34,7 @@
         <name>Assign_Noordhoff</name>
         <label>Assign Noordhoff</label>
         <locationX>578</locationX>
-        <locationY>719</locationY>
+        <locationY>827</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -50,7 +50,7 @@
         <name>Assign_Plantyn</name>
         <label>Assign Plantyn</label>
         <locationX>50</locationX>
-        <locationY>719</locationY>
+        <locationY>827</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -66,7 +66,7 @@
         <name>AssignDefaultValues</name>
         <label>Assign Default Values</label>
         <locationX>446</locationX>
-        <locationY>503</locationY>
+        <locationY>611</locationY>
         <assignmentItems>
             <assignToReference>$Record.PaymentMethod__c</assignToReference>
             <operator>Assign</operator>
@@ -96,7 +96,7 @@
         <name>AssignLiberCurreny</name>
         <label>AssignLiberCurreny</label>
         <locationX>314</locationX>
-        <locationY>1019</locationY>
+        <locationY>1127</locationY>
         <assignmentItems>
             <assignToReference>$Record.CurrencyIsoCode</assignToReference>
             <operator>Assign</operator>
@@ -112,7 +112,7 @@
         <name>AssignLocationRecordTypeId</name>
         <label>Assign Location Record Type Id</label>
         <locationX>600</locationX>
-        <locationY>2819</locationY>
+        <locationY>2927</locationY>
         <assignmentItems>
             <assignToReference>$Record.RecordTypeId</assignToReference>
             <operator>Assign</operator>
@@ -128,7 +128,7 @@
         <name>AssignVariablesILSync</name>
         <label>Assign Variables IL Sync</label>
         <locationX>292</locationX>
-        <locationY>2327</locationY>
+        <locationY>2435</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -162,10 +162,82 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Defaults</name>
+        <label>Set Defaults</label>
+        <locationX>732</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.isHigherEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Higher</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.isPrimaryEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Primary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.isSecondaryEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Secondary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.isVocationalEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Vocational</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.UpperPrimaryEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_UpperPrimary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.LowerPrimaryEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_LowerPrimary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.LowerSecondaryEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_LowerSecondary</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.isProfessional__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Professional</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.isPreschoolEducation__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Check_Preschool</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>NewOrExisting</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Unique_External_Customer_ID</name>
         <label>Set Unique External Customer ID</label>
         <locationX>1018</locationX>
-        <locationY>503</locationY>
+        <locationY>611</locationY>
         <assignmentItems>
             <assignToReference>$Record.UniqueExternalDatabaseNumber__c</assignToReference>
             <operator>Assign</operator>
@@ -181,7 +253,7 @@
         <name>SetCustomerDiscountGroup</name>
         <label>Set Customer Discount Group</label>
         <locationX>314</locationX>
-        <locationY>1319</locationY>
+        <locationY>1427</locationY>
         <assignmentItems>
             <assignToReference>$Record.CustomerDiscountGroup__c</assignToReference>
             <operator>Assign</operator>
@@ -199,7 +271,7 @@
         <locationX>259</locationX>
         <locationY>287</locationY>
         <defaultConnector>
-            <targetReference>NewOrExisting</targetReference>
+            <targetReference>Set_Defaults</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>False</defaultConnectorLabel>
         <rules>
@@ -219,7 +291,7 @@
         <name>Assign_New_Owner</name>
         <label>Assign New Owner</label>
         <locationX>446</locationX>
-        <locationY>611</locationY>
+        <locationY>719</locationY>
         <defaultConnector>
             <targetReference>decLiberAccount</targetReference>
         </defaultConnector>
@@ -295,7 +367,7 @@
         <name>CheckCustomerCategoryDiscountGroup</name>
         <label>Check Customer Category &amp; Discount Group</label>
         <locationX>446</locationX>
-        <locationY>1211</locationY>
+        <locationY>1319</locationY>
         <defaultConnector>
             <targetReference>Is_ILSync_Ture</targetReference>
         </defaultConnector>
@@ -327,7 +399,7 @@
         <name>decLiberAccount</name>
         <label>decLiberAccount</label>
         <locationX>446</locationX>
-        <locationY>911</locationY>
+        <locationY>1019</locationY>
         <defaultConnector>
             <targetReference>CheckCustomerCategoryDiscountGroup</targetReference>
         </defaultConnector>
@@ -352,7 +424,7 @@
         <name>Is_ILSync_Ture</name>
         <label>Is ILSync Ture</label>
         <locationX>446</locationX>
-        <locationY>1511</locationY>
+        <locationY>1619</locationY>
         <defaultConnector>
             <targetReference>LocationCheck</targetReference>
         </defaultConnector>
@@ -377,7 +449,7 @@
         <name>Is_Old_Parent_ID_Populated</name>
         <label>Is Old Parent ID Populated</label>
         <locationX>292</locationX>
-        <locationY>2027</locationY>
+        <locationY>2135</locationY>
         <defaultConnector>
             <targetReference>AssignVariablesILSync</targetReference>
         </defaultConnector>
@@ -402,7 +474,7 @@
         <name>Is_Old_School_ID_Populated</name>
         <label>Is Old School ID Populated</label>
         <locationX>292</locationX>
-        <locationY>1727</locationY>
+        <locationY>1835</locationY>
         <defaultConnector>
             <targetReference>Is_Old_Parent_ID_Populated</targetReference>
         </defaultConnector>
@@ -427,7 +499,7 @@
         <name>LocationCheck</name>
         <label>Location Check</label>
         <locationX>732</locationX>
-        <locationY>2603</locationY>
+        <locationY>2711</locationY>
         <defaultConnector>
             <targetReference>Phone_with_Country_Code</targetReference>
         </defaultConnector>
@@ -459,7 +531,7 @@
         <name>NewOrExisting</name>
         <label>New or Existing?</label>
         <locationX>732</locationX>
-        <locationY>395</locationY>
+        <locationY>503</locationY>
         <defaultConnector>
             <targetReference>Set_Unique_External_Customer_ID</targetReference>
         </defaultConnector>
@@ -484,7 +556,7 @@
         <name>Phone_with_Country_Code</name>
         <label>Phone with Country Code</label>
         <locationX>732</locationX>
-        <locationY>3011</locationY>
+        <locationY>3119</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Set_Phone_with_Country_Code</name>
@@ -514,8 +586,64 @@ DB: 28/03/2023 Added Validation fields as flow formulas and assign outcome to ch
 CH: 09/05/2023 Removed acc sub and shipping rule validation checks
 CH: 31/07/2023 Added validation against account name
 JK: 31/08/2023 Added finctionality to Full Name in the FullLegalName field if the FullLegalName field is Empty in insert
-DB: 28/03/2023 Removed Validation fields assignments</description>
+DB: 28/03/2023 Removed Validation fields assignments
+HdG: 04/06/2024 Set assignments for segments</description>
     <environments>Default</environments>
+    <formulas>
+        <name>Check_Higher</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+INCLUDES({!$Record.Classification__c},&quot;Higher&quot;),
+INCLUDES({!$Record.Classification__c},&quot;French Higher&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>Check_LowerPrimary</name>
+        <dataType>Boolean</dataType>
+        <expression>INCLUDES({!$Record.Classification__c},&quot;Lower Primary&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Check_LowerSecondary</name>
+        <dataType>Boolean</dataType>
+        <expression>INCLUDES({!$Record.Classification__c},&quot;Lower Secondary&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Preschool</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+INCLUDES({!$Record.Classification__c},&quot;Pre-school&quot;),
+INCLUDES({!$Record.Classification__c},&quot;French Pre-school&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Primary</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+INCLUDES({!$Record.Classification__c},&quot;Primary&quot;),
+INCLUDES({!$Record.Classification__c},&quot;French Primary&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Professional</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+INCLUDES({!$Record.Classification__c},&quot;Professional&quot;),
+INCLUDES({!$Record.Classification__c},&quot;French Professional&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Secondary</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+INCLUDES({!$Record.Classification__c},&quot;Secondary&quot;),
+INCLUDES({!$Record.Classification__c},&quot;French Secondary&quot;))</expression>
+    </formulas>
+    <formulas>
+        <name>Check_UpperPrimary</name>
+        <dataType>Boolean</dataType>
+        <expression>INCLUDES({!$Record.Classification__c},&quot;Upper Primary&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Check_Vocational</name>
+        <dataType>Boolean</dataType>
+        <expression>INCLUDES({!$Record.Classification__c},&quot;Vocational&quot;)</expression>
+    </formulas>
     <formulas>
         <name>DialCodeWithPhone</name>
         <dataType>String</dataType>
@@ -592,7 +720,7 @@ TEXT({!$Record.OperatingCompany__c}) = &apos;Liber&apos;, true, false)</expressi
                 ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff&apos;),
                 {!$Record.isProfessional__c }= true
             ),
-            ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff Professional&apos;)
+            ISPICKVAL({!$Record.OperatingCompany__c}, &apos;Noordhoff Zorg&apos;)
         ),
         false,
         OR(
@@ -739,7 +867,7 @@ NULL)</expression>
         <name>Get_Country_Code_Metadata</name>
         <label>Get Country Code Metadata</label>
         <locationX>600</locationX>
-        <locationY>3119</locationY>
+        <locationY>3227</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Country_Code</targetReference>
@@ -767,7 +895,7 @@ NULL)</expression>
         <name>Get_Owner_ID</name>
         <label>Get Owner ID</label>
         <locationX>292</locationX>
-        <locationY>1619</locationY>
+        <locationY>1727</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Old_School_ID_Populated</targetReference>
@@ -790,7 +918,7 @@ NULL)</expression>
         <name>Get_Parent_ID</name>
         <label>Get Parent ID</label>
         <locationX>160</locationX>
-        <locationY>2135</locationY>
+        <locationY>2243</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AssignVariablesILSync</targetReference>
@@ -813,7 +941,7 @@ NULL)</expression>
         <name>Get_School_ID</name>
         <label>Get School ID</label>
         <locationX>160</locationX>
-        <locationY>1835</locationY>
+        <locationY>1943</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Old_Parent_ID_Populated</targetReference>
@@ -836,7 +964,7 @@ NULL)</expression>
         <name>GetAccountLocationRecordType</name>
         <label>Get Account Location Record Type</label>
         <locationX>600</locationX>
-        <locationY>2711</locationY>
+        <locationY>2819</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AssignLocationRecordTypeId</targetReference>

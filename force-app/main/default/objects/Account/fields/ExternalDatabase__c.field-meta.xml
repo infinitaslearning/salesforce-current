@@ -47,7 +47,16 @@
                 <default>false</default>
                 <label>UDB</label>
             </value>
+            <value>
+                <fullName>Bokinfo</fullName>
+                <default>false</default>
+                <label>Bokinfo</label>
+            </value>
         </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Bokinfo</valueName>
+        </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Noordhoff Professional</controllingFieldValue>

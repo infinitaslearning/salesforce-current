@@ -781,6 +781,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Bokinfo</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Informat</fullName>
             <default>false</default>
         </values>

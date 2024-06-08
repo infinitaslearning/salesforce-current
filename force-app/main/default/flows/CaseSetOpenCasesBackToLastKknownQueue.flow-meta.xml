@@ -2,9 +2,25 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
     <assignments>
+        <name>Set_Excluded_True</name>
+        <label>Set Excluded True</label>
+        <locationX>138</locationX>
+        <locationY>684</locationY>
+        <assignmentItems>
+            <assignToReference>IsExcluded</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>LoopExcludedQueues</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Owner_to_Generic_Queue</name>
         <label>Set Owner to Generic Queue</label>
-        <locationX>314</locationX>
+        <locationX>446</locationX>
         <locationY>792</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
@@ -14,13 +30,14 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Update_Owner</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Owner_to_PE_Queue</name>
         <label>Set Owner to PE Queue</label>
-        <locationX>578</locationX>
+        <locationX>710</locationX>
         <locationY>792</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
@@ -30,13 +47,14 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Update_Owner</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Owner_to_SE_Queue</name>
         <label>Set Owner to SE Queue</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>792</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
@@ -46,14 +64,15 @@
             </value>
         </assignmentItems>
         <connector>
+            <isGoTo>true</isGoTo>
             <targetReference>Update_Owner</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Owner_to_VE_HE_Queue</name>
         <label>Set Owner to VE/HE Queue</label>
-        <locationX>1106</locationX>
-        <locationY>792</locationY>
+        <locationX>1018</locationX>
+        <locationY>1158</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -68,8 +87,8 @@
     <assignments>
         <name>Set_to_Queue</name>
         <label>Set Owner to last known Queue</label>
-        <locationX>50</locationX>
-        <locationY>360</locationY>
+        <locationX>182</locationX>
+        <locationY>1068</locationY>
         <assignmentItems>
             <assignToReference>$Record.OwnerId</assignToReference>
             <operator>Assign</operator>
@@ -82,9 +101,31 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Case_to_be_excluded_from_reset</name>
+        <label>Case to be excluded from reset?</label>
+        <locationX>50</locationX>
+        <locationY>960</locationY>
+        <defaultConnector>
+            <targetReference>Set_to_Queue</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>YesExclude</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsExcluded</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes Exclude</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Category_Level_1</name>
         <label>Category Level 1</label>
-        <locationX>974</locationX>
+        <locationX>1018</locationX>
         <locationY>576</locationY>
         <defaultConnectorLabel>No Category 1 found</defaultConnectorLabel>
         <rules>
@@ -158,7 +199,6 @@
                 </rightValue>
             </conditions>
             <connector>
-                <isGoTo>true</isGoTo>
                 <targetReference>Get_VE_HE_services_queue</targetReference>
             </connector>
             <label>Higher Education</label>
@@ -184,9 +224,34 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Set_to_Queue</targetReference>
+                <targetReference>Get_Excluded_Queues</targetReference>
             </connector>
             <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Last_known_Queue_Excluded</name>
+        <label>Is Last known Queue Excluded?</label>
+        <locationX>270</locationX>
+        <locationY>576</locationY>
+        <defaultConnector>
+            <targetReference>LoopExcludedQueues</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No not excluded</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Excluded</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LoopExcludedQueues.QueueName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.QueueName__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Excluded_True</targetReference>
+            </connector>
+            <label>Yes Excluded</label>
         </rules>
     </decisions>
     <decisions>
@@ -211,7 +276,8 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>MR: 3/25/24 Add filtering by Noordhoff</description>
+    <description>MV: 06/04/24 Add exclusion for list last known queues (sales, pgm)
+MR: 3/25/24 Add filtering by Noordhoff</description>
     <environments>Default</environments>
     <formulas>
         <name>IfAgent</name>
@@ -220,6 +286,20 @@
     </formulas>
     <interviewLabel>Case -Set Open Cases back to last known queue {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case -Set Open Cases back to last known queue</label>
+    <loops>
+        <name>LoopExcludedQueues</name>
+        <label>Loop Excluded Queues</label>
+        <locationX>50</locationX>
+        <locationY>468</locationY>
+        <collectionReference>Get_Excluded_Queues</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_Last_known_Queue_Excluded</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Case_to_be_excluded_from_reset</targetReference>
+        </noMoreValuesConnector>
+    </loops>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -268,9 +348,23 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <description>Get queues excluded from midnight reset</description>
+        <name>Get_Excluded_Queues</name>
+        <label>Get Excluded Queues</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LoopExcludedQueues</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Case_Queue_Excluded_from_midnight_reset__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Generic_services_queue</name>
         <label>Get Generic services queue</label>
-        <locationX>314</locationX>
+        <locationX>446</locationX>
         <locationY>684</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -298,7 +392,7 @@
     <recordLookups>
         <name>Get_PE_services_queue</name>
         <label>Get PE services queue</label>
-        <locationX>578</locationX>
+        <locationX>710</locationX>
         <locationY>684</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -326,7 +420,7 @@
     <recordLookups>
         <name>Get_SE_services_queue</name>
         <label>Get SE services queue</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>684</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -354,8 +448,8 @@
     <recordLookups>
         <name>Get_VE_HE_services_queue</name>
         <label>Get VE/HE services queue</label>
-        <locationX>1106</locationX>
-        <locationY>684</locationY>
+        <locationX>1018</locationX>
+        <locationY>1050</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Owner_to_VE_HE_Queue</targetReference>
@@ -383,7 +477,7 @@
         <name>Update_Owner</name>
         <label>Update Owner</label>
         <locationX>743</locationX>
-        <locationY>1152</locationY>
+        <locationY>1434</locationY>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
@@ -423,6 +517,16 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <name>IsExcluded</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
     </variables>
     <variables>
         <name>UserID</name>

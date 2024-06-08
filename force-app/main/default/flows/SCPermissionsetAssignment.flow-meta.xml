@@ -363,7 +363,8 @@
             <label>Plantyn Customer Service</label>
         </rules>
     </decisions>
-    <description>MR 16/02/24 Added Knowledge_LSF_Permission_Set assignment
+    <description>MV 06/06/24: Added CreateOrders permission for Noordhoff Knowledge Base Manager
+MR 16/02/24 Added Knowledge_LSF_Permission_Set assignment
 MV 02/04/24: Added Noordhoff PGM customer Service Role with assignments
 MR 19/03/24: Added Set checkbox Service Cloud user for KB Agent
 MR 13/02/24: Added ManageQuickTexts permissions
@@ -587,6 +588,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Knowledge_LSF_Permission_Set</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CreateOrders</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>

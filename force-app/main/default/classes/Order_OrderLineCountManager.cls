@@ -231,7 +231,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                 count++;
             }
         }
-        else{
+        else if(lst_OrdItem.size()>0){
             Map_ImpLineCount.put(99999999,lst_OrdItem.size()); 
             for(OrderItem item:lst_OrdItem){
                 if(Map_ImpLineCountQuantity.get(99999999)==null){
@@ -245,6 +245,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
         }
 
         
+        system.debug('**Order_OrderLineCountManager: Map_ItemGroup **'+Map_ItemGroup.size());
 
         if(Map_ItemGroup.size()>0){
              lstNewOrderitems = new List<OrderItem>();
@@ -263,11 +264,14 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             //Add Item Groups into full Map List of all items based on their chunks
 
             //Loop per Item group
+            system.debug('**Order_OrderLineCountManager: Map_ImpLineCount:1 **');
             for(OrderItem item: Map_ItemGroup.keyset()){
                 
+                //remove IF from line 276 - 304
+                //Replace CurListSize with CurrentChunkSize = Map_Itemlist.get(LoopChunks).size() + Map_ItemGroup.get(item).size();
                 Integer CurListSize = count + Map_ItemGroup.get(item).size();
                 
-                
+                system.debug('**Order_OrderLineCountManager: Map_ImpLineCount CurListSize **'+CurListSize+'***'+FIXEDLINECOUNT);
 
                 if(CurListSize  < FIXEDLINECOUNT){
                     CurrentChunkSize = Map_Itemlist.get(LoopChunks).size();
@@ -279,8 +283,9 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                         Map_Itemlist.get(LoopChunks).add(itemComp);
                         Map_IGLookup.put(itemComp.ImportItemGroupEAN__c, item.id);
                         count++;
-
+                        system.debug('**Order_OrderLineCountManager: Map_ImpLineCount < **'+itemComp.orderImportNumber__c+'***'+Map_ImpLineCount);
                         if(itemComp.orderImportNumber__c != null){
+                           
                             if(Map_ImpLineCount.get(LoopChunks)==null){
                                 Map_ImpLineCount.put(LoopChunks,1);
                                 Map_ImpLineCountQuantity.put(LoopChunks,item.Quantity);
@@ -323,7 +328,11 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                         //add Components to the list
                         Map_Itemlist.get(LoopChunks).add(itemComp);
                         count++;
+                        system.debug('**Order_OrderLineCountManager: Map_ImpLineCount > **'+itemComp.orderImportNumber__c+'***'+Map_ImpLineCount);
                         if(itemComp.orderImportNumber__c != null){
+
+                            
+
                             if(Map_ImpLineCount.get(LoopChunks)==null){
                                 Map_ImpLineCount.put(LoopChunks,1);
                                 Map_ImpLineCountQuantity.put(LoopChunks,item.Quantity);
@@ -427,6 +436,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             else{
                 newOrder = new Order();
                 newOrder = CurOrder;
+                system.debug('**Order_OrderLineCountManager: Map_ImpLineCount Masetr 0 **'+Map_ImpLineCount);
                 CurOrder.OrderImportLineCountSent__c = Map_ImpLineCount.get(LoopChunks);
                 CurOrder.OrderImportTotalLineQuantities__c = Map_ImpLineCountQuantity.get(LoopChunks);
                 ItemGroupListsize++;
@@ -446,7 +456,7 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
                     newItem.OrderId = CurOrder.id;
                     if(Item.orderImportNumber__c != null){
                         newItem.orderImportNumber__c = Item.orderImportNumber__c;
-                        
+                        system.debug('**Order_OrderLineCountManager: Map_ImpLineCount 99999999 **'+Map_ImpLineCount);
                         //Line count sent for Master Order if Item Group the only order and main. Due to split lists above
                         if(Map_ImpLineCount.get(99999999)==null){
                             Map_ImpLineCount.put(99999999,1);
@@ -510,15 +520,15 @@ public with sharing class Order_OrderLineCountManager implements Queueable {
             for(OrderItem item: lst_InsertItemGroup){ 
                 
                 if(item.ProductType__c != 'Item Group'){
-                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1_:' + Map_IGLookup.get(item.ImportItemGroupEAN__c));
-                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1a:' +Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)));
-                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1b:' +item.ProductType__c);
-                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1c:' +item.ItemGroup__c);    
+                   // system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1_:' + Map_IGLookup.get(item.ImportItemGroupEAN__c));
+                    //system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1a:' +Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)));
+                    //system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1b:' +item.ProductType__c);
+                    //system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 1c:' +item.ItemGroup__c);    
                 }
                 
                 if(Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c)) != null && item.ProductType__c != 'Item Group' ){ //&& item.ItemGroup__c == null
                     //item.ItemGroup__c =    Map_IGLookup2.get(Map_IGLookup.get(item.ProductEAN__c));
-                    system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 2');
+                    //system.debug('**Order_OrderLineCountManager: ProcessLineCount**: ItemGroup Populate 2');
                     item.ItemGroup__c =    Map_IGLookup2.get(Map_IGLookup.get(item.ImportItemGroupEAN__c));
                     
                 }

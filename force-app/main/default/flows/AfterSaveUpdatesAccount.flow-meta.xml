@@ -551,64 +551,6 @@
             <targetReference>Assign_Validation_Check_Fields</targetReference>
         </connector>
     </assignments>
-    <assignments>
-        <name>Update_Segments</name>
-        <label>Update Segments</label>
-        <locationX>1106</locationX>
-        <locationY>1463</locationY>
-        <assignmentItems>
-            <assignToReference>$Record.isHigherEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_Higher</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.isPrimaryEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_Primary</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.isSecondaryEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_Secondary</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.isVocationalEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_Vocational</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.UpperPrimaryEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_UpperPrimary</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.LowerPrimaryEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_LowerPrimary</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.LowerSecondaryEducation__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Check_LowerSecondary</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Update_UDB_Contact</targetReference>
-        </connector>
-    </assignments>
     <decisions>
         <name>Agodi_Update_In_Progress</name>
         <label>Agodi Update In Progress</label>
@@ -844,31 +786,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_Classification_field_updated</name>
-        <label>Is Classification field updated?</label>
-        <locationX>1238</locationX>
-        <locationY>1355</locationY>
-        <defaultConnector>
-            <targetReference>Update_UDB_Contact</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Not Updated</defaultConnectorLabel>
-        <rules>
-            <name>Updated_classification</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Classification__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record__Prior.Classification__c</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Segments</targetReference>
-            </connector>
-            <label>Updated</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Is_Liber</name>
         <label>Is Liber</label>
         <locationX>182</locationX>
@@ -899,7 +816,7 @@
         <locationX>1238</locationX>
         <locationY>947</locationY>
         <defaultConnector>
-            <targetReference>Is_Classification_field_updated</targetReference>
+            <targetReference>Update_UDB_Contact</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1078,7 +995,7 @@
         <name>Update_UDB_Contact</name>
         <label>Update UDB Contact</label>
         <locationX>1238</locationX>
-        <locationY>1655</locationY>
+        <locationY>1355</locationY>
         <defaultConnector>
             <targetReference>Vendor_Account_Address</targetReference>
         </defaultConnector>
@@ -1300,13 +1217,6 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Update_Segments</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <elementReference>True</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>Add_UDB_Address_Vendor_Address_Handler</leftValueReference>
                 <operator>WasVisited</operator>
                 <rightValue>
@@ -1387,7 +1297,8 @@ HdG 07/03/2024: add additional fields to UDB create contact
 DB 14/03/2024: update UDB Contact if Account is updated by UDB process
 DB 24/05/2024: update conditions to update UDB Contact if Account is updated
 HdG 30/05/2024: update assignment for ShippingIndicationRule and F_ValidateEmailsRequired for Noordhoff Zorg
-DB 31/05/2024: vendor address insert/update fix similar functionality to UDB addresses</description>
+DB 31/05/2024: vendor address insert/update fix similar functionality to UDB addresses
+HdG 04/06/2024: removed assignment of segments (that&apos;s moved to before-save flow)</description>
     <environments>Default</environments>
     <formulas>
         <name>Check_Higher</name>
@@ -2084,7 +1995,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
         <locationX>1106</locationX>
         <locationY>1163</locationY>
         <connector>
-            <targetReference>Is_Classification_field_updated</targetReference>
+            <targetReference>Update_UDB_Contact</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -2116,7 +2027,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
         <name>Update_Related_UDB_Contact</name>
         <label>Update Related UDB Contact</label>
         <locationX>1106</locationX>
-        <locationY>1763</locationY>
+        <locationY>1463</locationY>
         <connector>
             <targetReference>Vendor_Account_Address</targetReference>
         </connector>

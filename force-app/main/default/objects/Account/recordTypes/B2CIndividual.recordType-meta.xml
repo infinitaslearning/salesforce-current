@@ -463,6 +463,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>BAO 10%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Bygg Tryckta 20%25</fullName>
             <default>false</default>
         </values>
@@ -1462,6 +1466,10 @@
         </values>
         <values>
             <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Zorg</fullName>
             <default>false</default>
         </values>
         <values>

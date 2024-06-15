@@ -54,6 +54,11 @@
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
             <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 12% discount GRDP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
             <valueName>Tender 13% discount GRDP</valueName>
         </valueSettings>
         <valueSettings>
@@ -73,11 +78,21 @@
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
             <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 16,5% discount GRDP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
             <valueName>Tender 17,01% discount</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
             <valueName>Tender 18,01% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>BAO 10%</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Medical Institution - Cure</controllingFieldValue>

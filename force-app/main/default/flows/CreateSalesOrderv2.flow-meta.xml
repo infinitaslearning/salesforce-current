@@ -1335,17 +1335,17 @@
     <assignments>
         <name>assignUseWarehouseRefference</name>
         <label>assignUseWarehouseRefference</label>
-        <locationX>1954</locationX>
-        <locationY>2725</locationY>
+        <locationX>1607</locationX>
+        <locationY>2696</locationY>
         <assignmentItems>
             <assignToReference>useWarehouseReference</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getAccountDetails.WarehouseReferenceActive__c</elementReference>
+                <elementReference>getShipToDetails.WarehouseReferenceActive__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>assignVarNumberOfRelatedAccounts</targetReference>
+            <targetReference>getRelatedAccounts</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1367,8 +1367,8 @@
     <assignments>
         <name>assignVarNumberOfRelatedAccounts</name>
         <label>assignVarNumberOfRelatedAccounts</label>
-        <locationX>2123</locationX>
-        <locationY>2724</locationY>
+        <locationX>2162</locationX>
+        <locationY>2641</locationY>
         <assignmentItems>
             <assignToReference>varNumberOfRelatedAccounts</assignToReference>
             <operator>AssignCount</operator>
@@ -1468,6 +1468,22 @@
         </assignmentItems>
         <connector>
             <targetReference>decOneShipTo</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>WarehouseReferenceActive_True</name>
+        <label>WarehouseReferenceActive True</label>
+        <locationX>1852</locationX>
+        <locationY>2679</locationY>
+        <assignmentItems>
+            <assignToReference>useWarehouseReference</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getRelatedAccounts</targetReference>
         </connector>
     </assignments>
     <choices>
@@ -2877,6 +2893,38 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Set_Warehouse_Reference_Active</name>
+        <label>Set Warehouse Reference Active</label>
+        <locationX>1741</locationX>
+        <locationY>2582</locationY>
+        <defaultConnector>
+            <targetReference>assignUseWarehouseRefference</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Set from shipTo</defaultConnectorLabel>
+        <rules>
+            <name>Default_True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getAccountDetails.CustomerCategory__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tender Distributor</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>getShipToDetails.WarehouseReference__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>WarehouseReferenceActive_True</targetReference>
+            </connector>
+            <label>Default True</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Shipping_cost_exempt_decision</name>
         <label>Shipping cost exempt</label>
         <locationX>2179</locationX>
@@ -3062,7 +3110,8 @@
 20232012: CH added filter for pricebooks where PricingMethod != null
 20240402: DB added address validated value assignments
 20240403: DB update BillTo &amp; ShipTo selection logic
-20240502: DB removed Order End Date assignments &amp; default ShipByDate to today()</description>
+20240502: DB removed Order End Date assignments &amp; default ShipByDate to today()
+20240611: DB assign warehouse reference from shipTo Account</description>
     <dynamicChoiceSets>
         <name>choicePreferredCourier</name>
         <dataType>String</dataType>
@@ -3851,6 +3900,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Warehouse_Reference__c</field>
+            <value>
+                <elementReference>getFinalShipTo.WarehouseReference__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>shipToAttentionOf__c</field>
             <value>
                 <elementReference>getFinalShipTo.shipToAttentionOf__c</elementReference>
@@ -4206,11 +4261,11 @@
         <description>Gets accounts that are related via ParentId, SalesAccount__c or PurchasingGroup__c</description>
         <name>getRelatedAccounts</name>
         <label>getRelatedAccounts</label>
-        <locationX>1786</locationX>
-        <locationY>2653</locationY>
+        <locationX>2041</locationX>
+        <locationY>2699</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>assignUseWarehouseRefference</targetReference>
+            <targetReference>assignVarNumberOfRelatedAccounts</targetReference>
         </connector>
         <filterLogic>or</filterLogic>
         <filters>
@@ -4301,7 +4356,7 @@
         <locationY>2574</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>getRelatedAccounts</targetReference>
+            <targetReference>Set_Warehouse_Reference_Active</targetReference>
         </connector>
         <faultConnector>
             <targetReference>Error</targetReference>
@@ -4897,10 +4952,20 @@
                         <assignToReference>useWarehouseReference</assignToReference>
                         <name>value</name>
                     </outputParameters>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>getAccountDetails.CustomerCategory__c</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                            <rightValue>
+                                <stringValue>Tender Distributor</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>showWarehouseRefference</name>
-                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(79, 79, 79);&quot;&gt;Warehouse Reference: {!getAccountDetails.WarehouseReference__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(79, 79, 79);&quot;&gt;Warehouse Reference: {!getShipToDetails.WarehouseReference__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                 </fields>
                 <inputParameters>
@@ -4916,7 +4981,7 @@
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
-                    <leftValueReference>getAccountDetails.WarehouseReference__c</leftValueReference>
+                    <leftValueReference>getShipToDetails.WarehouseReference__c</leftValueReference>
                     <operator>NotEqualTo</operator>
                     <rightValue>
                         <stringValue></stringValue>
@@ -5655,7 +5720,7 @@
             <targetReference>getObjectName</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <description>Flow called from the Create Contract flow</description>
         <name>subflowOrderProductSelector</name>

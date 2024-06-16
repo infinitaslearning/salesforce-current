@@ -80,9 +80,9 @@ public class IL_LeadConversion {
                 }
                 
                 if(String.isNotBlank(ld.Opportunity__c)){
-                    oppMap.put(ld.id,ld.Opportunity__c);
+                    oppMap.put(ld.id,null);
                 } else {
-                    oppMap.put(ld.id,ld.id);
+                    oppMap.put(ld.id,null);
                 }
                 
                 if(ld.AutoConvertCreateOpportunity__c){
@@ -231,7 +231,7 @@ public class IL_LeadConversion {
                 System.debug('IL_LeadConversion - oppId - v1');
             } else {
                 if (OpportunityId == leadId) {
-                    returnMap.put('OpportunityId',lcr.getOpportunityId());
+                    returnMap.put('OpportunityId',null);
                     System.debug('IL_LeadConversion - oppId - v2');
                 } else {
                     returnMap.put('OpportunityId', OpportunityId);

@@ -349,7 +349,7 @@
             <assignToReference>ILAddressRecord.Source__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>UDB</stringValue>
+                <elementReference>F_AddressSource</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -449,7 +449,7 @@
             <assignToReference>ILAddressRecord.Source__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>UDB</stringValue>
+                <elementReference>F_AddressSource</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -549,7 +549,7 @@
             <assignToReference>ILAddressRecord.Source__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>UDB</stringValue>
+                <elementReference>F_AddressSource</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -1213,6 +1213,16 @@ DB 30/05/2024: Vendor addresses excluded from validation</description>
         <name>dtNow</name>
         <dataType>Date</dataType>
         <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <description>Determine source of the address</description>
+        <name>F_AddressSource</name>
+        <dataType>String</dataType>
+        <expression>IF( ISPICKVAL( {!accountRecord.ExternalDatabase__c}, &apos;UDB&apos; ), 
+&apos;UDB&apos;,
+IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accountRecord.VendorNetsuiteInternalId__c})) ), 
+&apos;Vendor&apos;, &apos;&apos;)
+)</expression>
     </formulas>
     <formulas>
         <name>F_BillingAddressLabel</name>

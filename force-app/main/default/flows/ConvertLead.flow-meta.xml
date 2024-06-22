@@ -1069,20 +1069,6 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
             </value>
         </filters>
         <filters>
-            <field>LastName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.LastName</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>FirstName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_Lead.FirstName</elementReference>
-            </value>
-        </filters>
-        <filters>
             <field>OperatingCompany__c</field>
             <operator>EqualTo</operator>
             <value>
@@ -1817,7 +1803,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
             <targetReference>GetLead</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <subflows>
         <name>Auto_Convert_Post_Processing</name>
         <label>Auto Convert Post Processing</label>

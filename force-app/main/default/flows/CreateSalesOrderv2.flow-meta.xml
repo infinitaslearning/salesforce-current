@@ -67,6 +67,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_New_StartByDate</name>
+        <label>Assign New StartByDate</label>
+        <locationX>1729</locationX>
+        <locationY>3474</locationY>
+        <assignmentItems>
+            <assignToReference>varOrderStartDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>inputShipByDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Selected_Accounts_Overwritten</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_OrderType_default_0</name>
         <label>Assign OrderType default</label>
         <locationX>1508</locationX>
@@ -722,8 +738,8 @@
     <assignments>
         <name>assignDefaultPricing</name>
         <label>assignDefaultPricing</label>
-        <locationX>1394</locationX>
-        <locationY>3625</locationY>
+        <locationX>1252</locationX>
+        <locationY>3555</locationY>
         <assignmentItems>
             <assignToReference>varPricingMethod</assignToReference>
             <operator>Assign</operator>
@@ -1230,8 +1246,8 @@
     <assignments>
         <name>assignPricingMethod</name>
         <label>assignPricingMethod</label>
-        <locationX>1316</locationX>
-        <locationY>3786</locationY>
+        <locationX>1174</locationX>
+        <locationY>3716</locationY>
         <assignmentItems>
             <assignToReference>varPricingMethod</assignToReference>
             <operator>Assign</operator>
@@ -1717,6 +1733,38 @@
             <stringValue>RegularOrder</stringValue>
         </value>
     </constants>
+    <decisions>
+        <name>ContractShipBy_ContractStartDate</name>
+        <label>ContractShipBy &gt; ContractStartDate</label>
+        <locationX>1591</locationX>
+        <locationY>3690</locationY>
+        <defaultConnector>
+            <targetReference>Selected_Accounts_Overwritten</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ShipBy_Greater</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varObjectName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Contract</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>inputShipByDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>getContractDetails.StartDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_New_StartByDate</targetReference>
+            </connector>
+            <label>ShipBy Greater</label>
+        </rules>
+    </decisions>
     <decisions>
         <description>Checks whether 1 Default Billto is filled, if not, purchasing group.</description>
         <name>decBillTo</name>
@@ -2360,8 +2408,8 @@
     <decisions>
         <name>Found_Discount_Group_Pricing_Method</name>
         <label>Found Discount Group Pricing Method</label>
-        <locationX>1202</locationX>
-        <locationY>3346</locationY>
+        <locationX>1060</locationX>
+        <locationY>3276</locationY>
         <defaultConnector>
             <targetReference>LoopOrderPricingMdt</targetReference>
         </defaultConnector>
@@ -3243,8 +3291,8 @@
     <loops>
         <name>LoopOrderPricingMdt</name>
         <label>LoopOrderPricingMdt</label>
-        <locationX>1457</locationX>
-        <locationY>3354</locationY>
+        <locationX>1315</locationX>
+        <locationY>3284</locationY>
         <collectionReference>GetOrderPricingTableMdt</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -4710,13 +4758,13 @@
     <screens>
         <name>screenOrderDetails</name>
         <label>Order Details</label>
-        <locationX>1715</locationX>
-        <locationY>3572</locationY>
+        <locationX>1442</locationX>
+        <locationY>3689</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Selected_Accounts_Overwritten</targetReference>
+            <targetReference>ContractShipBy_ContractStartDate</targetReference>
         </connector>
         <fields>
             <name>textContractDefaults</name>
@@ -5720,7 +5768,7 @@
             <targetReference>getObjectName</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <description>Flow called from the Create Contract flow</description>
         <name>subflowOrderProductSelector</name>

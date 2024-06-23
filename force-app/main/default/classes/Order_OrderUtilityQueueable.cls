@@ -49,7 +49,8 @@ public with sharing class Order_OrderUtilityQueueable implements Queueable {
                 }
             }
 
-            Order[] CurOrder = Order_OrderandOrdeItemHandler.returnQueryOrder(null, MaxOrderLineId);
+            // Order[] CurOrder = Order_OrderandOrdeItemHandler.returnQueryOrder(null, MaxOrderLineId);
+            Order[] CurOrder = Order_SoqlFactory.returnQueryOrder(MaxOrderLineId, null, null);
             List<Order> UpdateOrder = new List<Order>();
 
             for(Order  ord:CurOrder){

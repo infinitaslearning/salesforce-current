@@ -599,14 +599,14 @@
             <assignToReference>sov_Order.WarehouseReferenceActive__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>sov_OrderAccount.WarehouseReferenceActive__c</elementReference>
+                <elementReference>sov_DeliveryLocation.WarehouseReferenceActive__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>sov_Order.WarehouseReference__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>sov_OrderAccount.WarehouseReference__c</elementReference>
+                <elementReference>sov_DeliveryLocation.WarehouseReference__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -3838,7 +3838,8 @@ CH: 2023/10/16 added subtype__c mapping
 CH: 2023/10/31 PBE get excludes delivery status = null
 DB: 2023/11/20 Payment method on Order set to Prepayment if Payment Method Type is Ideal
 CH: 2023/11/22 Fixed &quot;Free&quot; Line Item Type not actually being free
-DB: 2024/01/13 Add successor item skip logic for Studiemeister &amp; eCom sources</description>
+DB: 2024/01/13 Add successor item skip logic for Studiemeister &amp; eCom sources
+DB: 2024/06/11 Assign Warehouse Reference from shipTo Account</description>
     <environments>Default</environments>
     <formulas>
         <name>billToAttentionOfFormula</name>

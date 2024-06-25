@@ -147,6 +147,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Classificatie</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Credit</fullName>
             <default>false</default>
         </values>
@@ -223,6 +227,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Sanering</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Scholen</fullName>
             <default>false</default>
         </values>
@@ -295,6 +303,10 @@
         </values>
         <values>
             <fullName>Noordhoff Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Zorg</fullName>
             <default>false</default>
         </values>
         <values>

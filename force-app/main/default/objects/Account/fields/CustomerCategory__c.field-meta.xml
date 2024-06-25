@@ -155,12 +155,14 @@
             <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Company</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Educational Institution</valueName>
         </valueSettings>
         <valueSettings>
@@ -191,6 +193,7 @@
             <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Reseller</valueName>
         </valueSettings>
         <valueSettings>
@@ -212,10 +215,12 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Medical Institution - Care</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Medical Institution - Cure</valueName>
         </valueSettings>
         <valueSettings>

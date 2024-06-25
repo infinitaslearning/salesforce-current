@@ -290,15 +290,14 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                                     sObj.put(field,'Correction');
                                 } else if(obj == 'Order' && field == 'CreatedByCorrectionProcess__c' && request[0].createdByCorrectionProcess == true){
                                     sObj.put(field,true);
-                                } else if(obj == 'Order' && field == 'ExternalOrderId__c' && request[0].createdByCorrectionProcess == true){
-                                    if(request[0].orderType == 'Correction'){
+                                } else if(obj == 'Order' && field == 'ExternalOrderId__c'){
+                                    if(request[0].orderType == 'Correction' && request[0].createdByCorrectionProcess == true){
                                         String externalOrderId = val.get('OrderNumberId__c') + '-Correction';
                                         sObj.put(field,externalOrderId);
                                     } else {
-                                        String externalOrderId = val.get('OrderNumberId__c') + '-Clone';
+                                        String externalOrderId = String.valueOf(val.get('ExternalOrderId__c'));
                                         sObj.put(field,externalOrderId);
                                     }
-                                    
                                 } else if (obj == 'Order' && field == 'CorrectionOrderNSID__c' && request[0].orderType == 'Correction'){
                                     sObj.put(field, val.get('NSOrderId__c'));
                                 } else if (obj == 'OrderItem' && field == 'CorrectionOrderLineID__c' && request[0].orderType == 'Correction'){
@@ -311,6 +310,16 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                                 } else if (obj == 'OrderItem' && field == 'TotalDiscountAmount__c'){
                                     sObj.put(field ,val.get(field));
                                     system.debug('=-= TotalDiscountAmount__c: ' + val.get(field));
+                                } else if (field == 'NSOrderStatus__c' || field == 'NSOrderInternalId__c' || field == 'SuccessStatusOfLastAWSUpdate__c' || field == 'LastUpdateToAWS__c' || field == 'ActivateforBatchProcessing__c') {
+                                    //clear fields that should not be cloned with original master record values
+                                    System.debug('**clearing fied: ' + field);
+                                    if(field == 'ActivateforBatchProcessing__c'){
+                                        //set boolean to false
+                                        sObj.put(field, false);
+                                    }else{
+                                        //set field value to null
+                                        sObj.put(field, null);
+                                    }
                                 } else if(field != 'ImportItemGroupEAN__c') {
                                     sObj.put(field ,val.get(field));
                                 }

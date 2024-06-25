@@ -360,6 +360,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>BAO 10%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Bygg Tryckta 20%25</fullName>
             <default>false</default>
         </values>
@@ -544,6 +548,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Tender 12%25 discount GRDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Tender 13%25 discount</fullName>
             <default>false</default>
         </values>
@@ -581,6 +589,10 @@
         </values>
         <values>
             <fullName>Tender 16%2C5%25 discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tender 16%2C5%25 discount GRDP</fullName>
             <default>false</default>
         </values>
         <values>
@@ -917,6 +929,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Bokinfo</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Informat</fullName>
             <default>false</default>
         </values>
@@ -930,6 +946,10 @@
         </values>
         <values>
             <fullName>Skolverket</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UDB</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -1368,6 +1388,10 @@
         </values>
         <values>
             <fullName>Noordhoff</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Zorg</fullName>
             <default>false</default>
         </values>
         <values>

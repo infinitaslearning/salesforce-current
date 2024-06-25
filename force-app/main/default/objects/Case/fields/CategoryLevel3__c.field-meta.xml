@@ -13,6 +13,18 @@
         <restricted>true</restricted>
         <valueSetName>CategoryLevel3</valueSetName>
         <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Beschikbaarheid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Sanering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Assortiment</controllingFieldValue>
+            <valueName>Classificatie</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Bestelling &amp; Levering</controllingFieldValue>
             <valueName>Bestelling</valueName>
         </valueSettings>

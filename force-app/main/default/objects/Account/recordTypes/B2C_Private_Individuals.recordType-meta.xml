@@ -777,6 +777,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Bokinfo</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Informat</fullName>
             <default>false</default>
         </values>
@@ -1275,6 +1279,10 @@
         </values>
         <values>
             <fullName>Noordhoff Professional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Noordhoff Zorg</fullName>
             <default>false</default>
         </values>
         <values>

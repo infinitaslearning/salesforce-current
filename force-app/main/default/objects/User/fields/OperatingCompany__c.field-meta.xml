@@ -35,6 +35,11 @@
                 <default>false</default>
                 <label>Noordhoff Professional</label>
             </value>
+            <value>
+                <fullName>Noordhoff Zorg</fullName>
+                <default>false</default>
+                <label>Noordhoff Zorg</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

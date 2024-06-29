@@ -170,19 +170,19 @@
             <label>Noordhoff</label>
         </rules>
         <rules>
-            <name>Noordhoff_Professional</name>
+            <name>Noordhoff_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_User.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Role_Noordhoff_Professional</targetReference>
+                <targetReference>Role_Noordhoff_Zorg</targetReference>
             </connector>
-            <label>Noordhoff Professional</label>
+            <label>Noordhoff Zorg</label>
         </rules>
         <rules>
             <name>Plantyn</name>
@@ -305,8 +305,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Role_Noordhoff_Professional</name>
-        <label>Role Noordhoff Professional</label>
+        <name>Role_Noordhoff_Zorg</name>
+        <label>Role Noordhoff Zorg</label>
         <locationX>1546</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>

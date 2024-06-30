@@ -648,10 +648,12 @@ public with sharing class Order_SoqlFactory {
             Querystr += ' AND (ProductComponent__r.Product__c in: lst_ProdPriceId AND ProductComponent__r.MainProduct__c in: Set_ProdItemGroup)';
         }
        else if(Type == 'Pricebookentrycreate'){
+            Querystr += ' AND StartDate__c <=: CurDate AND EndDate__c >=: CurDate';
             Querystr += ' AND id in:lst_ProdPriceId AND ProductComponent__c = null';
                            
         }
        else if(Type == 'UpdatePricingfromProduct'){
+            Querystr += ' AND StartDate__c <=: CurDate AND EndDate__c >=: CurDate';
             Querystr += ' AND (Product__c in:lst_ProdPriceId OR ProductComponent__r.Product__c in: lst_ProdPriceId)';
        }
        
@@ -701,6 +703,7 @@ public with sharing class Order_SoqlFactory {
         +' DigitalActivationEMail__c,'
         +' Informhfdstructuur__c,'
         +' IsUpForRenewal__c,'
+        +' IndexationPercentage__c,'
         +' LastRenewalUpdate__c, '
         +' ListPrice__c,'
         +' ManualDiscountPercent__c, '

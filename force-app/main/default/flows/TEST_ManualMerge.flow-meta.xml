@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>DC_Find_Duplicate_by_Field_Values</name>
+        <label>DC - Find Duplicate by Field Values</label>
+        <locationX>176</locationX>
+        <locationY>782</locationY>
+        <actionName>dupcheck__dc3SearchByValuesFlowAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>DC_Quick_Merge</targetReference>
+        </connector>
+        <dataTypeMappings>
+            <typeName>T__searchObject</typeName>
+            <typeValue>Account</typeValue>
+        </dataTypeMappings>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Flow_Error_Message</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>searchObject</name>
+            <value>
+                <elementReference>FieldValuesVariable</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>dupcheck__dc3SearchByValuesFlowAction</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>DC_Quick_Merge</name>
+        <label>DC - Quick Merge</label>
+        <locationX>176</locationX>
+        <locationY>890</locationY>
+        <actionName>dupcheck__dc3QuickMergeFlowAction</actionName>
+        <actionType>apex</actionType>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Flow_Error_Message</targetReference>
+        </faultConnector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>searchResult</name>
+            <value>
+                <elementReference>DC_Find_Duplicate_by_Field_Values.duplicateResult</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>threshold</name>
+            <value>
+                <numberValue>100.0</numberValue>
+            </value>
+        </inputParameters>
+        <nameSegment>dupcheck__dc3QuickMergeFlowAction</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>57.0</apiVersion>
     <assignments>
         <name>Add_Accounts_to_Collection</name>
@@ -48,8 +105,31 @@
                 <elementReference>Get_Duplicate_Account</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>FieldValuesVariable.MergeToRecordId__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Master_Account.Id</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_Selected_Merge_Accounts</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Flow_Error_Message</name>
+        <label>Assign Flow Error Message</label>
+        <locationX>1496</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>FlowErrorMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>ErrorDisplay</targetReference>
         </connector>
     </assignments>
     <dynamicChoiceSets>
@@ -91,6 +171,10 @@
         <connector>
             <targetReference>OutputScreen</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Flow_Error_Message</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -112,6 +196,9 @@
         <connector>
             <targetReference>Accounts_Selection</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Assign_Flow_Error_Message</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -129,6 +216,13 @@
         <label>Update Selected Merge Accounts</label>
         <locationX>176</locationX>
         <locationY>674</locationY>
+        <connector>
+            <targetReference>DC_Find_Duplicate_by_Field_Values</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Flow_Error_Message</targetReference>
+        </faultConnector>
         <inputReference>AccountstoUpdate</inputReference>
     </recordUpdates>
     <screens>
@@ -177,6 +271,22 @@
         <showHeader>true</showHeader>
     </screens>
     <screens>
+        <name>ErrorDisplay</name>
+        <label>ErrorDisplay</label>
+        <locationX>1496</locationX>
+        <locationY>350</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>ErrorDisplayText</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;{!FlowErrorMessage}&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>OutputScreen</name>
         <label>OutputScreen</label>
         <locationX>176</locationX>
@@ -213,7 +323,7 @@
             <targetReference>Get_Master_Account</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>accountsRecordIdCollection</name>
         <dataType>String</dataType>
@@ -228,6 +338,21 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>FieldValuesVariable</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>FlowErrorMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>recordId</name>

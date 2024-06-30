@@ -3184,6 +3184,11 @@
         <expression>IF( {!picklistOrderType2} = {!choiceTenderSalesOrder}, TEXT({!getFinalBillTo.TenderDistributor__r.FulfillmentLocation__c}), null )</expression>
     </formulas>
     <formulas>
+        <name>F_OrderAccountIsTenderDistubutor</name>
+        <dataType>Boolean</dataType>
+        <expression>IF(ISPICKVAL({!getAccountDetails.CustomerCategory__c}, &apos;Tender Distributor&apos;), true, false)</expression>
+    </formulas>
+    <formulas>
         <name>form_ValidateItemInformat</name>
         <dataType>Number</dataType>
         <expression>IF(CONTAINS({!varPricebookName}, &quot;Informat&quot;), 1, 0)</expression>
@@ -4926,22 +4931,18 @@
                             <elementReference>useWarehouseReference</elementReference>
                         </value>
                     </inputParameters>
+                    <inputParameters>
+                        <name>disabled</name>
+                        <value>
+                            <elementReference>F_OrderAccountIsTenderDistubutor</elementReference>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <outputParameters>
                         <assignToReference>useWarehouseReference</assignToReference>
                         <name>value</name>
                     </outputParameters>
-                    <visibilityRule>
-                        <conditionLogic>and</conditionLogic>
-                        <conditions>
-                            <leftValueReference>getAccountDetails.CustomerCategory__c</leftValueReference>
-                            <operator>NotEqualTo</operator>
-                            <rightValue>
-                                <stringValue>Tender Distributor</stringValue>
-                            </rightValue>
-                        </conditions>
-                    </visibilityRule>
                 </fields>
                 <fields>
                     <name>showWarehouseRefference</name>

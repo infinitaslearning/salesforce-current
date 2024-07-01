@@ -1,58 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>List_Price_Discount_for_Liber</fullName>
+        <fullName>List_Price_Discount_for_Noordhoff_Zorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>List Price Discount for Liber</label>
+        <label>List Price Discount for Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>Subsidiary__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>List_Price_Discount_for_Noordhoff</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>List Price Discount for Noordhoff</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>List_Price_Discount_for_Noordhoff_Professional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>List Price Discount for Noordhoff Professional</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>List_Price_Discount_for_Plantyn</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>List Price Discount for Plantyn</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>Subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

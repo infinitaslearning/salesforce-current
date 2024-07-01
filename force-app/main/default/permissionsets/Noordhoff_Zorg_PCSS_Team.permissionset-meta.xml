@@ -2,7 +2,7 @@
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customPermissions>
         <enabled>true</enabled>
-        <name>ViewNoordhoffProfessional</name>
+        <name>ViewNoordhoffZorg</name>
     </customPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -31,37 +31,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OpportunityLineItem.ServiceDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OpportunityLineItem.Terms__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Order.ConsultancyProjectStarted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>OrderItem.EndDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.ManualDiscountPercent__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.ManualDiscountValue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.ManualDiscount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -75,7 +50,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Noordhoff Professional PCSS Team</label>
+    <label>Noordhoff Zorg PCSS Team</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>

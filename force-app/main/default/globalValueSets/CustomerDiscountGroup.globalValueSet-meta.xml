@@ -266,9 +266,19 @@
         <label>Tender 12% discount</label>
     </customValue>
     <customValue>
+        <fullName>Tender 12% discount GRDP</fullName>
+        <default>false</default>
+        <label>Tender 12% discount GRDP</label>
+    </customValue>
+    <customValue>
         <fullName>Tender 13% discount</fullName>
         <default>false</default>
         <label>Tender 13% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 13% discount GRDP</fullName>
+        <default>false</default>
+        <label>Tender 13% discount GRDP</label>
     </customValue>
     <customValue>
         <fullName>Tender 13,5% discount</fullName>
@@ -279,6 +289,11 @@
         <fullName>Tender 14% discount</fullName>
         <default>false</default>
         <label>Tender 14% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 14% discount GRDP</fullName>
+        <default>false</default>
+        <label>Tender 14% discount GRDP</label>
     </customValue>
     <customValue>
         <fullName>Tender 14,01% discount</fullName>
@@ -296,9 +311,19 @@
         <label>Tender 16% discount</label>
     </customValue>
     <customValue>
+        <fullName>Tender 16% discount GRDP</fullName>
+        <default>false</default>
+        <label>Tender 16% discount GRDP</label>
+    </customValue>
+    <customValue>
         <fullName>Tender 16,5% discount</fullName>
         <default>false</default>
         <label>Tender 16,5% discount</label>
+    </customValue>
+    <customValue>
+        <fullName>Tender 16,5% discount GRDP</fullName>
+        <default>false</default>
+        <label>Tender 16,5% discount GRDP</label>
     </customValue>
     <customValue>
         <fullName>Tender 17,01% discount</fullName>
@@ -371,22 +396,9 @@
         <label>Reseller Discount Incremental</label>
     </customValue>
     <customValue>
-        <fullName>Membership 1</fullName>
+        <fullName>BAO 10%</fullName>
         <default>false</default>
-        <isActive>false</isActive>
-        <label>Membership 1</label>
-    </customValue>
-    <customValue>
-        <fullName>Partner </fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>Partner </label>
-    </customValue>
-    <customValue>
-        <fullName>B2B</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>B2B</label>
+        <label>BAO 10%</label>
     </customValue>
     <customValue>
         <fullName>School Group </fullName>
@@ -395,16 +407,34 @@
         <label>School Group </label>
     </customValue>
     <customValue>
-        <fullName>Reseller </fullName>
+        <fullName>B2B</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Reseller </label>
+        <label>B2B</label>
+    </customValue>
+    <customValue>
+        <fullName>Membership 1</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Membership 1</label>
     </customValue>
     <customValue>
         <fullName>Membership 2</fullName>
         <default>false</default>
         <isActive>false</isActive>
         <label>Membership 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Partner </fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Partner </label>
+    </customValue>
+    <customValue>
+        <fullName>Reseller </fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Reseller </label>
     </customValue>
     <masterLabel>Customer Discount Group</masterLabel>
     <sorted>false</sorted>

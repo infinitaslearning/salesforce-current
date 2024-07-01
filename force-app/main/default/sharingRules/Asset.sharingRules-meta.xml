@@ -1,115 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>LiberAssets</fullName>
+        <fullName>Noordhoff_Zorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Liber Assets</label>
+        <label>Noordhoff Zorg Assets</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>LiberEditAsset</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Liber Edit Asset</label>
-        <sharedTo>
-            <group>LiberEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffAssets</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Assets</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffEditAsset</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Edit Asset</label>
-        <sharedTo>
-            <group>NoordhoffEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Noordhoff_Professional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Noordhoff Professional Assets</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>Noordhoff_Professional_Assets_Edit</fullName>
+        <fullName>Noordhoff_Zorg_Assets_Edit</fullName>
         <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Professional Assets Edit</label>
+        <label>Noordhoff Zorg Assets Edit</label>
         <sharedTo>
-            <group>Noordhoff_Professional_PCSS_Team_Group</group>
+            <group>Noordhoff_Zorg_PCSS_Team_Group</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynAssets</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Plantyn Assets</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Plantyn_Edit_Records</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Plantyn Edit Records</label>
-        <sharedTo>
-            <group>PlantynEditRecords</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
 </SharingRules>

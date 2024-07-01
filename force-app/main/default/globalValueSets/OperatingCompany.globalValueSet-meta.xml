@@ -26,6 +26,11 @@
         <label>Noordhoff Professional</label>
     </customValue>
     <customValue>
+        <fullName>Noordhoff Zorg</fullName>
+        <default>false</default>
+        <label>Noordhoff Zorg</label>
+    </customValue>
+    <customValue>
         <fullName>Professional</fullName>
         <default>false</default>
         <isActive>false</isActive>

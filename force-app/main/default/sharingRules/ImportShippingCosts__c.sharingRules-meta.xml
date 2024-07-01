@@ -1,58 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>Import_Shipping_Cost_Liber</fullName>
+        <fullName>Import_Shipping_Cost_Noordhoff_Zorg</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Import Shipping Cost - Liber</label>
+        <label>Import Shipping Cost - Noordhoff Zorg</label>
         <sharedTo>
-            <group>AllUsersLiber</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>subsidiary__c</field>
             <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Import_Shipping_Cost_Noordhoff</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Import Shipping Cost - Noordhoff</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Import_Shipping_Cost_Noordhoff_Professional</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Import Shipping Cost - Noordhoff Professional</label>
-        <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>Import_Shipping_Costs_Plantyn</fullName>
-        <accessLevel>Read</accessLevel>
-        <label>Import Shipping Costs - Plantyn</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>subsidiary__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>

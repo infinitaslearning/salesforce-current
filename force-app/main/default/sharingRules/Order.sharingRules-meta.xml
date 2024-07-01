@@ -1,74 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>LiberOrderViewEditAccess</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Liber Order View Edit Access</label>
-        <sharedTo>
-            <group>AllUsersLiber</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Liber</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffOrderViewEditAccess</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Noordhoff Order View Edit Access</label>
-        <sharedTo>
-            <group>AllUsersNoordhoff</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Noordhoff</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>NoordhoffProfessionalOrders</fullName>
+        <fullName>NoordhoffZorgOrders</fullName>
         <accessLevel>Read</accessLevel>
-        <label>Noordhoff Professional Orders</label>
+        <label>Noordhoff Zorg Orders</label>
         <sharedTo>
-            <group>AllUsersNoordhoffProfessional</group>
+            <group>AllUsersNoordhoffZorg</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>Noordhoff_Professional_Orders_Edit</fullName>
+        <fullName>Noordhoff_Zorg_Orders_Edit</fullName>
         <accessLevel>Edit</accessLevel>
-        <description>To give a small group of Noordhoff Professional users (PCSS) edit rights on orders</description>
-        <label>Noordhoff Professional Orders Edit</label>
+        <description>To give a small group of Noordhoff Zorg users (PCSS) edit rights on orders</description>
+        <label>Noordhoff Zorg Orders Edit</label>
         <sharedTo>
-            <group>Noordhoff_Professional_PCSS_Team_Group</group>
+            <group>Noordhoff_Zorg_PCSS_Team_Group</group>
         </sharedTo>
         <criteriaItems>
             <field>OperatingCompany__c</field>
             <operation>equals</operation>
-            <value>Noordhoff</value>
+            <value>Noordhoff Zorg</value>
         </criteriaItems>
         <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
-    </sharingCriteriaRules>
-    <sharingCriteriaRules>
-        <fullName>PlantynOrderViewEditAccess</fullName>
-        <accessLevel>Edit</accessLevel>
-        <label>Plantyn Order View Edit Access</label>
-        <sharedTo>
-            <group>AllUsersPlantyn</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>OperatingCompany__c</field>
-            <operation>equals</operation>
-            <value>Plantyn</value>
-        </criteriaItems>
-        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
     </sharingCriteriaRules>
 </SharingRules>

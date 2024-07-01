@@ -16,9 +16,9 @@
                                     <rightValue>true</rightValue>
                                 </criteria>
                                 <criteria>
-                                    <leftValue>{!$User.Profile.Name}</leftValue>
+                                    <leftValue>{!$Permission.StandardPermission.ActivateContract}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>System Administrator</rightValue>
+                                    <rightValue>true</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -53,9 +53,9 @@
                                     <rightValue>true</rightValue>
                                 </criteria>
                                 <criteria>
-                                    <leftValue>{!$User.Profile.Name}</leftValue>
+                                    <leftValue>{!$Permission.StandardPermission.ActivateContract}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>System Administrator</rightValue>
+                                    <rightValue>true</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -271,6 +271,43 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>decorate</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>richTextValue</name>
+                    <value>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;Please note:&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;This contract has been cancelled!&lt;/span&gt;&lt;/p&gt;</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:richText</componentName>
+                <identifier>flexipage_richText</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.CancellationReason__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Changed to other product</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.CancellationReason__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Lost to competitor</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.CancellationReason__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Not using the product anymore</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.CancellationReason__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Unknown</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>

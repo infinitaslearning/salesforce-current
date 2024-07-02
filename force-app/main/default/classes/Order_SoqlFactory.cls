@@ -583,7 +583,7 @@ public with sharing class Order_SoqlFactory {
 
        PricingBatchTriggerRules__mdt[] PricingBatchTriggerRules = [Select CustomDate__c,	IsActive__c from PricingBatchTriggerRules__mdt where IsActive__c =: true   limit 1];
 
-        if(PricingBatchTriggerRules.size()>0){
+        if(PricingBatchTriggerRules.size()>0 && (Type == 'Pricebookentrycreate' || Type == 'UpdatePricingfromProduct')){
             CurDate = PricingBatchTriggerRules[0].CustomDate__c;
         }
         else{

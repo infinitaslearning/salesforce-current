@@ -70,19 +70,19 @@
             <label>Noordhoff</label>
         </rules>
         <rules>
-            <name>Noordhoff_Professional</name>
+            <name>Noordhoff_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>sov_Case.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_queue_Noordhoff_Professional</targetReference>
+                <targetReference>Get_queue_Noordhoff_Zorg</targetReference>
             </connector>
-            <label>Noordhoff Professional</label>
+            <label>Noordhoff Zorg</label>
         </rules>
         <rules>
             <name>Liber</name>
@@ -192,8 +192,8 @@
         <queriedFields>Id</queriedFields>
     </recordLookups>
     <recordLookups>
-        <name>Get_queue_Noordhoff_Professional</name>
-        <label>Get queue Noordhoff Professional</label>
+        <name>Get_queue_Noordhoff_Zorg</name>
+        <label>Get queue Noordhoff Zorg</label>
         <locationX>314</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
@@ -205,7 +205,7 @@
             <field>DeveloperName</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>NoordhoffProfessionalKnowledge</stringValue>
+                <stringValue>NoordhoffZorgKnowledge</stringValue>
             </value>
         </filters>
         <object>Group</object>

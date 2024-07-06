@@ -53,7 +53,7 @@ public class ACC_AccountHelper {
             if (acc.Name.length() > 83) {
                 acc.addError('The account name can not be longer that 83 characters');
             } else if (acc.OperatingCompany__c != 'Liber') {
-                acc.PackingSlipName__c = acc.Name.length() < 45 ? acc.Name : returnShortAccountName(acc.Name, 45);  
+                acc.PackingSlipName__c = acc.Name.length() <= 45 ? acc.Name : returnShortAccountName(acc.Name, 45);
             } else {
                 acc.PackingSlipName__c = acc.Name;
             }

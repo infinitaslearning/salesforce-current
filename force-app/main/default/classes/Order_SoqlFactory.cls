@@ -182,6 +182,9 @@ public with sharing class Order_SoqlFactory {
          +' ContractId,'  
          + 'CurrencyIsoCode,'
          +' CustomerReference__c, '
+         + 'Courier__c,'  
+         + 'CourierInformation__c,'
+        + ' DeliveryRouting__c,'
          +' DigitalActivationEmail__c,  ' 
          +' DeliveryEmail__c, '
          +' DeliveryPhone__c, ' 
@@ -577,6 +580,15 @@ public with sharing class Order_SoqlFactory {
     
        String Querystr;
        Date CurDate = system.today();
+
+       PricingBatchTriggerRules__mdt[] PricingBatchTriggerRules = [Select CustomDate__c,	IsActive__c from PricingBatchTriggerRules__mdt where IsActive__c =: true   limit 1];
+
+        if(PricingBatchTriggerRules.size()>0 && (Type == 'Pricebookentrycreate' || Type == 'UpdatePricingfromProduct')){
+            CurDate = PricingBatchTriggerRules[0].CustomDate__c;
+        }
+        else{
+            CurDate  = system.today();
+        }
         
        Querystr =  'Select id,'
        +' ListRate__c,' 

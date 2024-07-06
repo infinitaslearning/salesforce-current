@@ -3,7 +3,7 @@
     <fullName>Default_AutoConvert_CustomerRelationship__c</fullName>
     <description>This is the default value that will be set on the Customer Relationship field the Opportunity when the Opportunity is created during the auto convert process.</description>
     <externalId>false</externalId>
-    <formula>IF(ISPICKVAL(OperatingCompany__c , &apos;Noordhoff Professional&apos;), &apos;New Business&apos;, &apos;&apos;)</formula>
+    <formula>IF(ISPICKVAL(OperatingCompany__c , &apos;Noordhoff Zorg&apos;), &apos;New Business&apos;, &apos;&apos;)</formula>
     <label>Default AutoConvert CustomerRelationship</label>
     <required>false</required>
     <trackHistory>false</trackHistory>

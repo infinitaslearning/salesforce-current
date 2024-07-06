@@ -2,8 +2,8 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>NH_Prof_Email_Phone_or_Mobile_Filled</fullName>
     <active>true</active>
-    <description>When a Lead with Operating Company &apos;Noordhoff Professional&apos; is created, either Email, Phone or Mobile should be filled (at least 1 of 3)</description>
-    <errorConditionFormula>IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff Professional&quot;),
+    <description>When a Lead with Operating Company &apos;Noordhoff Zorg&apos; is created, either Email, Phone or Mobile should be filled (at least 1 of 3)</description>
+    <errorConditionFormula>IF(ISPICKVAL(OperatingCompany__c, &quot;Noordhoff Zorg&quot;),
 		AND(ISBLANK(Email), 
  ISBLANK(MobilePhone),  
 	ISBLANK(Phone)), false)</errorConditionFormula>

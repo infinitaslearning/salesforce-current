@@ -4,7 +4,7 @@
     <defaultValue>IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Plantyn&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
 IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Liber&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
 IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;Yes&quot;,
-IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Professional&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;No&quot;,
+IF(AND(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Zorg&quot;), $RecordType.DeveloperName = &apos;B2BNonEducational&apos;), &quot;No&quot;,
 &quot;&quot;))))</defaultValue>
     <description>Picklist field to indicate whether a VAT Number is required</description>
     <externalId>false</externalId>

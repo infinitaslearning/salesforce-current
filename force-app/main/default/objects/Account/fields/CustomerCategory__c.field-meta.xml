@@ -215,16 +215,6 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Medical Institution - Care</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Medical Institution - Cure</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>Tender Distributor</valueName>
         </valueSettings>
         <valueSettings>
@@ -240,8 +230,12 @@
             <valueName>Internal</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Noordhoff Professional</controllingFieldValue>
-            <valueName>Medical Institution</valueName>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Medical Institution - Care</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Medical Institution - Cure</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

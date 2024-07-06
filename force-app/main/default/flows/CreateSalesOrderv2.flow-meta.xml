@@ -69,8 +69,8 @@
     <assignments>
         <name>Assign_New_StartByDate</name>
         <label>Assign New StartByDate</label>
-        <locationX>1729</locationX>
-        <locationY>3474</locationY>
+        <locationX>1727</locationX>
+        <locationY>3477</locationY>
         <assignmentItems>
             <assignToReference>varOrderStartDate</assignToReference>
             <operator>Assign</operator>
@@ -107,7 +107,7 @@
             <assignToReference>getPricebooks_var</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getProfessionalPricebook</elementReference>
+                <elementReference>getZorgPricebook</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -130,7 +130,7 @@
             <assignToReference>getPricebooks_var</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getNonProfPricebook</elementReference>
+                <elementReference>getNonZorgPricebook</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -314,8 +314,8 @@
         <description>We need to assign different methods for different billto&apos;s</description>
         <name>assignBillToMethods</name>
         <label>assignBillToMethods</label>
-        <locationX>2314</locationX>
-        <locationY>2253</locationY>
+        <locationX>2383</locationX>
+        <locationY>1996</locationY>
         <assignmentItems>
             <assignToReference>varShippingCostMethod</assignToReference>
             <operator>Assign</operator>
@@ -738,8 +738,8 @@
     <assignments>
         <name>assignDefaultPricing</name>
         <label>assignDefaultPricing</label>
-        <locationX>1252</locationX>
-        <locationY>3555</locationY>
+        <locationX>1285</locationX>
+        <locationY>3576</locationY>
         <assignmentItems>
             <assignToReference>varPricingMethod</assignToReference>
             <operator>Assign</operator>
@@ -1246,8 +1246,8 @@
     <assignments>
         <name>assignPricingMethod</name>
         <label>assignPricingMethod</label>
-        <locationX>1174</locationX>
-        <locationY>3716</locationY>
+        <locationX>1207</locationX>
+        <locationY>3737</locationY>
         <assignmentItems>
             <assignToReference>varPricingMethod</assignToReference>
             <operator>Assign</operator>
@@ -1351,8 +1351,8 @@
     <assignments>
         <name>assignUseWarehouseRefference</name>
         <label>assignUseWarehouseRefference</label>
-        <locationX>1607</locationX>
-        <locationY>2696</locationY>
+        <locationX>1606</locationX>
+        <locationY>2702</locationY>
         <assignmentItems>
             <assignToReference>useWarehouseReference</assignToReference>
             <operator>Assign</operator>
@@ -1365,26 +1365,10 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assignUseWarehouseRefferenceContract</name>
-        <label>assignUseWarehouseRefference</label>
-        <locationX>2647</locationX>
-        <locationY>2254</locationY>
-        <assignmentItems>
-            <assignToReference>useWarehouseReference</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Info.WarehouseReferenceActive__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>assignBillToMethods</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>assignVarNumberOfRelatedAccounts</name>
         <label>assignVarNumberOfRelatedAccounts</label>
-        <locationX>2162</locationX>
-        <locationY>2641</locationY>
+        <locationX>2166</locationX>
+        <locationY>2645</locationY>
         <assignmentItems>
             <assignToReference>varNumberOfRelatedAccounts</assignToReference>
             <operator>AssignCount</operator>
@@ -1489,8 +1473,8 @@
     <assignments>
         <name>WarehouseReferenceActive_True</name>
         <label>WarehouseReferenceActive True</label>
-        <locationX>1852</locationX>
-        <locationY>2679</locationY>
+        <locationX>1851</locationX>
+        <locationY>2668</locationY>
         <assignmentItems>
             <assignToReference>useWarehouseReference</assignToReference>
             <operator>Assign</operator>
@@ -1736,8 +1720,8 @@
     <decisions>
         <name>ContractShipBy_ContractStartDate</name>
         <label>ContractShipBy &gt; ContractStartDate</label>
-        <locationX>1591</locationX>
-        <locationY>3690</locationY>
+        <locationX>1615</locationX>
+        <locationY>3676</locationY>
         <defaultConnector>
             <targetReference>Selected_Accounts_Overwritten</targetReference>
         </defaultConnector>
@@ -2152,38 +2136,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>decisionObjectName_0</name>
-        <label>Decide on object name</label>
-        <locationX>2149</locationX>
-        <locationY>1987</locationY>
-        <defaultConnector>
-            <targetReference>assignBillToMethods</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>IsContract</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varObjectName</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Contract</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Get_Account_Info</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Account_Info</targetReference>
-            </connector>
-            <label>IsContract</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>decisionStandAloneOrder</name>
         <label>decisionStandAloneOrder</label>
         <locationX>2169</locationX>
@@ -2408,8 +2360,8 @@
     <decisions>
         <name>Found_Discount_Group_Pricing_Method</name>
         <label>Found Discount Group Pricing Method</label>
-        <locationX>1060</locationX>
-        <locationY>3276</locationY>
+        <locationX>1093</locationX>
+        <locationY>3297</locationY>
         <defaultConnector>
             <targetReference>LoopOrderPricingMdt</targetReference>
         </defaultConnector>
@@ -2762,13 +2714,13 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>getAccountDetails.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -2814,9 +2766,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>getProfessionalPricebook</targetReference>
+                <targetReference>getZorgPricebook</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
         <rules>
             <name>Noordhoff</name>
@@ -2871,7 +2823,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>getNonProfPricebook</targetReference>
+                <targetReference>getNonZorgPricebook</targetReference>
             </connector>
             <label>Noordhoff</label>
         </rules>
@@ -2943,8 +2895,8 @@
     <decisions>
         <name>Set_Warehouse_Reference_Active</name>
         <label>Set Warehouse Reference Active</label>
-        <locationX>1741</locationX>
-        <locationY>2582</locationY>
+        <locationX>1757</locationX>
+        <locationY>2577</locationY>
         <defaultConnector>
             <targetReference>assignUseWarehouseRefference</targetReference>
         </defaultConnector>
@@ -3145,7 +3097,7 @@
 20221125: CH changed flow to run in system context
 20221201: MV changed flow to run in system context with sharing
 20221202: CH added OpCo filter for pricebooks
-20221213: DB modified pricebook selection to include (NH) Professional if applicable
+20221213: DB modified pricebook selection to include (NH) Zorg if applicable
 20230324: CH added delivery email and delivery phone
 20230329: DB added Order Notification Email 2 input and assignment to Order
 20230404: CH added new logic around delivery email and phone
@@ -3253,6 +3205,7 @@
         <expression>IF(ISBLANK({!varDeliveryPhone}), {!getFinalShipTo.Phone}, {!varDeliveryPhone})</expression>
     </formulas>
     <formulas>
+        <description>defaulted to current date</description>
         <name>formShipByDate</name>
         <dataType>Date</dataType>
         <expression>today()</expression>
@@ -3296,8 +3249,8 @@
     <loops>
         <name>LoopOrderPricingMdt</name>
         <label>LoopOrderPricingMdt</label>
-        <locationX>1315</locationX>
-        <locationY>3284</locationY>
+        <locationX>1348</locationX>
+        <locationY>3305</locationY>
         <collectionReference>GetOrderPricingTableMdt</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -3967,27 +3920,6 @@
         <object>Order</object>
     </recordCreates>
     <recordLookups>
-        <name>Get_Account_Info</name>
-        <label>Get Account Info</label>
-        <locationX>2647</locationX>
-        <locationY>1974</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>assignUseWarehouseRefferenceContract</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>varAccountId</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Account</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <description>Gets the current account details.</description>
         <name>getAccountDetails</name>
         <label>getAccountDetails</label>
@@ -4019,7 +3951,7 @@
         <locationY>1996</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>decisionObjectName_0</targetReference>
+            <targetReference>assignBillToMethods</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -4124,8 +4056,8 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>getNonProfPricebook</name>
-        <label>getNonProfPricebook</label>
+        <name>getNonZorgPricebook</name>
+        <label>getNonZorgPricebook</label>
         <locationX>1633</locationX>
         <locationY>2952</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
@@ -4266,56 +4198,11 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>getProfessionalPricebook</name>
-        <label>getProfessionalPricebook</label>
-        <locationX>1453</locationX>
-        <locationY>2839</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Assign_Pricebook1</targetReference>
-        </connector>
-        <faultConnector>
-            <targetReference>Error</targetReference>
-        </faultConnector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>IsActive</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Subsidiary__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>getAccountDetails.OperatingCompany__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>PricebookType__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Professional</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>PricingMethod__c</field>
-            <operator>IsNull</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Pricebook2</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <description>Gets accounts that are related via ParentId, SalesAccount__c or PurchasingGroup__c</description>
         <name>getRelatedAccounts</name>
         <label>getRelatedAccounts</label>
-        <locationX>2041</locationX>
-        <locationY>2699</locationY>
+        <locationX>2037</locationX>
+        <locationY>2694</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>assignVarNumberOfRelatedAccounts</targetReference>
@@ -4424,6 +4311,51 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getZorgPricebook</name>
+        <label>getZorgPricebook</label>
+        <locationX>1453</locationX>
+        <locationY>2839</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Pricebook1</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subsidiary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getAccountDetails.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PricebookType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Professional</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>PricingMethod__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Pricebook2</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
@@ -4763,8 +4695,8 @@
     <screens>
         <name>screenOrderDetails</name>
         <label>Order Details</label>
-        <locationX>1442</locationX>
-        <locationY>3689</locationY>
+        <locationX>1465</locationX>
+        <locationY>3673</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -5730,7 +5662,7 @@
             <inputParameters>
                 <name>columns</name>
                 <value>
-                    <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-88ea&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Account Name&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;NetsuiteCustomerNumber__c&quot;,&quot;guid&quot;:&quot;column-830d&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;NetSuite Customer Number&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingStreet&quot;,&quot;guid&quot;:&quot;column-c038&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:2,&quot;label&quot;:&quot;Shipping Street&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingCity&quot;,&quot;guid&quot;:&quot;column-eba1&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:3,&quot;label&quot;:&quot;Shipping City&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingPostalCode&quot;,&quot;guid&quot;:&quot;column-23a7&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:4,&quot;label&quot;:&quot;Shipping Zip/Postal Code&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ExternalCustomerId__c&quot;,&quot;guid&quot;:&quot;column-ee56&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:5,&quot;label&quot;:&quot;External Customer ID&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;WarehouseReference__c&quot;,&quot;guid&quot;:&quot;column-c784&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:6,&quot;label&quot;:&quot;Warehouse Reference&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
+                    <stringValue>[{&quot;apiName&quot;:&quot;Name&quot;,&quot;guid&quot;:&quot;column-88ea&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:0,&quot;label&quot;:&quot;Account Name&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;NetsuiteCustomerNumber__c&quot;,&quot;guid&quot;:&quot;column-830d&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:1,&quot;label&quot;:&quot;NetSuite Customer Number&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingStreet&quot;,&quot;guid&quot;:&quot;column-c038&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:2,&quot;label&quot;:&quot;Shipping Street&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingCity&quot;,&quot;guid&quot;:&quot;column-eba1&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:3,&quot;label&quot;:&quot;Shipping City&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ShippingPostalCode&quot;,&quot;guid&quot;:&quot;column-23a7&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:4,&quot;label&quot;:&quot;Shipping Zip/Postal Code&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;ExternalCustomerId__c&quot;,&quot;guid&quot;:&quot;column-ee56&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:5,&quot;label&quot;:&quot;External Customer ID&quot;,&quot;type&quot;:&quot;text&quot;},{&quot;apiName&quot;:&quot;WarehouseReference__c&quot;,&quot;guid&quot;:&quot;column-c163&quot;,&quot;editable&quot;:false,&quot;hasCustomHeaderLabel&quot;:false,&quot;customHeaderLabel&quot;:&quot;&quot;,&quot;wrapText&quot;:true,&quot;order&quot;:6,&quot;label&quot;:&quot;Warehouse Reference&quot;,&quot;type&quot;:&quot;text&quot;}]</stringValue>
                 </value>
             </inputParameters>
             <inputsOnNextNavToAssocScrn>ResetValues</inputsOnNextNavToAssocScrn>

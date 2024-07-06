@@ -616,6 +616,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Tender 0%25 discount</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Tender 10%25 discount</fullName>
             <default>false</default>
         </values>

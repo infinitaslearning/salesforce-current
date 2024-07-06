@@ -65,7 +65,7 @@
         if(OrderId == undefined || OrderId == null){
             OrderId =  component.get("v.recordId");
         }
-
+ 
         var OrderItems = component.get("v.OrderItemList");  
         
         var action = component.get("c.InsertOrderItems");
@@ -79,7 +79,7 @@
     
 //OPPORTUNITY
     var errorrequired=false;   
-    if((IsOpportunity == true && IsPricebookName == 'Professional') || IsPricebookName == 'Professional'){
+    if((IsOpportunity == true && IsPricebookName == 'Zorg') || IsPricebookName == 'Zorg'){
        for(var key in OrderItems){
           //  console.log('**OrderItems[key]**: OppTerms'+OrderItems[key].OppTerms);
          //  console.log('**OrderItems[key]**: OppServiceDate'+OrderItems[key].OppServiceDate); 
@@ -918,7 +918,7 @@
 
                         tmpUnit =  (tmpUnit*(parseFloat(fullOrderList[key].ProRataRate))).toFixed(2);
                         console.log('****ListPriceChangeProduct:ProRataRate:UnitPrice **'+tmpUnit);
-                        tmpAmountt =  tmpUnit * fullOrderList[key].Quantity;
+                        tmpAmount =  tmpUnit * fullOrderList[key].Quantity;
                     }
 
                     //Check after Manual discount

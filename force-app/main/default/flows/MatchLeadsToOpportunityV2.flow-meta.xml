@@ -5,7 +5,7 @@
         <name>AssignOpportunityId</name>
         <label>Assign Opportunity ID</label>
         <locationX>402</locationX>
-        <locationY>1406</locationY>
+        <locationY>1250</locationY>
         <assignmentItems>
             <assignToReference>varOpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -28,7 +28,7 @@
         <name>AssignOpportunityProductId</name>
         <label>Assign Opportunity ID</label>
         <locationX>666</locationX>
-        <locationY>614</locationY>
+        <locationY>542</locationY>
         <assignmentItems>
             <assignToReference>varOpportunityId</assignToReference>
             <operator>Assign</operator>
@@ -51,7 +51,7 @@
         <name>AssignOpportunityToLead</name>
         <label>Assign Opportunity to Lead</label>
         <locationX>578</locationX>
-        <locationY>1718</locationY>
+        <locationY>1526</locationY>
         <assignmentItems>
             <assignToReference>sov_Lead.Opportunity__c</assignToReference>
             <operator>Assign</operator>
@@ -68,10 +68,10 @@
         </assignmentItems>
     </assignments>
     <decisions>
-        <name>Copy_1_of_Is_Lead_NH_Professional</name>
-        <label>Is Lead NH Professional</label>
+        <name>Copy_1_of_Is_Lead_NH_Zorg</name>
+        <label>Is Lead NH Zorg</label>
         <locationX>314</locationX>
-        <locationY>950</locationY>
+        <locationY>842</locationY>
         <defaultConnector>
             <targetReference>GetOpportunities</targetReference>
         </defaultConnector>
@@ -83,7 +83,7 @@
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -108,10 +108,10 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_Lead_NH_Professional</name>
-        <label>Is Lead NH Professional</label>
+        <name>Is_Lead_NH_Zorg</name>
+        <label>Is Lead NH Zorg</label>
         <locationX>578</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <defaultConnector>
             <targetReference>GetOpportunityProducts</targetReference>
         </defaultConnector>
@@ -123,7 +123,7 @@
                 <leftValueReference>sov_Lead.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -151,7 +151,7 @@
         <name>OpportunityProductMatch</name>
         <label>Opportunity Product Match?</label>
         <locationX>578</locationX>
-        <locationY>830</locationY>
+        <locationY>734</locationY>
         <defaultConnector>
             <targetReference>AssignOpportunityToLead</targetReference>
         </defaultConnector>
@@ -167,7 +167,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_1_of_Is_Lead_NH_Professional</targetReference>
+                <targetReference>Copy_1_of_Is_Lead_NH_Zorg</targetReference>
             </connector>
             <label>Opportunity Product Not Matched</label>
         </rules>
@@ -176,8 +176,8 @@
 
 15/03/2023 DB: Removed Get Leads element to reduce queries. Lead record is passed in.
                           Removed Update Lead element. Lead will be updated in parent flow.
-21/02/2023 CH: Added NH and Professional checks
-09/03/2023 CH: Updated lead professional checks</description>
+21/02/2023 CH: Added NH and Zorg checks
+09/03/2023 CH: Updated lead Zorg checks</description>
     <environments>Default</environments>
     <formulas>
         <name>forOpportunityMatchStatus</name>
@@ -192,7 +192,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>LoopOpportunities</name>
         <label>Loop Opportunities</label>
         <locationX>314</locationX>
-        <locationY>1286</locationY>
+        <locationY>1142</locationY>
         <collectionReference>OppRecords</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -206,7 +206,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>LoopOpportunityProducts</name>
         <label>Loop Opportunity Products</label>
         <locationX>578</locationX>
-        <locationY>494</locationY>
+        <locationY>434</locationY>
         <collectionReference>OppProducts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -239,7 +239,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>Copy_1_of_Get_Opportunities</name>
         <label>Get Opportunities</label>
         <locationX>314</locationX>
-        <locationY>1070</locationY>
+        <locationY>950</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunities</targetReference>
@@ -277,7 +277,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
             <field>OpportunityRecordTypeName__c</field>
             <operator>NotEqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>
@@ -290,7 +290,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>Copy_1_of_Get_Opportunity_Products</name>
         <label>Get Opportunity Products</label>
         <locationX>578</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunityProducts</targetReference>
@@ -341,7 +341,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>Copy_2_of_Get_Opportunities</name>
         <label>Get Opportunities</label>
         <locationX>50</locationX>
-        <locationY>1070</locationY>
+        <locationY>950</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunities</targetReference>
@@ -379,7 +379,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
             <field>OpportunityRecordTypeName__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>
@@ -392,7 +392,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>Copy_2_of_Get_Opportunity_Products</name>
         <label>Get Opportunity Products</label>
         <locationX>314</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunityProducts</targetReference>
@@ -443,7 +443,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>GetOpportunities</name>
         <label>Get Opportunities</label>
         <locationX>578</locationX>
-        <locationY>1070</locationY>
+        <locationY>950</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunities</targetReference>
@@ -501,7 +501,7 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <name>GetOpportunityProducts</name>
         <label>Get Opportunity Products</label>
         <locationX>842</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>LoopOpportunityProducts</targetReference>
@@ -566,10 +566,10 @@ IF({!varOpportunityCounter}&gt;1,&quot;Multiple results&quot;,&quot;Unknown&quot
         <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_Lead_NH_Professional</targetReference>
+            <targetReference>Is_Lead_NH_Zorg</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>OppProducts</name>
         <dataType>SObject</dataType>

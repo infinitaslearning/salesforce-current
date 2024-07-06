@@ -31,11 +31,6 @@
                 <label>Global Admin</label>
             </value>
             <value>
-                <fullName>Noordhoff Professional</fullName>
-                <default>false</default>
-                <label>Noordhoff Professional</label>
-            </value>
-            <value>
                 <fullName>Noordhoff Zorg</fullName>
                 <default>false</default>
                 <label>Noordhoff Zorg</label>

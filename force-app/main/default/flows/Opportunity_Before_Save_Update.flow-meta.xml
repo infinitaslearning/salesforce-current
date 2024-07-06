@@ -5,7 +5,7 @@
         <name>Count_Inactive_Products</name>
         <label>Count Inactive Products</label>
         <locationX>50</locationX>
-        <locationY>503</locationY>
+        <locationY>827</locationY>
         <assignmentItems>
             <assignToReference>$Record.Inactive_Product_Count__c</assignToReference>
             <operator>AssignCount</operator>
@@ -13,12 +13,35 @@
                 <elementReference>Get_Inactive_Products</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.DiscontinuedProductCount__c</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Discontinued_Products</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Count_Products_with_errors</name>
+        <label>Count Products with errors</label>
+        <locationX>710</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Validate_Opportunity_Products_Errors__c</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Products_with_errors</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>RecordType</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <name>Set_Amount</name>
         <label>Set Amount</label>
         <locationX>314</locationX>
-        <locationY>719</locationY>
+        <locationY>935</locationY>
         <assignmentItems>
             <assignToReference>$Record.Amount</assignToReference>
             <operator>Assign</operator>
@@ -30,8 +53,8 @@
     <decisions>
         <name>Can_we_calculate_the_amount</name>
         <label>Can we calculate the amount?</label>
-        <locationX>600</locationX>
-        <locationY>503</locationY>
+        <locationX>644</locationX>
+        <locationY>719</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -59,16 +82,16 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Amount</targetReference>
+                <targetReference>UpdateAmount</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Is_Opportunity_Open_or_Closed</name>
-        <label>Is Opportunity Open or Closed?</label>
-        <locationX>765</locationX>
-        <locationY>395</locationY>
+        <name>Is_Opportunity_Open_or_closed</name>
+        <label>Is Opportunity Open or closed?</label>
+        <locationX>875</locationX>
+        <locationY>611</locationY>
         <defaultConnectorLabel>Closed</defaultConnectorLabel>
         <rules>
             <name>Open</name>
@@ -87,25 +110,25 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Is_Professional</name>
-        <label>Is Professional</label>
-        <locationX>578</locationX>
-        <locationY>287</locationY>
+        <name>RecordType</name>
+        <label>RecordType</label>
+        <locationX>710</locationX>
+        <locationY>503</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.RecordType.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Get_Inactive_Products</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
         <rules>
             <name>Noordhoff_BAO</name>
@@ -118,19 +141,19 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Is_Opportunity_Open_or_Closed</targetReference>
+                <targetReference>Is_Opportunity_Open_or_closed</targetReference>
             </connector>
             <label>Noordhoff BAO</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Update_Amount</name>
+        <name>UpdateAmount</name>
         <label>Update Amount?</label>
         <locationX>446</locationX>
-        <locationY>611</locationY>
+        <locationY>827</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
-            <name>Yes_CalculateAmount</name>
+            <name>Yes_updateAmount</name>
             <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.PricePerPupil__c</leftValueReference>
@@ -159,6 +182,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
+    <description>JK 2024/6/7 - Added Amount calculation for BAO</description>
     <environments>Default</environments>
     <formulas>
         <name>IsNew</name>
@@ -193,13 +217,41 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Inactive_Products</name>
-        <label>Get Inactive Products</label>
+        <name>Get_Discontinued_Products</name>
+        <label>Get Discontinued Products</label>
         <locationX>50</locationX>
-        <locationY>395</locationY>
+        <locationY>719</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Count_Inactive_Products</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ProductDeliveryStatus__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Discontinued</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Inactive_Products</name>
+        <label>Get Inactive Products</label>
+        <locationX>50</locationX>
+        <locationY>611</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Discontinued_Products</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -220,15 +272,43 @@
         <object>OpportunityLineItem</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Products_with_errors</name>
+        <label>Get Products with errors</label>
+        <locationX>710</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Products_with_errors</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OpportunityId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ValidateOpportunityProduct__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>OpportunityLineItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
-        <locationX>452</locationX>
+        <locationX>584</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_Professional</targetReference>
+            <targetReference>Get_Products_with_errors</targetReference>
         </connector>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
 </Flow>

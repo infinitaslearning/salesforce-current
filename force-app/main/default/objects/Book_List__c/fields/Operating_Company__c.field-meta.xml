@@ -12,19 +12,24 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>Liber</fullName>
+                <default>false</default>
+                <label>Liber</label>
+            </value>
+            <value>
                 <fullName>Noordhoff</fullName>
                 <default>false</default>
                 <label>Noordhoff</label>
             </value>
             <value>
+                <fullName>Noordhoff Zorg</fullName>
+                <default>false</default>
+                <label>Noordhoff Zorg</label>
+            </value>
+            <value>
                 <fullName>Plantyn</fullName>
                 <default>false</default>
                 <label>Plantyn</label>
-            </value>
-            <value>
-                <fullName>Liber</fullName>
-                <default>false</default>
-                <label>Liber</label>
             </value>
         </valueSetDefinition>
     </valueSet>

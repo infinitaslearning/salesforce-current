@@ -4,8 +4,8 @@
     <defaultValue>IF(ISPICKVAL($User.OperatingCompany__c, &quot;Plantyn&quot;), &quot;Plantyn&quot;,
 IF(ISPICKVAL($User.OperatingCompany__c, &quot;Liber&quot;), &quot;Liber&quot;,
 IF(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff&quot;), &quot;Noordhoff&quot;,
-IF(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Professional&quot;), &quot;Noordhoff&quot;,
-&quot;&quot;))))</defaultValue>
+IF(ISPICKVAL($User.OperatingCompany__c, &quot;Noordhoff Zorg&quot;), &quot;Noordhoff Zorg&quot;,
+			&quot;&quot;))))</defaultValue>
     <externalId>false</externalId>
     <label>Operating Company</label>
     <required>true</required>

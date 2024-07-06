@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>CommunicationLanguage__c</fullName>
-    <defaultValue>IF(OR(ISPICKVAL($User.OperatingCompany__c , &apos;Noordhoff&apos;),ISPICKVAL($User.OperatingCompany__c , &apos;Noordhoff Professional&apos;)), &apos;nl_NL&apos;,
+    <defaultValue>IF(OR(ISPICKVAL($User.OperatingCompany__c , &apos;Noordhoff&apos;),ISPICKVAL($User.OperatingCompany__c , &apos;Noordhoff Zorg&apos;)), &apos;nl_NL&apos;,
 IF(ISPICKVAL($User.OperatingCompany__c , &apos;Liber&apos;), &apos;sv_SE&apos;, &apos;&apos;))</defaultValue>
     <externalId>false</externalId>
     <inlineHelpText>All order confirmations, quotes and invoices will be sent based on this language.</inlineHelpText>

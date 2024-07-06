@@ -13,8 +13,13 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>Infinitas Learning</fullName>
+                <default>false</default>
+                <label>Infinitas Learning</label>
+            </value>
+            <value>
                 <fullName>Liber</fullName>
-                <default>true</default>
+                <default>false</default>
                 <label>Liber</label>
             </value>
             <value>
@@ -23,14 +28,14 @@
                 <label>Noordhoff</label>
             </value>
             <value>
+                <fullName>Noordhoff Zorg</fullName>
+                <default>false</default>
+                <label>Noordhoff Zorg</label>
+            </value>
+            <value>
                 <fullName>Plantyn</fullName>
                 <default>false</default>
                 <label>Plantyn</label>
-            </value>
-            <value>
-                <fullName>Infinitas Learning</fullName>
-                <default>false</default>
-                <label>Infinitas Learning</label>
             </value>
         </valueSetDefinition>
     </valueSet>

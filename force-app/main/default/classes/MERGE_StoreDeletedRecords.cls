@@ -257,10 +257,9 @@ global class MERGE_StoreDeletedRecords implements dupcheck.dc3Plugin.InterfaceMe
     
    //POST ACCOUNT MERGE UPDATES ON MASTER ACCOUNT
     public static void postMergeAccountUpdates(Sobject masterRecord){
-        Account masterAccount = [SELECT Id, MergeToRecordId__c, Merge_Schedule_Job__c  FROM Account WHERE Id =: masterRecord.Id];
+        Account masterAccount = [SELECT Id, MergeToRecordId__c  FROM Account WHERE Id =: masterRecord.Id];
         if(String.isNotBlank(masterAccount.MergeToRecordId__c)){
             masterAccount.MergeToRecordId__c = '';
-            masterAccount.Merge_Schedule_Job__c = false;
             try{
                 update masterAccount;
                 System.debug('postMergeAccountUpdates masterAccount Id: ' + masterAccount.Id);

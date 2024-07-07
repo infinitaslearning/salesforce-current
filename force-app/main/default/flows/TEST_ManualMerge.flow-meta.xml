@@ -323,7 +323,7 @@
             <targetReference>Get_Master_Account</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>accountsRecordIdCollection</name>
         <dataType>String</dataType>

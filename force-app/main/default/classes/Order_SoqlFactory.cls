@@ -835,7 +835,7 @@ public with sharing class Order_SoqlFactory {
           //  + 'AND Contract__c =null';  
         }
        
-        Querystr += ' Order BY PriceBook__c,PricingMethod__c,AccountId '; 
+        Querystr += ' Order BY PriceBook__c ASC,PricingMethod__c ASC,AccountId ASC'; 
 
         system.debug('**Order_SoqlFactory.returnasset :querystr**'+querystr);
         Asset[] lst_Asset =  Database.query(querystr);

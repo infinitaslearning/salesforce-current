@@ -544,10 +544,6 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Reseller 3%25</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Reseller 5%25</fullName>
             <default>false</default>
         </values>
@@ -593,6 +589,10 @@
         </values>
         <values>
             <fullName>Teacher</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tender 0%25 discount</fullName>
             <default>false</default>
         </values>
         <values>

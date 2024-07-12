@@ -539,7 +539,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>decIsProfessional</targetReference>
+            <targetReference>decIsZorg</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -551,7 +551,7 @@
             <assignToReference>getContract.OperatingCompany__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Noordhoff Professional</stringValue>
+                <stringValue>Noordhoff Zorg</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -740,8 +740,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>decIsProfessional</name>
-        <label>decIsProfessional</label>
+        <name>decIsZorg</name>
+        <label>decIsZorg</label>
         <locationX>2022</locationX>
         <locationY>1244</locationY>
         <defaultConnector>
@@ -749,7 +749,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional</name>
+            <name>Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>frmCheckPricebook</leftValueReference>
@@ -761,12 +761,12 @@
             <connector>
                 <targetReference>assNewContractStatus_0</targetReference>
             </connector>
-            <label>Professional</label>
+            <label>Zorg</label>
         </rules>
     </decisions>
     <decisions>
-        <name>decIsProfessional_0</name>
-        <label>decIsProfessional</label>
+        <name>decIsZorg_0</name>
+        <label>decIsZorg</label>
         <locationX>817</locationX>
         <locationY>1349</locationY>
         <defaultConnector>
@@ -774,7 +774,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>IsProfessionalOrder</name>
+            <name>IsZorgOrder</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>frmCheckPricebook</leftValueReference>
@@ -786,12 +786,12 @@
             <connector>
                 <targetReference>updateNewOrder</targetReference>
             </connector>
-            <label>IsProfessionalOrder</label>
+            <label>IsZorgOrder</label>
         </rules>
     </decisions>
     <decisions>
-        <name>decIsProfessional_0_0</name>
-        <label>decIsProfessional</label>
+        <name>decIsZorg_0_0</name>
+        <label>decIsZorg</label>
         <locationX>852</locationX>
         <locationY>383</locationY>
         <defaultConnector>
@@ -799,7 +799,7 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Professional_MBO_HBO_User</name>
+            <name>Zorg_MBO_HBO_User</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>frmCheckPricebook</leftValueReference>
@@ -812,13 +812,13 @@
                 <leftValueReference>$UserRole.Name</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Professional MBO HBO Sales User</stringValue>
+                    <stringValue>Noordhoff Zorg MBO HBO Sales User</stringValue>
                 </rightValue>
             </conditions>
-            <label>Professional MBO/HBO User</label>
+            <label>Zorg MBO/HBO User</label>
         </rules>
         <rules>
-            <name>IsProfessionalOrder_0</name>
+            <name>IsZorgOrder_0</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>frmCheckPricebook</leftValueReference>
@@ -830,17 +830,17 @@
             <connector>
                 <targetReference>createContract</targetReference>
             </connector>
-            <label>IsProfessionalOrder</label>
+            <label>IsZorgOrder</label>
         </rules>
     </decisions>
     <decisions>
-        <name>decIsProfessional_0_0_0</name>
-        <label>decIsProfessional</label>
+        <name>decIsZorg_0_0_0</name>
+        <label>decIsZorg</label>
         <locationX>1499</locationX>
         <locationY>1156</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>IsProfessionalOrder_0_0</name>
+            <name>IsZorgOrder_0_0</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>frmCheckPricebook</leftValueReference>
@@ -852,7 +852,7 @@
             <connector>
                 <targetReference>getContract</targetReference>
             </connector>
-            <label>IsProfessionalOrder</label>
+            <label>IsZorgOrder</label>
         </rules>
     </decisions>
     <decisions>
@@ -881,7 +881,7 @@
         </rules>
     </decisions>
     <description>CH 25/04/2023 - Added reference assignment
-DB 30/05/2023 - Updated entry criteria to only allow NH Professional Opportunities to trigger the process
+DB 30/05/2023 - Updated entry criteria to only allow NH Zorg Opportunities to trigger the process
 DB 30/05/2023 - Updated BillTo assignment if there&apos;s a default on the Account
 DB 12/06/2023 - Added CustomerRef assignment for order item</description>
     <environments>Default</environments>
@@ -898,7 +898,7 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
     <formulas>
         <name>frmCheckPricebook</name>
         <dataType>Boolean</dataType>
-        <expression>IF(CONTAINS({!$Record.Pricebook2.Name}, &apos;Professional&apos;), True, false)</expression>
+        <expression>IF(CONTAINS({!$Record.Pricebook2.Name}, &apos;Zorg&apos;), True, false)</expression>
     </formulas>
     <formulas>
         <name>frmContractTerms</name>
@@ -1108,7 +1108,7 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
         <locationY>1373</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>decIsProfessional_0</targetReference>
+            <targetReference>decIsZorg_0</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1157,7 +1157,7 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
         <locationX>1403</locationX>
         <locationY>1292</locationY>
         <connector>
-            <targetReference>decIsProfessional_0_0_0</targetReference>
+            <targetReference>decIsZorg_0_0_0</targetReference>
         </connector>
         <inputReference>getOrdertoUpdate</inputReference>
     </recordUpdates>
@@ -1165,7 +1165,7 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
         <locationX>304</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>decIsProfessional_0_0</targetReference>
+            <targetReference>decIsZorg_0_0</targetReference>
         </connector>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
@@ -1180,7 +1180,7 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
             <field>OpportunityRecordTypeName__c</field>
             <operator>Contains</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>

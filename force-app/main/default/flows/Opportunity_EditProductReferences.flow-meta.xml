@@ -130,7 +130,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_PlantynNoorhoff</name>
-            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 OR (4 AND 5))</conditionLogic>
             <conditions>
                 <leftValueReference>Loop_through_products_Char_Limit.CustomerReference__c</leftValueReference>
                 <operator>IsNull</operator>
@@ -150,6 +150,20 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Noordhoff</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_through_products_Char_Limit.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_through_products_Char_Limit.Product2.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Inventory Item</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -239,10 +253,10 @@
     <formulas>
         <name>referenceMax</name>
         <dataType>String</dataType>
-        <expression>IF(OR(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Plantyn&apos;), AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Noordhoff&apos;), NOT(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Professional&apos;)))), &apos;10&apos;,
+        <expression>IF(OR(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Plantyn&apos;), AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Noordhoff&apos;), NOT(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Zorg&apos;)))), &apos;10&apos;,
 IF(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Liber&apos;),&apos;35&apos;, 
-IF(AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Professional&apos;), {!Get_Opportunity.InventoryItemCount__c} &gt; 0), &apos;10&apos;, 
-IF(AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Professional&apos;), OR({!Get_Opportunity.InventoryItemCount__c} = 0, ISBLANK({!Get_Opportunity.InventoryItemCount__c}))), &apos;255&apos;, &apos;45&apos;))))</expression>
+IF(AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Zorg&apos;), {!Get_Opportunity.InventoryItemCount__c} &gt; 0), &apos;10&apos;, 
+IF(AND(CONTAINS({!Get_Opportunity.Pricebook2.Name}, &apos;Zorg&apos;), OR({!Get_Opportunity.InventoryItemCount__c} = 0, ISBLANK({!Get_Opportunity.InventoryItemCount__c}))), &apos;255&apos;, &apos;45&apos;))))</expression>
     </formulas>
     <interviewLabel>Opportunity_EditProductReferences {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity_EditProductReferences</label>

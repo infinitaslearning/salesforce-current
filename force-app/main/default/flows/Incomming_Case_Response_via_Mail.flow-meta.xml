@@ -5,7 +5,7 @@
         <description>Assignment to update the Case Owner to Knowledge Help queue</description>
         <name>Set_owner_to_Knowledge</name>
         <label>Set owner to Knowledge Help</label>
-        <locationX>182</locationX>
+        <locationX>94</locationX>
         <locationY>1271</locationY>
         <assignmentItems>
             <assignToReference>Get_Case.OwnerId</assignToReference>
@@ -243,12 +243,27 @@
             </connector>
             <label>Plantyn</label>
         </rules>
+        <rules>
+            <name>NoordhoffZorg</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case</targetReference>
+            </connector>
+            <label>Noordhoff Zorg</label>
+        </rules>
     </decisions>
     <decisions>
         <description>To check if the owner of the Case is one of the &apos;Openstaande Klantvragen&apos; queues</description>
         <name>Owner_is_Openstaande_Klantvragen_queues</name>
         <label>Owner is Openstaande Klantvragen queues?</label>
-        <locationX>314</locationX>
+        <locationX>226</locationX>
         <locationY>1055</locationY>
         <defaultConnector>
             <targetReference>Update_Case</targetReference>
@@ -373,7 +388,7 @@
     <recordLookups>
         <name>Get_Knowledge_Help_queue_id</name>
         <label>Get Knowledge Help queue id</label>
-        <locationX>182</locationX>
+        <locationX>94</locationX>
         <locationY>1163</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>

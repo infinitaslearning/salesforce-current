@@ -3,7 +3,9 @@
     <fullName>Quantity__c</fullName>
     <defaultValue>IF ( ISPICKVAL($User.OperatingCompany__c, &apos;Plantyn&apos;), 2, 
 				IF ( ISPICKVAL($User.OperatingCompany__c, &apos;Noordhoff&apos;), 1,
-        IF ( ISPICKVAL($User.OperatingCompany__c, &apos;Liber&apos;), 1, null)
+        IF ( ISPICKVAL($User.OperatingCompany__c, &apos;Liber&apos;), 1,
+												IF ( ISPICKVAL($User.OperatingCompany__c, &apos;Noordhoff Zorg&apos;),1,null)
+												)
     )
 )</defaultValue>
     <externalId>false</externalId>

@@ -45,7 +45,7 @@
             <operator>Assign</operator>
         </assignmentItems>
         <connector>
-            <targetReference>Professional_Opp_Name_Check</targetReference>
+            <targetReference>Zorg_Opp_Name_Check</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -333,15 +333,15 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assRecordTypeProf</name>
-        <label>assRecordTypeProf</label>
+        <name>assRecordTypeZorg</name>
+        <label>assRecordTypeZorg</label>
         <locationX>1525</locationX>
         <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>OppRecordTypeId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getProfessionalRecordTypeId.Id</elementReference>
+                <elementReference>getZorgRecordTypeId.Id</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -355,7 +355,7 @@
             <assignToReference>NewOpportunity.RecordTypeId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>getProfessionalRecordTypeId.Id</elementReference>
+                <elementReference>getZorgRecordTypeId.Id</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -430,19 +430,19 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>isProfessional</name>
+            <name>isZorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>PricebookName</leftValueReference>
                 <operator>Contains</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>getProfessionalRecordTypeId</targetReference>
+                <targetReference>getZorgRecordTypeId</targetReference>
             </connector>
-            <label>isProfessional</label>
+            <label>isZorg</label>
         </rules>
         <rules>
             <name>isLiber</name>
@@ -538,45 +538,13 @@
                 <leftValueReference>NewOpportunity.Pricebook2.Name</leftValueReference>
                 <operator>Contains</operator>
                 <rightValue>
-                    <stringValue>Professional</stringValue>
+                    <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Assign_Lead_Source_Required_Message</targetReference>
             </connector>
             <label>No</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Professional_Opp_Name_Check</name>
-        <label>Professional Opp Name Check</label>
-        <locationX>2173</locationX>
-        <locationY>1140</locationY>
-        <defaultConnector>
-            <targetReference>assOpportunity_0</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Name_length_80</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>OppProfessionalNameLimitExceeded</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>OpportunityNameErrorScreen</targetReference>
-            </connector>
-            <label>Name length &gt; 80</label>
         </rules>
     </decisions>
     <decisions>
@@ -589,20 +557,13 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>NH_Professional</name>
+            <name>NH_Zorg</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>getAccount.OperatingCompany__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <stringValue>Noordhoff Zorg</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -643,7 +604,7 @@
             <connector>
                 <targetReference>getPricebook_0</targetReference>
             </connector>
-            <label>NH Professional</label>
+            <label>NH Zorg</label>
         </rules>
         <rules>
             <name>Noordhoff</name>
@@ -668,6 +629,38 @@
             <label>Noordhoff</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Zorg_Opp_Name_Check</name>
+        <label>Zorg Opp Name Check</label>
+        <locationX>2173</locationX>
+        <locationY>1140</locationY>
+        <defaultConnector>
+            <targetReference>assOpportunity_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Name_length_80</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getAccount.isProfessional__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>OppZorgNameLimitExceeded</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>OpportunityNameErrorScreen</targetReference>
+            </connector>
+            <label>Name length &gt; 80</label>
+        </rules>
+    </decisions>
     <description>15/11/2023 CH: Made Lead Source available and required
 20232012: CH added filter for pricebooks where PricingMethod != null
 20240109: DB added Opportunity to record type query filter
@@ -690,8 +683,8 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <formulas>
-        <description>The Opportunity Name cannot be longer than 80 characters for Professional</description>
-        <name>OppProfessionalNameLimitExceeded</name>
+        <description>The Opportunity Name cannot be longer than 80 characters for Zorg</description>
+        <name>OppZorgNameLimitExceeded</name>
         <dataType>Boolean</dataType>
         <expression>LEN({!NewOpportunity.Name}) &gt; 80</expression>
     </formulas>
@@ -1016,20 +1009,20 @@
         <queriedFields>Subsidiary__c</queriedFields>
     </recordLookups>
     <recordLookups>
-        <name>getProfessionalRecordTypeId</name>
-        <label>getProfessionalRecordTypeId</label>
+        <name>getZorgRecordTypeId</name>
+        <label>getZorgRecordTypeId</label>
         <locationX>1338</locationX>
         <locationY>970</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>assRecordTypeProf</targetReference>
+            <targetReference>assRecordTypeZorg</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
             <operator>Contains</operator>
             <value>
-                <stringValue>Professional</stringValue>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <filters>
@@ -1107,7 +1100,7 @@
         </connector>
         <fields>
             <name>OpportunityNameLengthError</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;The Opportunity Name length for Professional is 80 characters!&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 16px; color: rgb(255, 0, 0);&quot;&gt;The Opportunity Name length for Zorg is 80 characters!&lt;/strong&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>
@@ -1125,8 +1118,8 @@
             <targetReference>Is_Lead_Source_Filled</targetReference>
         </connector>
         <fields>
-            <name>NHProfNameLengthNotification</name>
-            <fieldText>&lt;p&gt;&lt;em style=&quot;color: rgb(255, 0, 0); font-size: 10px;&quot;&gt;Please note that the Opportunity Name length for Professional is 80 characters. Please enter a name of 80 characters or less.&lt;/em&gt;&lt;/p&gt;</fieldText>
+            <name>NHZorgNameLengthNotification</name>
+            <fieldText>&lt;p&gt;&lt;em style=&quot;color: rgb(255, 0, 0); font-size: 10px;&quot;&gt;Please note that the Opportunity Name length for Zorg is 80 characters. Please enter a name of 80 characters or less.&lt;/em&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -1159,10 +1152,10 @@
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
-                    <leftValueReference>getProfessionalRecordTypeId.DeveloperName</leftValueReference>
+                    <leftValueReference>getZorgRecordTypeId.DeveloperName</leftValueReference>
                     <operator>NotEqualTo</operator>
                     <rightValue>
-                        <stringValue>Professional</stringValue>
+                        <stringValue>Noordhoff Zorg</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>

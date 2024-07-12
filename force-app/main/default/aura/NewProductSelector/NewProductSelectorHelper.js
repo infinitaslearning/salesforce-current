@@ -263,7 +263,7 @@
 
         }
         
-        
+         
     },
 
     fetchProductsUtil : function(component) {

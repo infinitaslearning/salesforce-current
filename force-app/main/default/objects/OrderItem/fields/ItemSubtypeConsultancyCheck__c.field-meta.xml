@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ItemSubtypeConsultancyCheck__c</fullName>
-    <description>Field that checks when Item Subtype is &apos;Consultancy Hours&apos; (only for NH Professional)  they have checked the box Consultancy Project Started on Order level.</description>
+    <description>Field that checks when Item Subtype is &apos;Consultancy Hours&apos; (only for NH Zorg)  they have checked the box Consultancy Project Started on Order level.</description>
     <externalId>false</externalId>
     <formula>IF( 
 AND(
 ItemSubtype__c = &apos;Consultancy Hours&apos;,  
 Order.ConsultancyProjectStarted__c =false,
-CONTAINS(PricebookName__c, &quot;Professional&quot;) 
+CONTAINS(PricebookName__c, &quot;Zorg&quot;) 
 ), 
 1, 0)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

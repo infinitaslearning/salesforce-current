@@ -2,13 +2,27 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ValidateReferenceNumberCheck__c</fullName>
     <description>Noordhoff/Plantyn maximum = 10
-Liber maximum = 25
-Informat = 45</description>
+Noordhoff Zorg (with inventory items) maximum = 10
+Noordhoff Zorg (without inventory items) maximum = 45
+Liber maximum = 35
+Informat maximum = 45</description>
     <externalId>false</externalId>
-    <formula>IF(NOT(TEXT(Status) = &apos;Activated&apos;),
-(IF((TEXT(OperatingCompany__c) = &apos;Plantyn&apos; || AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, NOT(CONTAINS(Pricebook2.Name, &apos;Professional&apos;)))) &amp;&amp; LEN(CustomerReference__c) &gt; 10 &amp;&amp; NOT(CONTAINS(Pricebook2.Name, &apos;Informat&apos;)), 1,
+    <formula>/*
+IF(NOT(TEXT(Status) = &apos;Activated&apos;),
+(IF((TEXT(OperatingCompany__c) = &apos;Plantyn&apos; || AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;)) &amp;&amp; LEN(CustomerReference__c) &gt; 10 &amp;&amp; NOT(CONTAINS(Pricebook2.Name, &apos;Informat&apos;)), 1,
 IF(TEXT(OperatingCompany__c) = &apos;Liber&apos; &amp;&amp; LEN(CustomerReference__c) &gt; 35 &amp;&amp; NOT(CONTAINS(Pricebook2.Name, &apos;Informat&apos;)), 1,
-IF(AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, CONTAINS(Pricebook2.Name, &apos;Professional&apos;), InventoryItemShippingAddressCount__c &gt; 0, LEN(CustomerReference__c) &gt; 10), 1, 0)))), 0)</formula>
+IF(AND(TEXT(OperatingCompany__c) = &apos;Noordhoff&apos;, CONTAINS(Pricebook2.Name, &apos;Zorg&apos;), InventoryItemShippingAddressCount__c &gt; 0, LEN(CustomerReference__c) &gt; 10), 1, 0)))), 0)
+*/
+
+IF(NOT(ISPICKVAL(Status,&apos;Activated&apos;)),
+			(IF(AND(OR(ISPICKVAL(OperatingCompany__c,&apos;Plantyn&apos;), ISPICKVAL(OperatingCompany__c,&apos;Noordhoff&apos;)), NOT(CONTAINS(Pricebook2.Name,&apos;Informat&apos;)), LEN(CustomerReference__c) &gt; 10),1,
+						IF(AND(ISPICKVAL(OperatingCompany__c,&apos;Noordhoff Zorg&apos;), InventoryItemShippingAddressCount__c &gt; 0, LEN(CustomerReference__c) &gt; 10),1,
+									IF(AND(ISPICKVAL(OperatingCompany__c,&apos;Liber&apos;),LEN(CustomerReference__c) &gt; 35),1,0
+												)
+									)
+						)
+				),0
+			)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Validate ReferenceNumberCheck</label>
     <precision>18</precision>

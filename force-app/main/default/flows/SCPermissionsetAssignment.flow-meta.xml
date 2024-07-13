@@ -520,6 +520,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>CreateOrders</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -590,6 +597,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>CreateOrders</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -651,6 +665,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>ManageQuickTexts</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackServiceUser</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>

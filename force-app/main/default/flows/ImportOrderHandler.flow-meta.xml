@@ -1358,43 +1358,6 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assignB2BEmail</name>
-        <label>assignB2BEmail</label>
-        <locationX>4576</locationX>
-        <locationY>3297</locationY>
-        <assignmentItems>
-            <assignToReference>sov_Order.BillingReminderEmail__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>OrderBillingEmail</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>sov_Order.OrderNotificationEmail__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>OrderEmailNotification</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>sov_Order.InvoiceEmail__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>OrderInvoiceEmail</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>sov_Order.OrderNotificationEmail2__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>OrderNotificationEmail2</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>decPaymentMethod</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>AssignComlpete_Order</name>
         <label>AssignComlpete Order</label>
         <locationX>4313</locationX>
@@ -1457,10 +1420,10 @@
         </connector>
     </assignments>
     <assignments>
-        <name>assignNotificationEmailNonB2BShop</name>
-        <label>assignNotificationEmailNonB2BShop</label>
-        <locationX>3989</locationX>
-        <locationY>3395</locationY>
+        <name>assignNotificationEmails</name>
+        <label>assignNotificationEmails</label>
+        <locationX>4372</locationX>
+        <locationY>3482</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.OrderNotificationEmail__c</assignToReference>
             <operator>Assign</operator>
@@ -1648,7 +1611,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>decNotificationEmail</targetReference>
+            <targetReference>assignNotificationEmails</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1664,7 +1627,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>decNotificationEmail</targetReference>
+            <targetReference>assignNotificationEmails</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -2785,43 +2748,6 @@
         </rules>
     </decisions>
     <decisions>
-        <name>decNotificationEmail</name>
-        <label>decNotificationEmail</label>
-        <locationX>4310</locationX>
-        <locationY>3487</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>NotB2BShopNotification</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>B2B Shop </stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>assignNotificationEmailNonB2BShop</targetReference>
-            </connector>
-            <label>Not B2B Shop Notification</label>
-        </rules>
-        <rules>
-            <name>B2B_Shop</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>B2B Shop </stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>assignB2BEmail</targetReference>
-            </connector>
-            <label>B2B Shop</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>decPaymentMethod</name>
         <label>decPaymentMethod</label>
         <locationX>4364</locationX>
@@ -2888,7 +2814,7 @@
         <locationX>4308</locationX>
         <locationY>3890</locationY>
         <defaultConnector>
-            <targetReference>decNotificationEmail</targetReference>
+            <targetReference>assignNotificationEmails</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -4296,7 +4222,8 @@ CH: 2023/11/22 Fixed &quot;Free&quot; Line Item Type not actually being free
 DB: 2024/01/13 Add successor item skip logic for Studiemeister &amp; eCom sources
 DB: 2024/03/13 Added ILAddress query, insert &amp; validate functionality
 DB: 2024/04/15 Assign Adjusted List Price if Import Order record has a List Price
-DB: 2024/06/11 Assign Warehouse Reference from shipTo Account</description>
+DB: 2024/06/11 Assign Warehouse Reference from shipTo Account
+DB: 2024/07/10 Assign Billing Reminder &amp; Invoicing Email from billTo/invoicing Account</description>
     <environments>Default</environments>
     <formulas>
         <name>billToAttentionOfFormula</name>
@@ -4416,7 +4343,7 @@ IF(ISBLANK({!sov_NetsuiteOrder.ListPrice__c} ), {!sov_PriceBookEntry.UnitPrice},
         <name>OrderBillingEmail</name>
         <dataType>String</dataType>
         <expression>IF(NOT(ISBLANK({!sov_NetsuiteOrder.InvoiceEmail__c})), {!sov_NetsuiteOrder.InvoiceEmail__c}, 
-{!sov_OrderAccount.BillingReminderEmail__c})</expression>
+{!sov_InvoiceLocation.BillingReminderEmail__c})</expression>
     </formulas>
     <formulas>
         <description>If Email__c on import order is filled, use this value - else, get the email value (Ship To Email) from the account</description>
@@ -4430,7 +4357,7 @@ IF(NOT(ISNULL({!sov_OrderAccount.OrderNotificationEmail__c})), {!sov_OrderAccoun
         <name>OrderInvoiceEmail</name>
         <dataType>String</dataType>
         <expression>IF(NOT(ISBLANK({!sov_NetsuiteOrder.InvoiceEmail__c})), {!sov_NetsuiteOrder.InvoiceEmail__c}, 
-{!sov_OrderAccount.InvoicingEmail__c})</expression>
+{!sov_InvoiceLocation.InvoicingEmail__c})</expression>
     </formulas>
     <formulas>
         <description>This formula calculates the total VAT of an Import Order Product record</description>

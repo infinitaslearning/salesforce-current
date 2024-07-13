@@ -6,45 +6,7 @@ public with sharing class Order_AssetRenewal {
     Public static void RenewAssets(){
         
         
-        /*
-        asset[] lstAssets = [Select id,PriceBook__c,LastRenewalUpdate__c,ListPrice__c,Contract__c,Contract__r.Indexation__c,CurrencyIsoCode,Reference__c,RenewalRunDate__c,DiscountedPrice__c,ManualDiscountPercent__c,ManualDiscountValue__c,
-                                    PriceBook__r.FollowUpPriceBook__c,Product2.LicenseDuration__c,Product2.OrderLineType__c,RenewalDate__c,
-                                    Account.DigitalActivationEmail__c ,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,OrderLineType__c,
-                                    RenewalTerm__c,IsUpForRenewal__c,AccountId,PricingMethod__c,BillToAccount__r.ShippingCostMethod__c,ManualDiscount__c,
-                                    BillToAccount__r.PaymentMethod__c,BillToAccount__r.CustomerDiscountGroup__c,Account.CustomerDiscountGroup__c,
-                                    Price,Quantity, BillToAccount__c,BillToAccount__r.OperatingCompany__c,Account.OperatingCompany__c,DigitalActivationEMail__c,
-                                    ApplyIndexationPercentage__c, IndexationPercentage__c, Product2.CustomPricingAllowed__c,Product2Id,BillToAccount__r.NetsuiteInternalId__c,Account.NetsuiteInternalId__c, Account.NumberofStudents__c,ShipToAttentionOf__c,
-                                    BillToAccount__r.ShippingStreet,BillToAccount__r.ShippingPostalCode,BillToAccount__r.ShippingCountry,BillToAccount__r.ShippingCity,
-                                    BillToAccount__r.BillingStreet,BillToAccount__r.BillingPostalCode,BillToAccount__r.BillingCountry,BillToAccount__r.BillingCity,
-                                    Product2.IsSuccessorItemActive__c,Product2.SuccessorItem__c,Product2.SuccessorItem__r.IsActive,Product2.Type__c
-                                    from asset 
-                                    where 
-                                    (Product2Id !=: null AND BillToAccount__c !=: null AND PricingMethod__c !=: null )
-                                    AND((
-                                        (CancellationDate__c >: CurrrentDay OR CancellationDate__c =:null)
-                                        AND (
-                                            ((RenewalDate__c  =: RenewalDay AND RenewalRunDate__c =: null) OR RenewalRunDate__c =: CurrrentDay OR RenewalDate__c  <=: RenewalDay)
-                                            
-                                            AND 
-                                            (
-                                                QuantityUpdateCheckYearly__c =: false 
-                                                OR(QuantityUpdateCheckYearly__c =: True  AND QuantityStartDate__c <=:CurrrentDay AND QuantityEndDate__c >=:CurrrentDay  )
-                                            )
-                                            
-                                        )
-                                        AND LastRenewalUpdate__c !=: CurrrentDay 
-                                        AND AutomatedRenewProcess__c =: true 
-                                        //AND Contract__c =:null
-                                        AND Product2.Type__c != 'Item Group'
-                                    )
-                                    OR(
-                                        AssetRenewalTrigger__c =: true
-                                        AND Product2.Type__c != 'Item Group'
-                                    )
-
-                                    )
-                                    ];
-        */
+        
         String Querystr = Order_SoqlFactory.returnasset('renewal',null,null);
         system.debug('**Order_SoqlFactory.Order_AssetRenewal.Querystr**'+Querystr);
         Date CurrentDay = system.today();
@@ -83,6 +45,7 @@ public with sharing class Order_AssetRenewal {
 
         Map<String,String> Map_PBShipTo = new Map<String,String>();
         Map<String,String> Map_ShipToCount = new Map<String,String>();
+        
         Map<String,Decimal> Map_PBIndexation = new Map<String,Decimal>(); 
         Map<String,Decimal> Map_MultiShipTo = new Map<String,Decimal>();
 
@@ -149,6 +112,8 @@ public with sharing class Order_AssetRenewal {
                     Map_SwapSuccPBEId.put(ass.Product2.SuccessorItem__c,ass.Product2Id);
                 }
                 lstAssets.add(ass);
+
+                
             } 
         }    
       
@@ -258,20 +223,42 @@ public with sharing class Order_AssetRenewal {
 //   Map<String,Decimal> Map_StudentNoShipTotal = new Map<String,Decimal>();
         //User Number/quantity record must exist with asset relation
         
+        Integer MultipleShipTo = 1;
+        Decimal FixedShippinCount; 
 
+        AssetRenewalShiptoCount__mdt[] AssetRenewalShiptoCount = [Select ShiptoCount__c from AssetRenewalShiptoCount__mdt limit 1 ];
+
+        if(AssetRenewalShiptoCount.size()>0){
+            FixedShippinCount = AssetRenewalShiptoCount[0].ShiptoCount__c;
+        }
+        else{
+            FixedShippinCount = 50;
+        }
+
+        string AccPB ='init';
+        String multi;
         for(asset ass:lstAssets){
            
-            string AccPB;
+            
+
+            //To check if the current ship to needs to start new order based on Ship to Count. Ignore on the first loop
+            if(AccPB !='init'){
+                multi = AccPB + ass.AccountId;            
+                if(!Set_ShipTo.contains(multi) && Map_MultiShipTo.get(AccPB) >= FixedShippinCount  ){
+                    MultipleShipTo += 1;
+                }    
+            }
             
             AccPB = ass.BillToAccount__c;
             AccPB += Map_PriceBook.get(ass.PriceBook__c);
             AccPB += ass.PricingMethod__c;
-            
+            AccPB += MultipleShipTo;
 
             if(ass.Contract__c != null){
                 AccPB += ass.Contract__c;
             }
 
+  
             if(Map_OrderLineCount.get(AccPB) == null){
                 Map_OrderLineCount.put(AccPB,1);
             }
@@ -306,6 +293,8 @@ public with sharing class Order_AssetRenewal {
             if(ass.BillToAccount__c != null && Map_PriceBook.get(ass.PriceBook__c) != null && ass.PricingMethod__c != null && Set_ProductActive.contains(ProductId) /*ass.Product2Id*/ ){
                 system.debug('**Order_AssetRenewal: IN IF**');
 
+                
+    
                 
                 
               //DEL  Set_OrderLineType.add(ass.Product2.OrderLineType__c);
@@ -356,9 +345,8 @@ public with sharing class Order_AssetRenewal {
                 }
                 Map_RenwalRunDate.put(ass.id,ass.RenewalDate__c);
 
-                String multi;
+             //   String multi;
                 multi = AccPB+ ass.AccountId;
-
                 
                 if(!Set_ShipTo.contains(multi)){
                     Set_ShipTo.add(multi);
@@ -378,7 +366,12 @@ public with sharing class Order_AssetRenewal {
                 else if(Map_MultiShipTo.get(AccPB)>1){
                     Map_ShipToCount.put(AccPB,'MULTIPLE');
                 }
+                 
                 
+               
+               // if(Map_MultiShipTo.get(AccPB) >= FixedShippinCount  ){
+               //     MultipleShipTo += 1;
+              //  }
 
                 Map_PricingMethod.put(ass.BillToAccount__c,ass.PricingMethod__c);  //ass.BillToAccount__r.PricingMethod__c
               
@@ -400,22 +393,12 @@ public with sharing class Order_AssetRenewal {
                     Map_AssetPricingMethod.get(AccPB).add(ass);
                }
                i++;
-               //SUM QUANITY CALCULATION FOR LPD REMOVE
-            /* 
-               if(ass.PricingMethod__c == 'AccountStudents'){
+              
 
-                    if(Map_StudentNoShipTotal.get(AccPB)==null){                      
-                        Map_StudentNoShipTotal.put(AccPB,ass.Account.NumberofStudents__c);
-                    }
-                    else{
-                        Map_StudentNoShipTotal.put(AccPB,Map_StudentNoShipTotal.get(AccPB) + ass.Account.NumberofStudents__c);
-                    }
-
-               }
-             */
-
-               AccPB +=ass.AccountId;
-                Map_PBShipTo.put(AccPB,  ass.AccountId);
+               String ShiptoId = AccPB + ass.AccountId;
+               Map_PBShipTo.put(ShiptoId,  ass.AccountId);
+              // AccPB +=ass.AccountId;
+              //  Map_PBShipTo.put(AccPB,  ass.AccountId);
             }
             else{
                 //ERROR HANDLING FOR NO PRICEBOOK
@@ -646,7 +629,7 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
                                         Map_PriceProductType.put(ass.Product2Id,PriceProductType);
                                     }
                                     */
-                                    system.debug('**Order_AssetRenewal: List Price 1**'+ass.ListPrice__c);
+                                    
                                     if(Map_PBEUnitPrice.get(PBId) != null && (ass.Contract__c ==null || ((ass.Contract__c !=null) && ass.Contract__r.Indexation__c == true ))){
                                         item.unitprice = Map_PBEUnitPrice.get(PBId);
                                         
@@ -656,14 +639,13 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
                                             item.ComponentListPrice__c = (ass.ListPrice__c + (ass.ListPrice__c * (ass.IndexationPercentage__c/100))).setScale(2);
                                             item.unitprice = item.ComponentListPrice__c;
                                         }   
-                                        system.debug('**Order_AssetRenewal: List Price Index 1**'+ass.IndexationPercentage__c);
-                                        system.debug('**Order_AssetRenewal: List Price 2**'+item.ComponentListPrice__c); 
+                                         
                                     }
                                     else{
                                         item.unitprice =ass.Price;
                                         item.ComponentListPrice__c = ass.ListPrice__c;
                                     }
-                                    system.debug('**Order_AssetRenewal: List Price 3**'+item.ComponentListPrice__c);
+                                
                                     
                                    if(ass.ManualDiscount__c != null && ass.ManualDiscount__c.contains('Recurring')){ 
                                         if(ass.ManualDiscount__c != null && ass.ManualDiscountValue__c != null && (ass.ManualDiscount__c.contains('Amount'))){

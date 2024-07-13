@@ -3,17 +3,19 @@
     <fullName>NHProfessionalCantEditClosedOppProduct</fullName>
     <active>true</active>
     <description>Cannot Edit a Opportunity Product of an Opportunity that is on Stage Closed Won or Closed Lost</description>
-    <errorConditionFormula>OR(AND(ISPICKVAL(Opportunity.StageName,&quot;P. Close&quot;), 
-       ISPICKVAL(Opportunity.ApprovalStatus__c,&quot;Approved&quot;)
-   ), 
-   AND(
-       PRIORVALUE(IsOpen__c) = false, 
-       Opportunity.OpportunityRecordTypeName__c = &quot;Professional&quot;,  
-       OR(
-          ISPICKVAL(Opportunity.StageName,&quot;Closed Won&quot;), 
-          ISPICKVAL(Opportunity.StageName,&quot;Closed Lost&quot;) 
+    <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    OR(AND(ISPICKVAL(Opportunity.StageName,&quot;P. Close&quot;), 
+           ISPICKVAL(Opportunity.ApprovalStatus__c,&quot;Approved&quot;)
+       ), 
+       AND(
+           PRIORVALUE(IsOpen__c) = false, 
+           Opportunity.OpportunityRecordTypeName__c = &quot;Professional&quot;,  
+           OR(
+              ISPICKVAL(Opportunity.StageName,&quot;Closed Won&quot;), 
+              ISPICKVAL(Opportunity.StageName,&quot;Closed Lost&quot;) 
+           )
        )
-   )
+    )
 )</errorConditionFormula>
     <errorMessage>Can&apos;t Edit Opportunity Products on a Closed Opportunity or if the Opportunity is Approved !</errorMessage>
 </ValidationRule>

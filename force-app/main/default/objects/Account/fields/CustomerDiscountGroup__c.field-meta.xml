@@ -45,6 +45,11 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>School Group</controllingFieldValue>
+            <controllingFieldValue>Educational Institution</controllingFieldValue>
+            <valueName>Tender 0% discount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>School Group</controllingFieldValue>
             <valueName>Tender 10% discount</valueName>
         </valueSettings>
         <valueSettings>

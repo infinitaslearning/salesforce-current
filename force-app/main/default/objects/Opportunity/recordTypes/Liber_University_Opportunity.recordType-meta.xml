@@ -3097,11 +3097,11 @@
         </values>
         <values>
             <fullName>2022-2023</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>2023-2024</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>2024-2025</fullName>

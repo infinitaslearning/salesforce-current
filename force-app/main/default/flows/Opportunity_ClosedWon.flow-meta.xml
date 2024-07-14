@@ -343,7 +343,7 @@
     <assignments>
         <name>Assign_Order_Variables</name>
         <label>Assign Order Variables</label>
-        <locationX>1505</locationX>
+        <locationX>1502</locationX>
         <locationY>851</locationY>
         <assignmentItems>
             <assignToReference>var_Order.AccountId</assignToReference>
@@ -476,6 +476,13 @@
             <operator>Assign</operator>
             <value>
                 <stringValue>RegularOrder</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_Order.ShippingCostMethod__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>getAccount.ShippingCostMethod__c</elementReference>
             </value>
         </assignmentItems>
         <connector>

@@ -59,6 +59,29 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>CategoryLevel1__c</picklist>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Higher Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Secondary Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vocational Education</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>CategoryLevel2__c</picklist>
         <values>
             <fullName>Assortiment</fullName>
@@ -68,11 +91,199 @@
             <fullName>Bestelling %26 Levering</fullName>
             <default>false</default>
         </values>
+        <values>
+            <fullName>Factuur %26 Betaling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Klantgegevens %26 Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Privacy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rapportage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Werken met het digitaal lesmateriaal</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>CategoryLevel3__c</picklist>
         <values>
+            <fullName>Account voor docent %26 particulier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Backorder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beschadigd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Beschikbaarheid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bestelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Betaling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boekhandel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Classificatie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>De Grote Bosatlas Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Docentmateriaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eindejaarsretour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Factuur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Foutmeldingen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getal %26 Ruimte Junior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instellingen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Klassen %26 Lesmateriaal koppelen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Levering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manco%2Fsurplus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Memij</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Misdruk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nieuw Nederlands Junior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opdrachten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resultaten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scholen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Startmateriaal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stepping Stones Junior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taal %26 Spelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Talen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toegang</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toetsen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VSO Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Validator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vitalsource</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voor de docent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zaakvakken</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zorgpad</fullName>
             <default>false</default>
         </values>
     </picklistValues>

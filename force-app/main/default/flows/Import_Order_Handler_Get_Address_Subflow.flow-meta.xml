@@ -311,7 +311,8 @@
     <description>This flow queries the custom address, verifies if it can find a match. If not it creates &amp; validates a new address if no match is found
 DB: 2024/03/13 Limit validation only for eCommerce Import Orders
 DB: 2024/04/09 Query based between housenumber or streetname based on input
-DB: 2024/05/21 Operating Company passed into Invocable method</description>
+DB: 2024/05/21 Operating Company passed into Invocable method
+DB: 2024/07/22 Match only validated (Status: GREEN) addresses for incoming addresses</description>
     <environments>Default</environments>
     <formulas>
         <name>F_SourceFormula</name>
@@ -472,6 +473,13 @@ DB: 2024/05/21 Operating Company passed into Invocable method</description>
                 <elementReference>var_OperatingCompany</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -512,6 +520,13 @@ DB: 2024/05/21 Operating Company passed into Invocable method</description>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>var_Street</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

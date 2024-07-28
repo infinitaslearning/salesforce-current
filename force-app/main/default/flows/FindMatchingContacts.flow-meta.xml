@@ -26,7 +26,7 @@
     <decisions>
         <name>Matching_known</name>
         <label>Matching known</label>
-        <locationX>776</locationX>
+        <locationX>732</locationX>
         <locationY>278</locationY>
         <defaultConnector>
             <targetReference>Which_match_type_is_possible</targetReference>
@@ -82,7 +82,7 @@
     <decisions>
         <name>Which_match_type_is_possible</name>
         <label>Which match type is possible?</label>
-        <locationX>1370</locationX>
+        <locationX>1282</locationX>
         <locationY>398</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -150,7 +150,7 @@
     <decisions>
         <name>Which_Operating_Company</name>
         <label>Which Operating Company</label>
-        <locationX>1381</locationX>
+        <locationX>1315</locationX>
         <locationY>158</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -275,7 +275,7 @@
     <recordLookups>
         <name>GetContactSchoolNumEmail</name>
         <label>Get Contact SchoolNum &amp; Email</label>
-        <locationX>776</locationX>
+        <locationX>732</locationX>
         <locationY>1070</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
@@ -306,7 +306,7 @@
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
-        <locationX>1255</locationX>
+        <locationX>1189</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Which_Operating_Company</targetReference>

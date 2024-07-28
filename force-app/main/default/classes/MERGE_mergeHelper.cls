@@ -30,21 +30,20 @@ public class MERGE_mergeHelper {
             ClassificationAttributeSubValue3__c,
             ClassificationAttributeSubValue4__c 
             FROM ClassificationData__c 
-            WHERE Contact__c 
-            IN :masterRecordIds];
+            WHERE Contact__c IN :masterRecordIds];
 
             System.debug('We have found ' + classificationDataList.size() + ' ClassificationData records.');
         
             Map<Id,List<ClassificationData__c>> classificationDataPerDeletedRecordMap = new Map<Id,List<ClassificationData__c>>();
-            for (Id contactId : masterRecordIds) {
+            for (Id accountId : masterRecordIds) {
 
                 List<ClassificationData__c> cdLst = new List<ClassificationData__c>();
                 for (ClassificationData__c cd : classificationDataList) {
-                    if (cd.Contact__c == contactId) {
+                    if (cd.Contact__c == accountId) {
                         cdLst.add(cd);
                     }
                 }
-                classificationDataPerDeletedRecordMap.put(contactId, cdLst);
+                classificationDataPerDeletedRecordMap.put(accountId, cdLst);
             }
 
             List<ClassificationData__c> classificationDataDeleteList = new List<ClassificationData__c>();

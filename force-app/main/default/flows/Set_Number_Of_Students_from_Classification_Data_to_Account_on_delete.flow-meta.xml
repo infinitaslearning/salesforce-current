@@ -4,8 +4,8 @@
     <assignments>
         <name>Add_Account_to_Update_List</name>
         <label>Add Account to Update List</label>
-        <locationX>1194</locationX>
-        <locationY>2951</locationY>
+        <locationX>1678</locationX>
+        <locationY>3071</locationY>
         <assignmentItems>
             <assignToReference>COL_AccountsToUpdate</assignToReference>
             <operator>Add</operator>
@@ -20,8 +20,8 @@
     <assignments>
         <name>add_HE_to_Account</name>
         <label>add HE to Account</label>
-        <locationX>1458</locationX>
-        <locationY>1967</locationY>
+        <locationX>1766</locationX>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.HEStudents__c</assignToReference>
             <operator>Add</operator>
@@ -36,8 +36,8 @@
     <assignments>
         <name>add_KG_to_Account</name>
         <label>add KG to Account</label>
-        <locationX>2514</locationX>
-        <locationY>1967</locationY>
+        <locationX>2822</locationX>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.KGStudents__c</assignToReference>
             <operator>Add</operator>
@@ -52,8 +52,8 @@
     <assignments>
         <name>add_PE_to_Account</name>
         <label>add PE to Account</label>
-        <locationX>1722</locationX>
-        <locationY>1967</locationY>
+        <locationX>2030</locationX>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.PEStudents__c</assignToReference>
             <operator>Add</operator>
@@ -68,8 +68,8 @@
     <assignments>
         <name>add_SE_to_Account</name>
         <label>add SE to Account</label>
-        <locationX>1986</locationX>
-        <locationY>1967</locationY>
+        <locationX>2294</locationX>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.SEStudents__c</assignToReference>
             <operator>Add</operator>
@@ -84,8 +84,8 @@
     <assignments>
         <name>Add_Students_1A_to_Account</name>
         <label>Add Students 1A to Account</label>
-        <locationX>1590</locationX>
-        <locationY>2423</locationY>
+        <locationX>1898</locationX>
+        <locationY>2303</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.Students1A__c</assignToReference>
             <operator>Add</operator>
@@ -100,8 +100,8 @@
     <assignments>
         <name>Add_Students_3_Arbeid_to_Account</name>
         <label>Add Students 3 Arbeid to Account</label>
-        <locationX>2382</locationX>
-        <locationY>2423</locationY>
+        <locationX>2690</locationX>
+        <locationY>2303</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.Students3Arbeid__c</assignToReference>
             <operator>Add</operator>
@@ -116,8 +116,8 @@
     <assignments>
         <name>Add_Students_3_Doorstroom_to_Account</name>
         <label>Add Students 3 Doorstroom to Account</label>
-        <locationX>1854</locationX>
-        <locationY>2423</locationY>
+        <locationX>2162</locationX>
+        <locationY>2303</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.Students3Doorstroom__c</assignToReference>
             <operator>Add</operator>
@@ -132,8 +132,8 @@
     <assignments>
         <name>Add_Students_3_Dubbel_to_Account</name>
         <label>Add Students 3 Dubbel to Account</label>
-        <locationX>2118</locationX>
-        <locationY>2423</locationY>
+        <locationX>2426</locationX>
+        <locationY>2303</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.Students3Dubbel__c</assignToReference>
             <operator>Add</operator>
@@ -148,8 +148,8 @@
     <assignments>
         <name>Add_to_HE_Students</name>
         <label>Add to HE Students to totals</label>
-        <locationX>1458</locationX>
-        <locationY>1847</locationY>
+        <locationX>1766</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>HEstudents</assignToReference>
             <operator>Add</operator>
@@ -164,8 +164,8 @@
     <assignments>
         <name>Add_to_KG_Students</name>
         <label>Add to KG Students to totals</label>
-        <locationX>2514</locationX>
-        <locationY>1847</locationY>
+        <locationX>2822</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>KGstudents</assignToReference>
             <operator>Assign</operator>
@@ -180,8 +180,8 @@
     <assignments>
         <name>Add_to_NumberOfStudents</name>
         <label>Add to NumberOfStudents</label>
-        <locationX>2118</locationX>
-        <locationY>1607</locationY>
+        <locationX>2426</locationX>
+        <locationY>1487</locationY>
         <assignmentItems>
             <assignToReference>studentsPerAccount</assignToReference>
             <operator>Add</operator>
@@ -196,8 +196,8 @@
     <assignments>
         <name>Add_to_PE_Students</name>
         <label>Add to PE Students to totals</label>
-        <locationX>1722</locationX>
-        <locationY>1847</locationY>
+        <locationX>2030</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>PEstudents</assignToReference>
             <operator>Add</operator>
@@ -212,8 +212,8 @@
     <assignments>
         <name>Add_to_SE_Students</name>
         <label>Add to SE Students to totals</label>
-        <locationX>1986</locationX>
-        <locationY>1847</locationY>
+        <locationX>2294</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>SEstudents</assignToReference>
             <operator>Add</operator>
@@ -228,8 +228,8 @@
     <assignments>
         <name>Add_to_Studemts_3_Arbeid</name>
         <label>Add to Studemts 3 Arbeid totals</label>
-        <locationX>2382</locationX>
-        <locationY>2303</locationY>
+        <locationX>2690</locationX>
+        <locationY>2183</locationY>
         <assignmentItems>
             <assignToReference>students3Arbeid</assignToReference>
             <operator>Add</operator>
@@ -244,8 +244,8 @@
     <assignments>
         <name>Add_to_Students_1A</name>
         <label>Add to Students 1A totals</label>
-        <locationX>1590</locationX>
-        <locationY>2303</locationY>
+        <locationX>1898</locationX>
+        <locationY>2183</locationY>
         <assignmentItems>
             <assignToReference>students1A</assignToReference>
             <operator>Add</operator>
@@ -260,8 +260,8 @@
     <assignments>
         <name>Add_to_Students_3_Doorstroom</name>
         <label>Add to Students 3 Doorstroom totals</label>
-        <locationX>1854</locationX>
-        <locationY>2303</locationY>
+        <locationX>2162</locationX>
+        <locationY>2183</locationY>
         <assignmentItems>
             <assignToReference>students3Doorstroom</assignToReference>
             <operator>Add</operator>
@@ -276,8 +276,8 @@
     <assignments>
         <name>Add_to_Students_3_Dubbel</name>
         <label>Add to Students 3 Dubbel totals</label>
-        <locationX>2118</locationX>
-        <locationY>2303</locationY>
+        <locationX>2426</locationX>
+        <locationY>2183</locationY>
         <assignmentItems>
             <assignToReference>students3Dubbel</assignToReference>
             <operator>Add</operator>
@@ -292,8 +292,8 @@
     <assignments>
         <name>Add_to_VE_Students</name>
         <label>Add to VE Students to totals</label>
-        <locationX>2250</locationX>
-        <locationY>1847</locationY>
+        <locationX>2558</locationX>
+        <locationY>1727</locationY>
         <assignmentItems>
             <assignToReference>VEstudents</assignToReference>
             <operator>Add</operator>
@@ -308,8 +308,8 @@
     <assignments>
         <name>add_VE_to_Account</name>
         <label>add VE to Account</label>
-        <locationX>2250</locationX>
-        <locationY>1967</locationY>
+        <locationX>2558</locationX>
+        <locationY>1847</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.VEStudents__c</assignToReference>
             <operator>Add</operator>
@@ -356,8 +356,8 @@
     <assignments>
         <name>Set_Number_of_Students</name>
         <label>Set Number of Students</label>
-        <locationX>1194</locationX>
-        <locationY>2831</locationY>
+        <locationX>1678</locationX>
+        <locationY>2951</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.NumberofStudents__c</assignToReference>
             <operator>Assign</operator>
@@ -387,7 +387,7 @@
         <name>Set_NumberOfStudents_on_Account</name>
         <label>Set NumberOfStudents on MainAccount</label>
         <locationX>182</locationX>
-        <locationY>3167</locationY>
+        <locationY>3287</locationY>
         <assignmentItems>
             <assignToReference>VAR_MainLocation.NumberofStudentsSchoolTotals__c</assignToReference>
             <operator>Assign</operator>
@@ -479,7 +479,7 @@
     <assignments>
         <name>Set_students_on_Account_to_0</name>
         <label>Set students on Account to 0</label>
-        <locationX>1194</locationX>
+        <locationX>1678</locationX>
         <locationY>1247</locationY>
         <assignmentItems>
             <assignToReference>Loop_Accounts_to_get_Classifications.HEStudents__c</assignToReference>
@@ -562,27 +562,43 @@
             <targetReference>Count_Total_Number_of_Students</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>subtractClassificationToDelete_0</name>
+        <label>subtractClassificationToDelete</label>
+        <locationX>1546</locationX>
+        <locationY>2735</locationY>
+        <assignmentItems>
+            <assignToReference>studentsPerAccount</assignToReference>
+            <operator>Subtract</operator>
+            <value>
+                <elementReference>$Record.NumberOfStudents__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Number_of_Students</targetReference>
+        </connector>
+    </assignments>
     <decisions>
-        <name>IsDeletedRecord</name>
-        <label>IsDeletedRecord</label>
-        <locationX>1700</locationX>
-        <locationY>1487</locationY>
+        <name>Is_Account_from_Classification_to_Delete</name>
+        <label>Is Account from Classification to Delete?</label>
+        <locationX>1678</locationX>
+        <locationY>2615</locationY>
         <defaultConnector>
-            <targetReference>Add_to_NumberOfStudents</targetReference>
+            <targetReference>Set_Number_of_Students</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_deletedRecord</name>
+            <name>Yes_account_is_from_Classification</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
+                <leftValueReference>Loop_Accounts_to_get_Classifications.Id</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>Count_Total_Number_of_Students.Id</elementReference>
+                    <elementReference>$Record.Account__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Count_Total_Number_of_Students</targetReference>
+                <targetReference>subtractClassificationToDelete_0</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -615,8 +631,8 @@
     <decisions>
         <name>Marketsegment</name>
         <label>Marketsegment</label>
-        <locationX>2118</locationX>
-        <locationY>1727</locationY>
+        <locationX>2426</locationX>
+        <locationY>1607</locationY>
         <defaultConnector>
             <targetReference>Plantyn_Extra_Student_info</targetReference>
         </defaultConnector>
@@ -735,8 +751,8 @@
     <decisions>
         <name>Plantyn_Extra_Student_info</name>
         <label>Plantyn_Extra_Student_info</label>
-        <locationX>2118</locationX>
-        <locationY>2183</locationY>
+        <locationX>2426</locationX>
+        <locationY>2063</locationY>
         <defaultConnector>
             <targetReference>Count_Total_Number_of_Students</targetReference>
         </defaultConnector>
@@ -802,21 +818,20 @@
             <label>Students 3 Arbeid</label>
         </rules>
     </decisions>
-    <environments>Default</environments>
     <interviewLabel>Set Number Of Students from Classification Data to Account on delete {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Set Number Of Students from Classification Data to Account on delete</label>
     <loops>
         <name>Count_Total_Number_of_Students</name>
         <label>Count Total Number of Students</label>
-        <locationX>1194</locationX>
+        <locationX>1678</locationX>
         <locationY>1367</locationY>
         <collectionReference>Get_Classification_Data</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>IsDeletedRecord</targetReference>
+            <targetReference>Add_to_NumberOfStudents</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Set_Number_of_Students</targetReference>
+            <targetReference>Is_Account_from_Classification_to_Delete</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
@@ -932,7 +947,7 @@
     <recordLookups>
         <name>Get_Classification_Data</name>
         <label>Get Classification Data</label>
-        <locationX>1194</locationX>
+        <locationX>1678</locationX>
         <locationY>1127</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -982,14 +997,14 @@
         <name>Update_Account_0</name>
         <label>Update Main Account</label>
         <locationX>182</locationX>
-        <locationY>3407</locationY>
+        <locationY>3527</locationY>
         <inputReference>VAR_MainLocation</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Accounts</name>
         <label>Update Accounts</label>
         <locationX>182</locationX>
-        <locationY>3287</locationY>
+        <locationY>3407</locationY>
         <connector>
             <targetReference>Update_Account_0</targetReference>
         </connector>

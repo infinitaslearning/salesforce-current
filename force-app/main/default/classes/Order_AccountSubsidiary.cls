@@ -60,64 +60,6 @@ public with sharing class Order_AccountSubsidiary {
 
     }   
 
-    public static void AccountSubsidiaryValidation(Map<Id, sObject> allProductsMap) {
-        System.debug('DEBUG AccountSubsidiaryValidation: ' + allProductsMap.size());
-        System.debug('DEBUG AccountSubsidiaryValidation: ' + allProductsMap.keySet());
-        System.debug('DEBUG AccountSubsidiaryValidation: ' + allProductsMap.values());
-        List<AccountSubsidiary__c> accountSubsidiaryToDeleteList = new List<AccountSubsidiary__c>();
-        Set<Id> accValidationMatchSet = new Set<Id>();
 
-        List<AccountSubsidiary__c> lstAccountSubsidiary = [SELECT Id, Name, IsInactive__c, Account__c FROM AccountSubsidiary__c WHERE Id IN :allProductsMap.keySet()];
-        System.debug('DEBUG AccountSubsidiaryValidation lstAccountSubsidiary: ' + lstAccountSubsidiary.size());
-        Set<Id> accountIdSet = new Set<Id>();
-        for(AccountSubsidiary__c subsidiary : lstAccountSubsidiary){
-            System.debug('DEBUG AccountSubsidiaryValidation subsidiary.Account__c: ' + subsidiary.Account__c);
-            accountIdSet.add(subsidiary.Account__c);
-        }
-        System.debug('DEBUG AccountSubsidiaryValidation accountIdSet: ' + accountIdSet.size());
-        List<Account> accountList = [SELECT Id, Name, OperatingCompany__c, AccountSubsidiaryCount__c FROM Account WHERE Id IN : accountIdSet];
-        System.debug('DEBUG AccountSubsidiaryValidation accountList: ' + accountList.size());
-        for(Account acc : accountList){
-            System.debug('DEBUG AccountSubsidiaryValidation Account Id: ' + acc.Id);
-            System.debug('DEBUG AccountSubsidiaryValidation Account OperatingCompany__c: ' + acc.OperatingCompany__c);
-            System.debug('DEBUG AccountSubsidiaryValidation Account AccountSubsidiaryCount__c: ' + acc.AccountSubsidiaryCount__c);
-            if(acc.OperatingCompany__c == 'Plantyn' && acc.AccountSubsidiaryCount__c == 1){
-                    System.debug('DEBUG AccountSubsidiaryValidation INSIDE IF');
-                    accValidationMatchSet.add(acc.Id);
-                }
-        }
-        System.debug('DEBUG AccountSubsidiaryValidation accValidationMatchSet: ' + accValidationMatchSet.size());
-        for(AccountSubsidiary__c accSub : lstAccountSubsidiary){
-            if(accValidationMatchSet.contains(accSub.Id)){
-                accountSubsidiaryToDeleteList.add(accSub);
-            }
-        }
-        System.debug('DEBUG AccountSubsidiaryValidation accountSubsidiaryToDeleteList: ' + accountSubsidiaryToDeleteList.size());
-
-        /*Map<Id,Account> accountIdMap = new Map<Id,Account>([SELECT Id, Name, OperatingCompany__c, AccountSubsidiaryCount__c FROM Account WHERE Id IN : accountIdSet AND 
-                                                            ((OperatingCompany__c = 'Plantyn' AND AccountSubsidiaryCount__c =: 1 ) OR 
-                                                            (OperatingCompany__c = 'Liber' AND AccountSubsidiaryCount__c =: 1 ) OR 
-                                                            (OperatingCompany__c = 'Noordhoff' AND AccountSubsidiaryCount__c =: 2 ))]);
-
-        System.debug('DEBUG AccountSubsidiaryValidation accountIdMap: ' + accountIdMap.size());
-        List<AccountSubsidiary__c> accountSubsidiaryToDeleteList = new List<AccountSubsidiary__c>();
-        for(AccountSubsidiary__c accSub : lstAccountSubsidiary){
-            if(accountIdMap.keySet().contains(accSub.Account__c)){
-                accountSubsidiaryToDeleteList.add(accSub);
-            }
-        }*/
-
-        if(accountSubsidiaryToDeleteList.size() > 0){
-            System.debug('DEBUG AccountSubsidiaryValidation DELETE');
-            //delete accountSubsidiaryToDeleteList;
-        }
-
-        /*
-        	OR(AND(AccountSubsidiaryCount__c > 1,Text(OperatingCompany__c) ='Plantyn' ),
-            AND(AccountSubsidiaryCount__c > 1,Text(OperatingCompany__c) ='Liber' ),
-            AND(AccountSubsidiaryCount__c > 2,Text(OperatingCompany__c) ='Noordhoff' ))
-        */
-
-    }
 
 }

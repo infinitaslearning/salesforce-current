@@ -306,13 +306,6 @@
                 <elementReference>sov_Lead.Id</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>IsDeleted</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <object>Lead</object>
         <outputReference>sov_Lead</outputReference>
         <queriedFields>Id</queriedFields>

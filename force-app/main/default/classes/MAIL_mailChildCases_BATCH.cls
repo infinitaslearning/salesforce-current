@@ -57,7 +57,7 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
         
         // Get emailsignature of current user
         User currentUser = [SELECT Id, EmailSignature__c FROM User WHERE Id = :currentUserId LIMIT 1];
-        String userSignature = 'TeamServices<br>Noordhoff'; // Backup for when user emailsignature is empty
+        String userSignature = 'TeamServices<br>Noordhoff';                                                                 // Backup for when user emailsignature is empty
         if (currentUser.EmailSignature__c != null && currentUser.EmailSignature__c != '') {
             userSignature = currentUser.EmailSignature__c.replaceAll('\r\n|\n|\r','<br>');
         }
@@ -66,7 +66,7 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
         try {
             Organization ORG = [Select Id, Name, IsSandbox from Organization];
             
-            if (ORG.IsSandbox && ORG.Id != '00D0E000000E6pgUAC') { // For Developer sandboxes (no-reply e-mailaddress is not available there)
+            if (ORG.IsSandbox && ORG.Id != '00D0E000000E6pgUAC') {                                                          // For Developer sandboxes (no-reply e-mailaddress is not available there)
                 devSandboxOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'bsc-support@infinitaslearning.com' LIMIT 1];
                 noordhoffOWEA = devSandboxOWEA;
                 plantynOWEA = devSandboxOWEA;
@@ -74,19 +74,19 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
                 noordhoffProfessionalOWEA = devSandboxOWEA;
                 fallBackOWEA = devSandboxOWEA;
             }
-            else if ((ORG.IsSandbox && ORG.Id == '00D0E000000E6pgUAC') || Test.isRunningTest()) { // FOR UAT Sandbox & test in Production
+            else if ((ORG.IsSandbox && ORG.Id == '00D0E000000E6pgUAC') || Test.isRunningTest()) {                           // FOR UAT Sandbox & test in Production
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
-                plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // FALLBACK
+                fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }
             else { // FOR PRODUCTION
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
-                plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1]; // FALLBACK
+                fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }
             
         } catch (Exception e) {
@@ -104,16 +104,16 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
             // Check what template to use
             if (parent.OperatingCompany__c == 'Noordhoff') {
                 oweaId = noordhoffOWEA.Id;
-                templateName = 'NoordhoffChildCaseTemplate';
+                templateName = CaseManagement__mdt.getInstance('Noordhoff').ChildCase_Template__c;
             } else if (parent.OperatingCompany__c == 'Plantyn') {
                 oweaId = plantynOWEA.Id;
-                templateName = 'plantynChildCaseTemplate';
+                templateName = CaseManagement__mdt.getInstance('Plantyn').ChildCase_Template__c;
             } else if (parent.OperatingCompany__c == 'Liber') {
                 oweaId = liberOWEA.Id;
-                templateName = 'liberChildCaseTemplate';
-            } else if (parent.OperatingCompany__c == 'Noordhoff Professional') {
+                templateName = CaseManagement__mdt.getInstance('Liber').ChildCase_Template__c;
+            } else if (parent.OperatingCompany__c == 'Noordhoff Zorg') {
                 oweaId = noordhoffProfessionalOWEA.Id;
-                templateName = 'noordhoffProfessinoalChildCaseTemplate';
+                templateName = CaseManagement__mdt.getInstance('NoordhoffZorg').ChildCase_Template__c;
             } else {
                 System.debug('Case has no OpperatingCompany');
             }
@@ -132,25 +132,25 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
             String emailAddress;
 
             // Get Name
-            if (parent.ContactId != null && parent.ContactFirstName__c != null && parent.ContactFirstName__c != '') {     // Get Name from Contact
+            if (parent.ContactId != null && parent.ContactFirstName__c != null && parent.ContactFirstName__c != '') {   // Get Name from Contact
                 name = parent.ContactFirstName__c;
-            } else if (parent.SuppliedName != null && parent.SuppliedName != '') {  // Else get Name from SuppliedName
+            } else if (parent.SuppliedName != null && parent.SuppliedName != '') {                                      // Else get Name from SuppliedName
                 name = parent.SuppliedName;
             } else {
                 System.debug('We dont have a contact and supplied Name for case with Id ' + parent.Id);
             }
 
             // Get Email
-            if (parent.ContactId != null && parent.ContactEmail != '' && parent.ContactEmail != null) {                // Get Name from Contact
+            if (parent.ContactId != null && parent.ContactEmail != '' && parent.ContactEmail != null) {                 // Get Name from Contact
                 emailAddress = parent.ContactEmail;
-            } else if (parent.SuppliedEmail != null && parent.SuppliedEmail != '') {    // Else get Email from SuppliedEmail
+            } else if (parent.SuppliedEmail != null && parent.SuppliedEmail != '') {                                    // Else get Email from SuppliedEmail
                 emailAddress = parent.SuppliedEmail;
-            } else {                                                                    // If we dont have an e-mail address don't create Mail
+            } else {                                                                                                    // If we dont have an e-mail address don't create Mail
                 mailCase = false;
                 System.debug('We dont have a contact and supplied e-mail for case with Id ' + parent.Id);
             }
 
-            if (this.idInputMap.get(parent.Id).doMailParentCase && mailCase) {      // Create mail for Parent Case if Mail Parent Case is checked and if we have an e-mailaddress
+            if (this.idInputMap.get(parent.Id).doMailParentCase && mailCase) {                                          // Create mail for Parent Case if Mail Parent Case is checked and if we have an e-mailaddress
 
                 Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
                 email.setSubject(this.idInputMap.get(parent.Id).title);
@@ -172,9 +172,9 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
                     mailCase = true;
                     
                     // Get Name
-                    if (child.ContactId != null && child.ContactFirstName__c != null && child.ContactFirstName__c != '') {       // Get Email and Name from Contact
+                    if (child.ContactId != null && child.ContactFirstName__c != null && child.ContactFirstName__c != '') {  // Get Email and Name from Contact
                         name = child.ContactFirstName__c;
-                    } else if (child.SuppliedName != null && child.SuppliedName != '') {    // Else get Email and Name from Supplies info (SuppliedEmail and SuppliedName fields)
+                    } else if (child.SuppliedName != null && child.SuppliedName != '') {                                    // Else get Email and Name from Supplies info (SuppliedEmail and SuppliedName fields)
                         name = child.suppliedName;
                     } else {
                         name = 'Mijnheer/Mevrouw';
@@ -182,16 +182,17 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
                     }
 
                     // Get Email
-                    if (child.ContactId != null && child.ContactEmail != '' && child.ContactEmail != null) {              // Get Email from Contact
+                    if (child.ContactId != null && child.ContactEmail != '' && child.ContactEmail != null) {                // Get Email from Contact
                         emailAddress = child.ContactEmail;
-                    } else if (child.SuppliedEmail != null && child.SuppliedEmail != '') {  // Else get Email from SuppliedEmail
+                    } else if (child.SuppliedEmail != null && child.SuppliedEmail != '') {                                  // Else get Email from SuppliedEmail
                         emailAddress = child.SuppliedEmail;
-                    } else {                                                                // If we dont have an e-mail address don't create Mail
+                    } else {                                                                                                // If we dont have an e-mail address don't create Mail
                         mailCase = false;
                         System.debug('We dont have a contact and supplied e-mail for case with Id ' + child.Id);
                     }
 
-                    if (mailCase) { // Create mail for Child Cases if we have an e-mailaddress
+                    // Create mail for Child Cases if we have an e-mailaddress
+                    if (mailCase) { 
 
                         System.debug('CaseId = ' + child.Id + ' // Name = ' + name + ' // Usersignature = '  + userSignature);
 

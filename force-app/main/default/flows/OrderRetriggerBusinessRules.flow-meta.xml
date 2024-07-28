@@ -45,7 +45,6 @@
         </rules>
     </decisions>
     <description>This flow retriggers business rules for eCommerce orders that get stuck because the trigger business rule logic got executed before the order was complete/ready (ErrorReason: Missing Customer Relations/Ids)</description>
-    <environments>Default</environments>
     <interviewLabel>Order_Retrigger Business Rules {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Order_Retrigger Business Rules (Missing Customer Relations/Ids)</label>
     <processMetadataValues>

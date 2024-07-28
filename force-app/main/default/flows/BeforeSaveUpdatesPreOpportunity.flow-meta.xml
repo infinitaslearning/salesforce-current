@@ -368,7 +368,6 @@
             <label>Lookup Product</label>
         </rules>
     </decisions>
-    <environments>Default</environments>
     <formulas>
         <name>CustomerNumber</name>
         <dataType>Number</dataType>

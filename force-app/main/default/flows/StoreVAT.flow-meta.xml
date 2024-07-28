@@ -80,36 +80,10 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_OrderItem</name>
-        <label>Get OrderItem</label>
-        <locationX>391</locationX>
-        <locationY>160</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Get_VAT_Rule</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>sov_OrderItem.Id</elementReference>
-            </value>
-        </filters>
-        <object>OrderItem</object>
-        <outputReference>sov_OrderItem</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>VATRule__c</queriedFields>
-        <queriedFields>ShippingCountry__c</queriedFields>
-        <queriedFields>Product2Id</queriedFields>
-        <queriedFields>OrderId</queriedFields>
-        <queriedFields>ShipToAccount__c</queriedFields>
-    </recordLookups>
-    <recordLookups>
         <name>Get_VAT_Rule</name>
         <label>Get VAT Rule</label>
         <locationX>500</locationX>
-        <locationY>69</locationY>
+        <locationY>68</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Record_found</targetReference>
@@ -158,7 +132,7 @@
         <locationX>50</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>Get_OrderItem</targetReference>
+            <targetReference>Get_VAT_Rule</targetReference>
         </connector>
     </start>
     <status>Active</status>

@@ -27,6 +27,7 @@ public class CASE_CaseHelper_TEST {
             knowledge__kav newArticle = new knowledge__kav();
             newArticle.Title = 'Test Article ' + (i+1);
             newArticle.Content__c = 'Test Content for Article ' + (i+1);
+            newArticle.Type__c = 'FAQ';
             newArticle.UrlName = 'testUrl'+(i+1);
             newArticle.OperatingCompany__c = 'Noordhoff';
             newArticle.PrimaryEducation__c = true;

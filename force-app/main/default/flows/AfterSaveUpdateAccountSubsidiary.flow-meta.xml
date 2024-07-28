@@ -1,442 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
-    <assignments>
-        <name>Assign_NS_Internal_Id</name>
-        <label>Assign NS Internal Id</label>
-        <locationX>314</locationX>
-        <locationY>455</locationY>
-        <assignmentItems>
-            <assignToReference>NetsuiteInternalIdAccount</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.NetsuiteInternalId__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Payment_Terms_is_changed</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>AssignManualOverride</name>
-        <label>AssignManualOverride</label>
-        <locationX>1106</locationX>
-        <locationY>575</locationY>
-        <assignmentItems>
-            <assignToReference>$Record.ManualUpdate__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Payment_Terms_is_changed</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>AssignNSCustomerNo</name>
-        <label>AssignNSCustomerNo</label>
-        <locationX>578</locationX>
-        <locationY>455</locationY>
-        <assignmentItems>
-            <assignToReference>NetsuiteCustomerNumberAccount</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.NetsuiteCustomerNumber__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Payment_Terms_is_changed</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>AssignSyncPaymentTerms</name>
-        <label>AssignSyncPaymentTerms</label>
-        <locationX>50</locationX>
-        <locationY>455</locationY>
-        <assignmentItems>
-            <assignToReference>PaymentMethodAccount</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Record.PaymentTerms__c</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Payment_Terms_is_changed</targetReference>
-        </connector>
-    </assignments>
     <decisions>
-        <name>Payment_Terms_is_changed</name>
-        <label>Payment Terms is changed</label>
-        <locationX>842</locationX>
+        <name>CanInactivateAccountSubsidiary</name>
+        <label>Can Inactivate Account Subsidiary?</label>
+        <locationX>182</locationX>
         <locationY>335</locationY>
-        <defaultConnector>
-            <targetReference>Should_Update_Records</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Terms_changed</name>
-            <conditionLogic>((1 AND 2) OR 5) AND 3 AND 4 AND 6</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.PaymentTerms__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Account__r.Account_Subsidiary__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Deleted__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.ManualUpdate__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>AssignSyncPaymentTerms</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>AssignSyncPaymentTerms</targetReference>
-            </connector>
-            <label>Terms changed</label>
-        </rules>
-        <rules>
-            <name>NetsuiteId</name>
-            <conditionLogic>((((1 AND 2 ) OR 3)  AND 4 AND 5) OR 8) AND 6 AND 7 AND 9</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Account__r.NetsuiteInternalId__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.NetsuiteInternalId__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.NetsuiteInternalId__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.LegalName__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>NoordhoffDigitaalBedrijf</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Account__r.Account_Subsidiary__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Deleted__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.ManualUpdate__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Assign_NS_Internal_Id</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Assign_NS_Internal_Id</targetReference>
-            </connector>
-            <label>NetsuiteId</label>
-        </rules>
-        <rules>
-            <name>Netsuite_Customer_Number</name>
-            <conditionLogic>((((1 AND 2) OR 3) AND 4) OR 7) AND 5 AND 6 AND 8</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Account__r.NetsuiteCustomerNumber__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.NetsuiteCustomerNumber__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.NetsuiteCustomerNumber__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Account__r.Account_Subsidiary__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Deleted__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.ManualUpdate__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>AssignNSCustomerNo</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>AssignNSCustomerNo</targetReference>
-            </connector>
-            <label>Netsuite Customer Number</label>
-        </rules>
-        <rules>
-            <name>Blocked_Blocked_Reason_updated</name>
-            <conditionLogic>(((1 OR 2) AND 3) OR 6) AND 4 AND 5 AND 7</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Blocked__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.BlockReason__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Account__r.Account_Subsidiary__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Deleted__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.ManualUpdate__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Update_Block_on_Account</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Block_on_Account</targetReference>
-            </connector>
-            <label>Blocked/Blocked Reason updated</label>
-        </rules>
-        <rules>
-            <name>CreditLimitReached_changed</name>
-            <conditionLogic>((1 AND 2) OR 5) AND 3 AND 4 AND 6</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.creditLimitReached__c</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Id</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Account__r.Account_Subsidiary__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Deleted__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.IsInactive__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.ManualUpdate__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Update_Credit_Limit</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Credit_Limit</targetReference>
-            </connector>
-            <label>CreditLimitReached changed</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>Should_Update_Records</name>
-        <label>Should Update Records</label>
-        <locationX>1634</locationX>
-        <locationY>455</locationY>
-        <defaultConnectorLabel>No Update</defaultConnectorLabel>
-        <rules>
-            <name>Update_Account_Record</name>
-            <conditionLogic>(1 OR 2 OR 3) AND 4</conditionLogic>
-            <conditions>
-                <leftValueReference>AssignSyncPaymentTerms</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Assign_NS_Internal_Id</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>AssignNSCustomerNo</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Update_Account_of_Subsidiary</leftValueReference>
-                <operator>WasVisited</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Account_of_Subsidiary</targetReference>
-            </connector>
-            <label>Update Account Record</label>
-        </rules>
-        <rules>
-            <name>Update_Account_SubsidiaryRecord</name>
+            <name>InactivateAccountSubsidiary</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>AssignManualOverride</leftValueReference>
-                <operator>WasVisited</operator>
+                <leftValueReference>$Record.IsInactive__c</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>Update_Account_Subsidiary</leftValueReference>
-                <operator>WasVisited</operator>
+                <leftValueReference>$Record.OutstandingBalance__c</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Account_Subsidiary</targetReference>
+                <targetReference>UpdateAccountSubsidiaryInactive</targetReference>
             </connector>
-            <label>Update Account Subsidiary</label>
+            <label>Inactivate Account Subsidiary</label>
         </rules>
     </decisions>
-    <environments>Default</environments>
     <interviewLabel>After Save Update Account Subsidiary {!$Flow.CurrentDateTime}</interviewLabel>
     <label>After Save Update Account Subsidiary</label>
     <processMetadataValues>
@@ -459,117 +52,33 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>Update_Account_of_Subsidiary</name>
-        <label>Update Account of Subsidiary</label>
-        <locationX>1370</locationX>
-        <locationY>575</locationY>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Should_Update_Records</targetReference>
-        </connector>
+        <name>UpdateAccountSubsidiaryInactive</name>
+        <label>Update Account Subsidiary Inactive</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
         <inputAssignments>
-            <field>NetsuiteCustomerNumber__c</field>
+            <field>Deleted__c</field>
             <value>
-                <elementReference>NetsuiteCustomerNumberAccount</elementReference>
+                <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>NetsuiteInternalId__c</field>
+            <field>IsInactive__c</field>
             <value>
-                <elementReference>NetsuiteInternalIdAccount</elementReference>
+                <booleanValue>false</booleanValue>
             </value>
         </inputAssignments>
-        <inputAssignments>
-            <field>PaymentMethod__c</field>
-            <value>
-                <elementReference>PaymentMethodAccount</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record.Accounts__r</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Account_Subsidiary</name>
-        <label>Update Account Subsidiary</label>
-        <locationX>1634</locationX>
-        <locationY>575</locationY>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Should_Update_Records</targetReference>
-        </connector>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>716</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Payment_Terms_is_changed</targetReference>
+            <targetReference>CanInactivateAccountSubsidiary</targetReference>
         </connector>
         <object>AccountSubsidiary__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Obsolete</status>
-    <subflows>
-        <name>Update_Block_on_Account</name>
-        <label>Update Block on Account</label>
-        <locationX>842</locationX>
-        <locationY>455</locationY>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Payment_Terms_is_changed</targetReference>
-        </connector>
-        <flowName>UpdateBlockonAccount</flowName>
-        <inputAssignments>
-            <name>varAccountSubsidiaryID</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <subflows>
-        <name>Update_Credit_Limit</name>
-        <label>Update Credit Limit</label>
-        <locationX>1106</locationX>
-        <locationY>455</locationY>
-        <connector>
-            <targetReference>AssignManualOverride</targetReference>
-        </connector>
-        <flowName>UpdateCreditLimit</flowName>
-        <inputAssignments>
-            <name>varAccountSubsidiaryID</name>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <variables>
-        <name>NetsuiteCustomerNumberAccount</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Record.Account__r.NetsuiteCustomerNumber__c</elementReference>
-        </value>
-    </variables>
-    <variables>
-        <name>NetsuiteInternalIdAccount</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Record.Account__r.NetsuiteInternalId__c</elementReference>
-        </value>
-    </variables>
-    <variables>
-        <name>PaymentMethodAccount</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Record.Account__r.PaymentMethod__c</elementReference>
-        </value>
-    </variables>
 </Flow>

@@ -468,7 +468,7 @@
         <name>ProductionOrgId</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>00D3V0000008fs9</stringValue>
+            <stringValue>00DJW000005jj7l</stringValue>
         </value>
     </constants>
     <decisions>
@@ -1087,7 +1087,7 @@
                 <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <stringValue>Noordhoff Zorg</stringValue>
+                    <stringValue>Noordhoff Zorg_</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -1285,7 +1285,7 @@ CH 2023/03/28 - changed logic for order notification email 1 and 2
 CH 2023/04/19 - added logic for not sending confirmation emails
 CH 2023/05/10 - added logic for hfdstructuur assignment
 DB 2023/09/05 -  added condition to isactive to block sync for Noordhoff and NH Zorg OpCo Orders
-SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00D3V0000008fs9
+SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00DJW000005jj7l
 DB 2023/10/11 - added Resync Order via API functionality
 HdG 2023/11/17 - allowing orders to be activated for Noordhoff again
 DB 2023/11/30 - When IF Send clicked resend full order if order products weren&apos;t synced</description>

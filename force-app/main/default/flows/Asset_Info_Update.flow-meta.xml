@@ -2,6 +2,54 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
     <assignments>
+        <name>Set_Asset_Values_for_Revert</name>
+        <label>Set Asset Values for Revert</label>
+        <locationX>578</locationX>
+        <locationY>1238</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Asset.ManualDiscount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Recurring Amount</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Asset.ManualDiscountValue__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DiscountAmount_0</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>AssetDiscountScreen_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Asset_Values_for_Revert_0</name>
+        <label>Set Asset Values for Revert</label>
+        <locationX>1106</locationX>
+        <locationY>1238</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Asset.ManualDiscount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Recurring Percentage</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Asset.ManualDiscountPercent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DiscountPercent_0</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>AssetDiscountScreen_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Discount_Amount_As_Invalid_0</name>
         <label>Set Discount Amount As Invalid</label>
         <locationX>578</locationX>
@@ -14,8 +62,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>AssetDiscountScreen_0</targetReference>
+            <targetReference>Set_Asset_Values_for_Revert</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -47,8 +94,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>AssetDiscountScreen_0</targetReference>
+            <targetReference>Set_Asset_Values_for_Revert_0</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -257,7 +303,7 @@
     <formulas>
         <name>AssetTotalPrice</name>
         <dataType>Currency</dataType>
-        <expression>{!Get_Asset.ListPrice__c} * {!Get_Asset.Quantity}</expression>
+        <expression>{!Get_Asset.Price} * {!Get_Asset.Quantity}</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>Asset Update {!$Flow.CurrentDateTime}</interviewLabel>
@@ -632,7 +678,7 @@
                 </fields>
                 <fields>
                     <name>ValidationErrAmount_0</name>
-                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;color: rgb(254, 0, 1); background-color: rgb(255, 255, 255); user-select: auto;&quot;&gt;The amount specified is invalid. Please ensure that the amount is not greater than the total amount of the product.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(254, 0, 1); user-select: auto;&quot;&gt;The amount specified is invalid. The amount cannot be 0 and cannot be greater than the total amount.&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -673,7 +719,7 @@
                 <fieldType>Region</fieldType>
                 <fields>
                     <name>AssetInfo_0</name>
-                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;u style=&quot;user-select: auto; color: rgb(1, 1, 0);&quot;&gt;Asset Information:&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Price:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.ListPrice__c}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Quantity:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Quantity}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0);&quot;&gt;Total Amount:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!AssetTotalPrice}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;u style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Asset Information:&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Price:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Price}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Quantity:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Quantity}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Total Amount:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!AssetTotalPrice}&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                 </fields>
                 <inputParameters>

@@ -1,7 +1,5 @@
 public with sharing class Order_OrdeItemFromOrderFlow {
     
-//Possible delete
-
     public class Request{ 
         @invocablevariable Public List<String> OrderId;
     }  

@@ -113,7 +113,7 @@
 	{!myVariable_current.ReadyForPrivateIndividual__c} = true)
 	)</expression>
     </formulas>
-    <interviewLabel>X1GeneralImportOrderProcess-6_InterviewLabel</interviewLabel>
+    <interviewLabel>X1GeneralImportOrderProcess-5_InterviewLabel</interviewLabel>
     <label>1. General Import Order Process</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -141,7 +141,7 @@
     </processMetadataValues>
     <processType>Workflow</processType>
     <startElementReference>myDecision</startElementReference>
-    <status>Draft</status>
+    <status>Obsolete</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>

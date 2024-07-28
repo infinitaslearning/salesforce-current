@@ -8,28 +8,21 @@ global with sharing class ImportOrderRetryRESTAPI {
         String resp='NA';
         
         try{
-            system.debug('**ImportOrderRetryRESTAPI importOrder**: ' + importOrder);
+            
+            ImportOrder__c[] lst_ImportOrderLines = [Select Id from ImportOrder__c where ExternalOrderId__c =: externalOrderId AND ProductId__c != null AND Status__c = 'Error'];
+            
+            system.debug('**importOrder**: ' + importOrder);
             
             importOrder.Status__c = 'Pending';
             update importOrder;
             
-            ImportOrder__c[] ioLine_HasTriggerBusinessRules = [Select Id from ImportOrder__c where ExternalOrderId__c =: externalOrderId AND ProductId__c != null AND Status__c = 'Error' AND TriggerBusinessLogic__c = TRUE];
-            
-            // check to see if this order has a line with TriggerBusinessLogic__c = true (if so, then we can process because that means all lines for the order are in)
-            if(ioLine_HasTriggerBusinessRules.size() > 0){
-                ImportOrder__c[] lst_ImportOrderLines = [Select Id from ImportOrder__c where ExternalOrderId__c =: externalOrderId AND ProductId__c != null AND Status__c = 'Error'];
-                
-                for(ImportOrder__c io : lst_ImportOrderLines){
-                    io.Status__c = 'Pending';
-                }
-                
-                update lst_ImportOrderLines;
-                
-                resp = 'Success';
-            } else {
-                resp = 'Failed - not all lines are in for order: ' + externalOrderId;
+            for(ImportOrder__c io : lst_ImportOrderLines){
+                io.Status__c = 'Pending';
             }
-
+            
+            update lst_ImportOrderLines;
+			
+			resp = 'Success';
            
         }
         catch(exception e){

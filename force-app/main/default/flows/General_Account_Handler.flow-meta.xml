@@ -317,7 +317,7 @@
 </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_3_A1_7342118193</name>
+        <name>formula_4_myRule_3_A1_3790935137</name>
         <dataType>String</dataType>
         <expression>IF(
     TEXT({!myVariable_current.OperatingCompany__c} ) = &apos;Plantyn&apos;,
@@ -388,7 +388,7 @@
         <dataType>Boolean</dataType>
         <expression>NOT(ISNEW())</expression>
     </formulas>
-    <interviewLabel>General_Account_Handler-7_InterviewLabel</interviewLabel>
+    <interviewLabel>General_Account_Handler-6_InterviewLabel</interviewLabel>
     <label>General Account Handler</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -494,7 +494,7 @@
             </processMetadataValues>
             <field>ShippingCostMethod__c</field>
             <value>
-                <elementReference>formula_4_myRule_3_A1_7342118193</elementReference>
+                <elementReference>formula_4_myRule_3_A1_3790935137</elementReference>
             </value>
         </inputAssignments>
         <object>Account</object>

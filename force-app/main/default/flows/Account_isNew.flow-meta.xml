@@ -17,13 +17,13 @@
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <stringValue>The Account_isNew-5 invocable process failed to start because no records in your org match the record Id specified. In the entities that invoke Account_isNew-5, such as other processes, check the value for this input: SObjectId.</stringValue>
+                <stringValue>The Account_isNew-2 invocable process failed to start because no records in your org match the record Id specified. In the entities that invoke Account_isNew-2, such as other processes, check the value for this input: SObjectId.</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <stringValue>sparker@infinitaslearning.com</stringValue>
+                <stringValue>bsc-support@infinitaslearning.com</stringValue>
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
@@ -46,7 +46,7 @@
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <stringValue>The Account_isNew-5 invocable process failed to start because a valid value wasn&apos;t found. This can happen when entities that invoke Account_isNew-5, such as other processes, don&apos;t have values for either the SObject or SObjectId. For example: 
+                <stringValue>The Account_isNew-2 invocable process failed to start because a valid value wasn&apos;t found. This can happen when entities that invoke Account_isNew-2, such as other processes, don&apos;t have values for either the SObject or SObjectId. For example: 
 -An SObject or SObject ID wasn&apos;t specified.
 -A value might have been included, but it was null at runtime. </stringValue>
             </value>
@@ -54,7 +54,7 @@
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <stringValue>sparker@infinitaslearning.com</stringValue>
+                <stringValue>bsc-support@infinitaslearning.com</stringValue>
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
@@ -277,37 +277,6 @@
                     <stringValue>Location</stringValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <processMetadataValues>
-                    <name>inputDataType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>leftHandSideType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>operatorDataType</name>
-                    <value>
-                        <stringValue>String</stringValue>
-                    </value>
-                </processMetadataValues>
-                <processMetadataValues>
-                    <name>rightHandSideType</name>
-                    <value>
-                        <stringValue>Picklist</stringValue>
-                    </value>
-                </processMetadataValues>
-                <leftValueReference>SObject.ExternalDatabase__c</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>Agodi</stringValue>
-                </rightValue>
-            </conditions>
             <connector>
                 <targetReference>myRule_3_A1</targetReference>
             </connector>
@@ -354,7 +323,7 @@
             <label>SObject Id Not Null</label>
         </rules>
     </decisions>
-    <interviewLabel>Account_isNew-5_InterviewLabel</interviewLabel>
+    <interviewLabel>Account_isNew-2_InterviewLabel</interviewLabel>
     <label>Account isNew</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -386,7 +355,6 @@
         <queriedFields>CustomerCategory__c</queriedFields>
         <queriedFields>Id</queriedFields>
         <queriedFields>SchoolType__c</queriedFields>
-        <queriedFields>ExternalDatabase__c</queriedFields>
     </recordLookups>
     <recordUpdates>
         <processMetadataValues>
@@ -1852,7 +1820,7 @@
         <object>Account</object>
     </recordUpdates>
     <startElementReference>sobjectInputCheckDecision</startElementReference>
-    <status>Obsolete</status>
+    <status>Draft</status>
     <variables>
         <name>SObject</name>
         <dataType>SObject</dataType>

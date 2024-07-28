@@ -1,6 +1,7 @@
 public class VAT_ViesCallout {
 
     @future(callout=true)
+    //public static void MakeCallout(Id accountId, String countryCode, String vatNumber) {
     public static void MakeCallout(List<String> paramList) {
 
         List<Account> accountsForUpdate = new List<Account>();
@@ -50,16 +51,13 @@ public class VAT_ViesCallout {
             String err = '';
             // make callout to VIES for VAT Check
             try {
-                VAT_Vies_WDSL.checkVatPort vatCheck = new VAT_Vies_WDSL.checkVatPort ();
-                resp = vatCheck.checkVat(countryCode,vatNumberForCheck);
+                VAT_Vies_WDSL.checkVatPort  vatCheck = new VAT_Vies_WDSL.checkVatPort ();
+                resp = vatCheck.checkVat(countryCode,vatNumberForCheck);    
             } catch (Exception e) {
                 err = e.getMessage();
             } 
             
-            // TEMP
-            System.debug('FULL RESPONSE: ' + resp);
-            // END TEMP
-            
+
             System.debug('Response:');
             System.debug('countryCode: ' + resp.countryCode);
             System.debug('vatNumber: ' + resp.vatNumber);

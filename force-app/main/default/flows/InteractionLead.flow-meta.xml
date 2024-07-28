@@ -349,7 +349,7 @@
             <targetReference>Lead_interaction</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>sov_Interaction</name>
         <dataType>SObject</dataType>

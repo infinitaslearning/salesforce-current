@@ -2,53 +2,107 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>54.0</apiVersion>
     <assignments>
-        <name>Set_Discount_Amount_As_Invalid_0</name>
-        <label>Set Discount Amount As Invalid</label>
-        <locationX>578</locationX>
+        <name>Set_Asset_Values_for_Revert</name>
+        <label>Set Asset Values for Revert</label>
+        <locationX>314</locationX>
         <locationY>1118</locationY>
         <assignmentItems>
-            <assignToReference>DiscountAmountValid</assignToReference>
+            <assignToReference>Get_Asset.ManualDiscount__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <elementReference>RecurringAmount</elementReference>
             </value>
         </assignmentItems>
-    </assignments>
-    <assignments>
-        <name>Set_Discount_Amount_As_Valid_0</name>
-        <label>Set Discount Amount As Valid</label>
-        <locationX>908</locationX>
-        <locationY>758</locationY>
         <assignmentItems>
-            <assignToReference>DiscountAmountValid</assignToReference>
+            <assignToReference>Get_Asset.ManualDiscountValue__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <booleanValue>true</booleanValue>
+                <elementReference>DiscountAmount</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Discount_Type_0</targetReference>
+            <isGoTo>true</isGoTo>
+            <targetReference>AssetDiscountScreen</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Set_Percentage_Amount_As_Invalid_0</name>
-        <label>Set Percentage Amount As Invalid</label>
-        <locationX>1106</locationX>
+        <name>Set_Asset_Values_for_Revert_0</name>
+        <label>Set Asset Values for Revert</label>
+        <locationX>842</locationX>
         <locationY>1118</locationY>
         <assignmentItems>
-            <assignToReference>PercentageAmountValid</assignToReference>
+            <assignToReference>Get_Asset.ManualDiscount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RecurringPercentage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Asset.ManualDiscountPercent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>DiscountPercent</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>AssetDiscountScreen</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Discount_Amount_As_Invalid</name>
+        <label>Set Discount Amount As Invalid</label>
+        <locationX>314</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>DiscountAmountValid</assignToReference>
             <operator>Assign</operator>
             <value>
                 <booleanValue>false</booleanValue>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Set_Asset_Values_for_Revert</targetReference>
+        </connector>
     </assignments>
     <assignments>
-        <name>Set_Percentage_Amount_As_Valid_0</name>
-        <label>Set Percentage Amount As Valid</label>
-        <locationX>908</locationX>
+        <name>Set_Discount_Amount_As_Valid</name>
+        <label>Set Discount Amount As Valid</label>
+        <locationX>644</locationX>
         <locationY>638</locationY>
         <assignmentItems>
+            <assignToReference>DiscountAmountValid</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Discount_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Percentage_Amount_As_Invalid</name>
+        <label>Set Percentage Amount As Invalid</label>
+        <locationX>842</locationX>
+        <locationY>998</locationY>
+        <assignmentItems>
+            <assignToReference>PercentageAmountValid</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_Asset_Values_for_Revert_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Percentage_Amount_As_Valid</name>
+        <label>Set Percentage Amount As Valid</label>
+        <locationX>644</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
             <assignToReference>PercentageAmountValid</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -56,25 +110,9 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Set_Discount_Amount_As_Valid_0</targetReference>
+            <targetReference>Set_Discount_Amount_As_Valid</targetReference>
         </connector>
     </assignments>
-    <choices>
-        <name>AccountInfo</name>
-        <choiceText>Account information</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>AccountInfo</stringValue>
-        </value>
-    </choices>
-    <choices>
-        <name>Discount</name>
-        <choiceText>Discount</choiceText>
-        <dataType>String</dataType>
-        <value>
-            <stringValue>Discount</stringValue>
-        </value>
-    </choices>
     <choices>
         <name>RecurringAmount</name>
         <choiceText>Recurring Amount</choiceText>
@@ -92,168 +130,131 @@
         </value>
     </choices>
     <decisions>
-        <name>Discount_Amount_Valid_0</name>
+        <name>Discount_Amount_Valid</name>
         <label>Discount Amount Valid</label>
-        <locationX>446</locationX>
-        <locationY>998</locationY>
+        <locationX>182</locationX>
+        <locationY>878</locationY>
         <defaultConnector>
-            <targetReference>Set_Discount_Amount_As_Invalid_0</targetReference>
+            <targetReference>Set_Discount_Amount_As_Invalid</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_0</name>
+            <name>Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>DiscountAmount_0</leftValueReference>
+                <leftValueReference>DiscountAmount</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <elementReference>AssetTotalPrice</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>DiscountAmount_0</leftValueReference>
+                <leftValueReference>DiscountAmount</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>DiscountAmount_0</leftValueReference>
+                <leftValueReference>DiscountAmount</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Asset_0_0_0</targetReference>
+                <targetReference>Update_Asset</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Discount_Type_0</name>
+        <name>Discount_Type</name>
         <label>Discount Type</label>
-        <locationX>908</locationX>
-        <locationY>878</locationY>
+        <locationX>644</locationX>
+        <locationY>758</locationY>
         <defaultConnector>
-            <targetReference>Update_Asset_0_0_0_0_0</targetReference>
+            <targetReference>Update_Asset_0_0</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Amount_0</name>
+            <name>Amount</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Type_0</leftValueReference>
+                <leftValueReference>Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>RecurringAmount</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Discount_Amount_Valid_0</targetReference>
+                <targetReference>Discount_Amount_Valid</targetReference>
             </connector>
             <label>Amount</label>
         </rules>
         <rules>
-            <name>Percentage_0</name>
+            <name>Percentage</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Type_0</leftValueReference>
+                <leftValueReference>Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>RecurringPercentage</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Percentage_is_Valid_0</targetReference>
+                <targetReference>Percentage_is_Valid</targetReference>
             </connector>
             <label>Percentage</label>
         </rules>
     </decisions>
     <decisions>
-        <name>Percentage_is_Valid_0</name>
+        <name>Percentage_is_Valid</name>
         <label>Percentage is Valid</label>
-        <locationX>974</locationX>
-        <locationY>998</locationY>
+        <locationX>710</locationX>
+        <locationY>878</locationY>
         <defaultConnector>
-            <targetReference>Set_Percentage_Amount_As_Invalid_0</targetReference>
+            <targetReference>Set_Percentage_Amount_As_Invalid</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Yes_Percentage_Valid_0</name>
+            <name>Yes_Percentage_Valid</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>DiscountPercent_0</leftValueReference>
+                <leftValueReference>DiscountPercent</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>100.0</numberValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>DiscountPercent_0</leftValueReference>
+                <leftValueReference>DiscountPercent</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>DiscountPercent_0</leftValueReference>
+                <leftValueReference>DiscountPercent</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Asset_0_0_0_0</targetReference>
+                <targetReference>Update_Asset_0</targetReference>
             </connector>
             <label>Yes</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>What_Info_Do_We_Want_to_Update</name>
-        <label>What Info Do We Want to Update?</label>
-        <locationX>842</locationX>
-        <locationY>398</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Account</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Asset_Information</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>AccountInfo</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>AccountInfoScreen</targetReference>
-            </connector>
-            <label>Account</label>
-        </rules>
-        <rules>
-            <name>DiscountInfo</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Asset_Information</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <elementReference>Discount</elementReference>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>AssetDiscountScreen_0</targetReference>
-            </connector>
-            <label>Discount</label>
         </rules>
     </decisions>
     <formulas>
         <name>AssetTotalPrice</name>
         <dataType>Currency</dataType>
-        <expression>{!Get_Asset.ListPrice__c} * {!Get_Asset.Quantity}</expression>
+        <expression>{!Get_Asset.Price} * {!Get_Asset.Quantity}</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>Asset Discount {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Asset Updation</label>
+    <label>Asset Discount</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -276,11 +277,11 @@
     <recordLookups>
         <name>Get_Asset</name>
         <label>Get Asset</label>
-        <locationX>842</locationX>
+        <locationX>644</locationX>
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Asset_Update_Selection</targetReference>
+            <targetReference>Get_Order_Item</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -294,97 +295,31 @@
         <object>Asset</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Order_Item</name>
+        <label>Get Order Item</label>
+        <locationX>644</locationX>
+        <locationY>278</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>AssetDiscountScreen</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Asset__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>OrderItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Asset</name>
         <label>Update Asset</label>
         <locationX>50</locationX>
-        <locationY>638</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>AccountId</field>
-            <value>
-                <elementReference>AccountLookup.recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>BillToAccount__c</field>
-            <value>
-                <elementReference>BillToAccLookup.recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <object>Asset</object>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Asset_0_0_0</name>
-        <label>Update Asset</label>
-        <locationX>314</locationX>
-        <locationY>1118</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>ManualDiscountPercent__c</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ManualDiscountValue__c</field>
-            <value>
-                <elementReference>DiscountAmount_0</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ManualDiscount__c</field>
-            <value>
-                <stringValue>Recurring Amount</stringValue>
-            </value>
-        </inputAssignments>
-        <object>Asset</object>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Asset_0_0_0_0</name>
-        <label>Update Asset</label>
-        <locationX>842</locationX>
-        <locationY>1118</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>ManualDiscountPercent__c</field>
-            <value>
-                <elementReference>DiscountPercent_0</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ManualDiscountValue__c</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>ManualDiscount__c</field>
-            <value>
-                <stringValue>Recurring Percentage</stringValue>
-            </value>
-        </inputAssignments>
-        <object>Asset</object>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Asset_0_0_0_0_0</name>
-        <label>Update Asset</label>
-        <locationX>1370</locationX>
         <locationY>998</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -399,177 +334,92 @@
         </inputAssignments>
         <inputAssignments>
             <field>ManualDiscountValue__c</field>
+            <value>
+                <elementReference>DiscountAmount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ManualDiscount__c</field>
+            <value>
+                <stringValue>Recurring Amount</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Asset</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Asset_0</name>
+        <label>Update Asset</label>
+        <locationX>578</locationX>
+        <locationY>998</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ManualDiscountPercent__c</field>
+            <value>
+                <elementReference>DiscountPercent</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ManualDiscountValue__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ManualDiscount__c</field>
+            <value>
+                <stringValue>Recurring Percentage</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Asset</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Asset_0_0</name>
+        <label>Update Asset</label>
+        <locationX>1106</locationX>
+        <locationY>878</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ManualDiscountPercent__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ManualDiscountValue__c</field>
         </inputAssignments>
         <inputAssignments>
             <field>ManualDiscount__c</field>
         </inputAssignments>
         <object>Asset</object>
     </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
-        <name>AccountInfoScreen</name>
-        <label>AccountInfoScreen</label>
-        <locationX>50</locationX>
-        <locationY>518</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>Update_Asset</targetReference>
-        </connector>
-        <fields>
-            <name>AccountInfoScreen_Section1</name>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>AccountInfoScreen_Section1_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>AccountLookup</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>AccountId</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Asset</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>Get_Asset.AccountId</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <fields>
-                <name>AccountInfoScreen_Section1_Column2</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>BillToAccLookup</name>
-                    <extensionName>flowruntime:lookup</extensionName>
-                    <fieldType>ComponentInstance</fieldType>
-                    <inputParameters>
-                        <name>fieldApiName</name>
-                        <value>
-                            <stringValue>BillToAccount__c</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>label</name>
-                        <value>
-                            <stringValue>Bill to Account</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>objectApiName</name>
-                        <value>
-                            <stringValue>Asset</stringValue>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>recordId</name>
-                        <value>
-                            <elementReference>Get_Asset.BillToAccount__c</elementReference>
-                        </value>
-                    </inputParameters>
-                    <inputParameters>
-                        <name>required</name>
-                        <value>
-                            <booleanValue>true</booleanValue>
-                        </value>
-                    </inputParameters>
-                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>true</isRequired>
-                    <storeOutputAutomatically>true</storeOutputAutomatically>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>6</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithoutHeader</regionContainerType>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>Asset_Update_Selection</name>
-        <label>Asset Update Selection</label>
-        <locationX>842</locationX>
-        <locationY>278</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
-        <connector>
-            <targetReference>What_Info_Do_We_Want_to_Update</targetReference>
-        </connector>
-        <fields>
-            <name>dpSelection</name>
-            <fieldText>&lt;p&gt;Select an option below to update, and click on &apos;Next&apos;:&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-        </fields>
-        <fields>
-            <name>Asset_Information</name>
-            <choiceReferences>AccountInfo</choiceReferences>
-            <choiceReferences>Discount</choiceReferences>
-            <dataType>String</dataType>
-            <fieldText>Asset Information</fieldText>
-            <fieldType>RadioButtons</fieldType>
-            <isRequired>false</isRequired>
-        </fields>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>AssetDiscountScreen_0</name>
+        <name>AssetDiscountScreen</name>
         <label>AssetDiscountScreen</label>
-        <locationX>908</locationX>
-        <locationY>518</locationY>
+        <locationX>644</locationX>
+        <locationY>398</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <connector>
-            <targetReference>Set_Percentage_Amount_As_Valid_0</targetReference>
+            <targetReference>Set_Percentage_Amount_As_Valid</targetReference>
         </connector>
         <fields>
-            <name>AssetDiscountScreen_0_Section1</name>
+            <name>AssetDiscountScreen_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>AssetDiscountScreen_0_Section1_Column1</name>
+                <name>AssetDiscountScreen_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Type_0</name>
+                    <name>Type</name>
                     <choiceReferences>RecurringAmount</choiceReferences>
                     <choiceReferences>RecurringPercentage</choiceReferences>
                     <dataType>String</dataType>
@@ -581,7 +431,7 @@
                     <isRequired>false</isRequired>
                 </fields>
                 <fields>
-                    <name>DiscountAmount_0</name>
+                    <name>DiscountAmount</name>
                     <dataType>Number</dataType>
                     <defaultValue>
                         <elementReference>Get_Asset.ManualDiscountValue__c</elementReference>
@@ -593,7 +443,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>Type_0</leftValueReference>
+                            <leftValueReference>Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <elementReference>RecurringAmount</elementReference>
@@ -602,7 +452,7 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>DiscountPercent_0</name>
+                    <name>DiscountPercent</name>
                     <dataType>Number</dataType>
                     <defaultValue>
                         <elementReference>Get_Asset.ManualDiscountPercent__c</elementReference>
@@ -614,7 +464,7 @@
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
                         <conditions>
-                            <leftValueReference>Type_0</leftValueReference>
+                            <leftValueReference>Type</leftValueReference>
                             <operator>EqualTo</operator>
                             <rightValue>
                                 <elementReference>RecurringPercentage</elementReference>
@@ -623,8 +473,8 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>ValidationErrAmount_0</name>
-                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;color: rgb(254, 0, 1); background-color: rgb(255, 255, 255); user-select: auto;&quot;&gt;The amount specified is invalid. Please ensure that the amount is not greater than the total amount of the product.&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>ValidationErrAmount</name>
+                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(254, 0, 1); user-select: auto;&quot;&gt;The amount specified is invalid. The amount cannot be 0 and cannot be greater than the total amount.&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                     <visibilityRule>
                         <conditionLogic>and</conditionLogic>
@@ -638,7 +488,7 @@
                     </visibilityRule>
                 </fields>
                 <fields>
-                    <name>ValidationErrPercent_0</name>
+                    <name>ValidationErrPercent</name>
                     <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;span style=&quot;color: rgb(254, 0, 1); background-color: rgb(255, 255, 255); user-select: auto;&quot;&gt;The discount amount is invalid. The discount amount cannot be less than 0 and cannot be higher than 100.&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                     <visibilityRule>
@@ -661,11 +511,11 @@
                 <isRequired>false</isRequired>
             </fields>
             <fields>
-                <name>AssetDiscountScreen_0_Section1_Column2</name>
+                <name>AssetDiscountScreen_Section1_Column2</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>AssetInfo_0</name>
-                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;u style=&quot;user-select: auto; color: rgb(1, 1, 0);&quot;&gt;Asset Information:&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Price:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.ListPrice__c}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Quantity:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Quantity}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0);&quot;&gt;Total Amount:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!AssetTotalPrice}&lt;/span&gt;&lt;/p&gt;</fieldText>
+                    <name>AssetInfo</name>
+                    <fieldText>&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;u style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Asset Information:&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Price:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Price}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Quantity:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!Get_Asset.Quantity}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Total Amount:&lt;/i&gt;&lt;span style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt; {!LineItemTotal}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;br style=&quot;user-select: auto;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;user-select: auto;&quot;&gt;&lt;i style=&quot;color: rgb(1, 1, 0); user-select: auto;&quot;&gt;Note: If this asset should not be discounted, set the &apos;Type&apos; to &apos;None&apos;.&lt;/i&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
                 </fields>
                 <inputParameters>
@@ -683,7 +533,7 @@
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>716</locationX>
+        <locationX>518</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Asset</targetReference>
@@ -698,6 +548,17 @@
         <isOutput>false</isOutput>
         <value>
             <booleanValue>true</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>LineItemTotal</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+        <value>
+            <elementReference>Get_Order_Item.LineItemTotal__c</elementReference>
         </value>
     </variables>
     <variables>

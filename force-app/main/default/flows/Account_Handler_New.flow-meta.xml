@@ -123,7 +123,6 @@
             <label>Noordhoff</label>
         </rules>
     </decisions>
-    <environments>Default</environments>
     <interviewLabel>Account Handler New {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Account Handler New</label>
     <processMetadataValues>
@@ -158,14 +157,6 @@
         <connector>
             <targetReference>Action</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>AgodiUpdateInProgress__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
         <object>Account</object>
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>

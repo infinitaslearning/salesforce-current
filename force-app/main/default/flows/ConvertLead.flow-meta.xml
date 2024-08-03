@@ -4,7 +4,7 @@
         <name>ConvertLead</name>
         <label>Convert Lead</label>
         <locationX>1106</locationX>
-        <locationY>4394</locationY>
+        <locationY>4610</locationY>
         <actionName>IL_LeadConversion</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -176,13 +176,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>sov_Lead.Opportunity__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>forOpportunityId</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>sov_Lead.Product__c</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -194,6 +187,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>GetProduct.Method__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Lead.Opportunity__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forOpportunityId</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -243,7 +243,7 @@
         <name>AssignVariables</name>
         <label>Assign variables</label>
         <locationX>1106</locationX>
-        <locationY>4286</locationY>
+        <locationY>4502</locationY>
         <assignmentItems>
             <assignToReference>soc_Leads</assignToReference>
             <operator>Add</operator>
@@ -272,7 +272,7 @@
         <name>Set_AccountId</name>
         <label>Set AccountId</label>
         <locationX>1194</locationX>
-        <locationY>4610</locationY>
+        <locationY>4826</locationY>
         <assignmentItems>
             <assignToReference>soc_Account</assignToReference>
             <operator>Assign</operator>
@@ -288,7 +288,7 @@
         <name>Set_ContactIds</name>
         <label>Set ContactIds</label>
         <locationX>1194</locationX>
-        <locationY>4910</locationY>
+        <locationY>5126</locationY>
         <assignmentItems>
             <assignToReference>soc_Contact</assignToReference>
             <operator>Assign</operator>
@@ -304,7 +304,7 @@
         <name>Set_OpportunityIds</name>
         <label>Set OpportunityIds</label>
         <locationX>1106</locationX>
-        <locationY>5210</locationY>
+        <locationY>4094</locationY>
         <assignmentItems>
             <assignToReference>soc_Opportunity</assignToReference>
             <operator>Assign</operator>
@@ -313,7 +313,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Auto_Convert_Post_Processing</targetReference>
+            <targetReference>Does_Interaction_Exist</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -548,7 +548,7 @@
         <name>Does_Interaction_Exist</name>
         <label>Does Interaction Exist</label>
         <locationX>1106</locationX>
-        <locationY>3986</locationY>
+        <locationY>4202</locationY>
         <defaultConnector>
             <targetReference>createInteractionBeforeConvert</targetReference>
         </defaultConnector>
@@ -756,7 +756,7 @@
     <formulas>
         <name>forOpportunityId</name>
         <dataType>String</dataType>
-        <expression>IF(NOT(ISBLANK({!Opportunity.recordId})),{!Opportunity.recordId},NULL)</expression>
+        <expression>IF(NOT(ISBLANK({!Opportunity.recordId})),{!Opportunity.recordId},{!sov_Lead.Opportunity__c})</expression>
     </formulas>
     <formulas>
         <name>forOpportunityRT</name>
@@ -799,7 +799,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <name>Loop_Converted_AccountIDs</name>
         <label>Loop Converted AccountIDs</label>
         <locationX>1106</locationX>
-        <locationY>4502</locationY>
+        <locationY>4718</locationY>
         <collectionReference>soc_Accounts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -813,14 +813,14 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <name>Loop_Converted_ContactIDs</name>
         <label>Loop Converted ContactIDs</label>
         <locationX>1106</locationX>
-        <locationY>4802</locationY>
+        <locationY>5018</locationY>
         <collectionReference>soc_Contacts</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
             <targetReference>Set_ContactIds</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
-            <targetReference>Get_Opportunity</targetReference>
+            <targetReference>Auto_Convert_Post_Processing</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -1331,7 +1331,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <locationY>3878</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Does_Interaction_Exist</targetReference>
+            <targetReference>Get_Opportunity</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1349,7 +1349,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <name>Get_Opportunity</name>
         <label>Get Opportunity</label>
         <locationX>1106</locationX>
-        <locationY>5102</locationY>
+        <locationY>3986</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_OpportunityIds</targetReference>
@@ -1359,7 +1359,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>var_CreatedOpportunity</elementReference>
+                <elementReference>sov_Lead.Opportunity__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -1408,7 +1408,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
             <field>Product2Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>soc_Product.Id</elementReference>
+                <elementReference>sov_Lead.Product__c</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -1985,12 +1985,19 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
             <isRequired>true</isRequired>
             <storeOutputAutomatically>true</storeOutputAutomatically>
             <visibilityRule>
-                <conditionLogic>and</conditionLogic>
+                <conditionLogic>or</conditionLogic>
                 <conditions>
                     <leftValueReference>CreateNewOpportunity</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Opportunity.recordId</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <elementReference>sov_Lead.Opportunity__c</elementReference>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -2190,7 +2197,7 @@ IF(ISBLANK({!sov_Lead.Product__r.Name}),{!sov_Lead.Name},{!sov_Lead.Name} &amp; 
         <name>createInteractionBeforeConvert</name>
         <label>Create Interaction before convert</label>
         <locationX>1194</locationX>
-        <locationY>4094</locationY>
+        <locationY>4310</locationY>
         <connector>
             <targetReference>AssignVariables</targetReference>
         </connector>

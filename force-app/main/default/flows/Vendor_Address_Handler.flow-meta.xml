@@ -1207,7 +1207,8 @@ Skip Validate.</description>
         </rules>
     </decisions>
     <description>DB 07/03/2024: Added validation skip if Account is from UDB
-DB 30/05/2024: Vendor addresses excluded from validation</description>
+DB 30/05/2024: Vendor addresses excluded from validation
+DB 22/07/2024: Match only validated (Status: GREEN) addresses for incoming addresses</description>
     <environments>Default</environments>
     <formulas>
         <name>dtNow</name>
@@ -1335,6 +1336,13 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
                 <elementReference>accountRecord.OperatingCompany__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1384,6 +1392,13 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
                 <elementReference>accountRecord.OperatingCompany__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -1431,6 +1446,13 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
             <operator>EqualTo</operator>
             <value>
                 <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

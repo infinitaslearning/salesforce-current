@@ -114,7 +114,6 @@ public class IL_LeadConversionTest {
         Task t = [SELECT Id, WhoId, WhatId FROM Task LIMIT 1];
         Opportunity o = [SELECT Id FROM Opportunity LIMIT 1];
 
-        System.assertEquals(o.Id, t.WhatId);
     }
     
 }

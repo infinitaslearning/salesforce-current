@@ -151,8 +151,8 @@
     <assignments>
         <name>assBillingAddress</name>
         <label>assBillingAddress</label>
-        <locationX>4133</locationX>
-        <locationY>3958</locationY>
+        <locationX>3834</locationX>
+        <locationY>4028</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.BillingStreet</assignToReference>
             <operator>Assign</operator>
@@ -181,6 +181,73 @@
                 <elementReference>sov_NetsuiteOrder.BillingPostalCode__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Same_Billing_Shipping_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assBillTo</name>
+        <label>assBillTo</label>
+        <locationX>489</locationX>
+        <locationY>2489</locationY>
+        <assignmentItems>
+            <assignToReference>var_BillingAddressId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_ShippingAddressId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_BillingAddressValidatedSuccessState</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_ShippingAddressValidatedSuccessState</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Private_Individual_Account</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assBillToAddress</name>
+        <label>assBillToAddress</label>
+        <locationX>4351</locationX>
+        <locationY>4095</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressValidatedSuccessState</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>decShipByDate</targetReference>
         </connector>
@@ -188,8 +255,8 @@
     <assignments>
         <name>assGetAccShippingAddress</name>
         <label>assGetAccShippingAddress</label>
-        <locationX>3492</locationX>
-        <locationY>3642</locationY>
+        <locationX>3427</locationX>
+        <locationY>3629</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.ShippingStreet</assignToReference>
             <operator>Assign</operator>
@@ -222,8 +289,43 @@
                 <elementReference>sov_DeliveryLocation.ShippingCountry</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_DeliveryLocation.ShippingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_DeliveryLocation.ShippingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_DeliveryLocation.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_DeliveryLocation.ShippingAddress__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_DeliveryLocation.ShipToAddressValidated__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>decBillingAddress</targetReference>
+            <targetReference>Get_Shipping_Address</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -341,7 +443,7 @@
     <assignments>
         <name>Assign_Order_Variables</name>
         <label>Assign Order Variables</label>
-        <locationX>2589</locationX>
+        <locationX>2588</locationX>
         <locationY>3892</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.Status</assignToReference>
@@ -770,6 +872,76 @@
                 <elementReference>sov_NetsuiteOrder.DontSendOrderConfirmation__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.BillingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.BillingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.ShippingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_OrderAccount.ShippingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_Order.Billto__r.BillingAddress__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.BillToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_Order.Shipto__r.BillToAddressValidated__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_Order.Shipto__r.ShippingAddress__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_Order.Shipto__r.ShipToAddressValidated__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Should_Shipping_Costs_Exempt_be_set</targetReference>
         </connector>
@@ -1026,8 +1198,43 @@
                 <elementReference>sov_Product.ItemSubtype__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShippingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShippingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShippingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShipToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Order.Shipto__r.ShippingAddress__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Order.ShipToAddressValidated__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
-            <targetReference>Apply_Custom_Sales_Price</targetReference>
+            <targetReference>Get_Product_Shipping_Address</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1182,7 +1389,7 @@
             <assignToReference>sov_OrderItem.ComponentListPrice__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>sov_NetsuiteOrder.NetSalesPrice__c</elementReference>
+                <elementReference>sov_NetsuiteOrder.ListPrice__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -1216,7 +1423,7 @@
         <name>assignNotificationEmails</name>
         <label>assignNotificationEmails</label>
         <locationX>4372</locationX>
-        <locationY>3493</locationY>
+        <locationY>3482</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.OrderNotificationEmail__c</assignToReference>
             <operator>Assign</operator>
@@ -1410,8 +1617,8 @@
     <assignments>
         <name>assignShipbyDateToEffectiveDate</name>
         <label>assignShipbyDateToEffectiveDate</label>
-        <locationX>4767</locationX>
-        <locationY>3719</locationY>
+        <locationX>4789</locationX>
+        <locationY>3729</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.ShipbyDate__c</assignToReference>
             <operator>Assign</operator>
@@ -1479,10 +1686,33 @@
         </connector>
     </assignments>
     <assignments>
+        <name>assProductShipToAddress</name>
+        <label>assProductShipToAddress</label>
+        <locationX>3958</locationX>
+        <locationY>1002</locationY>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShipToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_OrderItem.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressValidatedSuccessState</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Apply_Custom_Sales_Price</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>assShippingAddres</name>
         <label>assShippingAddres</label>
-        <locationX>3506</locationX>
-        <locationY>4022</locationY>
+        <locationX>3439</locationX>
+        <locationY>4012</locationY>
         <assignmentItems>
             <assignToReference>sov_Order.ShippingStreet</assignToReference>
             <operator>Assign</operator>
@@ -1516,6 +1746,50 @@
             <operator>Assign</operator>
             <value>
                 <stringValue></stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShippingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Shipping_Address</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>assShipToAddress</name>
+        <label>assShipToAddress</label>
+        <locationX>3905</locationX>
+        <locationY>3585</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Order.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>var_AddressValidatedSuccessState</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -2057,6 +2331,31 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Billing_Address_Is_Null</name>
+        <label>Billing Address Is Null</label>
+        <locationX>4117</locationX>
+        <locationY>4088</locationY>
+        <defaultConnector>
+            <targetReference>assBillToAddress</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Billing Address Found</defaultConnectorLabel>
+        <rules>
+            <name>Billing_Address_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>var_AddressId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>decShipByDate</targetReference>
+            </connector>
+            <label>Billing Address Null</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>This previously blocked orders for activation where Activation Block Source is NOT null (for gen2 orders). We&apos;re removing this block now.</description>
         <name>Block_Auto_Activate</name>
         <label>Block Auto Activate-GEN2</label>
@@ -2085,8 +2384,8 @@
     <decisions>
         <name>Check_notification_emails</name>
         <label>Check notification emails</label>
-        <locationX>4403</locationX>
-        <locationY>4085</locationY>
+        <locationX>4440</locationX>
+        <locationY>4029</locationY>
         <defaultConnector>
             <targetReference>ImportOrderHasEffectiveDate</targetReference>
         </defaultConnector>
@@ -2153,7 +2452,7 @@
         <locationX>3823</locationX>
         <locationY>3796</locationY>
         <defaultConnector>
-            <targetReference>decShipByDate</targetReference>
+            <targetReference>Same_Billing_Shipping_Address</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2547,7 +2846,7 @@
         <locationX>3300</locationX>
         <locationY>3815</locationY>
         <defaultConnector>
-            <targetReference>decBillingAddress</targetReference>
+            <targetReference>Get_Shipping_Address</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2756,8 +3055,8 @@
     <decisions>
         <name>ImportOrderHasEffectiveDate</name>
         <label>Import Order Has Effective Date</label>
-        <locationX>4629</locationX>
-        <locationY>4014</locationY>
+        <locationX>4685</locationX>
+        <locationY>4030</locationY>
         <defaultConnector>
             <targetReference>assignShipbyDate</targetReference>
         </defaultConnector>
@@ -2913,33 +3212,19 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>HasItemGroupId</name>
-            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <name>Adjusted_List_Price</name>
+            <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>sov_NetsuiteOrder.itemGroupId__c</leftValueReference>
+                <leftValueReference>sov_NetsuiteOrder.ListPrice__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
-                <operator>Contains</operator>
-                <rightValue>
-                    <stringValue>eCommerce</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Studiemeister</stringValue>
-                </rightValue>
-            </conditions>
             <connector>
                 <targetReference>AssignComponentListPrice</targetReference>
             </connector>
-            <label>Has ItemGroupId</label>
+            <label>Adjusted List Price</label>
         </rules>
     </decisions>
     <decisions>
@@ -3364,6 +3649,126 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Same_Billing_Shipping_Address</name>
+        <label>Same Billing &amp; Shipping Address</label>
+        <locationX>4047</locationX>
+        <locationY>3881</locationY>
+        <defaultConnector>
+            <targetReference>Get_Billing_Address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Different</defaultConnectorLabel>
+        <rules>
+            <name>Same</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingStreetName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingHouseNumber__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingPostalCode__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingCity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.City__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingCountry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.Country__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Billing_Address_Is_Null</targetReference>
+            </connector>
+            <label>Same</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Same_Billing_Shipping_Address_0</name>
+        <label>Same Billing &amp; Shipping Address</label>
+        <locationX>396</locationX>
+        <locationY>2257</locationY>
+        <defaultConnector>
+            <targetReference>Add_Billing_Address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Different</defaultConnectorLabel>
+        <rules>
+            <name>Same_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingStreetName__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingHouseNumber__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingPostalCode__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingCity__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.City__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.BillingCountry__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>sov_NetsuiteOrder.Country__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>assBillTo</targetReference>
+            </connector>
+            <label>Same</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>This check is done to always set the Original Pricebook Entry List price so it&apos;s not overwritten when a successor item is selected and the PB Entry required for the successor. This is done to calculate the discount correctly from the Original price and not the successor price.</description>
         <name>Set_Product_List_Price</name>
         <label>Set Product List Price</label>
@@ -3394,6 +3799,56 @@
                 <targetReference>Assign_Original_Product_List_Price</targetReference>
             </connector>
             <label>Set List Price</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Shipping_Address_Is_Null</name>
+        <label>Shipping Address Is Null</label>
+        <locationX>3620</locationX>
+        <locationY>3596</locationY>
+        <defaultConnector>
+            <targetReference>assShipToAddress</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Shipping Address Found</defaultConnectorLabel>
+        <rules>
+            <name>Shipping_Address_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>var_AddressId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>decBillingAddress</targetReference>
+            </connector>
+            <label>Shipping Address Null</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Shipping_Address_Is_Null_0</name>
+        <label>Shipping Address Is Null</label>
+        <locationX>3941</locationX>
+        <locationY>820</locationY>
+        <defaultConnector>
+            <targetReference>assProductShipToAddress</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Shipping Address Found</defaultConnectorLabel>
+        <rules>
+            <name>Shipping_Address_Null_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>var_AddressId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Apply_Custom_Sales_Price</targetReference>
+            </connector>
+            <label>Shipping Address Null</label>
         </rules>
     </decisions>
     <decisions>
@@ -3765,6 +4220,8 @@ CH: 2023/10/31 PBE get excludes delivery status = null
 DB: 2023/11/20 Payment method on Order set to Prepayment if Payment Method Type is Ideal
 CH: 2023/11/22 Fixed &quot;Free&quot; Line Item Type not actually being free
 DB: 2024/01/13 Add successor item skip logic for Studiemeister &amp; eCom sources
+DB: 2024/03/13 Added ILAddress query, insert &amp; validate functionality
+DB: 2024/04/15 Assign Adjusted List Price if Import Order record has a List Price
 DB: 2024/06/11 Assign Warehouse Reference from shipTo Account
 DB: 2024/07/10 Assign Billing Reminder &amp; Invoicing Email from billTo/invoicing Account</description>
     <environments>Default</environments>
@@ -4050,6 +4507,12 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             <targetReference>Error</targetReference>
         </faultConnector>
         <inputAssignments>
+            <field>BillingAddress__c</field>
+            <value>
+                <elementReference>var_BillingAddressId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>BillingCity</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.BillingCity__c</elementReference>
@@ -4059,6 +4522,18 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             <field>BillingCountry</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.BillingCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingHouseNumberAddition__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingHouseNumber__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumber__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4077,6 +4552,12 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             <field>BillingStreet</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.BillingStreet__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingStreetName__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingStreetName__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4146,6 +4627,12 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>ShippingAddress__c</field>
+            <value>
+                <elementReference>var_ShippingAddressId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ShippingCity</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.City__c</elementReference>
@@ -4158,6 +4645,18 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>ShippingHouseNumberAddition__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingHouseNumber__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>ShippingPostalCode</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
@@ -4167,6 +4666,12 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
             <field>ShippingStreet</field>
             <value>
                 <elementReference>sov_NetsuiteOrder.addressLine1__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingStreetName__c</field>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -4567,7 +5072,7 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         <locationY>2256</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Create_Private_Individual_Account</targetReference>
+            <targetReference>Add_Shipping_Address</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -4757,6 +5262,204 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
     </start>
     <status>Active</status>
     <subflows>
+        <name>Add_Billing_Address</name>
+        <label>Add Billing Address</label>
+        <locationX>390</locationX>
+        <locationY>2602</locationY>
+        <connector>
+            <targetReference>Create_Private_Individual_Account</targetReference>
+        </connector>
+        <flowName>Import_Order_Handler_Get_Address_Subflow</flowName>
+        <inputAssignments>
+            <name>ImportOrderRecord</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_City</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingCity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Country</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumber</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumberAddition</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_OperatingCompany</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_PostalCode</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingPostalCode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Street</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingStreetName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var_BillingAddressId</assignToReference>
+            <name>var_AddressIdOutput</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>var_BillingAddressValidatedSuccessState</assignToReference>
+            <name>var_AddressValidatedStatus</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Add_Shipping_Address</name>
+        <label>Add Shipping Address</label>
+        <locationX>610</locationX>
+        <locationY>2255</locationY>
+        <connector>
+            <targetReference>Same_Billing_Shipping_Address_0</targetReference>
+        </connector>
+        <flowName>Import_Order_Handler_Get_Address_Subflow</flowName>
+        <inputAssignments>
+            <name>ImportOrderRecord</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_City</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.City__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Country</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Country__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumber</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumberAddition</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_OperatingCompany</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_PostalCode</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Street</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var_ShippingAddressId</assignToReference>
+            <name>var_AddressIdOutput</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>var_ShippingAddressValidatedSuccessState</assignToReference>
+            <name>var_AddressValidatedStatus</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Get_Billing_Address</name>
+        <label>Get Billing Address</label>
+        <locationX>3976</locationX>
+        <locationY>4086</locationY>
+        <connector>
+            <targetReference>Billing_Address_Is_Null</targetReference>
+        </connector>
+        <flowName>Import_Order_Handler_Get_Address_Subflow</flowName>
+        <inputAssignments>
+            <name>ImportOrderRecord</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_City</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingCity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Country</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumber</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumberAddition</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_OperatingCompany</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_PostalCode</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingPostalCode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Street</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.BillingStreetName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressId</assignToReference>
+            <name>var_AddressIdOutput</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressValidatedSuccessState</assignToReference>
+            <name>var_AddressValidatedStatus</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
         <name>Get_Delivery_Location_Account</name>
         <label>Get Delivery Location Account</label>
         <locationX>1399</locationX>
@@ -4858,6 +5561,138 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         <outputAssignments>
             <assignToReference>sov_OrderAccount</assignToReference>
             <name>sov_OrderAccount</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Get_Product_Shipping_Address</name>
+        <label>Get Product Shipping Address</label>
+        <locationX>4121</locationX>
+        <locationY>819</locationY>
+        <connector>
+            <targetReference>Shipping_Address_Is_Null_0</targetReference>
+        </connector>
+        <flowName>Import_Order_Handler_Get_Address_Subflow</flowName>
+        <inputAssignments>
+            <name>ImportOrderRecord</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_City</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.City__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Country</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Country__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumber</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumberAddition</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_OperatingCompany</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_PostalCode</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Street</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressId</assignToReference>
+            <name>var_AddressIdOutput</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressValidatedSuccessState</assignToReference>
+            <name>var_AddressValidatedStatus</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <name>Get_Shipping_Address</name>
+        <label>Get Shipping Address</label>
+        <locationX>3665</locationX>
+        <locationY>3821</locationY>
+        <connector>
+            <targetReference>Shipping_Address_Is_Null</targetReference>
+        </connector>
+        <flowName>Import_Order_Handler_Get_Address_Subflow</flowName>
+        <inputAssignments>
+            <name>ImportOrderRecord</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_City</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.City__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Country</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Country__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumber</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_HouseNumberAddition</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_OperatingCompany</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_PostalCode</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.Postalcode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>var_Street</name>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingStreetName__c</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressId</assignToReference>
+            <name>var_AddressIdOutput</name>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>var_AddressValidatedSuccessState</assignToReference>
+            <name>var_AddressValidatedStatus</name>
         </outputAssignments>
     </subflows>
     <subflows>
@@ -5035,6 +5870,34 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         <objectType>Product2</objectType>
     </variables>
     <variables>
+        <name>var_AddressId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_AddressValidatedSuccessState</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_BillingAddressId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_BillingAddressValidatedSuccessState</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>var_IsSuccessorItemCheck</name>
         <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
@@ -5062,6 +5925,20 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
     <variables>
         <name>var_ResumeTime</name>
         <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_ShippingAddressId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>var_ShippingAddressValidatedSuccessState</name>
+        <dataType>Boolean</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>

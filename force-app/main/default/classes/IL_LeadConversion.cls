@@ -80,9 +80,9 @@ public class IL_LeadConversion {
                 }
                 
                 if(String.isNotBlank(ld.Opportunity__c)){
-                    oppMap.put(ld.id,ld.Opportunity__c);
+                    oppMap.put(ld.id,null);
                 } else {
-                    oppMap.put(ld.id,ld.id);
+                    oppMap.put(ld.id,null);
                 }
                 
                 if(ld.AutoConvertCreateOpportunity__c){
@@ -203,7 +203,7 @@ public class IL_LeadConversion {
             lc.setContactId(contactId);
         }
         
-        if(String.isNotBlank(OpportunityId) && !createOpp && leadId != OpportunityId){
+        if(String.isNotBlank(OpportunityId) && leadId != OpportunityId){
             lc.setOpportunityId(OpportunityId);
         }
         
@@ -231,7 +231,7 @@ public class IL_LeadConversion {
                 System.debug('IL_LeadConversion - oppId - v1');
             } else {
                 if (OpportunityId == leadId) {
-                    returnMap.put('OpportunityId',lcr.getOpportunityId());
+                    returnMap.put('OpportunityId',null);
                     System.debug('IL_LeadConversion - oppId - v2');
                 } else {
                     returnMap.put('OpportunityId', OpportunityId);
@@ -259,7 +259,6 @@ public class IL_LeadConversion {
         for(Task t : tasks) {
             t.WhatId = leadOpportunityIdMap.get(taskIdWhoIds.get(t.Id));
             taskUpdateList.add(t);
-            System.debug('Updated Task for Object ==> ' + t.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {
@@ -281,7 +280,6 @@ public class IL_LeadConversion {
         for(Event e : events) {
             e.WhatId = leadOpportunityIdMap.get(eventIdWhoIds.get(e.Id));
             eventUpdateList.add(e);
-            System.debug('Updated Event for Object ==> ' + e.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {

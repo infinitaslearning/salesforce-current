@@ -1404,6 +1404,109 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>SchoolPrograms__c</picklist>
+        <values>
+            <fullName>Barn- och fritidsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bygg- och anläggningsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ekonomiprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>El- och energiprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estetiska programmet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flygteknikutbildningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fordons- och transportprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Försäljnings- och serviceprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Handels- och administrationsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hantverksprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotell- och turismprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Humanistiska programmet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Industritekniska programmet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marinteknikutbildningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Naturbruksprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Naturvetenskapsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurang- och livsmedelsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samhällsvetenskapsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sjöfartsutbildningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teknikprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tågteknikutbildningen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utbildningen samiska näringar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VVS- och fastighetsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vård- och omsorgsprogrammet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yrkesdansarutbildningen</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>SchoolType__c</picklist>
         <values>
             <fullName>Course</fullName>

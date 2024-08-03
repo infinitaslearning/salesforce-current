@@ -19,6 +19,19 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Assign_Status_changed_to_Resolve</name>
+        <label>Assign Status changed to Resolve</label>
+        <locationX>149</locationX>
+        <locationY>1679</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LastClosedBy__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Set_Status_to_Open</name>
         <label>Set Status to Open</label>
         <locationX>72</locationX>
@@ -46,6 +59,9 @@
                 <elementReference>$Flow.CurrentDateTime</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Status_Resolved</targetReference>
+        </connector>
     </assignments>
     <decisions>
         <name>Is_Category_Level_1_Changed</name>
@@ -109,6 +125,9 @@
         <label>is Status changed or LastStatusChange blank?</label>
         <locationX>281</locationX>
         <locationY>1271</locationY>
+        <defaultConnector>
+            <targetReference>Status_Resolved</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes_Status_Changed</name>
@@ -156,6 +175,35 @@
                 <targetReference>Set_Status_to_Open</targetReference>
             </connector>
             <label>New</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Resolved</name>
+        <label>Status Resolved</label>
+        <locationX>281</locationX>
+        <locationY>1571</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Status_changed_to_Resolve</targetReference>
+            </connector>
+            <label>Yes</label>
         </rules>
     </decisions>
     <decisions>

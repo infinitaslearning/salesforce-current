@@ -86,7 +86,23 @@ if(ids.size()>0){
         // Get endpoint URL from Custom Setting
 
         //CHANGE DONE ----- NEEDS TO CHANGE // = AWSEndpoint__mdt.getInstance(soType.getDescribe().getName());
-        AWSEndpoint__mdt endPoint = [Select endPoint__c,integrationDisabled__c,Test_AWS_Integration__c from AWSEndpoint__mdt limit 1 ];          
+        
+        Organization[] Organization = [SELECT InstanceName,Name,OrganizationType, Issandbox FROM Organization];
+
+
+        AWSEndpoint__mdt endPoint;
+        
+
+        if(!Organization[0].Issandbox){
+            endPoint = [Select endPoint__c,integrationDisabled__c,Test_AWS_Integration__c from AWSEndpoint__mdt limit 1 ];
+        }
+        else if(Organization[0].Name == 'UAT' || Organization[0].Name == 'DevCentral'){
+            endPoint = [Select endPoint__c,integrationDisabled__c,Test_AWS_Integration__c from AWSEndpoint__mdt limit 1];
+        }
+        
+        
+                  
+        
         AWSCalloutObject__mdt[] CalloutObject = [Select DestinationObject__c,SourceObject__c from AWSCalloutObject__mdt where SourceObject__c =: string.valueof(soType)]; 
         
         String endPointURL;

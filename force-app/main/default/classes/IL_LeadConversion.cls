@@ -259,7 +259,6 @@ public class IL_LeadConversion {
         for(Task t : tasks) {
             t.WhatId = leadOpportunityIdMap.get(taskIdWhoIds.get(t.Id));
             taskUpdateList.add(t);
-            System.debug('Updated Task for Object ==> ' + t.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {
@@ -281,7 +280,6 @@ public class IL_LeadConversion {
         for(Event e : events) {
             e.WhatId = leadOpportunityIdMap.get(eventIdWhoIds.get(e.Id));
             eventUpdateList.add(e);
-            System.debug('Updated Event for Object ==> ' + e.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {

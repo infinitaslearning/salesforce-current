@@ -1,24 +1,29 @@
-global class SK_createAccounts_Batch implements Database.Batchable<sObject>, Database.Stateful {
+public class SK_createAccounts_Batch implements Database.Batchable<SK_SkolverketUpdateByAPI.schoolDetails> {
+    public List<SK_SkolverketUpdateByAPI.schoolDetails> schoolDetailList;
+    public Map<String,Account> liberAccountMap;
 
-    global List<Account> accounts;
-    
-    global SK_createAccounts_Batch(List<Account> accountList) {
-        this.accounts = accountList;
+    public SK_createAccounts_Batch(List<SK_SkolverketUpdateByAPI.schoolDetails> schoolDetails, Map<String,Account> liberAccounts) {
+        this.schoolDetailList = schoolDetails;
+        this.liberAccountMap = liberAccounts;
     }
 
-    global List<Account> start(Database.BatchableContext BC) {
-        return this.accounts;
+    public List<SK_SkolverketUpdateByAPI.schoolDetails> start(Database.BatchableContext BC) {
+        return this.schoolDetailList;
     }
 
-    global void execute(Database.BatchableContext BC, List<Account> scope) {
-
+    public void execute(Database.BatchableContext BC, List<SK_SkolverketUpdateByAPI.schoolDetails> scope) {
         System.debug('SK_createAccounts_Batch - EXECUTE');
+
+        List<Account> accountsToUpsert = new List<Account>();
+        for (SK_SkolverketUpdateByAPI.schoolDetails sd : scope) {
+            accountsToUpsert.add(SK_createAccounts.createAccount(sd, this.liberAccountMap));
+        }
         
-        upsert scope;
+        upsert accountsToUpsert;
 
     }
 
-    global void finish(Database.BatchableContext BC) {
+    public void finish(Database.BatchableContext BC) {
         System.enqueueJob(new SK_activateAccounts());
         System.debug('Skolverket account update finished');
     }

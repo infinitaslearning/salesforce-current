@@ -4,7 +4,7 @@
     <assignments>
         <name>Add_to_Collection</name>
         <label>Add to Collection</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>1058</locationY>
         <assignmentItems>
             <assignToReference>soc_AssignPermissionsets</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_PermissionSet</name>
         <label>Assign PermissionSet</label>
-        <locationX>1898</locationX>
+        <locationX>2030</locationX>
         <locationY>950</locationY>
         <assignmentItems>
             <assignToReference>sov_AssignPermissionSet.PermissionSetId</assignToReference>
@@ -50,7 +50,7 @@
     <assignments>
         <name>Default_user_checkbox</name>
         <label>Default user checkbox</label>
-        <locationX>1810</locationX>
+        <locationX>1942</locationX>
         <locationY>134</locationY>
         <assignmentItems>
             <assignToReference>sov_User.UserPermissionsMarketingUser</assignToReference>
@@ -81,6 +81,45 @@
         <name>User_Checkbox</name>
         <label>User Checkbox</label>
         <locationX>50</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>sov_User.UserPermissionsSupportUser</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Permissionsets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>User_CheckboxLiber</name>
+        <label>User Checkbox</label>
+        <locationX>2514</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>sov_User.UserPermissionsKnowledgeUser</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_User.UserPermissionsSupportUser</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Permissionsets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>User_CheckboxLiber2</name>
+        <label>User Checkbox</label>
+        <locationX>2778</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>sov_User.UserPermissionsSupportUser</assignToReference>
@@ -151,7 +190,7 @@
     <decisions>
         <name>Operating_Company</name>
         <label>Operating Company</label>
-        <locationX>1810</locationX>
+        <locationX>1942</locationX>
         <locationY>242</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -218,12 +257,12 @@
     <decisions>
         <name>Role_Liber</name>
         <label>Role Liber</label>
-        <locationX>2646</locationX>
+        <locationX>2778</locationX>
         <locationY>350</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Liber_Customer_Service</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>sov_User.UserRole.DeveloperName</leftValueReference>
                 <operator>EqualTo</operator>
@@ -231,10 +270,32 @@
                     <stringValue>Liber_Customer_Service</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>sov_User.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber_Customer_Service_Manager</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Get_PermissionsetLI1</targetReference>
+                <targetReference>Get_PermissionsetsLiber</targetReference>
             </connector>
-            <label>Liber Customer Service</label>
+            <label>Liber Customer Service or Liber Customer Service Manager</label>
+        </rules>
+        <rules>
+            <name>Liber_External_Customer_Service</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_User.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber_External_Customer_Service</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_PermissionsetsLiber2</targetReference>
+            </connector>
+            <label>Liber External Customer Service</label>
         </rules>
     </decisions>
     <decisions>
@@ -363,7 +424,8 @@
             <label>Plantyn Customer Service</label>
         </rules>
     </decisions>
-    <description>MV 06/06/24: Added CreateOrders permission for Noordhoff Knowledge Base Manager
+    <description>MR 29/07/2024 Added Roles for Liber
+MV 06/06/24: Added CreateOrders permission for Noordhoff Knowledge Base Manager
 MR 16/02/24 Added Knowledge_LSF_Permission_Set assignment
 MV 02/04/24: Added Noordhoff PGM customer Service Role with assignments
 MR 19/03/24: Added Set checkbox Service Cloud user for KB Agent
@@ -375,7 +437,7 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
     <loops>
         <name>Loop_Permissionsets</name>
         <label>Loop Permissionsets</label>
-        <locationX>1810</locationX>
+        <locationX>1942</locationX>
         <locationY>842</locationY>
         <collectionReference>soc_Permissionsets</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -408,73 +470,10 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
     <recordCreates>
         <name>Assign_Permissionsets</name>
         <label>Assign Permissionsets</label>
-        <locationX>1810</locationX>
+        <locationX>1942</locationX>
         <locationY>1358</locationY>
         <inputReference>soc_AssignPermissionsets</inputReference>
     </recordCreates>
-    <recordLookups>
-        <name>Get_PermissionsetLI1</name>
-        <label>Get Permissionsets</label>
-        <locationX>2514</locationX>
-        <locationY>458</locationY>
-        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Loop_Permissionsets</targetReference>
-        </connector>
-        <filterLogic>or</filterLogic>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>ManageCases</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>ManageAccounts</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>OrderActivation</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>ServiceUserPsl</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Manage_Account_Subsidiaries</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>CreateOrders</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>ServiceUserPsl</stringValue>
-            </value>
-        </filters>
-        <object>PermissionSet</object>
-        <outputReference>soc_Permissionsets</outputReference>
-        <queriedFields>Id</queriedFields>
-    </recordLookups>
     <recordLookups>
         <name>Get_Permissionsets</name>
         <label>Get Permissionsets</label>
@@ -525,6 +524,153 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackGeneral</stringValue>
+            </value>
+        </filters>
+        <object>PermissionSet</object>
+        <outputReference>soc_Permissionsets</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_PermissionsetsLiber</name>
+        <label>Get Permissionsets</label>
+        <locationX>2514</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>User_CheckboxLiber</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageCases</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageKnowledgeArticles</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>OrderActivation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageAccounts</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceUserPsl</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageQuickTexts</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Knowledge_LSF_Permission_Set</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CreateOrders</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackGeneral</stringValue>
+            </value>
+        </filters>
+        <object>PermissionSet</object>
+        <outputReference>soc_Permissionsets</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_PermissionsetsLiber2</name>
+        <label>Get Permissionsets</label>
+        <locationX>2778</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>User_CheckboxLiber2</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageCases</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>OrderActivation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceUserPsl</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CreateOrders</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackGeneral</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -604,6 +750,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>SlackServiceUser</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackGeneral</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -672,6 +825,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>SlackServiceUser</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SlackGeneral</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -800,7 +960,7 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
     <recordUpdates>
         <name>Update_User</name>
         <label>Update User</label>
-        <locationX>1810</locationX>
+        <locationX>1942</locationX>
         <locationY>1250</locationY>
         <connector>
             <targetReference>Assign_Permissionsets</targetReference>
@@ -808,7 +968,7 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
         <inputReference>sov_User</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1684</locationX>
+        <locationX>1816</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Default_user_checkbox</targetReference>

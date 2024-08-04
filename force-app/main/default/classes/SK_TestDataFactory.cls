@@ -19,7 +19,7 @@ public class SK_TestDataFactory {
             Acc.ShippingPostalCode = '83120';
             Acc.ShippingStreet = 'testStreet 01';
             Acc.invoicingEmail__c = 'test@test.se';
-            Acc.Phone = '0123456789';
+            Acc.Phone = '+123456789';
             Acc.Website = 'http://www.testwebsite.se';
             Acc.Type = 'Customer';
             Acc.ExternalDatabase__c = 'Skolverket';
@@ -36,34 +36,75 @@ public class SK_TestDataFactory {
         return accountList;
     }
 
-    public static List<SK_SkolverketUpdateByAPI.schoolDetails> createSchoolDetails (Integer amount) {
-        
-        List<SK_SkolverketUpdateByAPI.schoolDetails> schoolDetailList = new List<SK_SkolverketUpdateByAPI.schoolDetails>();
-
-        for (Integer i = 0; i < amount; i++) {
-            
+    public static SK_SkolverketUpdateByAPI.schoolDetails createSchoolDetail () {
+           
             SK_SkolverketUpdateByAPI.Besoksadress ba = new SK_SkolverketUpdateByAPI.Besoksadress();
-                ba.Adress = 'Test Billing Street ' + (i+1);
-                ba.Postnr = '1234' + i;
+                ba.Adress = 'Test Billing Street 4';
+                ba.Postnr = '12345';
                 ba.Ort = 'Test City';
             
             SK_SkolverketUpdateByAPI.Leveransadress la = new SK_SkolverketUpdateByAPI.Leveransadress();
-                la.Adress = 'Test Shipping Street ' + (i+1);
-                la.Postnr = i + '4321';
+                la.Adress = 'Test Shipping Street 4';
+                la.Postnr = '54321';
                 la.Ort = 'Test City';
 
+            SK_SkolverketUpdateByAPI.Kommun komm = new SK_SkolverketUpdateByAPI.Kommun();
+            Komm.Kommunkod = '1800';
+            Komm.Namn = 'Stockholm';
+
+            List<SK_SkolverketUpdateByAPI.Skolformer> sfLst = new List<SK_SkolverketUpdateByAPI.Skolformer>();
+            SK_SkolverketUpdateByAPI.Skolformer sf1 = new SK_SkolverketUpdateByAPI.Skolformer();
+                sf1.SkolformKod = '1';
+                sf1.BA = true;
+                sf1.BF = true;
+                sf1.EE = true;
+                sf1.EK = true;
+                sf1.ES = true;
+                sf1.FS = true;
+                sf1.FT = true;
+                sf1.FX = true;
+                sf1.HA = true;
+                sf1.HT = true;
+                sf1.HU = true;
+                sf1.HV = true;
+                sf1.I_P = true;
+                sf1.MX = true;
+                sf1.NA = true;
+                sf1.NB = true;
+                sf1.RL = true;
+                sf1.SA = true;
+                sf1.SX = true;
+                sf1.TE = true;
+                sf1.TX = true;
+                sf1.UX = true;
+                sf1.VF = true;
+                sf1.VO = true;
+                sf1.YX = true;
+                sfLst.add(sf1);
+            SK_SkolverketUpdateByAPI.Skolformer sf2 = new SK_SkolverketUpdateByAPI.Skolformer();
+                sf2.SkolformKod = '5';
+                sfLst.add(sf2);
+            SK_SkolverketUpdateByAPI.Skolformer sf3 = new SK_SkolverketUpdateByAPI.Skolformer();
+                sf3.SkolformKod = '12';
+                sfLst.add(sf3);
+            SK_SkolverketUpdateByAPI.Skolformer sf4 = new SK_SkolverketUpdateByAPI.Skolformer();
+                sf4.SkolformKod = '15';
+                sfLst.add(sf4);
+
+
             SK_SkolverketUpdateByAPI.schoolDetails sd = new SK_SkolverketUpdateByAPI.schoolDetails();
-                sd.Namn = 'Test Name ' + (i+1) + ' From API';
-                sd.Skolenhetskod = i + '2345678';
-                sd.Telefon = '12345678' + i;
-                sd.Epost = 'Test' + (i+1) + '@testEmail.se';
+                sd.Namn = 'Test Name From API';
+                sd.Skolenhetskod = '12345678';
+                sd.Telefon = '123456789';
+                sd.Webbadress = 'http://testwebaddress.com';
+                sd.Epost = 'Test@testEmail.se';
                 sd.Besoksadress = ba;
                 sd.Leveransadress = la;
+                sd.Skolformer = sfLst;
+                sd.Kommun = komm;
 
-            schoolDetailList.add(sd);
-        }
 
-        return schoolDetailList;
+        return sd;
     }
     
     public class Mock implements HttpCalloutMock {

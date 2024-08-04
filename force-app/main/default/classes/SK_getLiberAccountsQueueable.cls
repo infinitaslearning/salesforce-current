@@ -29,7 +29,9 @@ public class SK_getLiberAccountsQueueable implements Queueable{
                 liberExtCustIdAccountMap.put(acc.ExternalCustomerId__c, acc);
             }
             if (!Test.isRunningTest()) {
-                System.enqueueJob(new SK_createAccounts(this.schoolDetails, liberExtCustIdAccountMap));
+                // System.enqueueJob(new SK_createAccounts(this.schoolDetails, liberExtCustIdAccountMap));
+                SK_createAccounts_Batch  createAccounts = new SK_createAccounts_Batch(this.schoolDetails, liberExtCustIdAccountMap);
+                Id batchprocessid = Database.executebatch(createAccounts, 50);
             }
         }
     }

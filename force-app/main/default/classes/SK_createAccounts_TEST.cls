@@ -7,9 +7,9 @@ public class SK_createAccounts_TEST {
     }
 
     @IsTest
-    static void Test01(){
+    static void TestUpdate(){
         
-        List<SK_SkolverketUpdateByAPI.schoolDetails> schoolDetailList = SK_TestDataFactory.createSchoolDetails(5);
+        SK_SkolverketUpdateByAPI.schoolDetails schoolDetail = SK_TestDataFactory.createSchoolDetail();
         List<Account> accountList = [SELECT Id, Name, ExternalCustomerId__c FROM Account];
         Map<String, Account> liberAccountMap = new Map<String, Account>();
         for (Account acc : accountList) {
@@ -17,25 +17,22 @@ public class SK_createAccounts_TEST {
         }
 
         Test.startTest();
-            System.enqueueJob(new SK_createAccounts(schoolDetailList, liberAccountMap));
+            Account acc = SK_createAccounts.createAccount(schoolDetail, liberAccountMap);
         Test.stopTest();
         
     }
 
     @IsTest
-    static void Test02(){
+    static void TestInsert(){
         
-        List<SK_SkolverketUpdateByAPI.schoolDetails> schoolDetailList = SK_TestDataFactory.createSchoolDetails(5);
+        SK_SkolverketUpdateByAPI.schoolDetails schoolDetail = SK_TestDataFactory.createSchoolDetail();
         List<Account> accountList = [SELECT Id, Name, ExternalCustomerId__c FROM Account];
         Map<String, Account> liberAccountMap = new Map<String, Account>();
-        for (Account acc : accountList) {
-            liberAccountMap.put(acc.ExternalCustomerId__c, acc);
-        }
-        List<Account> createdAccountlist = new List<Account>();
 
         Test.startTest();
-            System.enqueueJob(new SK_createAccounts(schoolDetailList, createdAccountlist, liberAccountMap));
+            Account acc = SK_createAccounts.createAccount(schoolDetail, liberAccountMap);
         Test.stopTest();
         
     }
+
 }

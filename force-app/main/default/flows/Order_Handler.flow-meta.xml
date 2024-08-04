@@ -200,8 +200,8 @@
     <assignments>
         <name>assDontSendConfirmationEmails</name>
         <label>assDontSendConfirmationEmails</label>
-        <locationX>1327</locationX>
-        <locationY>1691</locationY>
+        <locationX>1589</locationX>
+        <locationY>1789</locationY>
         <assignmentItems>
             <assignToReference>$Record.DontSendOrderConfirmation__c</assignToReference>
             <operator>Assign</operator>
@@ -329,14 +329,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Order_confirmation_emails_should_not_be_sent</targetReference>
+            <targetReference>getShiptoAccount</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>AssignOrderShipComplete</name>
         <label>Assign Order Ship Complete</label>
-        <locationX>1587</locationX>
-        <locationY>1557</locationY>
+        <locationX>1829</locationX>
+        <locationY>1569</locationY>
         <assignmentItems>
             <assignToReference>$Record.ShipComplete__c</assignToReference>
             <operator>Assign</operator>
@@ -468,7 +468,7 @@
         <name>ProductionOrgId</name>
         <dataType>String</dataType>
         <value>
-            <stringValue>00DJW000005jj7l</stringValue>
+            <stringValue>00DJW000005Idun</stringValue>
         </value>
     </constants>
     <decisions>
@@ -1106,8 +1106,8 @@
     <decisions>
         <name>Order_confirmation_emails_should_not_be_sent</name>
         <label>Order confirmation emails should not be sent</label>
-        <locationX>1117</locationX>
-        <locationY>1710</locationY>
+        <locationX>1300</locationX>
+        <locationY>1762</locationY>
         <defaultConnector>
             <targetReference>PriceBookShippingComplete</targetReference>
         </defaultConnector>
@@ -1129,6 +1129,13 @@
                     <stringValue>Zorg</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>getShiptoAccount.DontSendOrderConfirmation__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>assDontSendConfirmationEmails</targetReference>
             </connector>
@@ -1138,8 +1145,8 @@
     <decisions>
         <name>PriceBookShippingComplete</name>
         <label>Price Book Shipping Complete?</label>
-        <locationX>1138</locationX>
-        <locationY>1425</locationY>
+        <locationX>1498</locationX>
+        <locationY>1578</locationY>
         <defaultConnector>
             <targetReference>Update_Order</targetReference>
         </defaultConnector>
@@ -1285,7 +1292,7 @@ CH 2023/03/28 - changed logic for order notification email 1 and 2
 CH 2023/04/19 - added logic for not sending confirmation emails
 CH 2023/05/10 - added logic for hfdstructuur assignment
 DB 2023/09/05 -  added condition to isactive to block sync for Noordhoff and NH Zorg OpCo Orders
-SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00DJW000005jj7l
+SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00DJW000005Idun
 DB 2023/10/11 - added Resync Order via API functionality
 HdG 2023/11/17 - allowing orders to be activated for Noordhoff again
 DB 2023/11/30 - When IF Send clicked resend full order if order products weren&apos;t synced</description>
@@ -1372,6 +1379,27 @@ DB 2023/11/30 - When IF Send clicked resend full order if order products weren&a
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OrderItem</object>
         <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>getShiptoAccount</name>
+        <label>getShiptoAccount</label>
+        <locationX>1208</locationX>
+        <locationY>1625</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Order_confirmation_emails_should_not_be_sent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Shipto__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>

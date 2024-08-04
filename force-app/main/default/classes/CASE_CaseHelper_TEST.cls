@@ -18,6 +18,7 @@ public class CASE_CaseHelper_TEST {
         c.CategoryLevel1__c = 'General';
         c.CategoryLevel2__c = 'Assortiment';
         c.BusinessHoursId = businessHoursId;
+        c.Description = 'No empty description';
 
         insert c;
 

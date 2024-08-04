@@ -2,8 +2,9 @@ public class SK_SkolverketUpdateByAPI implements Queueable, Database.AllowsCallo
 
     public List<schoolDetails> schoolDetails;
     public List<school> schoolList;
-    public Integer maxApiCalls = 75;
-    
+    public Integer maxApiCalls = 75;    // TO PREVENT TIME OUTS
+    public List<Integer> schoolFormsToSync = new List<Integer>{1,5,12,15};
+        
     public SK_SkolverketUpdateByAPI() {
         schoolDetails = new List<schoolDetails>();
         schoolList = getSchools();
@@ -120,7 +121,7 @@ public class SK_SkolverketUpdateByAPI implements Queueable, Database.AllowsCallo
             if (body == '') {
                 return schoolDetailList;
             }
-            JSONParser parser = JSON.createParser(body);
+            JSONParser parser = JSON.createParser(body.replaceAll('"IN":', '"I_P":'));
             
             // Create List of schools from returned JSON
             while (parser.nextToken() != null) {
@@ -140,8 +141,16 @@ public class SK_SkolverketUpdateByAPI implements Queueable, Database.AllowsCallo
                         break;
                     }
                     parser.skipChildren();
-                    if (schoolDetail.Status == 'Aktiv') {
-                        schoolDetailList.add(schoolDetail);
+                    if (schoolDetail.Status == 'Aktiv' && schoolDetail.Skolformer != null && schoolDetail.Skolformer.size() > 0) {
+                        Boolean addSchool = false;
+                        for (Skolformer sf : schoolDetail.Skolformer) {
+                            if (schoolFormsToSync.contains(sf.SkolformID)) {
+                                addSchool = true;
+                            }
+                        }
+                        if (addSchool) {
+                            schoolDetailList.add(schoolDetail);
+                        }
                     }
                 }
             }
@@ -217,17 +226,30 @@ public class SK_SkolverketUpdateByAPI implements Queueable, Database.AllowsCallo
 		public Integer SkolformID;
 		public String SkolformKod;
         public String CSNKod;
-        // public Boolean EndastIntroduktionsprogram;
-		// public Boolean Ak1;
-		// public Boolean Ak2;
-		// public Boolean Ak3;
-		// public Boolean Ak4;
-		// public Boolean Ak5;
-		// public Boolean Ak6;
-		// public Boolean Ak7;
-		// public Boolean Ak8;
-		// public Boolean Ak9;
-		// public Boolean Resursskola;
-		// public Boolean Sjukhusskola;
+        public Boolean BA;
+        public Boolean BF;
+        public Boolean EE;
+        public Boolean EK;
+        public Boolean ES;
+        public Boolean FS;
+        public Boolean FT;
+        public Boolean FX;
+        public Boolean HA;
+        public Boolean HT;
+        public Boolean HU;
+        public Boolean HV;
+        public Boolean I_P;
+        public Boolean MX;
+        public Boolean NA;
+        public Boolean NB;
+        public Boolean RL;
+        public Boolean SA;
+        public Boolean SX;
+        public Boolean TE;
+        public Boolean TX;
+        public Boolean UX;
+        public Boolean VF;
+        public Boolean VO;
+        public Boolean YX;
 	}
 }

@@ -36,7 +36,9 @@ public class Order_ResyncFailedOrdersBatch_TEST {
             ord.ActivateforBatchProcessing__c =true;
             ord.NetSuiteIdShiptoAccount__c = '887760';
             ord.NetSuiteIdAccountSubsidiary__c = Map_AccSub.get(ord.Billto__c); 
-            ord.AccountSubsidiary__c = Map_AccSub.get(ord.Billto__c);
+            ord.AccountSubsidiary__c = Map_AccSub.get(ord.Billto__c); 
+            ord.OperatingCompany__c = 'Noordhoff';
+            
         }
         
         Insert lstOrder;

@@ -4,7 +4,7 @@
         <name>Validate_Address</name>
         <label>Validate Address</label>
         <locationX>842</locationX>
-        <locationY>566</locationY>
+        <locationY>974</locationY>
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -51,8 +51,8 @@
     <actionCalls>
         <name>Validate_Billing_Address</name>
         <label>Validate Billing Address</label>
-        <locationX>1634</locationX>
-        <locationY>566</locationY>
+        <locationX>2162</locationX>
+        <locationY>974</locationY>
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -99,8 +99,8 @@
     <actionCalls>
         <name>Validate_Shipping_Address</name>
         <label>Validate Shipping Address</label>
-        <locationX>1634</locationX>
-        <locationY>1598</locationY>
+        <locationX>2162</locationX>
+        <locationY>2498</locationY>
         <actionName>AddressValidation</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -150,7 +150,7 @@
         <name>Assign_Account_Address_Values1</name>
         <label>Assign Account Address Values</label>
         <locationX>50</locationX>
-        <locationY>566</locationY>
+        <locationY>974</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.BillingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -227,7 +227,7 @@
         <name>Assign_Account_Address_Values2</name>
         <label>Assign Account Address Values</label>
         <locationX>578</locationX>
-        <locationY>1082</locationY>
+        <locationY>1490</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.BillingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -244,23 +244,100 @@
         </assignmentItems>
     </assignments>
     <assignments>
+        <description>Account will be updated in calling parent flow</description>
+        <name>Assign_Account_Address_Values_Copy</name>
+        <label>Assign Account Address Values</label>
+        <locationX>1106</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillingAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Validated_Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Street__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShippingAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShipToAddressValidated__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Validated_Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShippingHouseNumber__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumber__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShippingHouseNumberAddition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumberAddition__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShippingStreetName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Street__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Clear_ILAddress_Variable</name>
         <label>Clear ILAddress Variable</label>
-        <locationX>1304</locationX>
-        <locationY>1166</locationY>
+        <locationX>2129</locationX>
+        <locationY>1658</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord</assignToReference>
             <operator>Assign</operator>
         </assignmentItems>
         <connector>
-            <targetReference>See_If_Shipping_Address_Exists</targetReference>
+            <targetReference>Shipping_HouseNumber_and_Street_Populated</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Create_Address_Values</name>
         <label>Create Address Values</label>
         <locationX>578</locationX>
-        <locationY>566</locationY>
+        <locationY>974</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -359,8 +436,8 @@
     <assignments>
         <name>Create_BillingAddress_Values</name>
         <label>Create BillingAddress Values</label>
-        <locationX>1370</locationX>
-        <locationY>566</locationY>
+        <locationX>1898</locationX>
+        <locationY>974</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -459,8 +536,8 @@
     <assignments>
         <name>Create_ShippingAddress_Values</name>
         <label>Create ShippingAddress Values</label>
-        <locationX>1370</locationX>
-        <locationY>1598</locationY>
+        <locationX>1898</locationX>
+        <locationY>2498</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -560,7 +637,7 @@
         <name>Create_Validated_Address_Values</name>
         <label>Create Validated Address Values</label>
         <locationX>842</locationX>
-        <locationY>674</locationY>
+        <locationY>1082</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -642,8 +719,8 @@
     <assignments>
         <name>Create_Validated_BillingAddress_Values</name>
         <label>Create Validated BillingAddress Values</label>
-        <locationX>1634</locationX>
-        <locationY>674</locationY>
+        <locationX>2162</locationX>
+        <locationY>1082</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -725,8 +802,8 @@
     <assignments>
         <name>Create_Validated_ShippingAddress_Values</name>
         <label>Create Validated ShippingAddress Values</label>
-        <locationX>1634</locationX>
-        <locationY>1706</locationY>
+        <locationX>2162</locationX>
+        <locationY>2606</locationY>
         <assignmentItems>
             <assignToReference>ILAddressRecord.Name</assignToReference>
             <operator>Assign</operator>
@@ -808,8 +885,8 @@
     <assignments>
         <name>Set_Billing_Address</name>
         <label>Set Billing Address</label>
-        <locationX>1106</locationX>
-        <locationY>458</locationY>
+        <locationX>1634</locationX>
+        <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.BillingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -824,8 +901,8 @@
     <assignments>
         <name>Set_Billing_Address2</name>
         <label>Set Billing Address</label>
-        <locationX>1502</locationX>
-        <locationY>974</locationY>
+        <locationX>2030</locationX>
+        <locationY>1382</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.BillingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -838,10 +915,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Billing_Address_Copy</name>
+        <label>Set Billing Address</label>
+        <locationX>2426</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>accountRecord.BillingAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Billing_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Clear_ILAddress_Variable</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Shipping_Address</name>
         <label>Set Shipping Address</label>
-        <locationX>1106</locationX>
-        <locationY>1490</locationY>
+        <locationX>1634</locationX>
+        <locationY>2390</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.ShippingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -856,8 +949,8 @@
     <assignments>
         <name>Set_Shipping_Address2</name>
         <label>Set Shipping Address</label>
-        <locationX>1502</locationX>
-        <locationY>2006</locationY>
+        <locationX>2030</locationX>
+        <locationY>2906</locationY>
         <assignmentItems>
             <assignToReference>accountRecord.ShippingAddress__c</assignToReference>
             <operator>Assign</operator>
@@ -869,11 +962,27 @@
             <targetReference>Can_Update_Account3</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_Shipping_Address_Copy</name>
+        <label>Set Shipping Address</label>
+        <locationX>2426</locationX>
+        <locationY>2174</locationY>
+        <assignmentItems>
+            <assignToReference>accountRecord.ShippingAddress__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_If_Shipping_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Can_Update_Account3</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Address_Exists</name>
         <label>Address Exists</label>
         <locationX>446</locationX>
-        <locationY>350</locationY>
+        <locationY>758</locationY>
         <defaultConnector>
             <targetReference>Create_OR_Validate_Address</targetReference>
         </defaultConnector>
@@ -897,8 +1006,8 @@
     <decisions>
         <name>Billing_Address_Exists</name>
         <label>Billing Address Exists</label>
-        <locationX>1304</locationX>
-        <locationY>350</locationY>
+        <locationX>1832</locationX>
+        <locationY>758</locationY>
         <defaultConnector>
             <targetReference>Billing_Create_OR_Validate</targetReference>
         </defaultConnector>
@@ -924,8 +1033,8 @@
 Skip Validate.</description>
         <name>Billing_Create_OR_Validate</name>
         <label>Billing Create OR Validate</label>
-        <locationX>1502</locationX>
-        <locationY>458</locationY>
+        <locationX>2030</locationX>
+        <locationY>866</locationY>
         <defaultConnector>
             <targetReference>Validate_Billing_Address</targetReference>
         </defaultConnector>
@@ -961,22 +1070,68 @@ Skip Validate.</description>
         </rules>
     </decisions>
     <decisions>
+        <name>Billing_HouseNumber_and_Street_Populated</name>
+        <label>Billing HouseNumber and Street Populated</label>
+        <locationX>2129</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Found_Billing_with_Street</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Fields Null Billing</defaultConnectorLabel>
+        <rules>
+            <name>Fields_Not_Null_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>accountRecord.BillingStreet</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.BillingHouseNumber__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Billing_Address_Exists_incl_Street</targetReference>
+            </connector>
+            <label>Fields Not Null Billing</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Can_Update_Account1</name>
         <label>Can Update Account?</label>
         <locationX>182</locationX>
-        <locationY>458</locationY>
+        <locationY>866</locationY>
         <defaultConnector>
             <targetReference>Update_Account</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Yes</defaultConnectorLabel>
         <rules>
             <name>No1</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>1 OR (2 OR 3)</conditionLogic>
             <conditions>
                 <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>UDB</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.NetSuiteVendorId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.VendorNetsuiteInternalId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -989,7 +1144,7 @@ Skip Validate.</description>
         <name>Can_Update_Account2</name>
         <label>Can Update Account?</label>
         <locationX>710</locationX>
-        <locationY>974</locationY>
+        <locationY>1382</locationY>
         <defaultConnector>
             <targetReference>Update_Account2</targetReference>
         </defaultConnector>
@@ -1027,8 +1182,8 @@ Skip Validate.</description>
     <decisions>
         <name>Can_Update_Account3</name>
         <label>Can Update Account?</label>
-        <locationX>1304</locationX>
-        <locationY>2198</locationY>
+        <locationX>2129</locationX>
+        <locationY>3182</locationY>
         <defaultConnector>
             <targetReference>Update_Account3</targetReference>
         </defaultConnector>
@@ -1061,12 +1216,37 @@ Skip Validate.</description>
         </rules>
     </decisions>
     <decisions>
+        <name>Can_Update_Account_Copy</name>
+        <label>Update Account?</label>
+        <locationX>1238</locationX>
+        <locationY>650</locationY>
+        <defaultConnector>
+            <targetReference>Update_Account_Copy</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>accountRecord.ExternalDatabase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>UDB</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Account_Address_Values_Copy</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>If UDB OR VENDOR DO NOTHING.
 Skip Validate.</description>
         <name>Create_OR_Validate_Address</name>
         <label>Create OR Validate Address</label>
         <locationX>710</locationX>
-        <locationY>458</locationY>
+        <locationY>866</locationY>
         <defaultConnector>
             <targetReference>Validate_Address</targetReference>
         </defaultConnector>
@@ -1102,12 +1282,116 @@ Skip Validate.</description>
         </rules>
     </decisions>
     <decisions>
+        <name>Found_Address_with_Street</name>
+        <label>Found Address with Street</label>
+        <locationX>842</locationX>
+        <locationY>542</locationY>
+        <defaultConnector>
+            <targetReference>Can_Update_Account_Copy</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Found</defaultConnectorLabel>
+        <rules>
+            <name>Not_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_If_Address_Exists_incl_Street</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Address_Exists</targetReference>
+            </connector>
+            <label>Not Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Billing_with_Street</name>
+        <label>Found Billing with Street</label>
+        <locationX>2129</locationX>
+        <locationY>542</locationY>
+        <defaultConnector>
+            <targetReference>Set_Billing_Address_Copy</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Found Billing</defaultConnectorLabel>
+        <rules>
+            <name>No_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_If_Billing_Address_Exists_incl_Street</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Billing_Address_Exists</targetReference>
+            </connector>
+            <label>No Billing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Shipping_with_Street</name>
+        <label>Found Shipping with Street</label>
+        <locationX>2129</locationX>
+        <locationY>2066</locationY>
+        <defaultConnector>
+            <targetReference>Set_Shipping_Address_Copy</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Found Shipping</defaultConnectorLabel>
+        <rules>
+            <name>No_Shipping</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_If_Shipping_Address_Exists_incl_Street</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Shipping_Address_Exists</targetReference>
+            </connector>
+            <label>No Shipping</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>HouseNumber_and_Street_Populated</name>
+        <label>HouseNumber and Street Populated</label>
+        <locationX>842</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Found_Address_with_Street</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Fields Null</defaultConnectorLabel>
+        <rules>
+            <name>Both_Fields_Not_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>accountRecord.BillingStreet</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.BillingHouseNumber__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Address_Exists_incl_Street</targetReference>
+            </connector>
+            <label>Both Fields Not Null</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Is_the_account_s_billing_address_same_as_shipping</name>
         <label>Is the account&apos;s billing address same as shipping?</label>
-        <locationX>875</locationX>
+        <locationX>1485</locationX>
         <locationY>134</locationY>
         <defaultConnector>
-            <targetReference>See_If_Billing_Address_Exists</targetReference>
+            <targetReference>Billing_HouseNumber_and_Street_Populated</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1135,7 +1419,7 @@ Skip Validate.</description>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>See_If_Address_Exists</targetReference>
+                <targetReference>HouseNumber_and_Street_Populated</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -1143,8 +1427,8 @@ Skip Validate.</description>
     <decisions>
         <name>Shipping_Address_Exists</name>
         <label>Shipping Address Exists</label>
-        <locationX>1304</locationX>
-        <locationY>1382</locationY>
+        <locationX>1832</locationX>
+        <locationY>2282</locationY>
         <defaultConnector>
             <targetReference>Shipping_Create_OR_Validate</targetReference>
         </defaultConnector>
@@ -1170,8 +1454,8 @@ Skip Validate.</description>
 Skip Validate.</description>
         <name>Shipping_Create_OR_Validate</name>
         <label>Shipping Create OR Validate</label>
-        <locationX>1502</locationX>
-        <locationY>1490</locationY>
+        <locationX>2030</locationX>
+        <locationY>2390</locationY>
         <defaultConnector>
             <targetReference>Validate_Shipping_Address</targetReference>
         </defaultConnector>
@@ -1204,6 +1488,38 @@ Skip Validate.</description>
                 <targetReference>Create_ShippingAddress_Values</targetReference>
             </connector>
             <label>Shipping Address Create</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Shipping_HouseNumber_and_Street_Populated</name>
+        <label>Shipping HouseNumber and Street Populated</label>
+        <locationX>2129</locationX>
+        <locationY>1766</locationY>
+        <defaultConnector>
+            <targetReference>Found_Shipping_with_Street</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Fields Null Shipping</defaultConnectorLabel>
+        <rules>
+            <name>Fields_Not_Null_Shipping</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>accountRecord.BillingStreet</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>accountRecord.BillingHouseNumber__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>See_If_Shipping_Address_Exists_incl_Street</targetReference>
+            </connector>
+            <label>Fields Not Null Shipping</label>
         </rules>
     </decisions>
     <description>DB 07/03/2024: Added validation skip if Account is from UDB
@@ -1264,8 +1580,8 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
     <recordCreates>
         <name>Create_Billing_Address</name>
         <label>Create Billing Address</label>
-        <locationX>1502</locationX>
-        <locationY>866</locationY>
+        <locationX>2030</locationX>
+        <locationY>1274</locationY>
         <connector>
             <targetReference>Set_Billing_Address2</targetReference>
         </connector>
@@ -1274,8 +1590,8 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
     <recordCreates>
         <name>Create_Shipping_Address</name>
         <label>Create Shipping Address</label>
-        <locationX>1502</locationX>
-        <locationY>1898</locationY>
+        <locationX>2030</locationX>
+        <locationY>2798</locationY>
         <connector>
             <targetReference>Set_Shipping_Address2</targetReference>
         </connector>
@@ -1285,17 +1601,18 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
         <name>CreateAddress</name>
         <label>Create Address</label>
         <locationX>710</locationX>
-        <locationY>866</locationY>
+        <locationY>1274</locationY>
         <connector>
             <targetReference>Can_Update_Account2</targetReference>
         </connector>
         <inputReference>ILAddressRecord</inputReference>
     </recordCreates>
     <recordLookups>
+        <description>2nd try match without street if no results was found in: incl Street</description>
         <name>See_If_Address_Exists</name>
         <label>See If Address Exists</label>
         <locationX>446</locationX>
-        <locationY>242</locationY>
+        <locationY>650</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Address_Exists</targetReference>
@@ -1348,10 +1665,74 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <description>1st try match with all address fields</description>
+        <name>See_If_Address_Exists_incl_Street</name>
+        <label>See If Address Exists (incl Street)</label>
+        <locationX>710</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Address_with_Street</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingCountry</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingPostalCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingStreetName__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>See_If_Billing_Address_Exists</name>
         <label>See If Billing Address Exists</label>
-        <locationX>1304</locationX>
-        <locationY>242</locationY>
+        <locationX>1832</locationX>
+        <locationY>650</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Billing_Address_Exists</targetReference>
@@ -1404,10 +1785,74 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <description>1st try match with all billing address fields</description>
+        <name>See_If_Billing_Address_Exists_incl_Street</name>
+        <label>See If Billing Address Exists (incl Street)</label>
+        <locationX>1997</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Billing_with_Street</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingCountry</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingPostalCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumber__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingHouseNumberAddition__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.BillingStreetName__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>See_If_Shipping_Address_Exists</name>
         <label>See If Shipping Address Exists</label>
-        <locationX>1304</locationX>
-        <locationY>1274</locationY>
+        <locationX>1832</locationX>
+        <locationY>2174</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Shipping_Address_Exists</targetReference>
@@ -1459,11 +1904,75 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <description>1st try match with all shipping address fields</description>
+        <name>See_If_Shipping_Address_Exists_incl_Street</name>
+        <label>See If Shipping Address Exists (incl Street)</label>
+        <locationX>1997</locationX>
+        <locationY>1874</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Shipping_with_Street</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.ShippingCountry</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.ShippingPostalCode</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.ShippingHouseNumber__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.ShippingHouseNumberAddition__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.ShippingStreetName__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Account</name>
         <label>Update Account</label>
         <locationX>314</locationX>
-        <locationY>566</locationY>
+        <locationY>974</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -1538,7 +2047,7 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
         <name>Update_Account2</name>
         <label>Update Account</label>
         <locationX>842</locationX>
-        <locationY>1082</locationY>
+        <locationY>1490</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -1564,12 +2073,87 @@ IF( OR( NOT(ISBLANK({!accountRecord.NetSuiteVendorId__c})), NOT(ISBLANK({!accoun
     <recordUpdates>
         <name>Update_Account3</name>
         <label>Update Account</label>
-        <locationX>1436</locationX>
-        <locationY>2306</locationY>
+        <locationX>2261</locationX>
+        <locationY>3290</locationY>
         <inputReference>accountRecord</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_Copy</name>
+        <label>Update Account</label>
+        <locationX>1370</locationX>
+        <locationY>758</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>accountRecord.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>BillToAddressValidated__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Validated_Address__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingAddress__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingHouseNumberAddition__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingHouseNumber__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>BillingStreetName__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Street__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShipToAddressValidated__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Validated_Address__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingAddress__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingHouseNumberAddition__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumberAddition__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingHouseNumber__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.HouseNumber__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ShippingStreetName__c</field>
+            <value>
+                <elementReference>See_If_Address_Exists_incl_Street.Street__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
     <start>
-        <locationX>749</locationX>
+        <locationX>1359</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_the_account_s_billing_address_same_as_shipping</targetReference>

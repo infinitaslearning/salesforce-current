@@ -310,12 +310,14 @@ public with sharing class Order_AssetRenewal {
                 Set_Sub.add(ass.AccountId);
 
                 Map_OperatingCompany.put(AccPB, ass.BillToAccount__r.OperatingCompany__c);
-                   
-                Map_ShippingStreet.put(AccPB, ass.BillToAccount__r.ShippingStreet);
-                Map_ShippingPostalCode.put(AccPB, ass.BillToAccount__r.ShippingPostalCode);
-                Map_ShippingCountry.put(AccPB, ass.BillToAccount__r.ShippingCountry);
-                Map_ShippingCity.put(AccPB, ass.BillToAccount__r.ShippingCity);
-
+                
+                if(Map_ShippingStreet.get(AccPB) == null){
+                    Map_ShippingStreet.put(AccPB, ass.BillToAccount__r.ShippingStreet);
+                    Map_ShippingPostalCode.put(AccPB, ass.BillToAccount__r.ShippingPostalCode);
+                    Map_ShippingCountry.put(AccPB, ass.BillToAccount__r.ShippingCountry);
+                    Map_ShippingCity.put(AccPB, ass.BillToAccount__r.ShippingCity);    
+                }
+ 
                 Map_BillingStreet.put(AccPB, ass.BillToAccount__r.BillingStreet);
                 Map_BillingPostalCode.put(AccPB, ass.BillToAccount__r.BillingPostalCode);
                 Map_BillingCountry.put(AccPB, ass.BillToAccount__r.BillingCountry);
@@ -362,9 +364,17 @@ public with sharing class Order_AssetRenewal {
                 if(Map_MultiShipTo.get(AccPB) == 1 && Map_ShipToCount.get(AccPB) == null){
                     Map_ShipToCount.put(AccPB,ass.AccountId);
                     Map_ShipToNetsuiteId.put(AccPB,ass.Account.NetsuiteInternalId__c);
+                    
+                    //Use shipping address of Account on Asset
+                    Map_ShippingStreet.put(AccPB, ass.Account.ShippingStreet);
+                    Map_ShippingPostalCode.put(AccPB, ass.Account.ShippingPostalCode);
+                    Map_ShippingCountry.put(AccPB, ass.Account.ShippingCountry);
+                    Map_ShippingCity.put(AccPB, ass.Account.ShippingCity);
                 }
                 else if(Map_MultiShipTo.get(AccPB)>1){
                     Map_ShipToCount.put(AccPB,'MULTIPLE');
+                    //Cant have a shipping address of ship to if multiple 
+                    
                 }
                  
                 

@@ -75,21 +75,25 @@
     <externalSharingModel>Private</externalSharingModel>
     <searchLayouts>
         <customTabListAdditionalFields>ObjectCategory</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Billable</customTabListAdditionalFields>
         <customTabListAdditionalFields>Storage</customTabListAdditionalFields>
         <customTabListAdditionalFields>DataLakeObjectStatus</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastRefreshDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>TotalRecords</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ObjectCategory</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Billable</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Storage</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>DataLakeObjectStatus</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LastRefreshDate</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>TotalRecords</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ObjectCategory</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Billable</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Storage</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>DataLakeObjectStatus</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LastRefreshDate</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>TotalRecords</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ObjectCategory</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Billable</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Storage</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>DataLakeObjectStatus</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastRefreshDate</searchResultsAdditionalFields>

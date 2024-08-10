@@ -55,7 +55,7 @@
         <recordTriggerType>Delete</recordTriggerType>
         <triggerType>RecordBeforeDelete</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <subflows>
         <name>RollupOrders</name>
         <label>Rollup Orders</label>

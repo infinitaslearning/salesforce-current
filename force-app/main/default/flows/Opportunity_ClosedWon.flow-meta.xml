@@ -1183,13 +1183,6 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
                 <stringValue>Closed Won</stringValue>
             </value>
         </filters>
-        <filters>
-            <field>OpportunityRecordTypeName__c</field>
-            <operator>Contains</operator>
-            <value>
-                <stringValue>Zorg</stringValue>
-            </value>
-        </filters>
         <object>Opportunity</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>

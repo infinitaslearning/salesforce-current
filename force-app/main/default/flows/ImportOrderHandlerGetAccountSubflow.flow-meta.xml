@@ -241,8 +241,8 @@
         <locationY>242</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Trade</name>
-            <conditionLogic>and</conditionLogic>
+            <name>Trade_Portal</name>
+            <conditionLogic>(1 OR 3) AND 2</conditionLogic>
             <conditions>
                 <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
                 <operator>Contains</operator>
@@ -257,10 +257,17 @@
                     <stringValue></stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.Source__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>B2B Portal</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_Account_Trade</targetReference>
             </connector>
-            <label>Trade</label>
+            <label>Trade/Portal</label>
         </rules>
         <rules>
             <name>B2B_Shop</name>
@@ -457,7 +464,8 @@ DB: 09/10/2023 updated filter conditions for Order Form Account search
 CH: 07/11/2023 added operating company check to each get Account element
 DB: 29/11/2023 adjusted matching logic for private individual if NS Number is provided
 CH: 20/12/2023 added Status check against all account gets
-DB: 15/04/2024 find account using External Database Id then if null based on Source</description>
+DB: 15/04/2024 find account using External Database Id then if null based on Source
+DB: 08/08/2024 B2B Portal added as Source (follows Trade path)</description>
     <environments>Default</environments>
     <formulas>
         <name>forEcinNumberMatch</name>

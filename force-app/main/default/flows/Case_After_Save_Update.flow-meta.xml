@@ -4,7 +4,7 @@
         <name>Get_number_of_linked_Articles</name>
         <label>Get number of linked Articles</label>
         <locationX>1249</locationX>
-        <locationY>1331</locationY>
+        <locationY>2723</locationY>
         <actionName>CASE_CaseHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -29,7 +29,7 @@
         <name>Add1toQueueDeveloperNameinList</name>
         <label>Add 1 to QueueDeveloperName in List</label>
         <locationX>1139</locationX>
-        <locationY>2087</locationY>
+        <locationY>3479</locationY>
         <assignmentItems>
             <assignToReference>QueueDeveloperNameInList</assignToReference>
             <operator>Add</operator>
@@ -45,7 +45,7 @@
         <name>Assign_Article_Count</name>
         <label>Assign Article Count</label>
         <locationX>1249</locationX>
-        <locationY>1439</locationY>
+        <locationY>2831</locationY>
         <assignmentItems>
             <assignToReference>$Record.AttachedArticleCount__c</assignToReference>
             <operator>Assign</operator>
@@ -55,6 +55,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Email</name>
+        <label>Assign Email</label>
+        <locationX>1348</locationX>
+        <locationY>2423</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_SetEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Case_of_Type_Problem</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -77,7 +93,23 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Update_Case_Origin</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Contact_Email_Hidden</name>
+        <label>Set Email</label>
+        <locationX>1194</locationX>
+        <locationY>2039</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Email__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.ContactEmail</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Email_Empty</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -100,7 +132,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -123,7 +155,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Update_Case_Origin</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -146,7 +178,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -169,7 +201,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -192,7 +224,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -215,7 +247,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </connector>
     </assignments>
     <decisions>
@@ -223,7 +255,7 @@
         <name>Article_Count_1</name>
         <label>Article Count &lt; 1 and new Owner is queue</label>
         <locationX>1249</locationX>
-        <locationY>1655</locationY>
+        <locationY>3047</locationY>
         <defaultConnectorLabel>Article(s) attached and/or Owner is User</defaultConnectorLabel>
         <rules>
             <name>NoArticle</name>
@@ -252,7 +284,7 @@
         <name>Case_of_Type_Problem</name>
         <label>Case of Type Problem or Migrated Case?</label>
         <locationX>1480</locationX>
-        <locationY>1223</locationY>
+        <locationY>2615</locationY>
         <defaultConnector>
             <targetReference>Update_Problem_Case</targetReference>
         </defaultConnector>
@@ -281,11 +313,50 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Contact_Email_Changed</name>
+        <label>Contact has Changed?</label>
+        <locationX>1480</locationX>
+        <locationY>1823</locationY>
+        <defaultConnector>
+            <targetReference>Email_Empty</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Contact_Email_CHange</name>
+            <conditionLogic>1 AND ( 2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ContactId</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Solved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Web_Email_equal_Email</targetReference>
+            </connector>
+            <label>Contact Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Does the queue that is chosen upon save on this Case match the list of queues that need Article validation?</description>
         <name>Does_Queue_match</name>
         <label>Does Queue match?</label>
         <locationX>1271</locationX>
-        <locationY>1979</locationY>
+        <locationY>3371</locationY>
         <defaultConnector>
             <targetReference>Compare_Queues</targetReference>
         </defaultConnector>
@@ -307,11 +378,61 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Email_Empty</name>
+        <label>Email Empty</label>
+        <locationX>1480</locationX>
+        <locationY>2315</locationY>
+        <defaultConnector>
+            <targetReference>Case_of_Type_Problem</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_EmailEmpty</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Email__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Email</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Origin</name>
+        <label>Origin</label>
+        <locationX>710</locationX>
+        <locationY>1139</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Phone</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Case_Comment_Phone</targetReference>
+            </connector>
+            <label>Phone</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>To check if this queue needs to be validated on article presence before assigning the case</description>
         <name>Queueneedstobevalidatedonarticle</name>
         <label>Queue needs to be validated on article?</label>
         <locationX>1051</locationX>
-        <locationY>2363</locationY>
+        <locationY>3755</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>YesValidationNeeded</name>
@@ -367,7 +488,7 @@
         <locationX>1480</locationX>
         <locationY>623</locationY>
         <defaultConnector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Update_Case_Origin</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -431,12 +552,83 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Update_Case_Origin</name>
+        <label>Update Case Origin</label>
+        <locationX>1480</locationX>
+        <locationY>1523</locationY>
+        <defaultConnector>
+            <targetReference>Contact_Email_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Chat_Description</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Chat</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Description</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Description</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Comment_Chat</targetReference>
+            </connector>
+            <label>Chat Description</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Web_Email_equal_Email</name>
+        <label>Web Email equal Email?</label>
+        <locationX>1326</locationX>
+        <locationY>1931</locationY>
+        <defaultConnector>
+            <targetReference>Email_Empty</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>YesWeb</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SuppliedEmail</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Contact_Email_Hidden</targetReference>
+            </connector>
+            <label>Yes WebEmail != Email</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>What_Segment</name>
         <label>What Segment</label>
         <locationX>710</locationX>
         <locationY>731</locationY>
         <defaultConnector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Origin</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -591,7 +783,7 @@
         <locationX>1942</locationX>
         <locationY>731</locationY>
         <defaultConnector>
-            <targetReference>Case_of_Type_Problem</targetReference>
+            <targetReference>Update_Case_Origin</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -610,10 +802,20 @@
             <label>Queue is owner</label>
         </rules>
     </decisions>
-    <description>MV - Added exclusion for migrated cases (OldId)
+    <description>MR - Added Contact &quot;Email&quot;  field mapping
+MV - Added exclusion for migrated cases (OldId)
 MR - Move Before Save here 1.0
 MR - Add Outcome to &quot;It is New Case&quot;</description>
     <environments>Default</environments>
+    <formulas>
+        <name>form_SetEmail</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.SuppliedEmail} != null, {!$Record.SuppliedEmail},
+( IF({!$Record.ContactEmail} != null , {!$Record.ContactEmail} , 
+IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
+) )
+)</expression>
+    </formulas>
     <formulas>
         <name>GetResult</name>
         <dataType>Number</dataType>
@@ -638,7 +840,7 @@ MR - Add Outcome to &quot;It is New Case&quot;</description>
         <name>Compare_Queues</name>
         <label>Compare Queues</label>
         <locationX>1051</locationX>
-        <locationY>1871</locationY>
+        <locationY>3263</locationY>
         <collectionReference>Get_Queues_that_need_Article_validation</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -667,6 +869,112 @@ MR - Add Outcome to &quot;It is New Case&quot;</description>
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Case_Comment_Chat</name>
+        <label>Case Comment Chat</label>
+        <locationX>1348</locationX>
+        <locationY>1631</locationY>
+        <connector>
+            <targetReference>Contact_Email_Changed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Body</field>
+            <value>
+                <elementReference>$Record.Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsRichText</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Published</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Title</field>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>TextPost</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visibility</field>
+            <value>
+                <stringValue>AllUsers</stringValue>
+            </value>
+        </inputAssignments>
+        <object>FeedItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Case_Comment_Phone</name>
+        <label>Create Case Comment Phone</label>
+        <locationX>578</locationX>
+        <locationY>1247</locationY>
+        <connector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Body</field>
+            <value>
+                <elementReference>$Record.Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsRichText</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Published</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Title</field>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type</field>
+            <value>
+                <stringValue>TextPost</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Visibility</field>
+            <value>
+                <stringValue>AllUsers</stringValue>
+            </value>
+        </inputAssignments>
+        <object>FeedItem</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Copy_1_of_Get_Queue_ID_and_Name_PE</name>
         <label>Get Queue ID and Name PE</label>
@@ -781,7 +1089,7 @@ MR - Add Outcome to &quot;It is New Case&quot;</description>
         <name>Get_Queues_that_need_Article_validation</name>
         <label>Get Queues that need Article validation</label>
         <locationX>1051</locationX>
-        <locationY>1763</locationY>
+        <locationY>3155</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Compare_Queues</targetReference>
@@ -825,7 +1133,7 @@ MR - Add Outcome to &quot;It is New Case&quot;</description>
         <name>Update_Case</name>
         <label>Update Case</label>
         <locationX>1249</locationX>
-        <locationY>1547</locationY>
+        <locationY>2939</locationY>
         <connector>
             <targetReference>Article_Count_1</targetReference>
         </connector>
@@ -835,7 +1143,7 @@ MR - Add Outcome to &quot;It is New Case&quot;</description>
         <name>Update_Problem_Case</name>
         <label>Update Problem Case</label>
         <locationX>1711</locationX>
-        <locationY>1331</locationY>
+        <locationY>2723</locationY>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>

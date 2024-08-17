@@ -13,22 +13,27 @@
         <restricted>true</restricted>
         <valueSetName>CategoryLevel1</valueSetName>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>General</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>Primary Education</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>Secondary Education</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>Vocational Education</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>Higher Education</valueName>
         </valueSettings>

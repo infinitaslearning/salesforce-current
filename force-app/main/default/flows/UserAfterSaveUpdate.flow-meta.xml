@@ -9,7 +9,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Role_change</name>
-            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.UserRoleId</leftValueReference>
                 <operator>IsChanged</operator>
@@ -45,6 +45,27 @@
                     <stringValue>NoordhoffPGMCustomerService</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber_Customer_Service_Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber_Customer_Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.UserRole.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber_External_Customer_Service</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Permissionset_Removal</targetReference>
             </connector>
@@ -66,6 +87,7 @@
             <label>New user</label>
         </rules>
     </decisions>
+    <description>MR - 31-07-24 Added Liber Roles</description>
     <environments>Default</environments>
     <formulas>
         <name>form_isnew</name>
@@ -105,6 +127,13 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Noordhoff</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Liber</stringValue>
             </value>
         </filters>
         <object>User</object>

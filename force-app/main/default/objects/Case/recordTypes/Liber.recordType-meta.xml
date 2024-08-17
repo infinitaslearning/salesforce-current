@@ -61,18 +61,58 @@
     <picklistValues>
         <picklist>CategoryLevel2__c</picklist>
         <values>
-            <fullName>Assortiment</fullName>
+            <fullName>Beställning</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Bestelling %26 Levering</fullName>
+            <fullName>Digital support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sortiment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Övrigt</fullName>
             <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>
         <picklist>CategoryLevel3__c</picklist>
         <values>
-            <fullName>Talen</fullName>
+            <fullName>Backorder</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bestelling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Betaling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Factuur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instellingen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Levering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toegang</fullName>
             <default>false</default>
         </values>
     </picklistValues>

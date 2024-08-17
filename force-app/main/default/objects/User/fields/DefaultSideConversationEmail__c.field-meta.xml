@@ -12,6 +12,10 @@
         <restricted>true</restricted>
         <valueSetName>DefaultCaseEmails</valueSetName>
         <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>kundservice.liber@liber.se</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
             <valueName>kennismanagement@noordhoff.nl</valueName>
         </valueSettings>

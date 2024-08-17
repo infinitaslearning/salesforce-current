@@ -742,7 +742,8 @@ CH: 31/07/2023 Added validation against account name
 JK: 31/08/2023 Added finctionality to Full Name in the FullLegalName field if the FullLegalName field is Empty in insert
 DB: 28/03/2023 Removed Validation fields assignments
 HdG: 04/06/2024 Set assignments for segments
-HdG: 01/08/2024 Set assignment for Shipping Indication Rule</description>
+HdG: 01/08/2024 Set assignment for Shipping Indication Rule
+DB: 12/08/2024 Update Shipping Indication Rule Formula</description>
     <environments>Default</environments>
     <formulas>
         <name>Check_Higher</name>
@@ -807,13 +808,13 @@ INCLUDES({!$Record.Classification__c},&quot;French Secondary&quot;))</expression
     <formulas>
         <name>F_ShippingIndicationRule</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK(TEXT({!$Record.ShippingCountryCode})),&apos;&apos;,
+        <expression>IF(AND(ISBLANK(TEXT({!$Record.ShippingCountryCode})), ISBLANK({!$Record.ShippingCountry})),&apos;&apos;,
   IF(TEXT({!$Record.OperatingCompany__c}) = &apos;Plantyn&apos;,
-    IF(TEXT({!$Record.ShippingCountryCode}) = &apos;BE&apos;,&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;), 
+    IF(OR(TEXT({!$Record.ShippingCountryCode}) = &apos;BE&apos;, {!$Record.ShippingCountry} = &apos;Belgium&apos;),&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;), 
       IF(OR(TEXT({!$Record.OperatingCompany__c}) = &apos;Noordhoff&apos;,TEXT({!$Record.OperatingCompany__c}) = &apos;Noordhoff Zorg&apos;),
-        IF(TEXT({!$Record.ShippingCountryCode}) = &apos;NL&apos;,&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;),
+        IF(OR(TEXT({!$Record.ShippingCountryCode}) = &apos;NL&apos;, {!$Record.ShippingCountry} = &apos;Netherlands&apos;),&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;),
           IF(TEXT({!$Record.OperatingCompany__c}) = &apos;Liber&apos;,
-            IF(TEXT({!$Record.ShippingCountryCode}) = &apos;SE&apos;,&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;),
+            IF(OR(TEXT({!$Record.ShippingCountryCode}) = &apos;SE&apos;, {!$Record.ShippingCountry} = &apos;Sweden&apos;),&apos;Based on weight Domestic&apos;,&apos;Based on weight non Domestic&apos;),
               &apos;&apos;
           )
       )

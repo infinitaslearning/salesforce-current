@@ -92,6 +92,13 @@
                 <elementReference>$Record.Owner:Group.Id</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.QueueDeveloperName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Owner:Group.DeveloperName</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_Case_Origin</targetReference>
         </connector>
@@ -152,6 +159,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Owner:Group.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.QueueDeveloperName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Owner:Group.DeveloperName</elementReference>
             </value>
         </assignmentItems>
         <connector>

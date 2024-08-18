@@ -114,7 +114,8 @@ public with sharing class Order_OrderandOrdeItemHandler {
                         || CurOrder[0].Source__c =='B2B Shop' 
                         || CurOrder[0].Source__c =='B2B Salesforce' 
                         || CurOrder[0].Source__c == 'Trade - Early Season Order'
-                        || CurOrder[0].Source__c == 'Tender'){    
+                        || CurOrder[0].Source__c == 'Tender'
+                        || CurOrder[0].Source__c == 'B2B Portal'){    
                         
                         lstOrderItem = Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(Null,Lst_OrdId,Null,lstOrderItem,lst_ListPriceDiscountRegular);
                     }
@@ -154,7 +155,8 @@ public with sharing class Order_OrderandOrdeItemHandler {
                     || CurOrder[0].Source__c =='B2B Shop' 
                     || CurOrder[0].Source__c =='B2B Salesforce' 
                     || CurOrder[0].Source__c == 'Trade - Early Season Order'
-                    || CurOrder[0].Source__c == 'Tender'){    
+                    || CurOrder[0].Source__c == 'Tender'
+                    || CurOrder[0].Source__c == 'B2B Portal'){    
                 lstOrderItem = Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(Null,Lst_OrdId,Null,lstOrderItem,lst_ListPriceDiscountRegular);
             }
             lstOrderItem = Order_OrderandOrdeItemHandler.triggerhandler(lstOrderItem);
@@ -226,7 +228,8 @@ public with sharing class Order_OrderandOrdeItemHandler {
                                 FROM Account WHERE id in: Set_ShipTo];
 */
 //ADDRESS CHANGE
-        Account[] lstShipto = [SELECT ShippingCity,ShippingCountry,ExternalCustomerId__c,OperatingCompany__c,ShippingCostMethod__c,NetsuiteInternalId__c,ShippingPostalCode,ShippingState,ShippingStreet,DigitalActivationEmail__c 
+        Account[] lstShipto = [SELECT ShippingCity,ShippingCountry,ExternalCustomerId__c,OperatingCompany__c,ShippingCostMethod__c,NetsuiteInternalId__c,ShippingPostalCode,ShippingState,ShippingStreet,DigitalActivationEmail__c, 
+                                ShippingStreetName__c, ShippingHouseNumber__c, ShippingHouseNumberAddition__c, ShipToAddressValidated__c, ShippingAddress__c
                                 FROM Account WHERE id in: Set_ShipTo];
 
 
@@ -239,7 +242,7 @@ public with sharing class Order_OrderandOrdeItemHandler {
         Map<String,String> Map_NetsuiteId = new Map<String,String>();
         Map<String,String> Map_ShippingIndicationRule = new Map<String,String>();
         Map<String,String> Map_OperatingComapny = new Map<String,String>();
-        //NEW - Address changes (map additional split address values)
+        //Address lookup & address split values maps
         Map<String,String> Map_ShippingStreetName = new Map<String,String>();
         Map<String,String> Map_ShippingHouseNumber = new Map<String,String>();
         Map<String,String> Map_ShippingHouseNumberAddition = new Map<String,String>();
@@ -257,14 +260,12 @@ public with sharing class Order_OrderandOrdeItemHandler {
             Map_NetsuiteId.put(acc.id,acc.NetsuiteInternalId__c);
             Map_ShippingIndicationRule.put(acc.id,acc.ShippingCostMethod__c);
             Map_OperatingComapny.put(acc.id,acc.OperatingCompany__c);
-            //NEW - Address changes (map additional split address values)
-            /*
+            //Address lookup & address split values maps
             Map_ShippingStreetName.put(acc.id,acc.ShippingStreetName__c);
             Map_ShippingHouseNumber.put(acc.id,acc.ShippingHouseNumber__c);
             Map_ShippingHouseNumberAddition.put(acc.id,acc.ShippingHouseNumberAddition__c);
             Map_ShippingAddress.put(acc.id,acc.ShippingAddress__c);
             Map_ShippingAddressValidStatus.put(acc.id,acc.ShipToAddressValidated__c);
-            */
         }
        
 
@@ -308,6 +309,12 @@ public with sharing class Order_OrderandOrdeItemHandler {
                 item.ShippingPostalCode__c= Map_ShippingPostalCode.get(item.ShipToAccount__c);
                 item.ShippingState__c= Map_ShippingState.get(item.ShipToAccount__c);
                 item.ShippingStreet__c= Map_ShippingStreet.get(item.ShipToAccount__c);
+                //address lookup & address split values
+                item.ShipToAddress__c= Map_ShippingAddress.get(item.ShipToAccount__c);
+                item.ShippingStreetName__c= Map_ShippingStreetName.get(item.ShipToAccount__c);
+                item.ShippingHouseNumber__c= Map_ShippingHouseNumber.get(item.ShipToAccount__c);
+                item.ShippingHouseNumberAddition__c= Map_ShippingHouseNumberAddition.get(item.ShipToAccount__c);
+                item.ShipToAddressValidated__c = Map_ShippingAddressValidStatus.get(item.ShipToAccount__c);
             }
 
             //Shiping cost exempt: true

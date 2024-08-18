@@ -200,8 +200,8 @@
     <assignments>
         <name>assDontSendConfirmationEmails</name>
         <label>assDontSendConfirmationEmails</label>
-        <locationX>1589</locationX>
-        <locationY>1789</locationY>
+        <locationX>2254</locationX>
+        <locationY>1801</locationY>
         <assignmentItems>
             <assignToReference>$Record.DontSendOrderConfirmation__c</assignToReference>
             <operator>Assign</operator>
@@ -329,7 +329,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>getShiptoAccount</targetReference>
+            <targetReference>decShiptoAccount</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1040,6 +1040,43 @@
         </rules>
     </decisions>
     <decisions>
+        <name>decShiptoAccount</name>
+        <label>decShiptoAccount</label>
+        <locationX>1189</locationX>
+        <locationY>1852</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>BlankShipto</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Shipto__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getOrderAccount</targetReference>
+            </connector>
+            <label>BlankShipto</label>
+        </rules>
+        <rules>
+            <name>ShiptoExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Shipto__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>getShiptoAccount</targetReference>
+            </connector>
+            <label>ShiptoExists</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Found_Unsynced_Order_Items</name>
         <label>Found Unsynced Order Items</label>
         <locationX>1958</locationX>
@@ -1106,8 +1143,8 @@
     <decisions>
         <name>Order_confirmation_emails_should_not_be_sent</name>
         <label>Order confirmation emails should not be sent</label>
-        <locationX>1300</locationX>
-        <locationY>1762</locationY>
+        <locationX>1912</locationX>
+        <locationY>2160</locationY>
         <defaultConnector>
             <targetReference>PriceBookShippingComplete</targetReference>
         </defaultConnector>
@@ -1130,7 +1167,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>getShiptoAccount.DontSendOrderConfirmation__c</leftValueReference>
+                <leftValueReference>shiptoAccount.DontSendOrderConfirmation__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -1145,8 +1182,8 @@
     <decisions>
         <name>PriceBookShippingComplete</name>
         <label>Price Book Shipping Complete?</label>
-        <locationX>1498</locationX>
-        <locationY>1578</locationY>
+        <locationX>1562</locationX>
+        <locationY>1589</locationY>
         <defaultConnector>
             <targetReference>Update_Order</targetReference>
         </defaultConnector>
@@ -1382,11 +1419,33 @@ DB 2023/11/30 - When IF Send clicked resend full order if order products weren&a
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>getOrderAccount</name>
+        <label>getOrderAccount</label>
+        <locationX>1218</locationX>
+        <locationY>2170</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Order_confirmation_emails_should_not_be_sent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Billto__c</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>shiptoAccount</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>DontSendOrderConfirmation__c</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>getShiptoAccount</name>
         <label>getShiptoAccount</label>
-        <locationX>1208</locationX>
-        <locationY>1625</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <locationX>1380</locationX>
+        <locationY>1992</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Order_confirmation_emails_should_not_be_sent</targetReference>
         </connector>
@@ -1398,15 +1457,16 @@ DB 2023/11/30 - When IF Send clicked resend full order if order products weren&a
                 <elementReference>$Record.Shipto__c</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <outputReference>shiptoAccount</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>DontSendOrderConfirmation__c</queriedFields>
     </recordLookups>
     <recordUpdates>
         <name>ShipComplete_True</name>
         <label>ShipComplete True</label>
-        <locationX>738</locationX>
-        <locationY>558</locationY>
+        <locationX>305</locationX>
+        <locationY>98</locationY>
         <connector>
             <targetReference>Decision</targetReference>
         </connector>
@@ -1499,11 +1559,26 @@ DB 2023/11/30 - When IF Send clicked resend full order if order products weren&a
 }</text>
     </textTemplates>
     <variables>
+        <name>DontSendOrderNotofication</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>ItemGroupResponse</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
         <objectType>Order</objectType>
+    </variables>
+    <variables>
+        <name>shiptoAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
     </variables>
 </Flow>

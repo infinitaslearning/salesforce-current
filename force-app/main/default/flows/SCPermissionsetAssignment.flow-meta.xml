@@ -533,6 +533,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>SlackGeneral</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageAccounts</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>

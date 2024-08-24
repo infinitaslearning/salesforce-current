@@ -80,14 +80,12 @@ public class IL_LeadConversion {
                 }
                 
                 if(String.isNotBlank(ld.Opportunity__c)){
-                    oppMap.put(ld.id,null);
-                } else {
-                    oppMap.put(ld.id,null);
+                    oppMap.put(ld.id,ld.Opportunity__c);
                 }
                 
                 if(ld.AutoConvertCreateOpportunity__c){
                     DcreateOppMap.put(ld.id,false);
-                }else {
+                } else {
                     DcreateOppMap.put(ld.id,true);
                 }
 
@@ -97,11 +95,10 @@ public class IL_LeadConversion {
                 '\nIL_LeadConversion - ### conMap.get(ld.id): ' + conMap.get(ld.id) +
                 '\nIL_LeadConversion - ### oppMap.get(ld.id): ' + oppMap.get(ld.id) + 
                 '\nIL_LeadConversion - ### DcreateOppMap.get(ld.id): ' + DcreateOppMap.get(ld.id));
-                
 
                 convertResults = convertLead(ld.id,stats,accMap.get(ld.id),conMap.get(ld.id),oppMap.get(ld.id),DcreateOppMap.get(ld.id));
+
                 System.debug('IL_LeadConversion - convertResults = ' + convertResults);
-                
                 System.debug('IL_LeadConversion - convertResults.get(\'AccountId\') = ' + convertResults.get('AccountId') );
                 System.debug('IL_LeadConversion - convertResults.get(\'ContactId\') = ' + convertResults.get('ContactId'));
                 System.debug('IL_LeadConversion - convertResults.get(\'OpportunityId\') = ' + convertResults.get('OpportunityId'));
@@ -259,6 +256,7 @@ public class IL_LeadConversion {
         for(Task t : tasks) {
             t.WhatId = leadOpportunityIdMap.get(taskIdWhoIds.get(t.Id));
             taskUpdateList.add(t);
+            System.debug('Updated Task for Object ==> ' + t.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {
@@ -280,6 +278,7 @@ public class IL_LeadConversion {
         for(Event e : events) {
             e.WhatId = leadOpportunityIdMap.get(eventIdWhoIds.get(e.Id));
             eventUpdateList.add(e);
+            System.debug('Updated Event for Object ==> ' + e.WhatId.getSObjectType().getDescribe().getName());
         }
 
         try {

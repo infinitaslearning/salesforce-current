@@ -80,14 +80,12 @@ public class IL_LeadConversion {
                 }
                 
                 if(String.isNotBlank(ld.Opportunity__c)){
-                    oppMap.put(ld.id,null);
-                } else {
-                    oppMap.put(ld.id,null);
+                    oppMap.put(ld.id,ld.Opportunity__c);
                 }
                 
                 if(ld.AutoConvertCreateOpportunity__c){
                     DcreateOppMap.put(ld.id,false);
-                }else {
+                } else {
                     DcreateOppMap.put(ld.id,true);
                 }
 
@@ -97,11 +95,10 @@ public class IL_LeadConversion {
                 '\nIL_LeadConversion - ### conMap.get(ld.id): ' + conMap.get(ld.id) +
                 '\nIL_LeadConversion - ### oppMap.get(ld.id): ' + oppMap.get(ld.id) + 
                 '\nIL_LeadConversion - ### DcreateOppMap.get(ld.id): ' + DcreateOppMap.get(ld.id));
-                
 
                 convertResults = convertLead(ld.id,stats,accMap.get(ld.id),conMap.get(ld.id),oppMap.get(ld.id),DcreateOppMap.get(ld.id));
+
                 System.debug('IL_LeadConversion - convertResults = ' + convertResults);
-                
                 System.debug('IL_LeadConversion - convertResults.get(\'AccountId\') = ' + convertResults.get('AccountId') );
                 System.debug('IL_LeadConversion - convertResults.get(\'ContactId\') = ' + convertResults.get('ContactId'));
                 System.debug('IL_LeadConversion - convertResults.get(\'OpportunityId\') = ' + convertResults.get('OpportunityId'));

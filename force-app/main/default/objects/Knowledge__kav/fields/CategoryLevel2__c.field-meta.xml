@@ -7,7 +7,56 @@
     <required>false</required>
     <type>Picklist</type>
     <valueSet>
+        <controllingField>OperatingCompany__c</controllingField>
         <restricted>true</restricted>
         <valueSetName>CategoryLevel2</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Beställning_Och_leverans</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Digital support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Sortiment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Övrigt</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Faktura_betalning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Assortiment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Bestelling &amp; Levering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Klantgegevens &amp; Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Factuur &amp; Betaling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Werken met het digitaal lesmateriaal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Privacy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <valueName>Service</valueName>
+        </valueSettings>
     </valueSet>
 </CustomField>

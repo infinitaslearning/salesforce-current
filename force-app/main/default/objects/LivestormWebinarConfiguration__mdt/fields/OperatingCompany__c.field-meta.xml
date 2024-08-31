@@ -30,6 +30,11 @@
                 <default>false</default>
                 <label>Infinitas Learning</label>
             </value>
+            <value>
+                <fullName>Noordhoff Zorg</fullName>
+                <default>false</default>
+                <label>Noordhoff Zorg</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

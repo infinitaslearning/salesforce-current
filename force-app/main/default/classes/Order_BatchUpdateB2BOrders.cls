@@ -74,9 +74,10 @@ global with sharing class Order_BatchUpdateB2BOrders implements Database.Batchab
    
         
         String nextFireTime = ss + ' ' + min + ' ' + hour + ' ' + dayT +' '+  monthT+ ' ?';
-   
+        CronJobDetail[] cronJob = [SELECT Id,JobType,Name FROM CronJobDetail where name like: '%Started At%' ];
+
            system.debug('***nextFireTime***'+nextFireTime);
-       if(!Test.isRunningTest()){     
+       if(!Test.isRunningTest() && cronJob.size()==0){     
           Order_BatchOrderActivateAssetRenewal  orderActivate = new Order_BatchOrderActivateAssetRenewal();
           System.schedule('B2BActivateOrders: Started At ' + String.valueOf(Datetime.now()), nextFireTime, orderActivate);
         }

@@ -11,6 +11,78 @@
         <restricted>true</restricted>
         <valueSetName>CategoryLevel3</valueSetName>
         <valueSettings>
+            <controllingFieldValue>Digital support</controllingFieldValue>
+            <valueName>Kom igång stöd</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital support</controllingFieldValue>
+            <valueName>Acess</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Digital support</controllingFieldValue>
+            <valueName>Errors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sortiment</controllingFieldValue>
+            <valueName>Feedback assortment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>GDPR - Incident</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>GDPR - PUB - agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>GDPR - Right to be forgotten</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>GDPR - Which data is stored?</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>CRM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>Feedback</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Övrigt</controllingFieldValue>
+            <valueName>Webpage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beställning_Och_leverans</controllingFieldValue>
+            <valueName>Reklamation och Klagomål</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beställning_Och_leverans</controllingFieldValue>
+            <valueName>Leverans</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beställning_Och_leverans</controllingFieldValue>
+            <valueName>Fråga om order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Beställning_Och_leverans</controllingFieldValue>
+            <valueName>Retur</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Faktura_betalning</controllingFieldValue>
+            <valueName>Faktura</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Faktura_betalning</controllingFieldValue>
+            <valueName>Betalning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Faktura_betalning</controllingFieldValue>
+            <valueName>Kredit</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Assortiment</controllingFieldValue>
             <valueName>Taal &amp; Spelling</valueName>
         </valueSettings>

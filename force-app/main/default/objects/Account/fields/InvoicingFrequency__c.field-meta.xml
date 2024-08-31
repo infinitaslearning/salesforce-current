@@ -49,22 +49,18 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <valueName>Monthly</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <valueName>Biweekly</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <valueName>Quarterly</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <valueName>Yearly</valueName>
         </valueSettings>

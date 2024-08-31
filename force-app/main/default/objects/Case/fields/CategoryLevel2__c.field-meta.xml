@@ -72,5 +72,45 @@
             <controllingFieldValue>General</controllingFieldValue>
             <valueName>Rapportage</valueName>
         </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General</controllingFieldValue>
+            <controllingFieldValue>Primary Education</controllingFieldValue>
+            <controllingFieldValue>Secondary Education</controllingFieldValue>
+            <controllingFieldValue>Vocational Education</controllingFieldValue>
+            <controllingFieldValue>Higher Education</controllingFieldValue>
+            <valueName>Beställning_Och_leverans</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General</controllingFieldValue>
+            <controllingFieldValue>Primary Education</controllingFieldValue>
+            <controllingFieldValue>Secondary Education</controllingFieldValue>
+            <controllingFieldValue>Vocational Education</controllingFieldValue>
+            <controllingFieldValue>Higher Education</controllingFieldValue>
+            <valueName>Digital support</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General</controllingFieldValue>
+            <controllingFieldValue>Primary Education</controllingFieldValue>
+            <controllingFieldValue>Secondary Education</controllingFieldValue>
+            <controllingFieldValue>Vocational Education</controllingFieldValue>
+            <controllingFieldValue>Higher Education</controllingFieldValue>
+            <valueName>Sortiment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General</controllingFieldValue>
+            <controllingFieldValue>Primary Education</controllingFieldValue>
+            <controllingFieldValue>Secondary Education</controllingFieldValue>
+            <controllingFieldValue>Vocational Education</controllingFieldValue>
+            <controllingFieldValue>Higher Education</controllingFieldValue>
+            <valueName>Övrigt</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General</controllingFieldValue>
+            <controllingFieldValue>Primary Education</controllingFieldValue>
+            <controllingFieldValue>Secondary Education</controllingFieldValue>
+            <controllingFieldValue>Vocational Education</controllingFieldValue>
+            <controllingFieldValue>Higher Education</controllingFieldValue>
+            <valueName>Faktura_betalning</valueName>
+        </valueSettings>
     </valueSet>
 </CustomField>

@@ -61,7 +61,7 @@
     <picklistValues>
         <picklist>CategoryLevel2__c</picklist>
         <values>
-            <fullName>Beställning</fullName>
+            <fullName>Beställning_Och_leverans</fullName>
             <default>false</default>
         </values>
         <values>
@@ -69,7 +69,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Finans</fullName>
+            <fullName>Faktura_betalning</fullName>
             <default>false</default>
         </values>
         <values>
@@ -84,35 +84,75 @@
     <picklistValues>
         <picklist>CategoryLevel3__c</picklist>
         <values>
-            <fullName>Backorder</fullName>
+            <fullName>Acess</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Bestelling</fullName>
+            <fullName>Betalning</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Betaling</fullName>
+            <fullName>CRM</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Factuur</fullName>
+            <fullName>Errors</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Instellingen</fullName>
+            <fullName>Faktura</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Levering</fullName>
+            <fullName>Feedback</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Retour</fullName>
+            <fullName>Feedback assortment</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Toegang</fullName>
+            <fullName>Fråga om order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDPR - Incident</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDPR - PUB - agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDPR - Right to be forgotten</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDPR - Which data is stored%3F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kom igång stöd</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kredit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leverans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reklamation och Klagomål</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retur</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webpage</fullName>
             <default>false</default>
         </values>
     </picklistValues>

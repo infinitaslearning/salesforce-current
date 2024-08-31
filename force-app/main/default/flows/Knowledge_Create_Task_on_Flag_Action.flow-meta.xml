@@ -4,8 +4,8 @@
     <assignments>
         <name>Assign_Task_values</name>
         <label>Assign Task values</label>
-        <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationX>446</locationX>
+        <locationY>650</locationY>
         <assignmentItems>
             <assignToReference>sov_Task.Subject</assignToReference>
             <operator>Assign</operator>
@@ -59,7 +59,63 @@
             <targetReference>Create_Task</targetReference>
         </connector>
     </assignments>
-    <description>Assigned to changes to Queue</description>
+    <decisions>
+        <name>What_OpCo</name>
+        <label>What OpCo?</label>
+        <locationX>446</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Task_values</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Noordhoff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_Article.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Noordhoff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_queue</targetReference>
+            </connector>
+            <label>Noordhoff</label>
+        </rules>
+        <rules>
+            <name>Liber</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_Article.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_queue_Liber</targetReference>
+            </connector>
+            <label>Liber</label>
+        </rules>
+        <rules>
+            <name>Plantyn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_Article.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plantyn</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_queue_for_Plantyn</targetReference>
+            </connector>
+            <label>Plantyn</label>
+        </rules>
+    </decisions>
+    <description>MR - 27/08/24 - Split by OpCo
+Assigned to changes to Queue</description>
     <dynamicChoiceSets>
         <name>Priority</name>
         <dataType>Picklist</dataType>
@@ -98,8 +154,8 @@
     <recordCreates>
         <name>Create_Task</name>
         <label>Create Task</label>
-        <locationX>176</locationX>
-        <locationY>566</locationY>
+        <locationX>446</locationX>
+        <locationY>758</locationY>
         <connector>
             <targetReference>EndScreen</targetReference>
         </connector>
@@ -108,11 +164,11 @@
     <recordLookups>
         <name>Get_article</name>
         <label>Get article</label>
-        <locationX>176</locationX>
+        <locationX>446</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_queue</targetReference>
+            <targetReference>What_OpCo</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -126,12 +182,13 @@
         <outputReference>sov_Article</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>OwnerId</queriedFields>
+        <queriedFields>OperatingCompany__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_queue</name>
         <label>Get queue</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_Task_values</targetReference>
@@ -148,11 +205,53 @@
         <outputReference>sov_Queue</outputReference>
         <queriedFields>Id</queriedFields>
     </recordLookups>
+    <recordLookups>
+        <name>Get_queue_for_Plantyn</name>
+        <label>Get queue for Plantyn</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Task_values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PlantynKnowledge</stringValue>
+            </value>
+        </filters>
+        <object>Group</object>
+        <outputReference>sov_Queue</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_queue_Liber</name>
+        <label>Get queue for Liber</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Task_values</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>LiberKnowledge</stringValue>
+            </value>
+        </filters>
+        <object>Group</object>
+        <outputReference>sov_Queue</outputReference>
+        <queriedFields>Id</queriedFields>
+    </recordLookups>
     <screens>
         <name>EndScreen</name>
         <label>End screen</label>
-        <locationX>176</locationX>
-        <locationY>674</locationY>
+        <locationX>446</locationX>
+        <locationY>866</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -167,7 +266,7 @@
     <screens>
         <name>Please_fill_in_Flag_Reason</name>
         <label>Please fill in Flag Reason</label>
-        <locationX>176</locationX>
+        <locationX>446</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -203,13 +302,13 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>320</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Please_fill_in_Flag_Reason</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>

@@ -6,7 +6,7 @@
         <name>Assign_Category_Level_1</name>
         <label>Assign Category Level 1</label>
         <locationX>281</locationX>
-        <locationY>1079</locationY>
+        <locationY>1379</locationY>
         <assignmentItems>
             <assignToReference>$Record.pvx__AgyleTimeSourceTypeIdentifierTags__c</assignToReference>
             <operator>Assign</operator>
@@ -22,7 +22,7 @@
         <name>Assign_Status_changed_to_Resolve</name>
         <label>Assign Status changed to Resolve</label>
         <locationX>281</locationX>
-        <locationY>1679</locationY>
+        <locationY>1979</locationY>
         <assignmentItems>
             <assignToReference>$Record.LastClosedBy__c</assignToReference>
             <operator>Assign</operator>
@@ -32,10 +32,26 @@
         </assignmentItems>
     </assignments>
     <assignments>
+        <name>Set_Business_Hours</name>
+        <label>Set Liber Business Hours</label>
+        <locationX>149</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BusinessHoursId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>01mQv000000jfyH</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>TypeOfChange</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Default_EntitlementForOtherAcc</name>
         <label>Set Default Entitlement</label>
         <locationX>512</locationX>
-        <locationY>395</locationY>
+        <locationY>695</locationY>
         <assignmentItems>
             <assignToReference>$Record.EntitlementId</assignToReference>
             <operator>Assign</operator>
@@ -48,10 +64,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Plantyn_Business_Hours</name>
+        <label>Set Plantyn Business Hours</label>
+        <locationX>413</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.BusinessHoursId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>01mJW000000dPxp</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>TypeOfChange</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_Status_to_Open</name>
         <label>Set Status to Open</label>
         <locationX>72</locationX>
-        <locationY>611</locationY>
+        <locationY>911</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status</assignToReference>
             <operator>Assign</operator>
@@ -67,7 +99,7 @@
         <name>Update_Last_StatusUpdate_Field</name>
         <label>Update Last StatusUpdate Field</label>
         <locationX>281</locationX>
-        <locationY>1379</locationY>
+        <locationY>1679</locationY>
         <assignmentItems>
             <assignToReference>$Record.LastStatusChange__c</assignToReference>
             <operator>Assign</operator>
@@ -83,7 +115,7 @@
         <name>Is_Category_Level_1_Changed</name>
         <label>Is Category Level 1 Changed?</label>
         <locationX>413</locationX>
-        <locationY>971</locationY>
+        <locationY>1271</locationY>
         <defaultConnector>
             <targetReference>is_Status_changed</targetReference>
         </defaultConnector>
@@ -115,7 +147,7 @@
         <name>Is_Owner_a_Group</name>
         <label>Is Owner a Group?</label>
         <locationX>50</locationX>
-        <locationY>395</locationY>
+        <locationY>695</locationY>
         <defaultConnector>
             <targetReference>Status</targetReference>
         </defaultConnector>
@@ -140,7 +172,7 @@
         <name>is_Status_changed</name>
         <label>is Status changed or LastStatusChange blank?</label>
         <locationX>413</locationX>
-        <locationY>1271</locationY>
+        <locationY>1571</locationY>
         <defaultConnector>
             <targetReference>Status_Resolved</targetReference>
         </defaultConnector>
@@ -172,7 +204,7 @@
         <name>Status</name>
         <label>Status</label>
         <locationX>204</locationX>
-        <locationY>503</locationY>
+        <locationY>803</locationY>
         <defaultConnector>
             <targetReference>Is_Category_Level_1_Changed</targetReference>
         </defaultConnector>
@@ -197,7 +229,7 @@
         <name>Status_Resolved</name>
         <label>Status Resolved</label>
         <locationX>413</locationX>
-        <locationY>1571</locationY>
+        <locationY>1871</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -226,7 +258,7 @@
         <name>TypeOfChange</name>
         <label>Type Of Change</label>
         <locationX>413</locationX>
-        <locationY>287</locationY>
+        <locationY>587</locationY>
         <defaultConnector>
             <targetReference>Is_Category_Level_1_Changed</targetReference>
         </defaultConnector>
@@ -269,7 +301,48 @@
             <label>Is New Liber Case?</label>
         </rules>
     </decisions>
-    <description>MR 15/08/24 Added Entitlements assignment for Liber Cases
+    <decisions>
+        <name>What_OpCo</name>
+        <label>What OpCo?</label>
+        <locationX>413</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>TypeOfChange</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Noordhoff</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Business_Hours</targetReference>
+            </connector>
+            <label>Liber</label>
+        </rules>
+        <rules>
+            <name>Plantyn</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Plantyn</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Plantyn_Business_Hours</targetReference>
+            </connector>
+            <label>Plantyn</label>
+        </rules>
+    </decisions>
+    <description>MR 28/08 Add Business Hours assignment
+MR 15/08/24 Added Entitlements assignment for Liber Cases
 MV 11/04/24 Adding a fallback queue for Cases of type Problem
 MR Remove Queuename savings</description>
     <environments>Default</environments>
@@ -318,7 +391,7 @@ MR Remove Queuename savings</description>
         <locationX>287</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>TypeOfChange</targetReference>
+            <targetReference>What_OpCo</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

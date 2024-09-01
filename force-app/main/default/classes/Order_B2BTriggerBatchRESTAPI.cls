@@ -18,9 +18,14 @@ global with sharing class Order_B2BTriggerBatchRESTAPI {
 
 @invocablemethod
 public static void startBatch(){
+    AsyncApexJob[] ajob =[select Id,ApexClass.Name,createddate,status from AsyncApexJob where ApexClass.Name ='Order_BatchUpdateB2BOrders' AND (status = 'Processing' OR status = 'Queued' OR status = 'Holding' OR status = 'Preparing')];
 
-    Order_BatchUpdateB2BOrders  B2BOrders = new Order_BatchUpdateB2BOrders();
+    System.debug('*****'+ajob.size() );
+    if(ajob.size() <= 1){
+        Order_BatchUpdateB2BOrders  B2BOrders = new Order_BatchUpdateB2BOrders();
         database.executebatch(B2BOrders ,1);
+    }
+    
 }
 
 }

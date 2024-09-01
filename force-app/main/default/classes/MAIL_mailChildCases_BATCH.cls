@@ -77,14 +77,14 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
             else if ((ORG.IsSandbox && ORG.Id == '00D0E000000E6pgUAC') || Test.isRunningTest()) {                           // FOR UAT Sandbox & test in Production
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
                 plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'noreply@liber.se' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }
             else { // FOR PRODUCTION
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
                 plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'noreply@liber.se' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }

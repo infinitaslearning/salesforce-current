@@ -76,7 +76,7 @@
     <assignments>
         <name>Complete_Milestone</name>
         <label>Complete Milestone</label>
-        <locationX>1062</locationX>
+        <locationX>1194</locationX>
         <locationY>1955</locationY>
         <assignmentItems>
             <assignToReference>sov_milestone.CompletionDate</assignToReference>
@@ -116,7 +116,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -139,16 +139,16 @@
         <name>Set_First_Response_Milestone_Ended</name>
         <label>Set First Response Milestone Ended</label>
         <locationX>1194</locationX>
-        <locationY>1631</locationY>
+        <locationY>1739</locationY>
         <assignmentItems>
-            <assignToReference>$Record.FirstResolutionMilestoneEnded__c</assignToReference>
+            <assignToReference>$Record.FirstResponseMilestoneEnded__c</assignToReference>
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Entitlement_Process_Ended</targetReference>
+            <targetReference>Get_First_Response_Milestone</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -201,7 +201,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -449,33 +449,8 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Entitlement_Process_Ended</name>
-        <label>First Response Milestone Ended?</label>
-        <locationX>1194</locationX>
-        <locationY>1739</locationY>
-        <defaultConnector>
-            <targetReference>Update_Case_Origin</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>FirstResponseMilestoneEnded</name>
-            <conditionLogic>or</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.FirstResolutionMilestoneEnded__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Milestone</targetReference>
-            </connector>
-            <label>First Response Milestone Ended</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>If_Status_Changed</name>
-        <label>If Status Changed</label>
+        <name>First_Response_Milestone_False</name>
+        <label>First Response Milestone False?</label>
         <locationX>1480</locationX>
         <locationY>1523</locationY>
         <defaultConnector>
@@ -483,8 +458,33 @@
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
+            <name>False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstResponseMilestoneEnded__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>If_Status_Changed</targetReference>
+            </connector>
+            <label>False</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>If_Status_Changed</name>
+        <label>If Status Changed</label>
+        <locationX>1326</locationX>
+        <locationY>1631</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
             <name>Status_changed_From_New_or_Open</name>
-            <conditionLogic>1 AND 2 AND 3</conditionLogic>
+            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5))</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status</leftValueReference>
                 <operator>IsChanged</operator>
@@ -500,31 +500,30 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.FirstResolutionMilestoneEnded__c</leftValueReference>
+                <leftValueReference>$Record.Status</leftValueReference>
                 <operator>NotEqualTo</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Set_First_Response_Milestone_Ended</targetReference>
             </connector>
             <label>Status changed From New or Open</label>
-        </rules>
-        <rules>
-            <name>Case_Closed</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.IsClosed</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_Resolution_Time_Milestone</targetReference>
-            </connector>
-            <label>Case Closed</label>
         </rules>
     </decisions>
     <decisions>
@@ -533,7 +532,7 @@
         <locationX>710</locationX>
         <locationY>1139</locationY>
         <defaultConnector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -613,7 +612,7 @@
         <locationX>1480</locationX>
         <locationY>623</locationY>
         <defaultConnector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -908,7 +907,7 @@
         <locationX>1942</locationX>
         <locationY>731</locationY>
         <defaultConnector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1064,7 +1063,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <locationX>578</locationX>
         <locationY>1247</locationY>
         <connector>
-            <targetReference>If_Status_Changed</targetReference>
+            <targetReference>First_Response_Milestone_False</targetReference>
         </connector>
         <inputAssignments>
             <field>Body</field>
@@ -1156,9 +1155,9 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <queriedFields>Name</queriedFields>
     </recordLookups>
     <recordLookups>
-        <name>Get_Milestone</name>
+        <name>Get_First_Response_Milestone</name>
         <label>Get First Response Milestone</label>
-        <locationX>1062</locationX>
+        <locationX>1194</locationX>
         <locationY>1847</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1264,29 +1263,6 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <queriedFields>QueueDeveloperName__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>Get_Resolution_Time_Milestone</name>
-        <label>Get Resolution Time Milestone</label>
-        <locationX>1502</locationX>
-        <locationY>1631</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Update_Case_Origin</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>CaseId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <object>CaseMilestone</object>
-        <outputReference>sov_milestone</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>IsCompleted</queriedFields>
-        <queriedFields>CompletionDate</queriedFields>
-    </recordLookups>
     <recordUpdates>
         <name>Uncheck_Pending_Case_Reminder_Sent</name>
         <label>Uncheck Pending Case Reminder Sent if checked</label>
@@ -1324,7 +1300,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
     <recordUpdates>
         <name>Update_Milestone</name>
         <label>Update Milestone</label>
-        <locationX>1062</locationX>
+        <locationX>1194</locationX>
         <locationY>2063</locationY>
         <connector>
             <targetReference>Update_Case_Origin</targetReference>

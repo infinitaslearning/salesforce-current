@@ -2,12 +2,46 @@ public class KLOPOTEK_ManageClassifications {
     
     public static void createClassifications(List<KlopotekClassification__c> klopotekClassificationList) {
 
+        List<Id> noordhoffAccountIdList = new List<Id>();
+        List<Id> noordhoffContactIdList = new List<Id>();
+        
+        List<Id> plantynAccountIdList = new List<Id>();
+        List<Id> plantynContactIdList = new List<Id>();
+
+        List<Id> liberAccountIdList = new List<Id>();
+        List<Id> liberContactIdList = new List<Id>();
+
         List<String> teacherNumbers = new List<String>();
         List<String> schoolNumbers = new List<String>();
         for (KlopotekClassification__c kc : klopotekClassificationList) {
-                teacherNumbers.add(kc.DocNr__c);
+                if (kc.DocNr__c != '' && kc.DocNr__c != null) {
+                    teacherNumbers.add(kc.DocNr__c);
+                }
                 if (kc.SchNr__c != '' && kc.SchNr__c != null) {
                     schoolNumbers.add(kc.SchNr__c);
+                }
+
+                if (kc.OperatingCompany__c == 'Noordhoff') {
+                    if (kc.ContactId__c != null) {
+                        noordhoffContactIdList.add(kc.ContactId__c);
+                    }
+                    if (kc.AccountId__c != null) {
+                        noordhoffAccountIdList.add(kc.AccountId__c);
+                    }
+                } else if (kc.OperatingCompany__c == 'Plantyn') {
+                    if (kc.ContactId__c != null) {
+                        plantynContactIdList.add(kc.ContactId__c);
+                    }
+                    if (kc.AccountId__c != null) {
+                        plantynAccountIdList.add(kc.AccountId__c);
+                    }
+                } else if (kc.OperatingCompany__c == 'Liber') {
+                    if (kc.ContactId__c != null) {
+                        liberContactIdList.add(kc.ContactId__c);
+                    }
+                    if (kc.AccountId__c != null) {
+                        liberAccountIdList.add(kc.AccountId__c);
+                    }
                 }
         }
 
@@ -16,10 +50,8 @@ public class KLOPOTEK_ManageClassifications {
         Map<String, Id> noordhoffContacts = getContacts('Noordhoff', teacherNumbers);
         Map<String, Id> noordhoffAccounts = getAccounts('Noordhoff', schoolNumbers);
 
-        List<Id> noordhoffAccountIdList = new List<Id>();
         noordhoffAccountIdList.addAll(noordhoffAccounts.values());
         List<ClassificationData__c> noordhoffCdList = new List<ClassificationData__c>();
-        List<Id> noordhoffContactIdList = new List<Id>();
         noordhoffContactIdList.addAll(noordhoffContacts.values());
         List<ClassificationData__c> noordhoffContactCdList = new List<ClassificationData__c>();
 
@@ -82,10 +114,9 @@ public class KLOPOTEK_ManageClassifications {
         Map<String, Id> plantynContacts = getContacts('Plantyn',teacherNumbers);
         Map<String, Id> plantynAccounts = getAccounts('Plantyn', schoolNumbers);
 
-        List<Id> plantynAccountIdList = new List<Id>();
+        
         plantynAccountIdList.addAll(plantynAccounts.values());
         List<ClassificationData__c> plantynCdList = new List<ClassificationData__c>();
-        List<Id> plantynContactIdList = new List<Id>();
         plantynContactIdList.addAll(plantynContacts.values());
         List<ClassificationData__c> plantynContactCdList = new List<ClassificationData__c>();
 
@@ -148,10 +179,8 @@ public class KLOPOTEK_ManageClassifications {
         Map<String, Id> liberContacts = getContacts('Liber', teacherNumbers);
         Map<String, Id> liberAccounts = getAccounts('Liber', schoolNumbers);
         
-        List<Id> liberAccountIdList = new List<Id>();
         liberAccountIdList.addAll(liberAccounts.values());
         List<ClassificationData__c> liberCdList = new List<ClassificationData__c>();
-        List<Id> liberContactIdList = new List<Id>();
         liberContactIdList.addAll(liberContacts.values());
         List<ClassificationData__c> liberContactCdList = new List<ClassificationData__c>();
 
@@ -227,7 +256,14 @@ public class KLOPOTEK_ManageClassifications {
 
             ClassificationData__c cd = new ClassificationData__c();
             
-            if (kc.CatCode__c.left(3) == '/01' || (kc.CatCode__c.length() == 4 && (kc.CatCode__c.left(4) == '/1/E' || kc.CatCode__c.left(4) == '/1/F'))) {
+            if (kc.CatCode__c == '' || kc.CatCode__c == null) {
+                System.debug('No CatCode on this Klopotek Classifications reccord.');
+                kc.ErrorMessage__c = 'No CatCode on this Klopotek Classifications reccord.';
+                kc.IsProcessed__c = true;
+                createClassificationData = false;
+                kcUpdateList.add(kc);
+                continue;
+            } else if (kc.CatCode__c.left(3) == '/01' || (kc.CatCode__c.length() == 4 && (kc.CatCode__c.left(4) == '/1/E' || kc.CatCode__c.left(4) == '/1/F'))) {
                 
                 System.debug('CatCode ' + kc.CatCode__c + ' is for GDPR Purposes, this is changed by the Privacy Permissions.');
                 kc.ErrorMessage__c = 'CatCode ' + kc.CatCode__c + ' is for GDPR Purposes, this is changed by the Privacy Permissions.';
@@ -268,8 +304,8 @@ public class KLOPOTEK_ManageClassifications {
                         cd.ContactClassificationAccount__c = kc.AccountId__c;
                     }
                     if (noordhoffContactClassificationMap.keySet().contains(cd.Contact__c)) {
-                        if (noordhoffAccountClassificationMap.get(cd.Contact__c).size() > 0) {
-                            duplicateCheckList = noordhoffAccountClassificationMap.get(cd.Contact__c);
+                        if (noordhoffContactClassificationMap.get(cd.Contact__c).size() > 0) {
+                            duplicateCheckList = noordhoffContactClassificationMap.get(cd.Contact__c);
                         }
                     }
                 } else if (kc.AccountId__c != null) {

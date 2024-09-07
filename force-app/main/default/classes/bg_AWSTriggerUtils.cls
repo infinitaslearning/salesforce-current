@@ -28,15 +28,12 @@ public with sharing class bg_AWSTriggerUtils {
     */
     public static void ProcessAWSCallout(String objectName, map<Id, sObject> newSObjectsToProcessMap, map<Id, sObject> oldSObjectsToProcessMap, String operation)
     {
-        system.debug('bg_AWSTriggerUtils operation: ' + operation);
-        system.debug('bg_AWSTriggerUtils newSObjectsToProcessMap initial: ' + newSObjectsToProcessMap);
         System.debug(LoggingLevel.ERROR,'bg_AWSTriggerUtils Updating fields Total amount of DML Statements' + Limits.getLimitDMLStatements());
         String errorMessage = '';
         if(bg_RESTCalloutUtil.processedIds==null)
         {
             bg_RESTCalloutUtil.processedIds = new Set<ID>();
         }
-        system.debug('bg_RESTCalloutUtil.processedIds: ' + bg_RESTCalloutUtil.processedIds);
         //bg_RESTCalloutUtil.processedIds = new Set<ID>();
         newSObjectsToProcessMap.keySet().removeAll(bg_RESTCalloutUtil.processedIds);
         //if (System.IsBatch() || System.IsFuture() || newSObjectsToProcessMap.isEmpty())
@@ -93,7 +90,7 @@ public with sharing class bg_AWSTriggerUtils {
 
             if (operation == OPERATION_INSERT)
             {
-                system.debug('newSObjectsToProcessMap before sync: ' + newSObjectsToProcessMap);
+                
                 System.debug(LoggingLevel.ERROR, 'DEBUG: Inserting fields');
                 
                 //Class Definintion to pass DML OPERATION AND IDS
@@ -128,7 +125,7 @@ public with sharing class bg_AWSTriggerUtils {
                     {
                         
                       //  System.debug('**IntegrationFactorySend__c**' + newObject.get(fieldName));
-						//system.debug('newObject.get(fieldName): ' + newObject.get(fieldName));
+
                         if(fieldName == 'IntegrationFactorySend__c' && newObject.get(fieldName)==true)
                         {
                             calloutIds.add(newObject.Id);

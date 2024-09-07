@@ -134,16 +134,16 @@ public class SK_createAccounts {
         }
 
         if (Gymnasieskola) {
-            classificationList.add('Gymnasium/Vuxenutbildning');
+            classificationList.add('Secondary');
         }
         if (Grundskola) {
             classificationList.add('Primary');
         }
         if (Specialskola) {
-            classificationList.add('Primary');
+            classificationList.add(''); // @Connor, this Needs to get the Classification MultiPicklist value for the "Specialskola" that Jessika will chose
         }
         if (Sameskola) {
-            classificationList.add('Primary'); 
+            classificationList.add(''); // @Connor, this Needs to get the Classification MultiPicklist value for the "Sameskola" that Jessika will chose
         }
 
         return String.join(classificationList, ';');

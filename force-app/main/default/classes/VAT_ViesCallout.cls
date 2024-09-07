@@ -54,12 +54,11 @@ public class VAT_ViesCallout {
                 VAT_Vies_WDSL.checkVatPort  vatCheck = new VAT_Vies_WDSL.checkVatPort ();
                 resp = vatCheck.checkVat(countryCode,vatNumberForCheck);    
             } catch (Exception e) {
-                system.debug('Exception: ' + e.getMessage());
                 err = e.getMessage();
             } 
             
 
-            System.debug('Response: ' + resp);
+            System.debug('Response:');
             System.debug('countryCode: ' + resp.countryCode);
             System.debug('vatNumber: ' + resp.vatNumber);
             System.debug('requestDate: ' + resp.requestDate);

@@ -186,7 +186,7 @@
         <name>FoundOppotunities</name>
         <label>Found Oppotunities</label>
         <locationX>1320</locationX>
-        <locationY>541</locationY>
+        <locationY>542</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>YesOpportunities</name>
@@ -306,13 +306,6 @@
                 <elementReference>sov_Lead.Id</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>IsDeleted</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <object>Lead</object>
         <outputReference>sov_Lead</outputReference>
         <queriedFields>Id</queriedFields>
@@ -370,8 +363,8 @@
     <recordLookups>
         <name>GetOpportunityProducts</name>
         <label>Get Opportunity Products</label>
-        <locationX>1634</locationX>
-        <locationY>416</locationY>
+        <locationX>1629</locationX>
+        <locationY>409</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Match_Method</targetReference>

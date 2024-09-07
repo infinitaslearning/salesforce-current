@@ -218,7 +218,7 @@
         </fields>
         <fields>
             <name>ReportLink</name>
-            <fieldText>&lt;p&gt;&lt;a href=&quot;https://infinitaslearning--uat.sandbox.lightning.force.com/lightning/r/Report/00O0E000001sdvyUAA/view?queryScope=userFolders&amp;amp;fv2={!OrderNumber}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Error Report Link&lt;/a&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;a href=&quot;https://infinitaslearning.lightning.force.com/lightning/r/Report/00O3V000000x78UUAQ/view?queryScope=userFolders&amp;amp;fv2={!OrderNumber}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;Error Report Link&lt;/a&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>false</showFooter>

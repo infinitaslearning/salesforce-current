@@ -57,8 +57,7 @@ system.debug('**Import Handler: Size*'+lstImportShippingCosts.size());
 
 
     lstImportShippingCosts = HandleErrors(lstImportShippingCosts,Map_ImpCount);
-system.debug('**Import Handler: Size on line 60*'+lstImportShippingCosts.size());
-    
+
     count = 1;
     for(ImportShippingCosts__c imp:lstImportShippingCosts){  
 

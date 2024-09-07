@@ -5,7 +5,7 @@
         <name>AssignNumberOfOrders</name>
         <label>Assign Number of Orders</label>
         <locationX>176</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <assignmentItems>
             <assignToReference>varNumberOfOrders</assignToReference>
             <operator>AssignCount</operator>
@@ -17,6 +17,7 @@
             <targetReference>UpdateAccount</targetReference>
         </connector>
     </assignments>
+    <description>06-08-2024: Deactivated due to Soql limit on renewals for multiple ship tos in one transaction</description>
     <environments>Default</environments>
     <formulas>
         <name>forNumberOfOrders</name>
@@ -57,7 +58,7 @@
         <name>GetOrders</name>
         <label>Get Orders</label>
         <locationX>176</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AssignNumberOfOrders</targetReference>
@@ -85,7 +86,7 @@
         <name>UpdateAccount</name>
         <label>Update Account</label>
         <locationX>176</locationX>
-        <locationY>398</locationY>
+        <locationY>350</locationY>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -116,7 +117,7 @@
             <targetReference>GetOrders</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>varBillTo</name>
         <dataType>String</dataType>

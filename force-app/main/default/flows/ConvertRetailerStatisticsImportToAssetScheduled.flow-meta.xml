@@ -204,6 +204,7 @@
             <label>Can be converted</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>forEcinNumber</name>
         <dataType>String</dataType>
@@ -314,9 +315,9 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         </filters>
         <object>Retailer_Statistics_Import__c</object>
         <schedule>
-            <frequency>Daily</frequency>
-            <startDate>2021-10-22</startDate>
-            <startTime>12:15:00.000Z</startTime>
+            <frequency>Once</frequency>
+            <startDate>2022-11-22</startDate>
+            <startTime>17:15:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>

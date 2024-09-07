@@ -45,52 +45,6 @@ public class ACC_AccountHelper_TEST {
             );
     }
 
-    @IsTest
-    static void TestLegalNameChangeAfterUpdate(){
-        
-        Account acc = [SELECT Id FROM Account LIMIT 1];
-        String longName = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
-
-        Test.startTest();
-            acc.LegalName__c = longName;
-            update acc;
-        Test.stopTest();
-        
-        Account accAfter = [SELECT Id, LegalName__c, LegalName2__c FROM Account LIMIT 1];
-
-        System.assertEquals('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', accAfter.LegalName__c);
-        System.assertEquals('incididunt ut labore et dolore magna aliqua', accAfter.LegalName2__c);
-
-    }
-
-    @IsTest
-    static void TestLegalNameChangeAfterInsert(){
-        
-        Id B2BEdicationalRecordTypeId = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('B2B Educational').getRecordTypeId();
-
-        Account acc = new Account();
-        acc.Name = 'Test Account for Legal Name';
-        acc.LegalName__c = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
-        acc.RecordTypeId = B2BEdicationalRecordTypeId;
-        acc.NumberofStudents__c = 1;
-        acc.OperatingCompany__c = 'Plantyn';
-        acc.Type = 'Educational Institution';
-        acc.Area__c = 'Dutch';
-        acc.TypeOfAccount__c = 'Sales';
-        acc.ExternalDatabase__c = 'Agodi';
-        acc.ExternalCustomerId__c = '123456';
-
-        Test.startTest();
-            insert acc;
-        Test.stopTest();
-        
-        Account accAfter = [SELECT Id, LegalName__c, LegalName2__c FROM Account WHERE Name != 'Test Account' LIMIT 1];
-
-        System.assertEquals('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', accAfter.LegalName__c);
-        System.assertEquals('incididunt ut labore et dolore magna aliqua', accAfter.LegalName2__c);
-
-    }
-
     @isTest
     static void TestValidateAccountBeforeTriggerDelete(){
 

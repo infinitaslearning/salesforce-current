@@ -16,6 +16,7 @@ public class BL_customBooklistHelper_TEST {
         Asset asset1 = New Asset();
         asset1.Name = 'Base Asset';
         asset1.RecordTypeId = booklistRecordTypeId;
+        asset1.Quantity = 1;
         insert asset1;
 
         List<Asset> assetList = New List<Asset>();
@@ -59,6 +60,7 @@ public class BL_customBooklistHelper_TEST {
             a.RecordTypeId = booklistRecordTypeId;
             a.AccountId = acc.Id;
             a.IsSalesStatistic__c = false;
+            a.Quantity = 1;
             assetList.add(a);
         }
 

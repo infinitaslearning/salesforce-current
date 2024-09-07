@@ -90,6 +90,13 @@
                 <elementReference>form_update_accDepartment</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Account.ShortCompanyName__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_update_accName</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_Account</targetReference>
         </connector>
@@ -155,8 +162,7 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>CH 16/05/2023: Enabled updating of accounts
-CH 04/08/2023: Removed reference to Short Company Name</description>
+    <description>CH 16/05/2023: Enabled updating of accounts</description>
     <environments>Default</environments>
     <formulas>
         <name>bValueshaveChanged</name>
@@ -560,7 +566,7 @@ IF(LEFT(LOWER({!$Record.URL_COMMUNICATION_NUMBER__c}),4)=&quot;http&quot;,{!$Rec
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>Account</name>
         <dataType>SObject</dataType>

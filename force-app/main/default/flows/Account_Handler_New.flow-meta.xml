@@ -157,14 +157,6 @@
         <connector>
             <targetReference>Action</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>AgodiUpdateInProgress__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
         <object>Account</object>
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>

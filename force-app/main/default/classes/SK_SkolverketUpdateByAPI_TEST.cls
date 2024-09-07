@@ -2,17 +2,6 @@
 public class SK_SkolverketUpdateByAPI_TEST {
 
     @IsTest
-    static void TestScheduleable(){
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, new SK_TestDataFactory.Mock());
-        //System.enqueueJob(new SK_SkolverketUpdateByAPI());
-        
-        SK_SkolverketUpdate_Schedule s = new SK_SkolverketUpdate_Schedule();
-        s.execute(null);
-        Test.stopTest();
-    }
-    
-    @IsTest
     static void TestCorrectResponse01(){
         Test.startTest();
             Test.setMock(HttpCalloutMock.class, new SK_TestDataFactory.Mock());

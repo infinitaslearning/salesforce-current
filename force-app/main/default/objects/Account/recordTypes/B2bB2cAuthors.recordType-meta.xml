@@ -282,6 +282,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Top-100</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Top-30</fullName>
             <default>false</default>
         </values>

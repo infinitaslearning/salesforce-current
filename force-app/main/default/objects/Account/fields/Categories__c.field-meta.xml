@@ -306,6 +306,11 @@
                 <default>false</default>
                 <label>Högskola</label>
             </value>
+            <value>
+                <fullName>Top-100</fullName>
+                <default>false</default>
+                <label>Top-100</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -689,6 +694,10 @@
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Defend Small</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>Top-100</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

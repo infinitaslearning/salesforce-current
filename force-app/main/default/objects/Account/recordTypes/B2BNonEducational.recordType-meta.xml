@@ -178,6 +178,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Top-100</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Value</fullName>
             <default>false</default>
         </values>

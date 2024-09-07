@@ -59,6 +59,29 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>CategoryLevel1__c</picklist>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Higher Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Primary Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Secondary Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vocational Education</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>CategoryLevel2__c</picklist>
         <values>
             <fullName>Beställning_Och_leverans</fullName>

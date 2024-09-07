@@ -29,6 +29,19 @@
     </actionCalls>
     <apiVersion>59.0</apiVersion>
     <assignments>
+        <name>Assign_Flow_Error</name>
+        <label>Assign Flow Error</label>
+        <locationX>2162</locationX>
+        <locationY>1340</locationY>
+        <assignmentItems>
+            <assignToReference>flowErrorMsg</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>Can_Edit_Account_Info</name>
         <label>Can Edit Account Info</label>
         <locationX>50</locationX>
@@ -309,6 +322,7 @@
             <label>Digital Activation Email not valid</label>
         </rules>
     </decisions>
+    <description>DEBUG FLOW</description>
     <environments>Default</environments>
     <interviewLabel>ImportOrder_FixRecord {!$Flow.CurrentDateTime}</interviewLabel>
     <label>ImportOrder_FixRecord</label>
@@ -340,6 +354,10 @@
         <connector>
             <targetReference>Was_the_ImportOrder_Fixed</targetReference>
         </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Flow_Error</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -409,6 +427,9 @@
         <connector>
             <targetReference>Get_Fixed_ImportOrder</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Assign_Flow_Error</targetReference>
+        </faultConnector>
         <inputReference>Get_ImportOrder</inputReference>
     </recordUpdates>
     <runInMode>SystemModeWithoutSharing</runInMode>
@@ -728,7 +749,7 @@
             <targetReference>Get_ImportOrder</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>bCanEditAccountInfo</name>
         <dataType>Boolean</dataType>
@@ -760,6 +781,13 @@
     <variables>
         <name>bRetriggerLabel</name>
         <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>flowErrorMsg</name>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>

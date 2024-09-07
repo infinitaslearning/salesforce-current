@@ -8,7 +8,7 @@
         <actionName>bg_AllObjectInvocableHandler</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>NS_NetSuite</targetReference>
+            <targetReference>Assign_Activated_variables</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -47,9 +47,6 @@
         <locationY>1324</locationY>
         <actionName>NS_NetSuite</actionName>
         <actionType>apex</actionType>
-        <connector>
-            <targetReference>Assign_Activated_variables</targetReference>
-        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>OrderId</name>
@@ -1332,7 +1329,8 @@ DB 2023/09/05 -  added condition to isactive to block sync for Noordhoff and NH 
 SP 2023/09/22 - added abiblity to create Assets for NH Zorg 00DJW000005Idun
 DB 2023/10/11 - added Resync Order via API functionality
 HdG 2023/11/17 - allowing orders to be activated for Noordhoff again
-DB 2023/11/30 - When IF Send clicked resend full order if order products weren&apos;t synced</description>
+DB 2023/11/30 - When IF Send clicked resend full order if order products weren&apos;t synced
+SP 2024/8/29 - Removed Account and Account Subsdiary integration on activation</description>
     <environments>Default</environments>
     <formulas>
         <name>form_HfdStructuurCount</name>

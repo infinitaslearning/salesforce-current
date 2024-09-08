@@ -74,8 +74,8 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Complete_Milestone</name>
-        <label>Complete Milestone</label>
+        <name>Copy_1_of_Complete_Milestone</name>
+        <label>Copy 1 of Complete Milestone</label>
         <locationX>1194</locationX>
         <locationY>1955</locationY>
         <assignmentItems>
@@ -86,7 +86,23 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Milestone</targetReference>
+            <targetReference>Copy_1_of_Update_Milestone</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Copy_1_of_Set_First_Response_Milestone_Ended</name>
+        <label>Copy 1 of Set First Response Milestone Ended</label>
+        <locationX>1194</locationX>
+        <locationY>1739</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstResponseMilestoneEnded__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Get_First_Response_Milestone</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -133,22 +149,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Email_Empty</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Set_First_Response_Milestone_Ended</name>
-        <label>Set First Response Milestone Ended</label>
-        <locationX>1194</locationX>
-        <locationY>1739</locationY>
-        <assignmentItems>
-            <assignToReference>$Record.FirstResponseMilestoneEnded__c</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_First_Response_Milestone</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -398,6 +398,59 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Copy_1_of_If_Status_Changed</name>
+        <label>Copy 1 of If Status Changed</label>
+        <locationX>1326</locationX>
+        <locationY>1631</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Status_changed_From_New_or_Open</name>
+            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5))</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Open</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Set_First_Response_Milestone_Ended</targetReference>
+            </connector>
+            <label>Copy 1 of Status changed From New or Open</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Does the queue that is chosen upon save on this Case match the list of queues that need Article validation?</description>
         <name>Does_Queue_match</name>
         <label>Does Queue match?</label>
@@ -467,63 +520,17 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.OperatingCompany__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Liber</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>If_Status_Changed</targetReference>
+                <targetReference>Copy_1_of_If_Status_Changed</targetReference>
             </connector>
             <label>False</label>
-        </rules>
-    </decisions>
-    <decisions>
-        <name>If_Status_Changed</name>
-        <label>If Status Changed</label>
-        <locationX>1326</locationX>
-        <locationY>1631</locationY>
-        <defaultConnector>
-            <targetReference>Update_Case_Origin</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Status_changed_From_New_or_Open</name>
-            <conditionLogic>1 AND ((2 AND 3) OR (4 AND 5))</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>IsChanged</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record__Prior.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Open</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>New</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record__Prior.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>New</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <stringValue>Open</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Set_First_Response_Milestone_Ended</targetReference>
-            </connector>
-            <label>Status changed From New or Open</label>
         </rules>
     </decisions>
     <decisions>
@@ -1111,6 +1118,29 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
+        <name>Copy_1_of_Get_First_Response_Milestone</name>
+        <label>Copy 1 of Get First Response Milestone</label>
+        <locationX>1194</locationX>
+        <locationY>1847</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Complete_Milestone</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>CaseMilestone</object>
+        <outputReference>sov_milestone</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>IsCompleted</queriedFields>
+        <queriedFields>CompletionDate</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Copy_1_of_Get_Queue_ID_and_Name_PE</name>
         <label>Get Queue ID and Name PE</label>
         <locationX>314</locationX>
@@ -1153,29 +1183,6 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <outputReference>sov_Queue</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>Name</queriedFields>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_First_Response_Milestone</name>
-        <label>Get First Response Milestone</label>
-        <locationX>1194</locationX>
-        <locationY>1847</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Complete_Milestone</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>CaseId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <object>CaseMilestone</object>
-        <outputReference>sov_milestone</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>IsCompleted</queriedFields>
-        <queriedFields>CompletionDate</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Queue_ID_and_Name_G</name>
@@ -1264,6 +1271,16 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Copy_1_of_Update_Milestone</name>
+        <label>Copy 1 of Update Milestone</label>
+        <locationX>1194</locationX>
+        <locationY>2063</locationY>
+        <connector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </connector>
+        <inputReference>sov_milestone</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Uncheck_Pending_Case_Reminder_Sent</name>
         <label>Uncheck Pending Case Reminder Sent if checked</label>
         <locationX>1348</locationX>
@@ -1296,16 +1313,6 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
             <targetReference>Article_Count_1</targetReference>
         </connector>
         <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Milestone</name>
-        <label>Update Milestone</label>
-        <locationX>1194</locationX>
-        <locationY>2063</locationY>
-        <connector>
-            <targetReference>Update_Case_Origin</targetReference>
-        </connector>
-        <inputReference>sov_milestone</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Problem_Case</name>

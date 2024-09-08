@@ -6,7 +6,7 @@
         <name>Assign_Category_Level_1</name>
         <label>Assign Category Level 1</label>
         <locationX>281</locationX>
-        <locationY>1379</locationY>
+        <locationY>2087</locationY>
         <assignmentItems>
             <assignToReference>$Record.pvx__AgyleTimeSourceTypeIdentifierTags__c</assignToReference>
             <operator>Assign</operator>
@@ -22,7 +22,7 @@
         <name>Assign_Status_changed_to_Resolve</name>
         <label>Assign Status changed to Resolve</label>
         <locationX>281</locationX>
-        <locationY>1979</locationY>
+        <locationY>2687</locationY>
         <assignmentItems>
             <assignToReference>$Record.LastClosedBy__c</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +35,7 @@
         <name>Set_Business_Hours</name>
         <label>Set Liber Business Hours</label>
         <locationX>149</locationX>
-        <locationY>395</locationY>
+        <locationY>1103</locationY>
         <assignmentItems>
             <assignToReference>$Record.BusinessHoursId</assignToReference>
             <operator>Assign</operator>
@@ -51,7 +51,7 @@
         <name>Set_Default_EntitlementForOtherAcc</name>
         <label>Set Default Entitlement</label>
         <locationX>512</locationX>
-        <locationY>695</locationY>
+        <locationY>1403</locationY>
         <assignmentItems>
             <assignToReference>$Record.EntitlementId</assignToReference>
             <operator>Assign</operator>
@@ -67,7 +67,7 @@
         <name>Set_Plantyn_Business_Hours</name>
         <label>Set Plantyn Business Hours</label>
         <locationX>413</locationX>
-        <locationY>395</locationY>
+        <locationY>1103</locationY>
         <assignmentItems>
             <assignToReference>$Record.BusinessHoursId</assignToReference>
             <operator>Assign</operator>
@@ -83,7 +83,7 @@
         <name>Set_Status_to_Open</name>
         <label>Set Status to Open</label>
         <locationX>72</locationX>
-        <locationY>911</locationY>
+        <locationY>1619</locationY>
         <assignmentItems>
             <assignToReference>$Record.Status</assignToReference>
             <operator>Assign</operator>
@@ -99,7 +99,7 @@
         <name>Update_Last_StatusUpdate_Field</name>
         <label>Update Last StatusUpdate Field</label>
         <locationX>281</locationX>
-        <locationY>1679</locationY>
+        <locationY>2387</locationY>
         <assignmentItems>
             <assignToReference>$Record.LastStatusChange__c</assignToReference>
             <operator>Assign</operator>
@@ -112,10 +112,60 @@
         </connector>
     </assignments>
     <decisions>
+        <name>Block_Customer</name>
+        <label>Block Customer</label>
+        <locationX>413</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>What_OpCo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Origin_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Block_Customer</targetReference>
+            </connector>
+            <label>Origin Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Block_Customer_Found</name>
+        <label>Block Customer</label>
+        <locationX>259</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>What_OpCo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>BlockCustomer_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Block_Customer</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Records_1</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Is_Category_Level_1_Changed</name>
         <label>Is Category Level 1 Changed?</label>
         <locationX>413</locationX>
-        <locationY>1271</locationY>
+        <locationY>1979</locationY>
         <defaultConnector>
             <targetReference>is_Status_changed</targetReference>
         </defaultConnector>
@@ -147,7 +197,7 @@
         <name>Is_Owner_a_Group</name>
         <label>Is Owner a Group?</label>
         <locationX>50</locationX>
-        <locationY>695</locationY>
+        <locationY>1403</locationY>
         <defaultConnector>
             <targetReference>Status</targetReference>
         </defaultConnector>
@@ -172,7 +222,7 @@
         <name>is_Status_changed</name>
         <label>is Status changed or LastStatusChange blank?</label>
         <locationX>413</locationX>
-        <locationY>1571</locationY>
+        <locationY>2279</locationY>
         <defaultConnector>
             <targetReference>Status_Resolved</targetReference>
         </defaultConnector>
@@ -204,7 +254,7 @@
         <name>Status</name>
         <label>Status</label>
         <locationX>204</locationX>
-        <locationY>803</locationY>
+        <locationY>1511</locationY>
         <defaultConnector>
             <targetReference>Is_Category_Level_1_Changed</targetReference>
         </defaultConnector>
@@ -229,7 +279,7 @@
         <name>Status_Resolved</name>
         <label>Status Resolved</label>
         <locationX>413</locationX>
-        <locationY>1871</locationY>
+        <locationY>2579</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -258,7 +308,7 @@
         <name>TypeOfChange</name>
         <label>Type Of Change</label>
         <locationX>413</locationX>
-        <locationY>587</locationY>
+        <locationY>1295</locationY>
         <defaultConnector>
             <targetReference>Is_Category_Level_1_Changed</targetReference>
         </defaultConnector>
@@ -305,7 +355,7 @@
         <name>What_OpCo</name>
         <label>What OpCo?</label>
         <locationX>413</locationX>
-        <locationY>287</locationY>
+        <locationY>995</locationY>
         <defaultConnector>
             <targetReference>TypeOfChange</targetReference>
         </defaultConnector>
@@ -341,7 +391,8 @@
             <label>Plantyn</label>
         </rules>
     </decisions>
-    <description>MR 28/08 Add Business Hours assignment
+    <description>JG 4-09 Spam / Block customer
+MR 28/08 Add Business Hours assignment
 MR 15/08/24 Added Entitlements assignment for Liber Cases
 MV 11/04/24 Adding a fallback queue for Cases of type Problem
 MR Remove Queuename savings</description>
@@ -355,6 +406,11 @@ MR Remove Queuename savings</description>
         <name>form_AgyleTag</name>
         <dataType>String</dataType>
         <expression>&quot;[Category]:&quot; + TEXT({!$Record.CategoryLevel1__c})</expression>
+    </formulas>
+    <formulas>
+        <name>form_Domain</name>
+        <dataType>String</dataType>
+        <expression>RIGHT({!$Record.SuppliedEmail}, LEN({!$Record.SuppliedEmail}) - FIND(&quot;@&quot;, {!$Record.SuppliedEmail}))</expression>
     </formulas>
     <formulas>
         <name>IfGroup</name>
@@ -387,11 +443,66 @@ MR Remove Queuename savings</description>
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Block_Customer</name>
+        <label>Get Block Customer</label>
+        <locationX>259</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Block_Customer_Found</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3 OR 4)</filterLogic>
+        <filters>
+            <field>Channel__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Email__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SuppliedEmail</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Domain__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>form_Domain</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Subject</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomerBlockList__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Records_1</name>
+        <label>Update Records 1</label>
+        <locationX>127</locationX>
+        <locationY>611</locationY>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <stringValue>00GJW000007Zuhd</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
         <locationX>287</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>What_OpCo</targetReference>
+            <targetReference>Block_Customer</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Copy_1_of_Save_Validation_Results</name>
         <label>Save Validation Results</label>
-        <locationX>6661</locationX>
-        <locationY>2414</locationY>
+        <locationX>6985</locationX>
+        <locationY>2906</locationY>
         <actionName>recordval__Rv2SaveValidationResultsFlowAction</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -57,8 +57,8 @@
     <actionCalls>
         <name>Update_Address2</name>
         <label>Update Address</label>
-        <locationX>7486</locationX>
-        <locationY>1946</locationY>
+        <locationX>7904</locationX>
+        <locationY>2438</locationY>
         <actionName>OrderAddressInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -126,8 +126,8 @@
     <actionCalls>
         <name>Update_Address_on_Order_Items</name>
         <label>Update Address on Order Items</label>
-        <locationX>6166</locationX>
-        <locationY>1838</locationY>
+        <locationX>6408</locationX>
+        <locationY>2330</locationY>
         <actionName>OrderAddressInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -213,7 +213,7 @@
     <assignments>
         <name>Add_Validation_Result_to_List_Ord_ship</name>
         <label>Add Validation Result to List</label>
-        <locationX>6496</locationX>
+        <locationX>6793</locationX>
         <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>flowValidationResults_output</assignToReference>
@@ -236,7 +236,7 @@
     <assignments>
         <name>Add_Validation_Result_to_List_Order</name>
         <label>Add Validation Result to List</label>
-        <locationX>5440</locationX>
+        <locationX>5561</locationX>
         <locationY>782</locationY>
         <assignmentItems>
             <assignToReference>flowValidationResults_output</assignToReference>
@@ -317,7 +317,7 @@
     <assignments>
         <name>Assign_Billing_Info_Order</name>
         <label>Assign Billing Info</label>
-        <locationX>5440</locationX>
+        <locationX>5561</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>streetName_val</assignToReference>
@@ -433,7 +433,7 @@
     <assignments>
         <name>Assign_Shipping_Info_Order</name>
         <label>Assign Shipping Info</label>
-        <locationX>7090</locationX>
+        <locationX>7475</locationX>
         <locationY>566</locationY>
         <assignmentItems>
             <assignToReference>streetName_val</assignToReference>
@@ -534,8 +534,8 @@
     <assignments>
         <name>Copy_1_of_Reset_Values</name>
         <label>Reset Values</label>
-        <locationX>6661</locationX>
-        <locationY>2822</locationY>
+        <locationX>6985</locationX>
+        <locationY>3314</locationY>
         <assignmentItems>
             <assignToReference>city_val</assignToReference>
             <operator>Assign</operator>
@@ -591,8 +591,8 @@
     <assignments>
         <name>Copy_1_of_Set_Address_ID</name>
         <label>Set Address ID</label>
-        <locationX>7354</locationX>
-        <locationY>1754</locationY>
+        <locationX>7970</locationX>
+        <locationY>1862</locationY>
         <assignmentItems>
             <assignToReference>createdAddressID</assignToReference>
             <operator>Assign</operator>
@@ -601,7 +601,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Address2</targetReference>
+            <targetReference>Copy_3_of_Does_the_address_already_exist</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -631,7 +631,7 @@
     <assignments>
         <name>Copy_2_of_Add_Validation_Result_to_List</name>
         <label>Add Validation Result to List</label>
-        <locationX>7684</locationX>
+        <locationX>8157</locationX>
         <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>flowValidationResults_output</assignToReference>
@@ -654,14 +654,14 @@
     <assignments>
         <name>Copy_2_of_Reset_error_message</name>
         <label>Reset error message</label>
-        <locationX>5110</locationX>
+        <locationX>5176</locationX>
         <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
         </assignmentItems>
         <connector>
-            <targetReference>See_if_Address_Exists_Ord_bill</targetReference>
+            <targetReference>See_if_Address_Exists_Street_House_Number_Order1</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -683,7 +683,7 @@
     <assignments>
         <name>Copy_2_of_Set_error_message</name>
         <label>Set error message</label>
-        <locationX>5770</locationX>
+        <locationX>5946</locationX>
         <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
@@ -730,14 +730,14 @@
     <assignments>
         <name>Copy_3_of_Reset_error_message</name>
         <label>Reset error message</label>
-        <locationX>7486</locationX>
+        <locationX>7904</locationX>
         <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
         </assignmentItems>
         <connector>
-            <targetReference>See_if_Address_Exists_ord_ship_mult</targetReference>
+            <targetReference>See_if_Address_Exists_Street_House_Number_Order3</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -759,7 +759,7 @@
     <assignments>
         <name>Copy_3_of_Set_error_message</name>
         <label>Set error message</label>
-        <locationX>7882</locationX>
+        <locationX>8410</locationX>
         <locationY>1322</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
@@ -939,14 +939,14 @@
     <assignments>
         <name>Reset_error_message_ord_ship</name>
         <label>Reset error message</label>
-        <locationX>6166</locationX>
+        <locationX>6408</locationX>
         <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
         </assignmentItems>
         <connector>
-            <targetReference>See_if_Address_Exists_ord_ship</targetReference>
+            <targetReference>See_if_Address_Exists_Street_House_Number_Order2</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1042,8 +1042,8 @@
     <assignments>
         <name>Set_Address_ID_Ord_bill</name>
         <label>Set Address ID</label>
-        <locationX>4978</locationX>
-        <locationY>1430</locationY>
+        <locationX>5242</locationX>
+        <locationY>1538</locationY>
         <assignmentItems>
             <assignToReference>createdAddressID</assignToReference>
             <operator>Assign</operator>
@@ -1052,14 +1052,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Order</targetReference>
+            <targetReference>Does_the_address_already_exist_ord_bill</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Set_Address_ID_ord_ship</name>
         <label>Set Address ID</label>
-        <locationX>6034</locationX>
-        <locationY>1538</locationY>
+        <locationX>6474</locationX>
+        <locationY>1646</locationY>
         <assignmentItems>
             <assignToReference>createdAddressID</assignToReference>
             <operator>Assign</operator>
@@ -1068,7 +1068,55 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_Order_ship</targetReference>
+            <targetReference>Copy_1_of_Does_the_address_already_exist</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Address_ID_Order1</name>
+        <label>Set Address ID</label>
+        <locationX>4978</locationX>
+        <locationY>1322</locationY>
+        <assignmentItems>
+            <assignToReference>createdAddressID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_if_Address_Exists_Street_House_Number_Order1.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Does_the_address_already_exist_ord_bill</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Address_ID_Order2</name>
+        <label>Set Address ID</label>
+        <locationX>6210</locationX>
+        <locationY>1430</locationY>
+        <assignmentItems>
+            <assignToReference>createdAddressID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_if_Address_Exists_Street_House_Number_Order2.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_1_of_Does_the_address_already_exist</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Address_ID_Order3</name>
+        <label>Set Address ID</label>
+        <locationX>7706</locationX>
+        <locationY>1646</locationY>
+        <assignmentItems>
+            <assignToReference>createdAddressID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>See_if_Address_Exists_Street_House_Number_Order3.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Copy_3_of_Does_the_address_already_exist</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1098,7 +1146,7 @@
     <assignments>
         <name>Set_error_message_ord_ship</name>
         <label>Set error message</label>
-        <locationX>6826</locationX>
+        <locationX>7178</locationX>
         <locationY>1106</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
@@ -1348,7 +1396,7 @@
     <decisions>
         <name>Address_type_check_order</name>
         <label>Address type check_order</label>
-        <locationX>6793</locationX>
+        <locationX>7117</locationX>
         <locationY>458</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1385,8 +1433,8 @@
     <decisions>
         <name>Copy_1_of_Add_another_address</name>
         <label>Add another address?</label>
-        <locationX>6793</locationX>
-        <locationY>2714</locationY>
+        <locationX>7117</locationX>
+        <locationY>3206</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Copy_3_of_Yes</name>
@@ -1471,8 +1519,8 @@
     <decisions>
         <name>Copy_1_of_Does_the_address_already_exist</name>
         <label>Does the address already exist?</label>
-        <locationX>6166</locationX>
-        <locationY>1322</locationY>
+        <locationX>6408</locationX>
+        <locationY>1922</locationY>
         <defaultConnector>
             <targetReference>Create_Bill_To_Ship_To_Address_ord_ship</targetReference>
         </defaultConnector>
@@ -1481,7 +1529,7 @@
             <name>Yes_ord_ship</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>See_if_Address_Exists_ord_ship</leftValueReference>
+                <leftValueReference>createdAddressID</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -1705,7 +1753,7 @@
     <decisions>
         <name>Copy_2_of_Is_the_address_valid</name>
         <label>Is the address valid?</label>
-        <locationX>7684</locationX>
+        <locationX>8157</locationX>
         <locationY>1214</locationY>
         <defaultConnector>
             <targetReference>Copy_3_of_Set_error_message</targetReference>
@@ -1800,8 +1848,8 @@
     <decisions>
         <name>Copy_3_of_Does_the_address_already_exist</name>
         <label>Does the address already exist?</label>
-        <locationX>7486</locationX>
-        <locationY>1538</locationY>
+        <locationX>7904</locationX>
+        <locationY>2138</locationY>
         <defaultConnector>
             <targetReference>Copy_2_of_Create_Bill_To_Ship_To_Address</targetReference>
         </defaultConnector>
@@ -1810,7 +1858,7 @@
             <name>Copy_1_of_Yes</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>See_if_Address_Exists_ord_ship_mult</leftValueReference>
+                <leftValueReference>createdAddressID</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -2020,8 +2068,8 @@
     <decisions>
         <name>Does_the_address_already_exist_ord_bill</name>
         <label>Does the address already exist?</label>
-        <locationX>5110</locationX>
-        <locationY>1214</locationY>
+        <locationX>5176</locationX>
+        <locationY>1814</locationY>
         <defaultConnector>
             <targetReference>Create_Bill_To_Ship_To_Address_Ord_bill</targetReference>
         </defaultConnector>
@@ -2030,7 +2078,7 @@
             <name>Yes_ord_bill</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>See_if_Address_Exists_Ord_bill</leftValueReference>
+                <leftValueReference>createdAddressID</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -2040,6 +2088,81 @@
                 <targetReference>Update_Address_Ord_bill</targetReference>
             </connector>
             <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Address_with_House_Number</name>
+        <label>Found Address with House Number</label>
+        <locationX>5374</locationX>
+        <locationY>1430</locationY>
+        <defaultConnector>
+            <targetReference>Does_the_address_already_exist_ord_bill</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_HouseNumber_Order1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_Ord_bill</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Address_ID_Ord_bill</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Address_with_House_Number_Order2</name>
+        <label>Found Address with House Number</label>
+        <locationX>6606</locationX>
+        <locationY>1538</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Does_the_address_already_exist</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_HouseNumber_Order2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_ord_ship</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Address_ID_ord_ship</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Address_with_House_Number_Order3</name>
+        <label>Found Address with House Number</label>
+        <locationX>8102</locationX>
+        <locationY>1754</locationY>
+        <defaultConnector>
+            <targetReference>Copy_3_of_Does_the_address_already_exist</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_HouseNumber_Order3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_ord_ship_mult</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_1_of_Set_Address_ID</targetReference>
+            </connector>
+            <label>Found</label>
         </rules>
     </decisions>
     <decisions>
@@ -2068,9 +2191,84 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Found_Address_with_Street_House_Number_Order1</name>
+        <label>Found Address with Street &amp; House Number</label>
+        <locationX>5176</locationX>
+        <locationY>1214</locationY>
+        <defaultConnector>
+            <targetReference>See_if_Address_Exists_Ord_bill</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_Order1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_Street_House_Number_Order1</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Address_ID_Order1</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Address_with_Street_House_Number_Order2</name>
+        <label>Found Address with Street &amp; House Number</label>
+        <locationX>6408</locationX>
+        <locationY>1322</locationY>
+        <defaultConnector>
+            <targetReference>See_if_Address_Exists_ord_ship</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_Order2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_Street_House_Number_Order2</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Address_ID_Order2</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_Address_with_Street_House_Number_Order3</name>
+        <label>Found Address with Street &amp; House Number</label>
+        <locationX>7904</locationX>
+        <locationY>1538</locationY>
+        <defaultConnector>
+            <targetReference>See_if_Address_Exists_ord_ship_mult</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found_Order3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>See_if_Address_Exists_Street_House_Number_Order3</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Address_ID_Order3</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>How_many_ship_tos_are_there</name>
         <label>How many ship-tos are there?</label>
-        <locationX>7090</locationX>
+        <locationX>7475</locationX>
         <locationY>674</locationY>
         <defaultConnector>
             <targetReference>scr_ChooseShipTo</targetReference>
@@ -2205,7 +2403,7 @@
     <decisions>
         <name>Is_the_address_valid_ord_ship</name>
         <label>Is the address valid?</label>
-        <locationX>6496</locationX>
+        <locationX>6793</locationX>
         <locationY>998</locationY>
         <defaultConnector>
             <targetReference>Set_error_message_ord_ship</targetReference>
@@ -2300,7 +2498,7 @@
     <decisions>
         <name>Is_the_address_valid_order</name>
         <label>Is the address valid?</label>
-        <locationX>5440</locationX>
+        <locationX>5561</locationX>
         <locationY>890</locationY>
         <defaultConnector>
             <targetReference>Copy_2_of_Set_error_message</targetReference>
@@ -2420,8 +2618,8 @@
     <decisions>
         <name>Should_save_validation_results</name>
         <label>Should save validation results?</label>
-        <locationX>6793</locationX>
-        <locationY>2306</locationY>
+        <locationX>7117</locationX>
+        <locationY>2798</locationY>
         <defaultConnector>
             <targetReference>Updated_Created_Address2</targetReference>
         </defaultConnector>
@@ -2445,7 +2643,7 @@
     <decisions>
         <name>Which_object</name>
         <label>Which object?</label>
-        <locationX>5749</locationX>
+        <locationX>6013</locationX>
         <locationY>134</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -2496,7 +2694,7 @@
 06/12/2023 CH: Liber custom address addition
 24/01/2024 CH: added validation override
 23/07/2024 DB: add fault paths to Account &amp; Order update elements
-26/08/2024 DB: match address on street name and house number</description>
+26/08/2024 DB: match address on street name and house number (only GREEN validated addresses considered)</description>
     <dynamicChoiceSets>
         <name>OrderShipTos</name>
         <dataType>String</dataType>
@@ -2644,8 +2842,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordCreates>
         <name>Copy_2_of_Create_Bill_To_Ship_To_Address</name>
         <label>Create Bill-To/Ship-To Address</label>
-        <locationX>7618</locationX>
-        <locationY>1646</locationY>
+        <locationX>8036</locationX>
+        <locationY>2246</locationY>
         <assignRecordIdToReference>createdAddressID</assignRecordIdToReference>
         <connector>
             <targetReference>Update_Address2</targetReference>
@@ -2875,8 +3073,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordCreates>
         <name>Create_Bill_To_Ship_To_Address_Ord_bill</name>
         <label>Create Bill-To/Ship-To Address</label>
-        <locationX>5242</locationX>
-        <locationY>1322</locationY>
+        <locationX>5308</locationX>
+        <locationY>1922</locationY>
         <assignRecordIdToReference>createdAddressID</assignRecordIdToReference>
         <connector>
             <targetReference>Update_Order</targetReference>
@@ -2952,8 +3150,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordCreates>
         <name>Create_Bill_To_Ship_To_Address_ord_ship</name>
         <label>Create Bill-To/Ship-To Address</label>
-        <locationX>6298</locationX>
-        <locationY>1430</locationY>
+        <locationX>6540</locationX>
+        <locationY>2030</locationY>
         <assignRecordIdToReference>createdAddressID</assignRecordIdToReference>
         <connector>
             <targetReference>Update_Order_ship</targetReference>
@@ -3071,6 +3269,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>Get_Account_For_Details.OperatingCompany__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3120,6 +3325,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>Get_Account_For_Details.OperatingCompany__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3148,7 +3360,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordLookups>
         <name>Get_Order_For_Info</name>
         <label>Get Order For Info</label>
-        <locationX>6793</locationX>
+        <locationX>7117</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -3169,7 +3381,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordLookups>
         <name>Get_Ship_To_Account</name>
         <label>Get Ship To Account</label>
-        <locationX>7684</locationX>
+        <locationX>8157</locationX>
         <locationY>890</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -3254,6 +3466,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>Get_Account_For_Details.OperatingCompany__c</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3261,11 +3480,11 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordLookups>
         <name>See_if_Address_Exists_Ord_bill</name>
         <label>See if Address Exists</label>
-        <locationX>5110</locationX>
-        <locationY>1106</locationY>
+        <locationX>5374</locationX>
+        <locationY>1322</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Does_the_address_already_exist_ord_bill</targetReference>
+            <targetReference>Found_Address_with_House_Number</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -3301,6 +3520,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3309,12 +3535,12 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     </recordLookups>
     <recordLookups>
         <name>See_if_Address_Exists_ord_ship</name>
-        <label>See if Address Exists</label>
-        <locationX>6166</locationX>
-        <locationY>1214</locationY>
+        <label>See if Address Exists Ship1</label>
+        <locationX>6606</locationX>
+        <locationY>1430</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_1_of_Does_the_address_already_exist</targetReference>
+            <targetReference>Found_Address_with_House_Number_Order2</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -3350,6 +3576,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3359,11 +3592,11 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordLookups>
         <name>See_if_Address_Exists_ord_ship_mult</name>
         <label>See if Address Exists</label>
-        <locationX>7486</locationX>
-        <locationY>1430</locationY>
+        <locationX>8102</locationX>
+        <locationY>1646</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_3_of_Does_the_address_already_exist</targetReference>
+            <targetReference>Found_Address_with_House_Number_Order3</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -3399,6 +3632,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3457,6 +3697,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>streetName_val</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3513,6 +3760,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>streetName_val</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3567,6 +3821,202 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>streetName_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>See_if_Address_Exists_Street_House_Number_Order1</name>
+        <label>See if Address Exists Street &amp; House Number</label>
+        <locationX>5176</locationX>
+        <locationY>1106</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Address_with_Street_House_Number_Order1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>country_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>postalCode_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumber_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumberAddition_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>streetName_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>See_if_Address_Exists_Street_House_Number_Order2</name>
+        <label>See if Address Exists Street &amp; House Number</label>
+        <locationX>6408</locationX>
+        <locationY>1214</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Address_with_Street_House_Number_Order2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>country_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>postalCode_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumber_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumberAddition_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>streetName_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ILAddress__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>See_if_Address_Exists_Street_House_Number_Order3</name>
+        <label>See if Address Exists Street &amp; House Number</label>
+        <locationX>7904</locationX>
+        <locationY>1430</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_Address_with_Street_House_Number_Order3</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Country__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>country_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PostalCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>postalCode_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumber_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>HouseNumberAddition__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>houseNumberAddition_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>OperatingCompany__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Order_For_Info.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Street__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>streetName_val</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>rv2Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3706,17 +4156,17 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Copy_1_of_Update_Address</name>
         <label>Update Address</label>
-        <locationX>7354</locationX>
-        <locationY>1646</locationY>
+        <locationX>7772</locationX>
+        <locationY>2246</locationY>
         <connector>
-            <targetReference>Copy_1_of_Set_Address_ID</targetReference>
+            <targetReference>Update_Address2</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>See_if_Address_Exists_ord_ship_mult.Id</elementReference>
+                <elementReference>createdAddressID</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -4121,17 +4571,17 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Update_Address_Ord_bill</name>
         <label>Update Address</label>
-        <locationX>4978</locationX>
-        <locationY>1322</locationY>
+        <locationX>5044</locationX>
+        <locationY>1922</locationY>
         <connector>
-            <targetReference>Set_Address_ID_Ord_bill</targetReference>
+            <targetReference>Update_Order</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>See_if_Address_Exists_Ord_bill.Id</elementReference>
+                <elementReference>createdAddressID</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -4145,17 +4595,17 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Update_Address_ord_ship</name>
         <label>Update Address</label>
-        <locationX>6034</locationX>
-        <locationY>1430</locationY>
+        <locationX>6276</locationX>
+        <locationY>2030</locationY>
         <connector>
-            <targetReference>Set_Address_ID_ord_ship</targetReference>
+            <targetReference>Update_Order_ship</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>See_if_Address_Exists_ord_ship.Id</elementReference>
+                <elementReference>createdAddressID</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -4169,8 +4619,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Update_Order</name>
         <label>Update Order</label>
-        <locationX>5110</locationX>
-        <locationY>1622</locationY>
+        <locationX>5176</locationX>
+        <locationY>2114</locationY>
         <connector>
             <targetReference>Should_save_validation_results</targetReference>
         </connector>
@@ -4245,8 +4695,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Update_Order_ship</name>
         <label>Update Order</label>
-        <locationX>6166</locationX>
-        <locationY>1730</locationY>
+        <locationX>6408</locationX>
+        <locationY>2222</locationY>
         <connector>
             <targetReference>Update_Address_on_Order_Items</targetReference>
         </connector>
@@ -4351,8 +4801,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <recordUpdates>
         <name>Updated_Created_Address2</name>
         <label>Updated Created Address</label>
-        <locationX>6925</locationX>
-        <locationY>2414</locationY>
+        <locationX>7249</locationX>
+        <locationY>2906</locationY>
         <connector>
             <targetReference>Copy_1_of_addAnotherAddressScr</targetReference>
         </connector>
@@ -4364,9 +4814,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>createdAddressID</elementReference>
             </value>
         </filters>
-        <inputAssignments>
-            <field>Country__c</field>
-        </inputAssignments>
         <inputAssignments>
             <field>ValidationOverridden__c</field>
             <value>
@@ -4572,8 +5019,8 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>Copy_1_of_addAnotherAddressScr</name>
         <label>addAnotherAddressScr</label>
-        <locationX>6793</locationX>
-        <locationY>2606</locationY>
+        <locationX>7117</locationX>
+        <locationY>3098</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -4759,7 +5206,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>Copy_1_of_orderDetailsScreen</name>
         <label>orderDetailsScreen</label>
-        <locationX>6496</locationX>
+        <locationX>6793</locationX>
         <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5043,7 +5490,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>Copy_2_of_orderDetailsScreen</name>
         <label>orderDetailsScreen</label>
-        <locationX>7684</locationX>
+        <locationX>8157</locationX>
         <locationY>998</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5201,7 +5648,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>noShipTos</name>
         <label>noShipTos</label>
-        <locationX>7090</locationX>
+        <locationX>7442</locationX>
         <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5217,7 +5664,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>orderDetailsScreen</name>
         <label>orderDetailsScreen</label>
-        <locationX>5440</locationX>
+        <locationX>5561</locationX>
         <locationY>674</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5359,7 +5806,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>scr_ChooseShipTo</name>
         <label>scr_ChooseShipTo</label>
-        <locationX>7684</locationX>
+        <locationX>8157</locationX>
         <locationY>782</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -5445,7 +5892,7 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
     <screens>
         <name>selectAddressTypeScreen_order</name>
         <label>selectAddressTypeScreen</label>
-        <locationX>6793</locationX>
+        <locationX>7117</locationX>
         <locationY>350</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
@@ -5529,13 +5976,13 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>5623</locationX>
+        <locationX>5887</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Which_object</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>bValidationOverriden</name>
         <dataType>Boolean</dataType>

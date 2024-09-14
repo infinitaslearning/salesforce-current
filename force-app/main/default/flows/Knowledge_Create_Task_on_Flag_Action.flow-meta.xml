@@ -308,7 +308,7 @@ Assigned to changes to Queue</description>
             <targetReference>Please_fill_in_Flag_Reason</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>recordId</name>
         <dataType>String</dataType>

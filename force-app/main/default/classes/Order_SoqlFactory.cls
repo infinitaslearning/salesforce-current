@@ -383,15 +383,19 @@ public with sharing class Order_SoqlFactory {
         String Querystr;
         Date CurDate = system.today();
         
-       
+        
     Querystr =  'Select id,'
     +' IsActive,'
     +' Subsidiary__c,'
     +' FollowUpPriceBook__c,'
     +' IndexationPercentage__c,'
     +' FollowUpPriceBook__r.IndexationPercentage__c,'
+    +' FollowUpPriceBook__r.ShiptoCount__c,'
+    +' FollowUpPriceBook__r.StartDate__c,'
+    +' FollowUpPriceBook__r.EndDate__c,'
     +' ShippingComplete__c,'
     +' StartDate__c, '
+    +' ShiptoCount__c,'
     +' EndDate__c, '
     +' isStandard,'
     +' PricebookType__c,'
@@ -774,8 +778,8 @@ public with sharing class Order_SoqlFactory {
         +' Product2.ProductRateGroup__c,'
         
         +' Product2.Name,'
-        +' PriceBook__r.FollowUpPriceBook__c '
-        
+        +' PriceBook__r.FollowUpPriceBook__c, '
+        +' PriceBook__r.ShiptoCount__c '        
         +' from asset' 
         +' where ';
 

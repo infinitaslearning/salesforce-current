@@ -39,6 +39,7 @@ public with sharing class Order_AssetRenewal {
         Map<String,String> Map_SwapSuccPBEId = new Map<String,String>();
         
         Map<String,String> Map_PriceBook = new Map<String,String>();
+        Map<String,Decimal> Map_PBShiptoCount = new Map<String,Decimal>();
         Map<String,String> Map_BillTOPB = new Map<String,String>();
         Map<String,String> Map_PBBIllTo = new Map<String,String>();
         
@@ -117,22 +118,29 @@ public with sharing class Order_AssetRenewal {
             } 
         }    
       
-        Pricebook2[] lstPriceBook =   [Select id,IsActive,StartDate__c,EndDate__c,FollowUpPriceBook__r.StartDate__c,FollowUpPriceBook__r.EndDate__c, FollowUpPriceBook__c,IndexationPercentage__c,FollowUpPriceBook__r.IndexationPercentage__c,ShippingComplete__c from Pricebook2 where id in:Set_PriceBook];
+        //Pricebook2[] lstPriceBook =   [Select id,IsActive,StartDate__c,EndDate__c,FollowUpPriceBook__r.StartDate__c,FollowUpPriceBook__r.EndDate__c, FollowUpPriceBook__c,IndexationPercentage__c,FollowUpPriceBook__r.IndexationPercentage__c,ShippingComplete__c from Pricebook2 where id in:Set_PriceBook];
  
+        Pricebook2[] lstPriceBook = order_soqlfactory.returnPricebook(Set_PriceBook, null);
+        system.debug('**Order_SoqlFactory.Order_AssetRenewal.returnPricebook**'+lstPriceBook.size());
+
         Set_PriceBook = new Set<String>();
         for(Pricebook2 pbe:lstPriceBook){
                                 
             if(pbe.FollowUpPriceBook__c != null && Map_OrderDate.get(pbe.id)>= pbe.FollowUpPriceBook__r.StartDate__c && Map_OrderDate.get(pbe.id) <= pbe.FollowUpPriceBook__r.EndDate__c ){                
                 Map_PriceBook.put(pbe.id,pbe.FollowUpPriceBook__c);
+                Map_PBShiptoCount.put(pbe.id,pbe.FollowUpPriceBook__r.ShiptoCount__c);
+
                 Map_PBIndexation.put(pbe.FollowUpPriceBook__c,pbe.FollowUpPriceBook__r.IndexationPercentage__c);
                 Set_PriceBook.add(pbe.FollowUpPriceBook__c);
                 Map_ShipComplete.put(pbe.FollowUpPriceBook__c,pbe.ShippingComplete__c);
+                
             }
             else{
                 Map_PriceBook.put(pbe.id,pbe.id);
                 Map_PBIndexation.put(pbe.id,pbe.IndexationPercentage__c);
                 Set_PriceBook.add(pbe.id);
                 Map_ShipComplete.put(pbe.id,pbe.ShippingComplete__c);
+                Map_PBShiptoCount.put(pbe.Id,pbe.ShiptoCount__c);
             }
   
         }
@@ -168,26 +176,6 @@ public with sharing class Order_AssetRenewal {
             if(Set_SuccProductId.contains(Map_SwapSuccProductId.get(pbe.Product2Id))){                
                 system.debug('**Order_AssetRenewal: Set_SuccProductId**'+Set_SuccProductId.contains(Map_SwapSuccProductId.get(pbe.Product2Id))); 
             }
-            /*
-            else if(Map_SwapSuccProductId.get(pbe.Product2Id) != null){ 
-                //Possible delete of this since a successor must be in Pricebook. 
-                //If this is reached then it means there is successor not in the PB which will cause an error.
-               
-                PBId += Map_SwapSuccPBEId.get(pbe.Product2Id);
-                
-              //Can't use the success product with old PBE
-                Map_PBE.put(PBId,pbe.id);
-
-                if(pbe.Price__r.ListRate__c != null){               
-                    Map_PBEUnitPrice.put(PBId,pbe.Price__r.ListRate__c); 
-                }
-                else{
-                    Map_PBEUnitPrice.put(PBId,pbe.unitprice);  
-                }
-
-                Set_ProductActive.add(pbe.Product2Id);
-            }*/
-
             else{ // No successor or Active Successor Item
                 PBId += pbe.Product2Id;
                 Map_PBE.put(PBId,pbe.id);
@@ -213,19 +201,11 @@ public with sharing class Order_AssetRenewal {
 
         Integer i=0;
 
-    //DEL    Set<String> Set_OrderLineType = new Set<String>();
-    //DEL    Set<String> Set_ProductDiscountGroup = new Set<String>();
-   //DEL     Set<String> Set_CustomerDiscountGroup = new Set<String>();
-   //DEL Set<String> Set_Prod  = new Set<String>();
-  //DEL Set<String> Set_Product = new set<String>();
-  // DEL Map<String,List<String>> Map_PriceProductType = new Map<String,List<String>>();
-//SUM QUANITY CALCULATION FOR LPD REMOVE
-//   Map<String,Decimal> Map_StudentNoShipTotal = new Map<String,Decimal>();
-        //User Number/quantity record must exist with asset relation
         
         Integer MultipleShipTo = 1;
         Decimal FixedShippinCount; 
 
+        /*
         AssetRenewalShiptoCount__mdt[] AssetRenewalShiptoCount = [Select ShiptoCount__c from AssetRenewalShiptoCount__mdt limit 1 ];
 
         if(AssetRenewalShiptoCount.size()>0){
@@ -234,13 +214,20 @@ public with sharing class Order_AssetRenewal {
         else{
             FixedShippinCount = 50;
         }
+        */
+
+        //Map Per pricebook of the counts
 
         string AccPB ='init';
         String multi;
         for(asset ass:lstAssets){
            
+            FixedShippinCount = Map_PBShiptoCount.get(ass.PriceBook__c); 
             
-
+            if(FixedShippinCount == null){
+                FixedShippinCount = 1;
+            }
+            
             //To check if the current ship to needs to start new order based on Ship to Count. Ignore on the first loop
             if(AccPB !='init'){
                 multi = AccPB + ass.AccountId;            
@@ -253,6 +240,8 @@ public with sharing class Order_AssetRenewal {
             AccPB += Map_PriceBook.get(ass.PriceBook__c);
             AccPB += ass.PricingMethod__c;
             AccPB += MultipleShipTo;
+            system.debug('**Order_AssetRenewal: MultipleShipTo1**'+FixedShippinCount);
+            system.debug('**Order_AssetRenewal: MultipleShipTo2**'+AccPB);
 
             if(ass.Contract__c != null){
                 AccPB += ass.Contract__c;
@@ -293,14 +282,7 @@ public with sharing class Order_AssetRenewal {
             if(ass.BillToAccount__c != null && Map_PriceBook.get(ass.PriceBook__c) != null && ass.PricingMethod__c != null && Set_ProductActive.contains(ProductId) /*ass.Product2Id*/ ){
                 system.debug('**Order_AssetRenewal: IN IF**');
 
-                
-    
-                
-                
-              //DEL  Set_OrderLineType.add(ass.Product2.OrderLineType__c);
-             //DEL   Set_ProductDiscountGroup.add(ass.Product2.ProductDiscountGroup__c);
-             //DEL   Set_CustomerDiscountGroup.add(ass.BillToAccount__r.CustomerDiscountGroup__c);
-             //DEL  Set_Prod.add(ass.Product2Id); 
+             
              Set_OperatingCompany.add(ass.BillToAccount__r.OperatingCompany__c);
 
                 Set_BillTo.add(ass.BillToAccount__c);
@@ -378,12 +360,7 @@ public with sharing class Order_AssetRenewal {
                 }
                  
                 
-               
-               // if(Map_MultiShipTo.get(AccPB) >= FixedShippinCount  ){
-               //     MultipleShipTo += 1;
-              //  }
-
-                Map_PricingMethod.put(ass.BillToAccount__c,ass.PricingMethod__c);  //ass.BillToAccount__r.PricingMethod__c
+                Map_PricingMethod.put(ass.BillToAccount__c,ass.PricingMethod__c);  
               
                 Map_ShippingCostMethod.put(ass.BillToAccount__c,ass.BillToAccount__r.ShippingCostMethod__c); 
                 Map_PaymentMethod.put(ass.BillToAccount__c,ass.BillToAccount__r.PaymentMethod__c);
@@ -407,8 +384,7 @@ public with sharing class Order_AssetRenewal {
 
                String ShiptoId = AccPB + ass.AccountId;
                Map_PBShipTo.put(ShiptoId,  ass.AccountId);
-              // AccPB +=ass.AccountId;
-              //  Map_PBShipTo.put(AccPB,  ass.AccountId);
+            
             }
             else{
                 //ERROR HANDLING FOR NO PRICEBOOK
@@ -632,13 +608,6 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
                                     item.ShipToAttentionOf__c = ass.ShipToAttentionOf__c;
 
                                         
-                                    /* 
-                                    if(Map_PriceProductType.get(ass.Product2Id) == null){
-                                        List<String> PriceProductType = new List<String>();
-                                        PriceProductType.AddAll(ass.Product2.OrderLineType__c.Split(';'));
-                                        Map_PriceProductType.put(ass.Product2Id,PriceProductType);
-                                    }
-                                    */
                                     
                                     if(Map_PBEUnitPrice.get(PBId) != null && (ass.Contract__c ==null || ((ass.Contract__c !=null) && ass.Contract__r.Indexation__c == true ))){
                                         item.unitprice = Map_PBEUnitPrice.get(PBId);
@@ -648,6 +617,7 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
                                             ass.IndexationPercentage__c =   Map_PBIndexation.get(Map_BillTOPB.get(BT));
                                             item.ComponentListPrice__c = (ass.ListPrice__c + (ass.ListPrice__c * (ass.IndexationPercentage__c/100))).setScale(2);
                                             item.unitprice = item.ComponentListPrice__c;
+                                            ass.ListPrice__c = item.ComponentListPrice__c;
                                         }   
                                          
                                     }
@@ -772,11 +742,7 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
 
 
             if(lst_Order.size()>0){
-                //SUM QUANITY CALCULATION FOR LPD REMOVE
-                // System.enqueueJob(new Order_AssetRenewalLineItemQueueable(lst_Order,Map_OrderItems,lstAssets,Map_BillToPRod,Map_PriceProductType,1));
-
-                //System.enqueueJob(new Order_AssetRenewalLineItemQueueable(lst_Order,Map_OrderItems,lstAssets,Map_PriceProductType,1));
-            
+                
                 System.enqueueJob(new Order_AssetRenewalLineItemQueueable(lst_Order,Map_OrderItems,lstAssets,1));
             
             }
@@ -808,42 +774,7 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
 
         
 }
-/*
-public static Map<String,Decimal> returnUsageBasedAssets(asset[] lstAssets){
 
-   
-        Map<String,Decimal> Map_BillToPRod = new Map<String,Decimal>();                            
-        for(asset ass:lstAssets){
-
-            if(ass.Quantity!= null){
-                String BilltoProd;
-                BilltoProd = ass.BillToAccount__c;
-                
-                if(Map_BillToPRod.get(BilltoProd)==null){
-                    Map_BillToPRod.put(BilltoProd,ass.Quantity);
-                }
-                else{                
-                        Map_BillToPRod.put(BilltoProd,Map_BillToPRod.get(BilltoProd)+ass.Quantity);      
-                }
-
-                BilltoProd += ass.Product2.ProductRateGroup__c; //  ProductDiscountGroup__c
-
-                if(Map_BillToPRod.get(BilltoProd)==null){
-                    Map_BillToPRod.put(BilltoProd,ass.Quantity);
-                }
-                else{
-                    Map_BillToPRod.put(BilltoProd,Map_BillToPRod.get(BilltoProd)+ass.Quantity);      
-                }
-            }
-           
-
-            
-           
-        }
-        system.debug('**BilltoProd Call**'+Map_BillToPRod);
-        return Map_BillToPRod;
-}
-*/
 
 
 }

@@ -311,6 +311,26 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
             a.LastAgodiUpdate__c = todaysDate;
             a.AgodiUpdateInProgress__c = true;
             a.ExternalCustomerId__c = String.ValueOf(instelling.instelling_nummer);
+
+            //##### ILAddress assignemnt start - NEW
+            ILAddress__c ILAddress = matchILAddress(instelling.instelling_straatnaam, instelling.instelling_huisnummer, instelling.instelling_busnummer, instelling.instelling_postcode, instelling.instelling_gemeente, 'Belgium');
+            
+            a.ShippingStreet = ILAddress.Street__c + ' ' + ILAddress.HouseNumber__c;
+            a.ShippingStreetName__c = ILAddress.Street__c;
+            a.ShippingHouseNumber__c = ILAddress.HouseNumber__c;
+            a.ShippingPostalCode = ILAddress.PostalCode__c;
+            a.ShippingCity = ILAddress.City__c;
+            a.ShippingCountry = ILAddress.Country__c;
+            a.ShippingAddress__c = ILAddress.Id;
+            //Billing same as Shipping
+            a.BillingStreet = ILAddress.Street__c + ' ' + ILAddress.HouseNumber__c;
+            a.BillingStreetName__c = ILAddress.Street__c;
+            a.BillingHouseNumber__c = ILAddress.HouseNumber__c;
+            a.BillingPostalCode = ILAddress.PostalCode__c;
+            a.BillingCity = ILAddress.City__c;
+            a.BillingCountry = ILAddress.Country__c;
+            a.BillingAddress__c = ILAddress.Id;
+            //##### ILAddress assignemnt end
             
             // ONLY ON UPDATE
             if (currentPlantynAccount != null) {
@@ -442,7 +462,7 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
                     a.DigitalActivationEmail__c = emailAdres;
                 }
                 
-                a.ShippingStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
+                /*a.ShippingStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
                 a.ShippingPostalCode = instelling.instelling_postcode;
                 a.ShippingCity = instelling.instelling_gemeente;
                 a.ShippingCountry = 'Belgium';
@@ -450,7 +470,26 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
                 a.BillingStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
                 a.BillingPostalCode = instelling.instelling_postcode;
                 a.BillingCity = instelling.instelling_gemeente;
-                a.BillingCountry = 'Belgium';
+                a.BillingCountry = 'Belgium';*/
+
+                //##### ILAddress assignemnt - NEW
+                /*ILAddress__c ILAddress = matchILAddress(instelling.instelling_straatnaam, instelling.instelling_huisnummer, instelling.instelling_postcode, instelling.instelling_gemeente, 'Belgium');
+
+                a.ShippingStreet = ILAddress.Street__c + ' ' + ILAddress.HouseNumber__c;
+                a.ShippingStreetName__c = ILAddress.Street__c;
+                a.ShippingHouseNumber__c = ILAddress.HouseNumber__c;
+                a.ShippingPostalCode = ILAddress.PostalCode__c;
+                a.ShippingCity = ILAddress.City__c;
+                a.ShippingCountry = ILAddress.Country__c;
+                a.ShippingAddress__c = ILAddress.Id;
+                //Billing same as Shipping
+                a.Billingtreet = ILAddress.Street__c + ' ' + ILAddress.HouseNumber__c;
+                a.BillingStreetName__c = ILAddress.Street__c;
+                a.BillingHouseNumber__c = ILAddress.HouseNumber__c;
+                a.BillingPostalCode = ILAddress.PostalCode__c;
+                a.BillingCity = ILAddress.City__c;
+                a.BillingCountry = ILAddress.Country__c;
+                a.BillingAddress__c = ILAddress.Id;*/
 
                 a.CommunicationLanguage__c = 'nl_NL'; // UPDATED
                 if (instelling.instelling_kbo_vestigingseenheidsnummer != null) {
@@ -628,5 +667,39 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
     public class instelling_pedagogische_methode { public String code,omschrijving; }
     public class instelling_soort_bestuur { public String code,omschrijving; }
     // ########## END WRAPPER CLASS INSTELLINGEN ##########
+
+    //##### Search & Create ILAddress functionality #####
+    public ILAddress__c matchILAddress(String streetParam, String houseNumberParam, String houseAdditionParam, String postalCodeParam, String cityParam, String countryParam){
+        ILAddress__c address = new ILAddress__c();
+        List<ILAddress__c> addressList = [SELECT Id, Street__c, HouseNumber__c, HouseNumberAddition__c, PostalCode__c, City__c, Country__c 
+                                            FROM ILAddress__c 
+                                            WHERE Street__c =: streetParam AND HouseNumber__c =: houseNumberParam AND PostalCode__c =: postalCodeParam AND City__c =: cityParam AND Country__c =: countryParam AND OperatingCompany__c = 'Plantyn'];
+
+        if(addressList.size() > 0){
+            address = addressList[0];
+        } else {
+            //CREATE NEW IL ADDRESS RECORD
+            String addressLabel = streetParam + ' ' + houseNumberParam + ' ' + postalCodeParam + ' ' + countryParam;
+            if(addressLabel.length() > 80){
+                addressLabel = addressLabel.substring(0, 80);
+            }
+            address.Name = addressLabel;
+            address.Street__c = streetParam;
+            address.HouseNumber__c = houseNumberParam;
+            address.HouseNumberAddition__c = houseAdditionParam;
+            address.PostalCode__c = postalCodeParam;
+            address.City__c = cityParam;
+            address.Country__c = countryParam;
+            address.OperatingCompany__c = 'Plantyn';
+            address.Source__c = 'Agodi';
+            address.rv2Status__c = 'GREEN';
+            address.rv2ValidationDate__c = System.now();
+            address.ValidationOverridden__c = true;
+
+            insert address;
+        }
+        
+        return address;
+    }
 
 }

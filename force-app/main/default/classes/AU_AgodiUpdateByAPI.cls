@@ -311,6 +311,30 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
             a.LastAgodiUpdate__c = todaysDate;
             a.AgodiUpdateInProgress__c = true;
             a.ExternalCustomerId__c = String.ValueOf(instelling.instelling_nummer);
+
+            //##### ILAddress assignemnt start
+            String combinedStreet;
+            if(instelling.instelling_busnummer != null){
+                combinedStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer + ' ' + instelling.instelling_busnummer;
+            } else {
+                combinedStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
+            }
+            a.ShippingStreet = combinedStreet;
+            a.ShippingStreetName__c = instelling.instelling_straatnaam;
+            a.ShippingHouseNumber__c = instelling.instelling_huisnummer;
+            a.ShippingHouseNumberAddition__c = instelling.instelling_busnummer;
+            a.ShippingPostalCode = instelling.instelling_postcode;
+            a.ShippingCity = instelling.instelling_gemeente;
+            a.ShippingCountry = 'Belgium';
+
+            a.BillingStreet = combinedStreet;
+            a.BillingStreetName__c = instelling.instelling_straatnaam;
+            a.BillingHouseNumber__c = instelling.instelling_huisnummer;
+            a.BillingHouseNumberAddition__c = instelling.instelling_busnummer;
+            a.BillingPostalCode = instelling.instelling_postcode;
+            a.BillingCity = instelling.instelling_gemeente;
+            a.BillingCountry = 'Belgium';
+            //##### ILAddress assignemnt end
             
             // ONLY ON UPDATE
             if (currentPlantynAccount != null) {
@@ -441,16 +465,6 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
                     a.BillingReminderEmail__c = emailAdres;
                     a.DigitalActivationEmail__c = emailAdres;
                 }
-                
-                a.ShippingStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
-                a.ShippingPostalCode = instelling.instelling_postcode;
-                a.ShippingCity = instelling.instelling_gemeente;
-                a.ShippingCountry = 'Belgium';
-
-                a.BillingStreet = instelling.instelling_straatnaam + ' ' + instelling.instelling_huisnummer;
-                a.BillingPostalCode = instelling.instelling_postcode;
-                a.BillingCity = instelling.instelling_gemeente;
-                a.BillingCountry = 'Belgium';
 
                 a.CommunicationLanguage__c = 'nl_NL'; // UPDATED
                 if (instelling.instelling_kbo_vestigingseenheidsnummer != null) {

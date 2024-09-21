@@ -5,6 +5,7 @@
     <errorConditionFormula>IF(AND(
     NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
     NOT(ISBLANK(LastUpdateToAWS__c)),
+    NOT(ISBLANK(NetsuiteCustomerNumber__c)),
     NOT($User.ValidationRulesDoNotApply__c = true),
     OR(
     ISBLANK(InvoicingEmail__c),
@@ -23,6 +24,7 @@
     ISBLANK(DigitalActivationEmail__c)
     )
     )
-    )), true, false)</errorConditionFormula>
+    )
+), true, false)</errorConditionFormula>
     <errorMessage>This account has no email (Invoice, Billing reminder, Digital activation and/or Order notification)</errorMessage>
 </ValidationRule>

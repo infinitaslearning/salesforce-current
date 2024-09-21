@@ -3,10 +3,13 @@
     <fullName>Shipping_Address</fullName>
     <active>true</active>
     <errorConditionFormula>if(AND(
-    NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
-    NOT(ISBLANK(LastUpdateToAWS__c)), 
-    NOT($User.ValidationRulesDoNotApply__c = true),
-    OR(ShippingCountry =&apos;Sweden&apos;, ShippingCountry =&apos;Netherlands&apos;, ShippingCountry =&apos;Belgium&apos;, ShippingCountry =&apos;Luxembourg&apos;),
-OR(ShippingStreet = null,ShippingCity = null,ShippingCountry = null,ShippingPostalCode = null)),true,false)</errorConditionFormula>
+       NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+       NOT(ISBLANK(LastUpdateToAWS__c)), 
+       NOT(ISBLANK(NetsuiteCustomerNumber__c)),
+       NOT($User.ValidationRulesDoNotApply__c = true),
+       OR(ShippingCountry =&apos;Sweden&apos;, ShippingCountry =&apos;Netherlands&apos;, ShippingCountry =&apos;Belgium&apos;, ShippingCountry =&apos;Luxembourg&apos;),
+       OR(ShippingStreet = null,ShippingCity = null,ShippingCountry = null,ShippingPostalCode = null)
+       ),
+true,false)</errorConditionFormula>
     <errorMessage>The shipping address is missing information</errorMessage>
 </ValidationRule>

@@ -4,13 +4,16 @@
     <active>true</active>
     <errorConditionFormula>if(AND(
        
-    NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false))
+    NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
             
-    ,NOT(ISBLANK(LastUpdateToAWS__c)),
+    NOT(ISBLANK(LastUpdateToAWS__c)),
+
+    NOT(ISBLANK(NetsuiteCustomerNumber__c)),
 
     NOT($User.ValidationRulesDoNotApply__c = true),
             
     OR(BillingCountry =&apos;Sweden&apos;, BillingCountry =&apos;Netherlands&apos;, BillingCountry =&apos;Belgium&apos;, BillingCountry =&apos;Luxembourg&apos;),
+
     OR(ISBLANK(BillingStreet),ISBLANK(BillingCity),ISBLANK(BillingCountry),ISBLANK(BillingPostalCode))
 
 

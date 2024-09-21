@@ -114,7 +114,8 @@ public with sharing class Order_OrderandOrdeItemHandler {
                         || CurOrder[0].Source__c =='B2B Shop' 
                         || CurOrder[0].Source__c =='B2B Salesforce' 
                         || CurOrder[0].Source__c == 'Trade - Early Season Order'
-                        || CurOrder[0].Source__c == 'Tender'){    
+                        || CurOrder[0].Source__c == 'Tender'
+                        || CurOrder[0].Source__c == 'B2B Portal'){    
                         
                         lstOrderItem = Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(Null,Lst_OrdId,Null,lstOrderItem,lst_ListPriceDiscountRegular);
                     }
@@ -154,7 +155,8 @@ public with sharing class Order_OrderandOrdeItemHandler {
                     || CurOrder[0].Source__c =='B2B Shop' 
                     || CurOrder[0].Source__c =='B2B Salesforce' 
                     || CurOrder[0].Source__c == 'Trade - Early Season Order'
-                    || CurOrder[0].Source__c == 'Tender'){    
+                    || CurOrder[0].Source__c == 'Tender'
+                    || CurOrder[0].Source__c == 'B2B Portal'){    
                 lstOrderItem = Order_UpdateOrderListPriceDiscountAll.ProcessUpdate(Null,Lst_OrdId,Null,lstOrderItem,lst_ListPriceDiscountRegular);
             }
             lstOrderItem = Order_OrderandOrdeItemHandler.triggerhandler(lstOrderItem);

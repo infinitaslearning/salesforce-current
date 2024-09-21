@@ -3,13 +3,14 @@
     <fullName>Communication_Language</fullName>
     <active>true</active>
     <errorConditionFormula>If(AND(
-    NOT(
-        AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
-        NOT($User.ValidationRulesDoNotApply__c = true),
-       
-        NOT(ISBLANK(LastUpdateToAWS__c)),Isblank(Text(CommunicationLanguage__c))
+       NOT(AND(ISPICKVAL(OperatingCompany__c, &apos;Noordhoff&apos;), isProfessional__c=false)),
+       NOT($User.ValidationRulesDoNotApply__c = true),
+       NOT(ISBLANK(NetsuiteCustomerNumber__c)),
+       NOT(ISBLANK(LastUpdateToAWS__c)),
+       ISBLANK(TEXT(CommunicationLanguage__c))
         
-        ),true,false)</errorConditionFormula>
+       ),
+true,false)</errorConditionFormula>
     <errorDisplayField>CommunicationLanguage__c</errorDisplayField>
     <errorMessage>Communication language cannot be blank</errorMessage>
 </ValidationRule>

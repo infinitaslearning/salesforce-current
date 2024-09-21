@@ -66,6 +66,11 @@
                 <label>Studiemeister</label>
             </value>
             <value>
+                <fullName>B2B Portal</fullName>
+                <default>false</default>
+                <label>B2B Portal</label>
+            </value>
+            <value>
                 <fullName>B2B DirectPayment</fullName>
                 <default>false</default>
                 <isActive>false</isActive>

@@ -10,6 +10,7 @@ public class SK_createAccounts {
         Account a = new Account();
         a.LegalName__c = sd.Namn;
         a.AgodiUpdateInProgress__c = true;
+        a.SkolaNamn__c = sd.SkolaNamn;
 
         // ONLY ON UPDATE
         if (liberAccounts.get(sd.Skolenhetskod) != null) {
@@ -134,16 +135,16 @@ public class SK_createAccounts {
         }
 
         if (Gymnasieskola) {
-            classificationList.add('Secondary');
+            classificationList.add('Gymnasium/Vuxenutbildning');
         }
         if (Grundskola) {
             classificationList.add('Primary');
         }
         if (Specialskola) {
-            classificationList.add(''); // @Connor, this Needs to get the Classification MultiPicklist value for the "Specialskola" that Jessika will chose
+            classificationList.add('Primary');
         }
         if (Sameskola) {
-            classificationList.add(''); // @Connor, this Needs to get the Classification MultiPicklist value for the "Sameskola" that Jessika will chose
+            classificationList.add('Primary'); 
         }
 
         return String.join(classificationList, ';');

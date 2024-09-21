@@ -4,7 +4,7 @@
     <assignments>
         <name>assAccountSubList</name>
         <label>assAccountSubList</label>
-        <locationX>1183</locationX>
+        <locationX>1711</locationX>
         <locationY>3671</locationY>
         <assignmentItems>
             <assignToReference>lstAccountSubsidiary</assignToReference>
@@ -20,7 +20,7 @@
     <assignments>
         <name>Assign_Account_Subsidiary</name>
         <label>Assign Account Subsidiary</label>
-        <locationX>209</locationX>
+        <locationX>671</locationX>
         <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>$Record.Account_Subsidiary__c</assignToReference>
@@ -36,7 +36,7 @@
     <assignments>
         <name>Assign_Billing_ILAddress</name>
         <label>Assign Billing ILAddress</label>
-        <locationX>831</locationX>
+        <locationX>1359</locationX>
         <locationY>2639</locationY>
         <assignmentItems>
             <assignToReference>$Record.BillingHouseNumber__c</assignToReference>
@@ -115,7 +115,7 @@
     <assignments>
         <name>Assign_Billing_Shipping_ILAddress</name>
         <label>Assign Billing&amp;Shipping ILAddress</label>
-        <locationX>1359</locationX>
+        <locationX>1887</locationX>
         <locationY>2639</locationY>
         <assignmentItems>
             <assignToReference>$Record.BillingHouseNumber__c</assignToReference>
@@ -264,7 +264,7 @@
     <assignments>
         <name>Assign_FullLegalName</name>
         <label>Assign FullLegalName</label>
-        <locationX>424</locationX>
+        <locationX>952</locationX>
         <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.FullLegalName__c</assignToReference>
@@ -280,7 +280,7 @@
     <assignments>
         <name>Assign_Shipping_ILAddress</name>
         <label>Assign Shipping ILAddress</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>2639</locationY>
         <assignmentItems>
             <assignToReference>$Record.ShippingHouseNumber__c</assignToReference>
@@ -359,7 +359,7 @@
     <assignments>
         <name>Assign_Validation_Check_Fields</name>
         <label>Assign Validation Check Fields</label>
-        <locationX>1227</locationX>
+        <locationX>1755</locationX>
         <locationY>2831</locationY>
         <assignmentItems>
             <assignToReference>$Record.Validate_Area__c</assignToReference>
@@ -522,7 +522,7 @@
     <assignments>
         <name>assIntegrationFactorySend</name>
         <label>assIntegrationFactorySend</label>
-        <locationX>1183</locationX>
+        <locationX>1711</locationX>
         <locationY>3563</locationY>
         <assignmentItems>
             <assignToReference>loopIntegrationAccountSubsidiary.IntegrationFactorySend__c</assignToReference>
@@ -538,7 +538,7 @@
     <decisions>
         <name>Agodi_Update_In_Progress</name>
         <label>Agodi Update In Progress</label>
-        <locationX>341</locationX>
+        <locationX>803</locationX>
         <locationY>731</locationY>
         <defaultConnector>
             <targetReference>IsNewRecord</targetReference>
@@ -554,13 +554,16 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Upsert_Agodi_Skolverket_Account_Address</targetReference>
+            </connector>
             <label>True</label>
         </rules>
     </decisions>
     <decisions>
         <name>Copy_1_of_Is_Liber</name>
         <label>Is Liber</label>
-        <locationX>622</locationX>
+        <locationX>1150</locationX>
         <locationY>1355</locationY>
         <defaultConnector>
             <targetReference>Is_Account_UDB</targetReference>
@@ -585,7 +588,7 @@
     <decisions>
         <name>decIntegrateAccountSub</name>
         <label>decIntegrateAccountSub</label>
-        <locationX>1227</locationX>
+        <locationX>1755</locationX>
         <locationY>3239</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -607,7 +610,7 @@
     <decisions>
         <name>FullLegalName_Check</name>
         <label>FullLegalName Check</label>
-        <locationX>556</locationX>
+        <locationX>1084</locationX>
         <locationY>947</locationY>
         <defaultConnector>
             <targetReference>What_was_created</targetReference>
@@ -632,7 +635,7 @@
     <decisions>
         <name>ILAddress_Lookup_Changed</name>
         <label>ILAddress Lookup Changed</label>
-        <locationX>1227</locationX>
+        <locationX>1755</locationX>
         <locationY>2531</locationY>
         <defaultConnector>
             <targetReference>Assign_Validation_Check_Fields</targetReference>
@@ -708,7 +711,7 @@
     <decisions>
         <name>Is_Account_UDB</name>
         <label>Is Account UDB</label>
-        <locationX>556</locationX>
+        <locationX>1084</locationX>
         <locationY>1739</locationY>
         <defaultConnector>
             <targetReference>Vendor_Account_Address</targetReference>
@@ -733,7 +736,7 @@
     <decisions>
         <name>Is_Liber</name>
         <label>Is Liber</label>
-        <locationX>182</locationX>
+        <locationX>710</locationX>
         <locationY>1355</locationY>
         <defaultConnector>
             <targetReference>Is_Account_UDB</targetReference>
@@ -758,7 +761,7 @@
     <decisions>
         <name>Is_Netsuite_Customer_Id_Populated</name>
         <label>Is Netsuite Customer Id Populated</label>
-        <locationX>1238</locationX>
+        <locationX>1766</locationX>
         <locationY>947</locationY>
         <defaultConnector>
             <targetReference>Update_UDB_Contact</targetReference>
@@ -797,7 +800,7 @@
     <decisions>
         <name>IsNewRecord</name>
         <label>Is New?</label>
-        <locationX>897</locationX>
+        <locationX>1425</locationX>
         <locationY>839</locationY>
         <defaultConnector>
             <targetReference>Is_Netsuite_Customer_Id_Populated</targetReference>
@@ -822,7 +825,7 @@
     <decisions>
         <name>IsOperatingCompanyPopulated</name>
         <label>0 Acc Subs &amp; OpCo populated?</label>
-        <locationX>341</locationX>
+        <locationX>803</locationX>
         <locationY>323</locationY>
         <defaultConnector>
             <targetReference>Agodi_Update_In_Progress</targetReference>
@@ -854,7 +857,7 @@
     <decisions>
         <name>UDB_Account_Address</name>
         <label>UDB Account Address</label>
-        <locationX>1227</locationX>
+        <locationX>1755</locationX>
         <locationY>2231</locationY>
         <defaultConnector>
             <targetReference>ILAddress_Lookup_Changed</targetReference>
@@ -939,7 +942,7 @@
     <decisions>
         <name>Update_UDB_Contact</name>
         <label>Update UDB Contact</label>
-        <locationX>1238</locationX>
+        <locationX>1766</locationX>
         <locationY>1355</locationY>
         <defaultConnector>
             <targetReference>Vendor_Account_Address</targetReference>
@@ -1018,10 +1021,117 @@
         </rules>
     </decisions>
     <decisions>
+        <description>Condition to only upsert if the address change was made by the Agodi or Skolverket API update process and not on the Account record page</description>
+        <name>Upsert_Agodi_Skolverket_Account_Address</name>
+        <label>Upsert Agodi/Skolverket Account Address</label>
+        <locationX>182</locationX>
+        <locationY>839</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Upsert_Agodi_Skolverket_Address</name>
+            <conditionLogic>(1 OR 13) AND 12 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10 OR 11)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ExternalDatabase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agodi</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingStreetName__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.ShippingStreetName__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingHouseNumber__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.ShippingHouseNumber__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingHouseNumberAddition__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.ShippingHouseNumberAddition__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingPostalCode</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.ShippingPostalCode</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ShippingCity</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.ShippingCity</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BillingStreetName__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.BillingStreetName__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BillingHouseNumber__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.BillingHouseNumber__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BillingHouseNumberAddition__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.BillingHouseNumberAddition__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BillingPostalCode</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.BillingPostalCode</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.BillingCity</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.BillingCity</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DataMigrationHistory__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.DataMigrationHistory__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.ExternalDatabase__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Skolverket</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Agodi_Skolverket_Address_Handler</targetReference>
+            </connector>
+            <label>Upsert Agodi/Skolverket Address</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Condition Logic: If Vendor Address has changes or Vendor is New</description>
         <name>Vendor_Account_Address</name>
         <label>Vendor Account Address</label>
-        <locationX>897</locationX>
+        <locationX>1425</locationX>
         <locationY>2123</locationY>
         <defaultConnector>
             <targetReference>UDB_Account_Address</targetReference>
@@ -1124,7 +1234,7 @@
     <decisions>
         <name>Was_Assignments_Visted</name>
         <label>Was Assignments Visted</label>
-        <locationX>1227</locationX>
+        <locationX>1755</locationX>
         <locationY>2939</locationY>
         <defaultConnector>
             <targetReference>decIntegrateAccountSub</targetReference>
@@ -1170,7 +1280,7 @@
     <decisions>
         <name>What_was_created</name>
         <label>What was created</label>
-        <locationX>556</locationX>
+        <locationX>1084</locationX>
         <locationY>1247</locationY>
         <defaultConnector>
             <targetReference>Is_Account_UDB</targetReference>
@@ -1237,7 +1347,9 @@ DB 24/05/2024: update conditions to update UDB Contact if Account is updated
 HdG 30/05/2024: update assignment for ShippingIndicationRule and F_ValidateEmailsRequired for Noordhoff Zorg
 DB 31/05/2024: vendor address insert/update fix similar functionality to UDB addresses
 HdG 04/06/2024: removed assignment of segments (that&apos;s moved to before-save flow)
-HdG 01/08/2024: removed assignment of shipping indication rule (that&apos;s moved to before-save flow)</description>
+HdG 01/08/2024: removed assignment of shipping indication rule (that&apos;s moved to before-save flow)
+DB 16/09/2024: addes Agodi Address upsert functionality
+CH: 19/09/2024: Added Skolverket to the Agodi Address upsert functionality</description>
     <environments>Default</environments>
     <formulas>
         <name>Check_Higher</name>
@@ -1533,7 +1645,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <loops>
         <name>loopIntegrationAccountSubsidiary</name>
         <label>loopIntegrationAccountSubsidiary</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>3455</locationY>
         <collectionReference>getAccountSubsidiary</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -1566,7 +1678,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordCreates>
         <name>Create_Contact</name>
         <label>Create Contact</label>
-        <locationX>424</locationX>
+        <locationX>952</locationX>
         <locationY>1847</locationY>
         <connector>
             <targetReference>Vendor_Account_Address</targetReference>
@@ -1727,7 +1839,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordCreates>
         <name>Create_Default_Preferred_Courier</name>
         <label>Create Default Preferred Courier</label>
-        <locationX>50</locationX>
+        <locationX>578</locationX>
         <locationY>1463</locationY>
         <connector>
             <targetReference>Is_Account_UDB</targetReference>
@@ -1762,7 +1874,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordCreates>
         <name>Create_Default_Preferred_Courier_B2C</name>
         <label>Create Default Preferred Courier B2C</label>
-        <locationX>490</locationX>
+        <locationX>1018</locationX>
         <locationY>1463</locationY>
         <connector>
             <targetReference>Is_Account_UDB</targetReference>
@@ -1797,7 +1909,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordCreates>
         <name>CreateAccountSubsidiary</name>
         <label>Create Account Subsidiary</label>
-        <locationX>209</locationX>
+        <locationX>671</locationX>
         <locationY>431</locationY>
         <connector>
             <targetReference>Assign_Account_Subsidiary</targetReference>
@@ -1826,7 +1938,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordLookups>
         <name>Get_Waiting_Individual_Import_Order</name>
         <label>Get Waiting Individual Import Order</label>
-        <locationX>1106</locationX>
+        <locationX>1634</locationX>
         <locationY>1055</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1875,7 +1987,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordLookups>
         <name>getAccountSubsidiary</name>
         <label>getAccountSubsidiary</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>3347</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1931,7 +2043,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordUpdates>
         <name>Set_Import_Order_Status_Pending</name>
         <label>Set Import Order Status Pending</label>
-        <locationX>1106</locationX>
+        <locationX>1634</locationX>
         <locationY>1163</locationY>
         <connector>
             <targetReference>Update_UDB_Contact</targetReference>
@@ -1955,7 +2067,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordUpdates>
         <name>Update_Account</name>
         <label>Update Account</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>3047</locationY>
         <connector>
             <targetReference>decIntegrateAccountSub</targetReference>
@@ -1965,7 +2077,7 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <recordUpdates>
         <name>Update_Related_UDB_Contact</name>
         <label>Update Related UDB Contact</label>
-        <locationX>1106</locationX>
+        <locationX>1634</locationX>
         <locationY>1463</locationY>
         <connector>
             <targetReference>Vendor_Account_Address</targetReference>
@@ -2090,14 +2202,21 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
         <inputReference>$Record.Contacts</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Triggering_Account</name>
+        <label>Update Triggering Account</label>
+        <locationX>50</locationX>
+        <locationY>1055</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>UpdateAccountSubsidiary</name>
         <label>UpdateAccountSubsidiary</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>3863</locationY>
         <inputReference>lstAccountSubsidiary</inputReference>
     </recordUpdates>
     <start>
-        <locationX>215</locationX>
+        <locationX>677</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>IsOperatingCompanyPopulated</targetReference>
@@ -2110,10 +2229,31 @@ NOT(BEGINS( {!$Record.Website}, &apos;http://&apos;))) || CONTAINS({!$Record.Web
     <subflows>
         <name>Add_UDB_Address_Vendor_Address_Handler</name>
         <label>Add UDB Address_Vendor Address Handler</label>
-        <locationX>1095</locationX>
+        <locationX>1623</locationX>
         <locationY>2339</locationY>
         <connector>
             <targetReference>ILAddress_Lookup_Changed</targetReference>
+        </connector>
+        <flowName>Vendor_Address_Handler</flowName>
+        <inputAssignments>
+            <name>accountRecord</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>$Record</assignToReference>
+            <name>accountRecord</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <description>Call the Vendor_Address_Handler subflow to upsert Agodi and Skolverket Addresses</description>
+        <name>Agodi_Skolverket_Address_Handler</name>
+        <label>Agodi/Skolverket Address Handler</label>
+        <locationX>50</locationX>
+        <locationY>947</locationY>
+        <connector>
+            <targetReference>Update_Triggering_Account</targetReference>
         </connector>
         <flowName>Vendor_Address_Handler</flowName>
         <inputAssignments>

@@ -89,7 +89,7 @@
     <assignments>
         <name>Assign_from_Get_Address</name>
         <label>Assign from Get Address</label>
-        <locationX>380</locationX>
+        <locationX>490</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varGetAddressRecord</assignToReference>
@@ -105,7 +105,7 @@
     <assignments>
         <name>Assign_from_Get_Address_1</name>
         <label>Assign from Get Address</label>
-        <locationX>908</locationX>
+        <locationX>930</locationX>
         <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>varGetAddressRecord</assignToReference>
@@ -121,7 +121,7 @@
     <assignments>
         <name>Assign_from_Get_Address_with_Street</name>
         <label>Assign from Get Address with Street</label>
-        <locationX>380</locationX>
+        <locationX>358</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>varGetAddressRecord</assignToReference>
@@ -263,13 +263,28 @@
     <decisions>
         <name>Found_Address_on_1st_search</name>
         <label>Found Address on 1st search</label>
-        <locationX>512</locationX>
+        <locationX>490</locationX>
         <locationY>650</locationY>
         <defaultConnector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Assign_Found_Address</targetReference>
+            <targetReference>Found_Address</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Found Address</defaultConnectorLabel>
+        <defaultConnectorLabel>Do Nothing</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Address_with_house_number_street</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_Found_Address</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
         <rules>
             <name>Not_Found</name>
             <conditionLogic>and</conditionLogic>
@@ -280,10 +295,17 @@
                     <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>var_Country</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Belgium</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_Address_with_house_number</targetReference>
             </connector>
-            <label>Not Found</label>
+            <label>Not Found Continue</label>
         </rules>
     </decisions>
     <decisions>
@@ -353,7 +375,7 @@
     <decisions>
         <name>Street_and_HouseNumber_on_Address</name>
         <label>Street and HouseNumber on Address</label>
-        <locationX>512</locationX>
+        <locationX>490</locationX>
         <locationY>242</locationY>
         <defaultConnector>
             <targetReference>Found_Address_on_1st_search</targetReference>
@@ -505,7 +527,7 @@ DB: 2024/07/22 Match only validated (Status: GREEN) addresses for incoming addre
     <recordLookups>
         <name>Get_Address_with_house_number</name>
         <label>Get Address with house number</label>
-        <locationX>380</locationX>
+        <locationX>490</locationX>
         <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -561,7 +583,7 @@ DB: 2024/07/22 Match only validated (Status: GREEN) addresses for incoming addre
     <recordLookups>
         <name>Get_Address_with_house_number_street</name>
         <label>Get Address with house number &amp; street</label>
-        <locationX>380</locationX>
+        <locationX>358</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -624,7 +646,7 @@ DB: 2024/07/22 Match only validated (Status: GREEN) addresses for incoming addre
     <recordLookups>
         <name>Get_Address_with_street</name>
         <label>Get Address with street</label>
-        <locationX>908</locationX>
+        <locationX>930</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>

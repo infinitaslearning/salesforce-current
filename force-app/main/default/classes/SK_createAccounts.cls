@@ -10,6 +10,7 @@ public class SK_createAccounts {
         Account a = new Account();
         a.LegalName__c = sd.Namn;
         a.AgodiUpdateInProgress__c = true;
+        a.SkolaNamn__c = sd.SkolaNamn;
 
         // ONLY ON UPDATE
         if (liberAccounts.get(sd.Skolenhetskod) != null) {

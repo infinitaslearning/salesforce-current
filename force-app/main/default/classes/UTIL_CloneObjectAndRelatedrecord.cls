@@ -144,7 +144,12 @@ public without sharing class UTIL_CloneObjectAndRelatedrecord {
                 for(String field: mfields.keyset()){
                     Schema.DescribeFieldResult fieldResult = mfields.get(field).getDescribe();
                     fieldResult.getReferenceTo();
-                    
+                    if(field == 'producttype__c'){
+                        System.debug('### fieldResult ### createable ' + fieldResult.isCreateable() +
+                         ', updateable: ' + fieldResult.isUpdateable() +
+                          ', accessible: ' + fieldResult.isAccessible()
+                        );
+                    }
                     //&& !fieldResult.isCustom() 
                     
                     if(fieldResult.isCreateable() && field !='IsReductionOrder' && field !='OriginalOrderId' && field !='cleanstatus'  && field !='billingstatecode' && field != 'billingcountrycode'  && field !='shippingstatecode' && field !='shippingcountrycode'

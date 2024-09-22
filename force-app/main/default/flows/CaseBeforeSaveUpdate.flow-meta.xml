@@ -130,6 +130,13 @@
                     <stringValue>Email</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_Block_Customer</targetReference>
             </connector>
@@ -156,7 +163,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Records_1</targetReference>
+                <targetReference>Update_Case_Spam</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -413,6 +420,13 @@ MR Remove Queuename savings</description>
         <expression>RIGHT({!$Record.SuppliedEmail}, LEN({!$Record.SuppliedEmail}) - FIND(&quot;@&quot;, {!$Record.SuppliedEmail}))</expression>
     </formulas>
     <formulas>
+        <name>form_SpamReason</name>
+        <dataType>String</dataType>
+        <expression>IF({!Get_Block_Customer.Email__c} != &quot;&quot;, &quot;Email&quot;, 
+IF({!Get_Block_Customer.Domain__c} != &quot;&quot;, &quot;Domain&quot;,
+IF({!Get_Block_Customer.Subject__c} != &quot;&quot;, &quot;Subject&quot;, &quot;&quot;)))</expression>
+    </formulas>
+    <formulas>
         <name>IfGroup</name>
         <dataType>Boolean</dataType>
         <expression>IF(BEGINS({!$Record.OwnerId}, &quot;00G&quot;), TRUE, False)</expression>
@@ -452,7 +466,7 @@ MR Remove Queuename savings</description>
         <connector>
             <targetReference>Block_Customer_Found</targetReference>
         </connector>
-        <filterLogic>1 AND (2 OR 3 OR 4)</filterLogic>
+        <filterLogic>1 AND ((2 AND 3) OR (4 AND 5) OR (6 AND 7))</filterLogic>
         <filters>
             <field>Channel__c</field>
             <operator>EqualTo</operator>
@@ -468,10 +482,24 @@ MR Remove Queuename savings</description>
             </value>
         </filters>
         <filters>
+            <field>Email__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
             <field>Domain__c</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>form_Domain</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Domain__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
             </value>
         </filters>
         <filters>
@@ -481,19 +509,38 @@ MR Remove Queuename savings</description>
                 <elementReference>$Record.Subject</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Subject__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>CustomerBlockList__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Update_Records_1</name>
-        <label>Update Records 1</label>
+        <name>Update_Case_Spam</name>
+        <label>Update Case</label>
         <locationX>127</locationX>
         <locationY>611</locationY>
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <stringValue>00GJW000007Zuhd</stringValue>
+                <elementReference>$Label.Spam</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SpamReason__c</field>
+            <value>
+                <elementReference>form_SpamReason</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>

@@ -311,6 +311,46 @@
                 <default>false</default>
                 <label>Top-100</label>
             </value>
+            <value>
+                <fullName>Top-100 - Green</fullName>
+                <default>false</default>
+                <label>Top-100 - Green</label>
+            </value>
+            <value>
+                <fullName>Top-100 - Yellow</fullName>
+                <default>false</default>
+                <label>Top-100 - Yellow</label>
+            </value>
+            <value>
+                <fullName>Top-100 - Red</fullName>
+                <default>false</default>
+                <label>Top-100 - Red</label>
+            </value>
+            <value>
+                <fullName>Top-100 - Purple</fullName>
+                <default>false</default>
+                <label>Top-100 - Purple</label>
+            </value>
+            <value>
+                <fullName>B - Green</fullName>
+                <default>false</default>
+                <label>B - Green</label>
+            </value>
+            <value>
+                <fullName>B - Yellow</fullName>
+                <default>false</default>
+                <label>B - Yellow</label>
+            </value>
+            <value>
+                <fullName>B - Red</fullName>
+                <default>false</default>
+                <label>B - Red</label>
+            </value>
+            <value>
+                <fullName>B - Purple</fullName>
+                <default>false</default>
+                <label>B - Purple</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -698,6 +738,38 @@
         <valueSettings>
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <valueName>Top-100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>Top-100 - Green</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>Top-100 - Yellow</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>Top-100 - Red</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>Top-100 - Purple</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Green</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Yellow</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Red</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Purple</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

@@ -158,7 +158,23 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>B - Green</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>B - Leading</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Purple</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Red</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Yellow</fullName>
             <default>false</default>
         </values>
         <values>
@@ -307,6 +323,22 @@
         </values>
         <values>
             <fullName>Top-100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top-100 - Green</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top-100 - Purple</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top-100 - Red</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Top-100 - Yellow</fullName>
             <default>false</default>
         </values>
         <values>

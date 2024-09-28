@@ -126,6 +126,22 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Ass_ShippingCostMethodError</name>
+        <label>Ass ShippingCostMethodError</label>
+        <locationX>1845</locationX>
+        <locationY>1556</locationY>
+        <assignmentItems>
+            <assignToReference>CustomErrorVariable</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Shipping Cost Method NS Id is Invalid for this Operating Company!</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Error</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>assB2BDiscount</name>
         <label>assB2BDiscount</label>
         <locationX>4985</locationX>
@@ -350,7 +366,7 @@
         <locationX>3051</locationX>
         <locationY>2713</locationY>
         <assignmentItems>
-            <assignToReference>BilltoShiptoErrorVariable</assignToReference>
+            <assignToReference>CustomErrorVariable</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>Bill to/ Ship to value cannot be empty or could not be found</stringValue>
@@ -1459,8 +1475,8 @@
     <assignments>
         <name>AssignOpCoPB</name>
         <label>AssignOpCoPB</label>
-        <locationX>2101</locationX>
-        <locationY>1977</locationY>
+        <locationX>1844</locationX>
+        <locationY>1987</locationY>
         <assignmentItems>
             <assignToReference>PricebookName</assignToReference>
             <operator>Assign</operator>
@@ -1507,8 +1523,8 @@
     <assignments>
         <name>AssignPBOverride</name>
         <label>AssignPBOverride</label>
-        <locationX>1789</locationX>
-        <locationY>1965</locationY>
+        <locationX>1567</locationX>
+        <locationY>1993</locationY>
         <assignmentItems>
             <assignToReference>PricebookName</assignToReference>
             <operator>Assign</operator>
@@ -3443,9 +3459,9 @@
         <locationX>951</locationX>
         <locationY>1455</locationY>
         <defaultConnector>
-            <targetReference>UseOverridePricebook</targetReference>
+            <targetReference>Get_Shipping_Cost_Method</targetReference>
         </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnectorLabel>Order</defaultConnectorLabel>
         <rules>
             <name>Private_OrderItems</name>
             <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
@@ -3852,6 +3868,38 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Shipping_Cost_Method</name>
+        <label>Shipping Cost Method</label>
+        <locationX>1556</locationX>
+        <locationY>1557</locationY>
+        <defaultConnector>
+            <targetReference>Ass_ShippingCostMethodError</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Found</defaultConnectorLabel>
+        <rules>
+            <name>Found</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Shipping_Cost_Method</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>sov_NetsuiteOrder.ShippingCostMethodNsId__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UseOverridePricebook</targetReference>
+            </connector>
+            <label>Found</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Should_Create_Private_Individual</name>
         <label>Should Create Private Individual?</label>
         <locationX>1358</locationX>
@@ -4151,8 +4199,8 @@
     <decisions>
         <name>UseOverridePricebook</name>
         <label>Use Override Pricebook</label>
-        <locationX>1787</locationX>
-        <locationY>1739</locationY>
+        <locationX>1558</locationX>
+        <locationY>1766</locationY>
         <defaultConnector>
             <targetReference>getPricebookOperatingCompany</targetReference>
         </defaultConnector>
@@ -4223,7 +4271,8 @@ DB: 2024/01/13 Add successor item skip logic for Studiemeister &amp; eCom source
 DB: 2024/03/13 Added ILAddress query, insert &amp; validate functionality
 DB: 2024/04/15 Assign Adjusted List Price if Import Order record has a List Price
 DB: 2024/06/11 Assign Warehouse Reference from shipTo Account
-DB: 2024/07/10 Assign Billing Reminder &amp; Invoicing Email from billTo/invoicing Account</description>
+DB: 2024/07/10 Assign Billing Reminder &amp; Invoicing Email from billTo/invoicing Account
+DB: 2024/09/23 Verify ShippingCostMethodNSId exits for the OpCo, if not the IO should fail</description>
     <environments>Default</environments>
     <formulas>
         <name>billToAttentionOfFormula</name>
@@ -4275,7 +4324,7 @@ TEXT({!sov_Order.Billto__r.TenderDistributor__r.FulfillmentLocation__c}) )</expr
     <formulas>
         <name>form_ErrorMessage</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!BilltoShiptoErrorVariable}), LEFT({!$Flow.FaultMessage},255), {!BilltoShiptoErrorVariable})</expression>
+        <expression>IF(ISBLANK({!CustomErrorVariable}), LEFT({!$Flow.FaultMessage},255), {!CustomErrorVariable})</expression>
     </formulas>
     <formulas>
         <name>form_ManualDiscount</name>
@@ -4851,7 +4900,7 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
     <recordLookups>
         <name>Get_pricebook</name>
         <label>Get pricebook</label>
-        <locationX>1957</locationX>
+        <locationX>1845</locationX>
         <locationY>2142</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -5065,6 +5114,35 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         <queriedFields>ItemSubtype__c</queriedFields>
     </recordLookups>
     <recordLookups>
+        <description>Query to verify if the shipping cost method NS Id exists in the system if not then the IO should not be processed further</description>
+        <name>Get_Shipping_Cost_Method</name>
+        <label>Get Shipping Cost Method</label>
+        <locationX>1313</locationX>
+        <locationY>1555</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Shipping_Cost_Method</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ExternalId__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.ShippingCostMethodNsId__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Subsidiary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>sov_NetsuiteOrder.OperatingCompany__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>ShippingCost__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <description>This get takes the Communication Language on the Import Order and get the metadata record mapped to the expected value to retrieve the valid picklist value that is used on the Account</description>
         <name>GetCommunicationLanguageSetting</name>
         <label>Get Communication Language Setting</label>
@@ -5184,8 +5262,8 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
     <recordLookups>
         <name>getPricebookOperatingCompany</name>
         <label>getPricebookOperatingCompany</label>
-        <locationX>2071</locationX>
-        <locationY>1763</locationY>
+        <locationX>1844</locationX>
+        <locationY>1766</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AssignOpCoPB</targetReference>
@@ -5722,13 +5800,6 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         </outputAssignments>
     </subflows>
     <variables>
-        <name>BilltoShiptoErrorVariable</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
         <name>CommunicationLanguageSetting</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
@@ -5743,6 +5814,14 @@ IF(AND(ISBLANK({!sov_NetsuiteOrder.UserEmail__c}), NOT(ISBLANK({!sov_NetsuiteOrd
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>OrderPricingTable__mdt</objectType>
+    </variables>
+    <variables>
+        <description>Assign a custom error message to this variable for any flow error or validation checks</description>
+        <name>CustomErrorVariable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
     </variables>
     <variables>
         <name>debugItems</name>

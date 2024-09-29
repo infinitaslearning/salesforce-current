@@ -8,7 +8,7 @@ public class Order_ProductSelectController {
                 List<PermissionSetAssignment> lstcurrentUserPerSet =    [   SELECT Id, PermissionSet.Name,AssigneeId
                                                                 FROM PermissionSetAssignment
                                                                 WHERE AssigneeId = :Userinfo.getUserId()
-                                                        		AND PermissionSet.Name LIKE :'%OmniChannelRouting%'];
+                                                                AND PermissionSet.Name LIKE :'%OmniChannelRouting%'];
 
                     Boolean OmniChannelPS;
                     system.debug('****'+lstcurrentUserPerSet.size());
@@ -300,7 +300,7 @@ public class Order_ProductSelectController {
                     String OperatingCompany,CustomerDiscountGroup,PricingMethod;
                     
                     Date CurDate = system.today();
-                    Set<String> Set_CusDiscountGroup = new Set<String>();		
+                    Set<String> Set_CusDiscountGroup = new Set<String>();       
                     Set<String> Set_OperatingCo = new Set<String>();
                    Order[] Order;
                     if(objectName == 'Order'){
@@ -341,7 +341,7 @@ public class Order_ProductSelectController {
                     lst_ListPriceDiscountRegular =Database.query(querystr);    
                     */
 
-                    lst_ListPriceDiscountRegular  =  Order_SoqlFactory.returnListPriceDiscount('ProductSelector',PricingMethod, Set_CusDiscountGroup, Set_OperatingCo, null, null, null);			                    
+                    lst_ListPriceDiscountRegular  =  Order_SoqlFactory.returnListPriceDiscount('ProductSelector',PricingMethod, Set_CusDiscountGroup, Set_OperatingCo, null, null, null);                               
                     system.debug('**Order_SoqlFactory.Order_ProductSelectController.lst_ListPriceDiscountRegular :Size**'+lst_ListPriceDiscountRegular.size());
     
                 }                                                              
@@ -402,7 +402,7 @@ public class Order_ProductSelectController {
                     Date CurrentDay = system.today();
                     Date RenewalDay = system.today();
 
-                    asset[] loadAssetsListGroupRate  = Database.query(Order_SoqlFactory.returnasset('ProductSelector',Set_BillTo,null));		
+                    asset[] loadAssetsListGroupRate  = Database.query(Order_SoqlFactory.returnasset('ProductSelector',Set_BillTo,null));        
                     system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadAssetsListGroupRate :Size**'+loadAssetsListGroupRate.size());
                     
                     for(asset ass:loadAssetsListGroupRate){
@@ -517,7 +517,7 @@ public class Order_ProductSelectController {
              
      //       OpportunityLineItem[] lstOppItem = [Select Product2Id,OrderLineType__c,Product2.CustomPricingAllowed__c,ProductType__c,ListPriceItemGroup__c,ListPriceDiscount__c,ListPriceDiscount__r.Rate__c,ProductComponent__c,DiscountedPriceItemGroup__c,ItemGroup__r.Product2Id,ItemGroup__c,LicenseDuration__c,ManualDiscount__c,ManualDiscountPercent__c,ManualDiscountValue__c,OpportunityId,Product2.name,ComponentListPrice__c,Quantity,Product2.ProductDiscountGroup__c,Product2.ProductRateGroup__c,Opportunity.Account.CustomerDiscountGroup__c,Opportunity.Account.OperatingCompany__c,Opportunity.Account.Name,Opportunity.AccountId,Product2.OrderLineType__c,ListPrice,UnitPrice,Terms__c,ServiceDate,Product2.Renewable__c from OpportunityLineItem where OpportunityId =:curOrderId order by createddate ASC];
      
-     OpportunityLineItem[] lstOppItem = Order_SoqlFactory.returnOpportunityLine(curOrderId);		
+     OpportunityLineItem[] lstOppItem = Order_SoqlFactory.returnOpportunityLine(curOrderId);        
      system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOpportunityItems.lstOppItem :Size**'+lstOppItem.size());
      
      List<OrderLineItem> lstOrderItems = new List<OrderLineItem>();
@@ -562,9 +562,9 @@ public class Order_ProductSelectController {
                 item.OppTerms = oppItem.Terms__c;
                 item.OppServiceDate = oppItem.ServiceDate;
                 item.ProductTYPE = oppItem.ProductType__c;
-                Item.listPriceDiscountType  = oppItem.Product2.ProductDiscountGroup__c;		
-                Item.ProductRateGroup = oppItem.Product2.ProductRateGroup__c;		
-                Item.Subsidiary = oppItem.Opportunity.Account.OperatingCompany__c;		
+                Item.listPriceDiscountType  = oppItem.Product2.ProductDiscountGroup__c;     
+                Item.ProductRateGroup = oppItem.Product2.ProductRateGroup__c;       
+                Item.Subsidiary = oppItem.Opportunity.Account.OperatingCompany__c;      
                 Item.CustomerDiscountGroup =oppItem.Opportunity.Account.CustomerDiscountGroup__c;
     
                 item.UnitPrice = oppItem.UnitPrice;
@@ -683,9 +683,9 @@ public class Order_ProductSelectController {
             ListPriceDiscount__c,ListPriceDiscount__r.OrderLineType__c,ListPriceDiscount__r.Rate__c,Product2Id,PricebookEntryId,ShipToAccount__c,ManualDiscount__c,ManualDiscountPercent__c,ManualDiscountValue__c 
             From OrderItem where OrderId =:curOrderId Order By createddate ASC];
            */
-          List<Id> OrderId = new List<Id>();	            
-	      OrderId.add(curOrderId);		
-	      OrderItem[]   lstOrderItem =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);		
+          List<Id> OrderId = new List<Id>();                
+          OrderId.add(curOrderId);      
+          OrderItem[]   lstOrderItem =  Order_SoqlFactory.returnQueryOrderItems(null,OrderId,null,null);        
           system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lst_OrdItem :Size**'+lstOrderItem.size()); 
             
     
@@ -725,8 +725,8 @@ public class Order_ProductSelectController {
             
       
     
-        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);		
-	    system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lstPrice :Size**'+lstPrice.size());
+        Pricing__c[] lstPrice = Order_SoqlFactory.returnPricing('ProductSelector1',Set_ProdItemGroup,null,curOrder[0].Pricebook2.StartDate__c,curOrder[0].Pricebook2.EndDate__c);       
+        system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lstPrice :Size**'+lstPrice.size());
         
         
         Map<String,Decimal> Map_ComponentQuantity  =  new Map<String,Decimal>();
@@ -1023,18 +1023,18 @@ public class Order_ProductSelectController {
      
            
             
-            PricebookEntry[] ProductsbyPriceBook;		        
-	        Set<String> Set_ProdId = new Set<String>();
+            PricebookEntry[] ProductsbyPriceBook;               
+            Set<String> Set_ProdId = new Set<String>();
 
             if(SearchString == null){
 
-                ProductsbyPriceBook = Order_SoqlFactory.returnPricebookEntry('ProductSelectorLoad', SearchString, Set_ProdId,null,Pricebook2Id,null,null,PricebookStart,PricebookEnd);		
-	                system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());		
-	            }		
-	            else{		
-	                ProductsbyPriceBook = Order_SoqlFactory.returnPricebookEntry('ProductSelectorSearch', SearchString, Set_ProdId,null,Pricebook2Id,null,null,PricebookStart,PricebookEnd);             		
-	                system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Search :Size**'+ProductsbyPriceBook.size());            		
-	            }   
+                ProductsbyPriceBook = Order_SoqlFactory.returnPricebookEntry('ProductSelectorLoad', SearchString, Set_ProdId,null,Pricebook2Id,null,null,PricebookStart,PricebookEnd);      
+                    system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());      
+                }       
+                else{       
+                    ProductsbyPriceBook = Order_SoqlFactory.returnPricebookEntry('ProductSelectorSearch', SearchString, Set_ProdId,null,Pricebook2Id,null,null,PricebookStart,PricebookEnd);                    
+                    system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Search :Size**'+ProductsbyPriceBook.size());                    
+                }   
         
           
 
@@ -1141,8 +1141,8 @@ public class Order_ProductSelectController {
                 
                 Map<string,ProductListPrice> Map_ProdLP = new Map<string,ProductListPrice>();
 
-                ProductsbyItemGroup = Order_SoqlFactory.returnPricebookEntry('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);		
-	            system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());
+                ProductsbyItemGroup = Order_SoqlFactory.returnPricebookEntry('ProductSelectorItemGroup', null, null,null,Pricebook2Id,Map_ItemGroup,null,null,null);        
+                system.debug('**Order_SoqlFactory.Order_ProductSelectController.loadProductsbyPriceBook.ProductsbyPriceBook:Load :Size**'+ProductsbyPriceBook.size());
                     integer i=0;
                     for(PricebookEntry pbe:ProductsbyItemGroup){
                         
@@ -1371,7 +1371,7 @@ public class Order_ProductSelectController {
     
            // Product2[] lstProduct = [Select id,Type__c,FreeFromDate__c,IsRegularOrderPossible__c,IsInspectionCopyOrderPossible__c,IsUseCopyOrderPossible__c,FixedStartDate__c,StartDate__c,LicenseDuration__c,Renewable__c from Product2 where id in: Set_Products];
     
-           Product2[] lstProduct = Order_SoqlFactory.returnProduct(Set_Products);	    
+           Product2[] lstProduct = Order_SoqlFactory.returnProduct(Set_Products);       
            system.debug('**Order_SoqlFactory.Order_ProductSelectController.ProcessInsertOpportunityLines.lstProduct :Size**'+lstProduct.size());
 
             Map<String,String> Map_ProdType = new Map<String,String>();
@@ -1573,7 +1573,7 @@ public class Order_ProductSelectController {
                     delete lstOppItemToDelete;
                     
                     
-                    Opportunity[] CurOpportunity = [Select 	ContractEndDate__c,EndDate__c,ContractStartDate__c from Opportunity where id =:OrderId ];
+                    Opportunity[] CurOpportunity = [Select  ContractEndDate__c,EndDate__c,ContractStartDate__c from Opportunity where id =:OrderId ];
 
                     if(CurOpportunity.size()>0){
                         
@@ -1690,9 +1690,8 @@ public class Order_ProductSelectController {
                 Set_Products.add(item.ProductId);
             }  
     
-          //  Product2[] lstProduct = [Select id,Type__c,FreeFromDate__c,IsRegularOrderPossible__c,IsInspectionCopyOrderPossible__c,IsUseCopyOrderPossible__c,FixedStartDate__c,StartDate__c,LicenseDuration__c,Renewable__c from Product2 where id in: Set_Products];
-    
-          Product2[] lstProduct = Order_SoqlFactory.returnProduct(Set_Products);		
+         
+          Product2[] lstProduct = Order_SoqlFactory.returnProduct(Set_Products);        
           system.debug('**Order_SoqlFactory.Order_ProductSelectController.ProcessInsertOrderItems.lstProduct :Size**'+lstProduct.size());
 
             Map<String,Date> Map_FreeFromDate = new Map<String,Date>();
@@ -1735,7 +1734,7 @@ public class Order_ProductSelectController {
             
           //  lst_AccSubMaps = returnAccountSubsidiary(Set_Sub);
     
-          lst_AccSubMaps =  Order_SoqlFactory.returnAccountSubsidiary(Set_Sub);		    
+          lst_AccSubMaps =  Order_SoqlFactory.returnAccountSubsidiary(Set_Sub);         
           system.debug('**Order_SoqlFactory.Order_ProductSelectController.ProcessInsertOrderItems.lst_AccSubMaps :Size**'+lst_AccSubMaps.size());
     
            Map_Sub = lst_AccSubMaps[0];
@@ -1799,7 +1798,7 @@ public class Order_ProductSelectController {
                 OItem.ShipToAccount__c  = item.ShipToAccountId; 
                 OItem.Account__c = CurOrder[0].Billto__c ;
                 
-                OItem.OrderSource__c = CurOrder[0].Source__c;		
+                OItem.OrderSource__c = CurOrder[0].Source__c;       
                 OItem.OrderType__c = CurOrder[0].Type;
 
 
@@ -1831,14 +1830,15 @@ public class Order_ProductSelectController {
 
                 if(CurOrder[0].Pricebook2.Name.contains('Zorg')){
                     Oitem.StartDate__c = item.OppServiceDate;
-
+                    
+                    /*    
                     if(item.OppServiceDate >= CurOrder[0].EffectiveDate ){
                         Oitem.ServiceDate = item.OppServiceDate;
                     }
                     else{
                         Oitem.ServiceDate = CurOrder[0].EffectiveDate;
                     }
-                    
+                    */
                     if(Oitem.ProductLicenseDuration__c != null && CurOrder[0].MaxOrderLine__c == null && OItem.ProRataMonths__c == null){
                         Oitem.EndDate = date.valueof(item.OppServiceDate).addMonths(integer.valueof(Oitem.ProductLicenseDuration__c))-1;
                     }
@@ -2086,7 +2086,7 @@ public class Order_ProductSelectController {
                 //OrderItem[] lst_OrdItem;
                 //lst_OrdItem = Order_OrderandOrdeItemHandler.returnQueryOrderItems(Set_DontDelete,null);
             
-                OrderItem[] lst_OrdItem =  Order_SoqlFactory.returnQueryOrderItems(Set_DontDelete,null,null,null);		
+                OrderItem[] lst_OrdItem =  Order_SoqlFactory.returnQueryOrderItems(Set_DontDelete,null,null,null);      
                 system.debug('**Order_SoqlFactory.Order_ProductSelectController.returnOrderItems.lst_OrdItem :Size**'+lstOrderItem.size());
 
                 Order_OrderandOrdeItemHandler.OrderItemBusinessLogichandler(lst_OrdItem, CurOrder,null, 'ProductSelectorOrderItems', null,null );
@@ -2110,7 +2110,7 @@ public class Order_ProductSelectController {
     public static List<Map<String,String>> returnAccountSubsidiary(Set<String> Set_Sub){
              
     
-            AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,LegalName__c,NetsuiteInternalId__c,Account__c,Account__r.OperatingCompany__c,Account__r.isVocationalEducation__c,Account__r.isHigherEducation__c from AccountSubsidiary__c where Account__c in:Set_Sub AND (Deleted__c =:false AND 	IsInactive__c =:false) ];
+            AccountSubsidiary__c[] lstAccountSubsidiary = [Select id,LegalName__c,NetsuiteInternalId__c,Account__c,Account__r.OperatingCompany__c,Account__r.isVocationalEducation__c,Account__r.isHigherEducation__c from AccountSubsidiary__c where Account__c in:Set_Sub AND (Deleted__c =:false AND     IsInactive__c =:false) ];
     
             Map<String,String> Map_Sub = new Map<String,String>();
             Map<String,String> Map_Netsuite = new Map<String,String>();

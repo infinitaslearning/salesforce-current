@@ -671,7 +671,7 @@ for(OrderActivationRules__mdt act:OrderActivationRules){
                                     }
 
                                     item.StartDate__c = ass.RenewalDate__c; 
-                                    item.ServiceDate = ass.RenewalDate__c;
+                                  //  item.ServiceDate = ass.RenewalDate__c;
                                     item.Terms__c = ass.Terms__c;
 
                                     //NB ADd licence duration (ie number of months) instead of renewal term

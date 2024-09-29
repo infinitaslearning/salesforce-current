@@ -5,7 +5,7 @@
         <name>addtoList</name>
         <label>addtoList</label>
         <locationX>886</locationX>
-        <locationY>1334</locationY>
+        <locationY>1190</locationY>
         <assignmentItems>
             <assignToReference>lstUpdateItems</assignToReference>
             <operator>AddAtStart</operator>
@@ -21,7 +21,7 @@
         <name>assLoadCurrentShipping</name>
         <label>assLoadCurrentShipping</label>
         <locationX>666</locationX>
-        <locationY>398</locationY>
+        <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>assShippingStreet</assignToReference>
             <operator>Assign</operator>
@@ -72,7 +72,7 @@
         <name>assOrderShipping</name>
         <label>assOrderShipping</label>
         <locationX>666</locationX>
-        <locationY>1670</locationY>
+        <locationY>1490</locationY>
         <assignmentItems>
             <assignToReference>getOrderHeader.ShippingStreet</assignToReference>
             <operator>Assign</operator>
@@ -130,7 +130,7 @@
         <name>assShippingAdress</name>
         <label>assShippingAdress</label>
         <locationX>886</locationX>
-        <locationY>1214</locationY>
+        <locationY>1082</locationY>
         <assignmentItems>
             <assignToReference>loopItems.ShippingStreet__c</assignToReference>
             <operator>Assign</operator>
@@ -174,14 +174,7 @@
         <name>Set_Start_Date</name>
         <label>Set Start Date</label>
         <locationX>754</locationX>
-        <locationY>998</locationY>
-        <assignmentItems>
-            <assignToReference>loopItems.ServiceDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Ship_By_Date</elementReference>
-            </value>
-        </assignmentItems>
+        <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>loopItems.StartDate__c</assignToReference>
             <operator>Assign</operator>
@@ -197,7 +190,7 @@
         <name>decMultiShipping</name>
         <label>decMultiShipping</label>
         <locationX>358</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <defaultConnector>
             <targetReference>assLoadCurrentShipping</targetReference>
         </defaultConnector>
@@ -229,7 +222,7 @@
         <name>Does_Product_Have_a_Fixed_Start_Date</name>
         <label>Does Product Have a Fixed Start Date</label>
         <locationX>886</locationX>
-        <locationY>878</locationY>
+        <locationY>782</locationY>
         <defaultConnector>
             <targetReference>assShippingAdress</targetReference>
         </defaultConnector>
@@ -251,13 +244,14 @@
         </rules>
     </decisions>
     <description>CH: 2022/05/20 - added Ship By Date</description>
+    <environments>Default</environments>
     <interviewLabel>Order_UpdateShippingAddresonItems {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Order_UpdateShippingAddresonItems</label>
     <loops>
         <name>loopItems</name>
         <label>loopItems</label>
         <locationX>666</locationX>
-        <locationY>758</locationY>
+        <locationY>674</locationY>
         <collectionReference>getLineItems</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -290,7 +284,7 @@
         <name>getLineItems</name>
         <label>getLineItems</label>
         <locationX>666</locationX>
-        <locationY>638</locationY>
+        <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>loopItems</targetReference>
@@ -311,7 +305,7 @@
         <name>getOrderHeader</name>
         <label>getOrderHeader</label>
         <locationX>358</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>decMultiShipping</targetReference>
@@ -332,7 +326,7 @@
         <name>updateOrderHeader</name>
         <label>updateOrderHeader</label>
         <locationX>666</locationX>
-        <locationY>1790</locationY>
+        <locationY>1598</locationY>
         <connector>
             <targetReference>finished</targetReference>
         </connector>
@@ -342,7 +336,7 @@
         <name>updateShippingAddressItems</name>
         <label>updateShippingAddressItems</label>
         <locationX>666</locationX>
-        <locationY>1550</locationY>
+        <locationY>1382</locationY>
         <connector>
             <targetReference>assOrderShipping</targetReference>
         </connector>
@@ -352,7 +346,7 @@
         <name>finished</name>
         <label>finished</label>
         <locationX>666</locationX>
-        <locationY>1910</locationY>
+        <locationY>1706</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -368,7 +362,7 @@
         <name>frmEnterNewShippingAddress</name>
         <label>Enter New Shipping Address</label>
         <locationX>666</locationX>
-        <locationY>518</locationY>
+        <locationY>458</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -454,7 +448,7 @@
         <name>Multiple_Shipping_location_message</name>
         <label>Multiple Shipping location message</label>
         <locationX>50</locationX>
-        <locationY>398</locationY>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>

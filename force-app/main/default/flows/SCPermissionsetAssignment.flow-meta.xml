@@ -424,7 +424,8 @@
             <label>Plantyn Customer Service</label>
         </rules>
     </decisions>
-    <description>MR 29/07/2024 Added Roles for Liber
+    <description>MR 26/09/24 Removed Get Manage Knowledge Articles PSet
+MR 29/07/2024 Added Roles for Liber
 MV 06/06/24: Added CreateOrders permission for Noordhoff Knowledge Base Manager
 MR 16/02/24 Added Knowledge_LSF_Permission_Set assignment
 MV 02/04/24: Added Noordhoff PGM customer Service Role with assignments
@@ -565,13 +566,6 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <field>Name</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>ManageKnowledgeArticles</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
                 <stringValue>OrderActivation</stringValue>
             </value>
         </filters>
@@ -622,6 +616,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>SlackGeneral</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ManageMacro</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -685,13 +686,6 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>ManageCases</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>ManageKnowledgeArticles</stringValue>
             </value>
         </filters>
         <filters>

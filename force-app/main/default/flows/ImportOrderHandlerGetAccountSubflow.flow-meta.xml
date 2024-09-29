@@ -465,7 +465,8 @@ CH: 07/11/2023 added operating company check to each get Account element
 DB: 29/11/2023 adjusted matching logic for private individual if NS Number is provided
 CH: 20/12/2023 added Status check against all account gets
 DB: 15/04/2024 find account using External Database Id then if null based on Source
-DB: 08/08/2024 B2B Portal added as Source (follows Trade path)</description>
+DB: 08/08/2024 B2B Portal added as Source (follows Trade path)
+CH: 27/09/2024 - Changed customer ECIN match to match based on ExternalCustomerId</description>
     <environments>Default</environments>
     <formulas>
         <name>forEcinNumberMatch</name>
@@ -674,7 +675,7 @@ DB: 08/08/2024 B2B Portal added as Source (follows Trade path)</description>
         <connector>
             <targetReference>Assign_Trade_Order_Account</targetReference>
         </connector>
-        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR 6 OR (7 AND (8 OR 9))) AND 10 AND 11</filterLogic>
+        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5 OR (6 AND (7 OR 8 OR 11 OR 12))) AND 9 AND 10</filterLogic>
         <filters>
             <field>WholeSalerId__c</field>
             <operator>EqualTo</operator>
@@ -694,13 +695,6 @@ DB: 08/08/2024 B2B Portal added as Source (follows Trade path)</description>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>ImportOrderCustomerIdentifier</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>EcinNumberMatch__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>forEcinNumberMatch</elementReference>
             </value>
         </filters>
         <filters>
@@ -750,6 +744,20 @@ DB: 08/08/2024 B2B Portal added as Source (follows Trade path)</description>
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ExternalDatabase__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Skolverket</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ExternalDatabase__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ECIN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

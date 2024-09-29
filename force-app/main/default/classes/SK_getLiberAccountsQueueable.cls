@@ -49,7 +49,7 @@ public class SK_getLiberAccountsQueueable implements Queueable{
                 ExternalCustomerId__c
                 FROM Account
                 WHERE OperatingCompany__c = 'Liber'
-                AND ExternalDatabase__c = 'Skolverket'
+                AND (ExternalDatabase__c = 'Skolverket' OR ExternalDatabase__c = 'ECIN')
                 AND ExternalCustomerId__c != '' 
                 LIMIT 50000];
             } else {
@@ -59,7 +59,7 @@ public class SK_getLiberAccountsQueueable implements Queueable{
                 ExternalCustomerId__c
                 FROM Account
                 WHERE OperatingCompany__c = 'Liber'
-                AND ExternalDatabase__c = 'Skolverket'
+                AND (ExternalDatabase__c = 'Skolverket' OR ExternalDatabase__c = 'ECIN')
                 AND ExternalCustomerId__c != '' 
                 AND Id > : lastId
                 LIMIT 50000];

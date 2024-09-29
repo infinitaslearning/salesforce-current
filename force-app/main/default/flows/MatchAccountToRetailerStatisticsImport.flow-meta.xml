@@ -100,6 +100,7 @@
             <label>ISBN is updated</label>
         </rules>
     </decisions>
+    <description>CH: 27/09/2024 - Changed customer ECIN match to match based on ExternalCustomerId</description>
     <environments>Default</environments>
     <formulas>
         <name>forEcinNumber</name>
@@ -166,6 +167,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         </outputAssignments>
     </recordLookups>
     <recordLookups>
+        <description>27/09/02024: Change ECIN match to ExternalCustomerId match</description>
         <name>GetSoldToAccount</name>
         <label>Get Sold to Account</label>
         <locationX>446</locationX>
@@ -176,10 +178,10 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>EcinNumberMatch__c</field>
-            <operator>Contains</operator>
+            <field>ExternalCustomerId__c</field>
+            <operator>EqualTo</operator>
             <value>
-                <elementReference>forEcinNumber</elementReference>
+                <elementReference>$Record.EndCustomerNumber__c</elementReference>
             </value>
         </filters>
         <filters>

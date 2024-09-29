@@ -88,13 +88,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>singleOrderItem.ServiceDate</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>loopAddOpportunityItems.ServiceDate</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>singleOrderItem.UnitPrice</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -1090,8 +1083,8 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
     <recordLookups>
         <name>getOpportunityLineItems</name>
         <label>getOpportunityLineItems</label>
-        <locationX>1062</locationX>
-        <locationY>870</locationY>
+        <locationX>1136</locationX>
+        <locationY>900</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>loopAddOpportunityItems</targetReference>
@@ -1181,6 +1174,13 @@ DB 12/06/2023 - Added CustomerRef assignment for order item</description>
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Closed Won</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OpportunityRecordTypeName__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Zorg</stringValue>
             </value>
         </filters>
         <object>Opportunity</object>

@@ -5,7 +5,7 @@
         <name>AssignVariables</name>
         <label>Assign Variables</label>
         <locationX>314</locationX>
-        <locationY>950</locationY>
+        <locationY>842</locationY>
         <assignmentItems>
             <assignToReference>recRetailerStatisticsImport.SoldToAccount__c</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +35,7 @@
         <name>PathAlreadyConverted</name>
         <label>Already converted</label>
         <locationX>314</locationX>
-        <locationY>1190</locationY>
+        <locationY>1058</locationY>
         <assignmentItems>
             <assignToReference>varPath</assignToReference>
             <operator>Assign</operator>
@@ -51,7 +51,7 @@
         <name>PathCanBeConverted</name>
         <label>Can be converted</label>
         <locationX>50</locationX>
-        <locationY>1190</locationY>
+        <locationY>1058</locationY>
         <assignmentItems>
             <assignToReference>varPath</assignToReference>
             <operator>Assign</operator>
@@ -67,7 +67,7 @@
         <name>PathCannotBeConverted</name>
         <label>Cannot be converted</label>
         <locationX>578</locationX>
-        <locationY>1190</locationY>
+        <locationY>1058</locationY>
         <assignmentItems>
             <assignToReference>varPath</assignToReference>
             <operator>Assign</operator>
@@ -83,7 +83,7 @@
         <name>IsEndCustomerNumberPopulated</name>
         <label>Is End Customer Number populated?</label>
         <locationX>314</locationX>
-        <locationY>278</locationY>
+        <locationY>242</locationY>
         <defaultConnector>
             <targetReference>IsIsbnPopulated</targetReference>
         </defaultConnector>
@@ -108,7 +108,7 @@
         <name>IsIsbnPopulated</name>
         <label>Is ISBN populated?</label>
         <locationX>314</locationX>
-        <locationY>614</locationY>
+        <locationY>542</locationY>
         <defaultConnector>
             <targetReference>AssignVariables</targetReference>
         </defaultConnector>
@@ -133,7 +133,7 @@
         <name>ReadyToConvert</name>
         <label>Ready to convert?</label>
         <locationX>314</locationX>
-        <locationY>1070</locationY>
+        <locationY>950</locationY>
         <defaultConnector>
             <targetReference>PathCannotBeConverted</targetReference>
         </defaultConnector>
@@ -197,6 +197,8 @@
             <label>Already converted</label>
         </rules>
     </decisions>
+    <description>CH: 27/09/2024 - Changed customer ECIN match to match based on ExternalCustomerId</description>
+    <environments>Default</environments>
     <formulas>
         <name>forEcinNumber</name>
         <dataType>String</dataType>
@@ -235,7 +237,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>GetProduct</name>
         <label>Get Product</label>
         <locationX>182</locationX>
-        <locationY>734</locationY>
+        <locationY>650</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>AssignVariables</targetReference>
@@ -258,7 +260,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>GetRetailerStatisticsImport</name>
         <label>Get Retailer Statistics Import</label>
         <locationX>314</locationX>
-        <locationY>158</locationY>
+        <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IsEndCustomerNumberPopulated</targetReference>
@@ -293,17 +295,17 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>GetSoldToAccount</name>
         <label>Get Sold To Account</label>
         <locationX>182</locationX>
-        <locationY>398</locationY>
+        <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>IsIsbnPopulated</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>EcinNumberMatch__c</field>
-            <operator>Contains</operator>
+            <field>ExternalCustomerId__c</field>
+            <operator>EqualTo</operator>
             <value>
-                <elementReference>forEcinNumber</elementReference>
+                <elementReference>recRetailerStatisticsImport.EndCustomerNumber__c</elementReference>
             </value>
         </filters>
         <object>Account</object>
@@ -316,7 +318,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>UpdateRetailerStatisticsImport</name>
         <label>Update Retailer Statistics Import</label>
         <locationX>314</locationX>
-        <locationY>1526</locationY>
+        <locationY>1358</locationY>
         <connector>
             <targetReference>scrMessage</targetReference>
         </connector>
@@ -327,7 +329,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>scrMessage</name>
         <label>Message Screen</label>
         <locationX>314</locationX>
-        <locationY>1646</locationY>
+        <locationY>1466</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -391,7 +393,7 @@ IF(AND(ISBLANK({!varSoldToAccount}),NOT(ISBLANK({!varProduct}))),&quot;Error: ac
         <name>CreateSalesStatistics</name>
         <label>Create Sales Statistics</label>
         <locationX>50</locationX>
-        <locationY>1310</locationY>
+        <locationY>1166</locationY>
         <connector>
             <targetReference>UpdateRetailerStatisticsImport</targetReference>
         </connector>

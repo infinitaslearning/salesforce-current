@@ -47,15 +47,6 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
 
         if(ItemId.size()>0){
 
-        
-                    /*
-                    OrderItem[] lstOrderItem = [Select id,Asset__c,Product2.EAN__c,Terms__c,Quantity,Order.Type,Order.CurrencyIsoCode,Order.ContractId,TrialStartDate__c,TrialEndDate__c,StartDate__c, Order.Pricebook2Id,Order.Pricebook2.Name,Order.Pricebook2.IndexationPercentage__c,UnitPrice,Order.Billto__c,Order.Source__c, EndDate,ManualDiscount__c,ManualDiscountPercent__c,
-                                                        ListPrice,DiscountedPrice__c,ServiceDate,LicenseDuration__c,CreatedDate,ShipToAccount__c,Renewable__c,AssetIdValidate__c,ShipToAttentionOf__c,
-                                                        Product2.CustomPricingAllowed__c,ComponentListPrice__c,Product2.Method__c,OrderLineType__c,CustomerReference__c,Product2.Name,OperatingCompany__c,Order.EndDate,ManualDiscountValue__c,NetsuiteQuantity__c,Order.shipToAttentionOf__c,
-                                                        Order.PricingMethod__c,Product2Id,ShipToAccount__r.DigitalActivationEmail__c, Product2.Type__c,DigitalActivationEMail__c,
-                                                        Order.Hfdstructuur__c,Hfdstructuur__c                                    
-                                                        From OrderItem where Id in:ItemId limit 200];     
-                    */
                     Set<string> Set_string = new Set<String>();
                     for(Id  item:ItemId){
                         Set_string.add(item);
@@ -282,7 +273,9 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                             }
                                             
                                             NewAsset.LicenseDuration__c = item.LicenseDuration__c;
-                                            NewAsset.InstallDate = item.ServiceDate;
+                                          //  NewAsset.InstallDate = item.ServiceDate;
+                                            NewAsset.InstallDate = item.StartDate__c;
+                                            
                                             NewAsset.Terms__c = item.Terms__c;
                                             NewAsset.Quantity = item.Quantity;
                                             NewAsset.Reference__c = item.CustomerReference__c;
@@ -300,7 +293,8 @@ public with sharing class Order_AssetsCreateOnOrderActivation implements Queueab
                                                 NewAsset.ActivationDate__c = item.TrialStartDate__c;   
                                             }
                                             else{
-                                                NewAsset.ActivationDate__c = item.ServiceDate;
+                                                //NewAsset.ActivationDate__c = item.ServiceDate;
+                                                NewAsset.ActivationDate__c = item.StartDate__c;
                                             }
                                             //Replaced with Formula field NewAsset.IsActive__c = true;
 

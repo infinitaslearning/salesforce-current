@@ -98,7 +98,7 @@ public with sharing class Order_ProductCalculationDates {
 
                                 //Assign Start date now but it can change based on rules below
                                     item.StartDate__c = Map_ShipByDate.get(item.OrderId);
-                                    item.ServiceDate = Map_ShipByDate.get(item.OrderId);
+                                 //   item.ServiceDate = Map_ShipByDate.get(item.OrderId);
                              
            
                                 system.debug('***Dates :FixedStartDate'+Map_FixedStartDate);
@@ -190,7 +190,7 @@ public with sharing class Order_ProductCalculationDates {
                                         system.debug('***Item Dates :AddOrSubtractYear'+AddOrSubtractYear);
                                         
                                         item.StartDate__c = StartDate;
-                                        item.ServiceDate = StartDate;
+                                       // item.ServiceDate = StartDate;
                         
                                         item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   
@@ -263,7 +263,7 @@ public with sharing class Order_ProductCalculationDates {
                                         system.debug('**Dates :5:'+StartDate);
                                      
                                         item.StartDate__c = StartDate;
-                                        item.ServiceDate = StartDate;
+                                    //    item.ServiceDate = StartDate;
                         
                                         item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   
@@ -352,7 +352,7 @@ public with sharing class Order_ProductCalculationDates {
                                         system.debug('***Item Dates :ONE'+StartDate);     
                                         
                                         item.StartDate__c = StartDate;
-                                        item.ServiceDate = StartDate;
+                                   //     item.ServiceDate = StartDate;
                         
                                         item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   

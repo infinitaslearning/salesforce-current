@@ -10,67 +10,7 @@
     <valueSet>
         <controllingField>OperatingCompany__c</controllingField>
         <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>Gold - (Municipalites or Private school groups)</fullName>
-                <default>false</default>
-                <label>Gold - (Municipalites or Private school groups)</label>
-            </value>
-            <value>
-                <fullName>Silver - (Schools with 1.000 pupils or more)</fullName>
-                <default>false</default>
-                <label>Silver - (Schools with 1.000 pupils or more)</label>
-            </value>
-            <value>
-                <fullName>Bronze - (Schools with 500 - 1.000 pupils)</fullName>
-                <default>false</default>
-                <label>Bronze - (Schools with 500 - 1.000 pupils)</label>
-            </value>
-            <value>
-                <fullName>Other - (Schools with &lt; 500 pupils)</fullName>
-                <default>false</default>
-                <label>Other - (Schools with &lt; 500 pupils)</label>
-            </value>
-            <value>
-                <fullName>Top Prospect</fullName>
-                <default>false</default>
-                <label>Top Prospect</label>
-            </value>
-            <value>
-                <fullName>Ambassador</fullName>
-                <default>false</default>
-                <label>Ambassador</label>
-            </value>
-            <value>
-                <fullName>Protect &amp; Serve</fullName>
-                <default>false</default>
-                <label>Protect &amp; Serve</label>
-            </value>
-            <value>
-                <fullName>Target &amp; Pursue</fullName>
-                <default>false</default>
-                <label>Target &amp; Pursue</label>
-            </value>
-            <value>
-                <fullName>Opportunistic</fullName>
-                <default>false</default>
-                <label>Opportunistic</label>
-            </value>
-            <value>
-                <fullName>Value</fullName>
-                <default>false</default>
-                <label>Value</label>
-            </value>
-            <value>
-                <fullName>Kommun</fullName>
-                <default>false</default>
-                <label>Kommun</label>
-            </value>
-            <value>
-                <fullName>Top-30</fullName>
-                <default>false</default>
-                <label>Top-30</label>
-            </value>
+            <sorted>true</sorted>
             <value>
                 <fullName>A</fullName>
                 <default>false</default>
@@ -87,54 +27,14 @@
                 <label>AAA</label>
             </value>
             <value>
-                <fullName>B</fullName>
-                <default>false</default>
-                <label>B</label>
-            </value>
-            <value>
-                <fullName>BB</fullName>
-                <default>false</default>
-                <label>BB</label>
-            </value>
-            <value>
-                <fullName>BBB</fullName>
-                <default>false</default>
-                <label>BBB</label>
-            </value>
-            <value>
-                <fullName>C</fullName>
-                <default>false</default>
-                <label>C</label>
-            </value>
-            <value>
-                <fullName>CC</fullName>
-                <default>false</default>
-                <label>CC</label>
-            </value>
-            <value>
-                <fullName>CCC</fullName>
-                <default>false</default>
-                <label>CCC</label>
-            </value>
-            <value>
-                <fullName>D</fullName>
-                <default>false</default>
-                <label>D</label>
-            </value>
-            <value>
                 <fullName>A - Leading</fullName>
                 <default>false</default>
                 <label>A - Leading</label>
             </value>
             <value>
-                <fullName>B - Leading</fullName>
+                <fullName>Ambassador</fullName>
                 <default>false</default>
-                <label>B - Leading</label>
-            </value>
-            <value>
-                <fullName>C - Leading</fullName>
-                <default>false</default>
-                <label>C - Leading</label>
+                <label>Ambassador</label>
             </value>
             <value>
                 <fullName>A-related</fullName>
@@ -142,89 +42,9 @@
                 <label>A-related</label>
             </value>
             <value>
-                <fullName>B-related</fullName>
-                <default>false</default>
-                <label>B-related</label>
-            </value>
-            <value>
-                <fullName>C-related</fullName>
-                <default>false</default>
-                <label>C-related</label>
-            </value>
-            <value>
                 <fullName>A-school</fullName>
                 <default>false</default>
                 <label>A-school</label>
-            </value>
-            <value>
-                <fullName>B-school</fullName>
-                <default>false</default>
-                <label>B-school</label>
-            </value>
-            <value>
-                <fullName>C-school</fullName>
-                <default>false</default>
-                <label>C-school</label>
-            </value>
-            <value>
-                <fullName>niet van toepassing</fullName>
-                <default>false</default>
-                <label>niet van toepassing</label>
-            </value>
-            <value>
-                <fullName>onbekend</fullName>
-                <default>false</default>
-                <label>onbekend</label>
-            </value>
-            <value>
-                <fullName>pas d&apos;implication</fullName>
-                <default>false</default>
-                <label>pas d&apos;implication</label>
-            </value>
-            <value>
-                <fullName>école A</fullName>
-                <default>false</default>
-                <label>école A</label>
-            </value>
-            <value>
-                <fullName>école B</fullName>
-                <default>false</default>
-                <label>école B</label>
-            </value>
-            <value>
-                <fullName>école C</fullName>
-                <default>false</default>
-                <label>école C</label>
-            </value>
-            <value>
-                <fullName>école relatée C</fullName>
-                <default>false</default>
-                <label>école relatée C</label>
-            </value>
-            <value>
-                <fullName>école D</fullName>
-                <default>false</default>
-                <label>école D</label>
-            </value>
-            <value>
-                <fullName>inconnu</fullName>
-                <default>false</default>
-                <label>inconnu</label>
-            </value>
-            <value>
-                <fullName>Hoog</fullName>
-                <default>false</default>
-                <label>Hoog</label>
-            </value>
-            <value>
-                <fullName>Midden</fullName>
-                <default>false</default>
-                <label>Midden</label>
-            </value>
-            <value>
-                <fullName>Laag</fullName>
-                <default>false</default>
-                <label>Laag</label>
             </value>
             <value>
                 <fullName>Attack Large</fullName>
@@ -242,6 +62,96 @@
                 <label>Attack Small</label>
             </value>
             <value>
+                <fullName>B</fullName>
+                <default>false</default>
+                <label>B</label>
+            </value>
+            <value>
+                <fullName>BB</fullName>
+                <default>false</default>
+                <label>BB</label>
+            </value>
+            <value>
+                <fullName>BBB</fullName>
+                <default>false</default>
+                <label>BBB</label>
+            </value>
+            <value>
+                <fullName>B - Green</fullName>
+                <default>false</default>
+                <label>B - Green</label>
+            </value>
+            <value>
+                <fullName>B - Leading</fullName>
+                <default>false</default>
+                <label>B - Leading</label>
+            </value>
+            <value>
+                <fullName>B - Purple</fullName>
+                <default>false</default>
+                <label>B - Purple</label>
+            </value>
+            <value>
+                <fullName>B - Red</fullName>
+                <default>false</default>
+                <label>B - Red</label>
+            </value>
+            <value>
+                <fullName>B-related</fullName>
+                <default>false</default>
+                <label>B-related</label>
+            </value>
+            <value>
+                <fullName>Bronze - (Schools with 500 - 1.000 pupils)</fullName>
+                <default>false</default>
+                <label>Bronze - (Schools with 500 - 1.000 pupils)</label>
+            </value>
+            <value>
+                <fullName>B-school</fullName>
+                <default>false</default>
+                <label>B-school</label>
+            </value>
+            <value>
+                <fullName>B - Yellow</fullName>
+                <default>false</default>
+                <label>B - Yellow</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <label>C</label>
+            </value>
+            <value>
+                <fullName>CC</fullName>
+                <default>false</default>
+                <label>CC</label>
+            </value>
+            <value>
+                <fullName>CCC</fullName>
+                <default>false</default>
+                <label>CCC</label>
+            </value>
+            <value>
+                <fullName>C - Leading</fullName>
+                <default>false</default>
+                <label>C - Leading</label>
+            </value>
+            <value>
+                <fullName>C-related</fullName>
+                <default>false</default>
+                <label>C-related</label>
+            </value>
+            <value>
+                <fullName>C-school</fullName>
+                <default>false</default>
+                <label>C-school</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <label>D</label>
+            </value>
+            <value>
                 <fullName>Defend Large</fullName>
                 <default>false</default>
                 <label>Defend Large</label>
@@ -257,44 +167,29 @@
                 <label>Defend Small</label>
             </value>
             <value>
-                <fullName>Grundskola</fullName>
+                <fullName>école A</fullName>
                 <default>false</default>
-                <label>Grundskola</label>
+                <label>école A</label>
             </value>
             <value>
-                <fullName>Grundsärskola</fullName>
+                <fullName>école B</fullName>
                 <default>false</default>
-                <label>Grundsärskola</label>
+                <label>école B</label>
             </value>
             <value>
-                <fullName>Specialskola</fullName>
+                <fullName>école C</fullName>
                 <default>false</default>
-                <label>Specialskola</label>
+                <label>école C</label>
             </value>
             <value>
-                <fullName>Sameskola</fullName>
+                <fullName>école D</fullName>
                 <default>false</default>
-                <label>Sameskola</label>
+                <label>école D</label>
             </value>
             <value>
-                <fullName>Gymnasieskola</fullName>
+                <fullName>école relatée C</fullName>
                 <default>false</default>
-                <label>Gymnasieskola</label>
-            </value>
-            <value>
-                <fullName>Gymnasiesärskola</fullName>
-                <default>false</default>
-                <label>Gymnasiesärskola</label>
-            </value>
-            <value>
-                <fullName>Komvux</fullName>
-                <default>false</default>
-                <label>Komvux</label>
-            </value>
-            <value>
-                <fullName>Huvudman</fullName>
-                <default>false</default>
-                <label>Huvudman</label>
+                <label>école relatée C</label>
             </value>
             <value>
                 <fullName>Folkhögskola</fullName>
@@ -302,9 +197,119 @@
                 <label>Folkhögskola</label>
             </value>
             <value>
+                <fullName>Gold - (Municipalites or Private school groups)</fullName>
+                <default>false</default>
+                <label>Gold - (Municipalites or Private school groups)</label>
+            </value>
+            <value>
+                <fullName>Grundsärskola</fullName>
+                <default>false</default>
+                <label>Grundsärskola</label>
+            </value>
+            <value>
+                <fullName>Grundskola</fullName>
+                <default>false</default>
+                <label>Grundskola</label>
+            </value>
+            <value>
+                <fullName>Gymnasiesärskola</fullName>
+                <default>false</default>
+                <label>Gymnasiesärskola</label>
+            </value>
+            <value>
+                <fullName>Gymnasieskola</fullName>
+                <default>false</default>
+                <label>Gymnasieskola</label>
+            </value>
+            <value>
                 <fullName>Högskola</fullName>
                 <default>false</default>
                 <label>Högskola</label>
+            </value>
+            <value>
+                <fullName>Hoog</fullName>
+                <default>false</default>
+                <label>Hoog</label>
+            </value>
+            <value>
+                <fullName>Huvudman</fullName>
+                <default>false</default>
+                <label>Huvudman</label>
+            </value>
+            <value>
+                <fullName>inconnu</fullName>
+                <default>false</default>
+                <label>inconnu</label>
+            </value>
+            <value>
+                <fullName>Kommun</fullName>
+                <default>false</default>
+                <label>Kommun</label>
+            </value>
+            <value>
+                <fullName>Komvux</fullName>
+                <default>false</default>
+                <label>Komvux</label>
+            </value>
+            <value>
+                <fullName>Laag</fullName>
+                <default>false</default>
+                <label>Laag</label>
+            </value>
+            <value>
+                <fullName>Midden</fullName>
+                <default>false</default>
+                <label>Midden</label>
+            </value>
+            <value>
+                <fullName>niet van toepassing</fullName>
+                <default>false</default>
+                <label>niet van toepassing</label>
+            </value>
+            <value>
+                <fullName>onbekend</fullName>
+                <default>false</default>
+                <label>onbekend</label>
+            </value>
+            <value>
+                <fullName>Opportunistic</fullName>
+                <default>false</default>
+                <label>Opportunistic</label>
+            </value>
+            <value>
+                <fullName>Other - (Schools with &lt; 500 pupils)</fullName>
+                <default>false</default>
+                <label>Other - (Schools with &lt; 500 pupils)</label>
+            </value>
+            <value>
+                <fullName>pas d&apos;implication</fullName>
+                <default>false</default>
+                <label>pas d&apos;implication</label>
+            </value>
+            <value>
+                <fullName>Protect &amp; Serve</fullName>
+                <default>false</default>
+                <label>Protect &amp; Serve</label>
+            </value>
+            <value>
+                <fullName>Sameskola</fullName>
+                <default>false</default>
+                <label>Sameskola</label>
+            </value>
+            <value>
+                <fullName>Silver - (Schools with 1.000 pupils or more)</fullName>
+                <default>false</default>
+                <label>Silver - (Schools with 1.000 pupils or more)</label>
+            </value>
+            <value>
+                <fullName>Specialskola</fullName>
+                <default>false</default>
+                <label>Specialskola</label>
+            </value>
+            <value>
+                <fullName>Target &amp; Pursue</fullName>
+                <default>false</default>
+                <label>Target &amp; Pursue</label>
             </value>
             <value>
                 <fullName>Top-100</fullName>
@@ -317,9 +322,9 @@
                 <label>Top-100 - Green</label>
             </value>
             <value>
-                <fullName>Top-100 - Yellow</fullName>
+                <fullName>Top-100 - Purple</fullName>
                 <default>false</default>
-                <label>Top-100 - Yellow</label>
+                <label>Top-100 - Purple</label>
             </value>
             <value>
                 <fullName>Top-100 - Red</fullName>
@@ -327,34 +332,29 @@
                 <label>Top-100 - Red</label>
             </value>
             <value>
-                <fullName>Top-100 - Purple</fullName>
+                <fullName>Top-100 - Yellow</fullName>
                 <default>false</default>
-                <label>Top-100 - Purple</label>
+                <label>Top-100 - Yellow</label>
             </value>
             <value>
-                <fullName>B - Green</fullName>
+                <fullName>Top-30</fullName>
                 <default>false</default>
-                <label>B - Green</label>
+                <label>Top-30</label>
             </value>
             <value>
-                <fullName>B - Yellow</fullName>
+                <fullName>Top Prospect</fullName>
                 <default>false</default>
-                <label>B - Yellow</label>
+                <label>Top Prospect</label>
             </value>
             <value>
-                <fullName>B - Red</fullName>
+                <fullName>Value</fullName>
                 <default>false</default>
-                <label>B - Red</label>
-            </value>
-            <value>
-                <fullName>B - Purple</fullName>
-                <default>false</default>
-                <label>B - Purple</label>
+                <label>Value</label>
             </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Grundskola</valueName>
+            <valueName>Folkhögskola</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -362,15 +362,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Specialskola</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Sameskola</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Gymnasieskola</valueName>
+            <valueName>Grundskola</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -378,7 +370,11 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Komvux</valueName>
+            <valueName>Gymnasieskola</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Högskola</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
@@ -386,95 +382,15 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Folkhögskola</valueName>
+            <valueName>Komvux</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Liber</controllingFieldValue>
-            <valueName>Högskola</valueName>
+            <valueName>Sameskola</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Gold - (Municipalites or Private school groups)</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Silver - (Schools with 1.000 pupils or more)</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Bronze - (Schools with 500 - 1.000 pupils)</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Other - (Schools with &lt; 500 pupils)</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Top Prospect</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Ambassador</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Protect &amp; Serve</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Target &amp; Pursue</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Opportunistic</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Value</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Kommun</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Top-30</valueName>
+            <controllingFieldValue>Liber</controllingFieldValue>
+            <valueName>Specialskola</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
@@ -502,55 +418,6 @@
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>B</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>BB</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>BBB</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>CC</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>CCC</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>D</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>A - Leading</valueName>
         </valueSettings>
         <valueSettings>
@@ -558,14 +425,7 @@
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>B - Leading</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>C - Leading</valueName>
+            <valueName>Ambassador</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
@@ -579,119 +439,7 @@
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>B-related</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>C-related</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>A-school</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>B-school</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>C-school</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>niet van toepassing</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>onbekend</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>pas d&apos;implication</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>école A</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>école B</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>école C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>école relatée C</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>école D</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>inconnu</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Hoog</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Midden</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Noordhoff</controllingFieldValue>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
-            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
-            <valueName>Laag</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Noordhoff</controllingFieldValue>
@@ -719,6 +467,104 @@
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <controllingFieldValue>Infinitas Learning</controllingFieldValue>
             <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>B</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>BB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>BBB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>B - Leading</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>B-related</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Bronze - (Schools with 500 - 1.000 pupils)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>B-school</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>CC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>CCC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>C - Leading</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>C-related</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>C-school</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>D</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
             <valueName>Defend Large</valueName>
         </valueSettings>
         <valueSettings>
@@ -736,6 +582,176 @@
             <valueName>Defend Small</valueName>
         </valueSettings>
         <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>école A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>école B</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>école C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>école D</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>école relatée C</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Gold - (Municipalites or Private school groups)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Hoog</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>inconnu</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Kommun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Laag</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Midden</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>niet van toepassing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>onbekend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Opportunistic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Other - (Schools with &lt; 500 pupils)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>pas d&apos;implication</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Protect &amp; Serve</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Silver - (Schools with 1.000 pupils or more)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Target &amp; Pursue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Top-30</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Top Prospect</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Noordhoff</controllingFieldValue>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <controllingFieldValue>Infinitas Learning</controllingFieldValue>
+            <controllingFieldValue>Noordhoff Zorg</controllingFieldValue>
+            <valueName>Value</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Green</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Purple</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Red</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Plantyn</controllingFieldValue>
+            <valueName>B - Yellow</valueName>
+        </valueSettings>
+        <valueSettings>
             <controllingFieldValue>Plantyn</controllingFieldValue>
             <valueName>Top-100</valueName>
         </valueSettings>
@@ -745,7 +761,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>Top-100 - Yellow</valueName>
+            <valueName>Top-100 - Purple</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Plantyn</controllingFieldValue>
@@ -753,23 +769,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>Top-100 - Purple</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>B - Green</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>B - Yellow</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>B - Red</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Plantyn</controllingFieldValue>
-            <valueName>B - Purple</valueName>
+            <valueName>Top-100 - Yellow</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>

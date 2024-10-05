@@ -96,8 +96,8 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
                     // Handle SE StudentNumbers
                     if (hasSE) {
                         Details det = SEMap.get(extCustId);
-                        acc.SEStudents__c = det.aantal_inschrijvingen;
-                        numberOfStudents += det.aantal_inschrijvingen;
+                        acc.SEStudents__c = det.aantal_inschrijvingen.round(System.RoundingMode.UP);
+                        numberOfStudents += det.aantal_inschrijvingen.round(System.RoundingMode.UP);
                         addAcc = true;
                     }
 
@@ -105,19 +105,19 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
                     if (hasDKO) {
                         Details det = DKOMap.get(extCustId);
                         if (acc.SEStudents__c != null) {
-                            acc.SEStudents__c += det.aantal_inschrijvingen;
+                            acc.SEStudents__c += det.aantal_inschrijvingen.round(System.RoundingMode.UP);
                         } else{
-                            acc.SEStudents__c = det.aantal_inschrijvingen;
+                            acc.SEStudents__c = det.aantal_inschrijvingen.round(System.RoundingMode.UP);
                         }
-                        numberOfStudents += det.aantal_inschrijvingen;
+                        numberOfStudents += det.aantal_inschrijvingen.round(System.RoundingMode.UP);
                         addAcc = true;
                     }
 
                     // Handle VE StudentNumbers
                     if (hasVE) {
                         Details det = VEMap.get(extCustId);
-                        acc.VEStudents__c = det.aantal_inschrijvingen;
-                        numberOfStudents += det.aantal_inschrijvingen;
+                        acc.VEStudents__c = det.aantal_inschrijvingen.round(System.RoundingMode.UP);
+                        numberOfStudents += det.aantal_inschrijvingen.round(System.RoundingMode.UP);
                         addAcc = true;
                     }
 
@@ -267,16 +267,16 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
                         if (det.administratievegroep_omschrijving == 'Kleuterklas') {
                             // Add to KG students
                             if (detailsPeKg.get(det.instelling_nummer).containsKey('KG')) { // Add
-                                detailsPeKg.get(det.instelling_nummer).put('KG',detailsPeKg.get(det.instelling_nummer).get('KG') + det.aantal_inschrijvingen.totaal);
+                                detailsPeKg.get(det.instelling_nummer).put('KG',Integer.valueOf((detailsPeKg.get(det.instelling_nummer).get('KG') + det.aantal_inschrijvingen.totaal).round(System.RoundingMode.UP)));
                             } else { // Create
-                                detailsPeKg.get(det.instelling_nummer).put('KG',det.aantal_inschrijvingen.totaal);
+                                detailsPeKg.get(det.instelling_nummer).put('KG',Integer.valueOf(det.aantal_inschrijvingen.totaal.round(System.RoundingMode.UP)));
                             }
                         } else {
                             // Add to PE students
                             if (detailsPeKg.get(det.instelling_nummer).containsKey('PE')) { // Add
-                                detailsPeKg.get(det.instelling_nummer).put('PE',detailsPeKg.get(det.instelling_nummer).get('PE') + det.aantal_inschrijvingen.totaal);
+                                detailsPeKg.get(det.instelling_nummer).put('PE',Integer.valueOf((detailsPeKg.get(det.instelling_nummer).get('PE') + det.aantal_inschrijvingen.totaal).round(System.RoundingMode.UP)));
                             } else { // Create
-                                detailsPeKg.get(det.instelling_nummer).put('PE',det.aantal_inschrijvingen.totaal);
+                                detailsPeKg.get(det.instelling_nummer).put('PE',Integer.valueOf(det.aantal_inschrijvingen.totaal.round(System.RoundingMode.UP)));
                             }
                         }
                     } else {
@@ -285,10 +285,10 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
 
                         if (det.administratievegroep_omschrijving == 'Kleuterklas') {
                             // Add to KG students
-                            tempMap.put('KG',det.aantal_inschrijvingen.totaal);
+                            tempMap.put('KG',Integer.valueOf(det.aantal_inschrijvingen.totaal.round(System.RoundingMode.UP)));
                         } else {
                             // Add to PE students
-                            tempMap.put('PE',det.aantal_inschrijvingen.totaal);
+                            tempMap.put('PE',Integer.valueOf(det.aantal_inschrijvingen.totaal.round(System.RoundingMode.UP)));
                         }
                         detailsPeKg.put(det.instelling_nummer,tempMap);
                     }
@@ -318,9 +318,9 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
     }
 
     public class aantal_inschrijvingen {
-        public Integer totaal;
-        public Integer man;
-        public Integer vrouw;
+        public Decimal totaal;
+        public Decimal man;
+        public Decimal vrouw;
     }
 
     public class Details {
@@ -329,6 +329,6 @@ public class AU_AgodiStudentNumbersUpdateByAPI implements Queueable, Database.Al
         public String instelling_naam;
         public String instellingslocatie_postcode;
         public String instellingslocatie_gemeente;
-        public Integer aantal_inschrijvingen;
+        public Decimal aantal_inschrijvingen;
     }
 }

@@ -1,7 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
+    <assignments>
+        <name>Assign_variables_Domain</name>
+        <label>Assign variables</label>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Case.SpamReason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Domain</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Default_variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_variables_Email</name>
+        <label>Assign variables</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Case.SpamReason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Default_variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_variables_Subject</name>
+        <label>Assign variables</label>
+        <locationX>842</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Case.SpamReason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Subject</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Default_variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Default_variables</name>
+        <label>Default variables</label>
+        <locationX>710</locationX>
+        <locationY>866</locationY>
+        <assignmentItems>
+            <assignToReference>sov_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_Case.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Label.Spam</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <choices>
+        <name>choice_Domain</name>
+        <choiceText>Domain</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Domain</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>choice_Email</name>
+        <choiceText>Email</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Email</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>choice_Subject</name>
+        <choiceText>Subject</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Subject</stringValue>
+        </value>
+    </choices>
+    <decisions>
+        <name>Object</name>
+        <label>Object</label>
+        <locationX>666</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Messaging_Session</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>0Mw</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Messaging_Session</targetReference>
+            </connector>
+            <label>Messaging Session</label>
+        </rules>
+        <rules>
+            <name>Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>500</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Which_Action</targetReference>
+            </connector>
+            <label>Case</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Which_update_action</name>
+        <label>Which update action</label>
+        <locationX>710</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Default_variables</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Should_this_case_reported_as_spam_based_on</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>choice_Email</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_Case_Create_Customer_Block_record</targetReference>
+            </connector>
+            <label>Email</label>
+        </rules>
+        <rules>
+            <name>Domain</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Should_this_case_reported_as_spam_based_on</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>choice_Domain</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Domain_Create_Customer_Block_record</targetReference>
+            </connector>
+            <label>Domain</label>
+        </rules>
+        <rules>
+            <name>Subject</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Should_this_case_reported_as_spam_based_on</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>choice_Subject</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Subject_Create_Customer_Block_record</targetReference>
+            </connector>
+            <label>Subject</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>form_Domain</name>
+        <dataType>String</dataType>
+        <expression>RIGHT({!sov_Case.SuppliedEmail}, LEN({!sov_Case.SuppliedEmail}) - FIND(&quot;@&quot;, {!sov_Case.SuppliedEmail}))</expression>
+    </formulas>
     <interviewLabel>Create Block record {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Block Record</label>
     <processMetadataValues>
@@ -26,8 +218,8 @@
     <recordCreates>
         <name>Create_Customer_Block_record</name>
         <label>Create Customer Block record</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
         <connector>
             <targetReference>Finish</targetReference>
         </connector>
@@ -46,11 +238,103 @@
         <object>CustomerBlockList__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <name>Domain_Create_Customer_Block_record</name>
+        <label>Create Customer Block record</label>
+        <locationX>578</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Assign_variables_Domain</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Channel__c</field>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Domain__c</field>
+            <value>
+                <elementReference>form_Domain</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CustomerBlockList__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Email_Case_Create_Customer_Block_record</name>
+        <label>Create Customer Block record</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Assign_variables_Email</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Channel__c</field>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email__c</field>
+            <value>
+                <elementReference>sov_Case.SuppliedEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CustomerBlockList__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Subject_Create_Customer_Block_record</name>
+        <label>Create Customer Block record</label>
+        <locationX>842</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Assign_variables_Subject</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Channel__c</field>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject__c</field>
+            <value>
+                <elementReference>sov_Case.Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CustomerBlockList__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Case</name>
+        <label>Get Case</label>
+        <locationX>710</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Which_update_action</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputReference>sov_Case</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>SuppliedEmail</queriedFields>
+        <queriedFields>Subject</queriedFields>
+    </recordLookups>
     <recordLookups>
         <name>Get_Messaging_Session</name>
         <label>Get Messaging Session</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Create_Customer_Block_record</targetReference>
@@ -68,11 +352,21 @@
         <queriedFields>Id</queriedFields>
         <queriedFields>Email__c</queriedFields>
     </recordLookups>
+    <recordUpdates>
+        <name>Update_Case</name>
+        <label>Update Case</label>
+        <locationX>710</locationX>
+        <locationY>974</locationY>
+        <connector>
+            <targetReference>Finish_Report_Spam</targetReference>
+        </connector>
+        <inputReference>sov_Case</inputReference>
+    </recordUpdates>
     <screens>
         <name>Finish</name>
         <label>Finish</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -85,11 +379,52 @@
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
+    <screens>
+        <name>Finish_Report_Spam</name>
+        <label>Finish Report Spam</label>
+        <locationX>710</locationX>
+        <locationY>1082</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Copy_1_of_Success</name>
+            <fieldText>&lt;p&gt;Your request has been processed successfully&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>Ok</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Which_Action</name>
+        <label>Which Action</label>
+        <locationX>710</locationX>
+        <locationY>242</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Get_Case</targetReference>
+        </connector>
+        <fields>
+            <name>Should_this_case_reported_as_spam_based_on</name>
+            <choiceReferences>choice_Domain</choiceReferences>
+            <choiceReferences>choice_Email</choiceReferences>
+            <choiceReferences>choice_Subject</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Should this case reported as spam based on:</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>540</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Messaging_Session</targetReference>
+            <targetReference>Object</targetReference>
         </connector>
     </start>
     <status>Active</status>
@@ -99,6 +434,14 @@
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>sov_Case</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
     </variables>
     <variables>
         <name>sov_MessagingSession</name>

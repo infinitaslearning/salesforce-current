@@ -40,7 +40,7 @@
             <assignToReference>$Record.BusinessHoursId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>01mQv000000jfyH</stringValue>
+                <elementReference>$Label.BusinessHoursLiber</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -72,7 +72,7 @@
             <assignToReference>$Record.BusinessHoursId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>01mJW000000dPxp</stringValue>
+                <elementReference>$Label.BusinessHoursPlantyn</elementReference>
             </value>
         </assignmentItems>
         <connector>

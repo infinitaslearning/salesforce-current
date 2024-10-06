@@ -66,25 +66,25 @@ public class MAIL_mailChildCases_BATCH implements Database.Batchable<sObject> {
         try {
             Organization ORG = [Select Id, Name, IsSandbox from Organization];
             
-            if (ORG.IsSandbox && ORG.Id != '00D0E000000E6pgUAC') {                                                          // For Developer sandboxes (no-reply e-mailaddress is not available there)
+            if (ORG.IsSandbox && ORG.Name == 'DevCentral') {                                                          // For Developer sandboxes (no-reply e-mailaddress is not available there)
                 devSandboxOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'bsc-support@infinitaslearning.com' LIMIT 1];
                 noordhoffOWEA = devSandboxOWEA;
                 plantynOWEA = devSandboxOWEA;
-                liberOWEA = devSandboxOWEA;
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@liber.se' LIMIT 1];   
                 noordhoffProfessionalOWEA = devSandboxOWEA;
                 fallBackOWEA = devSandboxOWEA;
             }
-            else if ((ORG.IsSandbox && ORG.Id == '00D0E000000E6pgUAC') || Test.isRunningTest()) {                           // FOR UAT Sandbox & test in Production
+            else if ((ORG.IsSandbox && ORG.Name == 'UAT') || Test.isRunningTest()) {                           // FOR UAT Sandbox & test in Production
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
                 plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'noreply@liber.se' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@liber.se' LIMIT 1];                 
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }
             else { // FOR PRODUCTION
                 noordhoffOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@noordhoff.nl' LIMIT 1];
                 plantynOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];                // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
-                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'noreply@liber.se' LIMIT 1];                  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
+                liberOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Address = 'noreply@liber.se' LIMIT 1];                  
                 noordhoffProfessionalOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];  // TO BE DECIDED -- NEEDS TO BE IN Organization-Wide Email Addresses
                 fallBackOWEA = [SELECT Id FROM OrgWideEmailAddress WHERE Purpose = 'DefaultNoreply' LIMIT 1];               // FALLBACK
             }

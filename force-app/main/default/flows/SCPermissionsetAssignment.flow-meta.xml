@@ -541,6 +541,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>ManageAccounts</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressNoordhoff</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -608,21 +615,14 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <field>Name</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>SlackServiceUser</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>SlackGeneral</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
                 <stringValue>ManageMacro</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressLiber</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -665,6 +665,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>CreateOrders</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressLiber</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -744,6 +751,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>SlackGeneral</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressNoordhoff</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -821,6 +835,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
                 <stringValue>SlackGeneral</stringValue>
             </value>
         </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressNoordhoff</stringValue>
+            </value>
+        </filters>
         <object>PermissionSet</object>
         <outputReference>soc_Permissionsets</outputReference>
         <queriedFields>Id</queriedFields>
@@ -875,6 +896,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>ManageVIPCustomers</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressNoordhoff</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>
@@ -938,6 +966,13 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <operator>EqualTo</operator>
             <value>
                 <stringValue>ServiceUserPsl</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ServiceEmailAddressPlantyn</stringValue>
             </value>
         </filters>
         <object>PermissionSet</object>

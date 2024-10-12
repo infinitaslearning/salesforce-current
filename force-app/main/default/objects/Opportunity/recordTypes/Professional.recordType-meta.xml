@@ -2907,6 +2907,14 @@
             <fullName>2024-2025</fullName>
             <default>false</default>
         </values>
+        <values>
+            <fullName>2025-2026</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2026-2027</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>Segment__c</picklist>

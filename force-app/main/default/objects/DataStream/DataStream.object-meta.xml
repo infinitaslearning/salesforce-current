@@ -72,7 +72,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <searchLayouts>
         <customTabListAdditionalFields>DataConnectorType</customTabListAdditionalFields>
         <customTabListAdditionalFields>StreamType</customTabListAdditionalFields>
@@ -103,5 +103,5 @@
         <searchResultsAdditionalFields>TotalNumberOfRowsAdded</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastRefreshDate</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

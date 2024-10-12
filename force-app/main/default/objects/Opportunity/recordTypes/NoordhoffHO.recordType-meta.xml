@@ -3121,10 +3121,18 @@
         </values>
         <values>
             <fullName>2023-2024</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>2024-2025</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>2025-2026</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2026-2027</fullName>
             <default>false</default>
         </values>
     </picklistValues>

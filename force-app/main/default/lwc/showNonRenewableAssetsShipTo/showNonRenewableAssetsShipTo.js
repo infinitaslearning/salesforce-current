@@ -149,7 +149,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                 let elt ={};
                 elt.Id = element.Id;
                 elt.AssetName = element.Name;
-                elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                 elt.Amount = element.Quantity;
                 elt.assetUrl = `/${element.Id}`;
                 elt.ShipToName = element.Account.Name;
@@ -240,7 +240,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                         let elt ={};
                         elt.Id = element.Id;
                         elt.AssetName = element.Name;
-                        elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                        elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                         elt.Amount = element.Quantity;
                         elt.assetUrl = `/${element.Id}`;
                         elt.ShipToName = element.Account.Name;
@@ -370,7 +370,7 @@ export default class ShowNonRenewableAssetsShipTo extends LightningElement {
                     let elt ={};
                     elt.Id = element.Id;
                     elt.AssetName = element.Name;
-                    elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                    elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                     elt.Amount = element.Quantity;
                     elt.assetUrl = `/${element.Id}`;
                     elt.ShipToName = element.Account.Name;

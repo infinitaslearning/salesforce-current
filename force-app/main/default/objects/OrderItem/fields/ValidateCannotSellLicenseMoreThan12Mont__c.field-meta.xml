@@ -2,7 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ValidateCannotSellLicenseMoreThan12Mont__c</fullName>
     <externalId>false</externalId>
-    <formula>IF(AND(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),ProductLicenseDuration__c &gt; 12),1,0)</formula>
+    <formula>/* HdG - 10/10/2024: Plantyn has one item that should be allowed to have License duration of 24 months. This formula is blocking
+them from manually ordering this item. Therefore this validation is disabled.
+IF(AND(ISPICKVAL(OperatingCompany__c,&quot;Plantyn&quot;),ProductLicenseDuration__c &gt; 12),1,0) */
+
+0</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Validate CannotSellLicenseMoreThan12Mont</label>
     <precision>18</precision>

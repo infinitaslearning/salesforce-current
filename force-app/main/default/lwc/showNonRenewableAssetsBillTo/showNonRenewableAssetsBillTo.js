@@ -148,7 +148,7 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                 let elt ={};
                 elt.Id = element.Id;
                 elt.AssetName = element.Name;
-                elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                 elt.Amount = element.Quantity;
                 elt.assetUrl = `/${element.Id}`;
                 if (element.AccountId) {
@@ -239,7 +239,7 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                         let elt ={};
                         elt.Id = element.Id;
                         elt.AssetName = element.Name;
-                        elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                        elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                         elt.Amount = element.Quantity;
                         elt.assetUrl = `/${element.Id}`;
                         if (element.AccountId) {
@@ -369,7 +369,7 @@ export default class ShowNonRenewableAssetsBillTo extends LightningElement {
                     let elt ={};
                     elt.Id = element.Id;
                     elt.AssetName = element.Name;
-                    elt.ExternalCustID = element.Account.ExternalCustomerId__c;
+                    elt.ExternalCustID = element.Account?.ExternalCustomerId__c;
                     elt.Amount = element.Quantity;
                     elt.assetUrl = `/${element.Id}`;
                     if (element.AccountId) {

@@ -72,7 +72,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <searchLayouts>
         <customTabListAdditionalFields>ObjectCategory</customTabListAdditionalFields>
         <customTabListAdditionalFields>Billable</customTabListAdditionalFields>
@@ -99,5 +99,5 @@
         <searchResultsAdditionalFields>LastRefreshDate</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TotalRecords</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -4,7 +4,7 @@
         <name>Get_number_of_linked_Articles</name>
         <label>Get number of linked Articles</label>
         <locationX>1249</locationX>
-        <locationY>3539</locationY>
+        <locationY>3839</locationY>
         <actionName>CASE_CaseHelper</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -29,7 +29,7 @@
         <name>Add1toQueueDeveloperNameinList</name>
         <label>Add 1 to QueueDeveloperName in List</label>
         <locationX>1139</locationX>
-        <locationY>4295</locationY>
+        <locationY>4595</locationY>
         <assignmentItems>
             <assignToReference>QueueDeveloperNameInList</assignToReference>
             <operator>Add</operator>
@@ -45,7 +45,7 @@
         <name>Assign_Article_Count</name>
         <label>Assign Article Count</label>
         <locationX>1249</locationX>
-        <locationY>3647</locationY>
+        <locationY>3947</locationY>
         <assignmentItems>
             <assignToReference>$Record.AttachedArticleCount__c</assignToReference>
             <operator>Assign</operator>
@@ -61,7 +61,7 @@
         <name>Assign_Email</name>
         <label>Assign Email</label>
         <locationX>1348</locationX>
-        <locationY>3239</locationY>
+        <locationY>3539</locationY>
         <assignmentItems>
             <assignToReference>$Record.Email__c</assignToReference>
             <operator>Assign</operator>
@@ -74,10 +74,10 @@
         </connector>
     </assignments>
     <assignments>
-        <name>Copy_1_of_Complete_Milestone</name>
-        <label>Copy 1 of Complete Milestone</label>
-        <locationX>1194</locationX>
-        <locationY>1955</locationY>
+        <name>Complete_Milestone</name>
+        <label>Complete 1st Milestone</label>
+        <locationX>1029</locationX>
+        <locationY>2171</locationY>
         <assignmentItems>
             <assignToReference>sov_milestone.CompletionDate</assignToReference>
             <operator>Assign</operator>
@@ -86,30 +86,37 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Copy_1_of_Update_Milestone</targetReference>
+            <targetReference>Update_Milestone</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Copy_1_of_Set_First_Response_Milestone_Ended</name>
-        <label>Copy 1 of Set First Response Milestone Ended</label>
-        <locationX>1194</locationX>
-        <locationY>1739</locationY>
+        <name>Complete_Resolution_Milestone</name>
+        <label>Complete Resolution Milestone</label>
+        <locationX>2426</locationX>
+        <locationY>647</locationY>
         <assignmentItems>
-            <assignToReference>$Record.FirstResponseMilestoneEnded__c</assignToReference>
+            <assignToReference>sov_milestone.CompletionDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Timenow</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>sov_milestone.IsCompleted</assignToReference>
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Copy_1_of_Get_First_Response_Milestone</targetReference>
+            <targetReference>Update_MilestoneR</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>Copy_1_of_Set_to_Case_Owner_Queue</name>
         <label>Set Queue Name as Case Owner</label>
         <locationX>1546</locationX>
-        <locationY>731</locationY>
+        <locationY>839</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -139,7 +146,7 @@
         <name>Set_Contact_Email_Hidden</name>
         <label>Set Email</label>
         <locationX>1194</locationX>
-        <locationY>2855</locationY>
+        <locationY>3155</locationY>
         <assignmentItems>
             <assignToReference>$Record.Email__c</assignToReference>
             <operator>Assign</operator>
@@ -152,10 +159,26 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_First_Response_Milestone_Ended</name>
+        <label>Set &quot;First Response Milestone&quot;= Ended</label>
+        <locationX>1161</locationX>
+        <locationY>1847</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FirstResponseMilestoneEnded__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_First_Response_Milestone</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Set_PE_HE</name>
         <label>Set PE/HE</label>
         <locationX>842</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -178,7 +201,7 @@
         <name>Set_Queue_name</name>
         <label>Set Queue name</label>
         <locationX>1810</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -208,7 +231,7 @@
         <name>Set_Queue_to_Primary_Education</name>
         <label>Set Queue to Primary Education</label>
         <locationX>314</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -231,7 +254,7 @@
         <name>Set_Queue_to_Secondary_Education</name>
         <label>Set Queue to Secondary Education</label>
         <locationX>578</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -254,7 +277,7 @@
         <name>Set_QueueName_To_Service_Generic</name>
         <label>Set QueueName To Service Generic</label>
         <locationX>50</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -277,7 +300,7 @@
         <name>Set_to_Tech_Help</name>
         <label>Set to Tech Help</label>
         <locationX>1106</locationX>
-        <locationY>947</locationY>
+        <locationY>1055</locationY>
         <assignmentItems>
             <assignToReference>$Record.QueueName__c</assignToReference>
             <operator>Assign</operator>
@@ -301,7 +324,7 @@
         <name>Article_Count_1</name>
         <label>Article Count &lt; 1 and new Owner is queue</label>
         <locationX>1249</locationX>
-        <locationY>3863</locationY>
+        <locationY>4163</locationY>
         <defaultConnectorLabel>Article(s) attached and/or Owner is User</defaultConnectorLabel>
         <rules>
             <name>NoArticle</name>
@@ -330,7 +353,7 @@
         <name>Case_of_Type_Problem</name>
         <label>Case of Type Problem or Migrated Case?</label>
         <locationX>1480</locationX>
-        <locationY>3431</locationY>
+        <locationY>3731</locationY>
         <defaultConnector>
             <targetReference>Update_Problem_Case</targetReference>
         </defaultConnector>
@@ -362,7 +385,7 @@
         <name>Contact_Email_Changed</name>
         <label>Contact has Changed?</label>
         <locationX>1480</locationX>
-        <locationY>2639</locationY>
+        <locationY>2939</locationY>
         <defaultConnector>
             <targetReference>Email_Empty</targetReference>
         </defaultConnector>
@@ -398,10 +421,29 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Copy_1_of_1st_milestone_exists</name>
+        <label>Resolution milestone exists?</label>
+        <locationX>2558</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Copy_1_of_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_milestone.CaseId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Complete_Resolution_Milestone</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Copy_1_of_If_Status_Changed</name>
-        <label>Copy 1 of If Status Changed</label>
-        <locationX>1326</locationX>
-        <locationY>1631</locationY>
+        <label>Status Changed</label>
+        <locationX>1315</locationX>
+        <locationY>1739</locationY>
         <defaultConnector>
             <targetReference>Update_Case_Origin</targetReference>
         </defaultConnector>
@@ -445,9 +487,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_1_of_Set_First_Response_Milestone_Ended</targetReference>
+                <targetReference>Set_First_Response_Milestone_Ended</targetReference>
             </connector>
-            <label>Copy 1 of Status changed From New or Open</label>
+            <label>From New or Open</label>
         </rules>
     </decisions>
     <decisions>
@@ -455,7 +497,7 @@
         <name>Does_Queue_match</name>
         <label>Does Queue match?</label>
         <locationX>1271</locationX>
-        <locationY>4187</locationY>
+        <locationY>4487</locationY>
         <defaultConnector>
             <targetReference>Compare_Queues</targetReference>
         </defaultConnector>
@@ -480,7 +522,7 @@
         <name>Email_Empty</name>
         <label>Email Empty</label>
         <locationX>1480</locationX>
-        <locationY>3131</locationY>
+        <locationY>3431</locationY>
         <defaultConnector>
             <targetReference>Case_of_Type_Problem</targetReference>
         </defaultConnector>
@@ -505,7 +547,7 @@
         <name>First_Response_Milestone_False</name>
         <label>First Response Milestone False?</label>
         <locationX>1480</locationX>
-        <locationY>1523</locationY>
+        <locationY>1631</locationY>
         <defaultConnector>
             <targetReference>Update_Case_Origin</targetReference>
         </defaultConnector>
@@ -537,7 +579,7 @@
         <name>Origin</name>
         <label>Origin</label>
         <locationX>710</locationX>
-        <locationY>1139</locationY>
+        <locationY>1247</locationY>
         <defaultConnector>
             <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
@@ -563,7 +605,7 @@
         <name>Queueneedstobevalidatedonarticle</name>
         <label>Queue needs to be validated on article?</label>
         <locationX>1051</locationX>
-        <locationY>4571</locationY>
+        <locationY>4871</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>YesValidationNeeded</name>
@@ -582,10 +624,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Resolved</name>
+        <label>Resolved?</label>
+        <locationX>2019</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Get_Resolution_Milestone</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Case Resolved</defaultConnectorLabel>
+        <rules>
+            <name>Status_Resolved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Solved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>StatusChangedToPending</targetReference>
+            </connector>
+            <label>Default Outcome</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>StatusChangedToPending</name>
         <label>Status changed to Pending?</label>
         <locationX>1480</locationX>
-        <locationY>323</locationY>
+        <locationY>431</locationY>
         <defaultConnector>
             <targetReference>Type_of_change</targetReference>
         </defaultConnector>
@@ -617,7 +684,7 @@
         <name>Type_of_change</name>
         <label>Type of change</label>
         <locationX>1480</locationX>
-        <locationY>623</locationY>
+        <locationY>731</locationY>
         <defaultConnector>
             <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
@@ -686,7 +753,7 @@
         <name>Update_Case_Origin</name>
         <label>Update Case Origin</label>
         <locationX>1480</locationX>
-        <locationY>2339</locationY>
+        <locationY>2639</locationY>
         <defaultConnector>
             <targetReference>Contact_Email_Changed</targetReference>
         </defaultConnector>
@@ -732,7 +799,7 @@
         <name>Web_Email_equal_Email</name>
         <label>Web Email equal Email?</label>
         <locationX>1326</locationX>
-        <locationY>2747</locationY>
+        <locationY>3047</locationY>
         <defaultConnector>
             <targetReference>Email_Empty</targetReference>
         </defaultConnector>
@@ -757,7 +824,7 @@
         <name>What_Segment</name>
         <label>What Segment</label>
         <locationX>710</locationX>
-        <locationY>731</locationY>
+        <locationY>839</locationY>
         <defaultConnector>
             <targetReference>Origin</targetReference>
         </defaultConnector>
@@ -912,7 +979,7 @@
         <name>Who_is_owner</name>
         <label>Who is owner?</label>
         <locationX>1942</locationX>
-        <locationY>731</locationY>
+        <locationY>839</locationY>
         <defaultConnector>
             <targetReference>First_Response_Milestone_False</targetReference>
         </defaultConnector>
@@ -931,6 +998,28 @@
                 <targetReference>Set_Queue_name</targetReference>
             </connector>
             <label>Queue is owner</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>X1st_milestone_exist</name>
+        <label>1st milestone exists?</label>
+        <locationX>1161</locationX>
+        <locationY>2063</locationY>
+        <defaultConnector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>sov_milestone.CaseId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Complete_Milestone</targetReference>
+            </connector>
+            <label>Yes</label>
         </rules>
     </decisions>
     <description>MR - Add auto closure milestone
@@ -971,6 +1060,11 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <expression>IF(BEGINS({!$Record.OwnerId},&apos;00G&apos;),True,False)</expression>
     </formulas>
     <formulas>
+        <name>MilestoneFirstResponseID</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.MilestoneIDFirstResponce}</expression>
+    </formulas>
+    <formulas>
         <name>Timenow</name>
         <dataType>DateTime</dataType>
         <expression>NOW()</expression>
@@ -982,7 +1076,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Compare_Queues</name>
         <label>Compare Queues</label>
         <locationX>1051</locationX>
-        <locationY>4079</locationY>
+        <locationY>4379</locationY>
         <collectionReference>Get_Queues_that_need_Article_validation</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1015,7 +1109,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Case_Comment_Chat</name>
         <label>Case Comment Chat</label>
         <locationX>1348</locationX>
-        <locationY>2447</locationY>
+        <locationY>2747</locationY>
         <connector>
             <targetReference>Contact_Email_Changed</targetReference>
         </connector>
@@ -1068,7 +1162,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Create_Case_Comment_Phone</name>
         <label>Create Case Comment Phone</label>
         <locationX>578</locationX>
-        <locationY>1247</locationY>
+        <locationY>1355</locationY>
         <connector>
             <targetReference>First_Response_Milestone_False</targetReference>
         </connector>
@@ -1118,33 +1212,10 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Copy_1_of_Get_First_Response_Milestone</name>
-        <label>Copy 1 of Get First Response Milestone</label>
-        <locationX>1194</locationX>
-        <locationY>1847</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Copy_1_of_Complete_Milestone</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>CaseId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <object>CaseMilestone</object>
-        <outputReference>sov_milestone</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>IsCompleted</queriedFields>
-        <queriedFields>CompletionDate</queriedFields>
-    </recordLookups>
-    <recordLookups>
         <name>Copy_1_of_Get_Queue_ID_and_Name_PE</name>
         <label>Get Queue ID and Name PE</label>
         <locationX>314</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Queue_to_Primary_Education</targetReference>
@@ -1166,7 +1237,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Copy_2_of_Get_Queue_ID_and_Name_SE</name>
         <label>Get Queue ID and Name SE</label>
         <locationX>578</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_Queue_to_Secondary_Education</targetReference>
@@ -1185,10 +1256,40 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <queriedFields>Name</queriedFields>
     </recordLookups>
     <recordLookups>
+        <name>Get_First_Response_Milestone</name>
+        <label>Get First Response Milestone</label>
+        <locationX>1161</locationX>
+        <locationY>1955</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>X1st_milestone_exist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>MilestoneTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>MilestoneFirstResponseID</elementReference>
+            </value>
+        </filters>
+        <object>CaseMilestone</object>
+        <outputReference>sov_milestone</outputReference>
+        <queriedFields>IsCompleted</queriedFields>
+        <queriedFields>CompletionDate</queriedFields>
+        <queriedFields>CaseId</queriedFields>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Queue_ID_and_Name_G</name>
         <label>Get Queue ID and Name General</label>
         <locationX>50</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_QueueName_To_Service_Generic</targetReference>
@@ -1210,7 +1311,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Get_Queue_ID_and_Name_Tech</name>
         <label>Get Queue ID and Name Tech</label>
         <locationX>1106</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_to_Tech_Help</targetReference>
@@ -1232,7 +1333,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Get_Queue_ID_and_Name_VE</name>
         <label>Get Queue ID and Name VE</label>
         <locationX>842</locationX>
-        <locationY>839</locationY>
+        <locationY>947</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Set_PE_HE</targetReference>
@@ -1254,7 +1355,7 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Get_Queues_that_need_Article_validation</name>
         <label>Get Queues that need Article validation</label>
         <locationX>1051</locationX>
-        <locationY>3971</locationY>
+        <locationY>4271</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Compare_Queues</targetReference>
@@ -1270,21 +1371,41 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <queriedFields>QueueDeveloperName__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordUpdates>
-        <name>Copy_1_of_Update_Milestone</name>
-        <label>Copy 1 of Update Milestone</label>
-        <locationX>1194</locationX>
-        <locationY>2063</locationY>
+    <recordLookups>
+        <name>Get_Resolution_Milestone</name>
+        <label>Get Resolution Milestone</label>
+        <locationX>2558</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Update_Case_Origin</targetReference>
+            <targetReference>Copy_1_of_1st_milestone_exists</targetReference>
         </connector>
-        <inputReference>sov_milestone</inputReference>
-    </recordUpdates>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>MilestoneTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Label.MilestoneIDResolution</elementReference>
+            </value>
+        </filters>
+        <object>CaseMilestone</object>
+        <outputReference>sov_milestone</outputReference>
+        <queriedFields>IsCompleted</queriedFields>
+        <queriedFields>CompletionDate</queriedFields>
+        <queriedFields>CaseId</queriedFields>
+    </recordLookups>
     <recordUpdates>
         <name>Uncheck_Pending_Case_Reminder_Sent</name>
         <label>Uncheck Pending Case Reminder Sent if checked</label>
         <locationX>1348</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <connector>
             <targetReference>Type_of_change</targetReference>
         </connector>
@@ -1308,31 +1429,48 @@ IF({!$Record.Account.Email__c} !=null, {!$Record.Account.Email__c}, null)
         <name>Update_Case</name>
         <label>Update Case</label>
         <locationX>1249</locationX>
-        <locationY>3755</locationY>
+        <locationY>4055</locationY>
         <connector>
             <targetReference>Article_Count_1</targetReference>
         </connector>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Milestone</name>
+        <label>Update Milestone</label>
+        <locationX>1029</locationX>
+        <locationY>2279</locationY>
+        <connector>
+            <targetReference>Update_Case_Origin</targetReference>
+        </connector>
+        <inputReference>sov_milestone</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_MilestoneR</name>
+        <label>Update Milestone</label>
+        <locationX>2426</locationX>
+        <locationY>755</locationY>
+        <inputReference>sov_milestone</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Problem_Case</name>
         <label>Update Problem Case</label>
         <locationX>1711</locationX>
-        <locationY>3539</locationY>
+        <locationY>3839</locationY>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1354</locationX>
+        <locationX>1893</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>StatusChangedToPending</targetReference>
+            <targetReference>Resolved</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>IsClosed</field>
-            <operator>EqualTo</operator>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
             <value>
-                <booleanValue>false</booleanValue>
+                <stringValue>Closed</stringValue>
             </value>
         </filters>
         <object>Case</object>

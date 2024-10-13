@@ -615,20 +615,6 @@ MV 13/02/24: Added Create Orders and Noordhoff CS OmniChannel permissions</descr
             <field>Name</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>SlackServiceUser</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>SlackGeneral</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
                 <stringValue>ManageMacro</stringValue>
             </value>
         </filters>

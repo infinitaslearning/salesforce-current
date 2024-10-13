@@ -30,6 +30,22 @@
                 <elementReference>$User.Id</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Get_resolution_milestone</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Complete_milestone</name>
+        <label>Complete milestone</label>
+        <locationX>281</locationX>
+        <locationY>2903</locationY>
+        <assignmentItems>
+            <assignToReference>sov_milestone.CompletionDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TimeNow</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <assignments>
         <name>Set_Business_Hours</name>
@@ -436,6 +452,11 @@ IF({!Get_Block_Customer.Subject__c} != &quot;&quot;, &quot;Subject&quot;, &quot;
         <dataType>Boolean</dataType>
         <expression>ISNEW()</expression>
     </formulas>
+    <formulas>
+        <name>TimeNow</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
     <interviewLabel>Case - Before Save Update {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case - Before Save Update</label>
     <processMetadataValues>
@@ -520,6 +541,37 @@ IF({!Get_Block_Customer.Subject__c} != &quot;&quot;, &quot;Subject&quot;, &quot;
         <object>CustomerBlockList__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_resolution_milestone</name>
+        <label>Get resolution milestone</label>
+        <locationX>281</locationX>
+        <locationY>2795</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Complete_milestone</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CaseId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>MilestoneTypeId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>557JW000000qR5lYAE</stringValue>
+            </value>
+        </filters>
+        <object>CaseMilestone</object>
+        <outputReference>sov_milestone</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>CaseId</queriedFields>
+        <queriedFields>CompletionDate</queriedFields>
+        <queriedFields>IsCompleted</queriedFields>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Case_Spam</name>
         <label>Update Case</label>
@@ -563,7 +615,7 @@ IF({!Get_Block_Customer.Subject__c} != &quot;&quot;, &quot;Subject&quot;, &quot;
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>GroupID</name>
         <dataType>String</dataType>
@@ -577,5 +629,13 @@ IF({!Get_Block_Customer.Subject__c} != &quot;&quot;, &quot;Subject&quot;, &quot;
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>sov_milestone</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>CaseMilestone</objectType>
     </variables>
 </Flow>

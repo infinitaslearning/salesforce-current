@@ -154,7 +154,6 @@ Public static List<Order> insertOrderHeader(Integer Count,List<Account> lst_Acc,
                         ord.Billto__c = acc.id;
                         ord.Shipto__c = acc.id;
                         ord.OperatingCompany__c = 'Plantyn';
-                       // ord.InsertProductSelector__c = true;
                         ord.PaymentMethod__c = 'Invoice';
                         ord.EffectiveDate = system.today() - 30;
                         ord.ShipByDate__c = ord.EffectiveDate;
@@ -211,7 +210,6 @@ Public static List<OrderItem> insertOrderItems(Integer Count,List<Account> lstAc
                    
                     ordItem.AccountSubsidiary__c = Map_AccSub.get(acc.id);
                     ordItem.OrderId = ord.id;
-                    ordItem.InsertProductSelector__c = true;
                     ordItem.Quantity = 10*(i+1);
                     ordItem.NetsuiteQuantity__c = ordItem.Quantity;
                     ordItem.UnitPrice = 100;
@@ -506,7 +504,7 @@ Public static List<Asset> insertAsset(Id Pricebook ,List<Product2> lst_prod,List
 Public static void testInsert(){
     List<OrderItem>  OrderItems = new List<OrderItem>();
 
-    Order[] CurOrder = [Select AccountSubsidiary__c,Account.NetsuiteInternalId__c,OperatingCompany__c,InsertProductSelector__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c from Order where id=: '8013N000001lvsnQAA'];
+    Order[] CurOrder = [Select AccountSubsidiary__c,Account.NetsuiteInternalId__c,OperatingCompany__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c from Order where id=: '8013N000001lvsnQAA'];
         
      List<PricebookEntry> ProductsbyPriceBook;
              
@@ -526,7 +524,7 @@ Public static void testInsert(){
                // item.STDPrice= pbe.unitprice;
              //   Item.BasePrice= pbe.unitprice;
             
-            item.InsertProductSelector__c = true;
+           
                 item.Quantity = 2;
                 item.Product2Id = pbe.Product2Id;
                 item.PricebookEntryId= pbe.id;

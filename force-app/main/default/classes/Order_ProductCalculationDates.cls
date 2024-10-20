@@ -161,7 +161,7 @@ public with sharing class Order_ProductCalculationDates {
                                             StartDateYear = NextFixedstartDate.year(); 
                                       }
 
-                                      system.debug('**Dates :1: AddOrSubtractYear**'+AddOrSubtractYear);		
+                                      system.debug('**Dates :1: AddOrSubtractYear**'+AddOrSubtractYear);        
                                       system.debug('**Dates :1: LicenseDuration**'+Map_LicenseDuration.get(item.Product2Id));
                                       
 
@@ -192,7 +192,7 @@ public with sharing class Order_ProductCalculationDates {
                                         item.StartDate__c = StartDate;
                                        // item.ServiceDate = StartDate;
                         
-                                        item.OrderItemEndDate__c = EndDate-1;  
+                                       // item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   
                                         
                                         //Free From
@@ -265,7 +265,7 @@ public with sharing class Order_ProductCalculationDates {
                                         item.StartDate__c = StartDate;
                                     //    item.ServiceDate = StartDate;
                         
-                                        item.OrderItemEndDate__c = EndDate-1;  
+                                   //     item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   
                                         item.TrialStartDate__c = null; 
                                         item.TrialEndDate__c = null;
@@ -354,7 +354,7 @@ public with sharing class Order_ProductCalculationDates {
                                         item.StartDate__c = StartDate;
                                    //     item.ServiceDate = StartDate;
                         
-                                        item.OrderItemEndDate__c = EndDate-1;  
+                                    //    item.OrderItemEndDate__c = EndDate-1;  
                                         item.EndDate = EndDate-1;   
 
                                     }                                     
@@ -363,7 +363,7 @@ public with sharing class Order_ProductCalculationDates {
                                         system.debug('***Dates :Item Dates :THREE'+Map_ShipByDate.get(item.OrderId));
                                         EndDate = date.newinstance(item.StartDate__c.year(), item.StartDate__c.month()+integer.valueof(Map_LicenseDuration.get(item.Product2Id)), item.StartDate__c.day());  
                                     
-                                        item.OrderItemEndDate__c = EndDate-1; 
+                                     //   item.OrderItemEndDate__c = EndDate-1; 
                                         item.EndDate = EndDate-1;  
                         
                                         item.TrialStartDate__c = null; 

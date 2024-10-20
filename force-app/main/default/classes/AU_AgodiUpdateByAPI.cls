@@ -39,8 +39,10 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
         scholenInstellingsType.add('700'); //	Koepel
         scholenInstellingsType.add('600'); //	CLB
         scholenInstellingsType.add('500'); //	Associatie
-        scholenInstellingsType.add('440'); //   Algemeen leersteuncentrum
         scholenInstellingsType.add('450'); //   Specifiek leersteuncentrum
+        scholenInstellingsType.add('440'); //   Algemeen leersteuncentrum
+        scholenInstellingsType.add('420'); //   Scholengemeenschapsinstelling secundair onderwijs
+        scholenInstellingsType.add('410'); //   Scholengemeenschapsinstelling basisonderwijs
         scholenInstellingsType.add('200'); //	Internaat
         scholenInstellingsType.add('151'); //	Instelling voor deeltijds kunstonderwijs
         scholenInstellingsType.add('142'); //	Centrum voor Volwassenenonderwijs
@@ -58,6 +60,7 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
         scholenInstellingsType.add('121'); //	School voor voltijds gewoon secundair onderwijs
         scholenInstellingsType.add('116'); //	Autonome lagere school voor buitengewoon onderwijs
         scholenInstellingsType.add('115'); //	Autonome lagere school
+        scholenInstellingsType.add('114'); //   Autonome kleuterschool voor buitengewoon onderwijs
         scholenInstellingsType.add('113'); //	Basisschool voor buitengewoon onderwijs
         scholenInstellingsType.add('112'); //	Basisschool
         scholenInstellingsType.add('111'); //	Autonome kleuterschool
@@ -262,7 +265,9 @@ public class AU_AgodiUpdateByAPI implements Queueable, Database.AllowsCallouts {
         // Send the request, and return a response
         HttpResponse res = h.send(req);
         String body = res.getBody();
-
+        if(instellingType == '410' || instellingType == '420'){
+            System.debug('** instellingType ' + instellingType + ' resp: ' + body);
+        }
         Integer statusCode = res.getStatusCode();
 
         if (statusCode == 200) {

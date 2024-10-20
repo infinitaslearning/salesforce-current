@@ -2298,7 +2298,7 @@
 06/12/2023 CH: Liber custom address addition
 24/01/2024 CH: added validation override
 23/07/2024 DB: add fault paths to Account &amp; Order update elements
-26/08/2024 DB: match address on street name and house number (only GREEN validated addresses considered)</description>
+26/08/2024 DB: match address on street name and house number</description>
     <dynamicChoiceSets>
         <name>OrderShipTos</name>
         <dataType>String</dataType>
@@ -2331,7 +2331,9 @@
     <formulas>
         <name>houseANDStreet_FORM</name>
         <dataType>String</dataType>
-        <expression>{!streetName_val} &amp; &quot; &quot; &amp; {!houseNumber_val} &amp; {!houseNumberAddition_val}</expression>
+        <expression>IF(NOT(ISBLANK({!houseNumberAddition_val})), 
+{!streetName_val} &amp; &quot; &quot; &amp; {!houseNumber_val} &amp; &quot;-&quot; &amp; {!houseNumberAddition_val}, 
+{!streetName_val} &amp; &quot; &quot; &amp; {!houseNumber_val})</expression>
     </formulas>
     <formulas>
         <name>selectedAddressType_FORM</name>
@@ -2965,13 +2967,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>streetName_val</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3026,13 +3021,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>streetName_val</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3091,13 +3079,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>streetName_val</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3152,13 +3133,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>streetName_val</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -3217,13 +3191,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
                 <elementReference>streetName_val</elementReference>
             </value>
         </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ILAddress__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -3278,13 +3245,6 @@ IF({!Copy_1_of_Select_which_type_of_address_you_d_like_to_update}=&apos;Copy the
             <operator>EqualTo</operator>
             <value>
                 <elementReference>streetName_val</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>rv2Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>GREEN</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>

@@ -1617,9 +1617,9 @@ public class Order_ProductSelectController {
             Map<String,String> Map_Sub = new Map<String,String>(); 
             Map<String,String> Map_Netsuite = new Map<String,String>(); 
           // RETURN: Hfdstructuur__c,   
-          //  Order[] CurOrder = [SELECT AccountSubsidiary__c,MaxOrderLine__c,MultipleShippingLocations__c,Hfdstructuur__c,Pricebook2.Name,Billto__r.OperatingCompany__c,Type,Account.NetsuiteInternalId__c,OperatingCompany__c,ShippingIndicationRule__c,ShippingCost__c,InsertProductSelector__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c, Source__c FROM Order WHERE id=: NewOrderId];
+          //  Order[] CurOrder = [SELECT AccountSubsidiary__c,MaxOrderLine__c,MultipleShippingLocations__c,Hfdstructuur__c,Pricebook2.Name,Billto__r.OperatingCompany__c,Type,Account.NetsuiteInternalId__c,OperatingCompany__c,ShippingIndicationRule__c,ShippingCost__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c, Source__c FROM Order WHERE id=: NewOrderId];
           
-        //  Order[] CurOrder = [SELECT AccountSubsidiary__c,MaxOrderLine__c,MultipleShippingLocations__c,Pricebook2.Name,Billto__r.OperatingCompany__c,Type,Account.NetsuiteInternalId__c,OperatingCompany__c,ShippingIndicationRule__c,ShippingCost__c,InsertProductSelector__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c, Source__c FROM Order WHERE id=: NewOrderId];
+        //  Order[] CurOrder = [SELECT AccountSubsidiary__c,MaxOrderLine__c,MultipleShippingLocations__c,Pricebook2.Name,Billto__r.OperatingCompany__c,Type,Account.NetsuiteInternalId__c,OperatingCompany__c,ShippingIndicationRule__c,ShippingCost__c,CustomerReference__c,NumberOfStudents__c,Billto__c,ContractId,EffectiveDate,ShipByDate__c, Source__c FROM Order WHERE id=: NewOrderId];
         List<Id> lstOrderId = new List<Id>();
         lstOrderId.add(OrderId);
 
@@ -1756,7 +1756,7 @@ public class Order_ProductSelectController {
                              
                 OItem.OrderStatus__c = 'Draft';
                 OItem.OrderId = NewOrderId; 
-                OItem.InsertProductSelector__c = true;
+                
                
                 if(CurOrder[0].MultipleShippingLocations__c == false && CurOrder[0].Hfdstructuur__c != null){
                     OItem.Hfdstructuur__c = CurOrder[0].Hfdstructuur__c;
@@ -1849,7 +1849,7 @@ public class Order_ProductSelectController {
                 
                 if(Oitem.Terms__c != null){
                     Map_Terms.put(item.ItemId, Oitem.Terms__c);
-                    Map_StartDate.put(item.ItemId, Oitem.ServiceDate);
+                    Map_StartDate.put(item.ItemId, Oitem.StartDate__c);
                     Map_EndDate.put(item.ItemId, Oitem.EndDate);      
                 }
 
